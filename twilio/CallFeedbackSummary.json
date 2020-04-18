@@ -1,0 +1,137 @@
+{
+  "type": "CallFeedbackSummary",
+  "attrs": {
+    "account_sid": {
+      "type": "sid<AC>",
+      "desc": "The unique id of the Account responsible for this resource."
+    },
+    "call_count": {
+      "type": "integer",
+      "desc": "The total number of calls."
+    },
+    "call_feedback_count": {
+      "type": "integer",
+      "desc": "The total number of calls with a feedback entry."
+    },
+    "date_created": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date that this resource was created, given in RFC 2822 format."
+    },
+    "date_updated": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date that this resource was last updated, given in RFC 2822 format."
+    },
+    "end_date": {
+      "type": "date_time<iso8601>",
+      "desc": "The last date for which feedback entries are included in this Feedback Summary, formatted as YYYY-MM-DD and specified in UTC."
+    },
+    "include_subaccounts": {
+      "type": "boolean",
+      "desc": "Whether the feedback summary includes subaccounts; true if it does, otherwise false."
+    },
+    "issues": {
+      "type": "feedback_issue[]",
+      "desc": "A list of issues experienced during the call. The issues can be: imperfect-audio, dropped-call, incorrect-caller-id, post-dial-delay, digits-not-captured, audio-latency, or one-way-audio."
+    },
+    "quality_score_average": {
+      "type": "decimal",
+      "desc": "The average QualityScore of the feedback entries."
+    },
+    "quality_score_median": {
+      "type": "decimal",
+      "desc": "The median QualityScore of the feedback entries."
+    },
+    "quality_score_standard_deviation": {
+      "type": "decimal",
+      "desc": "The standard deviation of the quality scores."
+    },
+    "sid": {
+      "type": "sid<FS>",
+      "desc": "A 34 character string that uniquely identifies this resource."
+    },
+    "start_date": {
+      "type": "date_time<iso8601>",
+      "desc": "The first date for which feedback entries are included in this feedback summary, formatted as YYYY-MM-DD and specified in UTC."
+    },
+    "status": {
+      "type": "enum:status",
+      "desc": "The status of the feedback summary can be queued, in-progress, completed, or failed."
+    }
+  },
+  "actions": [
+    {
+      "title": "Create a CallFeedbackSummary resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Calls/FeedbackSummary.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The unique id of the Account responsible for this resource.",
+          "required": false
+        },
+        "StartDate": {
+          "type": "date<iso8601>",
+          "desc": "Only include feedback given on or after this date. Format is YYYY-MM-DD and specified in UTC.",
+          "required": true
+        },
+        "EndDate": {
+          "type": "date<iso8601>",
+          "desc": "Only include feedback given on or before this date. Format is YYYY-MM-DD and specified in UTC.",
+          "required": true
+        },
+        "IncludeSubaccounts": {
+          "type": "boolean",
+          "desc": "Whether to also include Feedback resources from all subaccounts. true includes feedback from all subaccounts and false, the default, includes feedback from only the specified account.",
+          "required": false
+        },
+        "StatusCallback": {
+          "type": "url",
+          "desc": "The URL that we will request when the feedback summary is complete.",
+          "required": false
+        },
+        "StatusCallbackMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method (GET or POST) we use to make the request to the StatusCallback URL.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Fetch a CallFeedbackSummary resource",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Calls/FeedbackSummary/{Sid}.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The unique id of the Account responsible for this resource.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<FS>",
+          "desc": "A 34 character string that uniquely identifies this resource.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Delete a CallFeedbackSummary resource",
+      "method": "delete",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Calls/FeedbackSummary/{Sid}.json",
+      "desc": "If successful, an HTTP 204 response with no body is returned.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The unique id of the Account responsible for this resource.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<FS>",
+          "desc": "A 34 character string that uniquely identifies this resource.",
+          "required": false
+        }
+      }
+    }
+  ]
+}

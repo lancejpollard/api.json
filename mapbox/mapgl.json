@@ -1,0 +1,395 @@
+{
+  "type": "Map",
+  "props": {
+    "options.container": {
+      "type": [
+        "HTMLElement?"
+      ],
+      "desc": "container is the compatible DOM element which should be made full screen. By default, the map container element will be made full screen."
+    },
+    "options.minZoom": {
+      "type": [
+        "number"
+      ],
+      "desc": "The minimum zoom level of the map (0-24)."
+    },
+    "options.maxZoom": {
+      "type": [
+        "number"
+      ],
+      "desc": "The maximum zoom level of the map (0-24)."
+    },
+    "options.minPitch": {
+      "type": [
+        "number"
+      ],
+      "desc": "The minimum pitch of the map (0-60)."
+    },
+    "options.maxPitch": {
+      "type": [
+        "number"
+      ],
+      "desc": "The maximum pitch of the map (0-60)."
+    },
+    "options.style": {
+      "type": [
+        "Object",
+        "string?"
+      ],
+      "desc": "The map's Mapbox style. This must be an a JSON object conforming to the schema described in the Mapbox Style Specification , or a URL to such JSON. To load a style from the Mapbox API, you can use a URL of the form mapbox://styles/:owner/:style, where :owner is your Mapbox account name and :style is the style ID. Or you can use one of the following the predefined Mapbox styles: mapbox://styles/mapbox/streets-v11 mapbox://styles/mapbox/outdoors-v11 mapbox://styles/mapbox/light-v10 mapbox://styles/mapbox/dark-v10 mapbox://styles/mapbox/satellite-v9 mapbox://styles/mapbox/satellite-streets-v11 mapbox://styles/mapbox/navigation-preview-day-v4 mapbox://styles/mapbox/navigation-preview-night-v4 mapbox://styles/mapbox/navigation-guidance-day-v4 mapbox://styles/mapbox/navigation-guidance-night-v4 Tilesets hosted with Mapbox can be style-optimized if you append ?optimize=true to the end of your style URL, like mapbox://styles/mapbox/streets-v11?optimize=true. Learn more about style-optimized vector tiles in our API documentation."
+    },
+    "options.hash": {
+      "type": [
+        "boolean",
+        "string"
+      ],
+      "desc": "If true , the map's position (zoom, center latitude, center longitude, bearing, and pitch) will be synced with the hash fragment of the page's URL. For example, http://path/to/my/page.html#2.59/39.26/53.07/-24.1/60 . An additional string may optionally be provided to indicate a parameter-styled hash, e.g. http://path/to/my/page.html#map=2.59/39.26/53.07/-24.1/60&foo=bar , where foo is a custom parameter and bar is an arbitrary hash distinct from the map hash."
+    },
+    "options.interactive": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If false , no mouse, touch, or keyboard listeners will be attached to the map, so it will not respond to interaction."
+    },
+    "options.bearingSnap": {
+      "type": [
+        "number"
+      ],
+      "desc": "The threshold, measured in degrees, that determines when the map's bearing will snap to north. For example, with a bearingSnap of 7, if the user rotates the map within 7 degrees of north, the map will automatically snap to exact north."
+    },
+    "options.pitchWithRotate": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If false , the map's pitch (tilt) control with \"drag to rotate\" interaction will be disabled."
+    },
+    "options.clickTolerance": {
+      "type": [
+        "number"
+      ],
+      "desc": "The max number of pixels a user can shift the mouse pointer during a click for it to be considered a valid click (as opposed to a mouse drag)."
+    },
+    "options.attributionControl": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , an AttributionControl will be added to the map."
+    },
+    "options.customAttribution": {
+      "type": [
+        "string",
+        "Array<string>?"
+      ],
+      "desc": "String or strings to show in addition to any other attributions."
+    },
+    "options.logoPosition": {
+      "type": [
+        "string"
+      ],
+      "desc": "A string representing the position of the Mapbox wordmark on the map. Valid options are top-left , top-right , bottom-left , bottom-right ."
+    },
+    "options.failIfMajorPerformanceCaveat": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , the function will return false if the performance of Mapbox GL JS would be dramatically worse than expected (e.g. a software WebGL renderer would be used)."
+    },
+    "options.preserveDrawingBuffer": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , the map's canvas can be exported to a PNG using map.getCanvas().toDataURL() . This is false by default as a performance optimization."
+    },
+    "options.antialias": {
+      "type": [
+        "boolean?"
+      ],
+      "desc": "If true , the gl context will be created with MSAA antialiasing, which can be useful for antialiasing custom layers. this is false by default as a performance optimization."
+    },
+    "options.refreshExpiredTiles": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If false , the map won't attempt to re-request tiles once they expire per their HTTP cacheControl / expires headers."
+    },
+    "options.maxBounds": {
+      "type": [
+        "LngLatBoundsLike?"
+      ],
+      "desc": "If set, the map will be constrained to the given bounds."
+    },
+    "options.scrollZoom": {
+      "type": [
+        "boolean",
+        "Object"
+      ],
+      "desc": "If true , the \"scroll to zoom\" interaction is enabled. An Object value is passed as options to ScrollZoomHandler#enable ."
+    },
+    "options.boxZoom": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , the \"box zoom\" interaction is enabled (see BoxZoomHandler )."
+    },
+    "options.dragRotate": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , the \"drag to rotate\" interaction is enabled (see DragRotateHandler )."
+    },
+    "options.dragPan": {
+      "type": [
+        "boolean",
+        "Object"
+      ],
+      "desc": "If true , the \"drag to pan\" interaction is enabled. An Object value is passed as options to DragPanHandler#enable ."
+    },
+    "options.keyboard": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , keyboard shortcuts are enabled (see KeyboardHandler )."
+    },
+    "options.doubleClickZoom": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , the \"double click to zoom\" interaction is enabled (see DoubleClickZoomHandler )."
+    },
+    "options.touchZoomRotate": {
+      "type": [
+        "boolean",
+        "Object"
+      ],
+      "desc": "If true , the \"pinch to rotate and zoom\" interaction is enabled. An Object value is passed as options to TouchZoomRotateHandler#enable ."
+    },
+    "options.trackResize": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , the map will automatically resize when the browser window resizes."
+    },
+    "options.center": {
+      "type": [
+        "LngLatLike"
+      ],
+      "desc": "The inital geographical centerpoint of the map. If center is not specified in the constructor options, Mapbox GL JS will look for it in the map's style object. If it is not specified in the style, either, it will default to [0, 0] Note: Mapbox GL uses longitude, latitude coordinate order (as opposed to latitude, longitude) to match GeoJSON."
+    },
+    "options.zoom": {
+      "type": [
+        "number"
+      ],
+      "desc": "The initial zoom level of the map. If zoom is not specified in the constructor options, Mapbox GL JS will look for it in the map's style object. If it is not specified in the style, either, it will default to 0 ."
+    },
+    "options.bearing": {
+      "type": [
+        "number"
+      ],
+      "desc": "The initial bearing (rotation) of the map, measured in degrees counter-clockwise from north. If bearing is not specified in the constructor options, Mapbox GL JS will look for it in the map's style object. If it is not specified in the style, either, it will default to 0 ."
+    },
+    "options.pitch": {
+      "type": [
+        "number"
+      ],
+      "desc": "The initial pitch (tilt) of the map, measured in degrees away from the plane of the screen (0-60). If pitch is not specified in the constructor options, Mapbox GL JS will look for it in the map's style object. If it is not specified in the style, either, it will default to 0 ."
+    },
+    "options.bounds": {
+      "type": [
+        "LngLatBoundsLike?"
+      ],
+      "desc": "The initial bounds of the map. If bounds is specified, it overrides center and zoom constructor options."
+    },
+    "options.fitBoundsOptions": {
+      "type": [
+        "Object"
+      ],
+      "desc": "A fitBounds options object to use when the map is panned and zoomed to the user's location. The default is to use a maxZoom of 15 to limit how far the map will zoom in for very accurate locations."
+    },
+    "options.renderWorldCopies": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , multiple copies of the world will be rendered side by side beyond -180 and 180 degrees longitude. If set to false : When the map is zoomed out far enough that a single representation of the world does not fill the map's entire container, there will be blank space beyond 180 and -180 degrees longitude. Features that cross 180 and -180 degrees longitude will be cut in two (with one portion on the right edge of the map and the other on the left edge of the map) at every zoom level."
+    },
+    "options.maxTileCacheSize": {
+      "type": [
+        "number"
+      ],
+      "desc": "The maximum number of tiles stored in the tile cache for a given source. If omitted, the cache will be dynamically sized based on the current viewport."
+    },
+    "options.localIdeographFontFamily": {
+      "type": [
+        "string"
+      ],
+      "desc": "Defines a CSS font-family for locally overriding generation of glyphs in the 'CJK Unified Ideographs', 'Hiragana', 'Katakana' and 'Hangul Syllables' ranges. In these ranges, font settings from the map's style will be ignored, except for font-weight keywords (light/regular/medium/bold). Set to false , to enable font settings from the map's style for these glyph ranges. Note that Mapbox Studio sets this value to false by default. The purpose of this option is to avoid bandwidth-intensive glyph server requests. (See Use locally generated ideographs .)"
+    },
+    "options.transformRequest": {
+      "type": [
+        "RequestTransformFunction"
+      ],
+      "desc": "A callback run before the Map makes a request for an external URL. The callback can be used to modify the url, set headers, or set the credentials property for cross-origin requests. Expected to return an object with a url property and optionally headers and credentials properties."
+    },
+    "options.collectResourceTiming": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , Resource Timing API information will be collected for requests made by GeoJSON and Vector Tile web workers (this information is normally inaccessible from the main Javascript thread). Information will be returned in a resourceTiming property of relevant data events."
+    },
+    "options.fadeDuration": {
+      "type": [
+        "number"
+      ],
+      "desc": "Controls the duration of the fade-in/fade-out animation for label collisions, in milliseconds. This setting affects all symbol layers. This setting does not affect the duration of runtime styling transitions or raster tile cross-fading."
+    },
+    "options.crossSourceCollisions": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , symbols from multiple sources can collide with each other during collision detection. If false , collision detection is run separately for the symbols in each source."
+    },
+    "options.accessToken": {
+      "type": [
+        "string"
+      ],
+      "desc": "If specified, map will use this token instead of the one defined in mapboxgl.accessToken."
+    },
+    "options.locale": {
+      "type": [
+        "string"
+      ],
+      "desc": "A patch to apply to the default localization table for UI strings, e.g. control tooltips. The locale object maps namespaced UI string IDs to translated strings in the target language; see src/ui/default_locale.js for an example with all supported string IDs. The object may specify all UI strings (thereby adding support for a new translation) or only a subset of strings (thereby patching the default translation table)."
+    },
+    "options.showCompass": {
+      "type": [
+        "Boolean"
+      ],
+      "desc": "If true the compass button is included."
+    },
+    "options.showZoom": {
+      "type": [
+        "Boolean"
+      ],
+      "desc": "If true the zoom-in and zoom-out buttons are included."
+    },
+    "options.visualizePitch": {
+      "type": [
+        "Boolean"
+      ],
+      "desc": "If true the pitch is visualized by rotating X-axis of compass."
+    },
+    "options.positionOptions": {
+      "type": [
+        "Object"
+      ],
+      "desc": "A Geolocation API PositionOptions object."
+    },
+    "options.trackUserLocation": {
+      "type": [
+        "Object"
+      ],
+      "desc": "If true the Geolocate Control becomes a toggle button and when active the map will receive updates to the user's location as it changes."
+    },
+    "options.showAccuracyCircle": {
+      "type": [
+        "Object"
+      ],
+      "desc": "By default, if showUserLocation is true , a transparent circle will be drawn around the user location indicating the accuracy (95% confidence level) of the user's location. Set to false to disable. Always disabled when showUserLocation is false ."
+    },
+    "options.showUserLocation": {
+      "type": [
+        "Object"
+      ],
+      "desc": "By default a dot will be shown on the map at the user's location. Set to false to disable."
+    },
+    "options.compact": {
+      "type": [
+        "boolean?"
+      ],
+      "desc": "If true force a compact attribution that shows the full attribution on mouse hover, or if false force the full attribution control. The default is a responsive attribution that collapses when the map is less than 640 pixels wide."
+    },
+    "options.maxWidth": {
+      "type": [
+        "string"
+      ],
+      "desc": "A string that sets the CSS property of the popup's maximum width, eg '300px' . To ensure the popup resizes to fit its content, set this property to 'none' . Available values can be found here: https://developer.mozilla.org/en-US/docs/Web/CSS/max-width"
+    },
+    "options.unit": {
+      "type": [
+        "string"
+      ],
+      "desc": "Unit of the distance ( 'imperial' , 'metric' or 'nautical' )."
+    },
+    "options.closeButton": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , a close button will appear in the top right corner of the popup."
+    },
+    "options.closeOnClick": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , the popup will closed when the map is clicked."
+    },
+    "options.closeOnMove": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "If true , the popup will closed when the map moves."
+    },
+    "options.anchor": {
+      "type": [
+        "string"
+      ],
+      "desc": "A string indicating the part of the Marker that should be positioned closest to the coordinate set via Marker#setLngLat . Options are 'center' , 'top' , 'bottom' , 'left' , 'right' , 'top-left' , 'top-right' , 'bottom-left' , and 'bottom-right' ."
+    },
+    "options.offset": {
+      "type": [
+        "PointLike?"
+      ],
+      "desc": "The offset in pixels as a PointLike object to apply relative to the element's center. Negatives indicate left and up."
+    },
+    "options.className": {
+      "type": [
+        "string?"
+      ],
+      "desc": "Space-separated CSS class names to add to popup container"
+    },
+    "options.element": {
+      "type": [
+        "HTMLElement?"
+      ],
+      "desc": "DOM element to use as a marker. The default is a light blue, droplet-shaped SVG marker."
+    },
+    "options.color": {
+      "type": [
+        "string"
+      ],
+      "desc": "The color to use for the default marker if options.element is not provided. The default is light blue."
+    },
+    "options.draggable": {
+      "type": [
+        "boolean"
+      ],
+      "desc": "A boolean indicating whether or not a marker is able to be dragged to a new position on the map."
+    },
+    "options.rotation": {
+      "type": [
+        "number"
+      ],
+      "desc": "The rotation angle of the marker in degrees, relative to its respective rotationAlignment setting. A positive value will rotate the marker clockwise."
+    },
+    "options.pitchAlignment": {
+      "type": [
+        "string"
+      ],
+      "desc": "map aligns the Marker to the plane of the map. viewport aligns the Marker to the plane of the viewport. auto automatically matches the value of rotationAlignment ."
+    },
+    "options.rotationAlignment": {
+      "type": [
+        "string"
+      ],
+      "desc": "map aligns the Marker 's rotation relative to the map, maintaining a bearing as the map rotates. viewport aligns the Marker 's rotation relative to the viewport, agnostic to map rotations. auto is equivalent to viewport ."
+    }
+  }
+}

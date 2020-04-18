@@ -1,0 +1,154 @@
+{
+  "type": "Class",
+  "name": "NSScreen",
+  "desc": "An object that describes the attributes of a computer’s monitor or screen.",
+  "items": [
+    {
+      "name": "main",
+      "type": "class var",
+      "datatype": "NSScreen?",
+      "desc": "Returns the screen object containing the window with the keyboard focus."
+    },
+    {
+      "name": "deepest",
+      "type": "class var",
+      "datatype": "NSScreen?",
+      "desc": "Returns a screen object representing the screen that can best represent color."
+    },
+    {
+      "name": "screens",
+      "type": "class var",
+      "datatype": "[NSScreen]",
+      "desc": "Returns an array of screen objects representing all of the screens available on the system."
+    },
+    {
+      "name": "depth",
+      "type": "var",
+      "datatype": "NSWindow.Depth",
+      "desc": "The current bit depth and colorspace information of the screen."
+    },
+    {
+      "name": "frame",
+      "type": "var",
+      "datatype": "NSRect",
+      "desc": "The dimensions and location of the screen."
+    },
+    {
+      "name": "supportedWindowDepths",
+      "type": "var",
+      "datatype": "UnsafePointer<NSWindow.Depth>",
+      "desc": "A zero-terminated array of the window depths supported by the screen."
+    },
+    {
+      "name": "deviceDescription",
+      "type": "var",
+      "datatype": "[NSDeviceDescriptionKey",
+      "desc": "The device dictionary for the screen."
+    },
+    {
+      "name": "visibleFrame",
+      "type": "var",
+      "datatype": "NSRect",
+      "desc": "The current location and dimensions of the visible screen."
+    },
+    {
+      "name": "colorSpace",
+      "type": "var",
+      "datatype": "NSColorSpace?",
+      "desc": "The color space of the screen."
+    },
+    {
+      "name": "canRepresent",
+      "type": "func",
+      "desc": "A Boolean value indicating whether the color space of the screen is capable of representing the specified display gamut.",
+      "params": [
+        {
+          "type": "NSDisplayGamut"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "NSDisplayGamut",
+      "type": "enum"
+    },
+    {
+      "name": "screensHaveSeparateSpaces",
+      "type": "class var",
+      "datatype": "Bool",
+      "desc": "Returns a Boolean value indicating whether each screen can have its own set of spaces."
+    },
+    {
+      "name": "backingAlignedRect",
+      "type": "func",
+      "desc": "Converts a rectangle in global screen coordinates to a pixel aligned rectangle.",
+      "params": [
+        {
+          "type": "NSRect"
+        },
+        {
+          "name": "options",
+          "type": "AlignmentOptions"
+        }
+      ],
+      "returnType": "NSRect"
+    },
+    {
+      "name": "backingScaleFactor",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The backing store pixel scale factor for the screen."
+    },
+    {
+      "name": "convertRectFromBacking",
+      "type": "func",
+      "desc": "Converts the rectangle from the device pixel aligned coordinates system of a screen.",
+      "params": [
+        {
+          "type": "NSRect"
+        }
+      ],
+      "returnType": "NSRect"
+    },
+    {
+      "name": "convertRectToBacking",
+      "type": "func",
+      "desc": "Converts the rectangle to the device pixel aligned coordinates system of a screen.",
+      "params": [
+        {
+          "type": "NSRect"
+        }
+      ],
+      "returnType": "NSRect"
+    },
+    {
+      "name": "maximumPotentialExtendedDynamicRangeColorComponentValue",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The maximum possible color component value for the screen when it's in extended dynamic range (EDR) mode."
+    },
+    {
+      "name": "maximumExtendedDynamicRangeColorComponentValue",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The current maximum color component value for the screen."
+    },
+    {
+      "name": "maximumReferenceExtendedDynamicRangeColorComponentValue",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The current maximum color component value for reference rendering to the screen."
+    },
+    {
+      "name": "colorSpaceDidChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the color space of the screen has changed."
+    },
+    {
+      "name": "localizedName",
+      "type": "var",
+      "datatype": "String"
+    }
+  ]
+}

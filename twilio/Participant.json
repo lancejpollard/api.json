@@ -1,0 +1,404 @@
+{
+  "type": "Participant",
+  "attrs": {
+    "account_sid": {
+      "type": "sid<AC>",
+      "desc": "The SID of the Account that created the Participant resource."
+    },
+    "call_sid": {
+      "type": "sid<CA>",
+      "desc": "The SID of the Call the Participant resource is associated with."
+    },
+    "call_sid_to_coach": {
+      "type": "sid<CF>",
+      "desc": "The SID of the participant who is being coached. The participant being coached is the only participant who can hear the participant who is coaching."
+    },
+    "coaching": {
+      "type": "boolean",
+      "desc": "Whether the participant is coaching another call. Can be: true or false. If not present, defaults to false unless call_sid_to_coach is defined. If true, call_sid_to_coach must be defined."
+    },
+    "conference_sid": {
+      "type": "sid<CF>",
+      "desc": "The SID of the conference the participant is in."
+    },
+    "date_created": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that the resource was created specified in RFC 2822 format."
+    },
+    "date_updated": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that the resource was last updated specified in RFC 2822 format."
+    },
+    "end_conference_on_exit": {
+      "type": "boolean",
+      "desc": "Whether the conference ends when the participant leaves. Can be: true or false and the default is false. If true, the conference ends and all other participants drop out when the participant leaves."
+    },
+    "muted": {
+      "type": "boolean",
+      "desc": "Whether the participant is muted. Can be true or false."
+    },
+    "hold": {
+      "type": "boolean",
+      "desc": "Whether the participant is on hold. Can be true or false."
+    },
+    "start_conference_on_enter": {
+      "type": "boolean",
+      "desc": "Whether the conference starts when the participant joins the conference, if it has not already started. Can be: true or false and the default is true. If false and the conference has not started, the participant is muted and hears background music until another participant starts the conference."
+    },
+    "status": {
+      "type": "enum:status",
+      "desc": "The status of the participant's call in a session. Can be: queued, connecting, ringing, connected, complete, or failed."
+    },
+    "uri": {
+      "type": "uri",
+      "desc": "The URI of the resource, relative to https://api.twilio.com."
+    }
+  },
+  "actions": [
+    {
+      "title": "Create a Participant – Agent Conference only",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants.json",
+      "desc": "Creates a Participant resource with either a ConferenceSid or FriendlyName initiates an outbound call and adds a new participant to the active Agent Conference with that ConferenceSid or FriendlyName.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that will create the resource.",
+          "required": false
+        },
+        "ConferenceSid": {
+          "type": "sid_like<CF>",
+          "desc": "The SID of the participant's conference.",
+          "required": false
+        },
+        "From": {
+          "type": "phone_number<e164>",
+          "desc": "The from phone number that will dial the new conference participant. Can be a phone number or a client id.",
+          "required": true
+        },
+        "To": {
+          "type": "phone_number<e164>",
+          "desc": "The phone number, client id, or sip address to invite to the conference. Custom parameters may also be specified.",
+          "required": true
+        },
+        "StatusCallback": {
+          "type": "url",
+          "desc": "The URL we should call using the status_callback_method to send status information to your application.",
+          "required": false
+        },
+        "StatusCallbackMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call status_callback. Can be: GET and POST and defaults to POST.",
+          "required": false
+        },
+        "StatusCallbackEvent": {
+          "type": "string[]",
+          "desc": "The conference state changes that should generate a call to status_callback. Can be: initiated, ringing, answered, and completed. Separate multiple values with a space. The default value is completed.",
+          "required": false
+        },
+        "Timeout": {
+          "type": "integer",
+          "desc": "The number of seconds that we should allow the phone to ring before assuming there is no answer. Can be an integer between 5 and 600, inclusive. The default value is 60. We always add a 5-second timeout buffer to outgoing calls, so  value of 10 would result in an actual timeout that was closer to 15 seconds.",
+          "required": false
+        },
+        "Record": {
+          "type": "boolean",
+          "desc": "Whether to record the participant and their conferences, including the time between conferences. Can be true or false and the default is false.",
+          "required": false
+        },
+        "Muted": {
+          "type": "boolean",
+          "desc": "Whether the agent is muted in the conference. Can be true or false and the default is false.",
+          "required": false
+        },
+        "Beep": {
+          "type": "string",
+          "desc": "Whether to play a notification beep to the conference when the participant joins. Can be: true, false, onEnter, or onExit. The default value is true.",
+          "required": false
+        },
+        "StartConferenceOnEnter": {
+          "type": "boolean",
+          "desc": "Whether to start the conference when the participant joins, if it has not already started. Can be: true or false and the default is true. If false and the conference has not started, the participant is muted and hears background music until another participant starts the conference.",
+          "required": false
+        },
+        "EndConferenceOnExit": {
+          "type": "boolean",
+          "desc": "Whether to end the conference when the participant leaves. Can be: true or false and defaults to false.",
+          "required": false
+        },
+        "WaitUrl": {
+          "type": "url",
+          "desc": "The URL we should call using the wait_method for the music to play while participants are waiting for the conference to start. The default value is the URL of our standard hold music. Learn more about hold music.",
+          "required": false
+        },
+        "WaitMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call wait_url. Can be GET or POST and the default is POST. When using a static audio file, this should be GET so that we can cache the file.",
+          "required": false
+        },
+        "EarlyMedia": {
+          "type": "boolean",
+          "desc": "Whether to allow an agent to hear the state of the outbound call, including ringing or disconnect messages. Can be: true or false and defaults to true.",
+          "required": false
+        },
+        "MaxParticipants": {
+          "type": "integer",
+          "desc": "The maximum number of participants in the conference. Can be a positive integer from 2 to 250. The default value is 250.",
+          "required": false
+        },
+        "ConferenceRecord": {
+          "type": "string",
+          "desc": "Whether to record the conference the participant is joining. Can be: true, false, record-from-start, and do-not-record. The default value is false.",
+          "required": false
+        },
+        "ConferenceTrim": {
+          "type": "string",
+          "desc": "Whether to trim leading and trailing silence from your recorded conference audio files. Can be: trim-silence or do-not-trim and defaults to trim-silence.",
+          "required": false
+        },
+        "ConferenceStatusCallback": {
+          "type": "url",
+          "desc": "The URL we should call using the conference_status_callback_method when the conference events in conference_status_callback_event occur. Only the value set by the first participant to join the conference is used. Subsequent conference_status_callback values are ignored.",
+          "required": false
+        },
+        "ConferenceStatusCallbackMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call conference_status_callback. Can be: GET or POST and defaults to POST.",
+          "required": false
+        },
+        "ConferenceStatusCallbackEvent": {
+          "type": "string[]",
+          "desc": "The conference state changes that should generate a call to conference_status_callback. Can be: start, end, join, leave, mute, hold, and speaker. Separate multiple values with a space. Defaults to start end.",
+          "required": false
+        },
+        "RecordingChannels": {
+          "type": "string",
+          "desc": "The recording channels for the final recording. Can be: mono or dual and the default is mono.",
+          "required": false
+        },
+        "RecordingStatusCallback": {
+          "type": "url",
+          "desc": "The URL that we should call using the recording_status_callback_method when the recording status changes.",
+          "required": false
+        },
+        "RecordingStatusCallbackMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use when we call recording_status_callback. Can be: GET or POST and defaults to POST.",
+          "required": false
+        },
+        "SipAuthUsername": {
+          "type": "string",
+          "desc": "The SIP username used for authentication.",
+          "required": false
+        },
+        "SipAuthPassword": {
+          "type": "string",
+          "desc": "The SIP password for authentication.",
+          "required": false
+        },
+        "Region": {
+          "type": "string",
+          "desc": "The region where we should mix the recorded audio. Can be:us1, ie1, de1, sg1, br1, au1, or jp1.",
+          "required": false
+        },
+        "ConferenceRecordingStatusCallback": {
+          "type": "url",
+          "desc": "The URL we should call using the conference_recording_status_callback_method when the conference recording is available.",
+          "required": false
+        },
+        "ConferenceRecordingStatusCallbackMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call conference_recording_status_callback. Can be: GET or POST and defaults to POST.",
+          "required": false
+        },
+        "RecordingStatusCallbackEvent": {
+          "type": "string[]",
+          "desc": "The recording state changes that should generate a call to recording_status_callback. Can be: in-progress, completed, and failed. Separate multiple values with a space. The default value is in-progress completed failed.",
+          "required": false
+        },
+        "ConferenceRecordingStatusCallbackEvent": {
+          "type": "string[]",
+          "desc": "The conference recording state changes that generate a call to conference_recording_status_callback. Can be: in-progress, completed, and failed. Separate multiple values with a space. The default value is in-progress completed failed.",
+          "required": false
+        },
+        "Coaching": {
+          "type": "boolean",
+          "desc": "Whether the participant is coaching another call. Can be: true or false. If not present, defaults to false unless call_sid_to_coach is defined. If true, call_sid_to_coach must be defined.",
+          "required": false
+        },
+        "CallSidToCoach": {
+          "type": "sid<CA>",
+          "desc": "The SID of the participant who is being coached. The participant being coached is the only participant who can hear the participant who is coaching.",
+          "required": false
+        },
+        "Byoc": {
+          "type": "sid<BY>",
+          "desc": "The SID of a BYOC (Bring Your Own Carrier) trunk to route this call with. Note that byoc is only meaningful when to is a phone number; it will otherwise be ignored. (Beta)",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Fetch a Participant resource",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}.json",
+      "desc": "Returns a Participant resource from an active Conference, specified by the Conference SID and the Participant's Call SID.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Participant resource to fetch.",
+          "required": false
+        },
+        "ConferenceSid": {
+          "type": "sid<CF>",
+          "desc": "The SID of the conference with the participant to fetch.",
+          "required": false
+        },
+        "CallSid": {
+          "type": "sid<CA>",
+          "desc": "The Call SID of the resource to fetch.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Read multiple Participant resources",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants.json",
+      "desc": "Returns the list of active participants in the conference identified by {ConferenceSid}.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Participant resources to read.",
+          "required": false
+        },
+        "ConferenceSid": {
+          "type": "sid<CF>",
+          "desc": "The SID of the conference with the participants to read.",
+          "required": false
+        },
+        "Muted": {
+          "type": "boolean",
+          "desc": "Whether to return only participants that are muted. Can be: true or false.",
+          "required": false
+        },
+        "Hold": {
+          "type": "boolean",
+          "desc": "Whether to return only participants that are on hold. Can be: true or false.",
+          "required": false
+        },
+        "Coaching": {
+          "type": "boolean",
+          "desc": "Whether to return only participants who are coaching another call. Can be: true or false.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Update a Participant resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}.json",
+      "desc": "Updates the status of a participant in an active conference.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Participant resources to update.",
+          "required": false
+        },
+        "ConferenceSid": {
+          "type": "sid<CF>",
+          "desc": "The SID of the conference with the participant to update.",
+          "required": false
+        },
+        "CallSid": {
+          "type": "sid<CA>",
+          "desc": "The Call SID of the resources to update.",
+          "required": false
+        },
+        "Muted": {
+          "type": "boolean",
+          "desc": "Whether the participant should be muted. Can be true or false. true will mute the participant, and false will un-mute them. Anything value other than true or false is interpreted as false.",
+          "required": false
+        },
+        "Hold": {
+          "type": "boolean",
+          "desc": "Whether the participant should be on hold. Can be: true or false. true puts the participant on hold, and false lets them rejoin the conference.",
+          "required": false
+        },
+        "HoldUrl": {
+          "type": "url",
+          "desc": "The URL we call using the hold_method for  music that plays when the participant is on hold. The URL may return an MP3 file, a WAV file, or a TwiML document that contains the <Play>, <Say> or <Redirect> commands.",
+          "required": false
+        },
+        "HoldMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call hold_url. Can be: GET or POST and the default is GET.",
+          "required": false
+        },
+        "AnnounceUrl": {
+          "type": "url",
+          "desc": "The URL we call using the announce_method for an announcement to the participant. The URL must return an MP3 file, a WAV file, or a TwiML document that contains <Play> or <Say> commands.",
+          "required": false
+        },
+        "AnnounceMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call announce_url. Can be: GET or POST and defaults to POST.",
+          "required": false
+        },
+        "WaitUrl": {
+          "type": "url",
+          "desc": "The URL we should call using the wait_method for the music to play while participants are waiting for the conference to start. The default value is the URL of our standard hold music. Learn more about hold music.",
+          "required": false
+        },
+        "WaitMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call wait_url. Can be GET or POST and the default is POST. When using a static audio file, this should be GET so that we can cache the file.",
+          "required": false
+        },
+        "BeepOnExit": {
+          "type": "boolean",
+          "desc": "Whether to play a notification beep to the conference when the participant exits. Can be: true or false.",
+          "required": false
+        },
+        "EndConferenceOnExit": {
+          "type": "boolean",
+          "desc": "Whether to end the conference when the participant leaves. Can be: true or false and defaults to false.",
+          "required": false
+        },
+        "Coaching": {
+          "type": "boolean",
+          "desc": "Whether the participant is coaching another call. Can be: true or false. If not present, defaults to false unless call_sid_to_coach is defined. If true, call_sid_to_coach must be defined.",
+          "required": false
+        },
+        "CallSidToCoach": {
+          "type": "sid<CA>",
+          "desc": "The SID of the participant who is being coached. The participant being coached is the only participant who can hear the participant who is coaching.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Delete a Participant resource",
+      "method": "delete",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}.json",
+      "desc": "Deletes the Participant resource to remove the participant from the conference. Returns HTTP 204 (No Content) with no body if the participant was successfully removed from the conference.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Participant resources to delete.",
+          "required": false
+        },
+        "ConferenceSid": {
+          "type": "sid<CF>",
+          "desc": "The SID of the conference with the participants to delete.",
+          "required": false
+        },
+        "CallSid": {
+          "type": "sid<CA>",
+          "desc": "The Call SID of the resources to delete.",
+          "required": false
+        }
+      }
+    }
+  ]
+}

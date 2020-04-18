@@ -1,0 +1,280 @@
+{
+  "type": "Class",
+  "name": "NSKeyedUnarchiver",
+  "desc": "A decoder that restores data from an archive referenced by keys.",
+  "items": [
+    {
+      "name": "unarchiveTopLevelObjectWithData",
+      "type": "class func",
+      "desc": "Decodes a previously-archived object graph, and returns the root object.",
+      "params": [
+        {
+          "type": "Data"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "unarchivedObject<DecodedObjectType>",
+      "type": "static func",
+      "desc": "Decodes a previously-archived object graph, and returns the root object as the specified type.",
+      "params": [
+        {
+          "name": "ofClass",
+          "type": "DecodedObjectType.Type"
+        },
+        {
+          "name": "from",
+          "type": "Data"
+        }
+      ],
+      "returnType": "DecodedObjectType?"
+    },
+    {
+      "name": "unarchivedObject",
+      "type": "static func",
+      "desc": "Decodes a previously-archived object graph, returning the root object as one of the specified classes.",
+      "params": [
+        {
+          "name": "ofClasses",
+          "type": "[AnyClass]"
+        },
+        {
+          "name": "from",
+          "type": "Data"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "requiresSecureCoding",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the receiver requires all unarchived classes to conform to NSSecureCoding."
+    },
+    {
+      "name": "unarchiveObject",
+      "type": "class func",
+      "desc": "Decodes and returns the object graph previously encoded by NSKeyedArchiver and stored in a given NSData object.",
+      "params": [
+        {
+          "name": "with",
+          "type": "Data"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "unarchiveObject",
+      "type": "class func",
+      "desc": "Decodes and returns the object graph previously encoded by NSKeyedArchiver written to the file at a given path.",
+      "params": [
+        {
+          "name": "withFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "containsValue",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the archive contains a value for a given key within the current decoding scope.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "decodeDecodable<T>",
+      "type": "func",
+      "desc": "Decodes a decodable value associated with a given key.",
+      "params": [
+        {
+          "type": "T.Type"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "T?"
+    },
+    {
+      "name": "decodeTopLevelDecodable<T>",
+      "type": "func",
+      "desc": "Decodes a top-level decodable value associated with a given key.",
+      "params": [
+        {
+          "type": "T.Type"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "T?"
+    },
+    {
+      "name": "decodeBool",
+      "type": "func",
+      "desc": "Decodes a Boolean value associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "decodeBytes",
+      "type": "func",
+      "desc": "Decodes a stream of bytes associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        },
+        {
+          "name": "returnedLength",
+          "type": "UnsafeMutablePointer<Int>?"
+        }
+      ],
+      "returnType": "UnsafePointer<UInt8>?"
+    },
+    {
+      "name": "decodeDouble",
+      "type": "func",
+      "desc": "Decodes a double-precision floating-point value associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Double"
+    },
+    {
+      "name": "decodeFloat",
+      "type": "func",
+      "desc": "Decodes a single-precision floating-point value associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Float"
+    },
+    {
+      "name": "decodeInt32",
+      "type": "func",
+      "desc": "Decodes a 32-bit integer value associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Int32"
+    },
+    {
+      "name": "decodeInt64",
+      "type": "func",
+      "desc": "Decodes a 64-bit integer value associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Int64"
+    },
+    {
+      "name": "decodeObject",
+      "type": "func",
+      "desc": "Decodes and returns an object associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "finishDecoding",
+      "type": "func",
+      "desc": "Tells the receiver that you are finished decoding objects.",
+      "params": []
+    },
+    {
+      "name": "decodingFailurePolicy",
+      "type": "var",
+      "datatype": "NSCoder.DecodingFailurePolicy",
+      "desc": "The action to take when this unarchiver fails to decode an entry."
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "NSKeyedUnarchiverDelegate?",
+      "desc": "The receiver’s delegate."
+    },
+    {
+      "name": "setClass",
+      "type": "class func",
+      "desc": "Sets a global translation mapping to decode objects encoded with a given class name as instances of a given class instead.",
+      "params": [
+        {
+          "type": "AnyClass?"
+        },
+        {
+          "name": "forClassName",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "class",
+      "type": "class func",
+      "desc": "Returns the class from which this unarchiver instantiates an encoded object with a given class name.",
+      "params": [
+        {
+          "name": "forClassName",
+          "type": "String"
+        }
+      ],
+      "returnType": "AnyClass?"
+    },
+    {
+      "name": "setClass",
+      "type": "func",
+      "desc": "Sets a translation mapping on this unarchiver to decode objects encoded with a given class name as instances of a given class instead.",
+      "params": [
+        {
+          "type": "AnyClass?"
+        },
+        {
+          "name": "forClassName",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "class",
+      "type": "func",
+      "desc": "Returns the class from which this unarchiver instantiates an encoded object with a given class name.",
+      "params": [
+        {
+          "name": "forClassName",
+          "type": "String"
+        }
+      ],
+      "returnType": "AnyClass?"
+    }
+  ]
+}

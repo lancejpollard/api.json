@@ -1,0 +1,1149 @@
+[
+  {
+    "title": "Action",
+    "attrs": {
+      "AuthenticateCognitoConfig": {
+        "desc": "[HTTPS listeners] Information for using Amazon Cognito to authenticate users. Specify only when Type is authenticate-cognito.",
+        "type": "AuthenticateCognitoActionConfig object",
+        "required": "no"
+      },
+      "AuthenticateOidcConfig": {
+        "desc": "[HTTPS listeners] Information about an identity provider that is compliant with OpenID Connect (OIDC). Specify only when Type is authenticate-oidc.",
+        "type": "AuthenticateOidcActionConfig object",
+        "required": "no"
+      },
+      "FixedResponseConfig": {
+        "desc": "[Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when Type is fixed-response.",
+        "type": "FixedResponseActionConfig object",
+        "required": "no"
+      },
+      "ForwardConfig": {
+        "desc": "Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when Type is forward. If you specify both ForwardConfig and TargetGroupArn, you can specify only one target group using ForwardConfig and it must be the same target group specified in TargetGroupArn.",
+        "type": "ForwardActionConfig object",
+        "required": "no"
+      },
+      "Order": {
+        "desc": "The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. The last action to be performed must be one of the following types of actions: a forward, fixed-response, or redirect.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "RedirectConfig": {
+        "desc": "[Application Load Balancer] Information for creating a redirect action. Specify only when Type is redirect.",
+        "type": "RedirectActionConfig object",
+        "required": "no"
+      },
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group. Specify only when Type is forward and you want to route to a single target group. To route to one or more target groups, use ForwardConfig instead.",
+        "type": "String",
+        "required": "no"
+      },
+      "Type": {
+        "desc": "The type of action.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "forward",
+          "authenticate-oidc",
+          "authenticate-cognito",
+          "redirect",
+          "fixed-response"
+        ]
+      }
+    }
+  },
+  {
+    "title": "AuthenticateCognitoActionConfig",
+    "attrs": {
+      "AuthenticationRequestExtraParams.entry.N.value (value)": {
+        "desc": "The query parameters (up to 10) to include in the redirect request to the authorization endpoint.",
+        "type": "String to string map",
+        "required": "no"
+      },
+      "OnUnauthenticatedRequest": {
+        "desc": "The behavior if the user is not authenticated. The following are possible values:",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "Scope": {
+        "desc": "The set of user claims to be requested from the IdP. The default is openid.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "SessionCookieName": {
+        "desc": "The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "SessionTimeout": {
+        "desc": "The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).",
+        "type": "Long",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "UserPoolArn": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon Cognito user pool.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "UserPoolClientId": {
+        "desc": "The ID of the Amazon Cognito user pool client.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "UserPoolDomain": {
+        "desc": "The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      }
+    }
+  },
+  {
+    "title": "AuthenticateOidcActionConfig",
+    "attrs": {
+      "AuthenticationRequestExtraParams.entry.N.value (value)": {
+        "desc": "The query parameters (up to 10) to include in the redirect request to the authorization endpoint.",
+        "type": "String to string map",
+        "required": "no"
+      },
+      "AuthorizationEndpoint": {
+        "desc": "The authorization endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ClientId": {
+        "desc": "The OAuth 2.0 client identifier.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ClientSecret": {
+        "desc": "The OAuth 2.0 client secret. This parameter is required if you are creating a rule. If you are modifying a rule, you can omit this parameter if you set UseExistingClientSecret to true.",
+        "type": "String",
+        "required": "no"
+      },
+      "Issuer": {
+        "desc": "The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.",
+        "type": "String",
+        "required": "yes"
+      },
+      "OnUnauthenticatedRequest": {
+        "desc": "The behavior if the user is not authenticated. The following are possible values:",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "Scope": {
+        "desc": "The set of user claims to be requested from the IdP. The default is openid.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "SessionCookieName": {
+        "desc": "The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "SessionTimeout": {
+        "desc": "The maximum duration of the authentication session, in seconds. The default is 604800 seconds (7 days).",
+        "type": "Long",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "TokenEndpoint": {
+        "desc": "The token endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "UseExistingClientSecret": {
+        "desc": "Indicates whether to use the existing client secret when modifying a rule. If you are creating a rule, you can omit this parameter or set it to false.",
+        "type": "Boolean",
+        "required": "no",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      },
+      "UserInfoEndpoint": {
+        "desc": "The user info endpoint of the IdP. This must be a full URL, including the HTTPS protocol, the domain, and the path.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "deny",
+          "allow",
+          "authenticate"
+        ]
+      }
+    }
+  },
+  {
+    "title": "AvailabilityZone",
+    "attrs": {
+      "LoadBalancerAddresses.member.N": {
+        "desc": "[Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.",
+        "type": "Array of LoadBalancerAddress objects",
+        "required": "no"
+      },
+      "SubnetId": {
+        "desc": "The ID of the subnet. You can specify one subnet per Availability Zone.",
+        "type": "String",
+        "required": "no"
+      },
+      "ZoneName": {
+        "desc": "The name of the Availability Zone.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "Certificate",
+    "attrs": {
+      "CertificateArn": {
+        "desc": "The Amazon Resource Name (ARN) of the certificate.",
+        "type": "String",
+        "required": "no"
+      },
+      "IsDefault": {
+        "desc": "Indicates whether the certificate is the default certificate. Do not set this value when specifying a certificate as an input. This value is not included in the output when describing a listener, but is included when describing listener certificates.",
+        "type": "Boolean",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "Cipher",
+    "attrs": {
+      "Name": {
+        "desc": "The name of the cipher.",
+        "type": "String",
+        "required": "no"
+      },
+      "Priority": {
+        "desc": "The priority of the cipher.",
+        "type": "Integer",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "FixedResponseActionConfig",
+    "attrs": {
+      "ContentType": {
+        "desc": "The content type.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "text/plain",
+          "text/css",
+          "text/html",
+          "application/javascript",
+          "application/json"
+        ]
+      },
+      "MessageBody": {
+        "desc": "The message.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "text/plain",
+          "text/css",
+          "text/html",
+          "application/javascript",
+          "application/json"
+        ]
+      },
+      "StatusCode": {
+        "desc": "The HTTP response code (2XX, 4XX, or 5XX).",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "text/plain",
+          "text/css",
+          "text/html",
+          "application/javascript",
+          "application/json"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ForwardActionConfig",
+    "attrs": {
+      "TargetGroups.member.N": {
+        "desc": "One or more target groups. For Network Load Balancers, you can specify a single target group.",
+        "type": "Array of TargetGroupTuple objects",
+        "required": "no"
+      },
+      "TargetGroupStickinessConfig": {
+        "desc": "The target group stickiness for the rule.",
+        "type": "TargetGroupStickinessConfig object",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "HostHeaderConditionConfig",
+    "attrs": {
+      "Values.member.N": {
+        "desc": "One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "HttpHeaderConditionConfig",
+    "attrs": {
+      "HttpHeaderName": {
+        "desc": "The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.",
+        "type": "String",
+        "required": "no"
+      },
+      "Values.member.N": {
+        "desc": "One or more strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "HttpRequestMethodConditionConfig",
+    "attrs": {
+      "Values.member.N": {
+        "desc": "The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "Limit",
+    "attrs": {
+      "Max": {
+        "desc": "The maximum value of the limit.",
+        "type": "String",
+        "required": "no"
+      },
+      "Name": {
+        "desc": "The name of the limit. The possible values are:",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "Listener",
+    "attrs": {
+      "Certificates.member.N": {
+        "desc": "[HTTPS or TLS listener] The default certificate for the listener.",
+        "type": "Array of Certificate objects",
+        "required": "no"
+      },
+      "DefaultActions.member.N": {
+        "desc": "The default actions for the listener.",
+        "type": "Array of Action objects",
+        "required": "no"
+      },
+      "ListenerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the listener.",
+        "type": "String",
+        "required": "no"
+      },
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "Port": {
+        "desc": "The port on which the load balancer is listening.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "Protocol": {
+        "desc": "The protocol for connections from clients to the load balancer.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "SslPolicy": {
+        "desc": "[HTTPS or TLS listener] The security policy that defines which protocols and ciphers are supported.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      }
+    }
+  },
+  {
+    "title": "LoadBalancer",
+    "attrs": {
+      "AvailabilityZones.member.N": {
+        "desc": "The Availability Zones for the load balancer.",
+        "type": "Array of AvailabilityZone objects",
+        "required": "no"
+      },
+      "CanonicalHostedZoneId": {
+        "desc": "The ID of the Amazon Route 53 hosted zone associated with the load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "CreatedTime": {
+        "desc": "The date and time the load balancer was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "DNSName": {
+        "desc": "The public DNS name of the load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "IpAddressType": {
+        "desc": "The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "ipv4",
+          "dualstack"
+        ]
+      },
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "ipv4",
+          "dualstack"
+        ]
+      },
+      "LoadBalancerName": {
+        "desc": "The name of the load balancer.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "ipv4",
+          "dualstack"
+        ]
+      },
+      "Scheme": {
+        "desc": "The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "internet-facing",
+          "internal"
+        ]
+      },
+      "SecurityGroups.member.N": {
+        "desc": "The IDs of the security groups for the load balancer.",
+        "type": "Array of strings",
+        "required": "no",
+        "values": [
+          "internet-facing",
+          "internal"
+        ]
+      },
+      "State": {
+        "desc": "The state of the load balancer.",
+        "type": "LoadBalancerState object",
+        "required": "no",
+        "values": [
+          "internet-facing",
+          "internal"
+        ]
+      },
+      "Type": {
+        "desc": "The type of load balancer.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "application",
+          "network"
+        ]
+      },
+      "VpcId": {
+        "desc": "The ID of the VPC for the load balancer.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "application",
+          "network"
+        ]
+      }
+    }
+  },
+  {
+    "title": "LoadBalancerAddress",
+    "attrs": {
+      "AllocationId": {
+        "desc": "[Network Load Balancers] The allocation ID of the Elastic IP address for an internal-facing load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "IpAddress": {
+        "desc": "The static IP address.",
+        "type": "String",
+        "required": "no"
+      },
+      "PrivateIPv4Address": {
+        "desc": "[Network Load Balancers] The private IPv4 address for an internal load balancer.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "LoadBalancerAttribute",
+    "attrs": {
+      "Key": {
+        "desc": "The name of the attribute.",
+        "type": "String",
+        "required": "no"
+      },
+      "Value": {
+        "desc": "The value of the attribute.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "LoadBalancerState",
+    "attrs": {
+      "Code": {
+        "desc": "The state code. The initial state of the load balancer is provisioning. After the load balancer is fully set up and ready to route traffic, its state is active. If the load balancer could not be set up, its state is failed.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "active",
+          "provisioning",
+          "active_impaired",
+          "failed"
+        ]
+      },
+      "Reason": {
+        "desc": "A description of the state.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "active",
+          "provisioning",
+          "active_impaired",
+          "failed"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Matcher",
+    "attrs": {
+      "HttpCode": {
+        "desc": "The HTTP codes.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "PathPatternConditionConfig",
+    "attrs": {
+      "Values.member.N": {
+        "desc": "One or more path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "QueryStringConditionConfig",
+    "attrs": {
+      "Values.member.N": {
+        "desc": "One or more key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in Values using a '\\' character.",
+        "type": "Array of QueryStringKeyValuePair objects",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "QueryStringKeyValuePair",
+    "attrs": {
+      "Key": {
+        "desc": "The key. You can omit the key.",
+        "type": "String",
+        "required": "no"
+      },
+      "Value": {
+        "desc": "The value.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "RedirectActionConfig",
+    "attrs": {
+      "Host": {
+        "desc": "The hostname. This component is not percent-encoded. The hostname can contain #{host}.",
+        "type": "String",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The absolute path, starting with the leading \"/\". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.",
+        "type": "String",
+        "required": "no"
+      },
+      "Port": {
+        "desc": "The port. You can specify a value from 1 to 65535 or #{port}.",
+        "type": "String",
+        "required": "no"
+      },
+      "Protocol": {
+        "desc": "The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.",
+        "type": "String",
+        "required": "no"
+      },
+      "Query": {
+        "desc": "The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading \"?\", as it is automatically added. You can specify any of the reserved keywords.",
+        "type": "String",
+        "required": "no"
+      },
+      "StatusCode": {
+        "desc": "The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "http_301",
+          "http_302"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Rule",
+    "attrs": {
+      "Actions.member.N": {
+        "desc": "The actions. Each rule must include exactly one of the following types of actions: forward, redirect, or fixed-response, and it must be the last action to be performed.",
+        "type": "Array of Action objects",
+        "required": "no"
+      },
+      "Conditions.member.N": {
+        "desc": "The conditions. Each rule can include zero or one of the following conditions: http-request-method, host-header, path-pattern, and source-ip, and zero or more of the following conditions: http-header and query-string.",
+        "type": "Array of RuleCondition objects",
+        "required": "no"
+      },
+      "IsDefault": {
+        "desc": "Indicates whether this is the default rule.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "Priority": {
+        "desc": "The priority.",
+        "type": "String",
+        "required": "no"
+      },
+      "RuleArn": {
+        "desc": "The Amazon Resource Name (ARN) of the rule.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "RuleCondition",
+    "attrs": {
+      "Field": {
+        "desc": "The field in the HTTP request. The following are the possible values:",
+        "type": "String",
+        "required": "no"
+      },
+      "HostHeaderConfig": {
+        "desc": "Information for a host header condition. Specify only when Field is host-header.",
+        "type": "HostHeaderConditionConfig object",
+        "required": "no"
+      },
+      "HttpHeaderConfig": {
+        "desc": "Information for an HTTP header condition. Specify only when Field is http-header.",
+        "type": "HttpHeaderConditionConfig object",
+        "required": "no"
+      },
+      "HttpRequestMethodConfig": {
+        "desc": "Information for an HTTP method condition. Specify only when Field is http-request-method.",
+        "type": "HttpRequestMethodConditionConfig object",
+        "required": "no"
+      },
+      "PathPatternConfig": {
+        "desc": "Information for a path pattern condition. Specify only when Field is path-pattern.",
+        "type": "PathPatternConditionConfig object",
+        "required": "no"
+      },
+      "QueryStringConfig": {
+        "desc": "Information for a query string condition. Specify only when Field is query-string.",
+        "type": "QueryStringConditionConfig object",
+        "required": "no"
+      },
+      "SourceIpConfig": {
+        "desc": "Information for a source IP condition. Specify only when Field is source-ip.",
+        "type": "SourceIpConditionConfig object",
+        "required": "no"
+      },
+      "Values.member.N": {
+        "desc": "The condition value. You can use Values if the rule contains only host-header and path-pattern conditions. Otherwise, you can use HostHeaderConfig for host-header conditions and PathPatternConfig for path-pattern conditions.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "RulePriorityPair",
+    "attrs": {
+      "Priority": {
+        "desc": "The rule priority.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "RuleArn": {
+        "desc": "The Amazon Resource Name (ARN) of the rule.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "SourceIpConditionConfig",
+    "attrs": {
+      "Values.member.N": {
+        "desc": "One or more source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses. Wildcards are not supported.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "SslPolicy",
+    "attrs": {
+      "Ciphers.member.N": {
+        "desc": "The ciphers.",
+        "type": "Array of Cipher objects",
+        "required": "no"
+      },
+      "Name": {
+        "desc": "The name of the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "SslProtocols.member.N": {
+        "desc": "The protocols.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "SubnetMapping",
+    "attrs": {
+      "AllocationId": {
+        "desc": "[Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "PrivateIPv4Address": {
+        "desc": "[Network Load Balancers] The private IPv4 address for an internal load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "SubnetId": {
+        "desc": "The ID of the subnet.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "desc": "The key of the tag.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Value": {
+        "desc": "The value of the tag.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TagDescription",
+    "attrs": {
+      "ResourceArn": {
+        "desc": "The Amazon Resource Name (ARN) of the resource.",
+        "type": "String",
+        "required": "no"
+      },
+      "Tags.member.N": {
+        "desc": "Information about the tags.",
+        "type": "Array of Tag objects",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TargetDescription",
+    "attrs": {
+      "AvailabilityZone": {
+        "desc": "An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "Id": {
+        "desc": "The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Port": {
+        "desc": "The port on which the target is listening. Not used if the target is a Lambda function.",
+        "type": "Integer",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TargetGroup",
+    "attrs": {
+      "HealthCheckEnabled": {
+        "desc": "Indicates whether health checks are enabled.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "HealthCheckIntervalSeconds": {
+        "desc": "The approximate amount of time, in seconds, between health checks of an individual target.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "HealthCheckPath": {
+        "desc": "The destination for the health check request.",
+        "type": "String",
+        "required": "no"
+      },
+      "HealthCheckPort": {
+        "desc": "The port to use to connect with the target.",
+        "type": "String",
+        "required": "no"
+      },
+      "HealthCheckProtocol": {
+        "desc": "The protocol to use to connect with the target.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "HealthCheckTimeoutSeconds": {
+        "desc": "The amount of time, in seconds, during which no response means a failed health check.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "HealthyThresholdCount": {
+        "desc": "The number of consecutive health checks successes required before considering an unhealthy target healthy.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "LoadBalancerArns.member.N": {
+        "desc": "The Amazon Resource Names (ARN) of the load balancers that route traffic to this target group.",
+        "type": "Array of strings",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "Matcher": {
+        "desc": "The HTTP codes to use when checking for a successful response from a target.",
+        "type": "Matcher object",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "Port": {
+        "desc": "The port on which the targets are listening. Not used if the target is a Lambda function.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "Protocol": {
+        "desc": "The protocol to use for routing traffic to the targets.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "TargetGroupName": {
+        "desc": "The name of the target group.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "TargetType": {
+        "desc": "The type of target that you must specify when registering targets with this target group. The possible values are instance (targets are specified by instance ID) or ip (targets are specified by IP address).",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "instance",
+          "ip",
+          "lambda"
+        ]
+      },
+      "UnhealthyThresholdCount": {
+        "desc": "The number of consecutive health check failures required before considering the target unhealthy.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "instance",
+          "ip",
+          "lambda"
+        ]
+      },
+      "VpcId": {
+        "desc": "The ID of the VPC for the targets.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "instance",
+          "ip",
+          "lambda"
+        ]
+      }
+    }
+  },
+  {
+    "title": "TargetGroupAttribute",
+    "attrs": {
+      "Key": {
+        "desc": "The name of the attribute.",
+        "type": "String",
+        "required": "no"
+      },
+      "Value": {
+        "desc": "The value of the attribute.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TargetGroupStickinessConfig",
+    "attrs": {
+      "DurationSeconds": {
+        "desc": "The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).",
+        "type": "Integer",
+        "required": "no"
+      },
+      "Enabled": {
+        "desc": "Indicates whether target group stickiness is enabled.",
+        "type": "Boolean",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TargetGroupTuple",
+    "attrs": {
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "no"
+      },
+      "Weight": {
+        "desc": "The weight. The range is 0 to 999.",
+        "type": "Integer",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TargetHealth",
+    "attrs": {
+      "Description": {
+        "desc": "A description of the target health that provides additional details. If the state is healthy, a description is not provided.",
+        "type": "String",
+        "required": "no"
+      },
+      "Reason": {
+        "desc": "The reason code.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "elb.registrationinprogress",
+          "elb.initialhealthchecking",
+          "target.responsecodemismatch"
+        ]
+      },
+      "State": {
+        "desc": "The state of the target.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "initial",
+          "healthy",
+          "unhealthy",
+          "unused",
+          "draining",
+          "unavailable"
+        ]
+      }
+    }
+  },
+  {
+    "title": "TargetHealthDescription",
+    "attrs": {
+      "HealthCheckPort": {
+        "desc": "The port to use to connect with the target.",
+        "type": "String",
+        "required": "no"
+      },
+      "Target": {
+        "desc": "The description of the target.",
+        "type": "TargetDescription object",
+        "required": "no"
+      },
+      "TargetHealth": {
+        "desc": "The health information for the target.",
+        "type": "TargetHealth object",
+        "required": "no"
+      }
+    }
+  }
+]

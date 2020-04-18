@@ -1,0 +1,319 @@
+{
+  "type": "Class",
+  "name": "DateFormatter",
+  "desc": "A formatter that converts between dates and their textual representations.",
+  "items": [
+    {
+      "name": "date",
+      "type": "func",
+      "desc": "Returns a date representation of a given string interpreted using the receiver’s current settings.",
+      "params": [
+        {
+          "name": "from",
+          "type": "String"
+        }
+      ],
+      "returnType": "Date?"
+    },
+    {
+      "name": "string",
+      "type": "func",
+      "desc": "Returns a string representation of a given date formatted using the receiver’s current settings.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Date"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "localizedString",
+      "type": "class func",
+      "desc": "Returns a string representation of a given date, formatted for the current locale using the specified date and time styles.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Date"
+        },
+        {
+          "name": "dateStyle",
+          "type": "DateFormatter.Style"
+        },
+        {
+          "name": "timeStyle",
+          "type": "DateFormatter.Style"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "getObjectValue",
+      "type": "func",
+      "desc": "Returns by reference a date representation of a given string and the range of the string used, and returns a Boolean value that indicates whether the string could be parsed.",
+      "params": [
+        {
+          "type": "AutoreleasingUnsafeMutablePointer<AnyObject?>?"
+        },
+        {
+          "name": "for",
+          "type": "String"
+        },
+        {
+          "name": "range",
+          "type": "UnsafeMutablePointer<NSRange>?"
+        }
+      ]
+    },
+    {
+      "name": "dateStyle",
+      "type": "var",
+      "datatype": "DateFormatter.Style",
+      "desc": "The date style of the receiver."
+    },
+    {
+      "name": "timeStyle",
+      "type": "var",
+      "datatype": "DateFormatter.Style",
+      "desc": "The time style of the receiver."
+    },
+    {
+      "name": "dateFormat",
+      "type": "var",
+      "datatype": "String!",
+      "desc": "The date format string used by the receiver."
+    },
+    {
+      "name": "setLocalizedDateFormatFromTemplate",
+      "type": "func",
+      "desc": "Sets the date format from a template using the specified locale for the receiver.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "dateFormat",
+      "type": "class func",
+      "desc": "Returns a localized date format string representing the given date format components arranged appropriately for the specified locale.",
+      "params": [
+        {
+          "name": "fromTemplate",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "Int"
+        },
+        {
+          "name": "locale",
+          "type": "Locale?"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "formattingContext",
+      "type": "var",
+      "datatype": "Formatter.Context",
+      "desc": "The capitalization formatting context used when formatting a date."
+    },
+    {
+      "name": "calendar",
+      "type": "var",
+      "datatype": "Calendar!",
+      "desc": "The calendar for the receiver."
+    },
+    {
+      "name": "defaultDate",
+      "type": "var",
+      "datatype": "Date?",
+      "desc": "The default date for the receiver."
+    },
+    {
+      "name": "locale",
+      "type": "var",
+      "datatype": "Locale!",
+      "desc": "The locale for the receiver."
+    },
+    {
+      "name": "timeZone",
+      "type": "var",
+      "datatype": "TimeZone!",
+      "desc": "The time zone for the receiver."
+    },
+    {
+      "name": "twoDigitStartDate",
+      "type": "var",
+      "datatype": "Date?",
+      "desc": "The earliest date that can be denoted by a two-digit year specifier."
+    },
+    {
+      "name": "gregorianStartDate",
+      "type": "var",
+      "datatype": "Date?",
+      "desc": "The start date of the Gregorian calendar for the receiver."
+    },
+    {
+      "name": "formatterBehavior",
+      "type": "var",
+      "datatype": "DateFormatter.Behavior",
+      "desc": "The formatter behavior for the receiver."
+    },
+    {
+      "name": "defaultFormatterBehavior",
+      "type": "class var",
+      "datatype": "DateFormatter.Behavior",
+      "desc": "Returns the default formatting behavior for instances of the class."
+    },
+    {
+      "name": "isLenient",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver uses heuristics when parsing a string."
+    },
+    {
+      "name": "doesRelativeDateFormatting",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver uses phrases such as “today” and “tomorrow” for the date component."
+    },
+    {
+      "name": "amSymbol",
+      "type": "var",
+      "datatype": "String!",
+      "desc": "The AM symbol for the receiver."
+    },
+    {
+      "name": "pmSymbol",
+      "type": "var",
+      "datatype": "String!",
+      "desc": "The PM symbol for the receiver."
+    },
+    {
+      "name": "weekdaySymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The array of weekday symbols for the receiver."
+    },
+    {
+      "name": "shortWeekdaySymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The array of short weekday symbols for the receiver."
+    },
+    {
+      "name": "veryShortWeekdaySymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The array of very short weekday symbols for the receiver."
+    },
+    {
+      "name": "standaloneWeekdaySymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The array of standalone weekday symbols for the receiver."
+    },
+    {
+      "name": "shortStandaloneWeekdaySymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The array of short standalone weekday symbols for the receiver."
+    },
+    {
+      "name": "veryShortStandaloneWeekdaySymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The array of very short standalone weekday symbols for the receiver."
+    },
+    {
+      "name": "monthSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The month symbols for the receiver."
+    },
+    {
+      "name": "shortMonthSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The array of short month symbols for the receiver."
+    },
+    {
+      "name": "veryShortMonthSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The very short month symbols for the receiver."
+    },
+    {
+      "name": "standaloneMonthSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The standalone month symbols for the receiver."
+    },
+    {
+      "name": "shortStandaloneMonthSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The short standalone month symbols for the receiver."
+    },
+    {
+      "name": "veryShortStandaloneMonthSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The very short month symbols for the receiver."
+    },
+    {
+      "name": "quarterSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The quarter symbols for the receiver."
+    },
+    {
+      "name": "shortQuarterSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The short quarter symbols for the receiver."
+    },
+    {
+      "name": "standaloneQuarterSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The standalone quarter symbols for the receiver."
+    },
+    {
+      "name": "shortStandaloneQuarterSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The short standalone quarter symbols for the receiver."
+    },
+    {
+      "name": "eraSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The era symbols for the receiver."
+    },
+    {
+      "name": "longEraSymbols",
+      "type": "var",
+      "datatype": "[String]!",
+      "desc": "The long era symbols for the receiver"
+    },
+    {
+      "name": "DateFormatter.Style",
+      "type": "enum",
+      "desc": "The following constants specify predefined format styles for dates and times."
+    },
+    {
+      "name": "DateFormatter.Behavior",
+      "type": "enum",
+      "desc": "Constants that specify the behavior NSDateFormatter should exhibit."
+    },
+    {
+      "name": "generatesCalendarDates",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the formatter generates the deprecated calendar date type."
+    }
+  ]
+}

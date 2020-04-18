@@ -1,0 +1,358 @@
+[
+  {
+    "title": "DescribeAffectedAccountsForOrganization",
+    "req": {
+      "eventArn": {
+        "desc": "The unique identifier for the event. Format: arn:aws:health:event-region::event/SERVICE/EVENT_TYPE_CODE/EVENT_TYPE_PLUS_ID . Example: Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456",
+        "type": "String",
+        "required": "yes"
+      },
+      "maxResults": {
+        "desc": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String",
+        "required": "no"
+      }
+    },
+    "res": {
+      "affectedAccounts": {
+        "desc": "A JSON set of elements of the affected accounts.",
+        "type": "Array of strings"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeAffectedEntities",
+    "req": {
+      "filter": {
+        "desc": "Values to narrow the results returned. At least one event ARN is required.",
+        "type": "EntityFilter object",
+        "required": "yes"
+      },
+      "locale": {
+        "desc": "The locale (language) to return information in. English (en) is the default and the only supported value at this time.",
+        "type": "String",
+        "required": "no"
+      },
+      "maxResults": {
+        "desc": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String",
+        "required": "no"
+      }
+    },
+    "res": {
+      "entities": {
+        "desc": "The entities that match the filter criteria.",
+        "type": "Array of AffectedEntity objects"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeAffectedEntitiesForOrganization",
+    "req": {
+      "locale": {
+        "desc": "The locale (language) to return information in. English (en) is the default and the only supported value at this time.",
+        "type": "String",
+        "required": "no"
+      },
+      "maxResults": {
+        "desc": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String",
+        "required": "no"
+      },
+      "organizationEntityFilters": {
+        "desc": "A JSON set of elements including the awsAccountId and the eventArn.",
+        "type": "Array of EventAccountFilter objects",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "entities": {
+        "desc": "A JSON set of elements including the awsAccountId and its entityArn, entityValue and its entityArn, lastUpdatedTime, statusCode, and tags.",
+        "type": "Array of AffectedEntity objects"
+      },
+      "failedSet": {
+        "desc": "A JSON set of elements of the failed response, including the awsAccountId, errorMessage, errorName, and eventArn.",
+        "type": "Array of OrganizationAffectedEntitiesErrorItem objects"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeEntityAggregates",
+    "req": {
+      "eventArns": {
+        "desc": "A list of event ARNs (unique identifiers). For example: \"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    },
+    "res": {
+      "entityAggregates": {
+        "desc": "The number of entities that are affected by each of the specified events.",
+        "type": "Array of EntityAggregate objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeEventAggregates",
+    "req": {
+      "aggregateField": {
+        "desc": "The only currently supported value is eventTypeCategory.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "eventtypecategory"
+        ]
+      },
+      "filter": {
+        "desc": "Values to narrow the results returned.",
+        "type": "EventFilter object",
+        "required": "no",
+        "values": [
+          "eventtypecategory"
+        ]
+      },
+      "maxResults": {
+        "desc": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "eventtypecategory"
+        ]
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "eventtypecategory"
+        ]
+      }
+    },
+    "res": {
+      "eventAggregates": {
+        "desc": "The number of events in each category that meet the optional filter criteria.",
+        "type": "Array of EventAggregate objects",
+        "values": [
+          "eventtypecategory"
+        ]
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String",
+        "values": [
+          "eventtypecategory"
+        ]
+      }
+    }
+  },
+  {
+    "title": "DescribeEventDetails",
+    "req": {
+      "eventArns": {
+        "desc": "A list of event ARNs (unique identifiers). For example: \"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"",
+        "type": "Array of strings",
+        "required": "yes"
+      },
+      "locale": {
+        "desc": "The locale (language) to return information in. English (en) is the default and the only supported value at this time.",
+        "type": "String",
+        "required": "no"
+      }
+    },
+    "res": {
+      "failedSet": {
+        "desc": "Error messages for any events that could not be retrieved.",
+        "type": "Array of EventDetailsErrorItem objects"
+      },
+      "successfulSet": {
+        "desc": "Information about the events that could be retrieved.",
+        "type": "Array of EventDetails objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeEventDetailsForOrganization",
+    "req": {
+      "locale": {
+        "desc": "The locale (language) to return information in. English (en) is the default and the only supported value at this time.",
+        "type": "String",
+        "required": "no"
+      },
+      "organizationEventDetailFilters": {
+        "desc": "A set of JSON elements that includes the awsAccountId and the eventArn.",
+        "type": "Array of EventAccountFilter objects",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "failedSet": {
+        "desc": "Error messages for any events that could not be retrieved.",
+        "type": "Array of OrganizationEventDetailsErrorItem objects"
+      },
+      "successfulSet": {
+        "desc": "Information about the events that could be retrieved.",
+        "type": "Array of OrganizationEventDetails objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeEvents",
+    "req": {
+      "filter": {
+        "desc": "Values to narrow the results returned.",
+        "type": "EventFilter object",
+        "required": "no"
+      },
+      "locale": {
+        "desc": "The locale (language) to return information in. English (en) is the default and the only supported value at this time.",
+        "type": "String",
+        "required": "no"
+      },
+      "maxResults": {
+        "desc": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String",
+        "required": "no"
+      }
+    },
+    "res": {
+      "events": {
+        "desc": "The events that match the specified filter criteria.",
+        "type": "Array of Event objects"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeEventsForOrganization",
+    "req": {
+      "filter": {
+        "desc": "Values to narrow the results returned.",
+        "type": "OrganizationEventFilter object",
+        "required": "no"
+      },
+      "locale": {
+        "desc": "The locale (language) to return information in. English (en) is the default and the only supported value at this time.",
+        "type": "String",
+        "required": "no"
+      },
+      "maxResults": {
+        "desc": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String",
+        "required": "no"
+      }
+    },
+    "res": {
+      "events": {
+        "desc": "The events that match the specified filter criteria.",
+        "type": "Array of OrganizationEvent objects"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeEventTypes",
+    "req": {
+      "filter": {
+        "desc": "Values to narrow the results returned.",
+        "type": "EventTypeFilter object",
+        "required": "no"
+      },
+      "locale": {
+        "desc": "The locale (language) to return information in. English (en) is the default and the only supported value at this time.",
+        "type": "String",
+        "required": "no"
+      },
+      "maxResults": {
+        "desc": "The maximum number of items to return in one batch, between 10 and 100, inclusive.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String",
+        "required": "no"
+      }
+    },
+    "res": {
+      "eventTypes": {
+        "desc": "A list of event types that match the filter criteria. Event types have a category (issue, accountNotification, or scheduledChange), a service (for example, EC2, RDS, DATAPIPELINE, BILLING), and a code (in the format AWS_SERVICE_DESCRIPTION ; for example, AWS_EC2_SYSTEM_MAINTENANCE_EVENT).",
+        "type": "Array of EventType objects"
+      },
+      "nextToken": {
+        "desc": "If the results of a search are large, only a portion of the results are returned, and a nextToken pagination token is returned in the response. To retrieve the next batch of results, reissue the search request and include the returned token. When all results have been returned, the response does not contain a pagination token value.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeHealthServiceStatusForOrganization",
+    "req": {
+      "healthServiceAccessStatusForOrganization": {
+        "desc": "Information about the status of enabling or disabling AWS Health Organizational View in your organization.",
+        "type": "String"
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DisableHealthServiceAccessForOrganization",
+    "req": {
+      "ConcurrentModificationException": {
+        "desc": "EnableHealthServiceAccessForOrganization is already in progress. Wait for the action to complete before trying again. To get the current status, use the DescribeHealthServiceStatusForOrganization operation."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "EnableHealthServiceAccessForOrganization",
+    "req": {
+      "ConcurrentModificationException": {
+        "desc": "EnableHealthServiceAccessForOrganization is already in progress. Wait for the action to complete before trying again. To get the current status, use the DescribeHealthServiceStatusForOrganization operation."
+      }
+    },
+    "res": {}
+  }
+]

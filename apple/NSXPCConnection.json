@@ -1,0 +1,133 @@
+{
+  "type": "Class",
+  "name": "NSXPCConnection",
+  "desc": "A bidirectional communication channel between two processes.",
+  "items": [
+    {
+      "name": "NSXPCConnectionInterrupted",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The XPC connection was interrupted."
+    },
+    {
+      "name": "NSXPCConnectionInvalid",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The XPC connection was invalid."
+    },
+    {
+      "name": "NSXPCConnectionReplyInvalid",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The XPC connection reply was invalid."
+    },
+    {
+      "name": "NSXPCConnectionErrorMinimum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The lower bounds of XPC connection error code values."
+    },
+    {
+      "name": "NSXPCConnectionErrorMaximum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The upper bounds of XPC connection error code values."
+    },
+    {
+      "name": "auditSessionIdentifier",
+      "type": "var",
+      "datatype": "au_asid_t",
+      "desc": "The BSM audit session identifier for the connecting process."
+    },
+    {
+      "name": "effectiveGroupIdentifier",
+      "type": "var",
+      "datatype": "gid_t",
+      "desc": "The effective group ID (EGID) of the connecting process."
+    },
+    {
+      "name": "effectiveUserIdentifier",
+      "type": "var",
+      "datatype": "uid_t",
+      "desc": "The effective user ID (EUID) of the connecting process."
+    },
+    {
+      "name": "endpoint",
+      "type": "var",
+      "datatype": "NSXPCListenerEndpoint",
+      "desc": "If the connection was created with an NSXPCListenerEndpoint object, returns the endpoint object used."
+    },
+    {
+      "name": "exportedInterface",
+      "type": "var",
+      "datatype": "NSXPCInterface?",
+      "desc": "The NSXPCInterface object that describes the protocol for the exported object on this connection."
+    },
+    {
+      "name": "exportedObject",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "An exported object for the connection."
+    },
+    {
+      "name": "interruptionHandler",
+      "type": "var",
+      "datatype": "(()",
+      "desc": "An interruption handler that is called if the remote process exits or crashes."
+    },
+    {
+      "name": "invalidationHandler",
+      "type": "var",
+      "datatype": "(()",
+      "desc": "An invalidation handler that is called if the connection can not be formed or the connection has terminated and may not be re-established."
+    },
+    {
+      "name": "processIdentifier",
+      "type": "var",
+      "datatype": "pid_t",
+      "desc": "The process ID (PID) of the connecting process."
+    },
+    {
+      "name": "remoteObjectInterface",
+      "type": "var",
+      "datatype": "NSXPCInterface?",
+      "desc": "Defines the NSXPCInterface object that describes the protocol for the object represented by the remoteObjectProxy."
+    },
+    {
+      "name": "remoteObjectProxy",
+      "type": "var",
+      "datatype": "Any",
+      "desc": "Returns a proxy for the remote object (that is, the exportedObject from the other side of this connection)."
+    },
+    {
+      "name": "serviceName",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The name of the XPC service that this connection was configured to connect to."
+    },
+    {
+      "name": "invalidate",
+      "type": "func",
+      "desc": "Invalidates the connection.",
+      "params": []
+    },
+    {
+      "name": "resume",
+      "type": "func",
+      "desc": "Starts or resumes handling of messages on a connection.",
+      "params": []
+    },
+    {
+      "name": "suspend",
+      "type": "func",
+      "desc": "Suspends the connection.",
+      "params": []
+    },
+    {
+      "name": "current",
+      "type": "class func",
+      "params": [],
+      "returnType": "NSXPCConnection?"
+    }
+  ]
+}

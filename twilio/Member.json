@@ -1,0 +1,105 @@
+{
+  "type": "Member",
+  "attrs": {
+    "call_sid": {
+      "type": "sid<CA>",
+      "desc": "The SID of the Call the Member resource is associated with."
+    },
+    "date_enqueued": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date that the member was enqueued, given in RFC 2822 format."
+    },
+    "position": {
+      "type": "integer",
+      "desc": "This member's current position in the queue."
+    },
+    "uri": {
+      "type": "uri",
+      "desc": "The URI of the resource, relative to https://api.twilio.com."
+    },
+    "wait_time": {
+      "type": "integer",
+      "desc": "The number of seconds the member has been in the queue."
+    },
+    "queue_sid": {
+      "type": "sid<QU>",
+      "desc": "The SID of the Queue the member is in."
+    }
+  },
+  "actions": [
+    {
+      "title": "Fetch a Member resource",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Queues/{QueueSid}/Members/{CallSid}.json",
+      "desc": "You can address the member to fetch by its unique CallSid or by the Front sid to fetch the member at the front of the queue.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Member resource(s) to fetch.",
+          "required": false
+        },
+        "QueueSid": {
+          "type": "sid<QU>",
+          "desc": "The SID of the Queue in which to find the members to fetch.",
+          "required": false
+        },
+        "CallSid": {
+          "type": "sid_like<CA>",
+          "desc": "The Call SID of the resource(s) to fetch.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Read multiple Member resources",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Queues/{QueueSid}/Members.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Member resource(s) to read.",
+          "required": false
+        },
+        "QueueSid": {
+          "type": "sid<QU>",
+          "desc": "The SID of the Queue in which to find the members",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Update a Member resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Queues/{QueueSid}/Members/{CallSid}.json",
+      "desc": "Updating a Member resource dequeues the member to begin executing the TwiML document at that URL.\nYou can address the member to dequeue by its unique CallSid or by the Front sid.\nIf you successfully dequeue a member by its unique CallSid, it will no longer be queued so a second update action on that same member will fail.\nWhen dequeueing a member by using the Front SID, that member will be dequeued and the next member in the queue will take its place.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Member resource(s) to update.",
+          "required": false
+        },
+        "QueueSid": {
+          "type": "sid<QU>",
+          "desc": "The SID of the Queue in which to find the members to update.",
+          "required": false
+        },
+        "CallSid": {
+          "type": "sid_like<CA>",
+          "desc": "The Call SID of the resource(s) to update.",
+          "required": false
+        },
+        "Url": {
+          "type": "url",
+          "desc": "The absolute URL of the Queue resource.",
+          "required": true
+        },
+        "Method": {
+          "type": "http_method",
+          "desc": "How to pass the update request data. Can be GET or POST and the default is POST. POST sends the data as encoded form data and GET sends the data as query parameters.",
+          "required": false
+        }
+      }
+    }
+  ]
+}

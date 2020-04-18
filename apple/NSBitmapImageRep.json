@@ -1,0 +1,442 @@
+{
+  "type": "Class",
+  "name": "NSBitmapImageRep",
+  "desc": "An object that renders an image from bitmap data.",
+  "items": [
+    {
+      "name": "imageReps",
+      "type": "class func",
+      "desc": "Creates and returns an array of initialized NSBitmapImageRep objects corresponding to the images in the supplied data.",
+      "params": [
+        {
+          "name": "with",
+          "type": "Data"
+        }
+      ],
+      "returnType": "[NSImageRep]"
+    },
+    {
+      "name": "colorize",
+      "type": "func",
+      "desc": "Colorizes a grayscale image.",
+      "params": [
+        {
+          "name": "byMappingGray",
+          "type": "CGFloat"
+        },
+        {
+          "name": "to",
+          "type": "NSColor?"
+        },
+        {
+          "name": "blackMapping",
+          "type": "NSColor?"
+        },
+        {
+          "name": "whiteMapping",
+          "type": "NSColor?"
+        }
+      ]
+    },
+    {
+      "name": "bitmapFormat",
+      "type": "var",
+      "datatype": "NSBitmapImageRep.Format",
+      "desc": "The format of the bitmap image representation."
+    },
+    {
+      "name": "bitsPerPixel",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of bits allocated for each pixel in each plane of data."
+    },
+    {
+      "name": "bytesPerPlane",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of bytes in each plane or channel of data."
+    },
+    {
+      "name": "bytesPerRow",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The minimum number of bytes required to specify a scan line in each data plane."
+    },
+    {
+      "name": "isPlanar",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the image data is in a planar configuration."
+    },
+    {
+      "name": "numberOfPlanes",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of separate planes into which the image data is organized."
+    },
+    {
+      "name": "samplesPerPixel",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of components for each pixel."
+    },
+    {
+      "name": "bitmapData",
+      "type": "var",
+      "datatype": "UnsafeMutablePointer<UInt8>?",
+      "desc": "A pointer to the bitmap data."
+    },
+    {
+      "name": "getBitmapDataPlanes",
+      "type": "func",
+      "desc": "Returns by indirection bitmap data of the receiver separated into planes.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>"
+        }
+      ]
+    },
+    {
+      "name": "tiffRepresentationOfImageReps",
+      "type": "class func",
+      "desc": "Returns a TIFF representation of the given images",
+      "params": [
+        {
+          "name": "in",
+          "type": "[NSImageRep]"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "tiffRepresentationOfImageReps",
+      "type": "class func",
+      "desc": "Returns a TIFF representation of the given images using a specified compression scheme and factor.",
+      "params": [
+        {
+          "name": "in",
+          "type": "[NSImageRep]"
+        },
+        {
+          "name": "using",
+          "type": "NSBitmapImageRep.TIFFCompression"
+        },
+        {
+          "name": "factor",
+          "type": "Float"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "tiffRepresentation",
+      "type": "var",
+      "datatype": "Data?",
+      "desc": "A TIFF representation of the bitmap image data."
+    },
+    {
+      "name": "tiffRepresentation",
+      "type": "func",
+      "desc": "Returns a TIFF representation of the image using the specified compression.",
+      "params": [
+        {
+          "name": "using",
+          "type": "NSBitmapImageRep.TIFFCompression"
+        },
+        {
+          "name": "factor",
+          "type": "Float"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "NSDrawBitmap",
+      "type": "func",
+      "desc": "Draws a bitmap image.",
+      "params": [
+        {
+          "type": "NSRect"
+        },
+        {
+          "type": "Int"
+        },
+        {
+          "type": "Int"
+        },
+        {
+          "type": "Int"
+        },
+        {
+          "type": "Int"
+        },
+        {
+          "type": "Int"
+        },
+        {
+          "type": "Int"
+        },
+        {
+          "type": "Bool"
+        },
+        {
+          "type": "Bool"
+        },
+        {
+          "type": "NSColorSpaceName"
+        },
+        {
+          "type": "UnsafePointer<UnsafePointer<UInt8>?>"
+        }
+      ]
+    },
+    {
+      "name": "getTIFFCompressionTypes",
+      "type": "class func",
+      "desc": "Returns by indirection an array of all available compression types that can be used when writing a TIFF image.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<UnsafePointer<NSBitmapImageRep.TIFFCompression>?>"
+        },
+        {
+          "name": "count",
+          "type": "UnsafeMutablePointer<Int>"
+        }
+      ]
+    },
+    {
+      "name": "localizedName",
+      "type": "class func",
+      "desc": "Returns an autoreleased string containing the localized name for the specified compression type.",
+      "params": [
+        {
+          "name": "forTIFFCompressionType",
+          "type": "NSBitmapImageRep.TIFFCompression"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "canBeCompressed",
+      "type": "func",
+      "desc": "Tests whether the receiver can be compressed by the specified compression scheme.",
+      "params": [
+        {
+          "name": "using",
+          "type": "NSBitmapImageRep.TIFFCompression"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setCompression",
+      "type": "func",
+      "desc": "Sets the receiver’s compression type and compression factor.",
+      "params": [
+        {
+          "type": "NSBitmapImageRep.TIFFCompression"
+        },
+        {
+          "name": "factor",
+          "type": "Float"
+        }
+      ]
+    },
+    {
+      "name": "getCompression",
+      "type": "func",
+      "desc": "Returns by indirection the receiver’s compression type and compression factor.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<NSBitmapImageRep.TIFFCompression>?"
+        },
+        {
+          "name": "factor",
+          "type": "UnsafeMutablePointer<Float>?"
+        }
+      ]
+    },
+    {
+      "name": "setProperty",
+      "type": "func",
+      "desc": "Sets the image’s property to value.",
+      "params": [
+        {
+          "type": "NSBitmapImageRep.PropertyKey"
+        },
+        {
+          "name": "withValue",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "value",
+      "type": "func",
+      "desc": "Returns the value for the specified property.",
+      "params": [
+        {
+          "name": "forProperty",
+          "type": "NSBitmapImageRep.PropertyKey"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "NSBitmapImageRep.TIFFCompression",
+      "type": "enum",
+      "desc": "Constants representing the supported TIFF data-compression schemes."
+    },
+    {
+      "name": "ct NSBitmapImageRep.PropertyKey",
+      "type": "enum",
+      "desc": "Constants identifying properties that are used by representationOfImageReps(in:using:properties:), representation(using:properties:), setPixel(_:atX:y:), and value(forProperty:)."
+    },
+    {
+      "name": "incrementalLoad",
+      "type": "func",
+      "desc": "Loads the current image data into an incrementally-loaded image representation and returns the current status of the image.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Data"
+        },
+        {
+          "name": "complete",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "setColor",
+      "type": "func",
+      "desc": "Changes the color of the pixel at the specified coordinates.",
+      "params": [
+        {
+          "type": "NSColor"
+        },
+        {
+          "name": "atX",
+          "type": "Int"
+        },
+        {
+          "name": "y",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "colorAt",
+      "type": "func",
+      "desc": "Returns the color of the pixel at the specified coordinates.",
+      "params": [
+        {
+          "name": "x",
+          "type": "Int"
+        },
+        {
+          "name": "y",
+          "type": "Int"
+        }
+      ],
+      "returnType": "NSColor?"
+    },
+    {
+      "name": "setPixel",
+      "type": "func",
+      "desc": "Sets the receiver's pixel at the specified coordinates to the specified raw pixel values.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int>"
+        },
+        {
+          "name": "atX",
+          "type": "Int"
+        },
+        {
+          "name": "y",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "getPixel",
+      "type": "func",
+      "desc": "Returns by indirection the pixel data for the specified location in the receiver.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int>"
+        },
+        {
+          "name": "atX",
+          "type": "Int"
+        },
+        {
+          "name": "y",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "cgImage",
+      "type": "var",
+      "datatype": "CGImage?",
+      "desc": "A Core Graphics image object based on the bitmap image rep’s data."
+    },
+    {
+      "name": "converting",
+      "type": "func",
+      "desc": "Converts the image rep to the specified colorspace",
+      "params": [
+        {
+          "name": "to",
+          "type": "NSColorSpace"
+        },
+        {
+          "name": "renderingIntent",
+          "type": "NSColorRenderingIntent"
+        }
+      ],
+      "returnType": "NSBitmapImageRep?"
+    },
+    {
+      "name": "retagging",
+      "type": "func",
+      "desc": "Changes the colorSpace tag of the receiver.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSColorSpace"
+        }
+      ],
+      "returnType": "NSBitmapImageRep?"
+    },
+    {
+      "name": "colorSpace",
+      "type": "var",
+      "datatype": "NSColorSpace",
+      "desc": "The color space of the bitmap."
+    },
+    {
+      "name": "NSBitmapImageRep.LoadStatus",
+      "type": "enum",
+      "desc": "The various status values returned by incrementalLoad(from:complete:)."
+    },
+    {
+      "name": "NSBitmapImageRep.FileType",
+      "type": "enum",
+      "desc": "Constants for specifying the bitmap file types."
+    },
+    {
+      "name": "s NSCIImageRep",
+      "type": "enum",
+      "desc": "An object that can render an image from a Core Image object."
+    },
+    {
+      "name": "s NSPICTImageRep",
+      "type": "enum",
+      "desc": "An object that renders an image from a PICT format data stream of version 1, version 2, and extended version 2."
+    }
+  ]
+}

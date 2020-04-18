@@ -1,0 +1,78 @@
+{
+  "type": "Class",
+  "name": "NSBundleResourceRequest",
+  "desc": "A resource manager you use to download content hosted on the App Store at the time your app needs it.",
+  "items": [
+    {
+      "name": "bundle",
+      "type": "var",
+      "datatype": "Bundle",
+      "desc": "A reference to the bundle used for storing the downloaded resources. (read-only)"
+    },
+    {
+      "name": "tags",
+      "type": "var",
+      "datatype": "Set<String>",
+      "desc": "A set of strings, with each string specifying a tag used to mark on-demand resources managed by the request. (read-only)"
+    },
+    {
+      "name": "endAccessingResources",
+      "type": "func",
+      "desc": "Informs the system that you have finished accessing the resources marked with the tags managed by the request.",
+      "params": []
+    },
+    {
+      "name": "loadingPriority",
+      "type": "var",
+      "datatype": "Double",
+      "desc": "A hint to the system of the relative priority of the resource request."
+    },
+    {
+      "name": "NSBundleResourceRequestLoadingPriorityUrgent",
+      "type": "let",
+      "datatype": "Double"
+    },
+    {
+      "name": "progress",
+      "type": "var",
+      "datatype": "Progress",
+      "desc": "A reference to the progress object associated with the specified resource request. (read-only)"
+    },
+    {
+      "name": "NSBundleErrorMaximum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The end of the range of error codes reserved for bundle errors."
+    },
+    {
+      "name": "NSBundleErrorMinimum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The start of the range of error codes reserved for bundle errors."
+    },
+    {
+      "name": "NSBundleOnDemandResourceExceededMaximumSizeError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The application exceeded the amount of on-demand resources content in use at one time."
+    },
+    {
+      "name": "NSBundleOnDemandResourceInvalidTagError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The application specified a tag that the system couldn’t find in the application tag manifest."
+    },
+    {
+      "name": "NSBundleOnDemandResourceOutOfSpaceError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "Insufficient space available to download the requested on-demand resources."
+    },
+    {
+      "name": "NSBundleResourceRequestLowDiskSpace",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted after the system detects that the amount of available disk space is getting low. The notification is posted to the default notification center."
+    }
+  ]
+}

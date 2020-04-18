@@ -1,0 +1,73 @@
+{
+  "type": "Generic Enumeration",
+  "name": "MemoryLayout",
+  "desc": "The memory layout of a type, describing its size, stride, and alignment.",
+  "items": [
+    {
+      "name": "size",
+      "type": "static var",
+      "datatype": "Int",
+      "desc": "The contiguous memory footprint of T, in bytes."
+    },
+    {
+      "name": "alignment",
+      "type": "static var",
+      "datatype": "Int",
+      "desc": "The default memory alignment of T, in bytes."
+    },
+    {
+      "name": "stride",
+      "type": "static var",
+      "datatype": "Int",
+      "desc": "The number of bytes from the start of one instance of T to the start of the next when stored in contiguous memory or in an Array<T>."
+    },
+    {
+      "name": "stride",
+      "type": "static func",
+      "desc": "Returns the number of bytes from the start of one instance of T to the start of the next when stored in contiguous memory or in an Array<T>.",
+      "params": [
+        {
+          "name": "ofValue",
+          "type": "T"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "size",
+      "type": "static func",
+      "desc": "Returns the contiguous memory footprint of the given instance.",
+      "params": [
+        {
+          "name": "ofValue",
+          "type": "T"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "alignment",
+      "type": "static func",
+      "desc": "Returns the default memory alignment of T.",
+      "params": [
+        {
+          "name": "ofValue",
+          "type": "T"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "offset",
+      "type": "static func",
+      "desc": "Returns the offset of an inline stored property within a type’s in-memory representation.",
+      "params": [
+        {
+          "name": "of",
+          "type": "PartialKeyPath<T>"
+        }
+      ],
+      "returnType": "Int?"
+    }
+  ]
+}

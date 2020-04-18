@@ -1,0 +1,1237 @@
+[
+  {
+    "title": "AddListenerCertificates",
+    "req": {
+      "Certificates.member.N": {
+        "desc": "The certificate to add. You can specify one certificate per call. Set CertificateArn to the certificate ARN but do not set IsDefault.",
+        "type": "Array of Certificate objects",
+        "required": "yes"
+      },
+      "ListenerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the listener.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "Certificates.member.N": {
+        "desc": "Information about the certificates in the certificate list.",
+        "type": "Array of Certificate objects"
+      }
+    }
+  },
+  {
+    "title": "AddTags",
+    "req": {
+      "ResourceArns.member.N": {
+        "desc": "The Amazon Resource Name (ARN) of the resource.",
+        "type": "Array of strings",
+        "required": "yes"
+      },
+      "Tags.member.N": {
+        "desc": "The tags.",
+        "type": "Array of Tag objects",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "DuplicateTagKeys": {
+        "desc": "A tag key was specified more than once.",
+        "type": "Array of Tag objects"
+      },
+      "LoadBalancerNotFound": {
+        "desc": "The specified load balancer does not exist.",
+        "type": "Array of Tag objects"
+      },
+      "TargetGroupNotFound": {
+        "desc": "The specified target group does not exist.",
+        "type": "Array of Tag objects"
+      },
+      "TooManyTags": {
+        "desc": "You've reached the limit on the number of tags per load balancer.",
+        "type": "Array of Tag objects"
+      }
+    }
+  },
+  {
+    "title": "CreateListener",
+    "req": {
+      "Certificates.member.N": {
+        "desc": "[HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set CertificateArn to the certificate ARN but do not set IsDefault.",
+        "type": "Array of Certificate objects",
+        "required": "no"
+      },
+      "DefaultActions.member.N": {
+        "desc": "The actions for the default rule.",
+        "type": "Array of Action objects",
+        "required": "yes"
+      },
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Port": {
+        "desc": "The port on which the load balancer is listening.",
+        "type": "Integer",
+        "required": "yes"
+      },
+      "Protocol": {
+        "desc": "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "SslPolicy": {
+        "desc": "[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. The following are the possible values:",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      }
+    },
+    "res": {
+      "Listeners.member.N": {
+        "desc": "Information about the listener.",
+        "type": "Array of Listener objects",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      }
+    }
+  },
+  {
+    "title": "CreateLoadBalancer",
+    "req": {
+      "IpAddressType": {
+        "desc": "[Application Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses). Internal load balancers must use ipv4.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "ipv4",
+          "dualstack"
+        ]
+      },
+      "Name": {
+        "desc": "The name of the load balancer.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "ipv4",
+          "dualstack"
+        ]
+      },
+      "Scheme": {
+        "desc": "The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "internet-facing",
+          "internal"
+        ]
+      },
+      "SecurityGroups.member.N": {
+        "desc": "[Application Load Balancers] The IDs of the security groups for the load balancer.",
+        "type": "Array of strings",
+        "required": "no",
+        "values": [
+          "internet-facing",
+          "internal"
+        ]
+      },
+      "SubnetMappings.member.N": {
+        "desc": "The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.",
+        "type": "Array of SubnetMapping objects",
+        "required": "no",
+        "values": [
+          "internet-facing",
+          "internal"
+        ]
+      },
+      "Subnets.member.N": {
+        "desc": "The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.",
+        "type": "Array of strings",
+        "required": "no",
+        "values": [
+          "internet-facing",
+          "internal"
+        ]
+      },
+      "Tags.member.N": {
+        "desc": "One or more tags to assign to the load balancer.",
+        "type": "Array of Tag objects",
+        "required": "no",
+        "values": [
+          "internet-facing",
+          "internal"
+        ]
+      },
+      "Type": {
+        "desc": "The type of load balancer. The default is application.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "application",
+          "network"
+        ]
+      }
+    },
+    "res": {
+      "LoadBalancers.member.N": {
+        "desc": "Information about the load balancer.",
+        "type": "Array of LoadBalancer objects",
+        "values": [
+          "application",
+          "network"
+        ]
+      }
+    }
+  },
+  {
+    "title": "CreateRule",
+    "req": {
+      "Actions.member.N": {
+        "desc": "The actions.",
+        "type": "Array of Action objects",
+        "required": "yes"
+      },
+      "Conditions.member.N": {
+        "desc": "The conditions.",
+        "type": "Array of RuleCondition objects",
+        "required": "yes"
+      },
+      "ListenerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the listener.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Priority": {
+        "desc": "The rule priority. A listener can't have multiple rules with the same priority.",
+        "type": "Integer",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "Rules.member.N": {
+        "desc": "Information about the rule.",
+        "type": "Array of Rule objects"
+      }
+    }
+  },
+  {
+    "title": "CreateTargetGroup",
+    "req": {
+      "HealthCheckEnabled": {
+        "desc": "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance or ip, health checks are always enabled and cannot be disabled.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "HealthCheckIntervalSeconds": {
+        "desc": "The approximate amount of time, in seconds, between health checks of an individual target. For HTTP and HTTPS health checks, the range is 5–300 seconds. For TCP health checks, the supported values are 10 and 30 seconds. If the target type is instance or ip, the default is 30 seconds. If the target type is lambda, the default is 35 seconds.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "HealthCheckPath": {
+        "desc": "[HTTP/HTTPS health checks] The ping path that is the destination on the targets for health checks. The default is /.",
+        "type": "String",
+        "required": "no"
+      },
+      "HealthCheckPort": {
+        "desc": "The port the load balancer uses when performing health checks on targets. The default is traffic-port, which is the port on which each target receives traffic from the load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "HealthCheckProtocol": {
+        "desc": "The protocol the load balancer uses when performing health checks on targets. For Application Load Balancers, the default is HTTP. For Network Load Balancers, the default is TCP. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The TLS, UDP, and TCP_UDP protocols are not supported for health checks.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "HealthCheckTimeoutSeconds": {
+        "desc": "The amount of time, in seconds, during which no response from a target means a failed health check. For target groups with a protocol of HTTP or HTTPS, the default is 5 seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is lambda, the default is 30 seconds.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "HealthyThresholdCount": {
+        "desc": "The number of consecutive health checks successes required before considering an unhealthy target healthy. For target groups with a protocol of HTTP or HTTPS, the default is 5. For target groups with a protocol of TCP or TLS, the default is 3. If the target type is lambda, the default is 5.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "Matcher": {
+        "desc": "[HTTP/HTTPS health checks] The HTTP codes to use when checking for a successful response from a target.",
+        "type": "Matcher object",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "Name": {
+        "desc": "The name of the target group.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "Port": {
+        "desc": "The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "Protocol": {
+        "desc": "The protocol to use for routing traffic to the targets. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "TargetType": {
+        "desc": "The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "instance",
+          "ip",
+          "lambda"
+        ]
+      },
+      "UnhealthyThresholdCount": {
+        "desc": "The number of consecutive health check failures required before considering a target unhealthy. For target groups with a protocol of HTTP or HTTPS, the default is 2. For target groups with a protocol of TCP or TLS, this value must be the same as the healthy threshold count. If the target type is lambda, the default is 2.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "instance",
+          "ip",
+          "lambda"
+        ]
+      },
+      "VpcId": {
+        "desc": "The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply. Otherwise, this parameter is required.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "instance",
+          "ip",
+          "lambda"
+        ]
+      }
+    },
+    "res": {
+      "TargetGroups.member.N": {
+        "desc": "Information about the target group.",
+        "type": "Array of TargetGroup objects",
+        "values": [
+          "instance",
+          "ip",
+          "lambda"
+        ]
+      }
+    }
+  },
+  {
+    "title": "DeleteListener",
+    "req": {
+      "ListenerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the listener.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "ListenerNotFound": {
+        "desc": "The specified listener does not exist.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DeleteLoadBalancer",
+    "req": {
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "LoadBalancerNotFound": {
+        "desc": "The specified load balancer does not exist.",
+        "type": "String"
+      },
+      "OperationNotPermitted": {
+        "desc": "This operation is not allowed.",
+        "type": "String"
+      },
+      "ResourceInUse": {
+        "desc": "A specified resource is in use.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DeleteRule",
+    "req": {
+      "RuleArn": {
+        "desc": "The Amazon Resource Name (ARN) of the rule.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "OperationNotPermitted": {
+        "desc": "This operation is not allowed.",
+        "type": "String"
+      },
+      "RuleNotFound": {
+        "desc": "The specified rule does not exist.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DeleteTargetGroup",
+    "req": {
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "ResourceInUse": {
+        "desc": "A specified resource is in use.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DeregisterTargets",
+    "req": {
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Targets.member.N": {
+        "desc": "The targets. If you specified a port override when you registered a target, you must specify both the target ID and the port when you deregister it.",
+        "type": "Array of TargetDescription objects",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "InvalidTarget": {
+        "desc": "The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.",
+        "type": "Array of TargetDescription objects"
+      },
+      "TargetGroupNotFound": {
+        "desc": "The specified target group does not exist.",
+        "type": "Array of TargetDescription objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeAccountLimits",
+    "req": {
+      "Marker": {
+        "desc": "The marker for the next set of results. (You received this marker from a previous call.)",
+        "type": "String",
+        "required": "no"
+      },
+      "PageSize": {
+        "desc": "The maximum number of results to return with this call.",
+        "type": "Integer",
+        "required": "no"
+      }
+    },
+    "res": {
+      "Limits.member.N": {
+        "desc": "Information about the limits.",
+        "type": "Array of Limit objects"
+      },
+      "NextMarker": {
+        "desc": "If there are additional results, this is the marker for the next set of results. Otherwise, this is null.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeListenerCertificates",
+    "req": {
+      "ListenerArn": {
+        "desc": "The Amazon Resource Names (ARN) of the listener.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Marker": {
+        "desc": "The marker for the next set of results. (You received this marker from a previous call.)",
+        "type": "String",
+        "required": "no"
+      },
+      "PageSize": {
+        "desc": "The maximum number of results to return with this call.",
+        "type": "Integer",
+        "required": "no"
+      }
+    },
+    "res": {
+      "Certificates.member.N": {
+        "desc": "Information about the certificates.",
+        "type": "Array of Certificate objects"
+      },
+      "NextMarker": {
+        "desc": "If there are additional results, this is the marker for the next set of results. Otherwise, this is null.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeListeners",
+    "req": {
+      "ListenerArns.member.N": {
+        "desc": "The Amazon Resource Names (ARN) of the listeners.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "Marker": {
+        "desc": "The marker for the next set of results. (You received this marker from a previous call.)",
+        "type": "String",
+        "required": "no"
+      },
+      "PageSize": {
+        "desc": "The maximum number of results to return with this call.",
+        "type": "Integer",
+        "required": "no"
+      }
+    },
+    "res": {
+      "Listeners.member.N": {
+        "desc": "Information about the listeners.",
+        "type": "Array of Listener objects"
+      },
+      "NextMarker": {
+        "desc": "If there are additional results, this is the marker for the next set of results. Otherwise, this is null.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeLoadBalancerAttributes",
+    "req": {
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "Attributes.member.N": {
+        "desc": "Information about the load balancer attributes.",
+        "type": "Array of LoadBalancerAttribute objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeLoadBalancers",
+    "req": {
+      "LoadBalancerArns.member.N": {
+        "desc": "The Amazon Resource Names (ARN) of the load balancers. You can specify up to 20 load balancers in a single call.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "Marker": {
+        "desc": "The marker for the next set of results. (You received this marker from a previous call.)",
+        "type": "String",
+        "required": "no"
+      },
+      "Names.member.N": {
+        "desc": "The names of the load balancers.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "PageSize": {
+        "desc": "The maximum number of results to return with this call.",
+        "type": "Integer",
+        "required": "no"
+      }
+    },
+    "res": {
+      "LoadBalancers.member.N": {
+        "desc": "Information about the load balancers.",
+        "type": "Array of LoadBalancer objects"
+      },
+      "NextMarker": {
+        "desc": "If there are additional results, this is the marker for the next set of results. Otherwise, this is null.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "DescribeRules",
+    "req": {
+      "ListenerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the listener.",
+        "type": "String",
+        "required": "no"
+      },
+      "Marker": {
+        "desc": "The marker for the next set of results. (You received this marker from a previous call.)",
+        "type": "String",
+        "required": "no"
+      },
+      "PageSize": {
+        "desc": "The maximum number of results to return with this call.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "RuleArns.member.N": {
+        "desc": "The Amazon Resource Names (ARN) of the rules.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    },
+    "res": {
+      "NextMarker": {
+        "desc": "If there are additional results, this is the marker for the next set of results. Otherwise, this is null.",
+        "type": "String"
+      },
+      "Rules.member.N": {
+        "desc": "Information about the rules.",
+        "type": "Array of Rule objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeSSLPolicies",
+    "req": {
+      "Marker": {
+        "desc": "The marker for the next set of results. (You received this marker from a previous call.)",
+        "type": "String",
+        "required": "no"
+      },
+      "Names.member.N": {
+        "desc": "The names of the policies.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "PageSize": {
+        "desc": "The maximum number of results to return with this call.",
+        "type": "Integer",
+        "required": "no"
+      }
+    },
+    "res": {
+      "NextMarker": {
+        "desc": "If there are additional results, this is the marker for the next set of results. Otherwise, this is null.",
+        "type": "String"
+      },
+      "SslPolicies.member.N": {
+        "desc": "Information about the security policies.",
+        "type": "Array of SslPolicy objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeTags",
+    "req": {
+      "ResourceArns.member.N": {
+        "desc": "The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources in a single call.",
+        "type": "Array of strings",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "TagDescriptions.member.N": {
+        "desc": "Information about the tags.",
+        "type": "Array of TagDescription objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeTargetGroupAttributes",
+    "req": {
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "Attributes.member.N": {
+        "desc": "Information about the target group attributes",
+        "type": "Array of TargetGroupAttribute objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeTargetGroups",
+    "req": {
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "no"
+      },
+      "Marker": {
+        "desc": "The marker for the next set of results. (You received this marker from a previous call.)",
+        "type": "String",
+        "required": "no"
+      },
+      "Names.member.N": {
+        "desc": "The names of the target groups.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "PageSize": {
+        "desc": "The maximum number of results to return with this call.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "TargetGroupArns.member.N": {
+        "desc": "The Amazon Resource Names (ARN) of the target groups.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    },
+    "res": {
+      "NextMarker": {
+        "desc": "If there are additional results, this is the marker for the next set of results. Otherwise, this is null.",
+        "type": "String"
+      },
+      "TargetGroups.member.N": {
+        "desc": "Information about the target groups.",
+        "type": "Array of TargetGroup objects"
+      }
+    }
+  },
+  {
+    "title": "DescribeTargetHealth",
+    "req": {
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Targets.member.N": {
+        "desc": "The targets.",
+        "type": "Array of TargetDescription objects",
+        "required": "no"
+      }
+    },
+    "res": {
+      "TargetHealthDescriptions.member.N": {
+        "desc": "Information about the health of the targets.",
+        "type": "Array of TargetHealthDescription objects"
+      }
+    }
+  },
+  {
+    "title": "ModifyListener",
+    "req": {
+      "Certificates.member.N": {
+        "desc": "[HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set CertificateArn to the certificate ARN but do not set IsDefault.",
+        "type": "Array of Certificate objects",
+        "required": "no"
+      },
+      "DefaultActions.member.N": {
+        "desc": "The actions for the default rule.",
+        "type": "Array of Action objects",
+        "required": "no"
+      },
+      "ListenerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the listener.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Port": {
+        "desc": "The port for connections from clients to the load balancer.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "Protocol": {
+        "desc": "The protocol for connections from clients to the load balancer. Application Load Balancers support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and TCP_UDP protocols.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "SslPolicy": {
+        "desc": "[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. The following are the possible values:",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      }
+    },
+    "res": {
+      "Listeners.member.N": {
+        "desc": "Information about the modified listener.",
+        "type": "Array of Listener objects",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ModifyLoadBalancerAttributes",
+    "req": {
+      "Attributes.member.N": {
+        "desc": "The load balancer attributes.",
+        "type": "Array of LoadBalancerAttribute objects",
+        "required": "yes"
+      },
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "Attributes.member.N": {
+        "desc": "Information about the load balancer attributes.",
+        "type": "Array of LoadBalancerAttribute objects"
+      }
+    }
+  },
+  {
+    "title": "ModifyRule",
+    "req": {
+      "Actions.member.N": {
+        "desc": "The actions.",
+        "type": "Array of Action objects",
+        "required": "no"
+      },
+      "Conditions.member.N": {
+        "desc": "The conditions.",
+        "type": "Array of RuleCondition objects",
+        "required": "no"
+      },
+      "RuleArn": {
+        "desc": "The Amazon Resource Name (ARN) of the rule.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "Rules.member.N": {
+        "desc": "Information about the modified rule.",
+        "type": "Array of Rule objects"
+      }
+    }
+  },
+  {
+    "title": "ModifyTargetGroup",
+    "req": {
+      "HealthCheckEnabled": {
+        "desc": "Indicates whether health checks are enabled.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "HealthCheckIntervalSeconds": {
+        "desc": "The approximate amount of time, in seconds, between health checks of an individual target. For Application Load Balancers, the range is 5 to 300 seconds. For Network Load Balancers, the supported values are 10 or 30 seconds.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "HealthCheckPath": {
+        "desc": "[HTTP/HTTPS health checks] The ping path that is the destination for the health check request.",
+        "type": "String",
+        "required": "no"
+      },
+      "HealthCheckPort": {
+        "desc": "The port the load balancer uses when performing health checks on targets.",
+        "type": "String",
+        "required": "no"
+      },
+      "HealthCheckProtocol": {
+        "desc": "The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The TLS, UDP, and TCP_UDP protocols are not supported for health checks.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "HealthCheckTimeoutSeconds": {
+        "desc": "[HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means a failed health check.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "HealthyThresholdCount": {
+        "desc": "The number of consecutive health checks successes required before considering an unhealthy target healthy.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "Matcher": {
+        "desc": "[HTTP/HTTPS health checks] The HTTP codes to use when checking for a successful response from a target.",
+        "type": "Matcher object",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      },
+      "UnhealthyThresholdCount": {
+        "desc": "The number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the healthy threshold count.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      }
+    },
+    "res": {
+      "TargetGroups.member.N": {
+        "desc": "Information about the modified target group.",
+        "type": "Array of TargetGroup objects",
+        "values": [
+          "http",
+          "https",
+          "tcp",
+          "tls",
+          "udp",
+          "tcp_udp"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ModifyTargetGroupAttributes",
+    "req": {
+      "Attributes.member.N": {
+        "desc": "The attributes.",
+        "type": "Array of TargetGroupAttribute objects",
+        "required": "yes"
+      },
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "Attributes.member.N": {
+        "desc": "Information about the attributes.",
+        "type": "Array of TargetGroupAttribute objects"
+      }
+    }
+  },
+  {
+    "title": "RegisterTargets",
+    "req": {
+      "TargetGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the target group.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Targets.member.N": {
+        "desc": "The targets.",
+        "type": "Array of TargetDescription objects",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "InvalidTarget": {
+        "desc": "The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.",
+        "type": "Array of TargetDescription objects"
+      },
+      "TargetGroupNotFound": {
+        "desc": "The specified target group does not exist.",
+        "type": "Array of TargetDescription objects"
+      },
+      "TooManyRegistrationsForTargetId": {
+        "desc": "You've reached the limit on the number of times a target can be registered with a load balancer.",
+        "type": "Array of TargetDescription objects"
+      },
+      "TooManyTargets": {
+        "desc": "You've reached the limit on the number of targets.",
+        "type": "Array of TargetDescription objects"
+      }
+    }
+  },
+  {
+    "title": "RemoveListenerCertificates",
+    "req": {
+      "Certificates.member.N": {
+        "desc": "The certificate to remove. You can specify one certificate per call. Set CertificateArn to the certificate ARN but do not set IsDefault.",
+        "type": "Array of Certificate objects",
+        "required": "yes"
+      },
+      "ListenerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the listener.",
+        "type": "String",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "ListenerNotFound": {
+        "desc": "The specified listener does not exist.",
+        "type": "String"
+      },
+      "OperationNotPermitted": {
+        "desc": "This operation is not allowed.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "RemoveTags",
+    "req": {
+      "ResourceArns.member.N": {
+        "desc": "The Amazon Resource Name (ARN) of the resource.",
+        "type": "Array of strings",
+        "required": "yes"
+      },
+      "TagKeys.member.N": {
+        "desc": "The tag keys for the tags to remove.",
+        "type": "Array of strings",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "ListenerNotFound": {
+        "desc": "The specified listener does not exist.",
+        "type": "Array of strings"
+      },
+      "LoadBalancerNotFound": {
+        "desc": "The specified load balancer does not exist.",
+        "type": "Array of strings"
+      },
+      "RuleNotFound": {
+        "desc": "The specified rule does not exist.",
+        "type": "Array of strings"
+      },
+      "TargetGroupNotFound": {
+        "desc": "The specified target group does not exist.",
+        "type": "Array of strings"
+      },
+      "TooManyTags": {
+        "desc": "You've reached the limit on the number of tags per load balancer.",
+        "type": "Array of strings"
+      }
+    }
+  },
+  {
+    "title": "SetIpAddressType",
+    "req": {
+      "IpAddressType": {
+        "desc": "The IP address type. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses). Internal load balancers must use ipv4. Network Load Balancers must use ipv4.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "ipv4",
+          "dualstack"
+        ]
+      },
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "ipv4",
+          "dualstack"
+        ]
+      }
+    },
+    "res": {
+      "IpAddressType": {
+        "desc": "The IP address type.",
+        "type": "String",
+        "values": [
+          "ipv4",
+          "dualstack"
+        ]
+      }
+    }
+  },
+  {
+    "title": "SetRulePriorities",
+    "req": {
+      "RulePriorities.member.N": {
+        "desc": "The rule priorities.",
+        "type": "Array of RulePriorityPair objects",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "Rules.member.N": {
+        "desc": "Information about the rules.",
+        "type": "Array of Rule objects"
+      }
+    }
+  },
+  {
+    "title": "SetSecurityGroups",
+    "req": {
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "yes"
+      },
+      "SecurityGroups.member.N": {
+        "desc": "The IDs of the security groups.",
+        "type": "Array of strings",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "SecurityGroupIds.member.N": {
+        "desc": "The IDs of the security groups associated with the load balancer.",
+        "type": "Array of strings"
+      }
+    }
+  },
+  {
+    "title": "SetSubnets",
+    "req": {
+      "LoadBalancerArn": {
+        "desc": "The Amazon Resource Name (ARN) of the load balancer.",
+        "type": "String",
+        "required": "yes"
+      },
+      "SubnetMappings.member.N": {
+        "desc": "The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.",
+        "type": "Array of SubnetMapping objects",
+        "required": "no"
+      },
+      "Subnets.member.N": {
+        "desc": "The IDs of the public subnets. You must specify subnets from at least two Availability Zones. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    },
+    "res": {
+      "AvailabilityZones.member.N": {
+        "desc": "Information about the subnet and Availability Zone.",
+        "type": "Array of AvailabilityZone objects"
+      }
+    }
+  }
+]

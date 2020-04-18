@@ -1,0 +1,55 @@
+{
+  "type": "Protocol",
+  "name": "MTLRenderPipelineState",
+  "desc": "An object that contains the graphics functions and configuration state used in a render pass.",
+  "items": [
+    {
+      "name": "device",
+      "type": "var",
+      "datatype": "MTLDevice",
+      "desc": "The device for which this pipeline state object was created."
+    },
+    {
+      "name": "label",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "A string that identifies this object."
+    },
+    {
+      "name": "maxTotalThreadsPerThreadgroup",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum total number of threads that can be in a single threadgroup."
+    },
+    {
+      "name": "threadgroupSizeMatchesTileSize",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean indicating that the pipeline state requires a threadgroup size equal to the tile size."
+    },
+    {
+      "name": "imageblockSampleLength",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The size, in bytes, of the render pipeline's imageblock for a single sample."
+    },
+    {
+      "name": "imageblockMemoryLength",
+      "type": "func",
+      "desc": "Returns the imageblock memory length for the given imageblock dimensions.",
+      "params": [
+        {
+          "name": "forDimensions",
+          "type": "MTLSize"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "supportIndirectCommandBuffers",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean that indicates whether you can use this render pipeline state with indirect command buffers."
+    }
+  ]
+}

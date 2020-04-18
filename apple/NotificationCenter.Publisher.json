@@ -1,0 +1,804 @@
+{
+  "type": "Structure",
+  "name": "NotificationCenter.Publisher",
+  "desc": "A publisher that emits elements when broadcasting notifications.",
+  "items": [
+    {
+      "name": "center",
+      "type": "let",
+      "datatype": "NotificationCenter",
+      "desc": "The notification center this publisher uses as a source."
+    },
+    {
+      "name": "name",
+      "type": "let",
+      "datatype": "Notification.Name",
+      "desc": "The name of notifications published by this publisher."
+    },
+    {
+      "name": "object",
+      "type": "let",
+      "datatype": "AnyObject?",
+      "desc": "The object posting the named notfication."
+    },
+    {
+      "name": "append",
+      "type": "func",
+      "params": [
+        {
+          "type": "Notification..."
+        }
+      ],
+      "returnType": "Publishers.Concatenate<NotificationCenter.Publisher, Publishers.Sequence<[Notification], Never>>"
+    },
+    {
+      "name": "assertNoFailure",
+      "type": "func",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "file",
+          "type": "StaticString"
+        },
+        {
+          "name": "line",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "Publishers.AssertNoFailure<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "assign<Root>",
+      "type": "func",
+      "params": [
+        {
+          "name": "to",
+          "type": "ReferenceWritableKeyPath<Root"
+        },
+        {
+          "type": "Notification>"
+        },
+        {
+          "name": "on",
+          "type": "Root"
+        }
+      ],
+      "returnType": "AnyCancellable"
+    },
+    {
+      "name": "breakpointOnError",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.Breakpoint<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "buffer",
+      "type": "func",
+      "params": [
+        {
+          "name": "size",
+          "type": "Int"
+        },
+        {
+          "name": "prefetch",
+          "type": "Publishers.PrefetchStrategy"
+        },
+        {
+          "name": "whenFull",
+          "type": "Publishers.BufferingStrategy<Never>"
+        }
+      ],
+      "returnType": "Publishers.Buffer<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "collect",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.Collect<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "collect",
+      "type": "func",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Publishers.CollectByCount<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "collect<S>",
+      "type": "func",
+      "params": [
+        {
+          "type": "Publishers.TimeGroupingStrategy<S>"
+        },
+        {
+          "name": "options",
+          "type": "S.SchedulerOptions?"
+        }
+      ],
+      "returnType": "Publishers.CollectByTime<NotificationCenter.Publisher, S>"
+    },
+    {
+      "name": "combineLatest<P>",
+      "type": "func",
+      "params": [
+        {
+          "type": "P"
+        }
+      ],
+      "returnType": "Publishers.CombineLatest<NotificationCenter.Publisher, P>"
+    },
+    {
+      "name": "combineLatest<P, Q>",
+      "type": "func",
+      "params": [
+        {
+          "type": "P"
+        },
+        {
+          "type": "Q"
+        }
+      ],
+      "returnType": "Publishers.CombineLatest3<NotificationCenter.Publisher, P, Q>"
+    },
+    {
+      "name": "combineLatest<P, Q, R>",
+      "type": "func",
+      "params": [
+        {
+          "type": "P"
+        },
+        {
+          "type": "Q"
+        },
+        {
+          "type": "R"
+        }
+      ],
+      "returnType": "Publishers.CombineLatest4<NotificationCenter.Publisher, P, Q, R>"
+    },
+    {
+      "name": "contains",
+      "type": "func",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ],
+      "returnType": "Publishers.Contains<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "count",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.Count<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "debounce<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "for",
+          "type": "S.SchedulerTimeType.Stride"
+        },
+        {
+          "name": "scheduler",
+          "type": "S"
+        },
+        {
+          "name": "options",
+          "type": "S.SchedulerOptions?"
+        }
+      ],
+      "returnType": "Publishers.Debounce<NotificationCenter.Publisher, S>"
+    },
+    {
+      "name": "decode<Item, Coder>",
+      "type": "func",
+      "params": [
+        {
+          "name": "type",
+          "type": "Item.Type"
+        },
+        {
+          "name": "decoder",
+          "type": "Coder"
+        }
+      ],
+      "returnType": "Publishers.Decode<NotificationCenter.Publisher, Item, Coder>"
+    },
+    {
+      "name": "delay<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "for",
+          "type": "S.SchedulerTimeType.Stride"
+        },
+        {
+          "name": "tolerance",
+          "type": "S.SchedulerTimeType.Stride?"
+        },
+        {
+          "name": "scheduler",
+          "type": "S"
+        },
+        {
+          "name": "options",
+          "type": "S.SchedulerOptions?"
+        }
+      ],
+      "returnType": "Publishers.Delay<NotificationCenter.Publisher, S>"
+    },
+    {
+      "name": "drop<P>",
+      "type": "func",
+      "params": [
+        {
+          "name": "untilOutputFrom",
+          "type": "P"
+        }
+      ],
+      "returnType": "Publishers.DropUntilOutput<NotificationCenter.Publisher, P>"
+    },
+    {
+      "name": "dropFirst",
+      "type": "func",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Publishers.Drop<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "eraseToAnyPublisher",
+      "type": "func",
+      "params": [],
+      "returnType": "AnyPublisher<Notification, Never>"
+    },
+    {
+      "name": "first",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.First<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "ignoreOutput",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.IgnoreOutput<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "last",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.Last<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "makeConnectable",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.MakeConnectable<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "map<T>",
+      "type": "func",
+      "params": [
+        {
+          "type": "KeyPath<Notification"
+        },
+        {
+          "type": "T>"
+        }
+      ],
+      "returnType": "Publishers.MapKeyPath<NotificationCenter.Publisher, T>"
+    },
+    {
+      "name": "map<T0, T1>",
+      "type": "func",
+      "params": [
+        {
+          "type": "KeyPath<Notification"
+        },
+        {
+          "type": "T0>"
+        },
+        {
+          "type": "KeyPath<Notification"
+        },
+        {
+          "type": "T1>"
+        }
+      ],
+      "returnType": "Publishers.MapKeyPath2<NotificationCenter.Publisher, T0, T1>"
+    },
+    {
+      "name": "map<T0, T1, T2>",
+      "type": "func",
+      "params": [
+        {
+          "type": "KeyPath<Notification"
+        },
+        {
+          "type": "T0>"
+        },
+        {
+          "type": "KeyPath<Notification"
+        },
+        {
+          "type": "T1>"
+        },
+        {
+          "type": "KeyPath<Notification"
+        },
+        {
+          "type": "T2>"
+        }
+      ],
+      "returnType": "Publishers.MapKeyPath3<NotificationCenter.Publisher, T0, T1, T2>"
+    },
+    {
+      "name": "measureInterval<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "using",
+          "type": "S"
+        },
+        {
+          "name": "options",
+          "type": "S.SchedulerOptions?"
+        }
+      ],
+      "returnType": "Publishers.MeasureInterval<NotificationCenter.Publisher, S>"
+    },
+    {
+      "name": "merge",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "NotificationCenter.Publisher"
+        }
+      ],
+      "returnType": "Publishers.MergeMany<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "merge<B, C>",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "B"
+        },
+        {
+          "type": "C"
+        }
+      ],
+      "returnType": "Publishers.Merge3<NotificationCenter.Publisher, B, C>"
+    },
+    {
+      "name": "merge<B, C, D>",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "B"
+        },
+        {
+          "type": "C"
+        },
+        {
+          "type": "D"
+        }
+      ],
+      "returnType": "Publishers.Merge4<NotificationCenter.Publisher, B, C, D>"
+    },
+    {
+      "name": "merge<B, C, D, E>",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "B"
+        },
+        {
+          "type": "C"
+        },
+        {
+          "type": "D"
+        },
+        {
+          "type": "E"
+        }
+      ],
+      "returnType": "Publishers.Merge5<NotificationCenter.Publisher, B, C, D, E>"
+    },
+    {
+      "name": "merge<B, C, D, E, F>",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "B"
+        },
+        {
+          "type": "C"
+        },
+        {
+          "type": "D"
+        },
+        {
+          "type": "E"
+        },
+        {
+          "type": "F"
+        }
+      ],
+      "returnType": "Publishers.Merge6<NotificationCenter.Publisher, B, C, D, E, F>"
+    },
+    {
+      "name": "merge<B, C, D, E, F, G>",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "B"
+        },
+        {
+          "type": "C"
+        },
+        {
+          "type": "D"
+        },
+        {
+          "type": "E"
+        },
+        {
+          "type": "F"
+        },
+        {
+          "type": "G"
+        }
+      ],
+      "returnType": "Publishers.Merge7<NotificationCenter.Publisher, B, C, D, E, F, G>"
+    },
+    {
+      "name": "merge<B, C, D, E, F, G, H>",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "B"
+        },
+        {
+          "type": "C"
+        },
+        {
+          "type": "D"
+        },
+        {
+          "type": "E"
+        },
+        {
+          "type": "F"
+        },
+        {
+          "type": "G"
+        },
+        {
+          "type": "H"
+        }
+      ],
+      "returnType": "Publishers.Merge8<NotificationCenter.Publisher, B, C, D, E, F, G, H>"
+    },
+    {
+      "name": "multicast<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "subject",
+          "type": "S"
+        }
+      ],
+      "returnType": "Publishers.Multicast<NotificationCenter.Publisher, S>"
+    },
+    {
+      "name": "output",
+      "type": "func",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Publishers.Output<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "output<R>",
+      "type": "func",
+      "params": [
+        {
+          "name": "in",
+          "type": "R"
+        }
+      ],
+      "returnType": "Publishers.Output<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Publishers.Output<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "prefix<P>",
+      "type": "func",
+      "params": [
+        {
+          "name": "untilOutputFrom",
+          "type": "P"
+        }
+      ],
+      "returnType": "Publishers.PrefixUntilOutput<NotificationCenter.Publisher, P>"
+    },
+    {
+      "name": "prepend",
+      "type": "func",
+      "params": [
+        {
+          "type": "Notification..."
+        }
+      ],
+      "returnType": "Publishers.Concatenate<Publishers.Sequence<[Notification], Never>, NotificationCenter.Publisher>"
+    },
+    {
+      "name": "print",
+      "type": "func",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "to",
+          "type": "TextOutputStream?"
+        }
+      ],
+      "returnType": "Publishers.Print<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "receive<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "on",
+          "type": "S"
+        },
+        {
+          "name": "options",
+          "type": "S.SchedulerOptions?"
+        }
+      ],
+      "returnType": "Publishers.ReceiveOn<NotificationCenter.Publisher, S>"
+    },
+    {
+      "name": "receive<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "subscriber",
+          "type": "S"
+        }
+      ]
+    },
+    {
+      "name": "removeDuplicates",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.RemoveDuplicates<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "replaceEmpty",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "Notification"
+        }
+      ],
+      "returnType": "Publishers.ReplaceEmpty<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "replaceError",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "Notification"
+        }
+      ],
+      "returnType": "Publishers.ReplaceError<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "replaceNil<T>",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "T"
+        }
+      ],
+      "returnType": "Publishers.Map<NotificationCenter.Publisher, T>"
+    },
+    {
+      "name": "retry",
+      "type": "func",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Publishers.Retry<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "setFailureType<E>",
+      "type": "func",
+      "params": [
+        {
+          "name": "to",
+          "type": "E.Type"
+        }
+      ],
+      "returnType": "Publishers.SetFailureType<NotificationCenter.Publisher, E>"
+    },
+    {
+      "name": "share",
+      "type": "func",
+      "params": [],
+      "returnType": "Publishers.Share<NotificationCenter.Publisher>"
+    },
+    {
+      "name": "subscribe<S>",
+      "type": "func",
+      "params": [
+        {
+          "type": "S"
+        }
+      ],
+      "returnType": "AnyCancellable"
+    },
+    {
+      "name": "subscribe<S>",
+      "type": "func",
+      "params": [
+        {
+          "type": "S"
+        }
+      ]
+    },
+    {
+      "name": "subscribe<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "on",
+          "type": "S"
+        },
+        {
+          "name": "options",
+          "type": "S.SchedulerOptions?"
+        }
+      ],
+      "returnType": "Publishers.SubscribeOn<NotificationCenter.Publisher, S>"
+    },
+    {
+      "name": "throttle<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "for",
+          "type": "S.SchedulerTimeType.Stride"
+        },
+        {
+          "name": "scheduler",
+          "type": "S"
+        },
+        {
+          "name": "latest",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Publishers.Throttle<NotificationCenter.Publisher, S>"
+    },
+    {
+      "name": "zip<P>",
+      "type": "func",
+      "params": [
+        {
+          "type": "P"
+        }
+      ],
+      "returnType": "Publishers.Zip<NotificationCenter.Publisher, P>"
+    },
+    {
+      "name": "zip<P, Q>",
+      "type": "func",
+      "params": [
+        {
+          "type": "P"
+        },
+        {
+          "type": "Q"
+        }
+      ],
+      "returnType": "Publishers.Zip3<NotificationCenter.Publisher, P, Q>"
+    },
+    {
+      "name": "zip<P, Q, R>",
+      "type": "func",
+      "params": [
+        {
+          "type": "P"
+        },
+        {
+          "type": "Q"
+        },
+        {
+          "type": "R"
+        }
+      ],
+      "returnType": "Publishers.Zip4<NotificationCenter.Publisher, P, Q, R>"
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "params": [
+        {
+          "type": "NotificationCenter.Publisher"
+        },
+        {
+          "type": "NotificationCenter.Publisher"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "params": [
+        {
+          "type": "NotificationCenter.Publisher"
+        },
+        {
+          "type": "NotificationCenter.Publisher"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "publisher",
+      "type": "func",
+      "desc": "Returns a publisher that emits events when broadcasting notifications.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Notification.Name"
+        },
+        {
+          "name": "object",
+          "type": "AnyObject?"
+        }
+      ],
+      "returnType": "NotificationCenter.Publisher"
+    }
+  ]
+}

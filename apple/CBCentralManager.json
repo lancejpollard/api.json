@@ -1,0 +1,95 @@
+{
+  "type": "Class",
+  "name": "CBCentralManager",
+  "desc": "An object that scans for, discovers, connects to, and manages peripherals.",
+  "items": [
+    {
+      "name": "cancelPeripheralConnection",
+      "type": "func",
+      "desc": "Cancels an active or pending local connection to a peripheral.",
+      "params": [
+        {
+          "type": "CBPeripheral"
+        }
+      ]
+    },
+    {
+      "name": "retrieveConnectedPeripherals",
+      "type": "func",
+      "desc": "Returns a list of the peripherals connected to the system whose services match a given set of criteria.",
+      "params": [
+        {
+          "name": "withServices",
+          "type": "[CBUUID]"
+        }
+      ],
+      "returnType": "[CBPeripheral]"
+    },
+    {
+      "name": "retrievePeripherals",
+      "type": "func",
+      "desc": "Returns a list of known peripherals by their identifiers.",
+      "params": [
+        {
+          "name": "withIdentifiers",
+          "type": "[UUID]"
+        }
+      ],
+      "returnType": "[CBPeripheral]"
+    },
+    {
+      "name": "stopScan",
+      "type": "func",
+      "desc": "Asks the central manager to stop scanning for peripherals.",
+      "params": []
+    },
+    {
+      "name": "isScanning",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the central is currently scanning."
+    },
+    {
+      "name": "supports",
+      "type": "class func",
+      "desc": "Returns a Boolean that indicates whether the device supports a specific set of features.",
+      "params": [
+        {
+          "type": "CBCentralManager.Feature"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "CBCentralManagerDelegate?",
+      "desc": "The delegate object that you want to receive central manager events."
+    },
+    {
+      "name": "CBConnectionEvent",
+      "type": "enum",
+      "desc": "A change to the connection state of a peer."
+    },
+    {
+      "name": "ct CBConnectionEventMatchingOption",
+      "type": "enum",
+      "desc": "A set of options to use when registering for connection events."
+    },
+    {
+      "name": "CBCentralManagerState",
+      "type": "enum",
+      "desc": "Values that represent the current state of a central manager object."
+    },
+    {
+      "name": "s CBCentral",
+      "type": "enum",
+      "desc": "A remote device connected to a local app, which is acting as a peripheral."
+    },
+    {
+      "name": "ocol CBCentralManagerDelegate",
+      "type": "enum",
+      "desc": "A protocol that provides updates for the discovery and management of peripheral devices."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "type": "Class",
+  "name": "UNUserNotificationCenter",
+  "desc": "The central object for managing notification-related activities for your app or app extension.",
+  "items": [
+    {
+      "name": "current",
+      "type": "class func",
+      "desc": "Returns the shared user notification center object for your app or app extension.",
+      "params": [],
+      "returnType": "UNUserNotificationCenter"
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "UNUserNotificationCenterDelegate?",
+      "desc": "The object that processes incoming notifications and notification-related actions."
+    },
+    {
+      "name": "supportsContentExtensions",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the current device supports notification content extensions."
+    },
+    {
+      "name": "setNotificationCategories",
+      "type": "func",
+      "desc": "Registers your app’s notification types and the custom actions that they support.",
+      "params": [
+        {
+          "type": "Set<UNNotificationCategory>"
+        }
+      ]
+    },
+    {
+      "name": "removePendingNotificationRequests",
+      "type": "func",
+      "desc": "Unschedules the specified notification requests.",
+      "params": [
+        {
+          "name": "withIdentifiers",
+          "type": "[String]"
+        }
+      ]
+    },
+    {
+      "name": "removeAllPendingNotificationRequests",
+      "type": "func",
+      "desc": "Unschedules all pending notification requests.",
+      "params": []
+    },
+    {
+      "name": "removeDeliveredNotifications",
+      "type": "func",
+      "desc": "Removes the specified notification requests from Notification Center.",
+      "params": [
+        {
+          "name": "withIdentifiers",
+          "type": "[String]"
+        }
+      ]
+    },
+    {
+      "name": "removeAllDeliveredNotifications",
+      "type": "func",
+      "desc": "Removes all of the app’s delivered notifications from Notification Center.",
+      "params": []
+    },
+    {
+      "name": "UNErrorDomain",
+      "type": "let",
+      "datatype": "String",
+      "desc": "The error domain for notifications."
+    }
+  ]
+}

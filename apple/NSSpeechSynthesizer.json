@@ -1,0 +1,199 @@
+{
+  "type": "Class",
+  "name": "NSSpeechSynthesizer",
+  "desc": "The Cocoa interface to speech synthesis in macOS.",
+  "items": [
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "NSSpeechSynthesizerDelegate?",
+      "desc": "The synthesizer’s delegate."
+    },
+    {
+      "name": "usesFeedbackWindow",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the receiver uses the speech feedback window."
+    },
+    {
+      "name": "voice",
+      "type": "func",
+      "desc": "Returns the identifier of the receiver’s current voice.",
+      "params": [],
+      "returnType": "NSSpeechSynthesizer.VoiceName?"
+    },
+    {
+      "name": "setVoice",
+      "type": "func",
+      "desc": "Sets the receiver’s current voice.",
+      "params": [
+        {
+          "type": "NSSpeechSynthesizer.VoiceName?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "rate",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The synthesizer’s speaking rate (words per minute)."
+    },
+    {
+      "name": "volume",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The synthesizer’s speaking volume."
+    },
+    {
+      "name": "addSpeechDictionary",
+      "type": "func",
+      "desc": "Registers the given speech dictionary with the receiver.",
+      "params": [
+        {
+          "name": "[NSSpeechSynthesizer.DictionaryKey",
+          "type": "Any]"
+        }
+      ]
+    },
+    {
+      "name": "object",
+      "type": "func",
+      "desc": "Provides the value of a receiver’s property.",
+      "params": [
+        {
+          "name": "forProperty",
+          "type": "NSSpeechSynthesizer.SpeechPropertyKey"
+        }
+      ],
+      "returnType": "Any"
+    },
+    {
+      "name": "setObject",
+      "type": "func",
+      "desc": "Specifies the value of a receiver’s property.",
+      "params": [
+        {
+          "type": "Any?"
+        },
+        {
+          "name": "forProperty",
+          "type": "NSSpeechSynthesizer.SpeechPropertyKey"
+        }
+      ]
+    },
+    {
+      "name": "availableVoices",
+      "type": "class var",
+      "datatype": "[NSSpeechSynthesizer.VoiceName]",
+      "desc": "Provides the identifiers of the voices available on the system."
+    },
+    {
+      "name": "attributes",
+      "type": "class func",
+      "desc": "Provides the attribute dictionary of a voice.",
+      "params": [
+        {
+          "name": "forVoice",
+          "type": "NSSpeechSynthesizer.VoiceName"
+        }
+      ],
+      "returnType": "[NSSpeechSynthesizer.VoiceAttributeKey : Any]"
+    },
+    {
+      "name": "defaultVoice",
+      "type": "class var",
+      "datatype": "NSSpeechSynthesizer.VoiceName",
+      "desc": "Provides the identifier of the default voice."
+    },
+    {
+      "name": "isAnyApplicationSpeaking",
+      "type": "class var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether any application is currently speaking through the sound output device."
+    },
+    {
+      "name": "isSpeaking",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the receiver is currently generating synthesized speech."
+    },
+    {
+      "name": "startSpeaking",
+      "type": "func",
+      "desc": "Begins speaking synthesized text through the system’s default sound output device.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "startSpeaking",
+      "type": "func",
+      "desc": "Begins synthesizing text into a sound (AIFF) file.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "to",
+          "type": "URL"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "pauseSpeaking",
+      "type": "func",
+      "desc": "Pauses synthesis in progress at a given boundary.",
+      "params": [
+        {
+          "name": "at",
+          "type": "NSSpeechSynthesizer.Boundary"
+        }
+      ]
+    },
+    {
+      "name": "continueSpeaking",
+      "type": "func",
+      "desc": "Resumes synthesis.",
+      "params": []
+    },
+    {
+      "name": "stopSpeaking",
+      "type": "func",
+      "desc": "Stops synthesis in progress.",
+      "params": []
+    },
+    {
+      "name": "stopSpeaking",
+      "type": "func",
+      "desc": "Stops synthesis in progress at a given boundary.",
+      "params": [
+        {
+          "name": "at",
+          "type": "NSSpeechSynthesizer.Boundary"
+        }
+      ]
+    },
+    {
+      "name": "NSSpeechSynthesizer.Boundary",
+      "type": "enum",
+      "desc": "These constants are used to indicate where speech should be stopped and paused. See pauseSpeaking(at:) and stopSpeaking(at:)."
+    },
+    {
+      "name": "phonemes",
+      "type": "func",
+      "desc": "Provides the phoneme symbols generated by the given text.",
+      "params": [
+        {
+          "name": "from",
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    }
+  ]
+}

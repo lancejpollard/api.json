@@ -1,0 +1,81 @@
+{
+  "type": "Class",
+  "name": "CWWiFiClient",
+  "desc": "A wrapper around the entire Wi-Fi subsystem that you use to access interfaces and set up event notifications.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class func",
+      "desc": "The shared Wi-Fi client object.",
+      "params": [],
+      "returnType": "CWWiFiClient"
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "AnyObject?",
+      "desc": "An object that provides Wi-Fi event handling."
+    },
+    {
+      "name": "interface",
+      "type": "func",
+      "desc": "Returns the default Wi-Fi interface.",
+      "params": [],
+      "returnType": "CWInterface?"
+    },
+    {
+      "name": "interface",
+      "type": "func",
+      "desc": "Returns the Wi-Fi interface with the given name.",
+      "params": [
+        {
+          "name": "withName",
+          "type": "String?"
+        }
+      ],
+      "returnType": "CWInterface?"
+    },
+    {
+      "name": "interfaces",
+      "type": "func",
+      "desc": "Returns all available Wi-Fi interfaces.",
+      "params": [],
+      "returnType": "[CWInterface]?"
+    },
+    {
+      "name": "interfaceNames",
+      "type": "class func",
+      "desc": "Returns the list of the names of available Wi-Fi interfaces.",
+      "params": [],
+      "returnType": "[String]?"
+    },
+    {
+      "name": "startMonitoringEvent",
+      "type": "func",
+      "desc": "Register for specific Wi-Fi event notifications.",
+      "params": [
+        {
+          "name": "with",
+          "type": "CWEventType"
+        }
+      ]
+    },
+    {
+      "name": "stopMonitoringAllEvents",
+      "type": "func",
+      "desc": "Unregister for all Wi-Fi event notifications.",
+      "params": []
+    },
+    {
+      "name": "stopMonitoringEvent",
+      "type": "func",
+      "desc": "Unregister for specific Wi-Fi event notifications.",
+      "params": [
+        {
+          "name": "with",
+          "type": "CWEventType"
+        }
+      ]
+    }
+  ]
+}

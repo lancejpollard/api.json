@@ -1,0 +1,1507 @@
+{
+  "type": "Class",
+  "name": "NSString",
+  "desc": "A static, plain-text Unicode string object that bridges to String; use NSString when you need reference semantics or other Foundation-specific behavior.",
+  "items": [
+    {
+      "name": "localizedUserNotificationString",
+      "type": "class func",
+      "desc": "Returns a localized string intended for display in a notification alert.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        },
+        {
+          "name": "arguments",
+          "type": "[Any]?"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "localizedStringWithFormat",
+      "type": "class func",
+      "params": [
+        {
+          "type": "NSString"
+        },
+        {
+          "type": "CVarArg..."
+        }
+      ],
+      "returnType": "Self"
+    },
+    {
+      "name": "length",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of UTF-16 code units in the receiver."
+    },
+    {
+      "name": "lengthOfBytes",
+      "type": "func",
+      "desc": "Returns the number of bytes required to store the receiver in a given encoding.",
+      "params": [
+        {
+          "name": "using",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "maximumLengthOfBytes",
+      "type": "func",
+      "desc": "Returns the maximum number of bytes needed to store the receiver in a given encoding.",
+      "params": [
+        {
+          "name": "using",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "character",
+      "type": "func",
+      "desc": "Returns the character at a given UTF-16 code unit index.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ],
+      "returnType": "unichar"
+    },
+    {
+      "name": "getCharacters",
+      "type": "func",
+      "desc": "Copies characters from a given range in the receiver into a given buffer.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<unichar>"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        }
+      ]
+    },
+    {
+      "name": "getBytes",
+      "type": "func",
+      "desc": "Gets a given range of characters as bytes in a specified encoding.",
+      "params": [
+        {
+          "type": "UnsafeMutableRawPointer?"
+        },
+        {
+          "name": "maxLength",
+          "type": "Int"
+        },
+        {
+          "name": "usedLength",
+          "type": "UnsafeMutablePointer<Int>?"
+        },
+        {
+          "name": "encoding",
+          "type": "UInt"
+        },
+        {
+          "name": "options",
+          "type": "NSString.EncodingConversionOptions"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        },
+        {
+          "name": "remaining",
+          "type": "NSRangePointer?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "cString",
+      "type": "func",
+      "desc": "Returns a representation of the string as a C string using a given encoding.",
+      "params": [
+        {
+          "name": "using",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "UnsafePointer<Int8>?"
+    },
+    {
+      "name": "getCString",
+      "type": "func",
+      "desc": "Converts the string to a given encoding and stores it in a buffer.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int8>"
+        },
+        {
+          "name": "maxLength",
+          "type": "Int"
+        },
+        {
+          "name": "encoding",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "utf8String",
+      "type": "var",
+      "datatype": "UnsafePointer<Int8>?",
+      "desc": "A null-terminated UTF8 representation of the string."
+    },
+    {
+      "name": "caseInsensitiveCompare",
+      "type": "func",
+      "desc": "Returns the result of invoking compare(_:options:) with NSCaseInsensitiveSearch as the only option.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "ComparisonResult"
+    },
+    {
+      "name": "localizedCaseInsensitiveCompare",
+      "type": "func",
+      "desc": "Compares the string with a given string using a case-insensitive, localized, comparison.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "ComparisonResult"
+    },
+    {
+      "name": "compare",
+      "type": "func",
+      "desc": "Returns the result of invoking compare(_:options:range:) with no options and the receiver’s full extent as the range.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "ComparisonResult"
+    },
+    {
+      "name": "localizedCompare",
+      "type": "func",
+      "desc": "Compares the string and a given string using a localized comparison.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "ComparisonResult"
+    },
+    {
+      "name": "compare",
+      "type": "func",
+      "desc": "Compares the string with the specified string using the given options.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        }
+      ],
+      "returnType": "ComparisonResult"
+    },
+    {
+      "name": "compare",
+      "type": "func",
+      "desc": "Returns the result of invoking compare(_:options:range:locale:) with a nil locale.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "ComparisonResult"
+    },
+    {
+      "name": "compare",
+      "type": "func",
+      "desc": "Compares the string using the specified options and returns the lexical ordering for the range.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        },
+        {
+          "name": "locale",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "ComparisonResult"
+    },
+    {
+      "name": "localizedStandardCompare",
+      "type": "func",
+      "desc": "Compares strings as sorted by the Finder.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "ComparisonResult"
+    },
+    {
+      "name": "hasPrefix",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given string matches the beginning characters of the receiver.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "hasSuffix",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given string matches the ending characters of the receiver.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isEqual",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given string is equal to the receiver using a literal Unicode-based comparison.",
+      "params": [
+        {
+          "name": "to",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "hash",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "An unsigned integer that can be used as a hash table address."
+    },
+    {
+      "name": "appendingFormat",
+      "type": "func",
+      "params": [
+        {
+          "type": "NSString"
+        },
+        {
+          "type": "CVarArg..."
+        }
+      ],
+      "returnType": "NSString"
+    },
+    {
+      "name": "appending",
+      "type": "func",
+      "desc": "Returns a new string made by appending a given string to the receiver.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "padding",
+      "type": "func",
+      "desc": "Returns a new string formed from the receiver by either removing characters from the end, or by appending as many occurrences as necessary of a given pad string.",
+      "params": [
+        {
+          "name": "toLength",
+          "type": "Int"
+        },
+        {
+          "name": "withPad",
+          "type": "String"
+        },
+        {
+          "name": "startingAt",
+          "type": "Int"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "lowercased",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A lowercase representation of the string."
+    },
+    {
+      "name": "localizedLowercase",
+      "type": "var",
+      "datatype": "String",
+      "desc": "Returns a version of the string with all letters converted to lowercase, taking into account the current locale."
+    },
+    {
+      "name": "lowercased",
+      "type": "func",
+      "desc": "Returns a version of the string with all letters converted to lowercase, taking into account the specified locale.",
+      "params": [
+        {
+          "name": "with",
+          "type": "Locale?"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "uppercased",
+      "type": "var",
+      "datatype": "String",
+      "desc": "An uppercase representation of the string."
+    },
+    {
+      "name": "localizedUppercase",
+      "type": "var",
+      "datatype": "String",
+      "desc": "Returns a version of the string with all letters converted to uppercase, taking into account the current locale."
+    },
+    {
+      "name": "uppercased",
+      "type": "func",
+      "desc": "Returns a version of the string with all letters converted to uppercase, taking into account the specified locale.",
+      "params": [
+        {
+          "name": "with",
+          "type": "Locale?"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "capitalized",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A capitalized representation of the string."
+    },
+    {
+      "name": "localizedCapitalized",
+      "type": "var",
+      "datatype": "String",
+      "desc": "Returns a capitalized representation of the receiver using the current locale."
+    },
+    {
+      "name": "capitalized",
+      "type": "func",
+      "desc": "Returns a capitalized representation of the receiver using the specified locale.",
+      "params": [
+        {
+          "name": "with",
+          "type": "Locale?"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "components",
+      "type": "func",
+      "desc": "Returns an array containing substrings from the receiver that have been divided by a given separator.",
+      "params": [
+        {
+          "name": "separatedBy",
+          "type": "String"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "components",
+      "type": "func",
+      "desc": "Returns an array containing substrings from the receiver that have been divided by characters in a given set.",
+      "params": [
+        {
+          "name": "separatedBy",
+          "type": "CharacterSet"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "trimmingCharacters",
+      "type": "func",
+      "desc": "Returns a new string made by removing from both ends of the receiver characters contained in a given character set.",
+      "params": [
+        {
+          "name": "in",
+          "type": "CharacterSet"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "substring",
+      "type": "func",
+      "desc": "Returns a new string containing the characters of the receiver from the one at a given index to the end.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Int"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "substring",
+      "type": "func",
+      "desc": "Returns a string object containing the characters of the receiver that lie within a given range.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "substring",
+      "type": "func",
+      "desc": "Returns a new string containing the characters of the receiver up to, but not including, the one at a given index.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Int"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "decomposedStringWithCanonicalMapping",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string made by normalizing the string’s contents using the Unicode Normalization Form D."
+    },
+    {
+      "name": "decomposedStringWithCompatibilityMapping",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string made by normalizing the receiver’s contents using the Unicode Normalization Form KD."
+    },
+    {
+      "name": "precomposedStringWithCanonicalMapping",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string made by normalizing the string’s contents using the Unicode Normalization Form C."
+    },
+    {
+      "name": "precomposedStringWithCompatibilityMapping",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string made by normalizing the receiver’s contents using the Unicode Normalization Form KC."
+    },
+    {
+      "name": "folding",
+      "type": "func",
+      "desc": "Creates a string suitable for comparison by removing the specified character distinctions from a string.",
+      "params": [
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        },
+        {
+          "name": "locale",
+          "type": "Locale?"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "applyingTransform",
+      "type": "func",
+      "desc": "Returns a new string by applying a specified transform to the string.",
+      "params": [
+        {
+          "type": "StringTransform"
+        },
+        {
+          "name": "reverse",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "contains",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the string contains a given string by performing a case-sensitive, locale-unaware search.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "localizedCaseInsensitiveContains",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the string contains a given string by performing a case-insensitive, locale-aware search.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "localizedStandardContains",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the string contains a given string by performing a case and diacritic insensitive, locale-aware search.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "rangeOfCharacter",
+      "type": "func",
+      "desc": "Finds and returns the range in the string of the first character from a given character set.",
+      "params": [
+        {
+          "name": "from",
+          "type": "CharacterSet"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "rangeOfCharacter",
+      "type": "func",
+      "desc": "Finds and returns the range in the string of the first character, using given options, from a given character set.",
+      "params": [
+        {
+          "name": "from",
+          "type": "CharacterSet"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "rangeOfCharacter",
+      "type": "func",
+      "desc": "Finds and returns the range in the string of the first character from a given character set found in a given range with given options.",
+      "params": [
+        {
+          "name": "from",
+          "type": "CharacterSet"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "range",
+      "type": "func",
+      "desc": "Finds and returns the range of the first occurrence of a given string within the string.",
+      "params": [
+        {
+          "name": "of",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "range",
+      "type": "func",
+      "desc": "Finds and returns the range of the first occurrence of a given string within the string, subject to given options.",
+      "params": [
+        {
+          "name": "of",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "range",
+      "type": "func",
+      "desc": "Finds and returns the range of the first occurrence of a given string, within the given range of the string, subject to given options.",
+      "params": [
+        {
+          "name": "of",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "range",
+      "type": "func",
+      "desc": "Finds and returns the range of the first occurrence of a given string within a given range of the string, subject to given options, using the specified locale, if any.",
+      "params": [
+        {
+          "name": "of",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        },
+        {
+          "name": "locale",
+          "type": "Locale?"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "localizedStandardRange",
+      "type": "func",
+      "desc": "Finds and returns the range of the first occurrence of a given string within the string by performing a case and diacritic insensitive, locale-aware search.",
+      "params": [
+        {
+          "name": "of",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "replacingOccurrences",
+      "type": "func",
+      "desc": "Returns a new string in which all occurrences of a target string in the receiver are replaced by another given string.",
+      "params": [
+        {
+          "name": "of",
+          "type": "String"
+        },
+        {
+          "name": "with",
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "replacingOccurrences",
+      "type": "func",
+      "desc": "Returns a new string in which all occurrences of a target string in a specified range of the receiver are replaced by another given string.",
+      "params": [
+        {
+          "name": "of",
+          "type": "String"
+        },
+        {
+          "name": "with",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "replacingCharacters",
+      "type": "func",
+      "desc": "Returns a new string in which the characters in a specified range of the receiver are replaced by a given string.",
+      "params": [
+        {
+          "name": "in",
+          "type": "NSRange"
+        },
+        {
+          "name": "with",
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "commonPrefix",
+      "type": "func",
+      "desc": "Returns a string containing characters the receiver and a given string have in common, starting from the beginning of each up to the first characters that aren’t equivalent.",
+      "params": [
+        {
+          "name": "with",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSString.CompareOptions"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "linguisticTags",
+      "type": "func",
+      "desc": "Returns an array of linguistic tags for the specified range and requested tags within the receiving string.",
+      "params": [
+        {
+          "name": "in",
+          "type": "NSRange"
+        },
+        {
+          "name": "scheme",
+          "type": "NSLinguisticTagScheme"
+        },
+        {
+          "name": "options",
+          "type": "NSLinguisticTagger.Options"
+        },
+        {
+          "name": "orthography",
+          "type": "NSOrthography?"
+        },
+        {
+          "name": "tokenRanges",
+          "type": "AutoreleasingUnsafeMutablePointer<NSArray?>?"
+        }
+      ],
+      "returnType": "[NSLinguisticTag]"
+    },
+    {
+      "name": "getLineStart",
+      "type": "func",
+      "desc": "Returns by reference the beginning of the first line and the end of the last line touched by the given range.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int>?"
+        },
+        {
+          "name": "end",
+          "type": "UnsafeMutablePointer<Int>?"
+        },
+        {
+          "name": "contentsEnd",
+          "type": "UnsafeMutablePointer<Int>?"
+        },
+        {
+          "name": "for",
+          "type": "NSRange"
+        }
+      ]
+    },
+    {
+      "name": "lineRange",
+      "type": "func",
+      "desc": "Returns the range of characters representing the line or lines containing a given range.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "getParagraphStart",
+      "type": "func",
+      "desc": "Returns by reference the beginning of the first paragraph and the end of the last paragraph touched by the given range.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int>?"
+        },
+        {
+          "name": "end",
+          "type": "UnsafeMutablePointer<Int>?"
+        },
+        {
+          "name": "contentsEnd",
+          "type": "UnsafeMutablePointer<Int>?"
+        },
+        {
+          "name": "for",
+          "type": "NSRange"
+        }
+      ]
+    },
+    {
+      "name": "paragraphRange",
+      "type": "func",
+      "desc": "Returns the range of characters representing the paragraph or paragraphs containing a given range.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "rangeOfComposedCharacterSequence",
+      "type": "func",
+      "desc": "Returns the range in the receiver of the composed character sequence located at a given index.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "rangeOfComposedCharacterSequences",
+      "type": "func",
+      "desc": "Returns the range in the string of the composed character sequences for a given range.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "NSRange"
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Writes the contents of the receiver to a file at a given path using a given encoding.",
+      "params": [
+        {
+          "name": "toFile",
+          "type": "String"
+        },
+        {
+          "name": "atomically",
+          "type": "Bool"
+        },
+        {
+          "name": "encoding",
+          "type": "UInt"
+        }
+      ]
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Writes the contents of the receiver to the URL specified by url using the specified encoding.",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        },
+        {
+          "name": "atomically",
+          "type": "Bool"
+        },
+        {
+          "name": "encoding",
+          "type": "UInt"
+        }
+      ]
+    },
+    {
+      "name": "propertyList",
+      "type": "func",
+      "desc": "Parses the receiver as a text representation of a property list, returning an NSString, NSData, NSArray, or NSDictionary object, according to the topmost element.",
+      "params": [],
+      "returnType": "Any"
+    },
+    {
+      "name": "propertyListFromStringsFileFormat",
+      "type": "func",
+      "desc": "Returns a dictionary object initialized with the keys and values found in the receiver.",
+      "params": [],
+      "returnType": "[AnyHashable : Any]?"
+    },
+    {
+      "name": "variantFittingPresentationWidth",
+      "type": "func",
+      "desc": "Returns a string variation suitable for the specified presentation width.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "doubleValue",
+      "type": "var",
+      "datatype": "Double",
+      "desc": "The floating-point value of the string as a double."
+    },
+    {
+      "name": "floatValue",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The floating-point value of the string as a float."
+    },
+    {
+      "name": "intValue",
+      "type": "var",
+      "datatype": "Int32",
+      "desc": "The integer value of the string."
+    },
+    {
+      "name": "integerValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The NSInteger value of the string."
+    },
+    {
+      "name": "longLongValue",
+      "type": "var",
+      "datatype": "Int64",
+      "desc": "The long long value of the string."
+    },
+    {
+      "name": "boolValue",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "The Boolean value of the string."
+    },
+    {
+      "name": "availableStringEncodings",
+      "type": "class var",
+      "datatype": "UnsafePointer<UInt>",
+      "desc": "Returns a zero-terminated list of the encodings string objects support in the application’s environment."
+    },
+    {
+      "name": "defaultCStringEncoding",
+      "type": "class var",
+      "datatype": "UInt",
+      "desc": "Returns the C-string encoding assumed for any method accepting a C string as an argument."
+    },
+    {
+      "name": "localizedName",
+      "type": "class func",
+      "desc": "Returns a human-readable string giving the name of a given encoding.",
+      "params": [
+        {
+          "name": "of",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "canBeConverted",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver can be converted to a given encoding without loss of information.",
+      "params": [
+        {
+          "name": "to",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "data",
+      "type": "func",
+      "desc": "Returns an NSData object containing a representation of the receiver encoded using a given encoding.",
+      "params": [
+        {
+          "name": "using",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "data",
+      "type": "func",
+      "desc": "Returns an NSData object containing a representation of the receiver encoded using a given encoding.",
+      "params": [
+        {
+          "name": "using",
+          "type": "UInt"
+        },
+        {
+          "name": "allowLossyConversion",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "description",
+      "type": "var",
+      "datatype": "String",
+      "desc": "This NSString object."
+    },
+    {
+      "name": "fastestEncoding",
+      "type": "var",
+      "datatype": "UInt",
+      "desc": "The fastest encoding to which the receiver may be converted without loss of information."
+    },
+    {
+      "name": "smallestEncoding",
+      "type": "var",
+      "datatype": "UInt",
+      "desc": "The smallest encoding to which the receiver can be converted without loss of information."
+    },
+    {
+      "name": "path",
+      "type": "class func",
+      "desc": "Returns a string built from the strings in a given array by concatenating them with a path separator between each pair.",
+      "params": [
+        {
+          "name": "withComponents",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "pathComponents",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The file-system path components of the receiver."
+    },
+    {
+      "name": "completePath",
+      "type": "func",
+      "desc": "Interprets the receiver as a path in the file system and attempts to perform filename completion, returning a numeric value that indicates whether a match was possible, and by reference the longest path that matches the receiver.",
+      "params": [
+        {
+          "name": "into",
+          "type": "AutoreleasingUnsafeMutablePointer<NSString?>?"
+        },
+        {
+          "name": "caseSensitive",
+          "type": "Bool"
+        },
+        {
+          "name": "matchesInto",
+          "type": "AutoreleasingUnsafeMutablePointer<NSArray?>?"
+        },
+        {
+          "name": "filterTypes",
+          "type": "[String]?"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "fileSystemRepresentation",
+      "type": "var",
+      "datatype": "UnsafePointer<Int8>",
+      "desc": "A file system-specific representation of the receiver."
+    },
+    {
+      "name": "getFileSystemRepresentation",
+      "type": "func",
+      "desc": "Interprets the receiver as a system-independent path and fills a buffer with a C-string in a format and encoding suitable for use with file-system calls.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int8>"
+        },
+        {
+          "name": "maxLength",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isAbsolutePath",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver represents an absolute path."
+    },
+    {
+      "name": "lastPathComponent",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The last path component of the receiver."
+    },
+    {
+      "name": "pathExtension",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The path extension, if any, of the string as interpreted as a path."
+    },
+    {
+      "name": "abbreviatingWithTildeInPath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A new string that replaces the current home directory portion of the current path with a tilde (~) character."
+    },
+    {
+      "name": "appendingPathComponent",
+      "type": "func",
+      "desc": "Returns a new string made by appending to the receiver a given string.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "appendingPathExtension",
+      "type": "func",
+      "desc": "Returns a new string made by appending to the receiver an extension separator followed by a given extension.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "deletingLastPathComponent",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A new string made by deleting the last path component from the receiver, along with any final path separator."
+    },
+    {
+      "name": "deletingPathExtension",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A new string made by deleting the extension (if any, and only the last) from the receiver."
+    },
+    {
+      "name": "expandingTildeInPath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A new string made by expanding the initial component of the receiver to its full path value."
+    },
+    {
+      "name": "resolvingSymlinksInPath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A new string made from the receiver by resolving all symbolic links and standardizing path."
+    },
+    {
+      "name": "standardizingPath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A new string made by removing extraneous path components from the receiver."
+    },
+    {
+      "name": "strings",
+      "type": "func",
+      "desc": "Returns an array of strings made by separately appending to the receiver each string in a given array.",
+      "params": [
+        {
+          "name": "byAppendingPaths",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "addingPercentEncoding",
+      "type": "func",
+      "desc": "Returns a new string made from the receiver by replacing all characters not in the specified set with percent-encoded characters.",
+      "params": [
+        {
+          "name": "withAllowedCharacters",
+          "type": "CharacterSet"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "removingPercentEncoding",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "Returns a new string made from the receiver by replacing all percent encoded sequences with the matching UTF-8 characters."
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Creates a new string using a given C-string.",
+      "params": [
+        {
+          "name": "withCString",
+          "type": "UnsafePointer<Int8>"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string containing the characters in a given C-string.",
+      "params": [
+        {
+          "name": "withCString",
+          "type": "UnsafePointer<Int8>"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string created by reading data from the file named by a given path.",
+      "params": [
+        {
+          "name": "withContentsOfFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string created by reading data from the file named by a given URL.",
+      "params": [
+        {
+          "name": "withContentsOf",
+          "type": "URL"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Writes the contents of the receiver to the file specified by a given path.",
+      "params": [
+        {
+          "name": "toFile",
+          "type": "String"
+        },
+        {
+          "name": "atomically",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Writes the contents of the receiver to the location specified by a given URL.",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        },
+        {
+          "name": "atomically",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "getCharacters",
+      "type": "func",
+      "desc": "Copies all characters from the receiver into a given buffer.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<unichar>"
+        }
+      ]
+    },
+    {
+      "name": "cString",
+      "type": "func",
+      "desc": "Returns a representation of the receiver as a C string in the default C-string encoding.",
+      "params": [],
+      "returnType": "UnsafePointer<Int8>?"
+    },
+    {
+      "name": "lossyCString",
+      "type": "func",
+      "desc": "Returns a representation of the receiver as a C string in the default C-string encoding, possibly losing information in converting to that encoding.",
+      "params": [],
+      "returnType": "UnsafePointer<Int8>?"
+    },
+    {
+      "name": "cStringLength",
+      "type": "func",
+      "desc": "Returns the length in char-sized units of the receiver’s C-string representation in the default C-string encoding.",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "getCString",
+      "type": "func",
+      "desc": "Invokes getCString(_:maxLength:range:remaining:) with NSMaximumStringLength as the maximum length, the receiver’s entire extent as the range, and NULL for the remaining range.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int8>"
+        }
+      ]
+    },
+    {
+      "name": "getCString",
+      "type": "func",
+      "desc": "Invokes getCString(_:maxLength:range:remaining:) with maxLength as the maximum length in char-sized units, the receiver’s entire extent as the range, and NULL for the remaining range.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int8>"
+        },
+        {
+          "name": "maxLength",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "getCString",
+      "type": "func",
+      "desc": "Converts the receiver’s content to the default C-string encoding and stores them in a given buffer.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Int8>"
+        },
+        {
+          "name": "maxLength",
+          "type": "Int"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        },
+        {
+          "name": "remaining",
+          "type": "NSRangePointer?"
+        }
+      ]
+    },
+    {
+      "name": "addingPercentEscapes",
+      "type": "func",
+      "desc": "Returns a representation of the receiver using a given encoding to determine the percent escapes necessary to convert the receiver into a legal URL string.",
+      "params": [
+        {
+          "name": "using",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "replacingPercentEscapes",
+      "type": "func",
+      "desc": "Returns a new string made by replacing in the receiver all percent escapes with the matching characters as determined by a given encoding.",
+      "params": [
+        {
+          "name": "using",
+          "type": "UInt"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "customPlaygroundQuickLook",
+      "type": "var",
+      "datatype": "PlaygroundQuickLook"
+    },
+    {
+      "name": "deferredLocalizedIntentsString",
+      "type": "class func",
+      "params": [
+        {
+          "name": "with",
+          "type": "String"
+        },
+        {
+          "type": "CVarArg..."
+        }
+      ],
+      "returnType": "NSString"
+    },
+    {
+      "name": "deferredLocalizedIntentsString",
+      "type": "class func",
+      "params": [
+        {
+          "name": "with",
+          "type": "String"
+        },
+        {
+          "name": "table",
+          "type": "String"
+        },
+        {
+          "type": "CVarArg..."
+        }
+      ],
+      "returnType": "NSString"
+    },
+    {
+      "name": "deferredLocalizedIntentsString",
+      "type": "class func",
+      "params": [
+        {
+          "name": "with",
+          "type": "String"
+        },
+        {
+          "name": "table",
+          "type": "String"
+        },
+        {
+          "name": "arguments",
+          "type": "CVaListPointer"
+        }
+      ],
+      "returnType": "NSString"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "type": "Protocol",
+  "name": "MTLFunction",
+  "desc": "An object that represents a public shader function in a Metal library.",
+  "items": [
+    {
+      "name": "device",
+      "type": "var",
+      "datatype": "MTLDevice",
+      "desc": "The device object that created the shader function."
+    },
+    {
+      "name": "label",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "A string that identifies the shader function."
+    },
+    {
+      "name": "functionType",
+      "type": "var",
+      "datatype": "MTLFunctionType",
+      "desc": "The shader function’s type."
+    },
+    {
+      "name": "name",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The function’s name."
+    },
+    {
+      "name": "MTLFunctionType",
+      "type": "enum",
+      "desc": "The type of a top-level Metal Shading Language (MSL) function."
+    },
+    {
+      "name": "patchType",
+      "type": "var",
+      "datatype": "MTLPatchType",
+      "desc": "The tessellation patch type of a post-tessellation vertex function."
+    },
+    {
+      "name": "patchControlPointCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of patch control points in the post-tessellation vertex function."
+    },
+    {
+      "name": "MTLPatchType",
+      "type": "enum",
+      "desc": "Types of tessellation patches that can be inputs of a post-tessellation vertex function."
+    },
+    {
+      "name": "vertexAttributes",
+      "type": "var",
+      "datatype": "[MTLVertexAttribute]?",
+      "desc": "An array that describes the vertex input attributes to a vertex function."
+    },
+    {
+      "name": "stageInputAttributes",
+      "type": "var",
+      "datatype": "[MTLAttribute]?",
+      "desc": "An array that describes the input attributes to the function."
+    },
+    {
+      "name": "functionConstantsDictionary",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "A dictionary of function constants for a specialized function."
+    },
+    {
+      "name": "makeArgumentEncoder",
+      "type": "func",
+      "desc": "Creates an argument encoder for an argument buffer that is one of this function's arguments.",
+      "params": [
+        {
+          "name": "bufferIndex",
+          "type": "Int"
+        }
+      ],
+      "returnType": "MTLArgumentEncoder"
+    },
+    {
+      "name": "makeArgumentEncoder",
+      "type": "func",
+      "desc": "Creates an argument encoder and returns reflection information for an argument buffer that is one of this function's arguments",
+      "params": [
+        {
+          "name": "bufferIndex",
+          "type": "Int"
+        },
+        {
+          "name": "reflection",
+          "type": "AutoreleasingUnsafeMutablePointer<MTLAutoreleasedArgument?>?"
+        }
+      ],
+      "returnType": "MTLArgumentEncoder"
+    }
+  ]
+}

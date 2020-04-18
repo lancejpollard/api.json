@@ -1,0 +1,283 @@
+{
+  "type": "Class",
+  "name": "NSPasteboard",
+  "desc": "An object that transfers data to and from the pasteboard server.",
+  "items": [
+    {
+      "name": "general",
+      "type": "class var",
+      "datatype": "NSPasteboard",
+      "desc": "The shared pasteboard object to use for general content."
+    },
+    {
+      "name": "withUniqueName",
+      "type": "class func",
+      "desc": "Creates and returns a new pasteboard with a name that is guaranteed to be unique with respect to other pasteboards in the system.",
+      "params": [],
+      "returnType": "NSPasteboard"
+    },
+    {
+      "name": "releaseGlobally",
+      "type": "func",
+      "desc": "Releases the receiver’s resources in the pasteboard server.",
+      "params": []
+    },
+    {
+      "name": "clearContents",
+      "type": "func",
+      "desc": "Clears the existing contents of the pasteboard.",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "writeObjects",
+      "type": "func",
+      "desc": "Writes an array of objects to the receiver.",
+      "params": [
+        {
+          "type": "[NSPasteboardWriting]"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setData",
+      "type": "func",
+      "desc": "Sets the data as the representation for the specified type for the first item on the receiver.",
+      "params": [
+        {
+          "type": "Data?"
+        },
+        {
+          "name": "forType",
+          "type": "NSPasteboard.PasteboardType"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setPropertyList",
+      "type": "func",
+      "desc": "Sets the given property list as the representation for the specified type for the first item on the receiver.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "forType",
+          "type": "NSPasteboard.PasteboardType"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setString",
+      "type": "func",
+      "desc": "Sets the given string as the representation for the specified type for the first item on the receiver.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "forType",
+          "type": "NSPasteboard.PasteboardType"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "pasteboardItems",
+      "type": "var",
+      "datatype": "[NSPasteboardItem]?",
+      "desc": "An array that contains all the items held by the pasteboard."
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the index of the specified pasteboard item.",
+      "params": [
+        {
+          "name": "of",
+          "type": "NSPasteboardItem"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "data",
+      "type": "func",
+      "desc": "Returns the data for the specified type from the first item in the receiver that contains the type.",
+      "params": [
+        {
+          "name": "forType",
+          "type": "NSPasteboard.PasteboardType"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "propertyList",
+      "type": "func",
+      "desc": "Returns the property list for the specified type from the first item in the receiver that contains the type.",
+      "params": [
+        {
+          "name": "forType",
+          "type": "NSPasteboard.PasteboardType"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "string",
+      "type": "func",
+      "desc": "Returns a concatenation of the strings for the specified type from all the items in the receiver that contain the type.",
+      "params": [
+        {
+          "name": "forType",
+          "type": "NSPasteboard.PasteboardType"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "availableType",
+      "type": "func",
+      "desc": "Scans the specified types for a type that the receiver supports.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[NSPasteboard.PasteboardType]"
+        }
+      ],
+      "returnType": "NSPasteboard.PasteboardType?"
+    },
+    {
+      "name": "canReadItem",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver contains any items that conform to the specified UTIs.",
+      "params": [
+        {
+          "name": "withDataConformingToTypes",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "types",
+      "type": "var",
+      "datatype": "[NSPasteboard.PasteboardType]?",
+      "desc": "An array of the receiver’s supported data types."
+    },
+    {
+      "name": "types",
+      "type": "class func",
+      "desc": "Returns the data types that can be converted to the specified type using the available filter services.",
+      "params": [
+        {
+          "name": "filterableTo",
+          "type": "NSPasteboard.PasteboardType"
+        }
+      ],
+      "returnType": "[NSPasteboard.PasteboardType]"
+    },
+    {
+      "name": "prepareForNewContents",
+      "type": "func",
+      "desc": "Prepares the pasteboard to receive new contents, removing the existing pasteboard contents.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSPasteboard.ContentsOptions"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "name",
+      "type": "var",
+      "datatype": "NSPasteboard.Name",
+      "desc": "The receiver’s name."
+    },
+    {
+      "name": "changeCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The receiver’s change count."
+    },
+    {
+      "name": "declareTypes",
+      "type": "func",
+      "desc": "Prepares the receiver for a change in its contents by declaring the new types of data it will contain and a new owner.",
+      "params": [
+        {
+          "type": "[NSPasteboard.PasteboardType]"
+        },
+        {
+          "name": "owner",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "addTypes",
+      "type": "func",
+      "desc": "Adds promises for the specified types to the first pasteboard item.",
+      "params": [
+        {
+          "type": "[NSPasteboard.PasteboardType]"
+        },
+        {
+          "name": "owner",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "writeFileContents",
+      "type": "func",
+      "desc": "Writes the contents of the specified file to the pasteboard.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Writes the serialized contents of the specified file wrapper to the pasteboard.",
+      "params": [
+        {
+          "type": "FileWrapper"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "readFileContentsType",
+      "type": "func",
+      "desc": "Reads data representing a file’s contents from the receiver and writes it to the specified file.",
+      "params": [
+        {
+          "type": "NSPasteboard.PasteboardType?"
+        },
+        {
+          "name": "toFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "readFileWrapper",
+      "type": "func",
+      "desc": "Reads data representing a file’s contents from the receiver and returns it as a file wrapper.",
+      "params": [],
+      "returnType": "FileWrapper?"
+    }
+  ]
+}

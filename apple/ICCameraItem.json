@@ -1,0 +1,139 @@
+{
+  "type": "Class",
+  "name": "ICCameraItem",
+  "desc": "An abstract class that represents a camera item.",
+  "items": [
+    {
+      "name": "uti",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The item’s uniform type identifier (UTI) string."
+    },
+    {
+      "name": "name",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The item’s name."
+    },
+    {
+      "name": "ptpObjectHandle",
+      "type": "var",
+      "datatype": "UInt32",
+      "desc": "The item’s PTP object handle value, if the camera uses the PTP protocol."
+    },
+    {
+      "name": "isRaw",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the item is a raw image file."
+    },
+    {
+      "name": "creationDate",
+      "type": "var",
+      "datatype": "Date?",
+      "desc": "The item’s creation date, usually the same as its EXIF creation date."
+    },
+    {
+      "name": "modificationDate",
+      "type": "var",
+      "datatype": "Date?",
+      "desc": "The item’s modification date, usually the same as its EXIF modification date."
+    },
+    {
+      "name": "wasAddedAfterContentCatalogCompleted",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the item was captured on the camera after the camera’s content had been fully enumerated."
+    },
+    {
+      "name": "device",
+      "type": "var",
+      "datatype": "ICCameraDevice?",
+      "desc": "The item’s parent device."
+    },
+    {
+      "name": "fileSystemPath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The item’s file system path on a camera using the mass storage transport type."
+    },
+    {
+      "name": "parentFolder",
+      "type": "var",
+      "datatype": "ICCameraFolder?",
+      "desc": "This item’s parent folder."
+    },
+    {
+      "name": "isInTemporaryStore",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether this item is in a temporary store."
+    },
+    {
+      "name": "requestMetadata",
+      "type": "func",
+      "desc": "Requests metadata for the item.",
+      "params": []
+    },
+    {
+      "name": "metadata",
+      "type": "var",
+      "datatype": "[AnyHashable",
+      "desc": "The item’s metadata."
+    },
+    {
+      "name": "metadataIfAvailable",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "The item’s metadata if it is readily available."
+    },
+    {
+      "name": "flushMetadataCache",
+      "type": "func",
+      "desc": "Deletes the item’s cached metadata.",
+      "params": []
+    },
+    {
+      "name": "requestThumbnail",
+      "type": "func",
+      "desc": "Requests a thumbnail for the item.",
+      "params": []
+    },
+    {
+      "name": "thumbnail",
+      "type": "var",
+      "datatype": "CGImage?",
+      "desc": "The item’s thumbnail."
+    },
+    {
+      "name": "thumbnailIfAvailable",
+      "type": "var",
+      "datatype": "CGImage?",
+      "desc": "The item’s thumbnail if it is readily available."
+    },
+    {
+      "name": "largeThumbnailIfAvailable",
+      "type": "var",
+      "datatype": "CGImage?",
+      "desc": "A large thumbnail for the item if one is readily available."
+    },
+    {
+      "name": "flushThumbnailCache",
+      "type": "func",
+      "desc": "Deletes the item’s cached thumbnail.",
+      "params": []
+    },
+    {
+      "name": "isLocked",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the storage card in the camera is locked."
+    },
+    {
+      "name": "userData",
+      "type": "var",
+      "datatype": "NSMutableDictionary?",
+      "desc": "A mutable dictionary to store arbitrary key-value pairs associated with a camera item."
+    }
+  ]
+}

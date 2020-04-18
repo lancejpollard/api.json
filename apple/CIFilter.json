@@ -1,0 +1,1437 @@
+{
+  "type": "Class",
+  "name": "CIFilter",
+  "desc": "An image processor that produces an image by manipulating one or more input images or by generating new image data.",
+  "items": [
+    {
+      "name": "filterNames",
+      "type": "class func",
+      "desc": "Returns an array of all published filter names that match all the specified categories.",
+      "params": [
+        {
+          "name": "inCategories",
+          "type": "[String]?"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "filterNames",
+      "type": "class func",
+      "desc": "Returns an array of all published filter names in the specified category.",
+      "params": [
+        {
+          "name": "inCategory",
+          "type": "String?"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "name",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A name associated with a filter."
+    },
+    {
+      "name": "isEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether the filter is enabled. Animatable."
+    },
+    {
+      "name": "attributes",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "A dictionary of key-value pairs that describe the filter."
+    },
+    {
+      "name": "inputKeys",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The names of all input parameters to the filter."
+    },
+    {
+      "name": "outputKeys",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The names of all output parameters from the filter."
+    },
+    {
+      "name": "outputImage",
+      "type": "var",
+      "datatype": "CIImage?",
+      "desc": "Returns a CIImage object that encapsulates the operations configured in the filter."
+    },
+    {
+      "name": "setDefaults",
+      "type": "func",
+      "desc": "Sets all input values for a filter to default values.",
+      "params": []
+    },
+    {
+      "name": "localizedName",
+      "type": "class func",
+      "desc": "Returns the localized name for the specified filter name.",
+      "params": [
+        {
+          "name": "forFilterName",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "localizedName",
+      "type": "class func",
+      "desc": "Returns  the localized name for the specified filter category.",
+      "params": [
+        {
+          "name": "forCategory",
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "localizedDescription",
+      "type": "class func",
+      "desc": "Returns the localized description of a filter for display in the user interface.",
+      "params": [
+        {
+          "name": "forFilterName",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "localizedReferenceDocumentation",
+      "type": "class func",
+      "desc": "Returns the location of the localized reference documentation that describes the filter.",
+      "params": [
+        {
+          "name": "forFilterName",
+          "type": "String"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "serializedXMP",
+      "type": "class func",
+      "desc": "Serializes filter parameters into XMP form that is suitable for embedding in an image.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[CIFilter]"
+        },
+        {
+          "name": "inputImageExtent",
+          "type": "CGRect"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "filterArray",
+      "type": "class func",
+      "desc": "Returns an array of filter objects de-serialized from XMP data.",
+      "params": [
+        {
+          "name": "fromSerializedXMP",
+          "type": "Data"
+        },
+        {
+          "name": "inputImageExtent",
+          "type": "CGRect"
+        },
+        {
+          "name": "error",
+          "type": "NSErrorPointer"
+        }
+      ],
+      "returnType": "[CIFilter]"
+    },
+    {
+      "name": "accordionFoldTransition",
+      "type": "class func",
+      "desc": "Returns an accordion fold transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIAccordionFoldTransition"
+    },
+    {
+      "name": "additionCompositing",
+      "type": "class func",
+      "desc": "Returns an addition compositing filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "affineClamp",
+      "type": "class func",
+      "desc": "Returns an affine clamp filter.",
+      "params": [],
+      "returnType": "CIFilter & CIAffineClamp"
+    },
+    {
+      "name": "affineTile",
+      "type": "class func",
+      "desc": "Returns a affine tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIAffineTile"
+    },
+    {
+      "name": "attributedTextImageGenerator",
+      "type": "class func",
+      "desc": "Returns an attributed-text image generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIAttributedTextImageGenerator"
+    },
+    {
+      "name": "aztecCodeGenerator",
+      "type": "class func",
+      "desc": "Returns a Aztec code generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIAztecCodeGenerator"
+    },
+    {
+      "name": "barcodeGenerator",
+      "type": "class func",
+      "desc": "Returns a barcode generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBarcodeGenerator"
+    },
+    {
+      "name": "barsSwipeTransition",
+      "type": "class func",
+      "desc": "Returns a bars swipe transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBarsSwipeTransition"
+    },
+    {
+      "name": "bicubicScaleTransform",
+      "type": "class func",
+      "desc": "Returns a bicubic scale transform filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBicubicScaleTransform"
+    },
+    {
+      "name": "blendWithAlphaMask",
+      "type": "class func",
+      "desc": "Returns a blend with alpha mask filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBlendWithMask"
+    },
+    {
+      "name": "blendWithBlueMask",
+      "type": "class func",
+      "desc": "Returns a blend with blue mask filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBlendWithMask"
+    },
+    {
+      "name": "blendWithMask",
+      "type": "class func",
+      "desc": "Returns a blend with mask filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBlendWithMask"
+    },
+    {
+      "name": "blendWithRedMask",
+      "type": "class func",
+      "desc": "Returns a blend with red mask filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBlendWithMask"
+    },
+    {
+      "name": "bloom",
+      "type": "class func",
+      "desc": "Returns a bloom filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBloom"
+    },
+    {
+      "name": "bokehBlur",
+      "type": "class func",
+      "desc": "Returns a bokeh blur filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBokehBlur"
+    },
+    {
+      "name": "boxBlur",
+      "type": "class func",
+      "desc": "Returns a box blur filter.",
+      "params": [],
+      "returnType": "CIFilter & CIBoxBlur"
+    },
+    {
+      "name": "checkerboardGenerator",
+      "type": "class func",
+      "desc": "Returns a checkerboard generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CICheckerboardGenerator"
+    },
+    {
+      "name": "circularScreen",
+      "type": "class func",
+      "desc": "Returns a circular screen filter.",
+      "params": [],
+      "returnType": "CIFilter & CICircularScreen"
+    },
+    {
+      "name": "cmykHalftone",
+      "type": "class func",
+      "desc": "Returns a CMYK halftone filter.",
+      "params": [],
+      "returnType": "CIFilter & CICMYKHalftone"
+    },
+    {
+      "name": "code128BarcodeGenerator",
+      "type": "class func",
+      "desc": "Returns a Code 128 barcode generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CICode128BarcodeGenerator"
+    },
+    {
+      "name": "colorBlendMode",
+      "type": "class func",
+      "desc": "Returns a color blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "colorBurnBlendMode",
+      "type": "class func",
+      "desc": "Returns a color-burn blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "colorClamp",
+      "type": "class func",
+      "desc": "Returns a color clamp filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorClamp"
+    },
+    {
+      "name": "colorControls",
+      "type": "class func",
+      "desc": "Returns a color controls filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorControls"
+    },
+    {
+      "name": "colorCrossPolynomial",
+      "type": "class func",
+      "desc": "Returns a color cross-polynomial filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorCrossPolynomial"
+    },
+    {
+      "name": "colorCube",
+      "type": "class func",
+      "desc": "Returns a color cube filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorCube"
+    },
+    {
+      "name": "colorCubeWithColorSpace",
+      "type": "class func",
+      "desc": "Returns a color cube with color space filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorCubeWithColorSpace"
+    },
+    {
+      "name": "colorCubesMixedWithMask",
+      "type": "class func",
+      "desc": "Returns a color cube mixed with mask filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorCubesMixedWithMask"
+    },
+    {
+      "name": "colorCurves",
+      "type": "class func",
+      "desc": "Returns a color curves filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorCurves"
+    },
+    {
+      "name": "colorDodgeBlendMode",
+      "type": "class func",
+      "desc": "Returns a color-dodge blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "colorInvert",
+      "type": "class func",
+      "desc": "Returns a color invert filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorInvert"
+    },
+    {
+      "name": "colorMap",
+      "type": "class func",
+      "desc": "Returns a color map filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorMap"
+    },
+    {
+      "name": "colorMatrix",
+      "type": "class func",
+      "desc": "Returns a color matrix filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorMatrix"
+    },
+    {
+      "name": "colorMonochrome",
+      "type": "class func",
+      "desc": "Returns a color monochrome filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorMonochrome"
+    },
+    {
+      "name": "colorPolynomial",
+      "type": "class func",
+      "desc": "Returns a color polynomial filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorPolynomial"
+    },
+    {
+      "name": "colorPosterize",
+      "type": "class func",
+      "desc": "Returns a color posterize filter.",
+      "params": [],
+      "returnType": "CIFilter & CIColorPosterize"
+    },
+    {
+      "name": "comicEffect",
+      "type": "class func",
+      "desc": "Returns a comic effect filter.",
+      "params": [],
+      "returnType": "CIFilter & CIComicEffect"
+    },
+    {
+      "name": "convolution3X3",
+      "type": "class func",
+      "desc": "Returns a convolution 3 x 3 filter.",
+      "params": [],
+      "returnType": "CIFilter & CIConvolution"
+    },
+    {
+      "name": "convolution5X5",
+      "type": "class func",
+      "desc": "Returns a convolution 5 x 5 filter.",
+      "params": [],
+      "returnType": "CIFilter & CIConvolution"
+    },
+    {
+      "name": "convolution7X7",
+      "type": "class func",
+      "desc": "Returns a convolution 7 x 7 filter.",
+      "params": [],
+      "returnType": "CIFilter & CIConvolution"
+    },
+    {
+      "name": "convolution9Horizontal",
+      "type": "class func",
+      "desc": "Returns a convolution 9 horizontal filter.",
+      "params": [],
+      "returnType": "CIFilter & CIConvolution"
+    },
+    {
+      "name": "convolution9Vertical",
+      "type": "class func",
+      "desc": "Returns a convolution 9 vertical filter.",
+      "params": [],
+      "returnType": "CIFilter & CIConvolution"
+    },
+    {
+      "name": "copyMachineTransition",
+      "type": "class func",
+      "desc": "Returns a copy machine transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CICopyMachineTransition"
+    },
+    {
+      "name": "coreMLModel",
+      "type": "class func",
+      "desc": "Returns a Core ML model filter.",
+      "params": [],
+      "returnType": "CIFilter & CICoreMLModel"
+    },
+    {
+      "name": "crystallize",
+      "type": "class func",
+      "desc": "Returns a crystalize filter.",
+      "params": [],
+      "returnType": "CIFilter & CICrystallize"
+    },
+    {
+      "name": "darkenBlendMode",
+      "type": "class func",
+      "desc": "Returns a darken blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "depthOfField",
+      "type": "class func",
+      "desc": "Returns a depth-of-field filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDepthOfField"
+    },
+    {
+      "name": "depthToDisparity",
+      "type": "class func",
+      "desc": "Returns a depth-to-disparity filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDepthToDisparity"
+    },
+    {
+      "name": "differenceBlendMode",
+      "type": "class func",
+      "desc": "Returns a difference blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "discBlur",
+      "type": "class func",
+      "desc": "Returns a disc blur filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDiscBlur"
+    },
+    {
+      "name": "disintegrateWithMaskTransition",
+      "type": "class func",
+      "desc": "Returns a disintegrate-with-mask transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDisintegrateWithMaskTransition"
+    },
+    {
+      "name": "disparityToDepth",
+      "type": "class func",
+      "desc": "Returns a disparity-to-depth filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDisparityToDepth"
+    },
+    {
+      "name": "dissolveTransition",
+      "type": "class func",
+      "desc": "Returns a dissolve transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDissolveTransition"
+    },
+    {
+      "name": "dither",
+      "type": "class func",
+      "desc": "Returns a dither filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDither"
+    },
+    {
+      "name": "divideBlendMode",
+      "type": "class func",
+      "desc": "Returns a divide blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "documentEnhancer",
+      "type": "class func",
+      "desc": "Returns a document enhancer filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDocumentEnhancer"
+    },
+    {
+      "name": "dotScreen",
+      "type": "class func",
+      "desc": "Returns a dot screen filter.",
+      "params": [],
+      "returnType": "CIFilter & CIDotScreen"
+    },
+    {
+      "name": "edgePreserveUpsample",
+      "type": "class func",
+      "desc": "Returns an edge preserve upsample filter.",
+      "params": [],
+      "returnType": "CIFilter & CIEdgePreserveUpsample"
+    },
+    {
+      "name": "edgeWork",
+      "type": "class func",
+      "desc": "Returns an edge-work filter.",
+      "params": [],
+      "returnType": "CIFilter & CIEdgeWork"
+    },
+    {
+      "name": "edges",
+      "type": "class func",
+      "desc": "Returns an edges filter.",
+      "params": [],
+      "returnType": "CIFilter & CIEdges"
+    },
+    {
+      "name": "eightfoldReflectedTile",
+      "type": "class func",
+      "desc": "Returns an eightfold reflected tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIEightfoldReflectedTile"
+    },
+    {
+      "name": "exclusionBlendMode",
+      "type": "class func",
+      "desc": "Returns an exclusion blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "exposureAdjust",
+      "type": "class func",
+      "desc": "Returns an exposure adjust filter.",
+      "params": [],
+      "returnType": "CIFilter & CIExposureAdjust"
+    },
+    {
+      "name": "falseColor",
+      "type": "class func",
+      "desc": "Returns a false color filter.",
+      "params": [],
+      "returnType": "CIFilter & CIFalseColor"
+    },
+    {
+      "name": "flashTransition",
+      "type": "class func",
+      "desc": "Returns a flash transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIFlashTransition"
+    },
+    {
+      "name": "fourfoldReflectedTile",
+      "type": "class func",
+      "desc": "Returns a fourfold reflected tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIFourfoldReflectedTile"
+    },
+    {
+      "name": "fourfoldRotatedTile",
+      "type": "class func",
+      "desc": "Returns a fourfold rotated tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIFourfoldRotatedTile"
+    },
+    {
+      "name": "fourfoldTranslatedTile",
+      "type": "class func",
+      "desc": "Returns a fourfold translated tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIFourfoldTranslatedTile"
+    },
+    {
+      "name": "gaborGradients",
+      "type": "class func",
+      "desc": "Returns a Gabor gradients filter.",
+      "params": [],
+      "returnType": "CIFilter & CIGaborGradients"
+    },
+    {
+      "name": "gammaAdjust",
+      "type": "class func",
+      "desc": "Returns a gamma adjust filter.",
+      "params": [],
+      "returnType": "CIFilter & CIGammaAdjust"
+    },
+    {
+      "name": "gaussianBlur",
+      "type": "class func",
+      "desc": "Returns a Gaussian blur filter.",
+      "params": [],
+      "returnType": "CIFilter & CIGaussianBlur"
+    },
+    {
+      "name": "gaussianGradient",
+      "type": "class func",
+      "desc": "Returns a Gaussian gradient filter.",
+      "params": [],
+      "returnType": "CIFilter & CIGaussianGradient"
+    },
+    {
+      "name": "glideReflectedTile",
+      "type": "class func",
+      "desc": "Returns a glide reflected tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIGlideReflectedTile"
+    },
+    {
+      "name": "gloom",
+      "type": "class func",
+      "desc": "Returns a gloom filter.",
+      "params": [],
+      "returnType": "CIFilter & CIGloom"
+    },
+    {
+      "name": "hardLightBlendMode",
+      "type": "class func",
+      "desc": "Returns a hard-light blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "hatchedScreen",
+      "type": "class func",
+      "desc": "Returns a hatched screen filter.",
+      "params": [],
+      "returnType": "CIFilter & CIHatchedScreen"
+    },
+    {
+      "name": "heightFieldFromMask",
+      "type": "class func",
+      "desc": "Returns a height-field-from-mask filter.",
+      "params": [],
+      "returnType": "CIFilter & CIHeightFieldFromMask"
+    },
+    {
+      "name": "hexagonalPixellate",
+      "type": "class func",
+      "desc": "Returns a hexagonal pixellate filter.",
+      "params": [],
+      "returnType": "CIFilter & CIHexagonalPixellate"
+    },
+    {
+      "name": "highlightShadowAdjust",
+      "type": "class func",
+      "desc": "Returns a highlight-shadow adjust filter.",
+      "params": [],
+      "returnType": "CIFilter & CIHighlightShadowAdjust"
+    },
+    {
+      "name": "hueAdjust",
+      "type": "class func",
+      "desc": "Returns a hue adjust filter.",
+      "params": [],
+      "returnType": "CIFilter & CIHueAdjust"
+    },
+    {
+      "name": "hueBlendMode",
+      "type": "class func",
+      "desc": "Returns a hue blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "hueSaturationValueGradient",
+      "type": "class func",
+      "desc": "Returns a hue-saturation-value gradient filter.",
+      "params": [],
+      "returnType": "CIFilter & CIHueSaturationValueGradient"
+    },
+    {
+      "name": "kaleidoscope",
+      "type": "class func",
+      "desc": "Returns a kaleidoscope filter.",
+      "params": [],
+      "returnType": "CIFilter & CIKaleidoscope"
+    },
+    {
+      "name": "keystoneCorrectionCombined",
+      "type": "class func",
+      "desc": "Returns a keystone correction combined filter.",
+      "params": [],
+      "returnType": "CIFilter & CIKeystoneCorrectionCombined"
+    },
+    {
+      "name": "keystoneCorrectionHorizontal",
+      "type": "class func",
+      "desc": "Returns a keystone correction horizontal filter.",
+      "params": [],
+      "returnType": "CIFilter & CIKeystoneCorrectionHorizontal"
+    },
+    {
+      "name": "keystoneCorrectionVertical",
+      "type": "class func",
+      "desc": "Returns a keystone correction vertical filter.",
+      "params": [],
+      "returnType": "CIFilter & CIKeystoneCorrectionVertical"
+    },
+    {
+      "name": "labDeltaE",
+      "type": "class func",
+      "desc": "Returns a Lab Delta E filter.",
+      "params": [],
+      "returnType": "CIFilter & CILabDeltaE"
+    },
+    {
+      "name": "lanczosScaleTransform",
+      "type": "class func",
+      "desc": "Returns a Lanczos scale transform filter.",
+      "params": [],
+      "returnType": "CIFilter & CILanczosScaleTransform"
+    },
+    {
+      "name": "lenticularHaloGenerator",
+      "type": "class func",
+      "desc": "Returns a lenticular halo generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CILenticularHaloGenerator"
+    },
+    {
+      "name": "lightenBlendMode",
+      "type": "class func",
+      "desc": "Returns a lighten blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "lineOverlay",
+      "type": "class func",
+      "desc": "Returns a line overlay filter.",
+      "params": [],
+      "returnType": "CIFilter & CILineOverlay"
+    },
+    {
+      "name": "lineScreen",
+      "type": "class func",
+      "desc": "Returns a line screen filter.",
+      "params": [],
+      "returnType": "CIFilter & CILineScreen"
+    },
+    {
+      "name": "linearBurnBlendMode",
+      "type": "class func",
+      "desc": "Returns a linear-burn blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "linearDodgeBlendMode",
+      "type": "class func",
+      "desc": "Returns a linear-dodge blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "linearGradient",
+      "type": "class func",
+      "desc": "Returns a linear gradient filter.",
+      "params": [],
+      "returnType": "CIFilter & CILinearGradient"
+    },
+    {
+      "name": "linearToSRGBToneCurve",
+      "type": "class func",
+      "desc": "Returns a linear-to-sRGB filter.",
+      "params": [],
+      "returnType": "CIFilter & CILinearToSRGBToneCurve"
+    },
+    {
+      "name": "luminosityBlendMode",
+      "type": "class func",
+      "desc": "Returns a luminosity blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "maskToAlpha",
+      "type": "class func",
+      "desc": "Returns a mask-to-alpha filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMaskToAlpha"
+    },
+    {
+      "name": "maskedVariableBlur",
+      "type": "class func",
+      "desc": "Returns a masked variable blur filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMaskedVariableBlur"
+    },
+    {
+      "name": "maximumComponent",
+      "type": "class func",
+      "desc": "Returns a maximum component filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMaximumComponent"
+    },
+    {
+      "name": "maximumCompositing",
+      "type": "class func",
+      "desc": "Returns a maximum compositing filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "median",
+      "type": "class func",
+      "desc": "Returns a median filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMedian"
+    },
+    {
+      "name": "meshGenerator",
+      "type": "class func",
+      "desc": "Returns a mesh generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMeshGenerator"
+    },
+    {
+      "name": "minimumComponent",
+      "type": "class func",
+      "desc": "Returns a minimum component filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMinimumComponent"
+    },
+    {
+      "name": "minimumCompositing",
+      "type": "class func",
+      "desc": "Returns a minimum compositing filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "mix",
+      "type": "class func",
+      "desc": "Returns a mix filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMix"
+    },
+    {
+      "name": "modTransition",
+      "type": "class func",
+      "desc": "Returns a mod transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIModTransition"
+    },
+    {
+      "name": "morphologyGradient",
+      "type": "class func",
+      "desc": "Returns a morphology gradient filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMorphologyGradient"
+    },
+    {
+      "name": "morphologyMaximum",
+      "type": "class func",
+      "desc": "Returns a morphology maximum filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMorphologyMaximum"
+    },
+    {
+      "name": "morphologyMinimum",
+      "type": "class func",
+      "desc": "Returns a morphology minimum filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMorphologyMinimum"
+    },
+    {
+      "name": "morphologyRectangleMaximum",
+      "type": "class func",
+      "desc": "Returns a morphology rectangle maximum filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMorphologyRectangleMaximum"
+    },
+    {
+      "name": "morphologyRectangleMinimum",
+      "type": "class func",
+      "desc": "Returns a morphology rectangle minimum filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMorphologyRectangleMinimum"
+    },
+    {
+      "name": "motionBlur",
+      "type": "class func",
+      "desc": "Returns a morphology motion blur filter.",
+      "params": [],
+      "returnType": "CIFilter & CIMotionBlur"
+    },
+    {
+      "name": "multiplyBlendMode",
+      "type": "class func",
+      "desc": "Returns a multiply blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "multiplyCompositing",
+      "type": "class func",
+      "desc": "Returns a multiply compositing filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "noiseReduction",
+      "type": "class func",
+      "desc": "Returns a morphology noise reduction filter.",
+      "params": [],
+      "returnType": "CIFilter & CINoiseReduction"
+    },
+    {
+      "name": "opTile",
+      "type": "class func",
+      "desc": "Returns an optical tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIOpTile"
+    },
+    {
+      "name": "overlayBlendMode",
+      "type": "class func",
+      "desc": "Returns an overlay blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "pageCurlTransition",
+      "type": "class func",
+      "desc": "Returns a page curl transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPageCurlTransition"
+    },
+    {
+      "name": "pageCurlWithShadowTransition",
+      "type": "class func",
+      "desc": "Returns a page-curl-with-shadow transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPageCurlWithShadowTransition"
+    },
+    {
+      "name": "paletteCentroid",
+      "type": "class func",
+      "desc": "Returns a palette centroid filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPaletteCentroid"
+    },
+    {
+      "name": "palettize",
+      "type": "class func",
+      "desc": "Returns a palettize filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPalettize"
+    },
+    {
+      "name": "parallelogramTile",
+      "type": "class func",
+      "desc": "Returns a parallelogram tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIParallelogramTile"
+    },
+    {
+      "name": "pdf417BarcodeGenerator",
+      "type": "class func",
+      "desc": "Returns a PDF417 barcode generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPDF417BarcodeGenerator"
+    },
+    {
+      "name": "perspectiveCorrection",
+      "type": "class func",
+      "desc": "Returns a perspective correction filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPerspectiveCorrection"
+    },
+    {
+      "name": "perspectiveRotate",
+      "type": "class func",
+      "desc": "Returns a perspective rotate filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPerspectiveRotate"
+    },
+    {
+      "name": "perspectiveTile",
+      "type": "class func",
+      "desc": "Returns a perspective tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPerspectiveTile"
+    },
+    {
+      "name": "perspectiveTransform",
+      "type": "class func",
+      "desc": "Returns a perspective transform filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPerspectiveTransform"
+    },
+    {
+      "name": "perspectiveTransformWithExtent",
+      "type": "class func",
+      "desc": "Returns a perspective transform with extent filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPerspectiveTransformWithExtent"
+    },
+    {
+      "name": "photoEffectChrome",
+      "type": "class func",
+      "desc": "Returns a photo-effect chrome filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPhotoEffect"
+    },
+    {
+      "name": "photoEffectFade",
+      "type": "class func",
+      "desc": "Returns a photo-effect fade filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPhotoEffect"
+    },
+    {
+      "name": "photoEffectInstant",
+      "type": "class func",
+      "desc": "Returns a photo-effect instant filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPhotoEffect"
+    },
+    {
+      "name": "photoEffectMono",
+      "type": "class func",
+      "desc": "Returns a photo-effect mono filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPhotoEffect"
+    },
+    {
+      "name": "photoEffectNoir",
+      "type": "class func",
+      "desc": "Returns a photo-effect noir filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPhotoEffect"
+    },
+    {
+      "name": "photoEffectProcess",
+      "type": "class func",
+      "desc": "Returns a photo-effect process filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPhotoEffect"
+    },
+    {
+      "name": "photoEffectTonal",
+      "type": "class func",
+      "desc": "Returns a photo-effect tonal filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPhotoEffect"
+    },
+    {
+      "name": "photoEffectTransfer",
+      "type": "class func",
+      "desc": "Returns a photo-effect transfer filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPhotoEffect"
+    },
+    {
+      "name": "pinLightBlendMode",
+      "type": "class func",
+      "desc": "Returns a pin-light blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "pixellate",
+      "type": "class func",
+      "desc": "Returns a pixellate filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPixellate"
+    },
+    {
+      "name": "pointillize",
+      "type": "class func",
+      "desc": "Returns a pointillize filter.",
+      "params": [],
+      "returnType": "CIFilter & CIPointillize"
+    },
+    {
+      "name": "qrCodeGenerator",
+      "type": "class func",
+      "desc": "Returns a QR code generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIQRCodeGenerator"
+    },
+    {
+      "name": "radialGradient",
+      "type": "class func",
+      "desc": "Returns a radial gradient filter.",
+      "params": [],
+      "returnType": "CIFilter & CIRadialGradient"
+    },
+    {
+      "name": "randomGenerator",
+      "type": "class func",
+      "desc": "Returns a random generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIRandomGenerator"
+    },
+    {
+      "name": "rippleTransition",
+      "type": "class func",
+      "desc": "Returns a ripple transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CIRippleTransition"
+    },
+    {
+      "name": "roundedRectangleGenerator",
+      "type": "class func",
+      "desc": "Returns a rounded rectangle generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIRoundedRectangleGenerator"
+    },
+    {
+      "name": "sRGBToneCurveToLinear",
+      "type": "class func",
+      "desc": "Returns an sRGB-to-linear filter.",
+      "params": [],
+      "returnType": "CIFilter & CISRGBToneCurveToLinear"
+    },
+    {
+      "name": "saliencyMap",
+      "type": "class func",
+      "desc": "Returns a saliency map filter.",
+      "params": [],
+      "returnType": "CIFilter & CISaliencyMap"
+    },
+    {
+      "name": "saturationBlendMode",
+      "type": "class func",
+      "desc": "Returns a saturation blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "screenBlendMode",
+      "type": "class func",
+      "desc": "Returns a screen blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "sepiaTone",
+      "type": "class func",
+      "desc": "Returns a sepia-tone filter.",
+      "params": [],
+      "returnType": "CIFilter & CISepiaTone"
+    },
+    {
+      "name": "shadedMaterial",
+      "type": "class func",
+      "desc": "Returns a shaded material filter.",
+      "params": [],
+      "returnType": "CIFilter & CIShadedMaterial"
+    },
+    {
+      "name": "sharpenLuminance",
+      "type": "class func",
+      "desc": "Returns a sharpen luminance filter.",
+      "params": [],
+      "returnType": "CIFilter & CISharpenLuminance"
+    },
+    {
+      "name": "sixfoldReflectedTile",
+      "type": "class func",
+      "desc": "Returns a sixfold reflected tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CISixfoldReflectedTile"
+    },
+    {
+      "name": "sixfoldRotatedTile",
+      "type": "class func",
+      "desc": "Returns a sixfold rotated tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CISixfoldRotatedTile"
+    },
+    {
+      "name": "smoothLinearGradient",
+      "type": "class func",
+      "desc": "Returns a smooth linear gradient filter.",
+      "params": [],
+      "returnType": "CIFilter & CISmoothLinearGradient"
+    },
+    {
+      "name": "softLightBlendMode",
+      "type": "class func",
+      "desc": "Returns a soft-light blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "sourceAtopCompositing",
+      "type": "class func",
+      "desc": "Returns a source-atop compositing filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "sourceInCompositing",
+      "type": "class func",
+      "desc": "Returns a source-in compositing filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "sourceOutCompositing",
+      "type": "class func",
+      "desc": "Returns a source-out compositing filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "sourceOverCompositing",
+      "type": "class func",
+      "desc": "Returns a source-over compositing filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "spotColor",
+      "type": "class func",
+      "desc": "Returns a spot color filter.",
+      "params": [],
+      "returnType": "CIFilter & CISpotColor"
+    },
+    {
+      "name": "spotLight",
+      "type": "class func",
+      "desc": "Returns a spotlight filter.",
+      "params": [],
+      "returnType": "CIFilter & CISpotLight"
+    },
+    {
+      "name": "starShineGenerator",
+      "type": "class func",
+      "desc": "Returns a star-shine generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIStarShineGenerator"
+    },
+    {
+      "name": "straighten",
+      "type": "class func",
+      "desc": "Returns a straighten filter.",
+      "params": [],
+      "returnType": "CIFilter & CIStraighten"
+    },
+    {
+      "name": "stripesGenerator",
+      "type": "class func",
+      "desc": "Returns a stripes generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CIStripesGenerator"
+    },
+    {
+      "name": "subtractBlendMode",
+      "type": "class func",
+      "desc": "Returns a subtract blend mode filter.",
+      "params": [],
+      "returnType": "CIFilter & CICompositeOperation"
+    },
+    {
+      "name": "sunbeamsGenerator",
+      "type": "class func",
+      "desc": "Returns a sunbeams generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CISunbeamsGenerator"
+    },
+    {
+      "name": "supportedRawCameraModels",
+      "type": "class func",
+      "params": [],
+      "returnType": "[String]!"
+    },
+    {
+      "name": "swipeTransition",
+      "type": "class func",
+      "desc": "Returns a swipe transition filter.",
+      "params": [],
+      "returnType": "CIFilter & CISwipeTransition"
+    },
+    {
+      "name": "temperatureAndTint",
+      "type": "class func",
+      "desc": "Returns a temperature and tint filter.",
+      "params": [],
+      "returnType": "CIFilter & CITemperatureAndTint"
+    },
+    {
+      "name": "textImageGenerator",
+      "type": "class func",
+      "desc": "Returns a text image generator filter.",
+      "params": [],
+      "returnType": "CIFilter & CITextImageGenerator"
+    },
+    {
+      "name": "thermal",
+      "type": "class func",
+      "desc": "Returns a thermal filter.",
+      "params": [],
+      "returnType": "CIFilter & CIThermal"
+    },
+    {
+      "name": "toneCurve",
+      "type": "class func",
+      "desc": "Returns a tone curve filter.",
+      "params": [],
+      "returnType": "CIFilter & CIToneCurve"
+    },
+    {
+      "name": "triangleKaleidoscope",
+      "type": "class func",
+      "desc": "Returns a triangle kaleidoscope filter.",
+      "params": [],
+      "returnType": "CIFilter & CITriangleKaleidoscope"
+    },
+    {
+      "name": "triangleTile",
+      "type": "class func",
+      "desc": "Returns a triangle tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CITriangleTile"
+    },
+    {
+      "name": "twelvefoldReflectedTile",
+      "type": "class func",
+      "desc": "Returns a twelvefold reflected tile filter.",
+      "params": [],
+      "returnType": "CIFilter & CITwelvefoldReflectedTile"
+    },
+    {
+      "name": "unsharpMask",
+      "type": "class func",
+      "desc": "Returns an unsharp mask filter.",
+      "params": [],
+      "returnType": "CIFilter & CIUnsharpMask"
+    },
+    {
+      "name": "vibrance",
+      "type": "class func",
+      "desc": "Returns a vibrance filter.",
+      "params": [],
+      "returnType": "CIFilter & CIVibrance"
+    },
+    {
+      "name": "vignette",
+      "type": "class func",
+      "desc": "Returns a vignette filter.",
+      "params": [],
+      "returnType": "CIFilter & CIVignette"
+    },
+    {
+      "name": "vignetteEffect",
+      "type": "class func",
+      "desc": "Returns a vignette-effect filter.",
+      "params": [],
+      "returnType": "CIFilter & CIVignetteEffect"
+    },
+    {
+      "name": "whitePointAdjust",
+      "type": "class func",
+      "desc": "Returns a white-point adjust filter.",
+      "params": [],
+      "returnType": "CIFilter & CIWhitePointAdjust"
+    },
+    {
+      "name": "xRay",
+      "type": "class func",
+      "desc": "Returns an X-ray filter.",
+      "params": [],
+      "returnType": "CIFilter & CIXRay"
+    },
+    {
+      "name": "zoomBlur",
+      "type": "class func",
+      "desc": "Returns a zoom blur filter.",
+      "params": [],
+      "returnType": "CIFilter & CIZoomBlur"
+    }
+  ]
+}

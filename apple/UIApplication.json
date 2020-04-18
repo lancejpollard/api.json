@@ -1,0 +1,596 @@
+{
+  "type": "Class",
+  "name": "UIApplication",
+  "desc": "The centralized point of control and coordination for apps running in iOS.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "UIApplication",
+      "desc": "Returns the singleton app instance."
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "UIApplicationDelegate?",
+      "desc": "The delegate of the app object."
+    },
+    {
+      "name": "registerForRemoteNotifications",
+      "type": "func",
+      "desc": "Register to receive remote notifications via Apple Push Notification service.",
+      "params": []
+    },
+    {
+      "name": "unregisterForRemoteNotifications",
+      "type": "func",
+      "desc": "Unregister for all remote notifications received via Apple Push Notification service.",
+      "params": []
+    },
+    {
+      "name": "isRegisteredForRemoteNotifications",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean indicating whether the app is currently registered for remote notifications."
+    },
+    {
+      "name": "applicationState",
+      "type": "var",
+      "datatype": "UIApplication.State",
+      "desc": "The runtime state of the app."
+    },
+    {
+      "name": "UIApplication.State",
+      "type": "enum",
+      "desc": "The running states of an app"
+    },
+    {
+      "name": "supportsMultipleScenes",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the app may display multiple scenes simultaneously."
+    },
+    {
+      "name": "connectedScenes",
+      "type": "var",
+      "datatype": "Set<UIScene>",
+      "desc": "The app's currently connected scenes."
+    },
+    {
+      "name": "openSessions",
+      "type": "var",
+      "datatype": "Set<UISceneSession>",
+      "desc": "The sessions whose scenes are either currently active or archived by the system."
+    },
+    {
+      "name": "requestSceneSessionRefresh",
+      "type": "func",
+      "desc": "Asks the system to update any system UI associated with the specified scene.",
+      "params": [
+        {
+          "type": "UISceneSession"
+        }
+      ]
+    },
+    {
+      "name": "backgroundRefreshStatus",
+      "type": "var",
+      "datatype": "UIBackgroundRefreshStatus",
+      "desc": "Indicates whether the app can refresh content when running in the background."
+    },
+    {
+      "name": "UIBackgroundRefreshStatus",
+      "type": "enum",
+      "desc": "Constants indicating whether background execution is enabled for the app."
+    },
+    {
+      "name": "backgroundRefreshStatusDidChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the app’s status for downloading content in the background changes."
+    },
+    {
+      "name": "endBackgroundTask",
+      "type": "func",
+      "desc": "Marks the end of a specific long-running background task.",
+      "params": [
+        {
+          "type": "UIBackgroundTaskIdentifier"
+        }
+      ]
+    },
+    {
+      "name": "backgroundTimeRemaining",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The maximum amount of  time remaining for the app to run in the background."
+    },
+    {
+      "name": "backgroundFetchIntervalMinimum",
+      "type": "class let",
+      "datatype": "TimeInterval",
+      "desc": "The smallest fetch interval supported by the system."
+    },
+    {
+      "name": "backgroundFetchIntervalNever",
+      "type": "class let",
+      "datatype": "TimeInterval",
+      "desc": "A fetch interval large enough to prevent fetch operations from occurring."
+    },
+    {
+      "name": "canOpenURL",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether an app is available to handle a URL scheme.",
+      "params": [
+        {
+          "type": "URL"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "openSettingsURLString",
+      "type": "class let",
+      "datatype": "String",
+      "desc": "Used to create a URL that you can pass to the openURL(_:) method. When you open the URL built from this string, the system launches the Settings app and displays the app’s custom settings, if it has any."
+    },
+    {
+      "name": "isIdleTimerDisabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that controls whether the idle timer is disabled for the app."
+    },
+    {
+      "name": "extendStateRestoration",
+      "type": "func",
+      "desc": "Tells the app that your code is restoring state asynchronously.",
+      "params": []
+    },
+    {
+      "name": "completeStateRestoration",
+      "type": "func",
+      "desc": "Tells the app that your code has finished any asynchronous state restoration.",
+      "params": []
+    },
+    {
+      "name": "ignoreSnapshotOnNextApplicationLaunch",
+      "type": "func",
+      "desc": "Prevents the app from using the recent snapshot image during the next launch cycle.",
+      "params": []
+    },
+    {
+      "name": "registerObject",
+      "type": "class func",
+      "desc": "Registers a custom object for use with the state restoration system.",
+      "params": [
+        {
+          "name": "forStateRestoration",
+          "type": "UIStateRestoring"
+        },
+        {
+          "name": "restorationIdentifier",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "shortcutItems",
+      "type": "var",
+      "datatype": "[UIApplicationShortcutItem]?",
+      "desc": "The Home screen dynamic quick actions for your app; available on devices that support 3D Touch."
+    },
+    {
+      "name": "isProtectedDataAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether content protection is active."
+    },
+    {
+      "name": "protectedDataDidBecomeAvailableNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the protected files become available for your code to access."
+    },
+    {
+      "name": "protectedDataWillBecomeUnavailableNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted shortly before protected files are locked down and become inaccessible."
+    },
+    {
+      "name": "beginReceivingRemoteControlEvents",
+      "type": "func",
+      "desc": "Tells the app to begin receiving remote-control events.",
+      "params": []
+    },
+    {
+      "name": "endReceivingRemoteControlEvents",
+      "type": "func",
+      "desc": "Tells the app to stop receiving remote-control events.",
+      "params": []
+    },
+    {
+      "name": "userInterfaceLayoutDirection",
+      "type": "var",
+      "datatype": "UIUserInterfaceLayoutDirection",
+      "desc": "Returns the layout direction of the user interface."
+    },
+    {
+      "name": "UIUserInterfaceLayoutDirection",
+      "type": "enum",
+      "desc": "Specifies the directional flow of the user interface."
+    },
+    {
+      "name": "sendEvent",
+      "type": "func",
+      "desc": "Dispatches an event to the appropriate responder objects in the app.",
+      "params": [
+        {
+          "type": "UIEvent"
+        }
+      ]
+    },
+    {
+      "name": "sendAction",
+      "type": "func",
+      "desc": "Sends an action message identified by selector to a specified target.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "to",
+          "type": "Any?"
+        },
+        {
+          "name": "from",
+          "type": "Any?"
+        },
+        {
+          "name": "for",
+          "type": "UIEvent?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "beginIgnoringInteractionEvents",
+      "type": "func",
+      "desc": "Tells the receiver to suspend the handling of touch-related events.",
+      "params": []
+    },
+    {
+      "name": "endIgnoringInteractionEvents",
+      "type": "func",
+      "desc": "Tells the receiver to resume the handling of touch-related events.",
+      "params": []
+    },
+    {
+      "name": "isIgnoringInteractionEvents",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver is ignoring events initiated by touches on the screen."
+    },
+    {
+      "name": "applicationSupportsShakeToEdit",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether shaking the device displays the undo-redo user interface."
+    },
+    {
+      "name": "applicationIconBadgeNumber",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number currently set as the badge of the app icon in Springboard."
+    },
+    {
+      "name": "supportsAlternateIcons",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the app is allowed to change its icon."
+    },
+    {
+      "name": "alternateIconName",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The name of the icon being displayed for the app."
+    },
+    {
+      "name": "keyWindow",
+      "type": "var",
+      "datatype": "UIWindow?",
+      "desc": "The app's key window."
+    },
+    {
+      "name": "windows",
+      "type": "var",
+      "datatype": "[UIWindow]",
+      "desc": "The app's visible and hidden windows."
+    },
+    {
+      "name": "preferredContentSizeCategory",
+      "type": "var",
+      "datatype": "UIContentSizeCategory",
+      "desc": "The font sizing option preferred by the user."
+    },
+    {
+      "name": "newValueUserInfoKey",
+      "type": "static let",
+      "datatype": "String",
+      "desc": "A key whose value is an NSString object reflecting the new value of the preferredContentSizeCategory property."
+    },
+    {
+      "name": "didChangeNotification",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the user changes the preferred content size setting."
+    },
+    {
+      "name": "supportedInterfaceOrientations",
+      "type": "func",
+      "desc": "Returns the default set of interface orientations to use for the view controllers in the specified window.",
+      "params": [
+        {
+          "name": "for",
+          "type": "UIWindow?"
+        }
+      ],
+      "returnType": "UIInterfaceOrientationMask"
+    },
+    {
+      "name": "UIStatusBarStyle",
+      "type": "enum",
+      "desc": "The style of the device’s status bar."
+    },
+    {
+      "name": "UIStatusBarAnimation",
+      "type": "enum",
+      "desc": "The animation applied to the status bar as it is hidden or made visible."
+    },
+    {
+      "name": "tracking",
+      "type": "static let",
+      "datatype": "RunLoop.Mode",
+      "desc": "The mode set while tracking in controls takes place."
+    },
+    {
+      "name": "userDidTakeScreenshotNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the user presses the Home and Lock buttons to take a screenshot."
+    },
+    {
+      "name": "setMinimumBackgroundFetchInterval",
+      "type": "func",
+      "desc": "Specifies the minimum amount of time that must elapse between background fetch operations.",
+      "params": [
+        {
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "statusBarOrientationAnimationDuration",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The animation duration in seconds for the status bar during a 90 degree orientation change."
+    },
+    {
+      "name": "didChangeStatusBarFrameNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the frame of the status bar changes."
+    },
+    {
+      "name": "didChangeStatusBarOrientationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the orientation of the app’s user interface changes."
+    },
+    {
+      "name": "willChangeStatusBarOrientationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the app is about to change the orientation of its interface."
+    },
+    {
+      "name": "willChangeStatusBarFrameNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the app is about to change the frame of the status bar."
+    },
+    {
+      "name": "statusBarOrientationUserInfoKey",
+      "type": "class let",
+      "datatype": "String",
+      "desc": "A key whose value is an NSNumber object that encapsulates a UIInterfaceOrientation value indicating the current orientation (see UIInterfaceOrientation).  This key is used with didChangeStatusBarOrientationNotification and willChangeStatusBarOrientationNotification notifications."
+    },
+    {
+      "name": "statusBarFrameUserInfoKey",
+      "type": "class let",
+      "datatype": "String",
+      "desc": "A key whose value is an NSValue object that encapsulates a CGRect structure expressing the location and size of the new status bar frame. This key is used with didChangeStatusBarFrameNotification and willChangeStatusBarFrameNotification notifications."
+    },
+    {
+      "name": "statusBarFrame",
+      "type": "var",
+      "datatype": "CGRect",
+      "desc": "The frame rectangle defining the area of the status bar."
+    },
+    {
+      "name": "isNetworkActivityIndicatorVisible",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that turns an indicator of network activity on or off."
+    },
+    {
+      "name": "UIMinimumKeepAliveTimeout",
+      "type": "let",
+      "datatype": "TimeInterval",
+      "desc": "The minimum amount of time (measured in seconds) an app may run a critical background task in the background."
+    },
+    {
+      "name": "registerUserNotificationSettings",
+      "type": "func",
+      "desc": "Registers your preferred options for notifying the user.",
+      "params": [
+        {
+          "type": "UIUserNotificationSettings"
+        }
+      ]
+    },
+    {
+      "name": "currentUserNotificationSettings",
+      "type": "var",
+      "datatype": "UIUserNotificationSettings?",
+      "desc": "Returns the user notification settings for the app."
+    },
+    {
+      "name": "openURL",
+      "type": "func",
+      "desc": "Attempts to open the resource at the specified URL.",
+      "params": [
+        {
+          "type": "URL"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "scheduleLocalNotification",
+      "type": "func",
+      "desc": "Schedules a local notification for delivery at its encapsulated date and time.",
+      "params": [
+        {
+          "type": "UILocalNotification"
+        }
+      ]
+    },
+    {
+      "name": "presentLocalNotificationNow",
+      "type": "func",
+      "desc": "Presents a local notification immediately.",
+      "params": [
+        {
+          "type": "UILocalNotification"
+        }
+      ]
+    },
+    {
+      "name": "cancelLocalNotification",
+      "type": "func",
+      "desc": "Cancels the delivery of the specified scheduled local notification.",
+      "params": [
+        {
+          "type": "UILocalNotification"
+        }
+      ]
+    },
+    {
+      "name": "cancelAllLocalNotifications",
+      "type": "func",
+      "desc": "Cancels the delivery of all scheduled local notifications.",
+      "params": []
+    },
+    {
+      "name": "scheduledLocalNotifications",
+      "type": "var",
+      "datatype": "[UILocalNotification]?",
+      "desc": "All currently scheduled local notifications."
+    },
+    {
+      "name": "setNewsstandIconImage",
+      "type": "func",
+      "desc": "Sets the icon of a Newsstand app to an image depicting the current issue of a publication.",
+      "params": [
+        {
+          "type": "UIImage?"
+        }
+      ]
+    },
+    {
+      "name": "clearKeepAliveTimeout",
+      "type": "func",
+      "desc": "Removes a previously installed periodic handler block.",
+      "params": []
+    },
+    {
+      "name": "setStatusBarHidden",
+      "type": "func",
+      "desc": "Hides or shows the status bar, optionally animating the transition.",
+      "params": [
+        {
+          "type": "Bool"
+        },
+        {
+          "name": "with",
+          "type": "UIStatusBarAnimation"
+        }
+      ]
+    },
+    {
+      "name": "isStatusBarHidden",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether the status bar is hidden."
+    },
+    {
+      "name": "setStatusBarStyle",
+      "type": "func",
+      "desc": "Sets the style of the status bar, optionally animating the transition to the new style.",
+      "params": [
+        {
+          "type": "UIStatusBarStyle"
+        },
+        {
+          "name": "animated",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "statusBarStyle",
+      "type": "var",
+      "datatype": "UIStatusBarStyle",
+      "desc": "The current style of the status bar."
+    },
+    {
+      "name": "setStatusBarOrientation",
+      "type": "func",
+      "desc": "Sets the app's status bar to the specified orientation, optionally animating the transition.",
+      "params": [
+        {
+          "type": "UIInterfaceOrientation"
+        },
+        {
+          "name": "animated",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "statusBarOrientation",
+      "type": "var",
+      "datatype": "UIInterfaceOrientation",
+      "desc": "The current orientation of the app's status bar."
+    },
+    {
+      "name": "registerForRemoteNotifications",
+      "type": "func",
+      "desc": "Register to receive remote notifications of the specified types via Apple Push Notification service.",
+      "params": [
+        {
+          "name": "matching",
+          "type": "UIRemoteNotificationType"
+        }
+      ]
+    },
+    {
+      "name": "enabledRemoteNotificationTypes",
+      "type": "func",
+      "desc": "Returns the types of notifications the app accepts.",
+      "params": [],
+      "returnType": "UIRemoteNotificationType"
+    }
+  ]
+}

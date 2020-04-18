@@ -1,0 +1,130 @@
+{
+  "type": "Class",
+  "name": "Port",
+  "desc": "An abstract class that represents a communication channel.",
+  "items": [
+    {
+      "name": "invalidate",
+      "type": "func",
+      "desc": "Marks the receiver as invalid and posts an didBecomeInvalidNotification to the default notification center.",
+      "params": []
+    },
+    {
+      "name": "isValid",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver is valid."
+    },
+    {
+      "name": "setDelegate",
+      "type": "func",
+      "desc": "Sets the receiver’s delegate to a given object.",
+      "params": [
+        {
+          "type": "PortDelegate?"
+        }
+      ]
+    },
+    {
+      "name": "delegate",
+      "type": "func",
+      "desc": "Returns the receiver’s delegate.",
+      "params": [],
+      "returnType": "PortDelegate?"
+    },
+    {
+      "name": "send",
+      "type": "func",
+      "desc": "This method is provided for subclasses that have custom types of NSPort.",
+      "params": [
+        {
+          "name": "before",
+          "type": "Date"
+        },
+        {
+          "name": "components",
+          "type": "NSMutableArray?"
+        },
+        {
+          "name": "from",
+          "type": "Port?"
+        },
+        {
+          "name": "reserved",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "send",
+      "type": "func",
+      "desc": "This method is provided for subclasses that have custom types of NSPort.",
+      "params": [
+        {
+          "name": "before",
+          "type": "Date"
+        },
+        {
+          "name": "msgid",
+          "type": "Int"
+        },
+        {
+          "name": "components",
+          "type": "NSMutableArray?"
+        },
+        {
+          "name": "from",
+          "type": "Port?"
+        },
+        {
+          "name": "reserved",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "reservedSpaceLength",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of bytes of space reserved by the receiver for sending data."
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "This method should be implemented by a subclass to stop monitoring of a port when removed from a give run loop in a given input mode.",
+      "params": [
+        {
+          "name": "from",
+          "type": "RunLoop"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "schedule",
+      "type": "func",
+      "desc": "This method should be implemented by a subclass to set up monitoring of a port when added to a given run loop in a given input mode.",
+      "params": [
+        {
+          "name": "in",
+          "type": "RunLoop"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "didBecomeInvalidNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted from the invalidate() method, which is invoked when the NSPort is deallocated or when it notices that its communication channel has been damaged. The notification object is the NSPort object that has become invalid. This notification does not contain a userInfo dictionary."
+    }
+  ]
+}

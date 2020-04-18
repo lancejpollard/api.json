@@ -1,0 +1,977 @@
+{
+  "path": "/capture",
+  "method": "POST",
+  "desc": "Captures the authorisation hold on a payment, returning a unique reference for this request. Usually the full authorisation amount is captured, however it's also possible to capture a smaller amount, which results in cancelling the remaining authorisation balance.\nPayment methods, which automatically capture as part of authorisation, don't need to be captured, but submitting a capture request on these transactions will not result in double charges. If immediate or delayed auto-capture is enabled, calling the capture method is not neccessary.\nFor more information, refer to Capture.",
+  "req": {
+    "additionalData": {
+      "type": "string",
+      "desc": "This field contains additional data, which may be required for a particular modification request.\nThe additionalData object consists of entries, each of which includes the key and value.",
+      "required": true,
+      "children": {
+        "authorisationType": {
+          "type": "string",
+          "desc": "Flags a card payment request for either pre-authorisation or final authorisation. For more information, refer to Authorisation types.\nAllowed values:\n\nPreAuth – flags the payment request to be handled as a pre-authorisation.\nFinalAuth – flags the payment request to be handled as a final authorisation.",
+          "required": false
+        },
+        "customRoutingFlag": {
+          "type": "string",
+          "desc": "Allows you to determine or override the acquirer account that should be used for the transaction.\nIf you need to process a payment with an acquirer different from a default one, you can set up a corresponding configuration on the Adyen payments platform. Then you can pass a custom routing flag in a payment request's additional data to target a specific acquirer.\nTo enable this functionality, contact Support.",
+          "required": false
+        },
+        "networkTxReference": {
+          "type": "string",
+          "desc": "Allows you to link the transaction to the original or previous one in a subscription/card-on-file chain. This field is required for token-based transactions where Adyen does not tokenize the card.\nTransaction identifier from card schemes, for example, Mastercard Trace ID or the Visa Transaction ID.\nSubmit the original transaction ID of the contract in your payment request if you are not tokenizing card details with Adyen and are making a merchant-initiated transaction (MIT) for subsequent charges.\nMake sure you are sending shopperInteraction ContAuth and recurringProcessingModel Subscription or UnscheduledCardonFile to ensure that the transaction is classified as MIT.",
+          "required": false
+        },
+        "overwriteBrand": {
+          "type": "string",
+          "desc": "Boolean indicator that can be optionally used for performing debit transactions on combo cards (for example, combo cards in Brazil). This is not mandatory but we recommend that you set this to true if you want to use the selectedBrand value to specify how to process the transaction.",
+          "required": false
+        },
+        "RequestedTestErrorResponseCode": {
+          "type": "string",
+          "desc": "Triggers test scenarios that allow to replicate certain communication errors.\nAllowed values:\n\nNO_CONNECTION_AVAILABLE – There wasn't a connection available to service the outgoing communication.\nThis is a transient, retriable error since no messaging could be initiated to an issuing system (or third-party acquiring system). Therefore, the header Transient-Error: true is returned in the response. A subsequent request using the same idempotency key will be processed as if it was the first request.\nIOEXCEPTION_RECEIVED – Something went wrong during transmission of the message or receiving the response.\nThis is a classified as non-transient because the message could have been received by the issuing party and been acted upon. No transient error header is returned. If using idempotency, the (error) response is stored as the final result for the idempotency key. Subsequent messages with the same idempotency key not be processed beyond returning the stored response.",
+          "required": false
+        },
+        "subMerchantID": {
+          "type": "string",
+          "desc": "This field contains an identifier of the actual merchant when a transaction is submitted via a payment facilitator. The payment facilitator must send in this unique ID, which is used by schemes to identify the merchant.\nA unique identifier per submerchant that is required if the transaction is performed by a registered payment facilitator.\n\nFormat: alpha-numeric.\nFixed length: 15 characters.",
+          "required": false
+        },
+        "installmentPaymentData.selectedInstallmentOption": {
+          "type": "string",
+          "desc": "This is the installment option selected by the shopper. It is required only if specified by the user.",
+          "required": false
+        },
+        "allow3DS2": {
+          "type": "string",
+          "desc": "This parameter indicates that you are able to process 3D Secure 2 transactions natively on your payment page. Send this field when you are using /payments endpoint with any of our native 3D Secure 2 solutions, such as Components or Drop-in. Possible values:\n\ntrue - Ready to support native 3D Secure 2 authentication. Setting this to true does not mean always applying 3D Secure 2. Adyen still selects the version of 3D Secure based on configuration to optimize authorisation rates and improve the shopper's experience.\nfalse – Not ready to support native 3D Secure 2 authentication. Adyen will not offer 3D Secure 2 to your shopper regardless of your configuration.\n\n\nThis parameter only indicates your readiness to support 3D Secure 2 natively on Drop-in or Components. To specify that you want to perform 3D Secure on a transaction, use Dynamic 3D Secure or send the executeThreeD parameter.",
+          "required": false
+        },
+        "executeThreeD": {
+          "type": "string",
+          "desc": "This parameter indicates if you want to perform 3D Secure authentication on a transaction or not. Allowed values:\n\ntrue – Perform 3D Secure authentication.\nfalse – Don't perform 3D Secure authentication.\n\n\nAlternatively, you can also use Dynamic 3D Secure to configure rules for applying 3D Secure.",
+          "required": false
+        },
+        "mpiImplementationType": {
+          "type": "string",
+          "desc": "In case of Secure+, this field must be set to CUPSecurePlus.",
+          "required": false
+        },
+        "scaExemption": {
+          "type": "string",
+          "desc": "Indicates the exemption type that you want to request for the transaction. Possible values:\n\nlowValue\nsecureCorporate\ntrustedBeneficiary\ntransactionRiskAnalysis",
+          "required": false
+        },
+        "airline.passenger_name": {
+          "type": "string",
+          "desc": "Passenger name, initials, and a title.\n\nFormat: last name + first name or initials + title.\nExample: FLYER / MARY MS.\nminLength: 1\nmaxLength: 49",
+          "required": true
+        },
+        "airline.computerized_reservation_system": {
+          "type": "string",
+          "desc": "The CRS used to make the reservation and purchase the ticket.\n\nFormat: alphanumeric.\nminLength: 4\nmaxLength: 4",
+          "required": false
+        },
+        "airline.airline_code": {
+          "type": "string",
+          "desc": "IATA 3-digit accounting code (PAX); numeric. It identifies the carrier.\n\nFormat: IATA 3-digit accounting code (PAX)\nExample: KLM = 074\nminLength: 3\nmaxLength: 3",
+          "required": false
+        },
+        "airline.ticket_number": {
+          "type": "string",
+          "desc": "The ticket's unique identifier.\n\nminLength: 1\nmaxLength: 150",
+          "required": false
+        },
+        "airline.flight_date": {
+          "type": "string",
+          "desc": "Flight departure date. Local time (HH:mm) is optional.\n\nDate format: yyyy-MM-dd\nDate and time format: yyyy-MM-dd HH:mm\nminLength: 10\nmaxLength: 16",
+          "required": false
+        },
+        "airline.customer_reference_number": {
+          "type": "string",
+          "desc": "Reference number; alphanumeric.\n\nminLength: 0\nmaxLength: 20",
+          "required": false
+        },
+        "airline.ticket_issue_address": {
+          "type": "string",
+          "desc": "Address of the place/agency that issued the ticket.\n\nminLength: 0\nmaxLength: 16",
+          "required": false
+        },
+        "airline.airline_designator_code": {
+          "type": "string",
+          "desc": "IATA 2-letter accounting code (PAX); alphabetical. It identifies the carrier.\n\nFormat: IATA 2-letter airline code\nExample: KLM = KL\nminLength: 2\nmaxLength: 2",
+          "required": false
+        },
+        "airline.travel_agency_code": {
+          "type": "string",
+          "desc": "IATA number, also ARC number or ARC/IATA number. Unique identifier number for travel agencies.\n\nminLength: 1\nmaxLength: 8",
+          "required": false
+        },
+        "airline.travel_agency_name": {
+          "type": "string",
+          "desc": "The name of the travel agency.\n\nminLength: 1\nmaxLength: 25",
+          "required": false
+        },
+        "airline.agency_plan_name": {
+          "type": "string",
+          "desc": "2-letter agency plan identifier; alphabetical.\n\nminLength: 2\nmaxLength: 2",
+          "required": false
+        },
+        "airline.agency_invoice_number": {
+          "type": "string",
+          "desc": "Reference number for the invoice, issued by the agency.\n\nminLength: 1\nmaxLength: 6",
+          "required": false
+        },
+        "airline.boarding_fee": {
+          "type": "string",
+          "desc": "Chargeable amount for boarding the plane.\nThe transaction amount needs to be represented in minor units according to the following table.\n\nminLength: 1\nmaxLength: 18",
+          "required": false
+        },
+        "airline.document_type": {
+          "type": "string",
+          "desc": "Optional 2-digit code; alphanumeric. It identifies the type of product of the transaction. The description of the code may appear on credit card statements.\n\nFormat: 2-digit code\nExample: Passenger ticket = 01\nminLength: 2\nmaxLength: 2",
+          "required": false
+        },
+        "airline.leg.depart_airport": {
+          "type": "string",
+          "desc": "Alphabetical identifier of the departure airport.\nThis field is required if the airline data includes leg details.\n\nFormat: IATA 3-letter airport code.\nExample: Amsterdam = AMS\nminLength: 3\nmaxLength: 3",
+          "required": false
+        },
+        "airline.leg.flight_number": {
+          "type": "string",
+          "desc": "The flight identifier.\n\nminLength: 1\nmaxLength: 5",
+          "required": false
+        },
+        "airline.leg.carrier_code": {
+          "type": "string",
+          "desc": "IATA 2-letter accounting code (PAX); alphabetical. It identifies the carrier.\nThis field is required/mandatory if the airline data includes leg details.\n\nFormat: IATA 2-letter airline code\nExample: KLM = KL\nminLength: 2\nmaxLength: 2",
+          "required": false
+        },
+        "airline.leg.fare_base_code": {
+          "type": "string",
+          "desc": "Fare basis code; alphanumeric.\n\nminLength: 1\nmaxLength: 7",
+          "required": false
+        },
+        "airline.leg.class_of_travel": {
+          "type": "string",
+          "desc": "1-letter travel class identifier; alphabetical. There is no standard; however, the following codes are used rather consistently:\n\nF: first class\nJ: business class\nY: economy class\nW: premium economy\n\nLimitations:\n\nminLength: 1\nmaxLength: 1",
+          "required": false
+        },
+        "airline.leg.stop_over_code": {
+          "type": "string",
+          "desc": "1-letter code that indicates whether the passenger is entitled to make a stopover. Only two types of characters are allowed:\n\nO: Stopover allowed\nX: Stopover not allowed\n\nLimitations:\n\nminLength: 1\nmaxLength: 1",
+          "required": false
+        },
+        "airline.leg.destination_code": {
+          "type": "string",
+          "desc": "Alphabetical identifier of the destination/arrival airport.\nThis field is required/mandatory if the airline data includes leg details.\n\nFormat: IATA 3-letter airport code.\nExample: Amsterdam = AMS\nminLength: 3\nmaxLength: 3",
+          "required": false
+        },
+        "airline.leg.date_of_travel": {
+          "type": "string",
+          "desc": "Date and time of travel. ISO 8601-compliant.\n\nFormat: yyyy-MM-dd HH:mm\nminLength: 16\nmaxLength: 16",
+          "required": false
+        },
+        "airline.leg.depart_tax": {
+          "type": "string",
+          "desc": "Departure tax. Amount charged by a country to an individual upon their leaving. The transaction amount needs to be represented in minor units according to the following table.\n\nminLength: 1\nmaxLength: 12",
+          "required": false
+        },
+        "airline.passenger.first_name": {
+          "type": "string",
+          "desc": "Passenger first name/given name.\n\nThis field is required/mandatory if the airline data includes passenger details or leg details.",
+          "required": false
+        },
+        "airline.passenger.last_name": {
+          "type": "string",
+          "desc": "Passenger last name/family name.\n\nThis field is required/mandatory if the airline data includes passenger details or leg details.",
+          "required": false
+        },
+        "airline.passenger.traveller_type": {
+          "type": "string",
+          "desc": "Passenger type code (PTC). IATA PTC values are 3-letter alphabetical. Example: ADT, SRC, CNN, INS.\nHowever, several carriers use non-standard codes that can be up to 5 alphanumeric characters.\n\nminLength: 3\nmaxLength: 6",
+          "required": false
+        },
+        "airline.passenger.telephone_number": {
+          "type": "string",
+          "desc": "Telephone number of the passenger, including country code. This is an alphanumeric field that can include the '+' and '-' signs.\n\nminLength: 3\nmaxLength: 30",
+          "required": false
+        },
+        "airline.passenger.date_of_birth": {
+          "type": "string",
+          "desc": "Date of birth of the passenger.\nDate format: yyyy-MM-dd\n\nminLength: 10\nmaxLength: 10",
+          "required": false
+        },
+        "carRental.rentalAgreementNumber": {
+          "type": "string",
+          "desc": "The rental agreement number associated with this car rental.\n\nFormat: Alphanumeric\nmaxLength: 14",
+          "required": false
+        },
+        "carRental.renterName": {
+          "type": "string",
+          "desc": "The name of the person renting the car.\n\nFormat: Alphanumeric\nmaxLength: 26",
+          "required": false
+        },
+        "carRental.returnCity": {
+          "type": "string",
+          "desc": "The city where the car must be returned.\n\nFormat: Alphanumeric\nmaxLength: 18",
+          "required": false
+        },
+        "carRental.returnStateProvince": {
+          "type": "string",
+          "desc": "The state or province where the car must be returned.\n\nFormat: Alphanumeric\nmaxLength: 3",
+          "required": false
+        },
+        "carRental.returnCountry": {
+          "type": "string",
+          "desc": "The country where the car must be returned.\n\nFormat: Alphanumeric\nmaxLength: 2",
+          "required": false
+        },
+        "carRental.returnLocationId": {
+          "type": "string",
+          "desc": "Agency code, phone number, or address abbreviation\n\nFormat: Alphanumeric\nmaxLength: 10",
+          "required": false
+        },
+        "carRental.returnDate": {
+          "type": "string",
+          "desc": "The last date to return the car by.\n\nDate format: yyyyMMdd",
+          "required": false
+        },
+        "carRental.checkOutDate": {
+          "type": "string",
+          "desc": "Pick-up date.\n\nDate format: yyyyMMdd",
+          "required": false
+        },
+        "carRental.customerServiceTollFreeNumber": {
+          "type": "string",
+          "desc": "The customer service phone number of the car rental company.\n\nFormat: Alphanumeric\nmaxLength: 17",
+          "required": false
+        },
+        "carRental.rate": {
+          "type": "string",
+          "desc": "Daily rental rate.\n\nFormat: Alphanumeric\nmaxLength: 12",
+          "required": false
+        },
+        "carRental.rateIndicator": {
+          "type": "string",
+          "desc": "Specifies whether the given rate is applied daily or weekly.\n\nD - Daily rate.\nW - Weekly rate.",
+          "required": false
+        },
+        "carRental.locationCity": {
+          "type": "string",
+          "desc": "The location from which the car is rented.\n\nFormat: Alphanumeric\nmaxLength: 18",
+          "required": false
+        },
+        "carRental.locationStateProvince": {
+          "type": "string",
+          "desc": "Pick-up date.\n\nDate format: yyyyMMdd",
+          "required": false
+        },
+        "carRental.locationCountry": {
+          "type": "string",
+          "desc": "The customer service phone number of the car rental company.\n\nFormat: Alphanumeric\nmaxLength: 17",
+          "required": false
+        },
+        "carRental.rentalClassId": {
+          "type": "string",
+          "desc": "Daily rental rate.\n\nFormat: Alphanumeric\nmaxLength: 12",
+          "required": false
+        },
+        "carRental.daysRented": {
+          "type": "string",
+          "desc": "Specifies whether the given rate is applied daily or weekly.\n\nD - Daily rate.\nW - Weekly rate.",
+          "required": false
+        },
+        "carRental.taxExemptIndicator": {
+          "type": "string",
+          "desc": "Indicates whether the goods or services were tax-exempt, or tax was not collected.\nValues:\n\n0 - Tax was not collected\n1 - Goods or services were tax exempt",
+          "required": false
+        },
+        "travelEntertainmentAuthData.market": {
+          "type": "string",
+          "desc": "Indicates what market-specific dataset will be submitted or is being submitted. Value should be \"H\" for Hotel. This should be included in the auth message.\n\nFormat: Alphanumeric\nmaxLength: 1",
+          "required": false
+        },
+        "travelEntertainmentAuthData.duration": {
+          "type": "string",
+          "desc": "Number of nights.  This should be included in the auth message.\n\nFormat: Numeric\nmaxLength: 2",
+          "required": false
+        },
+        "carRental.fuelCharges": {
+          "type": "string",
+          "desc": "Any fuel charges associated with the rental.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "carRental.insuranceCharges": {
+          "type": "string",
+          "desc": "Any insurance charges associated with the rental.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "carRental.noShowIndicator": {
+          "type": "string",
+          "desc": "Indicates if the customer was a \"no-show\" (neither keeps nor cancels their booking).\n\n0 - Not applicable.\n1 - Customer was a no show.",
+          "required": false
+        },
+        "carRental.oneWayDropOffCharges": {
+          "type": "string",
+          "desc": "Charge associated with not returning a vehicle to the original rental location.",
+          "required": false
+        },
+        "enhancedSchemeData.customerReference": {
+          "type": "string",
+          "desc": "Customer code, if supplied by a customer.\n\nEncoding: ASCII\nmaxLength: 25",
+          "required": false
+        },
+        "enhancedSchemeData.totalTaxAmount": {
+          "type": "string",
+          "desc": "Total tax amount, in minor units. For example, 2000 means USD 20.00\n\nmaxLength: 12",
+          "required": false
+        },
+        "enhancedSchemeData.freightAmount": {
+          "type": "number",
+          "desc": "Shipping amount, in minor units.\nFor example, 2000 means USD 20.00.\nMax length: 12 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.dutyAmount": {
+          "type": "number",
+          "desc": "Duty amount, in minor units.\nFor example, 2000 means USD 20.00.\nMax length: 12 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.destinationPostalCode": {
+          "type": "string",
+          "desc": "The postal code of a destination address.\nEncoding: ASCII.\nMax length: 10 characters.\n\nRequired for American Express.",
+          "required": false
+        },
+        "enhancedSchemeData.destinationStateProvinceCode": {
+          "type": "string",
+          "desc": "Destination state or province code.\nEncoding: ASCII.Max length: 3 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.shipFromPostalCode": {
+          "type": "string",
+          "desc": "The postal code of a \"ship-from\" address.\nEncoding: ASCII.\nMax length: 10 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.destinationCountryCode": {
+          "type": "string",
+          "desc": "Destination country code.\nEncoding: ASCII.\nMax length: 3 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.orderDate": {
+          "type": "string",
+          "desc": "Order date.\n\nFormat: ddMMyy\n\nEncoding: ASCII.\nMax length: 6 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.itemDetailLine[itemNr].commodityCode": {
+          "type": "string",
+          "desc": "Item commodity code.\nEncoding: ASCII.\nMax length: 12 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.itemDetailLine[itemNr].description": {
+          "type": "string",
+          "desc": "Item description.\nEncoding: ASCII.\nMax length: 26 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.itemDetailLine[itemNr].productCode": {
+          "type": "string",
+          "desc": "Product code.\nEncoding: ASCII.\nMax length: 12 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.itemDetailLine[itemNr].quantity": {
+          "type": "number",
+          "desc": "Quantity, specified as an integer value.\nValue must be greater than 0.\nMax length: 12 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.itemDetailLine[itemNr].unitOfMeasure": {
+          "type": "string",
+          "desc": "Item unit of measurement.\nEncoding: ASCII.\nMax length: 3 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.itemDetailLine[itemNr].unitPrice": {
+          "type": "number",
+          "desc": "Unit price, specified in minor units.\nMax length: 12 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.itemDetailLine[itemNr].discountAmount": {
+          "type": "number",
+          "desc": "Discount amount, in minor units.\nFor example, 2000 means USD 20.00.\nMax length: 12 characters.",
+          "required": false
+        },
+        "enhancedSchemeData.itemDetailLine[itemNr].totalAmount": {
+          "type": "number",
+          "desc": "Total amount, in minor units.\nFor example, 2000 means USD 20.00.\nMax length: 12 characters.",
+          "required": false
+        },
+        "lodging.customerServiceTollFreeNumber": {
+          "type": "string",
+          "desc": "The toll free phone number for the hotel/lodgings.\n\nFormat: Alphanumeric\nmaxLength: 17",
+          "required": false
+        },
+        "lodging.checkInDate": {
+          "type": "string",
+          "desc": "The arrival date.\n\nDate format: yyyyMMdd",
+          "required": false
+        },
+        "lodging.checkOutDate": {
+          "type": "string",
+          "desc": "The departure date.\n\nDate format: yyyyMMdd",
+          "required": false
+        },
+        "lodging.folioNumber": {
+          "type": "string",
+          "desc": "Card acceptor’s internal invoice or billing ID reference number.\n\nFormat: Alphanumeric\nmaxLength: 25",
+          "required": false
+        },
+        "lodging.propertyPhoneNumber": {
+          "type": "string",
+          "desc": "Identifies specific lodging property location by its local phone number.\n\nFormat: Alphanumeric\nmaxLength: 17",
+          "required": false
+        },
+        "lodging.room1.rate": {
+          "type": "string",
+          "desc": "The rate of the room.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "lodging.room1.tax": {
+          "type": "string",
+          "desc": "The total amount of tax to be paid.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "lodging.room1.numberOfNights": {
+          "type": "string",
+          "desc": "Total number of nights the room will be rented.\n\nFormat: Numeric\nmaxLength: 4",
+          "required": false
+        },
+        "lodging.fireSafetyActIndicator": {
+          "type": "string",
+          "desc": "Identifies that the facility complies with the Hotel and Motel Fire Safety Act of 1990. Values can be: 'Y' or 'N'.\n\nFormat: Alphabetic\nmaxLength: 1",
+          "required": false
+        },
+        "lodging.folioCashAdvances": {
+          "type": "string",
+          "desc": "The folio cash advances.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "lodging.foodBeverageCharges": {
+          "type": "string",
+          "desc": "Any charges for food and beverages associated with the booking.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "lodging.noShowIndicator": {
+          "type": "string",
+          "desc": "Indicates if the customer was a \"no-show\" (neither keeps nor cancels their booking).\nValue should be Y or N.\n\nFormat: Numeric\nmaxLength: 1",
+          "required": false
+        },
+        "lodging.prepaidExpenses": {
+          "type": "string",
+          "desc": "Prepaid expenses for the booking.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "lodging.totalTax": {
+          "type": "string",
+          "desc": "Total tax amount.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "lodging.totalRoomTax": {
+          "type": "string",
+          "desc": "Total room tax amount.\n\nFormat: Numeric\nmaxLength: 12",
+          "required": false
+        },
+        "openinvoicedata.numberOfLines": {
+          "type": "integer",
+          "desc": "The number of invoice lines included in openinvoicedata.\nThere needs to be at least one line, so numberOfLines needs to be at least 1.",
+          "required": false
+        },
+        "openinvoicedata.merchantData": {
+          "type": "string",
+          "desc": "Holds different merchant data points like product, purchase, customer, and so on. It takes data in a Base64 encoded string.\nThe merchantData parameter needs to be added to the openinvoicedata signature at the end.\nSince the field is optional, if it's not included it does not impact computing the merchant signature.\nApplies only to Klarna.\nYou can contact Klarna for the format and structure of the string.",
+          "required": false
+        },
+        "openinvoicedata.line[itemNr].currencyCode": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": false
+        },
+        "openinvoicedata.line[itemNr].description": {
+          "type": "string",
+          "desc": "A text description of the product the invoice line refers to.",
+          "required": false
+        },
+        "openinvoicedata.line[itemNr].itemAmount": {
+          "type": "integer",
+          "desc": "The price for one item in the invoice line, represented in minor units.\nThe due amount for the item, VAT excluded.",
+          "required": false
+        },
+        "openinvoicedata.line[itemNr].itemVatAmount": {
+          "type": "integer",
+          "desc": "The VAT due for one item in the invoice line, represented in minor units.",
+          "required": false
+        },
+        "openinvoicedata.line[itemNr].itemVatPercentage": {
+          "type": "integer",
+          "desc": "The VAT percentage for one item in the invoice line, represented in minor units.\nFor example, 19% VAT is specified as 1900.",
+          "required": false
+        },
+        "openinvoicedata.line[itemNr].itemId": {
+          "type": "string",
+          "desc": "A unique id for this item. Required for RatePay if the description of each item is not unique.",
+          "required": false
+        },
+        "openinvoicedata.line[itemNr].numberOfItems": {
+          "type": "integer",
+          "desc": "The number of units purchased of a specific product.",
+          "required": false
+        },
+        "openinvoicedata.line[itemNr].vatCategory": {
+          "type": "string",
+          "desc": "Required for AfterPay. The country-specific VAT category a product falls under.\nAllowed values:\n\nHigh\nLow\nNone.",
+          "required": false
+        },
+        "ratepay.installmentAmount": {
+          "type": "integer",
+          "desc": "Amount the customer has to pay each month.",
+          "required": false
+        },
+        "ratepay.lastInstallmentAmount": {
+          "type": "integer",
+          "desc": "Amount of the last installment.",
+          "required": false
+        },
+        "ratepay.interestRate": {
+          "type": "integer",
+          "desc": "Interest rate of this installment. Double",
+          "required": false
+        },
+        "ratepay.paymentFirstday": {
+          "type": "integer",
+          "desc": "Calendar day of the first payment.",
+          "required": false
+        },
+        "ratepaydata.invoiceId": {
+          "type": "string",
+          "desc": "Identification name or number for the invoice, defined by the merchant.",
+          "required": false
+        },
+        "ratepaydata.invoiceDate": {
+          "type": "string",
+          "desc": "Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date.",
+          "required": false
+        },
+        "ratepaydata.deliveryDate": {
+          "type": "string",
+          "desc": "Date the merchant delivered the goods to the customer.",
+          "required": false
+        },
+        "ratepaydata.dueDate": {
+          "type": "string",
+          "desc": "Date by which the customer must settle the payment.",
+          "required": false
+        },
+        "retry.chainAttemptNumber": {
+          "type": "integer",
+          "desc": "The number of times the transaction (not order) has been retried between different payment service providers. For instance, the chainAttemptNumber set to 2 means that this transaction has been recently tried on another provider before being sent to Adyen.\n\nIf you submit retry.chainAttemptNumber, retry.orderAttemptNumber, and retry.skipRetry values, we also recommend you provide the merchantOrderReference to facilitate linking payment attempts together.",
+          "required": false
+        },
+        "retry.orderAttemptNumber": {
+          "type": "integer",
+          "desc": "The index of the attempt to bill a particular order, which is identified by the merchantOrderReference field. For example, if a recurring transaction fails and is retried one day later, then the order number for these attempts would be 1 and 2, respectively.\n\nIf you submit retry.chainAttemptNumber, retry.orderAttemptNumber, and retry.skipRetry values, we also recommend you provide the merchantOrderReference to facilitate linking payment attempts together.",
+          "required": false
+        },
+        "retry.skipRetry": {
+          "type": "boolean",
+          "desc": "The Boolean value indicating whether Adyen should skip or retry this transaction, if possible.\n\nIf you submit retry.chainAttemptNumber, retry.orderAttemptNumber, and retry.skipRetry values, we also recommend you provide the merchantOrderReference to facilitate linking payment attempts together.",
+          "required": false
+        },
+        "riskdata.[customFieldName]": {
+          "type": "string",
+          "desc": "The data for your custom risk field. For more information, refer to Create custom risk fields.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].itemID": {
+          "type": "string",
+          "desc": "ID of the item.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].productTitle": {
+          "type": "string",
+          "desc": "A text description of the product the invoice line refers to.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].amountPerItem": {
+          "type": "string",
+          "desc": "The price of item in the basket, represented in minor units.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].upc": {
+          "type": "string",
+          "desc": "Universal Product Code.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].sku": {
+          "type": "string",
+          "desc": "Stock keeping unit.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].brand": {
+          "type": "string",
+          "desc": "Brand of the item.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].manufacturer": {
+          "type": "string",
+          "desc": "Manufacturer of the item.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].category": {
+          "type": "string",
+          "desc": "Category of the item.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].color": {
+          "type": "string",
+          "desc": "Color of the item.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].size": {
+          "type": "string",
+          "desc": "Size of the item.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].quantity": {
+          "type": "string",
+          "desc": "Quantity of the item purchased.",
+          "required": false
+        },
+        "riskdata.basket.item[itemNr].receiverEmail": {
+          "type": "string",
+          "desc": "Email associated with the given product in the basket (usually in electronic gift cards).",
+          "required": false
+        },
+        "riskdata.promotions.promotion[itemNr].promotionCode": {
+          "type": "string",
+          "desc": "Code of the promotion.",
+          "required": false
+        },
+        "riskdata.promotions.promotion[itemNr].promotionName": {
+          "type": "string",
+          "desc": "Name of the promotion.",
+          "required": false
+        },
+        "riskdata.promotions.promotion[itemNr].promotionDiscountAmount": {
+          "type": "string",
+          "desc": "The discount amount of the promotion, represented in minor units.",
+          "required": false
+        },
+        "riskdata.promotions.promotion[itemNr].promotionDiscountCurrency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": false
+        },
+        "riskdata.promotions.promotion[itemNr].promotionDiscountPercentage": {
+          "type": "string",
+          "desc": "Promotion's percentage discount. It is represented in percentage value and there is no need to include the '%' sign.\ne.g. for a promotion discount of 30%, the value of the field should be 30.",
+          "required": false
+        },
+        "avsResultRaw": {
+          "type": "string",
+          "desc": "Raw AVS result received from the acquirer, where available. Example: D",
+          "required": false
+        },
+        "bin": {
+          "type": "string",
+          "desc": "The Bank Identification Number of a credit card, which is the first six digits of a card number. Required for tokenized card request.",
+          "required": false
+        },
+        "cvcResultRaw": {
+          "type": "string",
+          "desc": "Raw CVC result received from the acquirer, where available. Example: 1",
+          "required": false
+        },
+        "risk.token": {
+          "type": "string",
+          "desc": "Unique identifier or token for the shopper's card details.",
+          "required": false
+        },
+        "threeDAuthenticated": {
+          "type": "string",
+          "desc": "A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true",
+          "required": false
+        },
+        "threeDOffered": {
+          "type": "string",
+          "desc": "A Boolean value indicating whether 3DS was offered for this payment. Example: true",
+          "required": false
+        },
+        "tokenDataType": {
+          "type": "string",
+          "desc": "Required for PayPal payments only. The only supported value is: paypal.",
+          "required": false
+        },
+        "PayPal.ProtectionEligibility": {
+          "type": "string",
+          "desc": "Allowed values:\n\nEligible — Merchant is protected by PayPal's Seller Protection Policy for Unauthorized Payments and Item Not Received.\nPartiallyEligible — Merchant is protected by PayPal's Seller Protection Policy for Item Not Received.\nIneligible — Merchant is not protected under the Seller Protection Policy.",
+          "required": false
+        },
+        "PayPal.PayerId": {
+          "type": "string",
+          "desc": "Unique PayPal Customer Account identification number. Character length and limitations: 13 single-byte alphanumeric characters.",
+          "required": false
+        },
+        "PayPal.TransactionId": {
+          "type": "string",
+          "desc": "Unique transaction ID of the payment.",
+          "required": false
+        },
+        "PayPal.CountryCode": {
+          "type": "string",
+          "desc": "Shopper's country of residence in the form of ISO standard 3166 2-character country codes.",
+          "required": false
+        },
+        "PayPal.FirstName": {
+          "type": "string",
+          "desc": "Shopper's first name.",
+          "required": false
+        },
+        "PayPal.LastName": {
+          "type": "string",
+          "desc": "Shopper's last name.",
+          "required": false
+        },
+        "PayPal.Phone": {
+          "type": "string",
+          "desc": "Shopper's phone number.",
+          "required": false
+        },
+        "PayPal.EmailId": {
+          "type": "string",
+          "desc": "Shopper's email.",
+          "required": false
+        },
+        "enhancedSchemeData.employeeName": {
+          "type": "string",
+          "desc": "Name or ID associated with the individual working in a temporary capacity.\n\nmaxLength: 40",
+          "required": false
+        },
+        "enhancedSchemeData.jobDescription": {
+          "type": "string",
+          "desc": "Description of the job or task of the individual working in a temporary capacity.\n\nmaxLength: 40",
+          "required": false
+        },
+        "enhancedSchemeData.tempStartDate": {
+          "type": "string",
+          "desc": "Date for the beginning of the pay period.\n\nFormat: ddMMyy\nmaxLength: 6",
+          "required": false
+        },
+        "enhancedSchemeData.tempWeekEnding": {
+          "type": "string",
+          "desc": "Date of the end of the billing cycle.\n\nFormat: ddMMyy\nmaxLength: 6",
+          "required": false
+        },
+        "enhancedSchemeData.requestName": {
+          "type": "string",
+          "desc": "Name of the individual requesting temporary services.\n\nmaxLength: 40",
+          "required": false
+        },
+        "enhancedSchemeData.regularHoursWorked": {
+          "type": "string",
+          "desc": "Amount of time worked during a normal operation for the task or job.\n\nmaxLength: 7",
+          "required": false
+        },
+        "enhancedSchemeData.regularHoursRate": {
+          "type": "string",
+          "desc": "Amount paid per regular hours worked, minor units.\n\nmaxLength: 7",
+          "required": false
+        },
+        "androidpay.token": {
+          "type": "string",
+          "desc": "The Android Pay token retrieved from the SDK.",
+          "required": false
+        },
+        "masterpass.transactionId": {
+          "type": "string",
+          "desc": "The Mastercard Masterpass Transaction ID retrieved from the SDK.",
+          "required": false
+        },
+        "payment.token": {
+          "type": "string",
+          "desc": "The Apple Pay token retrieved from the SDK.",
+          "required": false
+        },
+        "paywithgoogle.token": {
+          "type": "string",
+          "desc": "The Google Pay token retrieved from the SDK.",
+          "required": false
+        },
+        "samsungpay.token": {
+          "type": "string",
+          "desc": "The Samsung Pay token retrieved from the SDK.",
+          "required": false
+        },
+        "visacheckout.callId": {
+          "type": "string",
+          "desc": "The Visa Checkout Call ID retrieved from the SDK.",
+          "required": false
+        }
+      }
+    },
+    "merchantAccount": {
+      "type": "string",
+      "desc": "The merchant account that is used to process the payment.",
+      "required": true
+    },
+    "modificationAmount": {
+      "type": "string",
+      "desc": "The amount that needs to be captured/refunded. Required for /capture and /refund, not allowed for /cancel. The currency must match the currency used in authorisation, the value must be smaller than or equal to the authorised amount.",
+      "required": true,
+      "children": {
+        "currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": true
+        },
+        "value": {
+          "type": "integer",
+          "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+          "required": true
+        }
+      }
+    },
+    "mpiData": {
+      "type": "string",
+      "desc": "Authentication data produced by an MPI (Mastercard SecureCode or Verified By Visa).",
+      "required": false,
+      "children": {
+        "authenticationResponse": {
+          "type": "string",
+          "desc": "In 3D Secure 1, the authentication response if the shopper was redirected.\nIn 3D Secure 2, this is the transStatus from the challenge result. If the transaction was frictionless, set this value to Y.",
+          "required": false
+        },
+        "cavv": {
+          "type": "string",
+          "desc": "The cardholder authentication value (base64 encoded, 20 bytes in a decoded form).",
+          "required": false
+        },
+        "cavvAlgorithm": {
+          "type": "string",
+          "desc": "The CAVV algorithm used. Include this only for 3D Secure 1.",
+          "required": false
+        },
+        "directoryResponse": {
+          "type": "string",
+          "desc": "In 3D Secure 1, this is the enrollment response from the 3D directory server.\nIn 3D Secure 2, this is the transStatus from the ARes. The possible values are A or Y for a frictionless flow, or C for a challenge flow.",
+          "required": false
+        },
+        "dsTransID": {
+          "type": "string",
+          "desc": "Supported for 3D Secure 2. The unique transaction identifier assigned by the Directory Server (DS) to identify a single transaction.",
+          "required": false
+        },
+        "eci": {
+          "type": "string",
+          "desc": "The electronic commerce indicator.",
+          "required": false
+        },
+        "threeDSVersion": {
+          "type": "string",
+          "desc": "The version of the 3D Secure protocol.",
+          "required": false
+        },
+        "xid": {
+          "type": "string",
+          "desc": "Supported for 3D Secure 1. The transaction identifier (Base64-encoded, 20 bytes in a decoded form).",
+          "required": false
+        }
+      }
+    },
+    "originalMerchantReference": {
+      "type": "string",
+      "desc": "The original merchant reference to cancel.",
+      "required": false
+    },
+    "originalReference": {
+      "type": "string",
+      "desc": "The original pspReference of the payment to modify.\nThis reference is returned in:\n\nauthorisation response\nauthorisation notification",
+      "required": true
+    },
+    "reference": {
+      "type": "string",
+      "desc": "Optionally, you can specify your reference for the payment modification. This reference is visible in Customer Area and in reports.\nMaximum length: 80 characters.",
+      "required": false
+    },
+    "splits": {
+      "type": "array",
+      "desc": "Information on how the payment should be split between accounts when using Adyen for Platforms.",
+      "required": true,
+      "children": {
+        "account": {
+          "type": "string",
+          "desc": "The account to which this split applies.\n\nRequired if the type is MarketPlace.",
+          "required": false
+        },
+        "amount": {
+          "type": "string",
+          "desc": "The amount of this split.",
+          "required": true
+        },
+        "currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.\nIf this value is not provided, the currency in which the payment is made will be used.",
+          "required": false
+        },
+        "value": {
+          "type": "integer",
+          "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+          "required": true
+        },
+        "description": {
+          "type": "string",
+          "desc": "A description of this split.",
+          "required": false
+        },
+        "reference": {
+          "type": "string",
+          "desc": "The reference of this split. Used to link other operations (e.g. captures and refunds) to this split.\n\nRequired if the type is MarketPlace.",
+          "required": false
+        },
+        "type": {
+          "type": "string",
+          "desc": "The type of this split.\n\nPermitted values: Default, PaymentFee, VAT, Commission, MarketPlace, BalanceAccount.",
+          "required": true
+        }
+      }
+    },
+    "tenderReference": {
+      "type": "string",
+      "desc": "The transaction reference provided by the PED. For point-of-sale integrations only.",
+      "required": false
+    },
+    "uniqueTerminalId": {
+      "type": "string",
+      "desc": "Unique terminal ID for the PED that originally processed the request. For point-of-sale integrations only.",
+      "required": false
+    }
+  },
+  "res": {
+    "additionalData": {
+      "type": "object",
+      "desc": "This field contains additional data, which may be returned in a particular modification response.",
+      "required": false
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.",
+      "required": false
+    },
+    "response": {
+      "type": "string",
+      "desc": "Indicates if the modification request has been received for processing.",
+      "required": false
+    }
+  }
+}

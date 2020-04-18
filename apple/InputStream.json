@@ -1,0 +1,43 @@
+{
+  "type": "Class",
+  "name": "InputStream",
+  "desc": "A stream that provides read-only stream functionality.",
+  "items": [
+    {
+      "name": "read",
+      "type": "func",
+      "desc": "Reads up to a given number of bytes into a given buffer.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<UInt8>"
+        },
+        {
+          "name": "maxLength",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "getBuffer",
+      "type": "func",
+      "desc": "Returns by reference a pointer to a read buffer and, by reference, the number of bytes available, and returns a Boolean value that indicates whether the buffer is available.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>"
+        },
+        {
+          "name": "length",
+          "type": "UnsafeMutablePointer<Int>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "hasBytesAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver has bytes available to read."
+    }
+  ]
+}

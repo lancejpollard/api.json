@@ -1,0 +1,34 @@
+{
+  "path": "/disable",
+  "method": "POST",
+  "desc": "Disables stored payment details to stop charging a shopper with this particular recurring detail ID.\nFor more information, refer to Disable stored details.",
+  "req": {
+    "contract": {
+      "type": "string",
+      "desc": "Specify the contract if you only want to disable a specific use.\nThis field can be set to one of the following values, or to their combination (comma-separated):\n\nONECLICK\nRECURRING\nPAYOUT",
+      "required": false
+    },
+    "merchantAccount": {
+      "type": "string",
+      "desc": "The merchant account identifier with which you want to process the transaction.",
+      "required": true
+    },
+    "recurringDetailReference": {
+      "type": "string",
+      "desc": "The ID that uniquely identifies the recurring detail reference.\nIf it is not provided, the whole recurring contract of the shopperReference will be disabled, which includes all recurring details.",
+      "required": false
+    },
+    "shopperReference": {
+      "type": "string",
+      "desc": "The ID that uniquely identifies the shopper.\nThis shopperReference must be the same as the shopperReference used in the initial payment.",
+      "required": true
+    }
+  },
+  "res": {
+    "response": {
+      "type": "string",
+      "desc": "Depending on whether a specific recurring detail was in the request, result is either [detail-successfully-disabled] or [all-details-successfully-disabled].",
+      "required": false
+    }
+  }
+}

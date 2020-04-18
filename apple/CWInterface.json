@@ -1,0 +1,329 @@
+{
+  "type": "Class",
+  "name": "CWInterface",
+  "desc": "Encapsulates an IEEE 802.11 interface.",
+  "items": [
+    {
+      "name": "setPairwiseMasterKey",
+      "type": "func",
+      "desc": "Sets the interface pairwise master key (PMK).",
+      "params": [
+        {
+          "type": "Data?"
+        }
+      ]
+    },
+    {
+      "name": "setPower",
+      "type": "func",
+      "desc": "Sets the interface power state.",
+      "params": [
+        {
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "setWEPKey",
+      "type": "func",
+      "desc": "Sets the interface WEP key.",
+      "params": [
+        {
+          "type": "Data?"
+        },
+        {
+          "name": "flags",
+          "type": "CWCipherKeyFlags"
+        },
+        {
+          "name": "index",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "setWLANChannel",
+      "type": "func",
+      "desc": "Sets the interface channel.",
+      "params": [
+        {
+          "type": "CWChannel"
+        }
+      ]
+    },
+    {
+      "name": "scanForNetworks",
+      "type": "func",
+      "desc": "Scans for networks.",
+      "params": [
+        {
+          "name": "withName",
+          "type": "String?"
+        }
+      ],
+      "returnType": "Set<CWNetwork>"
+    },
+    {
+      "name": "scanForNetworks",
+      "type": "func",
+      "desc": "Scans for networks.",
+      "params": [
+        {
+          "name": "withSSID",
+          "type": "Data?"
+        }
+      ],
+      "returnType": "Set<CWNetwork>"
+    },
+    {
+      "name": "interfaceNames",
+      "type": "class func",
+      "desc": "Returns the list of BSD names for WLAN interfaces available on the current system.",
+      "params": [],
+      "returnType": "Set<String>?"
+    },
+    {
+      "name": "disassociate",
+      "type": "func",
+      "desc": "Disassociates from the current network.",
+      "params": []
+    },
+    {
+      "name": "startIBSSMode",
+      "type": "func",
+      "desc": "Creates a computer-to-computer (ad-hoc) network with the given network name, security type, and password on the specified channel.",
+      "params": [
+        {
+          "name": "withSSID",
+          "type": "Data"
+        },
+        {
+          "name": "security",
+          "type": "CWIBSSModeSecurity"
+        },
+        {
+          "name": "channel",
+          "type": "Int"
+        },
+        {
+          "name": "password",
+          "type": "String?"
+        }
+      ]
+    },
+    {
+      "name": "commitConfiguration",
+      "type": "func",
+      "desc": "Commit a configuration for the given WLAN interface.",
+      "params": [
+        {
+          "type": "CWConfiguration"
+        },
+        {
+          "name": "authorization",
+          "type": "SFAuthorization?"
+        }
+      ]
+    },
+    {
+      "name": "associate",
+      "type": "func",
+      "desc": "Connects to the given enterprise network.",
+      "params": [
+        {
+          "name": "toEnterpriseNetwork",
+          "type": "CWNetwork"
+        },
+        {
+          "name": "identity",
+          "type": "SecIdentity?"
+        },
+        {
+          "name": "username",
+          "type": "String?"
+        },
+        {
+          "name": "password",
+          "type": "String?"
+        }
+      ]
+    },
+    {
+      "name": "associate",
+      "type": "func",
+      "desc": "Associates to a given network using the given network passphrase.",
+      "params": [
+        {
+          "name": "to",
+          "type": "CWNetwork"
+        },
+        {
+          "name": "password",
+          "type": "String?"
+        }
+      ]
+    },
+    {
+      "name": "interfaceName",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The BSD name of the interface."
+    },
+    {
+      "name": "activePHYMode",
+      "type": "func",
+      "desc": "The current active PHY modes for the interface.",
+      "params": [],
+      "returnType": "CWPHYMode"
+    },
+    {
+      "name": "bssid",
+      "type": "func",
+      "desc": "The current basic service set identifier (BSSID) for the interface, returned as a UTF-8 string.",
+      "params": [],
+      "returnType": "String?"
+    },
+    {
+      "name": "cachedScanResults",
+      "type": "func",
+      "desc": "The networks currently in the scan cache for the WLAN interface.",
+      "params": [],
+      "returnType": "Set<CWNetwork>?"
+    },
+    {
+      "name": "configuration",
+      "type": "func",
+      "desc": "The current configuration for the given WLAN interface.",
+      "params": [],
+      "returnType": "CWConfiguration?"
+    },
+    {
+      "name": "countryCode",
+      "type": "func",
+      "desc": "The current country code (ISO/IEC 3166-1:1997) for the interface.",
+      "params": [],
+      "returnType": "String?"
+    },
+    {
+      "name": "hardwareAddress",
+      "type": "func",
+      "desc": "The hardware media access control (MAC) address for the interface, returned as a UTF-8 string.",
+      "params": [],
+      "returnType": "String?"
+    },
+    {
+      "name": "interfaceMode",
+      "type": "func",
+      "desc": "The current mode for the interface.",
+      "params": [],
+      "returnType": "CWInterfaceMode"
+    },
+    {
+      "name": "noiseMeasurement",
+      "type": "func",
+      "desc": "The current aggregate noise measurement (dBm) for the interface.",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "powerOn",
+      "type": "func",
+      "desc": "The interface power state is set to \"ON\".",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "rssiValue",
+      "type": "func",
+      "desc": "The current aggregate received signal strength indication (RSSI) measurement (dBm) for the interface.",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "scanForNetworks",
+      "type": "func",
+      "params": [
+        {
+          "name": "withName",
+          "type": "String?"
+        },
+        {
+          "name": "includeHidden",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Set<CWNetwork>"
+    },
+    {
+      "name": "scanForNetworks",
+      "type": "func",
+      "params": [
+        {
+          "name": "withSSID",
+          "type": "Data?"
+        },
+        {
+          "name": "includeHidden",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Set<CWNetwork>"
+    },
+    {
+      "name": "security",
+      "type": "func",
+      "desc": "The current security mode for the interface.",
+      "params": [],
+      "returnType": "CWSecurity"
+    },
+    {
+      "name": "serviceActive",
+      "type": "func",
+      "desc": "The interface has its corresponding network service enabled.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "ssid",
+      "type": "func",
+      "desc": "The current service set identifier (SSID) for the interface, encoded as a string.",
+      "params": [],
+      "returnType": "String?"
+    },
+    {
+      "name": "ssidData",
+      "type": "func",
+      "desc": "The current service set identifier (SSID) for the interface, returned as data.",
+      "params": [],
+      "returnType": "Data?"
+    },
+    {
+      "name": "supportedWLANChannels",
+      "type": "func",
+      "desc": "An array of channels supported by the interface for the active country code.",
+      "params": [],
+      "returnType": "Set<CWChannel>?"
+    },
+    {
+      "name": "transmitPower",
+      "type": "func",
+      "desc": "The current transmit power (mW) for the interface.",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "transmitRate",
+      "type": "func",
+      "desc": "The current transmit rate (Mbps) for the interface.",
+      "params": [],
+      "returnType": "Double"
+    },
+    {
+      "name": "wlanChannel",
+      "type": "func",
+      "desc": "The current channel for the interface.",
+      "params": [],
+      "returnType": "CWChannel?"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "path": "/deletePayoutMethods",
+  "method": "POST",
+  "desc": "This endpoint is used to delete existing payout method from an account holder. For this, pass the accountHolderCode you got on the account holder creation, and one or more payoutMethodCodes specifying payout methods to delete.",
+  "req": {
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the account holder, from which to delete the payout methods.",
+      "required": true
+    },
+    "payoutMethodCodes": {
+      "type": "array",
+      "desc": "The codes of the payout methods to be deleted.",
+      "required": true
+    }
+  },
+  "res": {
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

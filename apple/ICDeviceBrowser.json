@@ -1,0 +1,50 @@
+{
+  "type": "Class",
+  "name": "ICDeviceBrowser",
+  "desc": "An object for finding digital cameras and scanners.",
+  "items": [
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "ICDeviceBrowserDelegate?",
+      "desc": "The object that acts as the delegate of the device browser."
+    },
+    {
+      "name": "isBrowsing",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the device browser is browsing for devices."
+    },
+    {
+      "name": "devices",
+      "type": "var",
+      "datatype": "[ICDevice]?",
+      "desc": "All devices found by the browser."
+    },
+    {
+      "name": "browsedDeviceTypeMask",
+      "type": "var",
+      "datatype": "ICDeviceTypeMask",
+      "desc": "A mask whose set bits indicate the type of devices being browsed after the delegate receives the start message."
+    },
+    {
+      "name": "start",
+      "type": "func",
+      "desc": "Tells the delegate to start looking for devices.",
+      "params": []
+    },
+    {
+      "name": "stop",
+      "type": "func",
+      "desc": "Tells the delegate to stop looking for devices.",
+      "params": []
+    },
+    {
+      "name": "preferredDevice",
+      "type": "func",
+      "desc": "Returns a device object that the client application should select when it launches.",
+      "params": [],
+      "returnType": "ICDevice?"
+    }
+  ]
+}

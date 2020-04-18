@@ -1,0 +1,253 @@
+{
+  "type": "Class",
+  "name": "AVAssetTrack",
+  "desc": "An object that provides the track-level inspection interface for an asset’s media tracks.",
+  "items": [
+    {
+      "name": "asset",
+      "type": "var",
+      "datatype": "AVAsset?",
+      "desc": "The asset of which the track is a part."
+    },
+    {
+      "name": "trackID",
+      "type": "var",
+      "datatype": "CMPersistentTrackID",
+      "desc": "The persistent unique identifier for this track."
+    },
+    {
+      "name": "mediaType",
+      "type": "var",
+      "datatype": "AVMediaType",
+      "desc": "The media type for the track."
+    },
+    {
+      "name": "hasMediaCharacteristic",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the track references media with the specified media characteristic.",
+      "params": [
+        {
+          "type": "AVMediaCharacteristic"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "formatDescriptions",
+      "type": "var",
+      "datatype": "[Any]",
+      "desc": "The format descriptions of the media samples referenced by the track."
+    },
+    {
+      "name": "isEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the track is enabled according to the state stored in its container."
+    },
+    {
+      "name": "isPlayable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the track is playable in the current environment."
+    },
+    {
+      "name": "isSelfContained",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the track references sample data contained only within its storage container."
+    },
+    {
+      "name": "estimatedDataRate",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The estimated data rate, in bits per second, of the media data referenced by the track."
+    },
+    {
+      "name": "totalSampleDataLength",
+      "type": "var",
+      "datatype": "Int64",
+      "desc": "The total number of bytes of sample data required by the track."
+    },
+    {
+      "name": "isDecodable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver is decodable in the current environment."
+    },
+    {
+      "name": "timeRange",
+      "type": "var",
+      "datatype": "CMTimeRange",
+      "desc": "The time range of the track within the overall timeline of the asset."
+    },
+    {
+      "name": "naturalTimeScale",
+      "type": "var",
+      "datatype": "CMTimeScale",
+      "desc": "The natural time scale of the media referenced by this track."
+    },
+    {
+      "name": "languageCode",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The language associated with the track, as an ISO 639-2/T language code."
+    },
+    {
+      "name": "extendedLanguageTag",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The language tag associated with the track, as a BCP-47 language tag."
+    },
+    {
+      "name": "naturalSize",
+      "type": "var",
+      "datatype": "CGSize",
+      "desc": "The natural dimensions of the media data referenced by the track."
+    },
+    {
+      "name": "preferredTransform",
+      "type": "var",
+      "datatype": "CGAffineTransform",
+      "desc": "The transform specified in the track’s storage container as the preferred transformation of the visual media data for display purposes."
+    },
+    {
+      "name": "preferredVolume",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The volume specified in the track’s storage container as the preferred volume of the audible media data."
+    },
+    {
+      "name": "nominalFrameRate",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The frame rate of the track, in frames per second."
+    },
+    {
+      "name": "minFrameDuration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The minimum duration of the track’s frames."
+    },
+    {
+      "name": "requiresFrameReordering",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether samples in the track may have different values for their presentation and decode timestamps."
+    },
+    {
+      "name": "segments",
+      "type": "var",
+      "datatype": "[AVAssetTrackSegment]",
+      "desc": "The time mappings from the track’s media samples to its timeline."
+    },
+    {
+      "name": "segment",
+      "type": "func",
+      "desc": "Returns the track segment that corresponds with, or is closest to, the specified track time.",
+      "params": [
+        {
+          "name": "forTrackTime",
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "AVAssetTrackSegment?"
+    },
+    {
+      "name": "samplePresentationTime",
+      "type": "func",
+      "desc": "Maps the specified track time through the appropriate time mapping and returns the resulting sample presentation time.",
+      "params": [
+        {
+          "name": "forTrackTime",
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "metadata",
+      "type": "var",
+      "datatype": "[AVMetadataItem]",
+      "desc": "An array of metadata items for all metadata identifiers for which a value is available."
+    },
+    {
+      "name": "commonMetadata",
+      "type": "var",
+      "datatype": "[AVMetadataItem]",
+      "desc": "An array of metadata item objects for each common metadata key for which a value is available."
+    },
+    {
+      "name": "availableMetadataFormats",
+      "type": "var",
+      "datatype": "[AVMetadataFormat]",
+      "desc": "An array containing the metadata formats available for the track."
+    },
+    {
+      "name": "metadata",
+      "type": "func",
+      "desc": "Creates an array of metadata objects, one for each metadata item in the container of the specified format.",
+      "params": [
+        {
+          "name": "forFormat",
+          "type": "AVMetadataFormat"
+        }
+      ],
+      "returnType": "[AVMetadataItem]"
+    },
+    {
+      "name": "availableTrackAssociationTypes",
+      "type": "var",
+      "datatype": "[AVAssetTrack.AssociationType]",
+      "desc": "An array of association types used to associate the track with other tracks."
+    },
+    {
+      "name": "associatedTracks",
+      "type": "func",
+      "desc": "Creates an array containing other tracks associated with the track that uses the specified association type.",
+      "params": [
+        {
+          "name": "ofType",
+          "type": "AVAssetTrack.AssociationType"
+        }
+      ],
+      "returnType": "[AVAssetTrack]"
+    },
+    {
+      "name": "canProvideSampleCursors",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset track can provide instances of sample cursors to traverse its media samples and discover information."
+    },
+    {
+      "name": "makeSampleCursor",
+      "type": "func",
+      "desc": "Creates an instance of a sample cursor and positions it at or near the specified presentation timestamp.",
+      "params": [
+        {
+          "name": "presentationTimeStamp",
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "AVSampleCursor?"
+    },
+    {
+      "name": "makeSampleCursorAtFirstSampleInDecodeOrder",
+      "type": "func",
+      "desc": "Creates an instance of a sample cursor and positions it at the receiver's first media sample in decode order.",
+      "params": [],
+      "returnType": "AVSampleCursor?"
+    },
+    {
+      "name": "makeSampleCursorAtLastSampleInDecodeOrder",
+      "type": "func",
+      "desc": "Creates an instance of a sample cursor and positions it at the receiver's last media sample in decode order.",
+      "params": [],
+      "returnType": "AVSampleCursor?"
+    },
+    {
+      "name": "hasAudioSampleDependencies",
+      "type": "var",
+      "datatype": "Bool"
+    }
+  ]
+}

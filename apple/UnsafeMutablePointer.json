@@ -1,0 +1,473 @@
+{
+  "type": "Generic Structure",
+  "name": "UnsafeMutablePointer",
+  "desc": "A pointer for accessing and manipulating data of a specific type.",
+  "items": [
+    {
+      "name": "customMirror",
+      "type": "var",
+      "datatype": "Mirror",
+      "desc": "The custom mirror for this instance."
+    },
+    {
+      "name": "customPlaygroundQuickLook",
+      "type": "var",
+      "datatype": "PlaygroundQuickLook",
+      "desc": "A custom playground Quick Look for this instance."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual representation of the pointer, suitable for debugging."
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The hash value."
+    },
+    {
+      "name": "pointee",
+      "type": "var",
+      "datatype": "Pointee",
+      "desc": "Accesses the instance referenced by this pointer."
+    },
+    {
+      "name": "advanced",
+      "type": "func",
+      "desc": "Returns a pointer offset from this pointer by the specified number of instances.",
+      "params": [
+        {
+          "name": "by",
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafeMutablePointer<Pointee>"
+    },
+    {
+      "name": "assign",
+      "type": "func",
+      "desc": "Replaces this pointer’s initialized memory with the specified number of instances from the given pointer’s memory.",
+      "params": [
+        {
+          "name": "from",
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "assign",
+      "type": "func",
+      "desc": "Replaces this pointer’s memory with the specified number of consecutive copies of the given value.",
+      "params": [
+        {
+          "name": "repeating",
+          "type": "Pointee"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "deallocate",
+      "type": "func",
+      "desc": "Deallocates the memory block previously allocated at this pointer.",
+      "params": []
+    },
+    {
+      "name": "deinitialize",
+      "type": "func",
+      "desc": "Deinitializes the specified number of values starting at this pointer.",
+      "params": [
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafeMutableRawPointer"
+    },
+    {
+      "name": "distance",
+      "type": "func",
+      "desc": "Returns the distance from this pointer to the given pointer, counted as instances of the pointer’s Pointee type.",
+      "params": [
+        {
+          "name": "to",
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "desc": "Hashes the essential components of this value by feeding them into the given hasher.",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "type": "func",
+      "desc": "Initializes the memory referenced by this pointer with the values starting at the given pointer.",
+      "params": [
+        {
+          "name": "from",
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "type": "func",
+      "desc": "Initializes this pointer’s memory with the specified number of consecutive copies of the given value.",
+      "params": [
+        {
+          "name": "repeating",
+          "type": "Pointee"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "type": "func",
+      "desc": "Initializes this pointer’s memory with a single instance of the given value.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Pointee"
+        }
+      ]
+    },
+    {
+      "name": "move",
+      "type": "func",
+      "desc": "Retrieves and returns the referenced instance, returning the pointer’s memory to an uninitialized state.",
+      "params": [],
+      "returnType": "Pointee"
+    },
+    {
+      "name": "moveAssign",
+      "type": "func",
+      "desc": "Replaces the memory referenced by this pointer with the values starting at the given pointer, leaving the source memory uninitialized.",
+      "params": [
+        {
+          "name": "from",
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "moveInitialize",
+      "type": "func",
+      "desc": "Moves instances from initialized source memory into the uninitialized memory referenced by this pointer, leaving the source memory uninitialized and the memory referenced by this pointer initialized.",
+      "params": [
+        {
+          "name": "from",
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "predecessor",
+      "type": "func",
+      "desc": "Returns a pointer to the previous consecutive instance.",
+      "params": [],
+      "returnType": "UnsafeMutablePointer<Pointee>"
+    },
+    {
+      "name": "successor",
+      "type": "func",
+      "desc": "Returns a pointer to the next consecutive instance.",
+      "params": [],
+      "returnType": "UnsafeMutablePointer<Pointee>"
+    },
+    {
+      "name": "allocate",
+      "type": "static func",
+      "desc": "Allocates uninitialized memory for the specified number of instances of type Pointee.",
+      "params": [
+        {
+          "name": "capacity",
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafeMutablePointer<Pointee>"
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "+",
+      "type": "static func",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "UnsafeMutablePointer<Pointee>"
+    },
+    {
+      "name": "+",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafeMutablePointer<Pointee>"
+    },
+    {
+      "name": "+=",
+      "type": "static func",
+      "params": [
+        {
+          "type": "inout UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "-",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "-",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafeMutablePointer<Pointee>"
+    },
+    {
+      "name": "-=",
+      "type": "static func",
+      "params": [
+        {
+          "type": "inout UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a partial range extending upward from a lower bound.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "PartialRangeFrom<UnsafeMutablePointer<Pointee>>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a partial range up to, and including, its upper bound.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "PartialRangeThrough<UnsafeMutablePointer<Pointee>>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a closed range that contains both of its bounds.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "ClosedRange<UnsafeMutablePointer<Pointee>>"
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a partial range up to, but not including, its upper bound.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "PartialRangeUpTo<UnsafeMutablePointer<Pointee>>"
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a half-open range that contains its lower bound but not its upper bound.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Range<UnsafeMutablePointer<Pointee>>"
+    },
+    {
+      "name": "<",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is less than that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "<",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the first pointer references an earlier memory location than the second pointer.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "<=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is less than or equal to that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are equal.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two pointers are equal.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": ">",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is greater than that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": ">=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is greater than or equal to that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        },
+        {
+          "type": "UnsafeMutablePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    }
+  ]
+}

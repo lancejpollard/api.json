@@ -1,0 +1,54 @@
+{
+  "type": "Protocol",
+  "name": "HashFunction",
+  "desc": "A type that performs cryptographically secure hashing.",
+  "items": [
+    {
+      "name": "hash<D>",
+      "type": "static func",
+      "desc": "Computes the digest of the bytes in the given data instance and returns the computed digest.",
+      "params": [
+        {
+          "name": "data",
+          "type": "D"
+        }
+      ],
+      "returnType": "Self.Digest"
+    },
+    {
+      "name": "update<D>",
+      "type": "func",
+      "desc": "Incrementally updates the hash function with the given data.",
+      "params": [
+        {
+          "name": "data",
+          "type": "D"
+        }
+      ]
+    },
+    {
+      "name": "update",
+      "type": "func",
+      "desc": "Incrementally updates the hash function with the contents of the buffer.",
+      "params": [
+        {
+          "name": "bufferPointer",
+          "type": "UnsafeRawBufferPointer"
+        }
+      ]
+    },
+    {
+      "name": "finalize",
+      "type": "func",
+      "desc": "Finalizes the hash function and returns the computed digest.",
+      "params": [],
+      "returnType": "Self.Digest"
+    },
+    {
+      "name": "blockByteCount",
+      "type": "static var",
+      "datatype": "Int",
+      "desc": "Required."
+    }
+  ]
+}

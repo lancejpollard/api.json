@@ -1,0 +1,145 @@
+{
+  "type": "Class",
+  "name": "NSColorPanel",
+  "desc": "A standard user interface for selecting color in an app.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "NSColorPanel",
+      "desc": "Returns the shared NSColorPanel instance, creating it if necessary."
+    },
+    {
+      "name": "sharedColorPanelExists",
+      "type": "class var",
+      "datatype": "Bool",
+      "desc": "Returns  a Boolean value indicating whether the NSColorPanel has been created already."
+    },
+    {
+      "name": "setPickerMode",
+      "type": "class func",
+      "desc": "Specifies the color panel’s initial picker.",
+      "params": [
+        {
+          "type": "NSColorPanel.Mode"
+        }
+      ]
+    },
+    {
+      "name": "mode",
+      "type": "var",
+      "datatype": "NSColorPanel.Mode",
+      "desc": "The mode of the receiver the mode is one of the modes allowed by the color mask."
+    },
+    {
+      "name": "NSColorPanel.Mode",
+      "type": "enum",
+      "desc": "A type defined for the enum constants specifying color panel modes."
+    },
+    {
+      "name": "setPickerMask",
+      "type": "class func",
+      "desc": "Determines which color selection modes are available in an application’s NSColorPanel.",
+      "params": [
+        {
+          "type": "NSColorPanel.Options"
+        }
+      ]
+    },
+    {
+      "name": "accessoryView",
+      "type": "var",
+      "datatype": "NSView?",
+      "desc": "The accessory view."
+    },
+    {
+      "name": "isContinuous",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the receiver continuously sends the action message to the target."
+    },
+    {
+      "name": "setAction",
+      "type": "func",
+      "desc": "Sets the color panel's action message.",
+      "params": [
+        {
+          "type": "Selector?"
+        }
+      ]
+    },
+    {
+      "name": "setTarget",
+      "type": "func",
+      "desc": "Sets the target of the receiver.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "showsAlpha",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether or not the receiver shows alpha values and an opacity slider."
+    },
+    {
+      "name": "attachColorList",
+      "type": "func",
+      "desc": "Adds the list of NSColor objects specified to all the color pickers in the receiver that display color lists by invoking attachColorList(_:) on all color pickers in the application.",
+      "params": [
+        {
+          "type": "NSColorList"
+        }
+      ]
+    },
+    {
+      "name": "detachColorList",
+      "type": "func",
+      "desc": "Removes the list of colors from all the color pickers in the receiver that display color lists by invoking detachColorList(_:) on all color pickers in the application.",
+      "params": [
+        {
+          "type": "NSColorList"
+        }
+      ]
+    },
+    {
+      "name": "dragColor",
+      "type": "class func",
+      "desc": "Drags a color into a destination view from the specified source view.",
+      "params": [
+        {
+          "type": "NSColor"
+        },
+        {
+          "name": "with",
+          "type": "NSEvent"
+        },
+        {
+          "name": "from",
+          "type": "NSView"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "color",
+      "type": "var",
+      "datatype": "NSColor",
+      "desc": "The color of the receiver."
+    },
+    {
+      "name": "alpha",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The receiver’s current alpha value based on its opacity slider."
+    },
+    {
+      "name": "colorDidChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the color of the NSColorPanel is set, as when NSColorPanel is invoked."
+    }
+  ]
+}

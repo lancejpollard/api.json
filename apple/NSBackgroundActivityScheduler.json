@@ -1,0 +1,64 @@
+{
+  "type": "Class",
+  "name": "NSBackgroundActivityScheduler",
+  "desc": "A task scheduler suitable for low priority operations that can run in the background.",
+  "items": [
+    {
+      "name": "identifier",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A unique reverse DNS notation string, such as com.example.MyApp.updatecheck, that identifies the activity."
+    },
+    {
+      "name": "repeats",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the activity should be rescheduled after it completes."
+    },
+    {
+      "name": "interval",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "An integer providing a suggested interval between scheduling and invoking the activity."
+    },
+    {
+      "name": "qualityOfService",
+      "type": "var",
+      "datatype": "QualityOfService",
+      "desc": "A value of type NSQualityOfService, which controls how aggressively the system schedules the activity."
+    },
+    {
+      "name": "shouldDefer",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether your app should stop performing background activity and resume at a more optimal time."
+    },
+    {
+      "name": "tolerance",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "A value of type TimeInterval, which specifies a range of time during which the background activity may occur."
+    },
+    {
+      "name": "invalidate",
+      "type": "func",
+      "desc": "Prevents the background activity from being scheduled again.",
+      "params": []
+    },
+    {
+      "name": "NSBackgroundActivityScheduler.Result",
+      "type": "enum",
+      "desc": "These constants indicate whether background activity has been completed successfully or whether additional processing should be deferred until a more optimal time."
+    },
+    {
+      "name": "QualityOfService",
+      "type": "enum",
+      "desc": "Used to indicate the nature and importance of work to the system. Work with higher quality of service classes receive more resources than work with lower quality of service classes whenever there is resource contention."
+    },
+    {
+      "name": "s ProcessInfo",
+      "type": "enum",
+      "desc": "A collection of information about the current process."
+    }
+  ]
+}

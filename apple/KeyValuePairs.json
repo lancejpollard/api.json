@@ -1,0 +1,318 @@
+{
+  "type": "Generic Structure",
+  "name": "KeyValuePairs",
+  "desc": "A lightweight collection of key-value pairs.",
+  "items": [
+    {
+      "name": "count",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of elements in the collection."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string that represents the contents of the dictionary, suitable for debugging."
+    },
+    {
+      "name": "description",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string that represents the contents of the dictionary."
+    },
+    {
+      "name": "endIndex",
+      "type": "var",
+      "datatype": "KeyValuePairs<Key,",
+      "desc": "The collection’s “past the end” position—that is, the position one greater than the last valid subscript argument."
+    },
+    {
+      "name": "first",
+      "type": "var",
+      "datatype": "(key:",
+      "desc": "The first element of the collection."
+    },
+    {
+      "name": "indices",
+      "type": "var",
+      "datatype": "Range<Int>",
+      "desc": "The indices that are valid for subscripting the collection, in ascending order."
+    },
+    {
+      "name": "isEmpty",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the collection is empty."
+    },
+    {
+      "name": "last",
+      "type": "var",
+      "datatype": "(key:",
+      "desc": "The last element of the collection."
+    },
+    {
+      "name": "lazy",
+      "type": "var",
+      "datatype": "LazySequence<KeyValuePairs<Key,",
+      "desc": "A sequence containing the same elements as this sequence, but on which some operations, such as map and filter, are implemented lazily."
+    },
+    {
+      "name": "startIndex",
+      "type": "var",
+      "datatype": "KeyValuePairs<Key,",
+      "desc": "The position of the first element in a nonempty collection."
+    },
+    {
+      "name": "underestimatedCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A value less than or equal to the number of elements in the collection."
+    },
+    {
+      "name": "distance",
+      "type": "func",
+      "desc": "Returns the distance between two indices.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Int"
+        },
+        {
+          "name": "to",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "dropFirst",
+      "type": "func",
+      "desc": "Returns a subsequence containing all but the given number of initial elements.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "dropLast",
+      "type": "func",
+      "desc": "Returns a subsequence containing all but the specified number of final elements.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "enumerated",
+      "type": "func",
+      "desc": "Returns a sequence of pairs (n, x), where n represents a consecutive integer starting at zero and x represents an element of the sequence.",
+      "params": [],
+      "returnType": "EnumeratedSequence<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Offsets the given index by the specified distance.",
+      "params": [
+        {
+          "type": "inout Int"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Offsets the given index by the specified distance, or so that it equals the given limiting index.",
+      "params": [
+        {
+          "type": "inout Int"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        },
+        {
+          "name": "limitedBy",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Replaces the given index with its successor.",
+      "params": [
+        {
+          "name": "after",
+          "type": "inout Int"
+        }
+      ]
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Replaces the given index with its predecessor.",
+      "params": [
+        {
+          "name": "before",
+          "type": "inout Int"
+        }
+      ]
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns an index that is the specified distance from the given index.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns an index that is the specified distance from the given index, unless that distance is beyond a given limiting index.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        },
+        {
+          "name": "limitedBy",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int?"
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the position immediately after the given index.",
+      "params": [
+        {
+          "name": "after",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the position immediately after the given index.",
+      "params": [
+        {
+          "name": "before",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "makeIterator",
+      "type": "func",
+      "desc": "Returns an iterator over the elements of the collection.",
+      "params": [],
+      "returnType": "IndexingIterator<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence, up to the specified maximum length, containing the initial elements of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence from the start of the collection through the specified position.",
+      "params": [
+        {
+          "name": "through",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence from the start of the collection up to, but not including, the specified position.",
+      "params": [
+        {
+          "name": "upTo",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "reversed",
+      "type": "func",
+      "desc": "Returns a view presenting the elements of the collection in reverse order.",
+      "params": [],
+      "returnType": "ReversedCollection<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "suffix",
+      "type": "func",
+      "desc": "Returns a subsequence, up to the given maximum length, containing the final elements of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "suffix",
+      "type": "func",
+      "desc": "Returns a subsequence from the specified position to the end of the collection.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<KeyValuePairs<Key, Value>>"
+    },
+    {
+      "name": "repeatElement<T>",
+      "type": "func",
+      "desc": "Creates a collection containing the specified number of the given element.",
+      "params": [
+        {
+          "type": "T"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Repeated<T>"
+    }
+  ]
+}

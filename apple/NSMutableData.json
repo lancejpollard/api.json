@@ -1,0 +1,129 @@
+{
+  "type": "Class",
+  "name": "NSMutableData",
+  "desc": "A dynamic byte buffer that bridges to Data; use NSMutableData when you need reference semantics or other Foundation-specific behavior.",
+  "items": [
+    {
+      "name": "mutableBytes",
+      "type": "var",
+      "datatype": "UnsafeMutableRawPointer",
+      "desc": "A pointer to the data contained by the mutable data object."
+    },
+    {
+      "name": "length",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of bytes contained in the mutable data object."
+    },
+    {
+      "name": "append",
+      "type": "func",
+      "desc": "Appends to the receiver a given number of bytes from a given buffer.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "append",
+      "type": "func",
+      "desc": "Appends the content of another data object to the receiver.",
+      "params": [
+        {
+          "type": "Data"
+        }
+      ]
+    },
+    {
+      "name": "increaseLength",
+      "type": "func",
+      "desc": "Increases the length of the receiver by a given number of bytes.",
+      "params": [
+        {
+          "name": "by",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "replaceBytes",
+      "type": "func",
+      "desc": "Replaces with a given set of bytes a given range within the contents of the receiver.",
+      "params": [
+        {
+          "name": "in",
+          "type": "NSRange"
+        },
+        {
+          "name": "withBytes",
+          "type": "UnsafeRawPointer"
+        }
+      ]
+    },
+    {
+      "name": "replaceBytes",
+      "type": "func",
+      "desc": "Replaces with a given set of bytes a given range within the contents of the receiver.",
+      "params": [
+        {
+          "name": "in",
+          "type": "NSRange"
+        },
+        {
+          "name": "withBytes",
+          "type": "UnsafeRawPointer?"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "resetBytes",
+      "type": "func",
+      "desc": "Replaces with zeroes the contents of the receiver in a given range.",
+      "params": [
+        {
+          "name": "in",
+          "type": "NSRange"
+        }
+      ]
+    },
+    {
+      "name": "setData",
+      "type": "func",
+      "desc": "Replaces the entire contents of the receiver with the contents of another data object.",
+      "params": [
+        {
+          "type": "Data"
+        }
+      ]
+    },
+    {
+      "name": "compress",
+      "type": "func",
+      "params": [
+        {
+          "name": "using",
+          "type": "NSData.CompressionAlgorithm"
+        }
+      ]
+    },
+    {
+      "name": "decompress",
+      "type": "func",
+      "params": [
+        {
+          "name": "using",
+          "type": "NSData.CompressionAlgorithm"
+        }
+      ]
+    }
+  ]
+}

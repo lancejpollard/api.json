@@ -1,0 +1,73 @@
+{
+  "path": "/closeAccount",
+  "method": "POST",
+  "desc": "This endpoint is used to close an existing account under an account holder. If an account is closed, it may not process transactions or have its funds paid out,and it may not be reopened. Any payments made to a closed account will be directed to the merchant's liable account.",
+  "req": {
+    "accountCode": {
+      "type": "string",
+      "desc": "The code of account to be closed.",
+      "required": true
+    }
+  },
+  "res": {
+    "accountCode": {
+      "type": "string",
+      "desc": "The account code of the account that is closed.",
+      "required": false
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    },
+    "status": {
+      "type": "string",
+      "desc": "The new status of the account.\n\nPermitted values: Active, Inactive, Suspended, Closed.",
+      "required": true
+    }
+  }
+}

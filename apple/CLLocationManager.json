@@ -1,0 +1,380 @@
+{
+  "type": "Class",
+  "name": "CLLocationManager",
+  "desc": "The object that you use to start and stop the delivery of location-related events to your app.",
+  "items": [
+    {
+      "name": "significantLocationChangeMonitoringAvailable",
+      "type": "class func",
+      "desc": "Returns a Boolean value indicating whether the significant-change location service is available on the device.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "headingAvailable",
+      "type": "class func",
+      "desc": "Returns a Boolean value indicating whether the location manager is able to generate heading-related events.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isMonitoringAvailable",
+      "type": "class func",
+      "desc": "Returns a Boolean value indicating whether the device supports region monitoring using the specified class.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AnyClass"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isRangingAvailable",
+      "type": "class func",
+      "desc": "Returns a Boolean value indicating whether the device supports ranging of beacons that use the iBeacon protocol.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "locationServicesEnabled",
+      "type": "class func",
+      "desc": "Returns a Boolean value indicating whether location services are enabled on the device.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "CLLocationManagerDelegate?",
+      "desc": "The delegate object to receive update events."
+    },
+    {
+      "name": "requestWhenInUseAuthorization",
+      "type": "func",
+      "desc": "Requests the user’s permission to use location services while the app is in use.",
+      "params": []
+    },
+    {
+      "name": "requestAlwaysAuthorization",
+      "type": "func",
+      "desc": "Requests the user’s permission for location services whether or not the app is in use.",
+      "params": []
+    },
+    {
+      "name": "CLAuthorizationStatus",
+      "type": "enum",
+      "desc": "Constants indicating the app's authorization to use location services."
+    },
+    {
+      "name": "authorizationStatus",
+      "type": "class func",
+      "desc": "Returns the app’s authorization status for using location services.",
+      "params": [],
+      "returnType": "CLAuthorizationStatus"
+    },
+    {
+      "name": "startUpdatingLocation",
+      "type": "func",
+      "desc": "Starts the generation of updates that report the user’s current location.",
+      "params": []
+    },
+    {
+      "name": "stopUpdatingLocation",
+      "type": "func",
+      "desc": "Stops the generation of location updates.",
+      "params": []
+    },
+    {
+      "name": "requestLocation",
+      "type": "func",
+      "desc": "Requests the one-time delivery of the user’s current location.",
+      "params": []
+    },
+    {
+      "name": "pausesLocationUpdatesAutomatically",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the location manager object may pause location updates."
+    },
+    {
+      "name": "allowsBackgroundLocationUpdates",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the app should receive location updates when suspended."
+    },
+    {
+      "name": "showsBackgroundLocationIndicator",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean indicating whether the status bar changes its appearance when an app uses location services in the background."
+    },
+    {
+      "name": "distanceFilter",
+      "type": "var",
+      "datatype": "CLLocationDistance",
+      "desc": "The minimum distance (measured in meters) a device must move horizontally before an update event is generated."
+    },
+    {
+      "name": "CLLocationDistanceMax",
+      "type": "let",
+      "datatype": "CLLocationDistance",
+      "desc": "A constant indicating the maximum distance."
+    },
+    {
+      "name": "kCLDistanceFilterNone",
+      "type": "let",
+      "datatype": "CLLocationDistance",
+      "desc": "A constant indicating that all movement should be reported."
+    },
+    {
+      "name": "desiredAccuracy",
+      "type": "var",
+      "datatype": "CLLocationAccuracy",
+      "desc": "The accuracy of the location data."
+    },
+    {
+      "name": "activityType",
+      "type": "var",
+      "datatype": "CLActivityType",
+      "desc": "The type of user activity associated with the location updates."
+    },
+    {
+      "name": "CLActivityType",
+      "type": "enum",
+      "desc": "Constants indicating the type of activity associated with location updates."
+    },
+    {
+      "name": "startMonitoringSignificantLocationChanges",
+      "type": "func",
+      "desc": "Starts the generation of updates based on significant location changes.",
+      "params": []
+    },
+    {
+      "name": "stopMonitoringSignificantLocationChanges",
+      "type": "func",
+      "desc": "Stops the delivery of location events based on significant location changes.",
+      "params": []
+    },
+    {
+      "name": "startUpdatingHeading",
+      "type": "func",
+      "desc": "Starts the generation of updates that report the user’s current heading.",
+      "params": []
+    },
+    {
+      "name": "stopUpdatingHeading",
+      "type": "func",
+      "desc": "Stops the generation of heading updates.",
+      "params": []
+    },
+    {
+      "name": "dismissHeadingCalibrationDisplay",
+      "type": "func",
+      "desc": "Dismisses the heading calibration view from the screen immediately.",
+      "params": []
+    },
+    {
+      "name": "headingFilter",
+      "type": "var",
+      "datatype": "CLLocationDegrees",
+      "desc": "The minimum angular change (measured in degrees) required to generate new heading events."
+    },
+    {
+      "name": "kCLHeadingFilterNone",
+      "type": "let",
+      "datatype": "CLLocationDegrees",
+      "desc": "A constant indicating that all header values should be reported."
+    },
+    {
+      "name": "headingOrientation",
+      "type": "var",
+      "datatype": "CLDeviceOrientation",
+      "desc": "The device orientation to use when computing heading values."
+    },
+    {
+      "name": "CLDeviceOrientation",
+      "type": "enum",
+      "desc": "Constants indicating the physical orientation of the device."
+    },
+    {
+      "name": "startMonitoring",
+      "type": "func",
+      "desc": "Starts monitoring the specified region.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CLRegion"
+        }
+      ]
+    },
+    {
+      "name": "stopMonitoring",
+      "type": "func",
+      "desc": "Stops monitoring the specified region.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CLRegion"
+        }
+      ]
+    },
+    {
+      "name": "monitoredRegions",
+      "type": "var",
+      "datatype": "Set<CLRegion>",
+      "desc": "The set of shared regions monitored by all location manager objects."
+    },
+    {
+      "name": "maximumRegionMonitoringDistance",
+      "type": "var",
+      "datatype": "CLLocationDistance",
+      "desc": "The largest boundary distance that can be assigned to a region."
+    },
+    {
+      "name": "requestState",
+      "type": "func",
+      "desc": "Retrieves the state of a region asynchronously.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CLRegion"
+        }
+      ]
+    },
+    {
+      "name": "startRangingBeacons",
+      "type": "func",
+      "desc": "Starts the delivery of notifications for the specified beacon constraints.",
+      "params": [
+        {
+          "name": "satisfying",
+          "type": "CLBeaconIdentityConstraint"
+        }
+      ]
+    },
+    {
+      "name": "stopRangingBeacons",
+      "type": "func",
+      "desc": "Stops the delivery of notifications for the specified beacon constraints.",
+      "params": [
+        {
+          "name": "satisfying",
+          "type": "CLBeaconIdentityConstraint"
+        }
+      ]
+    },
+    {
+      "name": "rangedBeaconConstraints",
+      "type": "var",
+      "datatype": "Set<CLBeaconIdentityConstraint>",
+      "desc": "The set of beacon constraints currently being tracked using ranging."
+    },
+    {
+      "name": "startRangingBeacons",
+      "type": "func",
+      "desc": "Starts the delivery of notifications for the specified beacon region.",
+      "params": [
+        {
+          "name": "in",
+          "type": "CLBeaconRegion"
+        }
+      ]
+    },
+    {
+      "name": "stopRangingBeacons",
+      "type": "func",
+      "desc": "Stops the delivery of notifications for the specified beacon region.",
+      "params": [
+        {
+          "name": "in",
+          "type": "CLBeaconRegion"
+        }
+      ]
+    },
+    {
+      "name": "rangedRegions",
+      "type": "var",
+      "datatype": "Set<CLRegion>",
+      "desc": "The set of regions currently being tracked using ranging."
+    },
+    {
+      "name": "startMonitoringVisits",
+      "type": "func",
+      "desc": "Starts the delivery of visit-related events.",
+      "params": []
+    },
+    {
+      "name": "stopMonitoringVisits",
+      "type": "func",
+      "desc": "Stops the delivery of visit-related events.",
+      "params": []
+    },
+    {
+      "name": "location",
+      "type": "var",
+      "datatype": "CLLocation?",
+      "desc": "The most recently retrieved user location."
+    },
+    {
+      "name": "heading",
+      "type": "var",
+      "datatype": "CLHeading?",
+      "desc": "The most recently reported heading."
+    },
+    {
+      "name": "deferredLocationUpdatesAvailable",
+      "type": "class func",
+      "desc": "Returns a Boolean value indicating whether the device supports deferred location updates.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "allowDeferredLocationUpdates",
+      "type": "func",
+      "desc": "Asks the location manager to defer the delivery of location updates until the specified criteria are met.",
+      "params": [
+        {
+          "name": "untilTraveled",
+          "type": "CLLocationDistance"
+        },
+        {
+          "name": "timeout",
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "disallowDeferredLocationUpdates",
+      "type": "func",
+      "desc": "Cancels the deferral of location updates for this app.",
+      "params": []
+    },
+    {
+      "name": "CLTimeIntervalMax",
+      "type": "let",
+      "datatype": "TimeInterval",
+      "desc": "A value representing an unlimited amount of time."
+    },
+    {
+      "name": "purpose",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "An app-provided string that describes the reason for using location services."
+    },
+    {
+      "name": "regionMonitoringAvailable",
+      "type": "class func",
+      "desc": "Returns a Boolean value indicating whether region monitoring is supported on the current device.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "regionMonitoringEnabled",
+      "type": "class func",
+      "desc": "Returns a Boolean value indicating whether region monitoring is currently enabled.",
+      "params": [],
+      "returnType": "Bool"
+    }
+  ]
+}

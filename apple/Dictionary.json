@@ -1,0 +1,238 @@
+{
+  "type": "Generic Structure",
+  "name": "Dictionary",
+  "desc": "A collection whose elements are key-value pairs.",
+  "items": [
+    {
+      "name": "isEmpty",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the dictionary is empty."
+    },
+    {
+      "name": "count",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of key-value pairs in the dictionary."
+    },
+    {
+      "name": "capacity",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The total number of key-value pairs that the dictionary can contain without allocating new storage."
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the index for the given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "Key"
+        }
+      ],
+      "returnType": "Dictionary<Key, Value>.Index?"
+    },
+    {
+      "name": "keys",
+      "type": "var",
+      "datatype": "Dictionary<Key,",
+      "desc": "A collection containing just the keys of the dictionary."
+    },
+    {
+      "name": "values",
+      "type": "var",
+      "datatype": "Dictionary<Key,",
+      "desc": "A collection containing just the values of the dictionary."
+    },
+    {
+      "name": "first",
+      "type": "var",
+      "datatype": "(key:",
+      "desc": "The first element of the collection."
+    },
+    {
+      "name": "updateValue",
+      "type": "func",
+      "desc": "Updates the value stored in the dictionary for the given key, or adds a new key-value pair if the key does not exist.",
+      "params": [
+        {
+          "type": "Value"
+        },
+        {
+          "name": "forKey",
+          "type": "Key"
+        }
+      ],
+      "returnType": "Value?"
+    },
+    {
+      "name": "reserveCapacity",
+      "type": "func",
+      "desc": "Reserves enough space to store the specified number of key-value pairs.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "removeValue",
+      "type": "func",
+      "desc": "Removes the given key and its associated value from the dictionary.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "Key"
+        }
+      ],
+      "returnType": "Value?"
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes and returns the key-value pair at the specified index.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Dictionary<Key"
+        },
+        {
+          "type": "Value>.Index"
+        }
+      ],
+      "returnType": "Dictionary<Key, Value>.Element"
+    },
+    {
+      "name": "removeAll",
+      "type": "func",
+      "desc": "Removes all key-value pairs from the dictionary.",
+      "params": [
+        {
+          "name": "keepingCapacity",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are equal.",
+      "params": [
+        {
+          "name": "[Key",
+          "type": "Value]"
+        },
+        {
+          "name": "[Key",
+          "type": "Value]"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "Dictionary<Key"
+        },
+        {
+          "type": "Value>"
+        },
+        {
+          "type": "Dictionary<Key"
+        },
+        {
+          "type": "Value>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "enumerated",
+      "type": "func",
+      "desc": "Returns a sequence of pairs (n, x), where n represents a consecutive integer starting at zero and x represents an element of the sequence.",
+      "params": [],
+      "returnType": "EnumeratedSequence<Dictionary<Key, Value>>"
+    },
+    {
+      "name": "lazy",
+      "type": "var",
+      "datatype": "LazySequence<Dictionary<Key,",
+      "desc": "A sequence containing the same elements as this sequence, but on which some operations, such as map and filter, are implemented lazily."
+    },
+    {
+      "name": "makeIterator",
+      "type": "func",
+      "desc": "Returns an iterator over the dictionary’s key-value pairs.",
+      "params": [],
+      "returnType": "Dictionary<Key, Value>.Iterator"
+    },
+    {
+      "name": "underestimatedCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A value less than or equal to the number of elements in the collection."
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes the contents of this dictionary into the given encoder.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Encoder"
+        }
+      ]
+    },
+    {
+      "name": "description",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string that represents the contents of the dictionary."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string that represents the contents of the dictionary, suitable for debugging."
+    },
+    {
+      "name": "customMirror",
+      "type": "var",
+      "datatype": "Mirror",
+      "desc": "A mirror that reflects the dictionary."
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "desc": "Hashes the essential components of this value by feeding them into the given hasher.",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "dataValue",
+      "type": "var",
+      "datatype": "MLDataValue",
+      "desc": "The dictionary wrapped in a data value."
+    },
+    {
+      "name": "dataValueType",
+      "type": "static var",
+      "datatype": "MLDataValue.ValueType",
+      "desc": "The underlying type a dictionary uses when it wraps itself in a data value."
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The hash value."
+    }
+  ]
+}

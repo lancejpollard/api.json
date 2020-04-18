@@ -1,0 +1,216 @@
+{
+  "type": "Class",
+  "name": "MDLAsset",
+  "desc": "An indexed container for 3D objects and associated information, such as transform hierarchies, meshes, cameras, and lights.",
+  "items": [
+    {
+      "name": "canImportFileExtension",
+      "type": "class func",
+      "desc": "Returns a Boolean value that indicates whether the MDLAsset class can read asset data from files with the specified extension.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "canExportFileExtension",
+      "type": "class func",
+      "desc": "Returns a Boolean value that indicates whether the MDLAsset class can write asset data as a file with the specified format extension.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "export",
+      "type": "func",
+      "desc": "Writes asset data to a file at the specified URL and reports errors that occur during export.",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "object",
+      "type": "func",
+      "desc": "Returns the top-level object at the specified index in the asset.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ],
+      "returnType": "MDLObject"
+    },
+    {
+      "name": "count",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of top-level objects in the asset."
+    },
+    {
+      "name": "childObjects",
+      "type": "func",
+      "desc": "Returns all objects contained in the asset of the specified class.",
+      "params": [
+        {
+          "name": "of",
+          "type": "AnyClass"
+        }
+      ],
+      "returnType": "[MDLObject]"
+    },
+    {
+      "name": "add",
+      "type": "func",
+      "desc": "Adds the specified object to the asset’s list of top-level objects.",
+      "params": [
+        {
+          "type": "MDLObject"
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes the specified object from the asset’s list of top-level objects.",
+      "params": [
+        {
+          "type": "MDLObject"
+        }
+      ]
+    },
+    {
+      "name": "boundingBox",
+      "type": "var",
+      "datatype": "MDLAxisAlignedBoundingBox",
+      "desc": "The minimum region entirely enclosing the asset’s contents."
+    },
+    {
+      "name": "boundingBox",
+      "type": "func",
+      "desc": "Returns the minimum region entirely enclosing the asset’s contents at the specified time sample.",
+      "params": [
+        {
+          "name": "atTime",
+          "type": "TimeInterval"
+        }
+      ],
+      "returnType": "MDLAxisAlignedBoundingBox"
+    },
+    {
+      "name": "url",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The URL from which the asset was loaded, if available."
+    },
+    {
+      "name": "bufferAllocator",
+      "type": "var",
+      "datatype": "MDLMeshBufferAllocator",
+      "desc": "An object responsible for allocating mesh vertex data loaded from the asset."
+    },
+    {
+      "name": "vertexDescriptor",
+      "type": "var",
+      "datatype": "MDLVertexDescriptor?",
+      "desc": "The description of the vertex data format to be used for loading mesh data from the asset."
+    },
+    {
+      "name": "masters",
+      "type": "var",
+      "datatype": "MDLObjectContainerComponent",
+      "desc": "An array of objects that can be reused in the asset's object hierarchy through instancing."
+    },
+    {
+      "name": "frameInterval",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The time interval between data samples in the asset."
+    },
+    {
+      "name": "startTime",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The timestamp for the first timed data sample in the asset."
+    },
+    {
+      "name": "endTime",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The timestamp for the last timed data sample in the asset."
+    },
+    {
+      "name": "placeLightProbes",
+      "type": "class func",
+      "desc": "Automatically creates and places light probes for use in illuminating a scene.",
+      "params": [
+        {
+          "name": "withDensity",
+          "type": "Float"
+        },
+        {
+          "name": "heuristic",
+          "type": "MDLProbePlacement"
+        },
+        {
+          "name": "using",
+          "type": "MDLLightProbeIrradianceDataSource"
+        }
+      ],
+      "returnType": "[MDLLightProbe]"
+    },
+    {
+      "name": "MDLProbePlacement",
+      "type": "enum",
+      "desc": "Options affecting automatic placement of light probes in a scene, used with the placeLightProbes(withDensity:heuristic:using:) method."
+    },
+    {
+      "name": "(scnScene: SCNScene, bufferAllocator: MDLMeshBufferAllocator?)",
+      "type": "enum",
+      "desc": "Creates an asset from the specified SceneKit scene, using the specified allocator."
+    },
+    {
+      "name": "(scnScene: SCNScene)",
+      "type": "enum",
+      "desc": "Creates an asset from the specified SceneKit scene."
+    },
+    {
+      "name": "animations",
+      "type": "var",
+      "datatype": "MDLObjectContainerComponent"
+    },
+    {
+      "name": "resolver",
+      "type": "var",
+      "datatype": "MDLAssetResolver?"
+    },
+    {
+      "name": "upAxis",
+      "type": "var",
+      "datatype": "vector_float3"
+    },
+    {
+      "name": "loadTextures",
+      "type": "func",
+      "params": []
+    },
+    {
+      "name": "object",
+      "type": "func",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "MDLObject"
+    }
+  ]
+}

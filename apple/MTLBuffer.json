@@ -1,0 +1,87 @@
+{
+  "type": "Protocol",
+  "name": "MTLBuffer",
+  "desc": "A resource that stores data in a format defined by your app.",
+  "items": [
+    {
+      "name": "makeTexture",
+      "type": "func",
+      "desc": "Creates a texture that shares its storage with the buffer.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLTextureDescriptor"
+        },
+        {
+          "name": "offset",
+          "type": "Int"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "contents",
+      "type": "func",
+      "desc": "Gets the system address of the buffer’s storage allocation.",
+      "params": [],
+      "returnType": "UnsafeMutableRawPointer"
+    },
+    {
+      "name": "didModifyRange",
+      "type": "func",
+      "desc": "Informs the GPU that the CPU has modified a section of the buffer.",
+      "params": [
+        {
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "addDebugMarker",
+      "type": "func",
+      "desc": "Adds a debug marker string to a specific buffer range.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "range",
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "removeAllDebugMarkers",
+      "type": "func",
+      "desc": "Removes all debug marker strings from the buffer.",
+      "params": []
+    },
+    {
+      "name": "length",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The logical size of the buffer, in bytes."
+    },
+    {
+      "name": "makeRemoteBufferView",
+      "type": "func",
+      "desc": "Creates a remote view of the buffer for another GPU in the same peer group.",
+      "params": [
+        {
+          "type": "MTLDevice"
+        }
+      ],
+      "returnType": "MTLBuffer?"
+    },
+    {
+      "name": "remoteStorageBuffer",
+      "type": "var",
+      "datatype": "MTLBuffer?",
+      "desc": "The buffer on another GPU that the buffer was created from, if any."
+    }
+  ]
+}

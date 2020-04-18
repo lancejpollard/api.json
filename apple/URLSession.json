@@ -1,0 +1,251 @@
+{
+  "type": "Class",
+  "name": "URLSession",
+  "desc": "An object that coordinates a group of related, network data-transfer tasks.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "URLSession",
+      "desc": "The shared singleton session object."
+    },
+    {
+      "name": "configuration",
+      "type": "var",
+      "datatype": "URLSessionConfiguration",
+      "desc": "A copy of the configuration object for this session."
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "URLSessionDelegate?",
+      "desc": "The delegate assigned when this object was created."
+    },
+    {
+      "name": "delegateQueue",
+      "type": "var",
+      "datatype": "OperationQueue",
+      "desc": "The operation queue provided when this object was created."
+    },
+    {
+      "name": "dataTask",
+      "type": "func",
+      "desc": "Creates a task that retrieves the contents of the specified URL.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URL"
+        }
+      ],
+      "returnType": "URLSessionDataTask"
+    },
+    {
+      "name": "dataTask",
+      "type": "func",
+      "desc": "Creates a task that retrieves the contents of a URL based on the specified URL request object.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URLRequest"
+        }
+      ],
+      "returnType": "URLSessionDataTask"
+    },
+    {
+      "name": "downloadTask",
+      "type": "func",
+      "desc": "Creates a download task that retrieves the contents of the specified URL and saves the results to a file.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URL"
+        }
+      ],
+      "returnType": "URLSessionDownloadTask"
+    },
+    {
+      "name": "downloadTask",
+      "type": "func",
+      "desc": "Creates a download task that retrieves the contents of a URL based on the specified URL request object and saves the results to a file.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URLRequest"
+        }
+      ],
+      "returnType": "URLSessionDownloadTask"
+    },
+    {
+      "name": "downloadTask",
+      "type": "func",
+      "desc": "Creates a download task to resume a previously canceled or failed download.",
+      "params": [
+        {
+          "name": "withResumeData",
+          "type": "Data"
+        }
+      ],
+      "returnType": "URLSessionDownloadTask"
+    },
+    {
+      "name": "uploadTask",
+      "type": "func",
+      "desc": "Creates a task that performs an HTTP request for the specified URL request object and uploads the provided data.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URLRequest"
+        },
+        {
+          "name": "from",
+          "type": "Data"
+        }
+      ],
+      "returnType": "URLSessionUploadTask"
+    },
+    {
+      "name": "uploadTask",
+      "type": "func",
+      "desc": "Creates a task that performs an HTTP request for uploading the specified file.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URLRequest"
+        },
+        {
+          "name": "fromFile",
+          "type": "URL"
+        }
+      ],
+      "returnType": "URLSessionUploadTask"
+    },
+    {
+      "name": "uploadTask",
+      "type": "func",
+      "desc": "Creates a task that performs an HTTP request for uploading data based on the specified URL request.",
+      "params": [
+        {
+          "name": "withStreamedRequest",
+          "type": "URLRequest"
+        }
+      ],
+      "returnType": "URLSessionUploadTask"
+    },
+    {
+      "name": "streamTask",
+      "type": "func",
+      "desc": "Creates a task that establishes a bidirectional TCP/IP connection to a specified hostname and port.",
+      "params": [
+        {
+          "name": "withHostName",
+          "type": "String"
+        },
+        {
+          "name": "port",
+          "type": "Int"
+        }
+      ],
+      "returnType": "URLSessionStreamTask"
+    },
+    {
+      "name": "streamTask",
+      "type": "func",
+      "desc": "Creates a task that establishes a bidirectional TCP/IP connection using a specified network service.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NetService"
+        }
+      ],
+      "returnType": "URLSessionStreamTask"
+    },
+    {
+      "name": "webSocketTask",
+      "type": "func",
+      "desc": "Creates a WebSocket task for the provided URL.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URL"
+        }
+      ],
+      "returnType": "URLSessionWebSocketTask"
+    },
+    {
+      "name": "webSocketTask",
+      "type": "func",
+      "desc": "Creates a WebSocket task for the provided URL request.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URLRequest"
+        }
+      ],
+      "returnType": "URLSessionWebSocketTask"
+    },
+    {
+      "name": "webSocketTask",
+      "type": "func",
+      "desc": "Creates a WebSocket task given a URL and an array of protocols.",
+      "params": [
+        {
+          "name": "with",
+          "type": "URL"
+        },
+        {
+          "name": "protocols",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "URLSessionWebSocketTask"
+    },
+    {
+      "name": "finishTasksAndInvalidate",
+      "type": "func",
+      "desc": "Invalidates the session, allowing any outstanding tasks to finish.",
+      "params": []
+    },
+    {
+      "name": "invalidateAndCancel",
+      "type": "func",
+      "desc": "Cancels all outstanding tasks and then invalidates the session.",
+      "params": []
+    },
+    {
+      "name": "sessionDescription",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "An app-defined descriptive label for the session."
+    },
+    {
+      "name": "dataTaskPublisher",
+      "type": "func",
+      "desc": "Returns a publisher that wraps a URL session data task for a given URL request.",
+      "params": [
+        {
+          "name": "for",
+          "type": "URLRequest"
+        }
+      ],
+      "returnType": "URLSession.DataTaskPublisher"
+    },
+    {
+      "name": "dataTaskPublisher",
+      "type": "func",
+      "desc": "Returns a publisher that wraps a URL session data task for a given URL.",
+      "params": [
+        {
+          "name": "for",
+          "type": "URL"
+        }
+      ],
+      "returnType": "URLSession.DataTaskPublisher"
+    },
+    {
+      "name": "new",
+      "type": "class func",
+      "params": [],
+      "returnType": "Self"
+    }
+  ]
+}

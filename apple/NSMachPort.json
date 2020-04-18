@@ -1,0 +1,88 @@
+{
+  "type": "Class",
+  "name": "NSMachPort",
+  "desc": "A port that can be used as an endpoint for distributed object connections (or raw messaging).",
+  "items": [
+    {
+      "name": "port",
+      "type": "class func",
+      "desc": "Creates and returns a port object configured with the given Mach port.",
+      "params": [
+        {
+          "name": "withMachPort",
+          "type": "UInt32"
+        }
+      ],
+      "returnType": "Port"
+    },
+    {
+      "name": "port",
+      "type": "class func",
+      "desc": "Creates and returns a port object configured with the specified options and the given Mach port.",
+      "params": [
+        {
+          "name": "withMachPort",
+          "type": "UInt32"
+        },
+        {
+          "name": "options",
+          "type": "NSMachPort.Options"
+        }
+      ],
+      "returnType": "Port"
+    },
+    {
+      "name": "machPort",
+      "type": "var",
+      "datatype": "UInt32",
+      "desc": "The Mach port used by the receiver, represented as an integer."
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes the receiver from the run loop mode mode of runLoop.",
+      "params": [
+        {
+          "name": "from",
+          "type": "RunLoop"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "schedule",
+      "type": "func",
+      "desc": "Schedules the receiver into the run loop mode mode of runLoop.",
+      "params": [
+        {
+          "name": "in",
+          "type": "RunLoop"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "delegate",
+      "type": "func",
+      "desc": "Returns the receiver’s delegate.",
+      "params": [],
+      "returnType": "NSMachPortDelegate?"
+    },
+    {
+      "name": "setDelegate",
+      "type": "func",
+      "desc": "Sets the receiver’s delegate to a given object.",
+      "params": [
+        {
+          "type": "NSMachPortDelegate?"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "type": "Class",
+  "name": "NSFontPanel",
+  "desc": "The Font panel—a user interface object that displays a list of available fonts, letting the user preview them and change the font used to display text.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "NSFontPanel",
+      "desc": "Returns the single NSFontPanel instance for the application, creating it if necessary."
+    },
+    {
+      "name": "sharedFontPanelExists",
+      "type": "class var",
+      "datatype": "Bool",
+      "desc": "Returns true if the shared Font panel has been created, false if it hasn’t."
+    },
+    {
+      "name": "isEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean that shows whether the receiver’s Set button is enabled."
+    },
+    {
+      "name": "reloadDefaultFontFamilies",
+      "type": "func",
+      "desc": "Triggers a reload to the default state, so that the delegate is called.",
+      "params": []
+    },
+    {
+      "name": "setPanelFont",
+      "type": "func",
+      "desc": "Sets the selected font in the receiver to the specified font.",
+      "params": [
+        {
+          "type": "NSFont"
+        },
+        {
+          "name": "isMultiple",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "convert",
+      "type": "func",
+      "desc": "Converts the specified font using the settings in the receiver, with the aid of the shared NSFontManager if necessary.",
+      "params": [
+        {
+          "type": "NSFont"
+        }
+      ],
+      "returnType": "NSFont"
+    },
+    {
+      "name": "worksWhenModal",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean that indicates whether the receiver allows fonts to be changed in modal windows and panels."
+    },
+    {
+      "name": "accessoryView",
+      "type": "var",
+      "datatype": "NSView?",
+      "desc": "The specified view as the receiver’s accessory view, allowing you to add custom controls to your application’s Font panel without having to create a subclass."
+    }
+  ]
+}

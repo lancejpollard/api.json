@@ -1,0 +1,528 @@
+{
+  "type": "Class",
+  "name": "NSMenu",
+  "desc": "An object that manages an app’s menus.",
+  "items": [
+    {
+      "name": "menuBarVisible",
+      "type": "class func",
+      "desc": "Returns a Boolean value that indicates whether the menu bar is visible.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setMenuBarVisible",
+      "type": "class func",
+      "desc": "Sets whether the menu bar is visible and selectable by the user.",
+      "params": [
+        {
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "menuBarHeight",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The menu bar height for the main menu in pixels."
+    },
+    {
+      "name": "insertItem",
+      "type": "func",
+      "desc": "Inserts a menu item into the menu at a specific location.",
+      "params": [
+        {
+          "type": "NSMenuItem"
+        },
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "insertItem",
+      "type": "func",
+      "desc": "Creates and adds a menu item at a specified location in the menu.",
+      "params": [
+        {
+          "name": "withTitle",
+          "type": "String"
+        },
+        {
+          "name": "action",
+          "type": "Selector?"
+        },
+        {
+          "name": "keyEquivalent",
+          "type": "String"
+        },
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ],
+      "returnType": "NSMenuItem"
+    },
+    {
+      "name": "addItem",
+      "type": "func",
+      "desc": "Adds a menu item to the end of the menu.",
+      "params": [
+        {
+          "type": "NSMenuItem"
+        }
+      ]
+    },
+    {
+      "name": "addItem",
+      "type": "func",
+      "desc": "Creates a new menu item and adds it to the end of the menu.",
+      "params": [
+        {
+          "name": "withTitle",
+          "type": "String"
+        },
+        {
+          "name": "action",
+          "type": "Selector?"
+        },
+        {
+          "name": "keyEquivalent",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSMenuItem"
+    },
+    {
+      "name": "removeItem",
+      "type": "func",
+      "desc": "Removes a menu item from the menu.",
+      "params": [
+        {
+          "type": "NSMenuItem"
+        }
+      ]
+    },
+    {
+      "name": "removeItem",
+      "type": "func",
+      "desc": "Removes the menu item at a specified location in the menu.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "itemChanged",
+      "type": "func",
+      "desc": "Invoked when a menu item is modified visually (for example, its title changes).",
+      "params": [
+        {
+          "type": "NSMenuItem"
+        }
+      ]
+    },
+    {
+      "name": "removeAllItems",
+      "type": "func",
+      "desc": "Removes all the menu items in the menu.",
+      "params": []
+    },
+    {
+      "name": "item",
+      "type": "func",
+      "desc": "Returns the first menu item in the menu with the specified tag.",
+      "params": [
+        {
+          "name": "withTag",
+          "type": "Int"
+        }
+      ],
+      "returnType": "NSMenuItem?"
+    },
+    {
+      "name": "item",
+      "type": "func",
+      "desc": "Returns the first menu item in the menu with a specified title.",
+      "params": [
+        {
+          "name": "withTitle",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSMenuItem?"
+    },
+    {
+      "name": "item",
+      "type": "func",
+      "desc": "Returns the menu item at a specific location of the menu.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ],
+      "returnType": "NSMenuItem?"
+    },
+    {
+      "name": "numberOfItems",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of menu items in the menu, including separator items."
+    },
+    {
+      "name": "items",
+      "type": "var",
+      "datatype": "[NSMenuItem]",
+      "desc": "An array containing the menu items in the menu."
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the index identifying the location of a specified menu item in the menu.",
+      "params": [
+        {
+          "name": "of",
+          "type": "NSMenuItem"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "indexOfItem",
+      "type": "func",
+      "desc": "Returns the index of the first menu item in the menu that has a specified title.",
+      "params": [
+        {
+          "name": "withTitle",
+          "type": "String"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "indexOfItem",
+      "type": "func",
+      "desc": "Returns the index of the first menu item in the menu identified by a tag.",
+      "params": [
+        {
+          "name": "withTag",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "indexOfItem",
+      "type": "func",
+      "desc": "Returns the index of the first menu item in the menu that has a specified action and target.",
+      "params": [
+        {
+          "name": "withTarget",
+          "type": "Any?"
+        },
+        {
+          "name": "andAction",
+          "type": "Selector?"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "indexOfItem",
+      "type": "func",
+      "desc": "Returns the index of the first menu item in the menu that has a given represented object.",
+      "params": [
+        {
+          "name": "withRepresentedObject",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "indexOfItem",
+      "type": "func",
+      "desc": "Returns the index of the menu item in the menu with the given submenu.",
+      "params": [
+        {
+          "name": "withSubmenu",
+          "type": "NSMenu?"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "setSubmenu",
+      "type": "func",
+      "desc": "Assigns a menu to be a submenu of the menu controlled by a given menu item.",
+      "params": [
+        {
+          "type": "NSMenu?"
+        },
+        {
+          "name": "for",
+          "type": "NSMenuItem"
+        }
+      ]
+    },
+    {
+      "name": "submenuAction",
+      "type": "func",
+      "desc": "The action method assigned to menu items that open submenus.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "supermenu",
+      "type": "var",
+      "datatype": "NSMenu?",
+      "desc": "The parent menu that contains the menu as a submenu."
+    },
+    {
+      "name": "isTornOff",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the menu is offscreen or attached to another menu (or if it’s the main menu)."
+    },
+    {
+      "name": "autoenablesItems",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the menu automatically enables and disables its menu items."
+    },
+    {
+      "name": "update",
+      "type": "func",
+      "desc": "Enables or disables the menu items of the menu based on the NSMenuValidation informal protocol and sizes the menu to fit its current menu items if necessary.",
+      "params": []
+    },
+    {
+      "name": "font",
+      "type": "var",
+      "datatype": "NSFont!",
+      "desc": "The font of the menu and its submenus."
+    },
+    {
+      "name": "performKeyEquivalent",
+      "type": "func",
+      "desc": "Performs the action for the menu item that corresponds to the given key equivalent.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "performActionForItem",
+      "type": "func",
+      "desc": "Causes the application to send the action message of a specified menu item to its target.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "title",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The title of the menu."
+    },
+    {
+      "name": "minimumWidth",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The minimum width of the menu in screen coordinates."
+    },
+    {
+      "name": "size",
+      "type": "var",
+      "datatype": "NSSize",
+      "desc": "The size of the menu in screen coordinates"
+    },
+    {
+      "name": "propertiesToUpdate",
+      "type": "var",
+      "datatype": "NSMenu.Properties",
+      "desc": "The available properties for the menu."
+    },
+    {
+      "name": "menuChangedMessagesEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether messages are sent to the application’s windows each time the menu changes."
+    },
+    {
+      "name": "allowsContextMenuPlugIns",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the pop-up menu allows appending of contextual menu plug-in items."
+    },
+    {
+      "name": "popUpContextMenu",
+      "type": "class func",
+      "desc": "Displays a contextual menu over a view for an event.",
+      "params": [
+        {
+          "type": "NSMenu"
+        },
+        {
+          "name": "with",
+          "type": "NSEvent"
+        },
+        {
+          "name": "for",
+          "type": "NSView"
+        }
+      ]
+    },
+    {
+      "name": "popUpContextMenu",
+      "type": "class func",
+      "desc": "Displays a contextual menu over a view for an event using a specified font.",
+      "params": [
+        {
+          "type": "NSMenu"
+        },
+        {
+          "name": "with",
+          "type": "NSEvent"
+        },
+        {
+          "name": "for",
+          "type": "NSView"
+        },
+        {
+          "name": "with",
+          "type": "NSFont?"
+        }
+      ]
+    },
+    {
+      "name": "helpRequested",
+      "type": "func",
+      "desc": "Overridden by subclasses to implement specialized context-sensitive help behavior.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "popUp",
+      "type": "func",
+      "desc": "Pops up the menu at the specified location.",
+      "params": [
+        {
+          "name": "positioning",
+          "type": "NSMenuItem?"
+        },
+        {
+          "name": "at",
+          "type": "NSPoint"
+        },
+        {
+          "name": "in",
+          "type": "NSView?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "showsStateColumn",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the menu displays the state column."
+    },
+    {
+      "name": "menuZone",
+      "type": "class func",
+      "desc": "Returns the zone from which NSMenu objects should be allocated.",
+      "params": [],
+      "returnType": "NSZone!"
+    },
+    {
+      "name": "highlightedItem",
+      "type": "var",
+      "datatype": "NSMenuItem?",
+      "desc": "Indicates the currently highlighted item in the menu."
+    },
+    {
+      "name": "userInterfaceLayoutDirection",
+      "type": "var",
+      "datatype": "NSUserInterfaceLayoutDirection",
+      "desc": "Configures the layout direction of menu items in the menu."
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "NSMenuDelegate?",
+      "desc": "The delegate of the menu."
+    },
+    {
+      "name": "cancelTracking",
+      "type": "func",
+      "desc": "Dismisses the menu and ends all menu tracking.",
+      "params": []
+    },
+    {
+      "name": "cancelTrackingWithoutAnimation",
+      "type": "func",
+      "desc": "Dismisses the menu and ends all menu tracking without displaying the associated animation.",
+      "params": []
+    },
+    {
+      "name": "didAddItemNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted after a menu item is added to the menu."
+    },
+    {
+      "name": "didChangeItemNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted after a menu item in the menu changes appearance."
+    },
+    {
+      "name": "didBeginTrackingNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when menu tracking begins."
+    },
+    {
+      "name": "didEndTrackingNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when menu tracking ends, even if no action is sent."
+    },
+    {
+      "name": "didRemoveItemNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted after a menu item is removed from the menu."
+    },
+    {
+      "name": "didSendActionNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted just after the application dispatches a menu item’s action method to the menu item’s target."
+    },
+    {
+      "name": "willSendActionNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted just before the application dispatches a menu item’s action method to the menu item’s target."
+    }
+  ]
+}

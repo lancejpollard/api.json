@@ -1,0 +1,68 @@
+{
+  "path": "/refundNotPaidOutTransfers",
+  "method": "POST",
+  "desc": "This endpoint is used to refund all the transactions of an account which have taken place since the most recent payout. This request is on a per-account basis (as opposed to a per-payment basis), so only the portion of the payment which was made to the specified account will be refunded. The commission(s), fee(s), and payment(s) to other account(s), will remain in the accounts to which they were sent as designated by the original payment's split details.",
+  "req": {
+    "accountCode": {
+      "type": "string",
+      "desc": "The code of the account from which to perform the refund(s).",
+      "required": true
+    },
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the Account Holder which owns the account from which to perform the refund(s).",
+      "required": true
+    }
+  },
+  "res": {
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

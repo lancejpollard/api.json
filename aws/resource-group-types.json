@@ -1,0 +1,151 @@
+[
+  {
+    "title": "Group",
+    "attrs": {
+      "Description": {
+        "desc": "The description of the resource group.",
+        "type": "String",
+        "required": "no"
+      },
+      "GroupArn": {
+        "desc": "The ARN of a resource group.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Name": {
+        "desc": "The name of a resource group.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "GroupFilter",
+    "attrs": {
+      "Name": {
+        "desc": "The name of the filter. Filter names are case-sensitive.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "resource-type"
+        ]
+      },
+      "Values": {
+        "desc": "One or more filter values. Allowed filter values vary by group filter name, and are case-sensitive.",
+        "type": "Array of strings",
+        "required": "yes",
+        "values": [
+          "resource-type"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GroupIdentifier",
+    "attrs": {
+      "GroupArn": {
+        "desc": "The ARN of a resource group.",
+        "type": "String",
+        "required": "no"
+      },
+      "GroupName": {
+        "desc": "The name of a resource group.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "GroupQuery",
+    "attrs": {
+      "GroupName": {
+        "desc": "The name of a resource group that is associated with a specific resource query.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ResourceQuery": {
+        "desc": "The resource query which determines which AWS resources are members of the associated resource group.",
+        "type": "ResourceQuery object",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "QueryError",
+    "attrs": {
+      "ErrorCode": {
+        "desc": "Possible values are CLOUDFORMATION_STACK_INACTIVE and CLOUDFORMATION_STACK_NOT_EXISTING.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "cloudformation_stack_inactive",
+          "cloudformation_stack_not_existing"
+        ]
+      },
+      "Message": {
+        "desc": "A message that explains the ErrorCode value. Messages might state that the specified CloudFormation stack does not exist (or no longer exists). For CLOUDFORMATION_STACK_INACTIVE, the message typically states that the CloudFormation stack has a status that is not (or no longer) active, such as CREATE_FAILED.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "cloudformation_stack_inactive",
+          "cloudformation_stack_not_existing"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ResourceFilter",
+    "attrs": {
+      "Name": {
+        "desc": "The name of the filter. Filter names are case-sensitive.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "resource-type"
+        ]
+      },
+      "Values": {
+        "desc": "One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.",
+        "type": "Array of strings",
+        "required": "yes",
+        "values": [
+          "resource-type"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ResourceIdentifier",
+    "attrs": {
+      "ResourceArn": {
+        "desc": "The ARN of a resource.",
+        "type": "String",
+        "required": "no"
+      },
+      "ResourceType": {
+        "desc": "The resource type of a resource, such as AWS::EC2::Instance.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "ResourceQuery",
+    "attrs": {
+      "Query": {
+        "desc": "The query that defines a group or a search.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Type": {
+        "desc": "The type of the query. The valid values in this release are TAG_FILTERS_1_0 and CLOUDFORMATION_STACK_1_0.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "tag_filters_1_0",
+          "cloudformation_stack_1_0"
+        ]
+      }
+    }
+  }
+]

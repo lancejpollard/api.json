@@ -1,0 +1,366 @@
+{
+  "type": "Protocol",
+  "name": "MTLTexture",
+  "desc": "A resource that holds formatted image data.",
+  "items": [
+    {
+      "name": "replace",
+      "type": "func",
+      "desc": "Copies pixel data into a section of a texture slice.",
+      "params": [
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "mipmapLevel",
+          "type": "Int"
+        },
+        {
+          "name": "slice",
+          "type": "Int"
+        },
+        {
+          "name": "withBytes",
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "bytesPerImage",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "replace",
+      "type": "func",
+      "desc": "Copies a block of pixels into a section of texture slice 0.",
+      "params": [
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "mipmapLevel",
+          "type": "Int"
+        },
+        {
+          "name": "withBytes",
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "getBytes",
+      "type": "func",
+      "desc": "Copies pixel data from a texture to memory.",
+      "params": [
+        {
+          "type": "UnsafeMutableRawPointer"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "bytesPerImage",
+          "type": "Int"
+        },
+        {
+          "name": "from",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "mipmapLevel",
+          "type": "Int"
+        },
+        {
+          "name": "slice",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "getBytes",
+      "type": "func",
+      "desc": "Copies pixel data from slice 0 of a texture to memory.",
+      "params": [
+        {
+          "type": "UnsafeMutableRawPointer"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "from",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "mipmapLevel",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "makeTextureView",
+      "type": "func",
+      "desc": "Creates a new view of the texture, reinterpreting its data using a different pixel format.",
+      "params": [
+        {
+          "name": "pixelFormat",
+          "type": "MTLPixelFormat"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "makeTextureView",
+      "type": "func",
+      "desc": "Creates a new view of the texture, reinterpreting a subset of its data using a different type and pixel format.",
+      "params": [
+        {
+          "name": "pixelFormat",
+          "type": "MTLPixelFormat"
+        },
+        {
+          "name": "textureType",
+          "type": "MTLTextureType"
+        },
+        {
+          "name": "levels",
+          "type": "Range<Int>"
+        },
+        {
+          "name": "slices",
+          "type": "Range<Int>"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "makeTextureView",
+      "type": "func",
+      "desc": "Creates a new view of the texture, reinterpreting a subset of its data using a different type, pixel format, and swizzle pattern.",
+      "params": [
+        {
+          "name": "pixelFormat",
+          "type": "MTLPixelFormat"
+        },
+        {
+          "name": "textureType",
+          "type": "MTLTextureType"
+        },
+        {
+          "name": "levels",
+          "type": "Range<Int>"
+        },
+        {
+          "name": "slices",
+          "type": "Range<Int>"
+        },
+        {
+          "name": "swizzle",
+          "type": "MTLTextureSwizzleChannels"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "textureType",
+      "type": "var",
+      "datatype": "MTLTextureType",
+      "desc": "The dimension and arrangement of the texture image data."
+    },
+    {
+      "name": "pixelFormat",
+      "type": "var",
+      "datatype": "MTLPixelFormat",
+      "desc": "The format of pixels in the texture."
+    },
+    {
+      "name": "width",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The width of the texture image for the base level mipmap, in pixels."
+    },
+    {
+      "name": "height",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The height of the texture image for the base level mipmap, in pixels."
+    },
+    {
+      "name": "depth",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The depth of the texture image for the base level mipmap, in pixels."
+    },
+    {
+      "name": "mipmapLevelCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of mipmap levels in the texture."
+    },
+    {
+      "name": "arrayLength",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of slices in the texture array."
+    },
+    {
+      "name": "sampleCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of samples in each pixel."
+    },
+    {
+      "name": "isFramebufferOnly",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the texture can only be used as a render target."
+    },
+    {
+      "name": "usage",
+      "type": "var",
+      "datatype": "MTLTextureUsage",
+      "desc": "Options that determine how you can use the texture."
+    },
+    {
+      "name": "allowGPUOptimizedContents",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the GPU is allowed to adjust the contents of the texture to improve GPU performance."
+    },
+    {
+      "name": "isShareable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean indicating whether this texture can be shared with other processes."
+    },
+    {
+      "name": "swizzle",
+      "type": "var",
+      "datatype": "MTLTextureSwizzleChannels",
+      "desc": "The pattern that the GPU applies to pixels when you read or sample pixels from the texture."
+    },
+    {
+      "name": "MTLTextureType",
+      "type": "enum",
+      "desc": "The dimension of each image, including whether multiple images are arranged into an array or a cube."
+    },
+    {
+      "name": "ct MTLTextureUsage",
+      "type": "enum",
+      "desc": "An enumeration for the various options that determine how you can use a texture."
+    },
+    {
+      "name": "iosurface",
+      "type": "var",
+      "datatype": "IOSurfaceRef?",
+      "desc": "A reference to the IOSurface the texture was created from, if any."
+    },
+    {
+      "name": "iosurfacePlane",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The plane of the IOSurface to reference if any."
+    },
+    {
+      "name": "parent",
+      "type": "var",
+      "datatype": "MTLTexture?",
+      "desc": "The parent texture that the texture was created from, if any."
+    },
+    {
+      "name": "parentRelativeLevel",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The base level of the parent texture that the texture was created from, if any."
+    },
+    {
+      "name": "parentRelativeSlice",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The base slice of the parent texture that the texture was created from, if any."
+    },
+    {
+      "name": "buffer",
+      "type": "var",
+      "datatype": "MTLBuffer?",
+      "desc": "The source buffer that the texture was created from, if any."
+    },
+    {
+      "name": "bufferOffset",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The offset in the source buffer where the texture's data comes from."
+    },
+    {
+      "name": "bufferBytesPerRow",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The bytes per row of the of the data in the source buffer used to create this texture, if any."
+    },
+    {
+      "name": "rootResource",
+      "type": "var",
+      "datatype": "MTLResource?",
+      "desc": "The resource that owns the storage for this texture."
+    },
+    {
+      "name": "makeSharedTextureHandle",
+      "type": "func",
+      "desc": "Creates a new texture handle from a shareable texture.",
+      "params": [],
+      "returnType": "MTLSharedTextureHandle?"
+    },
+    {
+      "name": "makeRemoteTextureView",
+      "type": "func",
+      "desc": "Creates a remote texture view for another GPU in the same peer group.",
+      "params": [
+        {
+          "type": "MTLDevice"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "remoteStorageTexture",
+      "type": "var",
+      "datatype": "MTLTexture?",
+      "desc": "The texture on another GPU that the texture was created from, if any."
+    },
+    {
+      "name": "isSparse",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether this is a sparse texture."
+    },
+    {
+      "name": "firstMipmapInTail",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The index of the first mipmap in the tail."
+    },
+    {
+      "name": "tailSizeInBytes",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The size of the sparse texture tail, in bytes."
+    },
+    {
+      "name": "MTLPixelFormat",
+      "type": "enum",
+      "desc": "The data formats that describe the organization and characteristics of individual pixels in a texture."
+    }
+  ]
+}

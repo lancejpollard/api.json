@@ -1,0 +1,104 @@
+{
+  "type": "Class",
+  "name": "NotificationCenter",
+  "desc": "A notification dispatch mechanism that enables the broadcast of information to registered observers.",
+  "items": [
+    {
+      "name": "default",
+      "type": "class var",
+      "datatype": "NotificationCenter",
+      "desc": "The app’s default notification center."
+    },
+    {
+      "name": "addObserver",
+      "type": "func",
+      "desc": "Adds an entry to the notification center's dispatch table with an observer and a notification selector, and an optional notification name and sender.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "selector",
+          "type": "Selector"
+        },
+        {
+          "name": "name",
+          "type": "NSNotification.Name?"
+        },
+        {
+          "name": "object",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "removeObserver",
+      "type": "func",
+      "desc": "Removes matching entries from the notification center's dispatch table.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "name",
+          "type": "NSNotification.Name?"
+        },
+        {
+          "name": "object",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "removeObserver",
+      "type": "func",
+      "desc": "Removes all entries specifying a given observer from the notification center's dispatch table.",
+      "params": [
+        {
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "name": "post",
+      "type": "func",
+      "desc": "Posts a given notification to the notification center.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "post",
+      "type": "func",
+      "desc": "Creates a notification with a given name and sender and posts it to the notification center.",
+      "params": [
+        {
+          "name": "name",
+          "type": "NSNotification.Name"
+        },
+        {
+          "name": "object",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "publisher",
+      "type": "func",
+      "desc": "Returns a publisher that emits events when broadcasting notifications.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Notification.Name"
+        },
+        {
+          "name": "object",
+          "type": "AnyObject?"
+        }
+      ],
+      "returnType": "NotificationCenter.Publisher"
+    }
+  ]
+}

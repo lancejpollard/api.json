@@ -1,0 +1,141 @@
+{
+  "type": "Class",
+  "name": "HTTPCookieStorage",
+  "desc": "A container that manages the storage of cookies.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "HTTPCookieStorage",
+      "desc": "The shared cookie storage instance."
+    },
+    {
+      "name": "sharedCookieStorage",
+      "type": "class func",
+      "desc": "Returns the cookie storage instance for the container associated with the specified app group identifier.",
+      "params": [
+        {
+          "name": "forGroupContainerIdentifier",
+          "type": "String"
+        }
+      ],
+      "returnType": "HTTPCookieStorage"
+    },
+    {
+      "name": "cookieAcceptPolicy",
+      "type": "var",
+      "datatype": "HTTPCookie.AcceptPolicy",
+      "desc": "The cookie storage’s cookie accept policy."
+    },
+    {
+      "name": "HTTPCookie.AcceptPolicy",
+      "type": "enum",
+      "desc": "Cookie acceptance policies implemented by the HTTPCookieStorage class."
+    },
+    {
+      "name": "removeCookies",
+      "type": "func",
+      "desc": "Removes cookies that were stored after a given date.",
+      "params": [
+        {
+          "name": "since",
+          "type": "Date"
+        }
+      ]
+    },
+    {
+      "name": "deleteCookie",
+      "type": "func",
+      "desc": "Deletes the specified cookie from the cookie storage.",
+      "params": [
+        {
+          "type": "HTTPCookie"
+        }
+      ]
+    },
+    {
+      "name": "setCookie",
+      "type": "func",
+      "desc": "Stores a specified cookie in the cookie storage if the cookie accept policy permits.",
+      "params": [
+        {
+          "type": "HTTPCookie"
+        }
+      ]
+    },
+    {
+      "name": "setCookies",
+      "type": "func",
+      "desc": "Adds an array of cookies to the cookie storage if the storage’s cookie acceptance policy permits.",
+      "params": [
+        {
+          "type": "[HTTPCookie]"
+        },
+        {
+          "name": "for",
+          "type": "URL?"
+        },
+        {
+          "name": "mainDocumentURL",
+          "type": "URL?"
+        }
+      ]
+    },
+    {
+      "name": "storeCookies",
+      "type": "func",
+      "desc": "Stores an array of cookies in the cookie storage, on behalf of the provided task, if the cookie accept policy permits.",
+      "params": [
+        {
+          "type": "[HTTPCookie]"
+        },
+        {
+          "name": "for",
+          "type": "URLSessionTask"
+        }
+      ]
+    },
+    {
+      "name": "cookies",
+      "type": "var",
+      "datatype": "[HTTPCookie]?",
+      "desc": "The cookie storage’s cookies."
+    },
+    {
+      "name": "cookies",
+      "type": "func",
+      "desc": "Returns all the cookie storage’s cookies that are sent to a specified URL.",
+      "params": [
+        {
+          "name": "for",
+          "type": "URL"
+        }
+      ],
+      "returnType": "[HTTPCookie]?"
+    },
+    {
+      "name": "sortedCookies",
+      "type": "func",
+      "desc": "Returns all of the cookie storage’s cookies, sorted according to a given set of sort descriptors.",
+      "params": [
+        {
+          "name": "using",
+          "type": "[NSSortDescriptor]"
+        }
+      ],
+      "returnType": "[HTTPCookie]"
+    },
+    {
+      "name": "NSHTTPCookieManagerCookiesChanged",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification posted when the cookies stored in the cookie storage have changed."
+    },
+    {
+      "name": "NSHTTPCookieManagerAcceptPolicyChanged",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification posted when the acceptance policy of the cookie storage has changed."
+    }
+  ]
+}

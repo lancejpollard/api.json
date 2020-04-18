@@ -1,0 +1,359 @@
+{
+  "type": "Generic Structure",
+  "name": "UnsafePointer",
+  "desc": "A pointer for accessing data of a specific type.",
+  "items": [
+    {
+      "name": "customMirror",
+      "type": "var",
+      "datatype": "Mirror",
+      "desc": "The custom mirror for this instance."
+    },
+    {
+      "name": "customPlaygroundQuickLook",
+      "type": "var",
+      "datatype": "PlaygroundQuickLook",
+      "desc": "A custom playground Quick Look for this instance."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual representation of the pointer, suitable for debugging."
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The hash value."
+    },
+    {
+      "name": "pointee",
+      "type": "var",
+      "datatype": "Pointee",
+      "desc": "Accesses the instance referenced by this pointer."
+    },
+    {
+      "name": "advanced",
+      "type": "func",
+      "desc": "Returns a pointer offset from this pointer by the specified number of instances.",
+      "params": [
+        {
+          "name": "by",
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafePointer<Pointee>"
+    },
+    {
+      "name": "bytes",
+      "type": "func",
+      "params": [],
+      "returnType": "MIDIPacket.ByteCollection"
+    },
+    {
+      "name": "deallocate",
+      "type": "func",
+      "desc": "Deallocates the memory block previously allocated at this pointer.",
+      "params": []
+    },
+    {
+      "name": "distance",
+      "type": "func",
+      "desc": "Returns the distance from this pointer to the given pointer, counted as instances of the pointer’s Pointee type.",
+      "params": [
+        {
+          "name": "to",
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "desc": "Hashes the essential components of this value by feeding them into the given hasher.",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "predecessor",
+      "type": "func",
+      "desc": "Returns a pointer to the previous consecutive instance.",
+      "params": [],
+      "returnType": "UnsafePointer<Pointee>"
+    },
+    {
+      "name": "sequence",
+      "type": "func",
+      "params": [],
+      "returnType": "MIDIPacket.ByteSequence"
+    },
+    {
+      "name": "successor",
+      "type": "func",
+      "desc": "Returns a pointer to the next consecutive instance.",
+      "params": [],
+      "returnType": "UnsafePointer<Pointee>"
+    },
+    {
+      "name": "unsafeSequence",
+      "type": "func",
+      "params": [],
+      "returnType": "MIDIPacketList.UnsafeSequence"
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "+",
+      "type": "static func",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "UnsafePointer<Pointee>"
+    },
+    {
+      "name": "+",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafePointer<Pointee>"
+    },
+    {
+      "name": "+=",
+      "type": "static func",
+      "params": [
+        {
+          "type": "inout UnsafePointer<Pointee>"
+        },
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "-",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "-",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafePointer<Pointee>"
+    },
+    {
+      "name": "-=",
+      "type": "static func",
+      "params": [
+        {
+          "type": "inout UnsafePointer<Pointee>"
+        },
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a partial range extending upward from a lower bound.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "PartialRangeFrom<UnsafePointer<Pointee>>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a partial range up to, and including, its upper bound.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "PartialRangeThrough<UnsafePointer<Pointee>>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a closed range that contains both of its bounds.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "ClosedRange<UnsafePointer<Pointee>>"
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a partial range up to, but not including, its upper bound.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "PartialRangeUpTo<UnsafePointer<Pointee>>"
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a half-open range that contains its lower bound but not its upper bound.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Range<UnsafePointer<Pointee>>"
+    },
+    {
+      "name": "<",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is less than that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "<",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the first pointer references an earlier memory location than the second pointer.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "<=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is less than or equal to that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are equal.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two pointers are equal.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": ">",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is greater than that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": ">=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is greater than or equal to that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafePointer<Pointee>"
+        },
+        {
+          "type": "UnsafePointer<Pointee>"
+        }
+      ],
+      "returnType": "Bool"
+    }
+  ]
+}

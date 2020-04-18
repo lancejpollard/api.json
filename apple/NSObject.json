@@ -1,0 +1,1580 @@
+{
+  "type": "Class",
+  "name": "NSObject",
+  "desc": "The root class of most Objective-C class hierarchies, from which subclasses inherit a basic interface to the runtime system and the ability to behave as Objective-C objects.",
+  "items": [
+    {
+      "name": "initialize",
+      "type": "class func",
+      "desc": "Initializes the class before it receives its first message.",
+      "params": []
+    },
+    {
+      "name": "load",
+      "type": "class func",
+      "desc": "Invoked whenever a class or category is added to the Objective-C runtime; implement this method to perform class-specific behavior upon loading.",
+      "params": []
+    },
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Returns the object returned by copy(with:).",
+      "params": [],
+      "returnType": "Any"
+    },
+    {
+      "name": "mutableCopy",
+      "type": "func",
+      "desc": "Returns the object returned by mutableCopy(with:) where the zone is nil.",
+      "params": [],
+      "returnType": "Any"
+    },
+    {
+      "name": "superclass",
+      "type": "class func",
+      "desc": "Returns the class object for the receiver’s superclass.",
+      "params": [],
+      "returnType": "AnyClass?"
+    },
+    {
+      "name": "isSubclass",
+      "type": "class func",
+      "desc": "Returns a Boolean value that indicates whether the receiving class is a subclass of, or identical to, a given class.",
+      "params": [
+        {
+          "name": "of",
+          "type": "AnyClass"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "instancesRespond",
+      "type": "class func",
+      "desc": "Returns a Boolean value that indicates whether instances of the receiver are capable of responding to a given selector.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Selector!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "conforms",
+      "type": "class func",
+      "desc": "Returns a Boolean value that indicates whether the receiver conforms to a given protocol.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Protocol"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "method",
+      "type": "func",
+      "desc": "Locates and returns the address of the receiver’s implementation of a method so it can be called as a function.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Selector!"
+        }
+      ],
+      "returnType": "IMP!"
+    },
+    {
+      "name": "instanceMethod",
+      "type": "class func",
+      "desc": "Locates and returns the address of the implementation of the instance method identified by a given selector.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Selector!"
+        }
+      ],
+      "returnType": "IMP!"
+    },
+    {
+      "name": "description",
+      "type": "class func",
+      "desc": "Returns a string that represents the contents of the receiving class.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "autoContentAccessingProxy",
+      "type": "var",
+      "datatype": "Any",
+      "desc": "A proxy for the receiving object"
+    },
+    {
+      "name": "perform",
+      "type": "func",
+      "desc": "Invokes a method of the receiver on the current thread using the default mode after a delay.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        },
+        {
+          "name": "afterDelay",
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "perform",
+      "type": "func",
+      "desc": "Invokes a method of the receiver on the current thread using the specified modes after a delay.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        },
+        {
+          "name": "afterDelay",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "inModes",
+          "type": "[RunLoop.Mode]"
+        }
+      ]
+    },
+    {
+      "name": "performSelector",
+      "type": "func",
+      "desc": "Invokes a method of the receiver on the main thread using the default mode.",
+      "params": [
+        {
+          "name": "onMainThread",
+          "type": "Selector"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        },
+        {
+          "name": "waitUntilDone",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "performSelector",
+      "type": "func",
+      "desc": "Invokes a method of the receiver on the main thread using the specified modes.",
+      "params": [
+        {
+          "name": "onMainThread",
+          "type": "Selector"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        },
+        {
+          "name": "waitUntilDone",
+          "type": "Bool"
+        },
+        {
+          "name": "modes",
+          "type": "[String]?"
+        }
+      ]
+    },
+    {
+      "name": "perform",
+      "type": "func",
+      "desc": "Invokes a method of the receiver on the specified thread using the default mode.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "on",
+          "type": "Thread"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        },
+        {
+          "name": "waitUntilDone",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "perform",
+      "type": "func",
+      "desc": "Invokes a method of the receiver on the specified thread using the specified modes.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "on",
+          "type": "Thread"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        },
+        {
+          "name": "waitUntilDone",
+          "type": "Bool"
+        },
+        {
+          "name": "modes",
+          "type": "[String]?"
+        }
+      ]
+    },
+    {
+      "name": "performSelector",
+      "type": "func",
+      "desc": "Invokes a method of the receiver on a new background thread.",
+      "params": [
+        {
+          "name": "inBackground",
+          "type": "Selector"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "cancelPreviousPerformRequests",
+      "type": "class func",
+      "desc": "Cancels perform requests previously registered with the perform(_:with:afterDelay:) instance method.",
+      "params": [
+        {
+          "name": "withTarget",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "name": "cancelPreviousPerformRequests",
+      "type": "class func",
+      "desc": "Cancels perform requests previously registered with perform(_:with:afterDelay:).",
+      "params": [
+        {
+          "name": "withTarget",
+          "type": "Any"
+        },
+        {
+          "name": "selector",
+          "type": "Selector"
+        },
+        {
+          "name": "object",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "forwardingTarget",
+      "type": "func",
+      "desc": "Returns the object to which unrecognized messages should first be directed.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Selector!"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "resolveClassMethod",
+      "type": "class func",
+      "desc": "Dynamically provides an implementation for a given selector for a class method.",
+      "params": [
+        {
+          "type": "Selector!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "resolveInstanceMethod",
+      "type": "class func",
+      "desc": "Dynamically provides an implementation for a given selector for an instance method.",
+      "params": [
+        {
+          "type": "Selector!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "doesNotRecognizeSelector",
+      "type": "func",
+      "desc": "Handles messages the receiver doesn’t recognize.",
+      "params": [
+        {
+          "type": "Selector!"
+        }
+      ]
+    },
+    {
+      "name": "awakeAfter",
+      "type": "func",
+      "desc": "Overridden by subclasses to substitute another object in place of the object that was decoded and subsequently received this message.",
+      "params": [
+        {
+          "name": "using",
+          "type": "NSCoder"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "classForArchiver",
+      "type": "var",
+      "datatype": "AnyClass?",
+      "desc": "The class to substitute for the receiver's own class during archiving."
+    },
+    {
+      "name": "classForCoder",
+      "type": "var",
+      "datatype": "AnyClass",
+      "desc": "Overridden by subclasses to substitute a class other than its own during coding."
+    },
+    {
+      "name": "classForKeyedArchiver",
+      "type": "var",
+      "datatype": "AnyClass?",
+      "desc": "Subclasses to substitute a new class for instances during keyed archiving."
+    },
+    {
+      "name": "classFallbacksForKeyedArchiver",
+      "type": "class func",
+      "desc": "Overridden to return the names of classes that can be used to decode objects if their class is unavailable.",
+      "params": [],
+      "returnType": "[String]"
+    },
+    {
+      "name": "classForKeyedUnarchiver",
+      "type": "class func",
+      "desc": "Overridden by subclasses to substitute a new class during keyed unarchiving.",
+      "params": [],
+      "returnType": "AnyClass"
+    },
+    {
+      "name": "replacementObject",
+      "type": "func",
+      "desc": "Overridden by subclasses to substitute another object for itself during archiving.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSArchiver"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "replacementObject",
+      "type": "func",
+      "desc": "Overridden by subclasses to substitute another object for itself during encoding.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSCoder"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "replacementObject",
+      "type": "func",
+      "desc": "Overridden by subclasses to substitute another object for itself during keyed archiving.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSKeyedArchiver"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "setVersion",
+      "type": "class func",
+      "desc": "Sets the receiver's version number.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "version",
+      "type": "class func",
+      "desc": "Returns the version number assigned to the class.",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "attributeKeys",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "An array of NSString objects containing the names of immutable values that instances of the receiver's class contain."
+    },
+    {
+      "name": "classDescription",
+      "type": "var",
+      "datatype": "NSClassDescription",
+      "desc": "An object containing information about the attributes and relationships of the receiver’s class."
+    },
+    {
+      "name": "inverse",
+      "type": "func",
+      "desc": "For a given key that defines the name of the relationship from the receiver’s class to another class, returns the name of the relationship from the other class to the receiver’s class.",
+      "params": [
+        {
+          "name": "forRelationshipKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "toManyRelationshipKeys",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "An array containing the keys for the to-many relationship properties of the receiver."
+    },
+    {
+      "name": "toOneRelationshipKeys",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The keys for the to-one relationship properties of the receiver, if any."
+    },
+    {
+      "name": "classCode",
+      "type": "var",
+      "datatype": "FourCharCode",
+      "desc": "The receiver's Apple event type code, as stored in the NSScriptClassDescription object for the object’s class."
+    },
+    {
+      "name": "className",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string containing the name of the class."
+    },
+    {
+      "name": "scriptingProperties",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "An NSString-keyed dictionary of the receiver's scriptable properties."
+    },
+    {
+      "name": "scriptingValue",
+      "type": "func",
+      "desc": "Given an object specifier, returns the specified object or objects in the receiving container.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSScriptObjectSpecifier"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int"
+    },
+    {
+      "name": "isSelectable",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "objectSpecifier",
+      "type": "var",
+      "datatype": "NSScriptObjectSpecifier?",
+      "desc": "Returns an object specifier for the receiver."
+    },
+    {
+      "name": "accessInstanceVariablesDirectly",
+      "type": "class var",
+      "datatype": "Bool",
+      "desc": "Returns a Boolean value that indicates whether the key-value coding methods should access the corresponding instance variable directly on finding no accessor method for a property."
+    },
+    {
+      "name": "acceptsPreviewPanelControl",
+      "type": "func",
+      "params": [
+        {
+          "type": "QLPreviewPanel!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "actionProperty",
+      "type": "func",
+      "desc": "Sent to the delegate to request the property the action applies to.",
+      "params": [],
+      "returnType": "String!"
+    },
+    {
+      "name": "attemptRecovery",
+      "type": "func",
+      "desc": "Implemented to attempt a recovery from an error noted in an application-modal dialog.",
+      "params": [
+        {
+          "name": "fromError",
+          "type": "Error"
+        },
+        {
+          "name": "optionIndex",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "attemptRecovery",
+      "type": "func",
+      "desc": "Implemented to attempt a recovery from an error noted in a document-modal sheet.",
+      "params": [
+        {
+          "name": "fromError",
+          "type": "Error"
+        },
+        {
+          "name": "optionIndex",
+          "type": "Int"
+        },
+        {
+          "name": "delegate",
+          "type": "Any?"
+        },
+        {
+          "name": "didRecoverSelector",
+          "type": "Selector?"
+        },
+        {
+          "name": "contextInfo",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "authorizationViewCreatedAuthorization",
+      "type": "func",
+      "desc": "Sent to the delegate to indicate the authorization object has been created or changed. If you have saved a copy of the authorization object for your own purposes, you should discard it and call authorization for a new authorization object.",
+      "params": [
+        {
+          "type": "SFAuthorizationView!"
+        }
+      ]
+    },
+    {
+      "name": "authorizationViewDidAuthorize",
+      "type": "func",
+      "desc": "Sent to the delegate to indicate the user was authorized and the authorization view was changed to unlocked.",
+      "params": [
+        {
+          "type": "SFAuthorizationView!"
+        }
+      ]
+    },
+    {
+      "name": "authorizationViewDidDeauthorize",
+      "type": "func",
+      "desc": "Sent to the delegate to indicate the user was deauthorized and the authorization view was changed to locked.",
+      "params": [
+        {
+          "type": "SFAuthorizationView!"
+        }
+      ]
+    },
+    {
+      "name": "authorizationViewDidHide",
+      "type": "func",
+      "desc": "Sent to the delegate to indicate that the view’s visibility has changed.",
+      "params": [
+        {
+          "type": "SFAuthorizationView!"
+        }
+      ]
+    },
+    {
+      "name": "authorizationViewReleasedAuthorization",
+      "type": "func",
+      "desc": "Sent to the delegate to indicate that deauthorization is about to occur.",
+      "params": [
+        {
+          "type": "SFAuthorizationView!"
+        }
+      ]
+    },
+    {
+      "name": "authorizationViewShouldDeauthorize",
+      "type": "func",
+      "desc": "Sent to the delegate when a user clicks the open lock icon.",
+      "params": [
+        {
+          "type": "SFAuthorizationView!"
+        }
+      ],
+      "returnType": "Int8"
+    },
+    {
+      "name": "awakeFromNib",
+      "type": "func",
+      "desc": "Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.",
+      "params": []
+    },
+    {
+      "name": "beginPreviewPanelControl",
+      "type": "func",
+      "params": [
+        {
+          "type": "QLPreviewPanel!"
+        }
+      ]
+    },
+    {
+      "name": "candidates",
+      "type": "func",
+      "desc": "Returns an array of candidates.",
+      "params": [
+        {
+          "type": "Any!"
+        }
+      ],
+      "returnType": "[Any]!"
+    },
+    {
+      "name": "certificatePanelShowHelp",
+      "type": "func",
+      "desc": "Implements custom help behavior for the modal panel.",
+      "params": [
+        {
+          "type": "SFCertificatePanel!"
+        }
+      ],
+      "returnType": "Int8"
+    },
+    {
+      "name": "chooseIdentityPanelShowHelp",
+      "type": "func",
+      "desc": "Implements custom help behavior for the modal panel.",
+      "params": [
+        {
+          "type": "SFChooseIdentityPanel!"
+        }
+      ],
+      "returnType": "Int8"
+    },
+    {
+      "name": "commitComposition",
+      "type": "func",
+      "desc": "Informs the controller that the composition should be committed.",
+      "params": [
+        {
+          "type": "Any!"
+        }
+      ]
+    },
+    {
+      "name": "composedString",
+      "type": "func",
+      "desc": "Return the current composed string.",
+      "params": [
+        {
+          "type": "Any!"
+        }
+      ],
+      "returnType": "Any!"
+    },
+    {
+      "name": "compositionParameterView",
+      "type": "func",
+      "desc": "Called after an input parameter in the composition parameter view has been edited.",
+      "params": [
+        {
+          "type": "QCCompositionParameterView!"
+        },
+        {
+          "name": "didChangeParameterWithKey",
+          "type": "String!"
+        }
+      ]
+    },
+    {
+      "name": "compositionPickerView",
+      "type": "func",
+      "desc": "Performs custom tasks when the selected composition in the composition picker view changes.",
+      "params": [
+        {
+          "type": "QCCompositionPickerView!"
+        },
+        {
+          "name": "didSelect",
+          "type": "QCComposition!"
+        }
+      ]
+    },
+    {
+      "name": "compositionPickerViewDidStartAnimating",
+      "type": "func",
+      "desc": "Performs custom tasks when the composition picker view starts animating a composition.",
+      "params": [
+        {
+          "type": "QCCompositionPickerView!"
+        }
+      ]
+    },
+    {
+      "name": "compositionPickerViewWillStopAnimating",
+      "type": "func",
+      "desc": "Performs custom tasks when the composition picker view stops animating a composition.",
+      "params": [
+        {
+          "type": "QCCompositionPickerView!"
+        }
+      ]
+    },
+    {
+      "name": "didCommand",
+      "type": "func",
+      "desc": "Processes a command  generated by user action such as typing certain keys or pressing the mouse button.",
+      "params": [
+        {
+          "name": "by",
+          "type": "Selector!"
+        },
+        {
+          "name": "client",
+          "type": "Any!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "doesContain",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver contains a given object.",
+      "params": [
+        {
+          "type": "Any"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "endPreviewPanelControl",
+      "type": "func",
+      "params": [
+        {
+          "type": "QLPreviewPanel!"
+        }
+      ]
+    },
+    {
+      "name": "exceptionHandler",
+      "type": "func",
+      "desc": "Implemented by the delegate to evaluate whether the delegating NSExceptionHandler instance should handle a given exception.",
+      "params": [
+        {
+          "type": "NSExceptionHandler!"
+        },
+        {
+          "name": "shouldHandle",
+          "type": "NSException!"
+        },
+        {
+          "name": "mask",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "exceptionHandler",
+      "type": "func",
+      "desc": "Implemented by the delegate to evaluate whether the delegating NSExceptionHandler instance should log a given exception.",
+      "params": [
+        {
+          "type": "NSExceptionHandler!"
+        },
+        {
+          "name": "shouldLogException",
+          "type": "NSException!"
+        },
+        {
+          "name": "mask",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "fileTransferServicesAbortComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesConnectionComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesCopyRemoteFileComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesCreateFolderComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        },
+        {
+          "name": "folder",
+          "type": "String!"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesDisconnectionComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesFilePreparationComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesPathChangeComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        },
+        {
+          "name": "finalPath",
+          "type": "String!"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesRemoveItemComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        },
+        {
+          "name": "removedItem",
+          "type": "String!"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesRetrieveFolderListingComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        },
+        {
+          "name": "listing",
+          "type": "[Any]!"
+        }
+      ]
+    },
+    {
+      "name": "fileTransferServicesSendFileComplete",
+      "type": "func",
+      "params": [
+        {
+          "type": "OBEXFileTransferServices!"
+        },
+        {
+          "name": "error",
+          "type": "OBEXError"
+        }
+      ]
+    },
+    {
+      "name": "handle",
+      "type": "func",
+      "desc": "Handles key down and mouse events.",
+      "params": [
+        {
+          "type": "NSEvent!"
+        },
+        {
+          "name": "client",
+          "type": "Any!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "imageBrowser",
+      "type": "func",
+      "desc": "Performs custom tasks when the user right-clicks the image browser view background.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        },
+        {
+          "name": "backgroundWasRightClickedWith",
+          "type": "NSEvent!"
+        }
+      ]
+    },
+    {
+      "name": "imageBrowser",
+      "type": "func",
+      "desc": "Performs custom tasks when the user double-clicks an item in the image browser view.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        },
+        {
+          "name": "cellWasDoubleClickedAt",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "imageBrowser",
+      "type": "func",
+      "desc": "Performs custom tasks when the user right-clicks an item in the image browser view.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        },
+        {
+          "name": "cellWasRightClickedAt",
+          "type": "Int"
+        },
+        {
+          "name": "with",
+          "type": "NSEvent!"
+        }
+      ]
+    },
+    {
+      "name": "imageBrowser",
+      "type": "func",
+      "desc": "Returns the group at the specified index.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        },
+        {
+          "name": "groupAt",
+          "type": "Int"
+        }
+      ],
+      "returnType": "[AnyHashable : Any]!"
+    },
+    {
+      "name": "imageBrowser",
+      "type": "func",
+      "desc": "Returns an object for the item in an image browser view that corresponds to the specified index.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        },
+        {
+          "name": "itemAt",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Any!"
+    },
+    {
+      "name": "imageBrowser",
+      "type": "func",
+      "desc": "Signals that the specified items should be moved to the specified destination.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        },
+        {
+          "name": "moveItemsAt",
+          "type": "IndexSet!"
+        },
+        {
+          "name": "to",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "imageBrowser",
+      "type": "func",
+      "desc": "Signals that a remove operation should be applied to the specified items.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        },
+        {
+          "name": "removeItemsAt",
+          "type": "IndexSet!"
+        }
+      ]
+    },
+    {
+      "name": "imageBrowser",
+      "type": "func",
+      "desc": "Signals that a drag should begin.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        },
+        {
+          "name": "writeItemsAt",
+          "type": "IndexSet!"
+        },
+        {
+          "name": "to",
+          "type": "NSPasteboard!"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "imageBrowserSelectionDidChange",
+      "type": "func",
+      "desc": "Performs custom tasks when the selection changes.",
+      "params": [
+        {
+          "type": "IKImageBrowserView!"
+        }
+      ]
+    },
+    {
+      "name": "imageRepresentation",
+      "type": "func",
+      "desc": "Returns the image to display.",
+      "params": [],
+      "returnType": "Any!"
+    },
+    {
+      "name": "imageRepresentationType",
+      "type": "func",
+      "desc": "Returns the representation type of the image to display.",
+      "params": [],
+      "returnType": "String!"
+    },
+    {
+      "name": "imageSubtitle",
+      "type": "func",
+      "desc": "Returns the display subtitle of the image.",
+      "params": [],
+      "returnType": "String!"
+    },
+    {
+      "name": "imageTitle",
+      "type": "func",
+      "desc": "Returns the display title of the image.",
+      "params": [],
+      "returnType": "String!"
+    },
+    {
+      "name": "imageUID",
+      "type": "func",
+      "desc": "Returns a unique string that identifies the data source item.",
+      "params": [],
+      "returnType": "String!"
+    },
+    {
+      "name": "imageVersion",
+      "type": "func",
+      "desc": "Returns the version of the item.",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "indicesOfObjects",
+      "type": "func",
+      "desc": "Returns the indices of the specified container objects.",
+      "params": [
+        {
+          "name": "byEvaluatingObjectSpecifier",
+          "type": "NSScriptObjectSpecifier"
+        }
+      ],
+      "returnType": "[NSNumber]?"
+    },
+    {
+      "name": "inputText",
+      "type": "func",
+      "desc": "Handles key down events that do not map to an action method.",
+      "params": [
+        {
+          "type": "String!"
+        },
+        {
+          "name": "client",
+          "type": "Any!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "inputText",
+      "type": "func",
+      "desc": "Receives Unicode, the key code that generated it, and any modifier flags.",
+      "params": [
+        {
+          "type": "String!"
+        },
+        {
+          "name": "key",
+          "type": "Int"
+        },
+        {
+          "name": "modifiers",
+          "type": "Int"
+        },
+        {
+          "name": "client",
+          "type": "Any!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isCaseInsensitiveLike",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether receiver is considered to be “like” a given string when the case of characters in the receiver is ignored.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isEqual",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver is equal to another given object.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isGreaterThan",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver is greater than another given object.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isGreaterThanOrEqual",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver is greater than or equal to another given object.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isLessThan",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver is less than another given object.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isLessThanOrEqual",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver is less than or equal to another given object.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isLike",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver is \"like\" another given object.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isNotEqual",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver is not equal to another given object.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "numberOfGroups",
+      "type": "func",
+      "desc": "Returns the number of groups in an image browser view.",
+      "params": [
+        {
+          "name": "inImageBrowser",
+          "type": "IKImageBrowserView!"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "numberOfItems",
+      "type": "func",
+      "desc": "Returns the number of records managed by the data source object.",
+      "params": [
+        {
+          "name": "inImageBrowser",
+          "type": "IKImageBrowserView!"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "originalString",
+      "type": "func",
+      "desc": "Return the string that consists of the precomposed Unicode characters.",
+      "params": [
+        {
+          "type": "Any!"
+        }
+      ],
+      "returnType": "NSAttributedString!"
+    },
+    {
+      "name": "performAction",
+      "type": "func",
+      "desc": "Sent to the delegate to perform the action.",
+      "params": [
+        {
+          "name": "for",
+          "type": "ABPerson!"
+        },
+        {
+          "name": "identifier",
+          "type": "String!"
+        }
+      ]
+    },
+    {
+      "name": "prepareForInterfaceBuilder",
+      "type": "func",
+      "desc": "Called when a designable object is created in Interface Builder.",
+      "params": []
+    },
+    {
+      "name": "provideImageData",
+      "type": "func",
+      "desc": "Supplies data to a CIImage object.",
+      "params": [
+        {
+          "type": "UnsafeMutableRawPointer"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "origin",
+          "type": "Int"
+        },
+        {
+          "type": "Int"
+        },
+        {
+          "name": "size",
+          "type": "Int"
+        },
+        {
+          "type": "Int"
+        },
+        {
+          "name": "userInfo",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "quartzFilterManager",
+      "type": "func",
+      "params": [
+        {
+          "type": "QuartzFilterManager!"
+        },
+        {
+          "name": "didAdd",
+          "type": "QuartzFilter!"
+        }
+      ]
+    },
+    {
+      "name": "quartzFilterManager",
+      "type": "func",
+      "params": [
+        {
+          "type": "QuartzFilterManager!"
+        },
+        {
+          "name": "didModifyFilter",
+          "type": "QuartzFilter!"
+        }
+      ]
+    },
+    {
+      "name": "quartzFilterManager",
+      "type": "func",
+      "params": [
+        {
+          "type": "QuartzFilterManager!"
+        },
+        {
+          "name": "didRemove",
+          "type": "QuartzFilter!"
+        }
+      ]
+    },
+    {
+      "name": "quartzFilterManager",
+      "type": "func",
+      "params": [
+        {
+          "type": "QuartzFilterManager!"
+        },
+        {
+          "name": "didSelect",
+          "type": "QuartzFilter!"
+        }
+      ]
+    },
+    {
+      "name": "readLinkQuality",
+      "type": "func",
+      "desc": "",
+      "params": [
+        {
+          "name": "forDeviceComplete",
+          "type": "Any!"
+        },
+        {
+          "name": "device",
+          "type": "IOBluetoothDevice!"
+        },
+        {
+          "name": "info",
+          "type": "UnsafeMutablePointer<BluetoothHCILinkQualityInfo>!"
+        },
+        {
+          "name": "error",
+          "type": "IOReturn"
+        }
+      ]
+    },
+    {
+      "name": "readRSSI",
+      "type": "func",
+      "desc": "",
+      "params": [
+        {
+          "name": "forDeviceComplete",
+          "type": "Any!"
+        },
+        {
+          "name": "device",
+          "type": "IOBluetoothDevice!"
+        },
+        {
+          "name": "info",
+          "type": "UnsafeMutablePointer<BluetoothHCIRSSIInfo>!"
+        },
+        {
+          "name": "error",
+          "type": "IOReturn"
+        }
+      ]
+    },
+    {
+      "name": "saveOptions",
+      "type": "func",
+      "desc": "Called to determine if the specified uniform type identifier should be shown in the save panel.",
+      "params": [
+        {
+          "type": "IKSaveOptions!"
+        },
+        {
+          "name": "shouldShowUTType",
+          "type": "String!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "shouldEnableAction",
+      "type": "func",
+      "desc": "Sent to the delegate to determine whether the action should be enabled.",
+      "params": [
+        {
+          "name": "for",
+          "type": "ABPerson!"
+        },
+        {
+          "name": "identifier",
+          "type": "String!"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "title",
+      "type": "func",
+      "desc": "Sent to the delegate to request the title of the menu item for the action.",
+      "params": [
+        {
+          "name": "for",
+          "type": "ABPerson!"
+        },
+        {
+          "name": "identifier",
+          "type": "String!"
+        }
+      ],
+      "returnType": "String!"
+    },
+    {
+      "name": "debugDescription",
+      "type": "class func",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "hash",
+      "type": "class func",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "params": [
+        {
+          "type": "NSObject"
+        },
+        {
+          "type": "NSObject"
+        }
+      ],
+      "returnType": "Bool"
+    }
+  ]
+}

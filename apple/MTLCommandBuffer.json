@@ -1,0 +1,271 @@
+{
+  "type": "Protocol",
+  "name": "MTLCommandBuffer",
+  "desc": "A container that stores encoded commands for the GPU to execute.",
+  "items": [
+    {
+      "name": "makeRenderCommandEncoder",
+      "type": "func",
+      "desc": "Creates an object to encode a rendering pass into the command buffer.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLRenderPassDescriptor"
+        }
+      ],
+      "returnType": "MTLRenderCommandEncoder?"
+    },
+    {
+      "name": "makeParallelRenderCommandEncoder",
+      "type": "func",
+      "desc": "Creates an object that can split the work of encoding commands for a single render pass.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLRenderPassDescriptor"
+        }
+      ],
+      "returnType": "MTLParallelRenderCommandEncoder?"
+    },
+    {
+      "name": "makeComputeCommandEncoder",
+      "type": "func",
+      "desc": "Creates an object to encode a compute pass into the command buffer.",
+      "params": [
+        {
+          "name": "dispatchType",
+          "type": "MTLDispatchType"
+        }
+      ],
+      "returnType": "MTLComputeCommandEncoder?"
+    },
+    {
+      "name": "makeComputeCommandEncoder",
+      "type": "func",
+      "desc": "Creates an object to encode a sequential compute pass into the command buffer.",
+      "params": [],
+      "returnType": "MTLComputeCommandEncoder?"
+    },
+    {
+      "name": "makeBlitCommandEncoder",
+      "type": "func",
+      "desc": "Creates an object to encode a block information transfer (blit) pass into the command buffer.",
+      "params": [],
+      "returnType": "MTLBlitCommandEncoder?"
+    },
+    {
+      "name": "makeResourceStateCommandEncoder",
+      "type": "func",
+      "desc": "Required.",
+      "params": [],
+      "returnType": "MTLResourceStateCommandEncoder?"
+    },
+    {
+      "name": "MTLDispatchType",
+      "type": "enum",
+      "desc": "Constants indicating how the compute command encoder's commands are dispatched."
+    },
+    {
+      "name": "enqueue",
+      "type": "func",
+      "desc": "Reserves a place for the command buffer on the associated command queue.",
+      "params": []
+    },
+    {
+      "name": "commit",
+      "type": "func",
+      "desc": "Commits the command buffer for execution.",
+      "params": []
+    },
+    {
+      "name": "addScheduledHandler",
+      "type": "func",
+      "desc": "Registers a block of code that Metal calls immediately after it schedules the command buffer for execution on the GPU.",
+      "params": [
+        {
+          "type": "MTLCommandBufferHandler"
+        }
+      ]
+    },
+    {
+      "name": "addCompletedHandler",
+      "type": "func",
+      "desc": "Registers a block of code that Metal calls immediately after the GPU finishes executing the commands in the command buffer.",
+      "params": [
+        {
+          "type": "MTLCommandBufferHandler"
+        }
+      ]
+    },
+    {
+      "name": "waitUntilScheduled",
+      "type": "func",
+      "desc": "Blocks execution of the current thread until the command buffer is scheduled.",
+      "params": []
+    },
+    {
+      "name": "waitUntilCompleted",
+      "type": "func",
+      "desc": "Blocks execution of the current thread until execution of the command buffer is completed.",
+      "params": []
+    },
+    {
+      "name": "present",
+      "type": "func",
+      "desc": "Registers a drawable presentation to occur as soon as possible.",
+      "params": [
+        {
+          "type": "MTLDrawable"
+        }
+      ]
+    },
+    {
+      "name": "present",
+      "type": "func",
+      "desc": "Registers a drawable presentation to occur after waiting for the previous drawable to meet the minimum display time.",
+      "params": [
+        {
+          "type": "MTLDrawable"
+        },
+        {
+          "name": "afterMinimumDuration",
+          "type": "CFTimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "present",
+      "type": "func",
+      "desc": "Registers a drawable presentation to occur at a specific host time.",
+      "params": [
+        {
+          "type": "MTLDrawable"
+        },
+        {
+          "name": "atTime",
+          "type": "CFTimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "type": "var",
+      "datatype": "MTLCommandBufferStatus",
+      "desc": "The current stage in the lifetime of the command buffer."
+    },
+    {
+      "name": "MTLCommandBufferStatus",
+      "type": "enum",
+      "desc": "The stages in the lifetime of the command buffer."
+    },
+    {
+      "name": "error",
+      "type": "var",
+      "datatype": "Error?",
+      "desc": "The error that occurred when the command buffer was executed."
+    },
+    {
+      "name": "MTLCommandBufferErrorDomain",
+      "type": "let",
+      "datatype": "String",
+      "desc": "The error domain used by MTLCommandBuffer when returning command buffer execution errors."
+    },
+    {
+      "name": "MTLCommandBufferError.Code",
+      "type": "enum",
+      "desc": "Error codes that indicate why the execution of the command buffer has failed. The error property contains the error code."
+    },
+    {
+      "name": "kernelStartTime",
+      "type": "var",
+      "datatype": "CFTimeInterval",
+      "desc": "The host time, in seconds, when the CPU began scheduling this command buffer for execution."
+    },
+    {
+      "name": "kernelEndTime",
+      "type": "var",
+      "datatype": "CFTimeInterval",
+      "desc": "The host time, in seconds, when the CPU finished scheduling this command buffer for execution."
+    },
+    {
+      "name": "gpuStartTime",
+      "type": "var",
+      "datatype": "CFTimeInterval",
+      "desc": "The host time, in seconds, when the GPU began executing this command buffer."
+    },
+    {
+      "name": "gpuEndTime",
+      "type": "var",
+      "datatype": "CFTimeInterval",
+      "desc": "The host time, in seconds, when the GPU finished executing this command buffer."
+    },
+    {
+      "name": "encodeSignalEvent",
+      "type": "func",
+      "desc": "Encodes a command that signals the given event, updating it to a new value.",
+      "params": [
+        {
+          "type": "MTLEvent"
+        },
+        {
+          "name": "value",
+          "type": "UInt64"
+        }
+      ]
+    },
+    {
+      "name": "encodeWaitForEvent",
+      "type": "func",
+      "desc": "Encodes a command that blocks the execution of the command buffer until the given event reaches the given value.",
+      "params": [
+        {
+          "type": "MTLEvent"
+        },
+        {
+          "name": "value",
+          "type": "UInt64"
+        }
+      ]
+    },
+    {
+      "name": "retainedReferences",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the command buffer maintains strong references to associated resource objects (textures, buffers) necessary to complete execution of any encoded commands."
+    },
+    {
+      "name": "device",
+      "type": "var",
+      "datatype": "MTLDevice",
+      "desc": "The device from which this command buffer was created."
+    },
+    {
+      "name": "commandQueue",
+      "type": "var",
+      "datatype": "MTLCommandQueue",
+      "desc": "The command queue that created the command buffer."
+    },
+    {
+      "name": "label",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "A string that identifies this object."
+    },
+    {
+      "name": "pushDebugGroup",
+      "type": "func",
+      "desc": "A string that identifies this object.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "popDebugGroup",
+      "type": "func",
+      "desc": "A string that identifies this object.",
+      "params": []
+    }
+  ]
+}

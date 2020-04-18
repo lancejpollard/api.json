@@ -1,0 +1,231 @@
+{
+  "type": "Class",
+  "name": "MDLTexture",
+  "desc": "A source of texel data to be used in rendering material surface appearances.",
+  "items": [
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Exports the texture data to an image file at the specified URL.",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Exports the texture data to an image file at the specified URL, of the specified type.",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        },
+        {
+          "name": "type",
+          "type": "CFString"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "imageFromTexture",
+      "type": "func",
+      "desc": "Exports the texture data as a CoreGraphics image.",
+      "params": [],
+      "returnType": "Unmanaged<CGImage>?"
+    },
+    {
+      "name": "texelDataWithTopLeftOrigin",
+      "type": "func",
+      "desc": "Returns the texture’s image data, organized such that its first pixel represents the top-left corner of the image.",
+      "params": [],
+      "returnType": "Data?"
+    },
+    {
+      "name": "texelDataWithBottomLeftOrigin",
+      "type": "func",
+      "desc": "Returns the texture’s image data, organized such that its first pixel represents the bottom-left corner of the image.",
+      "params": [],
+      "returnType": "Data?"
+    },
+    {
+      "name": "texelDataWithTopLeftOrigin",
+      "type": "func",
+      "desc": "Returns the texture’s image data for the specified mipmap level, organized such that its first pixel represents the top-left corner of the image.",
+      "params": [
+        {
+          "name": "atMipLevel",
+          "type": "Int"
+        },
+        {
+          "name": "create",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "texelDataWithBottomLeftOrigin",
+      "type": "func",
+      "desc": "Returns the texture’s image data for the specified mipmap level, organized such that its first pixel represents the bottom-left corner of the image.",
+      "params": [
+        {
+          "name": "atMipLevel",
+          "type": "Int"
+        },
+        {
+          "name": "create",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "dimensions",
+      "type": "var",
+      "datatype": "vector_int2",
+      "desc": "The width and height, in texels, of the texture image."
+    },
+    {
+      "name": "rowStride",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of bytes between the first texel in a row of image data and the first texel in the next row."
+    },
+    {
+      "name": "channelCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of channels per texel."
+    },
+    {
+      "name": "channelEncoding",
+      "type": "var",
+      "datatype": "MDLTextureChannelEncoding",
+      "desc": "The data format for each channel value per texel."
+    },
+    {
+      "name": "isCube",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the texture is a cube textures."
+    },
+    {
+      "name": "mipLevelCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of mipmap levels contained in the texture image data."
+    },
+    {
+      "name": "irradianceTextureCube",
+      "type": "class func",
+      "desc": "Generates an irradiance texture from the specified reflectance cube texture.",
+      "params": [
+        {
+          "name": "with",
+          "type": "MDLTexture"
+        },
+        {
+          "name": "name",
+          "type": "String?"
+        },
+        {
+          "name": "dimensions",
+          "type": "vector_int2"
+        }
+      ],
+      "returnType": "Self"
+    },
+    {
+      "name": "irradianceTextureCube",
+      "type": "class func",
+      "desc": "Generates an irradiance texture from the specified reflectance cube texture, assuming a surface of the specified roughness.",
+      "params": [
+        {
+          "name": "with",
+          "type": "MDLTexture"
+        },
+        {
+          "name": "name",
+          "type": "String?"
+        },
+        {
+          "name": "dimensions",
+          "type": "vector_int2"
+        },
+        {
+          "name": "roughness",
+          "type": "Float"
+        }
+      ],
+      "returnType": "Self"
+    },
+    {
+      "name": "MDLTextureChannelEncoding",
+      "type": "enum",
+      "desc": "Options for the data size and type of texel channel values, used by the channelEncoding property."
+    },
+    {
+      "name": "()",
+      "type": "enum"
+    },
+    {
+      "name": "?(named: String, assetResolver: MDLAssetResolver)",
+      "type": "enum"
+    },
+    {
+      "name": "hasAlphaValues",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "imageFromTexture",
+      "type": "func",
+      "params": [
+        {
+          "name": "atLevel",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Unmanaged<CGImage>?"
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        },
+        {
+          "name": "level",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        },
+        {
+          "name": "type",
+          "type": "CFString"
+        },
+        {
+          "name": "level",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    }
+  ]
+}

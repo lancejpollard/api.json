@@ -1,0 +1,219 @@
+{
+  "type": "Class",
+  "name": "NSUserActivity",
+  "desc": "A representation of the state of your app at a moment in time.",
+  "items": [
+    {
+      "name": "activityType",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The activity type with which the user activity object was created."
+    },
+    {
+      "name": "title",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "An optional, user-visible title for this activity, such as a document name or web page title."
+    },
+    {
+      "name": "requiredUserInfoKeys",
+      "type": "var",
+      "datatype": "Set<String>?",
+      "desc": "A set of keys that represent the minimal information about the activity that should be stored for later restoration."
+    },
+    {
+      "name": "userInfo",
+      "type": "var",
+      "datatype": "[AnyHashable",
+      "desc": "A dictionary containing app-specific state information needed to continue an activity on another device."
+    },
+    {
+      "name": "needsSave",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates that the state of the activity needs to be updated."
+    },
+    {
+      "name": "contentAttributeSet",
+      "type": "var",
+      "datatype": "CSSearchableItemAttributeSet?",
+      "desc": "A set of properties that describe the activity."
+    },
+    {
+      "name": "keywords",
+      "type": "var",
+      "datatype": "Set<String>",
+      "desc": "A set of localized keywords that can help users find the activity in search results."
+    },
+    {
+      "name": "persistentIdentifier",
+      "type": "var",
+      "datatype": "NSUserActivityPersistentIdentifier?",
+      "desc": "A value used to identify the user activity."
+    },
+    {
+      "name": "isEligibleForHandoff",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the activity can be continued on another device using Handoff."
+    },
+    {
+      "name": "isEligibleForSearch",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the activity should be added to the on-device index."
+    },
+    {
+      "name": "isEligibleForPublicIndexing",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the activity can be publicly accessed by all iOS users."
+    },
+    {
+      "name": "expirationDate",
+      "type": "var",
+      "datatype": "Date?",
+      "desc": "The date after which the activity is no longer eligible for Handoff or indexing."
+    },
+    {
+      "name": "becomeCurrent",
+      "type": "func",
+      "desc": "Marks the activity as currently in use by the user.",
+      "params": []
+    },
+    {
+      "name": "resignCurrent",
+      "type": "func",
+      "desc": "Marks this activity object as inactive without invalidating it.",
+      "params": []
+    },
+    {
+      "name": "invalidate",
+      "type": "func",
+      "desc": "Invalidates an activity and marks it as no longer eligible for continuation.",
+      "params": []
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "NSUserActivityDelegate?",
+      "desc": "The user activity object’s delegate."
+    },
+    {
+      "name": "supportsContinuationStreams",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether the continuing app can request streams to be opened back to the originating app."
+    },
+    {
+      "name": "webpageURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "Webpage to load in a browser to continue the activity."
+    },
+    {
+      "name": "isEligibleForPrediction",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether Siri can suggest the user activity as a shortcut to the user."
+    },
+    {
+      "name": "suggestedInvocationPhrase",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "A phrase suggested to the user when they create a shortcut."
+    },
+    {
+      "name": "interaction",
+      "type": "var",
+      "datatype": "INInteraction?",
+      "desc": "The SiriKit interaction object to use when configuring your app."
+    },
+    {
+      "name": "ndefMessagePayload",
+      "type": "var",
+      "datatype": "NFCNDEFMessage",
+      "desc": "The NDEF message read by the system in the background."
+    },
+    {
+      "name": "mapItem",
+      "type": "var",
+      "datatype": "MKMapItem!",
+      "desc": "Attaches the specified map item to a user activity object."
+    },
+    {
+      "name": "NSUserActivityTypeBrowsingWeb",
+      "type": "let",
+      "datatype": "String",
+      "desc": "An activity that continues from Handoff or a universal link."
+    },
+    {
+      "name": "NSUserActivityConnectionUnavailableError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The user activity couldn’t be continued because a required connection was not available."
+    },
+    {
+      "name": "NSUserActivityErrorMaximum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The end of the range of error codes reserved for user activity errors."
+    },
+    {
+      "name": "NSUserActivityErrorMinimum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The start of the range of error codes reserved for user activity errors."
+    },
+    {
+      "name": "NSUserActivityHandoffFailedError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The data for the user activity was not available."
+    },
+    {
+      "name": "NSUserActivityHandoffUserInfoTooLargeError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The user info dictionary was too large to receive."
+    },
+    {
+      "name": "NSUserActivityRemoteApplicationTimedOutError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The remote application failed to send data within the specified time."
+    },
+    {
+      "name": "contextIdentifierPath",
+      "type": "var",
+      "datatype": "[String]?",
+      "desc": "The identifier path associated with a user activity generated by an app that adopts ClassKit."
+    },
+    {
+      "name": "detectedBarcodeDescriptor",
+      "type": "var",
+      "datatype": "CIBarcodeDescriptor?"
+    },
+    {
+      "name": "externalMediaContentIdentifier",
+      "type": "var",
+      "datatype": "String?"
+    },
+    {
+      "name": "isClassKitDeepLink",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether a user activity represents a ClassKit context."
+    },
+    {
+      "name": "referrerURL",
+      "type": "var",
+      "datatype": "URL?"
+    },
+    {
+      "name": "targetContentIdentifier",
+      "type": "var",
+      "datatype": "String?"
+    }
+  ]
+}

@@ -1,0 +1,1013 @@
+[
+  {
+    "title": "AddHeaderAction",
+    "attrs": {
+      "HeaderName": {
+        "desc": "The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.",
+        "type": "String",
+        "required": "yes"
+      },
+      "HeaderValue": {
+        "desc": "Must be less than 2048 characters, and must not contain newline characters (\"\\r\" or \"\\n\").",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "Body",
+    "attrs": {
+      "Html": {
+        "desc": "The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.",
+        "type": "Content object",
+        "required": "no"
+      },
+      "Text": {
+        "desc": "The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).",
+        "type": "Content object",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "BounceAction",
+    "attrs": {
+      "Message": {
+        "desc": "Human-readable text to include in the bounce message.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Sender": {
+        "desc": "The email address of the sender of the bounced email. This is the address from which the bounce message will be sent.",
+        "type": "String",
+        "required": "yes"
+      },
+      "SmtpReplyCode": {
+        "desc": "The SMTP reply code, as defined by RFC 5321.",
+        "type": "String",
+        "required": "yes"
+      },
+      "StatusCode": {
+        "desc": "The SMTP enhanced status code, as defined by RFC 3463.",
+        "type": "String",
+        "required": "no"
+      },
+      "TopicArn": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. You can find the ARN of a topic by using the ListTopics operation in the Amazon SNS API.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "BouncedRecipientInfo",
+    "attrs": {
+      "BounceType": {
+        "desc": "The reason for the bounce. You must provide either this parameter or RecipientDsnFields.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "doesnotexist",
+          "messagetoolarge",
+          "exceededquota",
+          "contentrejected",
+          "undefined",
+          "temporaryfailure"
+        ]
+      },
+      "Recipient": {
+        "desc": "The email address of the recipient of the bounced email.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "doesnotexist",
+          "messagetoolarge",
+          "exceededquota",
+          "contentrejected",
+          "undefined",
+          "temporaryfailure"
+        ]
+      },
+      "RecipientArn": {
+        "desc": "This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the Amazon SES Developer Guide.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "doesnotexist",
+          "messagetoolarge",
+          "exceededquota",
+          "contentrejected",
+          "undefined",
+          "temporaryfailure"
+        ]
+      },
+      "RecipientDsnFields": {
+        "desc": "Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a BounceType. You must provide either this parameter or BounceType.",
+        "type": "RecipientDsnFields object",
+        "required": "no",
+        "values": [
+          "doesnotexist",
+          "messagetoolarge",
+          "exceededquota",
+          "contentrejected",
+          "undefined",
+          "temporaryfailure"
+        ]
+      }
+    }
+  },
+  {
+    "title": "BulkEmailDestination",
+    "attrs": {
+      "Destination": {
+        "desc": "Represents the destination of the message, consisting of To:, CC:, and BCC: fields.",
+        "type": "Destination object",
+        "required": "yes"
+      },
+      "ReplacementTags.member.N": {
+        "desc": "A list of tags, in the form of name/value pairs, to apply to an email that you send using SendBulkTemplatedEmail. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.",
+        "type": "Array of MessageTag objects",
+        "required": "no"
+      },
+      "ReplacementTemplateData": {
+        "desc": "A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "BulkEmailDestinationStatus",
+    "attrs": {
+      "Error": {
+        "desc": "A description of an error that prevented a message being sent using the SendBulkTemplatedEmail operation.",
+        "type": "String",
+        "required": "no"
+      },
+      "MessageId": {
+        "desc": "The unique message identifier returned from the SendBulkTemplatedEmail operation.",
+        "type": "String",
+        "required": "no"
+      },
+      "Status": {
+        "desc": "The status of a message sent using the SendBulkTemplatedEmail operation.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "success",
+          "messagerejected",
+          "mailfromdomainnotverified",
+          "configurationsetdoesnotexist"
+        ]
+      }
+    }
+  },
+  {
+    "title": "CloudWatchDestination",
+    "attrs": {
+      "DimensionConfigurations.member.N": {
+        "desc": "A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.",
+        "type": "Array of CloudWatchDimensionConfiguration objects",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "CloudWatchDimensionConfiguration",
+    "attrs": {
+      "DefaultDimensionValue": {
+        "desc": "The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:",
+        "type": "String",
+        "required": "yes"
+      },
+      "DimensionName": {
+        "desc": "The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:",
+        "type": "String",
+        "required": "yes"
+      },
+      "DimensionValueSource": {
+        "desc": "The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an X-SES-MESSAGE-TAGS header or a parameter to the SendEmail/SendRawEmail API, choose messageTag. If you want Amazon SES to use your own email headers, choose emailHeader.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "messagetag",
+          "emailheader",
+          "linktag"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ConfigurationSet",
+    "attrs": {
+      "Name": {
+        "desc": "The name of the configuration set. The name must meet the following requirements:",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "Content",
+    "attrs": {
+      "Charset": {
+        "desc": "The character set of the content.",
+        "type": "String",
+        "required": "no"
+      },
+      "Data": {
+        "desc": "The textual data of the content.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "CustomVerificationEmailTemplate",
+    "attrs": {
+      "FailureRedirectionURL": {
+        "desc": "The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.",
+        "type": "String",
+        "required": "no"
+      },
+      "FromEmailAddress": {
+        "desc": "The email address that the custom verification email is sent from.",
+        "type": "String",
+        "required": "no"
+      },
+      "SuccessRedirectionURL": {
+        "desc": "The URL that the recipient of the verification email is sent to if his or her address is successfully verified.",
+        "type": "String",
+        "required": "no"
+      },
+      "TemplateName": {
+        "desc": "The name of the custom verification email template.",
+        "type": "String",
+        "required": "no"
+      },
+      "TemplateSubject": {
+        "desc": "The subject line of the custom verification email.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "DeliveryOptions",
+    "attrs": {
+      "TlsPolicy": {
+        "desc": "Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require, messages are only delivered if a TLS connection can be established. If the value is Optional, messages can be delivered in plain text if a TLS connection can't be established.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "require",
+          "optional"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Destination",
+    "attrs": {
+      "BccAddresses.member.N": {
+        "desc": "The recipients to place on the BCC: line of the message.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "CcAddresses.member.N": {
+        "desc": "The recipients to place on the CC: line of the message.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "ToAddresses.member.N": {
+        "desc": "The recipients to place on the To: line of the message.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "EventDestination",
+    "attrs": {
+      "CloudWatchDestination": {
+        "desc": "An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.",
+        "type": "CloudWatchDestination object",
+        "required": "no"
+      },
+      "Enabled": {
+        "desc": "Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "KinesisFirehoseDestination": {
+        "desc": "An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.",
+        "type": "KinesisFirehoseDestination object",
+        "required": "no"
+      },
+      "MatchingEventTypes.member.N": {
+        "desc": "The type of email sending events to publish to the event destination.",
+        "type": "Array of strings",
+        "required": "yes",
+        "values": [
+          "send",
+          "reject",
+          "bounce",
+          "complaint",
+          "delivery",
+          "open",
+          "click",
+          "renderingfailure"
+        ]
+      },
+      "Name": {
+        "desc": "The name of the event destination. The name must:",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "send",
+          "reject",
+          "bounce",
+          "complaint",
+          "delivery",
+          "open",
+          "click",
+          "renderingfailure"
+        ]
+      },
+      "SNSDestination": {
+        "desc": "An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.",
+        "type": "SNSDestination object",
+        "required": "no",
+        "values": [
+          "send",
+          "reject",
+          "bounce",
+          "complaint",
+          "delivery",
+          "open",
+          "click",
+          "renderingfailure"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ExtensionField",
+    "attrs": {
+      "Name": {
+        "desc": "The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Value": {
+        "desc": "The value of the header to add. Must be less than 2048 characters, and must not contain newline characters (\"\\r\" or \"\\n\").",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "IdentityDkimAttributes",
+    "attrs": {
+      "DkimEnabled": {
+        "desc": "Is true if DKIM signing is enabled for email sent from the identity. It's false otherwise. The default value is true.",
+        "type": "Boolean",
+        "required": "yes"
+      },
+      "DkimTokens.member.N": {
+        "desc": "A set of character strings that represent the domain's identity. Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "DkimVerificationStatus": {
+        "desc": "Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "pending",
+          "success",
+          "failed",
+          "temporaryfailure",
+          "notstarted"
+        ]
+      }
+    }
+  },
+  {
+    "title": "IdentityMailFromDomainAttributes",
+    "attrs": {
+      "BehaviorOnMXFailure": {
+        "desc": "The action that Amazon SES takes if it cannot successfully read the required MX record when you send an email. A value of UseDefaultValue indicates that if Amazon SES cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value of RejectMessage indicates that if Amazon SES cannot read the required MX record, Amazon SES returns a MailFromDomainNotVerified error and does not send the email.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "usedefaultvalue",
+          "rejectmessage"
+        ]
+      },
+      "MailFromDomain": {
+        "desc": "The custom MAIL FROM domain that the identity is configured to use.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "usedefaultvalue",
+          "rejectmessage"
+        ]
+      },
+      "MailFromDomainStatus": {
+        "desc": "The state that indicates whether Amazon SES has successfully read the MX record required for custom MAIL FROM domain setup. If the state is Success, Amazon SES uses the specified custom MAIL FROM domain when the verified identity sends an email. All other states indicate that Amazon SES takes the action described by BehaviorOnMXFailure.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "pending",
+          "success",
+          "failed",
+          "temporaryfailure"
+        ]
+      }
+    }
+  },
+  {
+    "title": "IdentityNotificationAttributes",
+    "attrs": {
+      "BounceTopic": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ComplaintTopic": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.",
+        "type": "String",
+        "required": "yes"
+      },
+      "DeliveryTopic": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ForwardingEnabled": {
+        "desc": "Describes whether Amazon SES will forward bounce and complaint notifications as email. true indicates that Amazon SES will forward bounce and complaint notifications as email, while false indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.",
+        "type": "Boolean",
+        "required": "yes"
+      },
+      "HeadersInBounceNotificationsEnabled": {
+        "desc": "Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type Bounce. A value of true specifies that Amazon SES will include headers in bounce notifications, and a value of false specifies that Amazon SES will not include headers in bounce notifications.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "HeadersInComplaintNotificationsEnabled": {
+        "desc": "Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type Complaint. A value of true specifies that Amazon SES will include headers in complaint notifications, and a value of false specifies that Amazon SES will not include headers in complaint notifications.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "HeadersInDeliveryNotificationsEnabled": {
+        "desc": "Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type Delivery. A value of true specifies that Amazon SES will include headers in delivery notifications, and a value of false specifies that Amazon SES will not include headers in delivery notifications.",
+        "type": "Boolean",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "IdentityVerificationAttributes",
+    "attrs": {
+      "VerificationStatus": {
+        "desc": "The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "pending",
+          "success",
+          "failed",
+          "temporaryfailure",
+          "notstarted"
+        ]
+      },
+      "VerificationToken": {
+        "desc": "The verification token for a domain identity. Null for email address identities.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "pending",
+          "success",
+          "failed",
+          "temporaryfailure",
+          "notstarted"
+        ]
+      }
+    }
+  },
+  {
+    "title": "KinesisFirehoseDestination",
+    "attrs": {
+      "DeliveryStreamARN": {
+        "desc": "The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.",
+        "type": "String",
+        "required": "yes"
+      },
+      "IAMRoleARN": {
+        "desc": "The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "LambdaAction",
+    "attrs": {
+      "FunctionArn": {
+        "desc": "The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is arn:aws:lambda:us-west-2:account-id:function:MyFunction. For more information about AWS Lambda, see the AWS Lambda Developer Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "InvocationType": {
+        "desc": "The invocation type of the AWS Lambda function. An invocation type of RequestResponse means that the execution of the function will immediately result in a response, and a value of Event means that the function will be invoked asynchronously. The default value is Event. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "event",
+          "requestresponse"
+        ]
+      },
+      "TopicArn": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed. You can find the ARN of a topic by using the ListTopics operation in the Amazon SNS API.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "event",
+          "requestresponse"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Message",
+    "attrs": {
+      "Body": {
+        "desc": "The message body.",
+        "type": "Body object",
+        "required": "yes"
+      },
+      "Subject": {
+        "desc": "The subject of the message: A short summary of the content, which will appear in the recipient's inbox.",
+        "type": "Content object",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "MessageDsn",
+    "attrs": {
+      "ArrivalDate": {
+        "desc": "When the message was received by the reporting mail transfer agent (MTA), in RFC 822 date-time format.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "ExtensionFields.member.N": {
+        "desc": "Additional X-headers to include in the DSN.",
+        "type": "Array of ExtensionField objects",
+        "required": "no"
+      },
+      "ReportingMta": {
+        "desc": "The reporting MTA that attempted to deliver the message, formatted as specified in RFC 3464 (mta-name-type; mta-name). The default value is dns; inbound-smtp.[region].amazonaws.com.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "MessageTag",
+    "attrs": {
+      "Name": {
+        "desc": "The name of the tag. The name must:",
+        "type": "String",
+        "required": "yes"
+      },
+      "Value": {
+        "desc": "The value of the tag. The value must:",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "RawMessage",
+    "attrs": {
+      "Data": {
+        "desc": "The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding.",
+        "type": "Base64-encoded binary data object",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "ReceiptAction",
+    "attrs": {
+      "AddHeaderAction": {
+        "desc": "Adds a header to the received email.",
+        "type": "AddHeaderAction object",
+        "required": "no"
+      },
+      "BounceAction": {
+        "desc": "Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).",
+        "type": "BounceAction object",
+        "required": "no"
+      },
+      "LambdaAction": {
+        "desc": "Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.",
+        "type": "LambdaAction object",
+        "required": "no"
+      },
+      "S3Action": {
+        "desc": "Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.",
+        "type": "S3Action object",
+        "required": "no"
+      },
+      "SNSAction": {
+        "desc": "Publishes the email content within a notification to Amazon SNS.",
+        "type": "SNSAction object",
+        "required": "no"
+      },
+      "StopAction": {
+        "desc": "Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.",
+        "type": "StopAction object",
+        "required": "no"
+      },
+      "WorkmailAction": {
+        "desc": "Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.",
+        "type": "WorkmailAction object",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "ReceiptFilter",
+    "attrs": {
+      "IpFilter": {
+        "desc": "A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.",
+        "type": "ReceiptIpFilter object",
+        "required": "yes"
+      },
+      "Name": {
+        "desc": "The name of the IP address filter. The name must:",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "ReceiptIpFilter",
+    "attrs": {
+      "Cidr": {
+        "desc": "A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see RFC 2317.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Policy": {
+        "desc": "Indicates whether to block or allow incoming mail from the specified IP addresses.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "block",
+          "allow"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ReceiptRule",
+    "attrs": {
+      "Actions.member.N": {
+        "desc": "An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.",
+        "type": "Array of ReceiptAction objects",
+        "required": "no"
+      },
+      "Enabled": {
+        "desc": "If true, the receipt rule is active. The default value is false.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "Name": {
+        "desc": "The name of the receipt rule. The name must:",
+        "type": "String",
+        "required": "yes"
+      },
+      "Recipients.member.N": {
+        "desc": "The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "ScanEnabled": {
+        "desc": "If true, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is false.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "TlsPolicy": {
+        "desc": "Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to Require, Amazon SES will bounce emails that are not received over TLS. The default is Optional.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "require",
+          "optional"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ReceiptRuleSetMetadata",
+    "attrs": {
+      "CreatedTimestamp": {
+        "desc": "The date and time the receipt rule set was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Name": {
+        "desc": "The name of the receipt rule set. The name must:",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "RecipientDsnFields",
+    "attrs": {
+      "Action": {
+        "desc": "The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by RFC 3464.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "failed",
+          "delayed",
+          "delivered",
+          "relayed",
+          "expanded"
+        ]
+      },
+      "DiagnosticCode": {
+        "desc": "An extended explanation of what went wrong; this is usually an SMTP response. See RFC 3463 for the correct formatting of this parameter.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "failed",
+          "delayed",
+          "delivered",
+          "relayed",
+          "expanded"
+        ]
+      },
+      "ExtensionFields.member.N": {
+        "desc": "Additional X-headers to include in the DSN.",
+        "type": "Array of ExtensionField objects",
+        "required": "no",
+        "values": [
+          "failed",
+          "delayed",
+          "delivered",
+          "relayed",
+          "expanded"
+        ]
+      },
+      "FinalRecipient": {
+        "desc": "The email address that the message was ultimately delivered to. This corresponds to the Final-Recipient in the DSN. If not specified, FinalRecipient will be set to the Recipient specified in the BouncedRecipientInfo structure. Either FinalRecipient or the recipient in BouncedRecipientInfo must be a recipient of the original bounced message.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "failed",
+          "delayed",
+          "delivered",
+          "relayed",
+          "expanded"
+        ]
+      },
+      "LastAttemptDate": {
+        "desc": "The time the final delivery attempt was made, in RFC 822 date-time format.",
+        "type": "Timestamp",
+        "required": "no",
+        "values": [
+          "failed",
+          "delayed",
+          "delivered",
+          "relayed",
+          "expanded"
+        ]
+      },
+      "RemoteMta": {
+        "desc": "The MTA to which the remote MTA attempted to deliver the message, formatted as specified in RFC 3464 (mta-name-type; mta-name). This parameter typically applies only to propagating synchronous bounces.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "failed",
+          "delayed",
+          "delivered",
+          "relayed",
+          "expanded"
+        ]
+      },
+      "Status": {
+        "desc": "The status code that indicates what went wrong. This is required by RFC 3464.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "failed",
+          "delayed",
+          "delivered",
+          "relayed",
+          "expanded"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ReputationOptions",
+    "attrs": {
+      "LastFreshStart": {
+        "desc": "The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "ReputationMetricsEnabled": {
+        "desc": "Describes whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "SendingEnabled": {
+        "desc": "Describes whether email sending is enabled or disabled for the configuration set. If the value is true, then Amazon SES will send emails that use the configuration set. If the value is false, Amazon SES will not send emails that use the configuration set. The default value is true. You can change this setting using UpdateConfigurationSetSendingEnabled.",
+        "type": "Boolean",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "S3Action",
+    "attrs": {
+      "BucketName": {
+        "desc": "The name of the Amazon S3 bucket that incoming email will be saved to.",
+        "type": "String",
+        "required": "yes"
+      },
+      "KmsKeyArn": {
+        "desc": "The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:",
+        "type": "String",
+        "required": "no"
+      },
+      "ObjectKeyPrefix": {
+        "desc": "The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.",
+        "type": "String",
+        "required": "no"
+      },
+      "TopicArn": {
+        "desc": "The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. You can find the ARN of a topic by using the ListTopics operation in the Amazon SNS API.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "SendDataPoint",
+    "attrs": {
+      "Bounces": {
+        "desc": "Number of emails that have bounced.",
+        "type": "Long",
+        "required": "no"
+      },
+      "Complaints": {
+        "desc": "Number of unwanted emails that were rejected by recipients.",
+        "type": "Long",
+        "required": "no"
+      },
+      "DeliveryAttempts": {
+        "desc": "Number of emails that have been sent.",
+        "type": "Long",
+        "required": "no"
+      },
+      "Rejects": {
+        "desc": "Number of emails rejected by Amazon SES.",
+        "type": "Long",
+        "required": "no"
+      },
+      "Timestamp": {
+        "desc": "Time of the data point.",
+        "type": "Timestamp",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "SNSAction",
+    "attrs": {
+      "Encoding": {
+        "desc": "The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "utf-8",
+          "base64"
+        ]
+      },
+      "TopicArn": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. You can find the ARN of a topic by using the ListTopics operation in the Amazon SNS API.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "utf-8",
+          "base64"
+        ]
+      }
+    }
+  },
+  {
+    "title": "SNSDestination",
+    "attrs": {
+      "TopicARN": {
+        "desc": "The ARN of the Amazon SNS topic that email sending events will be published to. You can find the ARN of a topic by using the ListTopics operation in the Amazon SNS API.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "StopAction",
+    "attrs": {
+      "Scope": {
+        "desc": "The scope of the StopAction. The only acceptable value is RuleSet.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "ruleset"
+        ]
+      },
+      "TopicArn": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. You can find the ARN of a topic by using the ListTopics operation in the Amazon SNS API.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "ruleset"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Template",
+    "attrs": {
+      "HtmlPart": {
+        "desc": "The HTML body of the email.",
+        "type": "String",
+        "required": "no"
+      },
+      "SubjectPart": {
+        "desc": "The subject line of the email.",
+        "type": "String",
+        "required": "no"
+      },
+      "TemplateName": {
+        "desc": "The name of the template. You will refer to this name when you send email using the SendTemplatedEmail or SendBulkTemplatedEmail operations.",
+        "type": "String",
+        "required": "yes"
+      },
+      "TextPart": {
+        "desc": "The email body that will be visible to recipients whose email clients do not display HTML.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TemplateMetadata",
+    "attrs": {
+      "CreatedTimestamp": {
+        "desc": "The time and date the template was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Name": {
+        "desc": "The name of the template.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TrackingOptions",
+    "attrs": {
+      "CustomRedirectDomain": {
+        "desc": "The custom subdomain that will be used to redirect email recipients to the Amazon SES event tracking domain.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "WorkmailAction",
+    "attrs": {
+      "OrganizationArn": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon WorkMail organization. Amazon WorkMail ARNs use the following format:",
+        "type": "String",
+        "required": "yes"
+      },
+      "TopicArn": {
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. You can find the ARN of a topic by using the ListTopics operation in the Amazon SNS API.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  }
+]

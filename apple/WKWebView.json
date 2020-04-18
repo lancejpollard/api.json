@@ -1,0 +1,306 @@
+{
+  "type": "Class",
+  "name": "WKWebView",
+  "desc": "An object that displays interactive web content, such as for an in-app browser.",
+  "items": [
+    {
+      "name": "handlesURLScheme",
+      "type": "class func",
+      "desc": "Returns whether WebKit natively supports loading resources with a particular URL scheme.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "configuration",
+      "type": "var",
+      "datatype": "WKWebViewConfiguration",
+      "desc": "A copy of the configuration to initialize the web view with."
+    },
+    {
+      "name": "scrollView",
+      "type": "var",
+      "datatype": "UIScrollView",
+      "desc": "The scroll view associated with the web view."
+    },
+    {
+      "name": "title",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The page title."
+    },
+    {
+      "name": "url",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The active URL."
+    },
+    {
+      "name": "customUserAgent",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The custom user agent string."
+    },
+    {
+      "name": "serverTrust",
+      "type": "var",
+      "datatype": "SecTrust?",
+      "desc": "A SecTrustRef object for the currently committed navigation."
+    },
+    {
+      "name": "certificateChain",
+      "type": "var",
+      "datatype": "[Any]",
+      "desc": "An array of objects forming the certificate chain for the currently committed navigation."
+    },
+    {
+      "name": "navigationDelegate",
+      "type": "var",
+      "datatype": "WKNavigationDelegate?",
+      "desc": "The web view's navigation delegate."
+    },
+    {
+      "name": "uiDelegate",
+      "type": "var",
+      "datatype": "WKUIDelegate?",
+      "desc": "The web view's user interface delegate."
+    },
+    {
+      "name": "estimatedProgress",
+      "type": "var",
+      "datatype": "Double",
+      "desc": "An estimate of what fraction of the current navigation has been loaded."
+    },
+    {
+      "name": "hasOnlySecureContent",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether all resources on the page have been loaded through securely encrypted connections."
+    },
+    {
+      "name": "loadHTMLString",
+      "type": "func",
+      "desc": "Sets the webpage contents and base URL.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "baseURL",
+          "type": "URL?"
+        }
+      ],
+      "returnType": "WKNavigation?"
+    },
+    {
+      "name": "isLoading",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the view is currently loading content."
+    },
+    {
+      "name": "reload",
+      "type": "func",
+      "desc": "Reloads the current page.",
+      "params": [],
+      "returnType": "WKNavigation?"
+    },
+    {
+      "name": "reload",
+      "type": "func",
+      "desc": "Reloads the current page.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "reloadFromOrigin",
+      "type": "func",
+      "desc": "Reloads the current page, performing end-to-end revalidation using cache-validating conditionals if possible.",
+      "params": [],
+      "returnType": "WKNavigation?"
+    },
+    {
+      "name": "reloadFromOrigin",
+      "type": "func",
+      "desc": "Reloads the current page, performing end-to-end revalidation using cache-validating conditionals if possible.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "stopLoading",
+      "type": "func",
+      "desc": "Stops loading all resources on the current page.",
+      "params": []
+    },
+    {
+      "name": "stopLoading",
+      "type": "func",
+      "desc": "Stops loading all resources on the current page.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "load",
+      "type": "func",
+      "desc": "Sets the webpage contents and base URL.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "name": "mimeType",
+          "type": "String"
+        },
+        {
+          "name": "characterEncodingName",
+          "type": "String"
+        },
+        {
+          "name": "baseURL",
+          "type": "URL"
+        }
+      ],
+      "returnType": "WKNavigation?"
+    },
+    {
+      "name": "loadFileURL",
+      "type": "func",
+      "desc": "Navigates to the requested file URL on the filesystem",
+      "params": [
+        {
+          "type": "URL"
+        },
+        {
+          "name": "allowingReadAccessTo",
+          "type": "URL"
+        }
+      ],
+      "returnType": "WKNavigation?"
+    },
+    {
+      "name": "allowsMagnification",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether magnify gestures will change the web view’s magnification."
+    },
+    {
+      "name": "magnification",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The factor by which the page content is currently scaled."
+    },
+    {
+      "name": "setMagnification",
+      "type": "func",
+      "desc": "Scales the page content by a specified factor and centers the result on a specified point.",
+      "params": [
+        {
+          "type": "CGFloat"
+        },
+        {
+          "name": "centeredAt",
+          "type": "CGPoint"
+        }
+      ]
+    },
+    {
+      "name": "allowsBackForwardNavigationGestures",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether horizontal swipe gestures will trigger back-forward list navigations."
+    },
+    {
+      "name": "backForwardList",
+      "type": "var",
+      "datatype": "WKBackForwardList",
+      "desc": "The web view's back-forward list."
+    },
+    {
+      "name": "canGoBack",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether there is a back item in the back-forward list that can be navigated to."
+    },
+    {
+      "name": "canGoForward",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether there is a forward item in the back-forward list that can be navigated to."
+    },
+    {
+      "name": "allowsLinkPreview",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether pressing on a link displays a preview of the destination for the link."
+    },
+    {
+      "name": "goBack",
+      "type": "func",
+      "desc": "Navigates to the back item in the back-forward list.",
+      "params": [],
+      "returnType": "WKNavigation?"
+    },
+    {
+      "name": "goBack",
+      "type": "func",
+      "desc": "Navigates to the back item in the back-forward list.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "goForward",
+      "type": "func",
+      "desc": "Navigates to the forward item in the back-forward list.",
+      "params": [],
+      "returnType": "WKNavigation?"
+    },
+    {
+      "name": "goForward",
+      "type": "func",
+      "desc": "Navigates to the forward item in the back-forward list.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "go",
+      "type": "func",
+      "desc": "Navigates to an item from the back-forward list and sets it as the current item.",
+      "params": [
+        {
+          "name": "to",
+          "type": "WKBackForwardListItem"
+        }
+      ],
+      "returnType": "WKNavigation?"
+    },
+    {
+      "name": "load",
+      "type": "func",
+      "desc": "Navigates to a requested URL.",
+      "params": [
+        {
+          "type": "URLRequest"
+        }
+      ],
+      "returnType": "WKNavigation?"
+    }
+  ]
+}

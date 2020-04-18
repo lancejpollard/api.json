@@ -1,0 +1,234 @@
+{
+  "type": "Class",
+  "name": "URLSessionConfiguration",
+  "desc": "A configuration object that defines behavior and policies for a URL session.",
+  "items": [
+    {
+      "name": "default",
+      "type": "class var",
+      "datatype": "URLSessionConfiguration",
+      "desc": "A default session configuration object."
+    },
+    {
+      "name": "ephemeral",
+      "type": "class var",
+      "datatype": "URLSessionConfiguration",
+      "desc": "A session configuration that uses no persistent storage for caches, cookies, or credentials."
+    },
+    {
+      "name": "background",
+      "type": "class func",
+      "desc": "Creates a session configuration object that allows HTTP and HTTPS uploads or downloads to be performed in the background.",
+      "params": [
+        {
+          "name": "withIdentifier",
+          "type": "String"
+        }
+      ],
+      "returnType": "URLSessionConfiguration"
+    },
+    {
+      "name": "new",
+      "type": "class func",
+      "desc": "Creates an empty session configuration.",
+      "params": [],
+      "returnType": "Self"
+    },
+    {
+      "name": "identifier",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The background session identifier of the configuration object."
+    },
+    {
+      "name": "httpAdditionalHeaders",
+      "type": "var",
+      "datatype": "[AnyHashable",
+      "desc": "A dictionary of additional headers to send with requests."
+    },
+    {
+      "name": "networkServiceType",
+      "type": "var",
+      "datatype": "NSURLRequest.NetworkServiceType",
+      "desc": "The type of network service for all tasks within sessions based on this configuration."
+    },
+    {
+      "name": "allowsCellularAccess",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether connections should be made over a cellular network."
+    },
+    {
+      "name": "timeoutIntervalForRequest",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The timeout interval to use when waiting for additional data."
+    },
+    {
+      "name": "timeoutIntervalForResource",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The maximum amount of time that a resource request should be allowed to take."
+    },
+    {
+      "name": "sharedContainerIdentifier",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The identifier for the shared container into which files in background URL sessions should be downloaded."
+    },
+    {
+      "name": "waitsForConnectivity",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the session should wait for connectivity to become available, or fail immediately."
+    },
+    {
+      "name": "httpCookieAcceptPolicy",
+      "type": "var",
+      "datatype": "HTTPCookie.AcceptPolicy",
+      "desc": "A policy constant that determines when cookies should be accepted."
+    },
+    {
+      "name": "httpShouldSetCookies",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether requests should contain cookies from the cookie store."
+    },
+    {
+      "name": "httpCookieStorage",
+      "type": "var",
+      "datatype": "HTTPCookieStorage?",
+      "desc": "The cookie store for storing cookies within this session."
+    },
+    {
+      "name": "tlsMinimumSupportedProtocolVersion",
+      "type": "var",
+      "datatype": "tls_protocol_version_t",
+      "desc": "The minimum TLS protocol version that the client should accept when making connections in this session."
+    },
+    {
+      "name": "tlsMaximumSupportedProtocolVersion",
+      "type": "var",
+      "datatype": "tls_protocol_version_t",
+      "desc": "The maximum TLS protocol version that the client should request when making connections in this session."
+    },
+    {
+      "name": "urlCredentialStorage",
+      "type": "var",
+      "datatype": "URLCredentialStorage?",
+      "desc": "A credential store that provides credentials for authentication."
+    },
+    {
+      "name": "tlsMinimumSupportedProtocol",
+      "type": "var",
+      "datatype": "SSLProtocol",
+      "desc": "The minimum TLS protocol to accept during protocol negotiation."
+    },
+    {
+      "name": "tlsMaximumSupportedProtocol",
+      "type": "var",
+      "datatype": "SSLProtocol",
+      "desc": "The maximum TLS protocol version that the client should request when making connections in this session."
+    },
+    {
+      "name": "urlCache",
+      "type": "var",
+      "datatype": "URLCache?",
+      "desc": "The URL cache for providing cached responses to requests within the session."
+    },
+    {
+      "name": "requestCachePolicy",
+      "type": "var",
+      "datatype": "NSURLRequest.CachePolicy",
+      "desc": "A predefined constant that determines when to return a response from the cache."
+    },
+    {
+      "name": "sessionSendsLaunchEvents",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the app should be resumed or launched in the background when transfers finish."
+    },
+    {
+      "name": "isDiscretionary",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether background tasks can be scheduled at the discretion of the system for optimal performance."
+    },
+    {
+      "name": "shouldUseExtendedBackgroundIdleMode",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether TCP connections should be kept open when the app moves to the background."
+    },
+    {
+      "name": "protocolClasses",
+      "type": "var",
+      "datatype": "[AnyClass]?",
+      "desc": "An array of extra protocol subclasses that handle requests in a session."
+    },
+    {
+      "name": "multipathServiceType",
+      "type": "var",
+      "datatype": "URLSessionConfiguration.MultipathServiceType",
+      "desc": "A service type that specifies the Multipath TCP connection policy for transmitting data over Wi-Fi and cellular interfaces."
+    },
+    {
+      "name": "URLSessionConfiguration.MultipathServiceType",
+      "type": "enum",
+      "desc": "Constants that specify the type of service that Multipath TCP uses."
+    },
+    {
+      "name": "httpMaximumConnectionsPerHost",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum number of simultaneous connections to make to a given host."
+    },
+    {
+      "name": "httpShouldUsePipelining",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether the session should use HTTP pipelining."
+    },
+    {
+      "name": "connectionProxyDictionary",
+      "type": "var",
+      "datatype": "[AnyHashable",
+      "desc": "A dictionary containing information about the proxy to use within this session."
+    },
+    {
+      "name": "waitsForConnectivity",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the session should wait for connectivity to become available, or fail immediately."
+    },
+    {
+      "name": "allowsConstrainedNetworkAccess",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether connections may use the network when the user has specified Low Data Mode."
+    },
+    {
+      "name": "allowsExpensiveNetworkAccess",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether connections may use a network interface that the system considers expensive."
+    },
+    {
+      "name": "backgroundSessionConfiguration",
+      "type": "class func",
+      "desc": "Returns a session configuration object that allows HTTP and HTTPS uploads or downloads to be performed in the background.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "URLSessionConfiguration"
+    },
+    {
+      "name": "configuration",
+      "type": "var",
+      "datatype": "URLSessionConfiguration",
+      "desc": "A copy of the configuration object for this session."
+    }
+  ]
+}

@@ -1,0 +1,555 @@
+{
+  "type": "Generic Structure",
+  "name": "Set",
+  "desc": "An unordered collection of unique elements.",
+  "items": [
+    {
+      "name": "isEmpty",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the set is empty."
+    },
+    {
+      "name": "count",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of elements in the set."
+    },
+    {
+      "name": "capacity",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The total number of elements that the set can contain without allocating new storage."
+    },
+    {
+      "name": "contains",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the given element exists in the set.",
+      "params": [
+        {
+          "type": "Element"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "update",
+      "type": "func",
+      "desc": "Inserts the given element into the set unconditionally.",
+      "params": [
+        {
+          "name": "with",
+          "type": "Element"
+        }
+      ],
+      "returnType": "Element?"
+    },
+    {
+      "name": "update<ConcreteElement>",
+      "type": "func",
+      "params": [
+        {
+          "name": "with",
+          "type": "ConcreteElement"
+        }
+      ],
+      "returnType": "ConcreteElement?"
+    },
+    {
+      "name": "reserveCapacity",
+      "type": "func",
+      "desc": "Reserves enough space to store the specified number of elements.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes the specified element from the set.",
+      "params": [
+        {
+          "type": "Element"
+        }
+      ],
+      "returnType": "Element?"
+    },
+    {
+      "name": "remove<ConcreteElement>",
+      "type": "func",
+      "params": [
+        {
+          "type": "ConcreteElement"
+        }
+      ],
+      "returnType": "ConcreteElement?"
+    },
+    {
+      "name": "removeFirst",
+      "type": "func",
+      "desc": "Removes the first element of the set.",
+      "params": [],
+      "returnType": "Element"
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes the element at the given index of the set.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Set<Element>.Index"
+        }
+      ],
+      "returnType": "Element"
+    },
+    {
+      "name": "removeAll",
+      "type": "func",
+      "desc": "Removes all members from the set.",
+      "params": [
+        {
+          "name": "keepingCapacity",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "union<S>",
+      "type": "func",
+      "desc": "Returns a new set with the elements of both this set and the given sequence.",
+      "params": [
+        {
+          "type": "S"
+        }
+      ],
+      "returnType": "Set<Element>"
+    },
+    {
+      "name": "formUnion<S>",
+      "type": "func",
+      "desc": "Inserts the elements of the given sequence into the set.",
+      "params": [
+        {
+          "type": "S"
+        }
+      ]
+    },
+    {
+      "name": "intersection",
+      "type": "func",
+      "desc": "Returns a new set with the elements that are common to both this set and the given sequence.",
+      "params": [
+        {
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Set<Element>"
+    },
+    {
+      "name": "intersection<S>",
+      "type": "func",
+      "desc": "Returns a new set with the elements that are common to both this set and the given sequence.",
+      "params": [
+        {
+          "type": "S"
+        }
+      ],
+      "returnType": "Set<Element>"
+    },
+    {
+      "name": "formIntersection<S>",
+      "type": "func",
+      "desc": "Removes the elements of the set that aren’t also in the given sequence.",
+      "params": [
+        {
+          "type": "S"
+        }
+      ]
+    },
+    {
+      "name": "symmetricDifference<S>",
+      "type": "func",
+      "desc": "Returns a new set with the elements that are either in this set or in the given sequence, but not in both.",
+      "params": [
+        {
+          "type": "S"
+        }
+      ],
+      "returnType": "Set<Element>"
+    },
+    {
+      "name": "formSymmetricDifference",
+      "type": "func",
+      "desc": "Removes the elements of the set that are also in the given sequence and adds the members of the sequence that are not already in the set.",
+      "params": [
+        {
+          "type": "Set<Element>"
+        }
+      ]
+    },
+    {
+      "name": "formSymmetricDifference<S>",
+      "type": "func",
+      "desc": "Replace this set with the elements contained in this set or the given set, but not both.",
+      "params": [
+        {
+          "type": "S"
+        }
+      ]
+    },
+    {
+      "name": "subtract",
+      "type": "func",
+      "desc": "Removes the elements of the given set from this set.",
+      "params": [
+        {
+          "type": "Set<Element>"
+        }
+      ]
+    },
+    {
+      "name": "subtract<S>",
+      "type": "func",
+      "desc": "Removes the elements of the given sequence from the set.",
+      "params": [
+        {
+          "type": "S"
+        }
+      ]
+    },
+    {
+      "name": "subtracting",
+      "type": "func",
+      "desc": "Returns a new set containing the elements of this set that do not occur in the given set.",
+      "params": [
+        {
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Set<Element>"
+    },
+    {
+      "name": "subtracting<S>",
+      "type": "func",
+      "desc": "Returns a new set containing the elements of this set that do not occur in the given sequence.",
+      "params": [
+        {
+          "type": "S"
+        }
+      ],
+      "returnType": "Set<Element>"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two sets have equal elements.",
+      "params": [
+        {
+          "type": "Set<Element>"
+        },
+        {
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "Set<Element>"
+        },
+        {
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isSubset",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether this set is a subset of the given set.",
+      "params": [
+        {
+          "name": "of",
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isSubset<S>",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the set is a subset of the given sequence.",
+      "params": [
+        {
+          "name": "of",
+          "type": "S"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isStrictSubset",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the set is a strict subset of the given sequence.",
+      "params": [
+        {
+          "name": "of",
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isStrictSubset<S>",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the set is a strict subset of the given sequence.",
+      "params": [
+        {
+          "name": "of",
+          "type": "S"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isSuperset",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether this set is a superset of the given set.",
+      "params": [
+        {
+          "name": "of",
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isSuperset<S>",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the set is a superset of the given sequence.",
+      "params": [
+        {
+          "name": "of",
+          "type": "S"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isStrictSuperset",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the set is a strict superset of the given sequence.",
+      "params": [
+        {
+          "name": "of",
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isStrictSuperset<S>",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the set is a strict superset of the given sequence.",
+      "params": [
+        {
+          "name": "of",
+          "type": "S"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isDisjoint",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether this set has no members in common with the given set.",
+      "params": [
+        {
+          "name": "with",
+          "type": "Set<Element>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isDisjoint<S>",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the set has no members in common with the given sequence.",
+      "params": [
+        {
+          "name": "with",
+          "type": "S"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "first",
+      "type": "var",
+      "datatype": "Element?",
+      "desc": "The first element of the collection."
+    },
+    {
+      "name": "randomElement",
+      "type": "func",
+      "desc": "Returns a random element of the collection.",
+      "params": [],
+      "returnType": "Element?"
+    },
+    {
+      "name": "randomElement<T>",
+      "type": "func",
+      "desc": "Returns a random element of the collection, using the given generator as a source for randomness.",
+      "params": [
+        {
+          "name": "using",
+          "type": "inout T"
+        }
+      ],
+      "returnType": "Element?"
+    },
+    {
+      "name": "firstIndex",
+      "type": "func",
+      "desc": "Returns the index of the given element in the set, or nil if the element is not a member of the set.",
+      "params": [
+        {
+          "name": "of",
+          "type": "Element"
+        }
+      ],
+      "returnType": "Set<Element>.Index?"
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the first index where the specified value appears in the collection.",
+      "params": [
+        {
+          "name": "of",
+          "type": "Element"
+        }
+      ],
+      "returnType": "Index?"
+    },
+    {
+      "name": "min",
+      "type": "func",
+      "desc": "Returns the minimum element in the sequence.",
+      "params": [],
+      "returnType": "Element?"
+    },
+    {
+      "name": "max",
+      "type": "func",
+      "desc": "Returns the maximum element in the sequence.",
+      "params": [],
+      "returnType": "Element?"
+    },
+    {
+      "name": "sorted",
+      "type": "func",
+      "desc": "Returns the elements of the sequence, sorted.",
+      "params": [],
+      "returnType": "[Element]"
+    },
+    {
+      "name": "shuffled",
+      "type": "func",
+      "desc": "Returns the elements of the sequence, shuffled.",
+      "params": [],
+      "returnType": "[Element]"
+    },
+    {
+      "name": "shuffled<T>",
+      "type": "func",
+      "desc": "Returns the elements of the sequence, shuffled using the given generator as a source for randomness.",
+      "params": [
+        {
+          "name": "using",
+          "type": "inout T"
+        }
+      ],
+      "returnType": "[Element]"
+    },
+    {
+      "name": "lazy",
+      "type": "var",
+      "datatype": "LazySequence<Set<Element>>",
+      "desc": "A sequence containing the same elements as this sequence, but on which some operations, such as map and filter, are implemented lazily."
+    },
+    {
+      "name": "enumerated",
+      "type": "func",
+      "desc": "Returns a sequence of pairs (n, x), where n represents a consecutive integer starting at zero and x represents an element of the sequence.",
+      "params": [],
+      "returnType": "EnumeratedSequence<Set<Element>>"
+    },
+    {
+      "name": "makeIterator",
+      "type": "func",
+      "desc": "Returns an iterator over the members of the set.",
+      "params": [],
+      "returnType": "Set<Element>.Iterator"
+    },
+    {
+      "name": "underestimatedCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A value less than or equal to the number of elements in the collection."
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes the elements of this set into the given encoder in an unkeyed container.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Encoder"
+        }
+      ]
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "desc": "Hashes the essential components of this value by feeding them into the given hasher.",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "description",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string that represents the contents of the set."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string that represents the contents of the set, suitable for debugging."
+    },
+    {
+      "name": "customMirror",
+      "type": "var",
+      "datatype": "Mirror",
+      "desc": "A mirror that reflects the set."
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The hash value."
+    }
+  ]
+}

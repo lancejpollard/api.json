@@ -1,0 +1,366 @@
+{
+  "type": "Class",
+  "name": "NSImage",
+  "desc": "A high-level interface for manipulating image data.",
+  "items": [
+    {
+      "name": "setName",
+      "type": "func",
+      "desc": "Registers the receiver under the specified name.",
+      "params": [
+        {
+          "type": "NSImage.Name?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "name",
+      "type": "func",
+      "desc": "Returns the name associated with the image, if any.",
+      "params": [],
+      "returnType": "NSImage.Name?"
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "NSImageDelegate?",
+      "desc": "The image’s delegate object."
+    },
+    {
+      "name": "size",
+      "type": "var",
+      "datatype": "NSSize",
+      "desc": "The size of the receiver."
+    },
+    {
+      "name": "isTemplate",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Sets whether the image represents a template image."
+    },
+    {
+      "name": "canInit",
+      "type": "class func",
+      "desc": "Tests whether the receiver can create an instance of itself using pasteboard data.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSPasteboard"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "imageTypes",
+      "type": "class var",
+      "datatype": "[String]",
+      "desc": "Returns an array of UTI strings identifying the image types supported by the registered NSImageRep objects, either directly or through a user-installed filter service."
+    },
+    {
+      "name": "imageUnfilteredTypes",
+      "type": "class var",
+      "datatype": "[String]",
+      "desc": "Returns an array of UTI strings identifying the image types supported directly by the registered image representation objects."
+    },
+    {
+      "name": "addRepresentation",
+      "type": "func",
+      "desc": "Adds the specified image representation object to the image.",
+      "params": [
+        {
+          "type": "NSImageRep"
+        }
+      ]
+    },
+    {
+      "name": "addRepresentations",
+      "type": "func",
+      "desc": "Adds an array of image representation objects to the receiver.",
+      "params": [
+        {
+          "type": "[NSImageRep]"
+        }
+      ]
+    },
+    {
+      "name": "representations",
+      "type": "var",
+      "datatype": "[NSImageRep]",
+      "desc": "An array containing all of the receiver's image representations."
+    },
+    {
+      "name": "removeRepresentation",
+      "type": "func",
+      "desc": "Removes and releases the specified image representation.",
+      "params": [
+        {
+          "type": "NSImageRep"
+        }
+      ]
+    },
+    {
+      "name": "NSImage.LayoutDirection",
+      "type": "enum",
+      "desc": "The layout direction for the image."
+    },
+    {
+      "name": "prefersColorMatch",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the image prefers to choose image representations using color-matching or resolution-matching."
+    },
+    {
+      "name": "usesEPSOnResolutionMismatch",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether EPS representations are preferred when no other representations match the resolution of the device."
+    },
+    {
+      "name": "matchesOnMultipleResolution",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether image representations whose resolution is an integral multiple of the device resolution are a match."
+    },
+    {
+      "name": "draw",
+      "type": "func",
+      "desc": "Draws the image in the specified rectangle.",
+      "params": [
+        {
+          "name": "in",
+          "type": "NSRect"
+        }
+      ]
+    },
+    {
+      "name": "draw",
+      "type": "func",
+      "desc": "Draws all or part of the image at the specified point in the current coordinate system.",
+      "params": [
+        {
+          "name": "at",
+          "type": "NSPoint"
+        },
+        {
+          "name": "from",
+          "type": "NSRect"
+        },
+        {
+          "name": "operation",
+          "type": "NSCompositingOperation"
+        },
+        {
+          "name": "fraction",
+          "type": "CGFloat"
+        }
+      ]
+    },
+    {
+      "name": "draw",
+      "type": "func",
+      "desc": "Draws all or part of the image in the specified rectangle in the current coordinate system.",
+      "params": [
+        {
+          "name": "in",
+          "type": "NSRect"
+        },
+        {
+          "name": "from",
+          "type": "NSRect"
+        },
+        {
+          "name": "operation",
+          "type": "NSCompositingOperation"
+        },
+        {
+          "name": "fraction",
+          "type": "CGFloat"
+        }
+      ]
+    },
+    {
+      "name": "drawRepresentation",
+      "type": "func",
+      "desc": "Draws the image using the specified image representation object.",
+      "params": [
+        {
+          "type": "NSImageRep"
+        },
+        {
+          "name": "in",
+          "type": "NSRect"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "NSCompositingOperation",
+      "type": "enum",
+      "desc": "Compositing operators, described in terms of having source and destination images, each having an opaque and transparent region."
+    },
+    {
+      "name": "isValid",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether it is possible to draw an image representation."
+    },
+    {
+      "name": "backgroundColor",
+      "type": "var",
+      "datatype": "NSColor",
+      "desc": "The background color for the image."
+    },
+    {
+      "name": "capInsets",
+      "type": "var",
+      "datatype": "NSEdgeInsets"
+    },
+    {
+      "name": "resizingMode",
+      "type": "var",
+      "datatype": "NSImage.ResizingMode"
+    },
+    {
+      "name": "NSImage.ResizingMode",
+      "type": "enum",
+      "desc": "The resizing mode for the image."
+    },
+    {
+      "name": "lockFocus",
+      "type": "func",
+      "desc": "Prepares the image to receive drawing commands.",
+      "params": []
+    },
+    {
+      "name": "lockFocusFlipped",
+      "type": "func",
+      "desc": "Prepares the image to receive drawing commands using the specified flipped state.",
+      "params": [
+        {
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "unlockFocus",
+      "type": "func",
+      "desc": "Removes the focus from the receiver.",
+      "params": []
+    },
+    {
+      "name": "alignmentRect",
+      "type": "var",
+      "datatype": "NSRect",
+      "desc": "A rectangle that you can use to position the image during layout."
+    },
+    {
+      "name": "cacheMode",
+      "type": "var",
+      "datatype": "NSImage.CacheMode",
+      "desc": "The image’s caching mode."
+    },
+    {
+      "name": "recache",
+      "type": "func",
+      "desc": "Invalidates and frees offscreen caches of all image representations.",
+      "params": []
+    },
+    {
+      "name": "NSImage.CacheMode",
+      "type": "enum",
+      "desc": "Constants that specify the caching policy on a per-image basis."
+    },
+    {
+      "name": "tiffRepresentation",
+      "type": "var",
+      "datatype": "Data?",
+      "desc": "A data object containing TIFF data for all of the image representations in the receiver."
+    },
+    {
+      "name": "tiffRepresentation",
+      "type": "func",
+      "desc": "Returns a data object containing TIFF data with the specified compression settings for all of the image representations in the receiver.",
+      "params": [
+        {
+          "name": "using",
+          "type": "NSBitmapImageRep.TIFFCompression"
+        },
+        {
+          "name": "factor",
+          "type": "Float"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "cancelIncrementalLoad",
+      "type": "func",
+      "desc": "Cancels the current download operation, if any, for an incrementally loaded image.",
+      "params": []
+    },
+    {
+      "name": "accessibilityDescription",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The image’s accessibility description."
+    },
+    {
+      "name": "layerContents",
+      "type": "func",
+      "desc": "Returns an object that may be used as the contents of a layer.",
+      "params": [
+        {
+          "name": "forContentsScale",
+          "type": "CGFloat"
+        }
+      ],
+      "returnType": "Any"
+    },
+    {
+      "name": "recommendedLayerContentsScale",
+      "type": "func",
+      "desc": "Returns the recommended layer contents scale for this image.",
+      "params": [
+        {
+          "type": "CGFloat"
+        }
+      ],
+      "returnType": "CGFloat"
+    },
+    {
+      "name": "matchesOnlyOnBestFittingAxis",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the image matches only on the best fitting axis."
+    },
+    {
+      "name": "imageFileTypes",
+      "type": "class func",
+      "desc": "Returns an array of strings identifying the image types supported by the registered image representation objects.",
+      "params": [],
+      "returnType": "[String]"
+    },
+    {
+      "name": "imageUnfilteredFileTypes",
+      "type": "class func",
+      "desc": "Returns an array of strings identifying the file types supported directly by the registered image representation objects.",
+      "params": [],
+      "returnType": "[String]"
+    },
+    {
+      "name": "imagePasteboardTypes",
+      "type": "class func",
+      "desc": "Returns an array of strings identifying the pasteboard types supported directly by the registered image representation objects.",
+      "params": [],
+      "returnType": "[NSPasteboard.PasteboardType]"
+    },
+    {
+      "name": "imageUnfilteredPasteboardTypes",
+      "type": "class func",
+      "desc": "Returns an array of strings identifying the pasteboard types supported directly by the registered image representation objects.",
+      "params": [],
+      "returnType": "[NSPasteboard.PasteboardType]"
+    }
+  ]
+}

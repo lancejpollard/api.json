@@ -1,0 +1,84 @@
+{
+  "type": "Class",
+  "name": "NSPersistentDocument",
+  "desc": "A document object that can integrate with Core Data.",
+  "items": [
+    {
+      "name": "managedObjectContext",
+      "type": "var",
+      "datatype": "NSManagedObjectContext?",
+      "desc": "The managed object context for the document."
+    },
+    {
+      "name": "managedObjectModel",
+      "type": "var",
+      "datatype": "NSManagedObjectModel?",
+      "desc": "The managed object model of the document."
+    },
+    {
+      "name": "persistentStoreType",
+      "type": "func",
+      "desc": "Returns the type of persistent store associated with the specified file type.",
+      "params": [
+        {
+          "name": "forFileType",
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "read",
+      "type": "func",
+      "desc": "Sets the contents of the receiver by reading from a file of a given type located by a given URL.",
+      "params": [
+        {
+          "name": "from",
+          "type": "URL"
+        },
+        {
+          "name": "ofType",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "revert",
+      "type": "func",
+      "desc": "Overridden to clean up the managed object context and controllers during a revert.",
+      "params": [
+        {
+          "name": "toContentsOf",
+          "type": "URL"
+        },
+        {
+          "name": "ofType",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Saves changes in the document’s managed object context and saves the document’s persistent store to a given URL.",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        },
+        {
+          "name": "ofType",
+          "type": "String"
+        },
+        {
+          "name": "for",
+          "type": "NSDocument.SaveOperationType"
+        },
+        {
+          "name": "originalContentsURL",
+          "type": "URL?"
+        }
+      ]
+    }
+  ]
+}

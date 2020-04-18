@@ -1,0 +1,211 @@
+{
+  "type": "Class",
+  "name": "Process",
+  "desc": "An object representing a subprocess of the current process.",
+  "items": [
+    {
+      "name": "launchedProcess",
+      "type": "class func",
+      "desc": "Creates and launches a task with a specified executable and arguments.",
+      "params": [
+        {
+          "name": "launchPath",
+          "type": "String"
+        },
+        {
+          "name": "arguments",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "Process"
+    },
+    {
+      "name": "arguments",
+      "type": "var",
+      "datatype": "[String]?",
+      "desc": "Sets the command arguments that should be used to launch the executable."
+    },
+    {
+      "name": "currentDirectoryPath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "Sets the current directory for the receiver."
+    },
+    {
+      "name": "environment",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "Sets the environment for the receiver."
+    },
+    {
+      "name": "launchPath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "Sets the receiver’s executable."
+    },
+    {
+      "name": "processIdentifier",
+      "type": "var",
+      "datatype": "Int32",
+      "desc": "Returns the receiver’s process identifier."
+    },
+    {
+      "name": "standardError",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "Sets the standard error for the receiver."
+    },
+    {
+      "name": "standardInput",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "Sets the standard input for the receiver."
+    },
+    {
+      "name": "standardOutput",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "Sets the standard output for the receiver."
+    },
+    {
+      "name": "interrupt",
+      "type": "func",
+      "desc": "Sends an interrupt signal to the receiver and all of its subtasks.",
+      "params": []
+    },
+    {
+      "name": "launch",
+      "type": "func",
+      "desc": "Launches the task represented by the receiver.",
+      "params": []
+    },
+    {
+      "name": "resume",
+      "type": "func",
+      "desc": "Resumes execution of the receiver task that had previously been suspended with a suspend() message.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "suspend",
+      "type": "func",
+      "desc": "Suspends execution of the receiver task.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "terminate",
+      "type": "func",
+      "desc": "Sends a terminate signal to the receiver and all of its subtasks.",
+      "params": []
+    },
+    {
+      "name": "waitUntilExit",
+      "type": "func",
+      "desc": "Block until the receiver is finished.",
+      "params": []
+    },
+    {
+      "name": "isRunning",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Returns whether the receiver is still running."
+    },
+    {
+      "name": "terminationStatus",
+      "type": "var",
+      "datatype": "Int32",
+      "desc": "Returns the exit status returned by the receiver’s executable."
+    },
+    {
+      "name": "terminationReason",
+      "type": "var",
+      "datatype": "Process.TerminationReason",
+      "desc": "Returns the reason the task was terminated."
+    },
+    {
+      "name": "arguments",
+      "type": "var",
+      "datatype": "[String]?",
+      "desc": "Sets the command arguments that should be used to launch the executable."
+    },
+    {
+      "name": "currentDirectoryPath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "Sets the current directory for the receiver."
+    },
+    {
+      "name": "environment",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "Sets the environment for the receiver."
+    },
+    {
+      "name": "launchPath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "Sets the receiver’s executable."
+    },
+    {
+      "name": "standardError",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "Sets the standard error for the receiver."
+    },
+    {
+      "name": "standardInput",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "Sets the standard input for the receiver."
+    },
+    {
+      "name": "standardOutput",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "Sets the standard output for the receiver."
+    },
+    {
+      "name": "terminationHandler",
+      "type": "var",
+      "datatype": "((Process)",
+      "desc": "Invoked when the task is completed."
+    },
+    {
+      "name": "Process.TerminationReason",
+      "type": "enum",
+      "desc": "These constants specify the values that are returned by terminationReason."
+    },
+    {
+      "name": "QualityOfService",
+      "type": "enum",
+      "desc": "Used to indicate the nature and importance of work to the system. Work with higher quality of service classes receive more resources than work with lower quality of service classes whenever there is resource contention."
+    },
+    {
+      "name": "didTerminateNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the task has stopped execution. This notification can be posted either when the task has exited normally or as a result of terminate() being sent to the NSTask object. If the NSTask object gets released, however, this notification will not get sent, as the port the message would have been sent on was released as part of the task release. The observer method can use terminationStatus to determine why the task died. See Ending an NSTask for an example."
+    },
+    {
+      "name": "currentDirectoryURL",
+      "type": "var",
+      "datatype": "URL?"
+    },
+    {
+      "name": "executableURL",
+      "type": "var",
+      "datatype": "URL?"
+    },
+    {
+      "name": "qualityOfService",
+      "type": "var",
+      "datatype": "QualityOfService"
+    },
+    {
+      "name": "run",
+      "type": "func",
+      "params": []
+    }
+  ]
+}

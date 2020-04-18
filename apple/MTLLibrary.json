@@ -1,0 +1,64 @@
+{
+  "type": "Protocol",
+  "name": "MTLLibrary",
+  "desc": "A collection of Metal shader functions.",
+  "items": [
+    {
+      "name": "functionNames",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The names of all public functions in the library."
+    },
+    {
+      "name": "makeFunction",
+      "type": "func",
+      "desc": "Returns an object representing a shader function in the library.",
+      "params": [
+        {
+          "name": "name",
+          "type": "String"
+        }
+      ],
+      "returnType": "MTLFunction?"
+    },
+    {
+      "name": "makeFunction",
+      "type": "func",
+      "desc": "Synchronously generates a specialized shader function.",
+      "params": [
+        {
+          "name": "name",
+          "type": "String"
+        },
+        {
+          "name": "constantValues",
+          "type": "MTLFunctionConstantValues"
+        }
+      ],
+      "returnType": "MTLFunction"
+    },
+    {
+      "name": "device",
+      "type": "var",
+      "datatype": "MTLDevice",
+      "desc": "The device object that created the library."
+    },
+    {
+      "name": "label",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "A string that identifies the library."
+    },
+    {
+      "name": "MTLLibraryError.Code",
+      "type": "enum",
+      "desc": "Error codes returned by Metal for library errors."
+    },
+    {
+      "name": "MTLLibraryErrorDomain",
+      "type": "let",
+      "datatype": "String",
+      "desc": "The error domain for Metal libraries."
+    }
+  ]
+}

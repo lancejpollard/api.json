@@ -1,0 +1,74 @@
+{
+  "type": "Class",
+  "name": "AVURLAsset",
+  "desc": "A concrete subclass of AVAsset that's used to initialize an asset from a local or remote URL.",
+  "items": [
+    {
+      "name": "url",
+      "type": "var",
+      "datatype": "URL",
+      "desc": "The URL with which the asset was initialized."
+    },
+    {
+      "name": "resourceLoader",
+      "type": "var",
+      "datatype": "AVAssetResourceLoader",
+      "desc": "The resource loader associated with the asset."
+    },
+    {
+      "name": "compatibleTrack",
+      "type": "func",
+      "desc": "Returns an asset track from which any time range can be inserted into a given composition track.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVCompositionTrack"
+        }
+      ],
+      "returnType": "AVAssetTrack?"
+    },
+    {
+      "name": "audiovisualMIMETypes",
+      "type": "class func",
+      "desc": "Returns an array of the MIME types the AVURLAsset class supports.",
+      "params": [],
+      "returnType": "[String]"
+    },
+    {
+      "name": "audiovisualTypes",
+      "type": "class func",
+      "desc": "Returns an array of the file types the AVURLAsset class supports.",
+      "params": [],
+      "returnType": "[AVFileType]"
+    },
+    {
+      "name": "isPlayableExtendedMIMEType",
+      "type": "class func",
+      "desc": "Returns a Boolean value that indicates whether the asset is playable with the given codec(s) and container type.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "assetCache",
+      "type": "var",
+      "datatype": "AVAssetCache?",
+      "desc": "The asset’s associated asset cache, if it exists."
+    },
+    {
+      "name": "mayRequireContentKeysForMediaDataProcessing",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Allows a URL asset to be added as a content key recipient to a content key session."
+    },
+    {
+      "name": "response",
+      "type": "var",
+      "datatype": "URLResponse?",
+      "desc": "The URL response for the loading request."
+    }
+  ]
+}

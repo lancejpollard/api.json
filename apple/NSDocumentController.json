@@ -1,0 +1,424 @@
+{
+  "type": "Class",
+  "name": "NSDocumentController",
+  "desc": "An object that manages an app's documents.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "NSDocumentController",
+      "desc": "Returns the shared NSDocumentController instance."
+    },
+    {
+      "name": "document",
+      "type": "func",
+      "desc": "Returns, for a given URL, the open document whose file or file package is located by the URL, or nil if there is no such open document.",
+      "params": [
+        {
+          "name": "for",
+          "type": "URL"
+        }
+      ],
+      "returnType": "NSDocument?"
+    },
+    {
+      "name": "duplicateDocument",
+      "type": "func",
+      "desc": "Creates a new document by reading the contents for the document from another URL, presents its user interface, and returns the document if successful.",
+      "params": [
+        {
+          "name": "withContentsOf",
+          "type": "URL"
+        },
+        {
+          "name": "copying",
+          "type": "Bool"
+        },
+        {
+          "name": "displayName",
+          "type": "String?"
+        }
+      ],
+      "returnType": "NSDocument"
+    },
+    {
+      "name": "openUntitledDocumentAndDisplay",
+      "type": "func",
+      "desc": "Creates a new untitled document, presents its user interface if displayDocument is true, and returns the document if successful.",
+      "params": [
+        {
+          "type": "Bool"
+        }
+      ],
+      "returnType": "NSDocument"
+    },
+    {
+      "name": "makeDocument",
+      "type": "func",
+      "desc": "Instantiates a document located by a URL, of a specified type, but by reading the contents for the document from another URL, and returns it if successful.",
+      "params": [
+        {
+          "name": "for",
+          "type": "URL?"
+        },
+        {
+          "name": "withContentsOf",
+          "type": "URL"
+        },
+        {
+          "name": "ofType",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSDocument"
+    },
+    {
+      "name": "makeDocument",
+      "type": "func",
+      "desc": "Instantiates a document located by a URL, of a specified type, and returns it if successful.",
+      "params": [
+        {
+          "name": "withContentsOf",
+          "type": "URL"
+        },
+        {
+          "name": "ofType",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSDocument"
+    },
+    {
+      "name": "makeUntitledDocument",
+      "type": "func",
+      "desc": "Instantiates a new untitled document of the specified type and returns it if successful.",
+      "params": [
+        {
+          "name": "ofType",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSDocument"
+    },
+    {
+      "name": "documents",
+      "type": "var",
+      "datatype": "[NSDocument]",
+      "desc": "The document objects managed by the receiver."
+    },
+    {
+      "name": "addDocument",
+      "type": "func",
+      "desc": "Adds the given document to the list of open documents.",
+      "params": [
+        {
+          "type": "NSDocument"
+        }
+      ]
+    },
+    {
+      "name": "currentDocument",
+      "type": "var",
+      "datatype": "NSDocument?",
+      "desc": "The document object associated with the main window."
+    },
+    {
+      "name": "document",
+      "type": "func",
+      "desc": "Returns the document object whose window controller owns a specified window.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSWindow"
+        }
+      ],
+      "returnType": "NSDocument?"
+    },
+    {
+      "name": "hasEditedDocuments",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the receiver has any documents with unsaved changes."
+    },
+    {
+      "name": "removeDocument",
+      "type": "func",
+      "desc": "Removes the given document from the list of open documents.",
+      "params": [
+        {
+          "type": "NSDocument"
+        }
+      ]
+    },
+    {
+      "name": "documentClassNames",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "An array of strings representing the custom document classes supported by this app."
+    },
+    {
+      "name": "defaultType",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "Returns the name of the document type that should be used when creating new documents."
+    },
+    {
+      "name": "documentClass",
+      "type": "func",
+      "desc": "Returns the NSDocument subclass associated with a given document type.",
+      "params": [
+        {
+          "name": "forType",
+          "type": "String"
+        }
+      ],
+      "returnType": "AnyClass?"
+    },
+    {
+      "name": "displayName",
+      "type": "func",
+      "desc": "Returns the descriptive name for the specified document type, which is used in the File Format pop-up menu of the Save As dialog.",
+      "params": [
+        {
+          "name": "forType",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "typeForContents",
+      "type": "func",
+      "desc": "Returns, for a specified URL, the document type identifier to use when opening the document at that location, if successful.",
+      "params": [
+        {
+          "name": "of",
+          "type": "URL"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "autosavingDelay",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The time interval (in seconds) for periodic autosaving."
+    },
+    {
+      "name": "closeAllDocuments",
+      "type": "func",
+      "desc": "Iterates through all the open documents and tries to close them one by one using the specified delegate.",
+      "params": [
+        {
+          "name": "withDelegate",
+          "type": "Any?"
+        },
+        {
+          "name": "didCloseAllSelector",
+          "type": "Selector?"
+        },
+        {
+          "name": "contextInfo",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "reviewUnsavedDocuments",
+      "type": "func",
+      "desc": "Displays an alert asking if the user wants to review unsaved documents, quit regardless of unsaved documents, or cancel the save operation.",
+      "params": [
+        {
+          "name": "withAlertTitle",
+          "type": "String?"
+        },
+        {
+          "name": "cancellable",
+          "type": "Bool"
+        },
+        {
+          "name": "delegate",
+          "type": "Any?"
+        },
+        {
+          "name": "didReviewAllSelector",
+          "type": "Selector?"
+        },
+        {
+          "name": "contextInfo",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "newDocument",
+      "type": "func",
+      "desc": "An action method called by the New menu command, this method creates a new NSDocument object and adds it to the list of such objects managed by the document controller.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "openDocument",
+      "type": "func",
+      "desc": "An action method called by the Open menu command, it runs the modal Open panel and, based on the selected filenames, creates one or more NSDocument objects from the contents of the files.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "saveAllDocuments",
+      "type": "func",
+      "desc": "As the action method called by the Save All command, saves all open documents of the application that need to be saved.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "runModalOpenPanel",
+      "type": "func",
+      "desc": "Presents a modal Open dialog and limits selection to specific file types.",
+      "params": [
+        {
+          "type": "NSOpenPanel"
+        },
+        {
+          "name": "forTypes",
+          "type": "[String]?"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "currentDirectory",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The directory path to be used as the starting point in the Open panel."
+    },
+    {
+      "name": "urlsFromRunningOpenPanel",
+      "type": "func",
+      "desc": "An array of URLs corresponding to the files selected in a running open panel.",
+      "params": [],
+      "returnType": "[URL]?"
+    },
+    {
+      "name": "maximumRecentDocumentCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum number of items that may be presented in the standard Open Recent menu."
+    },
+    {
+      "name": "clearRecentDocuments",
+      "type": "func",
+      "desc": "Empties the recent documents list for the application.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "noteNewRecentDocumentURL",
+      "type": "func",
+      "desc": "Adds or replaces an Open Recent menu item corresponding to the data located by the URL.",
+      "params": [
+        {
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "noteNewRecentDocument",
+      "type": "func",
+      "desc": "Adds or replaces an Open Recent menu item corresponding to the document.",
+      "params": [
+        {
+          "type": "NSDocument"
+        }
+      ]
+    },
+    {
+      "name": "recentDocumentURLs",
+      "type": "var",
+      "datatype": "[URL]",
+      "desc": "The list of recent-document URLs."
+    },
+    {
+      "name": "validateUserInterfaceItem",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given user interface item should be enabled.",
+      "params": [
+        {
+          "type": "NSValidatedUserInterfaceItem"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "presentError",
+      "type": "func",
+      "desc": "Presents an error alert to the user as a modal panel.",
+      "params": [
+        {
+          "type": "Error"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "presentError",
+      "type": "func",
+      "desc": "Presents an error alert to the user as a modal panel.",
+      "params": [
+        {
+          "type": "Error"
+        },
+        {
+          "name": "modalFor",
+          "type": "NSWindow"
+        },
+        {
+          "name": "delegate",
+          "type": "Any?"
+        },
+        {
+          "name": "didPresent",
+          "type": "Selector?"
+        },
+        {
+          "name": "contextInfo",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "willPresentError",
+      "type": "func",
+      "desc": "Indicates an error condition and provides the opportunity to return the same or a different error.",
+      "params": [
+        {
+          "type": "Error"
+        }
+      ],
+      "returnType": "Error"
+    },
+    {
+      "name": "allowsAutomaticShareMenu",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "standardShareMenuItem",
+      "type": "func",
+      "params": [],
+      "returnType": "NSMenuItem"
+    }
+  ]
+}

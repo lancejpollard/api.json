@@ -1,0 +1,475 @@
+{
+  "type": "Class",
+  "name": "AVAudioSession",
+  "desc": "An object that communicates to the system how you intend to use audio in your app.",
+  "items": [
+    {
+      "name": "sharedInstance",
+      "type": "class func",
+      "desc": "Returns the shared audio session instance.",
+      "params": [],
+      "returnType": "AVAudioSession"
+    },
+    {
+      "name": "category",
+      "type": "var",
+      "datatype": "AVAudioSession.Category",
+      "desc": "The current audio session category."
+    },
+    {
+      "name": "setCategory",
+      "type": "func",
+      "desc": "Sets the audio session’s category.",
+      "params": [
+        {
+          "type": "AVAudioSession.Category"
+        }
+      ]
+    },
+    {
+      "name": "availableCategories",
+      "type": "var",
+      "datatype": "[AVAudioSession.Category]",
+      "desc": "The audio session categories available on the current device."
+    },
+    {
+      "name": "categoryOptions",
+      "type": "var",
+      "datatype": "AVAudioSession.CategoryOptions",
+      "desc": "The set of options associated with the current audio session category."
+    },
+    {
+      "name": "setCategory",
+      "type": "func",
+      "desc": "Sets the audio session’s category with the specified options.",
+      "params": [
+        {
+          "type": "AVAudioSession.Category"
+        },
+        {
+          "name": "options",
+          "type": "AVAudioSession.CategoryOptions"
+        }
+      ]
+    },
+    {
+      "name": "mode",
+      "type": "var",
+      "datatype": "AVAudioSession.Mode",
+      "desc": "The current audio session’s mode."
+    },
+    {
+      "name": "setMode",
+      "type": "func",
+      "desc": "Sets the audio session’s mode.",
+      "params": [
+        {
+          "type": "AVAudioSession.Mode"
+        }
+      ]
+    },
+    {
+      "name": "setCategory",
+      "type": "func",
+      "desc": "Sets the audio session’s category, mode, and options.",
+      "params": [
+        {
+          "type": "AVAudioSession.Category"
+        },
+        {
+          "name": "mode",
+          "type": "AVAudioSession.Mode"
+        },
+        {
+          "name": "options",
+          "type": "AVAudioSession.CategoryOptions"
+        }
+      ]
+    },
+    {
+      "name": "availableModes",
+      "type": "var",
+      "datatype": "[AVAudioSession.Mode]",
+      "desc": "The audio session modes available on the device."
+    },
+    {
+      "name": "routeSharingPolicy",
+      "type": "var",
+      "datatype": "AVAudioSession.RouteSharingPolicy",
+      "desc": "The current route-sharing policy."
+    },
+    {
+      "name": "setCategory",
+      "type": "func",
+      "desc": "Sets the session category, mode, route-sharing policy, and options.",
+      "params": [
+        {
+          "type": "AVAudioSession.Category"
+        },
+        {
+          "name": "mode",
+          "type": "AVAudioSession.Mode"
+        },
+        {
+          "name": "policy",
+          "type": "AVAudioSession.RouteSharingPolicy"
+        },
+        {
+          "name": "options",
+          "type": "AVAudioSession.CategoryOptions"
+        }
+      ]
+    },
+    {
+      "name": "AVAudioSession.RouteSharingPolicy",
+      "type": "enum",
+      "desc": "Cases that indicate the possible route-sharing policies for an audio session."
+    },
+    {
+      "name": "setActive",
+      "type": "func",
+      "desc": "Activates or deactivates your app’s audio session using the specified options.",
+      "params": [
+        {
+          "type": "Bool"
+        },
+        {
+          "name": "options",
+          "type": "AVAudioSession.SetActiveOptions"
+        }
+      ]
+    },
+    {
+      "name": "recordPermission",
+      "type": "var",
+      "datatype": "AVAudioSession.RecordPermission",
+      "desc": "The current recording permission status."
+    },
+    {
+      "name": "requestRecordPermission",
+      "type": "func",
+      "desc": "Requests the user’s permission to record audio.",
+      "params": [
+        {
+          "type": "PermissionBlock"
+        }
+      ]
+    },
+    {
+      "name": "isOtherAudioPlaying",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether another app is playing audio."
+    },
+    {
+      "name": "secondaryAudioShouldBeSilencedHint",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether another app, with a nonmixable audio session, is playing audio."
+    },
+    {
+      "name": "allowHapticsAndSystemSoundsDuringRecording",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether system sounds and haptics play while recording from audio input."
+    },
+    {
+      "name": "setAllowHapticsAndSystemSoundsDuringRecording",
+      "type": "func",
+      "desc": "Sets a Boolean value that indicates whether system sounds and haptics play while recording from audio input.",
+      "params": [
+        {
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "promptStyle",
+      "type": "var",
+      "datatype": "AVAudioSession.PromptStyle",
+      "desc": "A hint to audio sessions that use voice prompt mode to alter the type of prompts they issue in response to other system audio, such as Siri and phone calls."
+    },
+    {
+      "name": "AVAudioSession.PromptStyle",
+      "type": "enum",
+      "desc": "Constants that indicate the prompt style to use."
+    },
+    {
+      "name": "interruptionNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that’s posted when an audio interruption occurs."
+    },
+    {
+      "name": "routeChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that’s posted when the system’s audio route changes."
+    },
+    {
+      "name": "silenceSecondaryAudioHintNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that’s posted when the primary audio from other applications starts and stops."
+    },
+    {
+      "name": "mediaServicesWereLostNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that’s posted when the system terminates the media server."
+    },
+    {
+      "name": "mediaServicesWereResetNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that’s posted when the media server restarts."
+    },
+    {
+      "name": "currentRoute",
+      "type": "var",
+      "datatype": "AVAudioSessionRouteDescription",
+      "desc": "A description of the current audio route’s input and output ports."
+    },
+    {
+      "name": "isInputAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether an audio input path is available."
+    },
+    {
+      "name": "availableInputs",
+      "type": "var",
+      "datatype": "[AVAudioSessionPortDescription]?",
+      "desc": "An array of input ports available for audio routing."
+    },
+    {
+      "name": "preferredInput",
+      "type": "var",
+      "datatype": "AVAudioSessionPortDescription?",
+      "desc": "The preferred input port for audio routing."
+    },
+    {
+      "name": "setPreferredInput",
+      "type": "func",
+      "desc": "Sets the preferred input port for audio routing.",
+      "params": [
+        {
+          "type": "AVAudioSessionPortDescription?"
+        }
+      ]
+    },
+    {
+      "name": "inputDataSource",
+      "type": "var",
+      "datatype": "AVAudioSessionDataSourceDescription?",
+      "desc": "The currently selected input data source."
+    },
+    {
+      "name": "inputDataSources",
+      "type": "var",
+      "datatype": "[AVAudioSessionDataSourceDescription]?",
+      "desc": "An array of available data sources for the audio session’s current input port."
+    },
+    {
+      "name": "setInputDataSource",
+      "type": "func",
+      "desc": "Selects a data source for the audio session’s current input port.",
+      "params": [
+        {
+          "type": "AVAudioSessionDataSourceDescription?"
+        }
+      ]
+    },
+    {
+      "name": "outputDataSources",
+      "type": "var",
+      "datatype": "[AVAudioSessionDataSourceDescription]?",
+      "desc": "An array of available output data sources for the current audio route."
+    },
+    {
+      "name": "outputDataSource",
+      "type": "var",
+      "datatype": "AVAudioSessionDataSourceDescription?",
+      "desc": "The currently selected output data source."
+    },
+    {
+      "name": "setOutputDataSource",
+      "type": "func",
+      "desc": "Sets the output data source for an audio session.",
+      "params": [
+        {
+          "type": "AVAudioSessionDataSourceDescription?"
+        }
+      ]
+    },
+    {
+      "name": "overrideOutputAudioPort",
+      "type": "func",
+      "desc": "Temporarily changes the current audio route.",
+      "params": [
+        {
+          "type": "AVAudioSession.PortOverride"
+        }
+      ]
+    },
+    {
+      "name": "inputNumberOfChannels",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of audio input channels for the current route."
+    },
+    {
+      "name": "maximumInputNumberOfChannels",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum number of input channels available for the current audio route."
+    },
+    {
+      "name": "preferredInputNumberOfChannels",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The preferred number of input channels for the current route."
+    },
+    {
+      "name": "setPreferredInputNumberOfChannels",
+      "type": "func",
+      "desc": "Sets the preferred number of input channels for the current route.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "outputNumberOfChannels",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of audio output channels."
+    },
+    {
+      "name": "maximumOutputNumberOfChannels",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum number of output channels available for the current audio route."
+    },
+    {
+      "name": "preferredOutputNumberOfChannels",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The preferred number of output channels for the current route."
+    },
+    {
+      "name": "setPreferredOutputNumberOfChannels",
+      "type": "func",
+      "desc": "Sets the preferred number of output channels for the current route.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "inputGain",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The gain applied to inputs associated with the session."
+    },
+    {
+      "name": "isInputGainSettable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether you can set the input gain."
+    },
+    {
+      "name": "setInputGain",
+      "type": "func",
+      "desc": "Changes the input gain to the specified value.",
+      "params": [
+        {
+          "type": "Float"
+        }
+      ]
+    },
+    {
+      "name": "outputVolume",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The systemwide output volume set by the user."
+    },
+    {
+      "name": "sampleRate",
+      "type": "var",
+      "datatype": "Double",
+      "desc": "The current audio sample rate, in hertz."
+    },
+    {
+      "name": "preferredSampleRate",
+      "type": "var",
+      "datatype": "Double",
+      "desc": "The preferred sample rate, in hertz."
+    },
+    {
+      "name": "setPreferredSampleRate",
+      "type": "func",
+      "desc": "Sets the preferred sample rate for audio input and output.",
+      "params": [
+        {
+          "type": "Double"
+        }
+      ]
+    },
+    {
+      "name": "inputLatency",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The latency for audio input, in seconds."
+    },
+    {
+      "name": "outputLatency",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The latency for audio output, in seconds."
+    },
+    {
+      "name": "ioBufferDuration",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The current I/O buffer duration, in seconds."
+    },
+    {
+      "name": "preferredIOBufferDuration",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The preferred I/O buffer duration, in seconds."
+    },
+    {
+      "name": "setPreferredIOBufferDuration",
+      "type": "func",
+      "desc": "Sets the preferred audio I/O buffer duration.",
+      "params": [
+        {
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "setAggregatedIOPreference",
+      "type": "func",
+      "desc": "Sets the audio session’s aggregated I/O configuration preference.",
+      "params": [
+        {
+          "type": "AVAudioSession.IOType"
+        }
+      ]
+    },
+    {
+      "name": "AVAudioSession.ErrorCode",
+      "type": "enum",
+      "desc": "Codes that describe error conditions that may occur when performing audio session operations."
+    },
+    {
+      "name": "AVAudioSession.RouteSelection",
+      "type": "enum"
+    }
+  ]
+}

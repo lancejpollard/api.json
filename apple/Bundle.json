@@ -1,0 +1,719 @@
+{
+  "type": "Class",
+  "name": "Bundle",
+  "desc": "A representation of the code and resources stored in a bundle directory on disk.",
+  "items": [
+    {
+      "name": "main",
+      "type": "class var",
+      "datatype": "Bundle",
+      "desc": "Returns the bundle object that contains the current executable."
+    },
+    {
+      "name": "allFrameworks",
+      "type": "class var",
+      "datatype": "[Bundle]",
+      "desc": "Returns an array of all of the application’s bundles that represent frameworks."
+    },
+    {
+      "name": "allBundles",
+      "type": "class var",
+      "datatype": "[Bundle]",
+      "desc": "Returns an array of all the application’s non-framework bundles."
+    },
+    {
+      "name": "loadNibNamed",
+      "type": "func",
+      "desc": "Loads a nib from the bundle with the specified file name and owner.",
+      "params": [
+        {
+          "type": "NSNib.Name"
+        },
+        {
+          "name": "owner",
+          "type": "Any?"
+        },
+        {
+          "name": "topLevelObjects",
+          "type": "AutoreleasingUnsafeMutablePointer<NSArray?>?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "url",
+      "type": "func",
+      "desc": "Returns the file URL for the resource file identified by the specified name and extension and residing in a given bundle directory.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "String?"
+        },
+        {
+          "name": "withExtension",
+          "type": "String?"
+        },
+        {
+          "name": "subdirectory",
+          "type": "String?"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "url",
+      "type": "func",
+      "desc": "Returns the file URL for the resource identified by the specified name and file extension.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "String?"
+        },
+        {
+          "name": "withExtension",
+          "type": "String?"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "urls",
+      "type": "func",
+      "desc": "Returns an array of file URLs for all resources identified by the specified file extension and located in the specified bundle subdirectory.",
+      "params": [
+        {
+          "name": "forResourcesWithExtension",
+          "type": "String?"
+        },
+        {
+          "name": "subdirectory",
+          "type": "String?"
+        }
+      ],
+      "returnType": "[URL]?"
+    },
+    {
+      "name": "url",
+      "type": "func",
+      "desc": "Returns the file URL for the resource identified by the specified name and file extension, located in the specified bundle subdirectory, and limited to global resources and those associated with the specified localization.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "String?"
+        },
+        {
+          "name": "withExtension",
+          "type": "String?"
+        },
+        {
+          "name": "subdirectory",
+          "type": "String?"
+        },
+        {
+          "name": "localization",
+          "type": "String?"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "urls",
+      "type": "func",
+      "desc": "Returns an array containing the file URLs for all bundle resources having the specified filename extension, residing in the specified resource subdirectory, and limited to global resources and those associated with the specified localization.",
+      "params": [
+        {
+          "name": "forResourcesWithExtension",
+          "type": "String?"
+        },
+        {
+          "name": "subdirectory",
+          "type": "String?"
+        },
+        {
+          "name": "localization",
+          "type": "String?"
+        }
+      ],
+      "returnType": "[URL]?"
+    },
+    {
+      "name": "url",
+      "type": "class func",
+      "desc": "Creates and returns a file URL for the resource with the specified name and extension in the specified bundle.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "String?"
+        },
+        {
+          "name": "withExtension",
+          "type": "String?"
+        },
+        {
+          "name": "subdirectory",
+          "type": "String?"
+        },
+        {
+          "name": "in",
+          "type": "URL"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "urls",
+      "type": "class func",
+      "desc": "Returns an array containing the file URLs for all bundle resources having the specified filename extension, residing in the specified resource subdirectory, within the specified bundle.",
+      "params": [
+        {
+          "name": "forResourcesWithExtension",
+          "type": "String?"
+        },
+        {
+          "name": "subdirectory",
+          "type": "String?"
+        },
+        {
+          "name": "in",
+          "type": "URL"
+        }
+      ],
+      "returnType": "[URL]?"
+    },
+    {
+      "name": "path",
+      "type": "func",
+      "desc": "Returns the full pathname for the resource identified by the specified name and file extension.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "String?"
+        },
+        {
+          "name": "ofType",
+          "type": "String?"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "path",
+      "type": "func",
+      "desc": "Returns the full pathname for the resource identified by the specified name and file extension and located in the specified bundle subdirectory.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "String?"
+        },
+        {
+          "name": "ofType",
+          "type": "String?"
+        },
+        {
+          "name": "inDirectory",
+          "type": "String?"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "path",
+      "type": "func",
+      "desc": "Returns the full pathname for the resource identified by the specified name and file extension, located in the specified bundle subdirectory, and limited to global resources and those associated with the specified localization.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "String?"
+        },
+        {
+          "name": "ofType",
+          "type": "String?"
+        },
+        {
+          "name": "inDirectory",
+          "type": "String?"
+        },
+        {
+          "name": "forLocalization",
+          "type": "String?"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "paths",
+      "type": "func",
+      "desc": "Returns an array containing the pathnames for all bundle resources having the specified filename extension and residing in the resource subdirectory.",
+      "params": [
+        {
+          "name": "forResourcesOfType",
+          "type": "String?"
+        },
+        {
+          "name": "inDirectory",
+          "type": "String?"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "paths",
+      "type": "func",
+      "desc": "Returns an array containing the file for all bundle resources having the specified filename extension, residing in the specified resource subdirectory, and limited to global resources and those associated with the specified localization.",
+      "params": [
+        {
+          "name": "forResourcesOfType",
+          "type": "String?"
+        },
+        {
+          "name": "inDirectory",
+          "type": "String?"
+        },
+        {
+          "name": "forLocalization",
+          "type": "String?"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "path",
+      "type": "class func",
+      "desc": "Returns the full pathname for the resource file identified by the specified name and extension and residing in a given bundle directory.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "String?"
+        },
+        {
+          "name": "ofType",
+          "type": "String?"
+        },
+        {
+          "name": "inDirectory",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "paths",
+      "type": "class func",
+      "desc": "Returns an array containing the pathnames for all bundle resources having the specified extension and residing in the bundle directory at the specified path.",
+      "params": [
+        {
+          "name": "forResourcesOfType",
+          "type": "String?"
+        },
+        {
+          "name": "inDirectory",
+          "type": "String"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "urlForImageResource",
+      "type": "func",
+      "desc": "Returns the location of the specified image resource as an NSURL.",
+      "params": [
+        {
+          "type": "NSImage.Name"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "pathForImageResource",
+      "type": "func",
+      "desc": "Returns the location of the specified image resource file.",
+      "params": [
+        {
+          "type": "NSImage.Name"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "image",
+      "type": "func",
+      "desc": "Returns an NSImage instance associated with the specified name, which can be backed by multiple files representing different resolution versions of the image.",
+      "params": [
+        {
+          "name": "forResource",
+          "type": "NSImage.Name"
+        }
+      ],
+      "returnType": "NSImage?"
+    },
+    {
+      "name": "path",
+      "type": "func",
+      "desc": "Returns the location of the specified sound resource file.",
+      "params": [
+        {
+          "name": "forSoundResource",
+          "type": "NSSound.Name"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "localizedString",
+      "type": "func",
+      "desc": "Returns a localized version of the string designated by the specified key and residing in the specified table.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "type": "String?"
+        },
+        {
+          "name": "table",
+          "type": "String?"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "contextHelp",
+      "type": "func",
+      "desc": "Returns the context-sensitive help for the specified key from the bundle's help file.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "NSHelpManager.ContextHelpKey"
+        }
+      ],
+      "returnType": "NSAttributedString?"
+    },
+    {
+      "name": "resourceURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The file URL of the bundle’s subdirectory containing resource files."
+    },
+    {
+      "name": "executableURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The file URL of the receiver's executable file."
+    },
+    {
+      "name": "privateFrameworksURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The file URL of the bundle’s subdirectory containing private frameworks."
+    },
+    {
+      "name": "sharedFrameworksURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The file URL of the receiver's subdirectory containing shared frameworks."
+    },
+    {
+      "name": "builtInPlugInsURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The file URL of the receiver's subdirectory containing plug-ins."
+    },
+    {
+      "name": "url",
+      "type": "func",
+      "desc": "Returns the file URL of the executable with the specified name in the receiver’s bundle.",
+      "params": [
+        {
+          "name": "forAuxiliaryExecutable",
+          "type": "String"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "sharedSupportURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The file URL of the bundle’s subdirectory containing shared support files."
+    },
+    {
+      "name": "appStoreReceiptURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The file URL for the bundle’s App Store receipt."
+    },
+    {
+      "name": "resourcePath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The full pathname of the bundle’s subdirectory containing resources."
+    },
+    {
+      "name": "executablePath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The full pathname of the receiver's executable file."
+    },
+    {
+      "name": "privateFrameworksPath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The full pathname of the bundle’s subdirectory containing private frameworks."
+    },
+    {
+      "name": "sharedFrameworksPath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The full pathname of the bundle’s subdirectory containing shared frameworks."
+    },
+    {
+      "name": "builtInPlugInsPath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The full pathname of the receiver's subdirectory containing plug-ins."
+    },
+    {
+      "name": "path",
+      "type": "func",
+      "desc": "Returns the full pathname of the executable with the specified name in the receiver’s bundle.",
+      "params": [
+        {
+          "name": "forAuxiliaryExecutable",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "sharedSupportPath",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The full pathname of the bundle’s subdirectory containing shared support files."
+    },
+    {
+      "name": "bundleURL",
+      "type": "var",
+      "datatype": "URL",
+      "desc": "The full URL of the receiver’s bundle directory."
+    },
+    {
+      "name": "bundlePath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The full pathname of the receiver’s bundle directory."
+    },
+    {
+      "name": "bundleIdentifier",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The receiver’s bundle identifier."
+    },
+    {
+      "name": "infoDictionary",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "A dictionary, constructed from the bundle’s Info.plist file, that contains information about the receiver."
+    },
+    {
+      "name": "object",
+      "type": "func",
+      "desc": "Returns the value associated with the specified key in the receiver's information property list.",
+      "params": [
+        {
+          "name": "forInfoDictionaryKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "localizations",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "A list of all the localizations contained in the bundle."
+    },
+    {
+      "name": "preferredLocalizations",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "An ordered list of preferred localizations contained in the bundle."
+    },
+    {
+      "name": "developmentLocalization",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The localization for the development language."
+    },
+    {
+      "name": "localizedInfoDictionary",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "A dictionary with the keys from the bundle’s localized property list."
+    },
+    {
+      "name": "preferredLocalizations",
+      "type": "class func",
+      "desc": "Returns one or more localizations from the specified list that a bundle object would use to locate resources for the current user.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "preferredLocalizations",
+      "type": "class func",
+      "desc": "Returns locale identifiers for which a bundle would provide localized content, given a specified list of candidates for a user's language preferences.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[String]"
+        },
+        {
+          "name": "forPreferences",
+          "type": "[String]?"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "setPreservationPriority",
+      "type": "func",
+      "desc": "A hint to the system of the relative order for purging tagged sets of resources in the bundle.",
+      "params": [
+        {
+          "type": "Double"
+        },
+        {
+          "name": "forTags",
+          "type": "Set<String>"
+        }
+      ]
+    },
+    {
+      "name": "preservationPriority",
+      "type": "func",
+      "desc": "Returns the current preservation priority for the specified tag.",
+      "params": [
+        {
+          "name": "forTag",
+          "type": "String"
+        }
+      ],
+      "returnType": "Double"
+    },
+    {
+      "name": "classNamed",
+      "type": "func",
+      "desc": "Returns the Class object for the specified name.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "AnyClass?"
+    },
+    {
+      "name": "principalClass",
+      "type": "var",
+      "datatype": "AnyClass?",
+      "desc": "The bundle’s principal class."
+    },
+    {
+      "name": "didLoadNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that lets observers know when classes are dynamically loaded."
+    },
+    {
+      "name": "NSLoadedClasses",
+      "type": "let",
+      "datatype": "String",
+      "desc": "A constant used as a key for the userInfo dictionary of a didLoadNotification notification that corresponds to an array of names of each class that was loaded."
+    },
+    {
+      "name": "executableArchitectures",
+      "type": "var",
+      "datatype": "[NSNumber]?",
+      "desc": "An array of numbers indicating the architecture types supported by the bundle’s executable."
+    },
+    {
+      "name": "preflight",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the bundle’s executable code could be loaded successfully.",
+      "params": []
+    },
+    {
+      "name": "load",
+      "type": "func",
+      "desc": "Dynamically loads the bundle’s executable code into a running program, if the code has not already been loaded.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "loadAndReturnError",
+      "type": "func",
+      "desc": "Loads the bundle’s executable code and returns any errors.",
+      "params": []
+    },
+    {
+      "name": "unload",
+      "type": "func",
+      "desc": "Unloads the code associated with the receiver.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isLoaded",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "The load status of a bundle."
+    },
+    {
+      "name": "NSExecutableErrorMinimum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The beginning of the range of error codes reserved for errors related to executable files."
+    },
+    {
+      "name": "NSExecutableNotLoadableError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The executable type isn’t loadable in the current process."
+    },
+    {
+      "name": "NSExecutableArchitectureMismatchError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The executable doesn’t provide an architecture compatible with the current process."
+    },
+    {
+      "name": "NSExecutableRuntimeMismatchError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The executable has Objective-C runtime information that’s incompatible with the current process."
+    },
+    {
+      "name": "NSExecutableLoadError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "Executable cannot be loaded for an otherwise-unspecified reason."
+    },
+    {
+      "name": "NSExecutableLinkError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The executable failed due to linking issues."
+    },
+    {
+      "name": "NSExecutableErrorMaximum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The end of the range of error codes reserved for errors related to executable files."
+    }
+  ]
+}

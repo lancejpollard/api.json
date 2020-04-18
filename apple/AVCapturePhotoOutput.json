@@ -1,0 +1,312 @@
+{
+  "type": "Class",
+  "name": "AVCapturePhotoOutput",
+  "desc": "A capture output for still image, Live Photo, and other photography workflows.",
+  "items": [
+    {
+      "name": "capturePhoto",
+      "type": "func",
+      "desc": "Initiates a photo capture using the specified settings.",
+      "params": [
+        {
+          "name": "with",
+          "type": "AVCapturePhotoSettings"
+        },
+        {
+          "name": "delegate",
+          "type": "AVCapturePhotoCaptureDelegate"
+        }
+      ]
+    },
+    {
+      "name": "availablePhotoFileTypes",
+      "type": "var",
+      "datatype": "[AVFileType]",
+      "desc": "The list of file types currently supported for photo capture and output."
+    },
+    {
+      "name": "availableRawPhotoFileTypes",
+      "type": "var",
+      "datatype": "[AVFileType]",
+      "desc": "The list of file types currently supported for RAW format capture and output."
+    },
+    {
+      "name": "supportedPhotoCodecTypes",
+      "type": "func",
+      "desc": "Returns the list of photo codecs (such as JPEG or HEVC) supported for photo data in the specified file type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVFileType"
+        }
+      ],
+      "returnType": "[AVVideoCodecType]"
+    },
+    {
+      "name": "supportedPhotoPixelFormatTypes",
+      "type": "func",
+      "desc": "Returns the list of uncompressed pixel formats supported for photo data in the specified file type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVFileType"
+        }
+      ],
+      "returnType": "[NSNumber]"
+    },
+    {
+      "name": "supportedRawPhotoPixelFormatTypes",
+      "type": "func",
+      "desc": "Returns the list of Bayer RAW pixel formats supported for photo data in the specified file type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVFileType"
+        }
+      ],
+      "returnType": "[NSNumber]"
+    },
+    {
+      "name": "availablePhotoCodecTypes",
+      "type": "var",
+      "datatype": "[AVVideoCodecType]",
+      "desc": "The compression codecs this capture output currently supports for photo capture."
+    },
+    {
+      "name": "isStillImageStabilizationSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output currently supports automatic stabilization for still image capture."
+    },
+    {
+      "name": "isDualCameraFusionSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output currently supports automatically combining image data on a dual camera device."
+    },
+    {
+      "name": "maxBracketedCapturePhotoCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum number of images that the photo capture output can support in a single bracketed capture."
+    },
+    {
+      "name": "isLensStabilizationDuringBracketedCaptureSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output currently supports lens stabilization during bracketed image capture."
+    },
+    {
+      "name": "supportedFlashModes",
+      "type": "var",
+      "datatype": "[AVCaptureDevice.FlashMode]",
+      "desc": "A Swift array of flash settings this capture output currently supports."
+    },
+    {
+      "name": "availablePhotoPixelFormatTypes",
+      "type": "var",
+      "datatype": "[OSType]",
+      "desc": "A Swift array of available photo pixel formats."
+    },
+    {
+      "name": "availableRawPhotoPixelFormatTypes",
+      "type": "var",
+      "datatype": "[OSType]",
+      "desc": "A Swift array of available raw photo pixel formats."
+    },
+    {
+      "name": "isAutoRedEyeReductionSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output supports automatic red-eye reduction."
+    },
+    {
+      "name": "isFlashScene",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the scene currently being previewed by the camera warrants use of the flash."
+    },
+    {
+      "name": "isStillImageStabilizationScene",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the scene currently being previewed by the camera warrants image stabilization."
+    },
+    {
+      "name": "photoSettingsForSceneMonitoring",
+      "type": "var",
+      "datatype": "AVCapturePhotoSettings?",
+      "desc": "A photo settings object that controls how the photo output detects and handles automatic flash and stabilization modes."
+    },
+    {
+      "name": "isHighResolutionCaptureEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies whether to configure the capture pipeline for high resolution still image capture."
+    },
+    {
+      "name": "isLivePhotoCaptureSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output currently supports Live Photo capture."
+    },
+    {
+      "name": "isLivePhotoCaptureEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies whether to configure the capture pipeline for Live Photo capture."
+    },
+    {
+      "name": "isLivePhotoCaptureSuspended",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies whether to suspend, but not disable, Live Photo capture."
+    },
+    {
+      "name": "isLivePhotoAutoTrimmingEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies whether to automatically trim Live Photo movie captures to avoid excessive movement."
+    },
+    {
+      "name": "availableLivePhotoVideoCodecTypes",
+      "type": "var",
+      "datatype": "[AVVideoCodecType]",
+      "desc": "The list of video codecs currently available for capturing Live Photos with the photo output."
+    },
+    {
+      "name": "isDepthDataDeliverySupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output currently supports depth data capture."
+    },
+    {
+      "name": "isDepthDataDeliveryEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies whether to configure the capture pipeline for depth data capture."
+    },
+    {
+      "name": "isPortraitEffectsMatteDeliveryEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output will generate a portrait effects matte."
+    },
+    {
+      "name": "isPortraitEffectsMatteDeliverySupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output currently supports delivery of a portrait effects matte."
+    },
+    {
+      "name": "portraitEffectsMatte",
+      "type": "var",
+      "datatype": "AVPortraitEffectsMatte?",
+      "desc": "The portrait effects matte captured with the photo."
+    },
+    {
+      "name": "isDualCameraDualPhotoDeliverySupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output currently supports simultaneous photo capture with both cameras on a dual-camera device."
+    },
+    {
+      "name": "isCameraCalibrationDataDeliverySupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the capture output currently supports delivery of camera calibration data."
+    },
+    {
+      "name": "isDualCameraDualPhotoDeliveryEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies whether to configure the capture pipeline for simultaneous photo capture with both cameras on a dual-camera device."
+    },
+    {
+      "name": "isVirtualDeviceConstituentPhotoDeliveryEnabled",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "isVirtualDeviceConstituentPhotoDeliverySupported",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "isVirtualDeviceFusionSupported",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "preparedPhotoSettingsArray",
+      "type": "var",
+      "datatype": "[AVCapturePhotoSettings]",
+      "desc": "An array of photo settings for which the photo output has prepared capture resources."
+    },
+    {
+      "name": "jpegPhotoDataRepresentation",
+      "type": "class func",
+      "desc": "Returns data in JPEG format corresponding to the captured photo in the specified sample buffer.",
+      "params": [
+        {
+          "name": "forJPEGSampleBuffer",
+          "type": "CMSampleBuffer"
+        },
+        {
+          "name": "previewPhotoSampleBuffer",
+          "type": "CMSampleBuffer?"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "dngPhotoDataRepresentation",
+      "type": "class func",
+      "desc": "Returns data in digital negative (DNG) format corresponding to the captured RAW photo in the specified sample buffer.",
+      "params": [
+        {
+          "name": "forRawSampleBuffer",
+          "type": "CMSampleBuffer"
+        },
+        {
+          "name": "previewPhotoSampleBuffer",
+          "type": "CMSampleBuffer?"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "availableSemanticSegmentationMatteTypes",
+      "type": "var",
+      "datatype": "[AVSemanticSegmentationMatte.MatteType]",
+      "desc": "An array of semantic segmentation matte types that may be captured and delivered along with the primary photo."
+    },
+    {
+      "name": "enabledSemanticSegmentationMatteTypes",
+      "type": "var",
+      "datatype": "[AVSemanticSegmentationMatte.MatteType]",
+      "desc": "The semantic segmentation matte types that the photo render pipeline delivers."
+    },
+    {
+      "name": "maxPhotoQualityPrioritization",
+      "type": "var",
+      "datatype": "AVCapturePhotoOutput.QualityPrioritization",
+      "desc": "The highest quality the photo output should prepare to deliver on a capture-by-capture basis."
+    },
+    {
+      "name": "AVCapturePhotoOutput.QualityPrioritization",
+      "type": "enum",
+      "desc": "Constants that indicate how to prioritize photo quality relative to capture speed."
+    },
+    {
+      "name": "s AVCapturePhoto",
+      "type": "enum",
+      "desc": "A container for image data collected by a photo capture output."
+    },
+    {
+      "name": "ocol AVCapturePhotoCaptureDelegate",
+      "type": "enum",
+      "desc": "Methods for monitoring progress and receiving results from a photo capture output."
+    }
+  ]
+}

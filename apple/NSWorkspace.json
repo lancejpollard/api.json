@@ -1,0 +1,697 @@
+{
+  "type": "Class",
+  "name": "NSWorkspace",
+  "desc": "A workspace that can launch other apps and perform a variety of file-handling services.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "NSWorkspace",
+      "desc": "The shared workspace object."
+    },
+    {
+      "name": "notificationCenter",
+      "type": "var",
+      "datatype": "NotificationCenter",
+      "desc": "The notification center for workspace notifications."
+    },
+    {
+      "name": "open",
+      "type": "func",
+      "desc": "Opens a URL asynchronously using the provided options.",
+      "params": [
+        {
+          "type": "URL"
+        },
+        {
+          "name": "configuration",
+          "type": "NSWorkspace.OpenConfiguration"
+        },
+        {
+          "name": "completionHandler",
+          "type": "((NSRunningApplication?"
+        },
+        {
+          "type": "Error?"
+        }
+      ],
+      "returnType": "Void)?)"
+    },
+    {
+      "name": "open",
+      "type": "func",
+      "desc": "Opens one or more URLs asynchronously in the specified app using the provided options.",
+      "params": [
+        {
+          "type": "[URL]"
+        },
+        {
+          "name": "withApplicationAt",
+          "type": "URL"
+        },
+        {
+          "name": "configuration",
+          "type": "NSWorkspace.OpenConfiguration"
+        },
+        {
+          "name": "completionHandler",
+          "type": "((NSRunningApplication?"
+        },
+        {
+          "type": "Error?"
+        }
+      ],
+      "returnType": "Void)?)"
+    },
+    {
+      "name": "open",
+      "type": "func",
+      "desc": "Opens the location at the specified URL.",
+      "params": [
+        {
+          "type": "URL"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "openApplication",
+      "type": "func",
+      "desc": "Launches the app at the specified URL and asynchronously reports back on the app's status.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "configuration",
+          "type": "NSWorkspace.OpenConfiguration"
+        },
+        {
+          "name": "completionHandler",
+          "type": "((NSRunningApplication?"
+        },
+        {
+          "type": "Error?"
+        }
+      ],
+      "returnType": "Void)?)"
+    },
+    {
+      "name": "hideOtherApplications",
+      "type": "func",
+      "desc": "Hides all applications other than the sender.",
+      "params": []
+    },
+    {
+      "name": "duplicate",
+      "type": "func",
+      "desc": "Duplicates the specified URLS asynchronously in the same manner as the Finder.",
+      "params": [
+        {
+          "type": "[URL]"
+        },
+        {
+          "name": "completionHandler",
+          "type": "(([URL"
+        },
+        {
+          "type": "Error?"
+        }
+      ],
+      "returnType": "Void)?)"
+    },
+    {
+      "name": "recycle",
+      "type": "func",
+      "desc": "Moves the specified URLs to the trash in the same manner as the Finder.",
+      "params": [
+        {
+          "type": "[URL]"
+        },
+        {
+          "name": "completionHandler",
+          "type": "(([URL"
+        },
+        {
+          "type": "Error?"
+        }
+      ],
+      "returnType": "Void)?)"
+    },
+    {
+      "name": "activateFileViewerSelecting",
+      "type": "func",
+      "desc": "Activates the Finder, and opens one or more windows selecting the specified files.",
+      "params": [
+        {
+          "type": "[URL]"
+        }
+      ]
+    },
+    {
+      "name": "selectFile",
+      "type": "func",
+      "desc": "Selects the file at the specified path.",
+      "params": [
+        {
+          "type": "String?"
+        },
+        {
+          "name": "inFileViewerRootedAtPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "type",
+      "type": "func",
+      "desc": "Returns the uniform type identifier of the specified file, if it can be determined.",
+      "params": [
+        {
+          "name": "ofFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "localizedDescription",
+      "type": "func",
+      "desc": "Returns the localized description for the specified Uniform Type Identifier (UTI).",
+      "params": [
+        {
+          "name": "forType",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "preferredFilenameExtension",
+      "type": "func",
+      "desc": "Returns the preferred filename extension for the specified Uniform Type Identifier (UTI).",
+      "params": [
+        {
+          "name": "forType",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "filenameExtension",
+      "type": "func",
+      "desc": "Returns whether the specified filename extension is appropriate for the Uniform Type Identifier (UTI).",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "isValidForType",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "type",
+      "type": "func",
+      "desc": "Returns a Boolean indicating that the first Uniform Type Identifier (UTI) conforms to the second UTI.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "conformsToType",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "urlForApplication",
+      "type": "func",
+      "desc": "Returns the URL for the app with the specified identifier.",
+      "params": [
+        {
+          "name": "withBundleIdentifier",
+          "type": "String"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "getInfoForFile",
+      "type": "func",
+      "desc": "Retrieves information about the specified file.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "application",
+          "type": "AutoreleasingUnsafeMutablePointer<NSString?>?"
+        },
+        {
+          "name": "type",
+          "type": "AutoreleasingUnsafeMutablePointer<NSString?>?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "urlForApplication",
+      "type": "func",
+      "desc": "Returns the URL to the default app that would be opened.",
+      "params": [
+        {
+          "name": "toOpen",
+          "type": "URL"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "getFileSystemInfo",
+      "type": "func",
+      "desc": "Returns information about the file system at the specified path.",
+      "params": [
+        {
+          "name": "forPath",
+          "type": "String"
+        },
+        {
+          "name": "isRemovable",
+          "type": "UnsafeMutablePointer<ObjCBool>?"
+        },
+        {
+          "name": "isWritable",
+          "type": "UnsafeMutablePointer<ObjCBool>?"
+        },
+        {
+          "name": "isUnmountable",
+          "type": "UnsafeMutablePointer<ObjCBool>?"
+        },
+        {
+          "name": "description",
+          "type": "AutoreleasingUnsafeMutablePointer<NSString?>?"
+        },
+        {
+          "name": "type",
+          "type": "AutoreleasingUnsafeMutablePointer<NSString?>?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isFilePackage",
+      "type": "func",
+      "desc": "Determines whether the specified path is a file package.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "frontmostApplication",
+      "type": "var",
+      "datatype": "NSRunningApplication?",
+      "desc": "Returns the frontmost app, which is the app that receives key events."
+    },
+    {
+      "name": "runningApplications",
+      "type": "var",
+      "datatype": "[NSRunningApplication]",
+      "desc": "Returns an array of running apps."
+    },
+    {
+      "name": "menuBarOwningApplication",
+      "type": "var",
+      "datatype": "NSRunningApplication?",
+      "desc": "Returns the app that owns the currently displayed menu bar."
+    },
+    {
+      "name": "icon",
+      "type": "func",
+      "desc": "Returns an image containing the icon for the specified file.",
+      "params": [
+        {
+          "name": "forFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSImage"
+    },
+    {
+      "name": "icon",
+      "type": "func",
+      "desc": "Returns an image containing the icon for files of the specified type.",
+      "params": [
+        {
+          "name": "forFileType",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSImage"
+    },
+    {
+      "name": "icon",
+      "type": "func",
+      "desc": "Returns an image containing the icon for the specified files.",
+      "params": [
+        {
+          "name": "forFiles",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "NSImage?"
+    },
+    {
+      "name": "setIcon",
+      "type": "func",
+      "desc": "Sets the icon for the file or directory at the specified path.",
+      "params": [
+        {
+          "type": "NSImage?"
+        },
+        {
+          "name": "forFile",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSWorkspace.IconCreationOptions"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "unmountAndEjectDevice",
+      "type": "func",
+      "desc": "Unmounts and ejects the device at the specified path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "unmountAndEjectDevice",
+      "type": "func",
+      "desc": "Attempts to eject the volume mounted at the given path.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "desktopImageURL",
+      "type": "func",
+      "desc": "Returns the URL for the desktop image for the given screen.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSScreen"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "setDesktopImageURL",
+      "type": "func",
+      "desc": "Sets the desktop image for the given screen to the image at the specified URL.",
+      "params": [
+        {
+          "type": "URL"
+        },
+        {
+          "name": "for",
+          "type": "NSScreen"
+        },
+        {
+          "name": "options",
+          "type": "[NSWorkspace.DesktopImageOptionKey"
+        }
+      ]
+    },
+    {
+      "name": "desktopImageOptions",
+      "type": "func",
+      "desc": "Returns the desktop image options for the given screen.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSScreen"
+        }
+      ],
+      "returnType": "[NSWorkspace.DesktopImageOptionKey"
+    },
+    {
+      "name": "showSearchResults",
+      "type": "func",
+      "desc": "Displays a Spotlight search results window in Finder for the specified query string.",
+      "params": [
+        {
+          "name": "forQueryString",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "fileLabels",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The array of file labels, returned as strings."
+    },
+    {
+      "name": "fileLabelColors",
+      "type": "var",
+      "datatype": "[NSColor]",
+      "desc": "The array of colors for the file labels."
+    },
+    {
+      "name": "noteFileSystemChanged",
+      "type": "func",
+      "desc": "Informs the workspace object that the file system changed at the specified path.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "extendPowerOff",
+      "type": "func",
+      "desc": "Requests the system wait for the specified amount of time before turning off the power or logging out the user.",
+      "params": [
+        {
+          "name": "by",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "accessibilityDisplayShouldDifferentiateWithoutColor",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the app should avoid conveying information through color alone."
+    },
+    {
+      "name": "accessibilityDisplayShouldIncreaseContrast",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the app should present a high contrast user interface."
+    },
+    {
+      "name": "accessibilityDisplayShouldReduceTransparency",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the app should avoid using semitransparent backgrounds."
+    },
+    {
+      "name": "requestAuthorization",
+      "type": "func",
+      "desc": "Requests authorization to perform a privileged file operation.",
+      "params": [
+        {
+          "name": "to",
+          "type": "NSWorkspace.AuthorizationType"
+        },
+        {
+          "name": "completionHandler",
+          "type": "(NSWorkspace.Authorization?"
+        },
+        {
+          "type": "Error?"
+        }
+      ],
+      "returnType": "Void)"
+    },
+    {
+      "name": "m NSWorkspace.AuthorizationType",
+      "type": "enum",
+      "desc": "The types of privileged file operations that can be authorized by the user."
+    },
+    {
+      "name": "willLaunchApplicationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the Finder is about to launch an app."
+    },
+    {
+      "name": "didLaunchApplicationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when a new app has started up."
+    },
+    {
+      "name": "didTerminateApplicationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when an app finishes executing."
+    },
+    {
+      "name": "sessionDidBecomeActiveNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts after a user session is switched in."
+    },
+    {
+      "name": "sessionDidResignActiveNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts before a user session is switched out."
+    },
+    {
+      "name": "didHideApplicationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the Finder hid an app."
+    },
+    {
+      "name": "didUnhideApplicationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the Finder unhid an app."
+    },
+    {
+      "name": "didActivateApplicationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the Finder is about to activate an app."
+    },
+    {
+      "name": "didDeactivateApplicationNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the Finder deactivated an app."
+    },
+    {
+      "name": "didRenameVolumeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when a volume changes its name or mount path."
+    },
+    {
+      "name": "didMountNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when a new device has been mounted."
+    },
+    {
+      "name": "willUnmountNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the Finder is about to unmount a device."
+    },
+    {
+      "name": "didUnmountNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the Finder unmounts a device."
+    },
+    {
+      "name": "didChangeFileLabelsNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the Finder file labels or colors change."
+    },
+    {
+      "name": "activeSpaceDidChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when a Spaces change occurs."
+    },
+    {
+      "name": "didWakeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the machine wakes from sleep."
+    },
+    {
+      "name": "willPowerOffNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the user requests a logout or powers off the machine."
+    },
+    {
+      "name": "willSleepNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts before the machine goes to sleep."
+    },
+    {
+      "name": "screensDidSleepNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the machine’s screen goes to sleep."
+    },
+    {
+      "name": "screensDidWakeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when the machine’s screens wake."
+    },
+    {
+      "name": "accessibilityDisplayOptionsDidChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "A notification that the workspace posts when any of the accessibility display options change."
+    },
+    {
+      "name": "localizedVolumeNameUserInfoKey",
+      "type": "class let",
+      "datatype": "String",
+      "desc": "A string containing the user-visible name of the volume."
+    },
+    {
+      "name": "volumeURLUserInfoKey",
+      "type": "class let",
+      "datatype": "String",
+      "desc": "A URL containing the mount path of the volume."
+    },
+    {
+      "name": "oldLocalizedVolumeNameUserInfoKey",
+      "type": "class let",
+      "datatype": "String",
+      "desc": "A string containing the old user-visible name of the volume"
+    },
+    {
+      "name": "oldVolumeURLUserInfoKey",
+      "type": "class let",
+      "datatype": "String",
+      "desc": "A URL containing the old mount path of the volume"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "type": "Class",
+  "name": "CLGeocoder",
+  "desc": "An interface for converting between geographic coordinates and place names.",
+  "items": [
+    {
+      "name": "reverseGeocodeLocation",
+      "type": "func",
+      "desc": "Submits a reverse-geocoding request for the specified location and locale.",
+      "params": [
+        {
+          "type": "CLLocation"
+        },
+        {
+          "name": "preferredLocale",
+          "type": "Locale?"
+        },
+        {
+          "name": "completionHandler",
+          "type": "CLGeocodeCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "reverseGeocodeLocation",
+      "type": "func",
+      "desc": "Submits a reverse-geocoding request for the specified location.",
+      "params": [
+        {
+          "type": "CLLocation"
+        },
+        {
+          "name": "completionHandler",
+          "type": "CLGeocodeCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "geocodeAddressString",
+      "type": "func",
+      "desc": "Submits a forward-geocoding requesting using the specified address string and locale information.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "in",
+          "type": "CLRegion?"
+        },
+        {
+          "name": "preferredLocale",
+          "type": "Locale?"
+        },
+        {
+          "name": "completionHandler",
+          "type": "CLGeocodeCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "geocodeAddressString",
+      "type": "func",
+      "desc": "Submits a forward-geocoding request using the specified string.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "completionHandler",
+          "type": "CLGeocodeCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "geocodeAddressString",
+      "type": "func",
+      "desc": "Submits a forward-geocoding request using the specified string and region information.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "in",
+          "type": "CLRegion?"
+        },
+        {
+          "name": "completionHandler",
+          "type": "CLGeocodeCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "geocodePostalAddress",
+      "type": "func",
+      "desc": "Submits a forward-geocoding requesting using the specified Contacts framework information.",
+      "params": [
+        {
+          "type": "CNPostalAddress"
+        },
+        {
+          "name": "completionHandler",
+          "type": "CLGeocodeCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "geocodePostalAddress",
+      "type": "func",
+      "desc": "Submits a forward-geocoding requesting using the specified locale and Contacts framework information.",
+      "params": [
+        {
+          "type": "CNPostalAddress"
+        },
+        {
+          "name": "preferredLocale",
+          "type": "Locale?"
+        },
+        {
+          "name": "completionHandler",
+          "type": "CLGeocodeCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "geocodeAddressDictionary",
+      "type": "func",
+      "desc": "Submits a forward-geocoding request using the specified address dictionary.",
+      "params": [
+        {
+          "name": "[AnyHashable",
+          "type": "Any]"
+        },
+        {
+          "name": "completionHandler",
+          "type": "CLGeocodeCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "cancelGeocode",
+      "type": "func",
+      "desc": "Cancels a pending geocoding request.",
+      "params": []
+    },
+    {
+      "name": "isGeocoding",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the receiver is in the middle of geocoding its value."
+    }
+  ]
+}

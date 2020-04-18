@@ -1,0 +1,756 @@
+{
+  "path": "/payments/details",
+  "method": "POST",
+  "desc": "Submits details for a payment created using /payments. This step is only needed when no final state has been reached on the /payments request (for example for 3D Secure, or when getting redirected back directly from a payment method using an app switch).\nThe exact details, which need to be sent to this endpoint, are always specified in the response of the associated /payments request.\nIn addition, the endpoint can be used to verify a payload, which is returned after coming back from the Checkout SDK or any of the redirect based methods on the Checkout API.",
+  "req": {
+    "details": {
+      "type": "object",
+      "desc": "Use this collection to submit the details that were returned as a result of the /payments call.",
+      "required": true
+    },
+    "paymentData": {
+      "type": "string",
+      "desc": "The paymentData value that you received in the response to the /payments call.",
+      "required": false
+    },
+    "threeDSAuthenticationOnly": {
+      "type": "boolean",
+      "desc": "Change the authenticationOnly indicator originally set in the /payments request. Only needs to be set if you want to modify the value set previously.",
+      "required": false
+    }
+  },
+  "res": {
+    "action": {
+      "type": "string",
+      "desc": "Action to be taken for completing the payment.",
+      "required": true,
+      "children": {
+        "alternativeReference": {
+          "type": "string",
+          "desc": "The voucher alternative reference code.",
+          "required": false
+        },
+        "data": {
+          "type": "object",
+          "desc": "When the redirect URL must be accessed via POST, use this data to post to the redirect URL.",
+          "required": false
+        },
+        "downloadUrl": {
+          "type": "string",
+          "desc": "The URL to download the voucher.",
+          "required": false
+        },
+        "entity": {
+          "type": "string",
+          "desc": "An entity number of Multibanco.",
+          "required": false
+        },
+        "expiresAt": {
+          "type": "string",
+          "desc": "The date time of the voucher expiry.",
+          "required": false
+        },
+        "initialAmount": {
+          "type": "string",
+          "desc": "The initial amount.",
+          "required": true
+        },
+        "currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": true
+        },
+        "value": {
+          "type": "integer",
+          "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+          "required": true
+        },
+        "instructionsUrl": {
+          "type": "string",
+          "desc": "The URL to the detailed instructions to make payment using the voucher.",
+          "required": false
+        },
+        "issuer": {
+          "type": "string",
+          "desc": "The issuer of the voucher.",
+          "required": false
+        },
+        "maskedTelephoneNumber": {
+          "type": "string",
+          "desc": "The shopper telephone number (partially masked).",
+          "required": false
+        },
+        "merchantName": {
+          "type": "string",
+          "desc": "The merchant name.",
+          "required": false
+        },
+        "merchantReference": {
+          "type": "string",
+          "desc": "The merchant reference.",
+          "required": false
+        },
+        "method": {
+          "type": "string",
+          "desc": "Specifies the HTTP method, for example GET or POST.",
+          "required": false
+        },
+        "paymentData": {
+          "type": "string",
+          "desc": "When non-empty, contains a value that you must submit to the /payments/details endpoint. In some cases, required for polling.",
+          "required": false
+        },
+        "paymentMethodType": {
+          "type": "string",
+          "desc": "Specifies the payment method.",
+          "required": false
+        },
+        "qrCodeData": {
+          "type": "string",
+          "desc": "The contents of the QR code as a UTF8 string.",
+          "required": false
+        },
+        "reference": {
+          "type": "string",
+          "desc": "The voucher reference code.",
+          "required": false
+        },
+        "shopperEmail": {
+          "type": "string",
+          "desc": "The shopper email.",
+          "required": false
+        },
+        "shopperName": {
+          "type": "string",
+          "desc": "The shopper name.",
+          "required": false
+        },
+        "surcharge": {
+          "type": "string",
+          "desc": "The surcharge amount.",
+          "required": true
+        },
+        "token": {
+          "type": "string",
+          "desc": "A token to pass to the 3DS2 Component to get the fingerprint/challenge.",
+          "required": false
+        },
+        "totalAmount": {
+          "type": "string",
+          "desc": "The total amount (initial plus surcharge amount).",
+          "required": true
+        },
+        "type": {
+          "type": "string",
+          "desc": "Enum that specifies the action that needs to be taken by the client.",
+          "required": false
+        },
+        "url": {
+          "type": "string",
+          "desc": "Specifies the URL to redirect to.",
+          "required": false
+        }
+      }
+    },
+    "additionalData": {
+      "type": "string",
+      "desc": "This field contains additional data, which may be required to return in a particular payment response. To choose data fields to be returned, go to Customer Area > Account > API URLs > Additional data settings.",
+      "required": false,
+      "children": {
+        "acquirerAccountCode": {
+          "type": "string",
+          "desc": "The name of the Adyen acquirer account.\nExample: PayPalSandbox_TestAcquirer\n\nOnly relevant for PayPal transactions.",
+          "required": false
+        },
+        "acquirerCode": {
+          "type": "string",
+          "desc": "The name of the acquirer processing the payment request.\nExample: TestPmmAcquirer",
+          "required": false
+        },
+        "acquirerReference": {
+          "type": "string",
+          "desc": "The reference number that can be used for reconciliation in case a non-Adyen acquirer is used for settlement.\nExample: 7C9N3FNBKT9",
+          "required": false
+        },
+        "alias": {
+          "type": "string",
+          "desc": "The Adyen alias of the card.\nExample: H167852639363479",
+          "required": false
+        },
+        "aliasType": {
+          "type": "string",
+          "desc": "The type of the card alias.\nExample: Default",
+          "required": false
+        },
+        "authCode": {
+          "type": "string",
+          "desc": "Authorisation code:\n\nWhen the payment is authorised successfully, this field holds the authorisation code for the payment.\nWhen the payment is not authorised, this field is empty.\n\nExample: 58747",
+          "required": false
+        },
+        "authorisedAmountCurrency": {
+          "type": "string",
+          "desc": "The currency of the authorised amount, as a three-character ISO currency code.",
+          "required": false
+        },
+        "authorisedAmountValue": {
+          "type": "string",
+          "desc": "Value of the amount authorised.\nThis amount is represented in minor units according to the following table.",
+          "required": false
+        },
+        "avsResult": {
+          "type": "string",
+          "desc": "The AVS result code of the payment, which provides information about the outcome of the AVS check.\nFor possible values, see AVS.",
+          "required": false
+        },
+        "avsResultRaw": {
+          "type": "string",
+          "desc": "Raw AVS result received from the acquirer, where available.\nExample: D",
+          "required": false
+        },
+        "bic": {
+          "type": "string",
+          "desc": "BIC of a bank account.\nExample: TESTNL01\n\nOnly relevant for SEPA Direct Debit transactions.",
+          "required": false
+        },
+        "dsTransID": {
+          "type": "string",
+          "desc": "Supported for 3D Secure 2. The unique transaction identifier assigned by the DS to identify a single transaction.",
+          "required": false
+        },
+        "eci": {
+          "type": "string",
+          "desc": "The Electronic Commerce Indicator returned from the schemes for the 3DS payment session.\nExample: 02",
+          "required": false
+        },
+        "expiryDate": {
+          "type": "string",
+          "desc": "The expiry date on the card.\nExample: 6/2016\n\nReturned only in case of a card payment.",
+          "required": false
+        },
+        "extraCostsCurrency": {
+          "type": "string",
+          "desc": "The currency of the extra amount charged due to additional amounts set in the skin used in the HPP payment request.\nExample: EUR",
+          "required": false
+        },
+        "extraCostsValue": {
+          "type": "string",
+          "desc": "The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units.",
+          "required": false
+        },
+        "fraudCheck-[itemNr]-[FraudCheckname]": {
+          "type": "string",
+          "desc": "The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair.",
+          "required": false
+        },
+        "fundingSource": {
+          "type": "string",
+          "desc": "Information regarding the funding type of the card. The possible return values are:\n\nCHARGE\nCREDIT\nDEBIT\nPREPAID\nPREPAID_RELOADABLE\nPREPAID_NONRELOADABLE\nDEFFERED_DEBIT\n\n\nThis functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.\n\nFor receiving this field in the notification, enable Include Funding Source in Notifications > Additional settings.",
+          "required": false
+        },
+        "fundsAvailability": {
+          "type": "string",
+          "desc": "Indicates availability of funds.\nVisa:\n\n\"I\" (fast funds are supported)\n\"N\" (otherwise)\n\nMastercard:\n\n\"I\" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list)\n\"N\" (otherwise)\n\n\nReturned when you verify a card BIN or estimate costs, and only if payoutEligible is \"Y\" or \"D\".",
+          "required": false
+        },
+        "inferredRefusalReason": {
+          "type": "string",
+          "desc": "Provides the more granular indication of why a transaction was refused. When a transaction fails with either \"Refused\", \"Restricted Card\", \"Transaction Not Permitted\", \"Not supported\" or \"DeclinedNon Generic\" refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the inferredRefusalReason, field is populated and the refusalReason, is set to \"Not Supported\".\nPossible values:\n\n3D Secure Mandated\nClosed Account\nContAuth Not Supported\nCVC Mandated\nEcommerce Not Allowed\nCrossborder Not Supported\nCard Updated\nLow Authrate Bin\nNon-reloadable prepaid card",
+          "required": false
+        },
+        "issuerCountry": {
+          "type": "string",
+          "desc": "The issuing country of the card based on the BIN list that Adyen maintains.\nExample: JP",
+          "required": false
+        },
+        "mcBankNetReferenceNumber": {
+          "type": "string",
+          "desc": "The mcBankNetReferenceNumber, is a minimum of six characters and a maximum of nine characters long.\n\nContact Support Team to enable this field.",
+          "required": false
+        },
+        "networkTxReference": {
+          "type": "string",
+          "desc": "Returned in the response if you are not tokenizing with Adyen and are using the Merchant-initiated transactions (MIT) framework from Mastercard or Visa.\nThis contains either the Mastercard Trace ID or the Visa Transaction ID.",
+          "required": false
+        },
+        "ownerName": {
+          "type": "string",
+          "desc": "The owner name of a bank account.\nOnly relevant for SEPA Direct Debit transactions.",
+          "required": false
+        },
+        "paymentAccountReference": {
+          "type": "string",
+          "desc": "The Payment Account Reference (PAR) value links a network token with the underlying primary account number (PAN). The PAR value consists of 29 uppercase alphanumeric characters.",
+          "required": false
+        },
+        "paymentMethodVariant": {
+          "type": "string",
+          "desc": "The Adyen sub-variant of the payment method used for the payment request.\nFor more information, refer to PaymentMethodVariant.\nExample: mcpro",
+          "required": false
+        },
+        "payoutEligible": {
+          "type": "string",
+          "desc": "Indicates whether a payout is eligible or not for this card.\nVisa:\n\n\"Y\"\n\"N\"\n\nMastercard:\n\n\"Y\" (domestic and cross-border)\n\"D\" (only domestic)\n\"N\" (no MoneySend)\n\"U\" (unknown)",
+          "required": false
+        },
+        "realtimeAccountUpdaterStatus": {
+          "type": "string",
+          "desc": "The response code from the Real Time Account Updater service.\nPossible return values are:\n\nCardChanged\nCardExpiryChanged\nCloseAccount\nContactCardAccountHolder",
+          "required": false
+        },
+        "receiptFreeText": {
+          "type": "string",
+          "desc": "Message to be displayed on the terminal.",
+          "required": false
+        },
+        "recurring.firstPspReference": {
+          "type": "string",
+          "desc": "The pspReference, of the first recurring payment that created the recurring detail.\nThis functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.",
+          "required": false
+        },
+        "recurring.recurringDetailReference": {
+          "type": "string",
+          "desc": "The reference that uniquely identifies the recurring transaction.",
+          "required": false
+        },
+        "referred": {
+          "type": "string",
+          "desc": "If the payment is referred, this field is set to true.\nThis field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.\nExample: true",
+          "required": false
+        },
+        "refusalReasonRaw": {
+          "type": "string",
+          "desc": "Raw refusal reason received from the acquirer, where available.\nExample: AUTHORISED",
+          "required": false
+        },
+        "shopperInteraction": {
+          "type": "string",
+          "desc": "The shopper interaction type of the payment request.\nExample: Ecommerce",
+          "required": false
+        },
+        "shopperReference": {
+          "type": "string",
+          "desc": "The shopperReference passed in the payment request.\nExample: AdyenTestShopperXX",
+          "required": false
+        },
+        "terminalId": {
+          "type": "string",
+          "desc": "The terminal ID used in a point-of-sale payment.\nExample: 06022622",
+          "required": false
+        },
+        "threeDAuthenticated": {
+          "type": "string",
+          "desc": "A Boolean value indicating whether 3DS authentication was completed on this payment.\nExample: true",
+          "required": false
+        },
+        "threeDAuthenticatedResponse": {
+          "type": "string",
+          "desc": "The raw 3DS authentication result from the card issuer.\nExample: N",
+          "required": false
+        },
+        "threeDOffered": {
+          "type": "string",
+          "desc": "A Boolean value indicating whether 3DS was offered for this payment.\nExample: true",
+          "required": false
+        },
+        "threeDOfferedResponse": {
+          "type": "string",
+          "desc": "The raw enrollment result from the 3DS directory services of the card schemes.\nExample: Y",
+          "required": false
+        },
+        "threeDSVersion": {
+          "type": "string",
+          "desc": "The 3D Secure 2 version.",
+          "required": false
+        },
+        "visaTransactionId": {
+          "type": "string",
+          "desc": "The visaTransactionId, has a fixed length of 15 numeric characters.\n\nContact Support Team to enable this field.",
+          "required": false
+        },
+        "xid": {
+          "type": "string",
+          "desc": "The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse 'N' or 'Y'. If you want to submit the xid in your 3D Secure 1 request, use the mpiData.xid, field.\nExample: ODgxNDc2MDg2MDExODk5MAAAAAA=",
+          "required": false
+        },
+        "billingAddress.city": {
+          "type": "string",
+          "desc": "The billing address city passed in the payment request.",
+          "required": false
+        },
+        "billingAddress.country": {
+          "type": "string",
+          "desc": "The billing address country passed in the payment request.\nExample: NL",
+          "required": false
+        },
+        "billingAddress.houseNumberOrName": {
+          "type": "string",
+          "desc": "The billing address house number or name passed in the payment request.",
+          "required": false
+        },
+        "billingAddress.postalCode": {
+          "type": "string",
+          "desc": "The billing address postal code passed in the payment request.\nExample: 1011 DJ",
+          "required": false
+        },
+        "billingAddress.stateOrProvince": {
+          "type": "string",
+          "desc": "The billing address state or province passed in the payment request.\nExample: NH",
+          "required": false
+        },
+        "billingAddress.street": {
+          "type": "string",
+          "desc": "The billing address street passed in the payment request.",
+          "required": false
+        },
+        "cardBin": {
+          "type": "string",
+          "desc": "The Bank Identification Number of a credit card, which is the first six digits of a card number.\nExample: 521234",
+          "required": false
+        },
+        "cardHolderName": {
+          "type": "string",
+          "desc": "The cardholder name passed in the payment request.",
+          "required": false
+        },
+        "cardIssuingBank": {
+          "type": "string",
+          "desc": "The bank or the financial institution granting lines of credit through card association branded payment cards. This information can be included when available.",
+          "required": false
+        },
+        "cardIssuingCountry": {
+          "type": "string",
+          "desc": "The country where the card was issued.\nExample: US",
+          "required": false
+        },
+        "cardIssuingCurrency": {
+          "type": "string",
+          "desc": "The currency in which the card is issued, if this information is available.\nExample: USD",
+          "required": false
+        },
+        "cardPaymentMethod": {
+          "type": "string",
+          "desc": "The card payment method used for the transaction.\nExample: amex",
+          "required": false
+        },
+        "cardSummary": {
+          "type": "string",
+          "desc": "The last four digits of a card number.\n\nReturned only in case of a card payment.",
+          "required": false
+        },
+        "deliveryAddress.city": {
+          "type": "string",
+          "desc": "The delivery address city passed in the payment request.",
+          "required": false
+        },
+        "deliveryAddress.country": {
+          "type": "string",
+          "desc": "The delivery address country passed in the payment request.\nExample: NL",
+          "required": false
+        },
+        "deliveryAddress.houseNumberOrName": {
+          "type": "string",
+          "desc": "The delivery address house number or name passed in the payment request.",
+          "required": false
+        },
+        "deliveryAddress.postalCode": {
+          "type": "string",
+          "desc": "The delivery address postal code passed in the payment request.\nExample: 1011 DJ",
+          "required": false
+        },
+        "deliveryAddress.stateOrProvince": {
+          "type": "string",
+          "desc": "The delivery address state or province passed in the payment request.\nExample: NH",
+          "required": false
+        },
+        "deliveryAddress.street": {
+          "type": "string",
+          "desc": "The delivery address street passed in the payment request.",
+          "required": false
+        },
+        "installments.value": {
+          "type": "string",
+          "desc": "The number of installments that the payment amount should be charged with.\nExample: 5\n\nOnly relevant for card payments in countries that support installments.",
+          "required": false
+        },
+        "installmentPaymentData.installmentType": {
+          "type": "string",
+          "desc": "Type of installment. The value of installmentType should be IssuerFinanced.",
+          "required": false
+        },
+        "installmentPaymentData.paymentOptions": {
+          "type": "string",
+          "desc": "Possible values:\n\nPayInInstallmentsOnly\nPayInFullOnly\nPayInFullOrInstallments",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].numberOfInstallments": {
+          "type": "string",
+          "desc": "Total number of installments possible for this payment.",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].interestRate": {
+          "type": "string",
+          "desc": "Interest rate for the installment period.",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].installmentFee": {
+          "type": "string",
+          "desc": "Installment fee amount in minor units.",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].annualPercentageRate": {
+          "type": "string",
+          "desc": "Annual interest rate.",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].firstInstallmentAmount": {
+          "type": "string",
+          "desc": "First Installment Amount in minor units.",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].subsequentInstallmentAmount": {
+          "type": "string",
+          "desc": "Subsequent Installment Amount in minor units.",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].minimumNumberOfInstallments": {
+          "type": "string",
+          "desc": "Minimum number of installments possible for this payment.",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].maximumNumberOfInstallments": {
+          "type": "string",
+          "desc": "Maximum number of installments possible for this payment.",
+          "required": false
+        },
+        "installmentPaymentData.option[itemNr].totalAmountDue": {
+          "type": "string",
+          "desc": "Total amount in minor units.",
+          "required": false
+        },
+        "networkToken.available": {
+          "type": "string",
+          "desc": "Indicates whether a network token is available for the specified card.",
+          "required": false
+        },
+        "networkToken.bin": {
+          "type": "string",
+          "desc": "The Bank Identification Number of a tokenized card, which is the first six digits of a card number.",
+          "required": false
+        },
+        "networkToken.tokenSummary": {
+          "type": "string",
+          "desc": "The last four digits of a card number.",
+          "required": false
+        },
+        "paypalPayerStatus": {
+          "type": "string",
+          "desc": "The status of the buyer's PayPal account.\nExample: unverified",
+          "required": false
+        },
+        "paypalPayerResidenceCountry": {
+          "type": "string",
+          "desc": "The buyer's country of residence.\nExample: NL",
+          "required": false
+        },
+        "paypalPayerId": {
+          "type": "string",
+          "desc": "The buyer's PayPal ID.\nExample: LF5HCWWBRV2KL",
+          "required": false
+        },
+        "paypalEmail": {
+          "type": "string",
+          "desc": "The buyer's PayPal account email address.\nExample: paypaltest@adyen.com",
+          "required": false
+        },
+        "paypalProtectionEligibility": {
+          "type": "string",
+          "desc": "The eligibility for PayPal Seller Protection for this payment.\nExample: Ineligible",
+          "required": false
+        },
+        "sepadirectdebit.dateOfSignature": {
+          "type": "string",
+          "desc": "The transaction signature date.\nFormat: yyyy-MM-dd",
+          "required": false
+        },
+        "sepadirectdebit.mandateId": {
+          "type": "string",
+          "desc": "Its value corresponds to the  pspReference value of the transaction.",
+          "required": false
+        },
+        "sepadirectdebit.sequenceType": {
+          "type": "string",
+          "desc": "This field can take one of the following values:\n\nOneOff: (OOFF) Direct debit instruction to initiate exactly one direct debit transaction.\nFirst: (FRST) Initial/first collection in a series of direct debit instructions.\nRecurring: (RCUR) Direct debit instruction to carry out regular direct debit transactions initiated by the creditor.\nFinal: (FNAL) Last/final collection in a series of direct debit instructions.\n\nExample: OOFF",
+          "required": false
+        }
+      }
+    },
+    "amount": {
+      "type": "string",
+      "desc": "Authorised amount in the transaction.",
+      "required": true,
+      "children": {
+        "currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": true
+        },
+        "value": {
+          "type": "integer",
+          "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+          "required": true
+        }
+      }
+    },
+    "authentication": {
+      "type": "object",
+      "desc": "Contains threeds2.fingerprint or threeds2.challengeToken values to be used in further calls to /payments/details endpoint.",
+      "required": false
+    },
+    "details": {
+      "type": "array",
+      "desc": "When non-empty, contains all the fields that you must submit to the /payments/details endpoint.",
+      "required": false,
+      "children": {
+        "configuration": {
+          "type": "object",
+          "desc": "Configuration parameters for the required input.",
+          "required": false
+        },
+        "details": {
+          "type": "array",
+          "desc": "Input details can also be provided recursively.",
+          "required": false
+        },
+        "items": {
+          "type": "array",
+          "desc": "In case of a select, the items to choose from.",
+          "required": false
+        },
+        "id": {
+          "type": "string",
+          "desc": "The value to provide in the result.",
+          "required": false
+        },
+        "name": {
+          "type": "string",
+          "desc": "The display name.",
+          "required": false
+        },
+        "key": {
+          "type": "string",
+          "desc": "The value to provide in the result.",
+          "required": false
+        },
+        "optional": {
+          "type": "boolean",
+          "desc": "True if this input value is optional.",
+          "required": false
+        },
+        "type": {
+          "type": "string",
+          "desc": "The type of the required input.",
+          "required": false
+        },
+        "value": {
+          "type": "string",
+          "desc": "The value can be pre-filled, if available.",
+          "required": false
+        },
+        "inputDetails": {
+          "type": "array",
+          "desc": "DeprecatedInput details can also be provided recursively (deprecated).",
+          "required": false
+        },
+        "itemSearchUrl": {
+          "type": "string",
+          "desc": "In case of a select, the URL from which to query the items.",
+          "required": false
+        }
+      }
+    },
+    "fraudResult": {
+      "type": "integer",
+      "desc": "The fraud result properties of the payment.",
+      "required": true,
+      "children": {
+        "accountScore": {
+          "type": "integer",
+          "desc": "The fraud score generated by the risk check.",
+          "required": true
+        },
+        "results": {
+          "type": "array",
+          "desc": "The result of the individual risk checks.",
+          "required": true
+        },
+        "checkId": {
+          "type": "integer",
+          "desc": "The ID of the risk check.",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "desc": "The name of the risk check.",
+          "required": true
+        }
+      }
+    },
+    "merchantReference": {
+      "type": "string",
+      "desc": "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement.\nIf you need to provide multiple references for a transaction, separate them with hyphens (\"-\").\nMaximum length: 80 characters.",
+      "required": false
+    },
+    "outputDetails": {
+      "type": "object",
+      "desc": "Contains the details that will be presented to the shopper.",
+      "required": false
+    },
+    "paymentData": {
+      "type": "string",
+      "desc": "When non-empty, contains a value that you must submit to the /payments/details endpoint.",
+      "required": false
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "Adyen's 16-character string reference associated with the transaction/request. This value is globally unique; quote it when communicating with us about this request.\n\npspReference is returned only for non-redirect payment methods.",
+      "required": false
+    },
+    "redirect": {
+      "type": "object",
+      "desc": "When the payment flow requires a redirect, this object contains information about the redirect URL.",
+      "required": false,
+      "children": {
+        "data": {
+          "type": "object",
+          "desc": "When the redirect URL must be accessed via POST, use this data to post to the redirect URL.",
+          "required": false
+        },
+        "method": {
+          "type": "string",
+          "desc": "The web method that you must use to access the redirect URL.\nPossible values: GET, POST.",
+          "required": false
+        },
+        "url": {
+          "type": "string",
+          "desc": "The URL, to which you must redirect a shopper to complete a payment.",
+          "required": false
+        }
+      }
+    },
+    "refusalReason": {
+      "type": "string",
+      "desc": "If the payment's authorisation is refused or an error occurs during authorisation, this field holds Adyen's mapped reason for the refusal or a description of the error.\nWhen a transaction fails, the authorisation response includes resultCode and refusalReason values.",
+      "required": false
+    },
+    "refusalReasonCode": {
+      "type": "string",
+      "desc": "Code that specifies the refusal reason. For more information, see Authorisation refusal reasons.",
+      "required": false
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result of the payment. Possible values:\n\nAuthenticationFinished – The payment has been successfully authenticated with 3D Secure 2. Returned for 3D Secure 2 authentication-only transactions.\nAuthorised – The payment was successfully authorised. This state serves as an indicator to proceed with the delivery of goods and services. This is a final state.\nCancelled – Indicates the payment has been cancelled (either by the shopper or the merchant) before processing was completed. This is a final state.\nChallengeShopper – The issuer requires further shopper interaction before the payment can be authenticated. Returned for 3D Secure 2 transactions.\nError – There was an error when the payment was being processed. The reason is given in the refusalReason field. This is a final state.\nIdentifyShopper – The issuer requires the shopper's device fingerprint before the payment can be authenticated. Returned for 3D Secure 2 transactions.\nPending – Indicates that it is not possible to obtain the final status of the payment. This can happen if the systems providing final status information for the payment are unavailable, or if the shopper needs to take further action to complete the payment. For more information, refer to Result codes.\nPresentToShopper – Indicates that the response contains additional information that you need to present to a shopper, so that they can use it to complete a payment.\nReceived – Indicates the payment has successfully been received by Adyen, and will be processed. This is the initial state for all payments.\nRedirectShopper – Indicates the shopper should be redirected to an external web page or app to complete the authorisation.\nRefused – Indicates the payment was refused. The reason is given in the refusalReason field. This is a final state.",
+      "required": false
+    }
+  }
+}

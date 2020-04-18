@@ -1,0 +1,200 @@
+{
+  "type": "Class",
+  "name": "ICCameraDevice",
+  "desc": "An object that represents a camera.",
+  "items": [
+    {
+      "name": "contents",
+      "type": "var",
+      "datatype": "[ICCameraItem]?",
+      "desc": "All image, movie, and audio files stored on the camera, in an order that reflects the camera’s storage folder structure."
+    },
+    {
+      "name": "mediaFiles",
+      "type": "var",
+      "datatype": "[ICCameraItem]?",
+      "desc": "All image, movie and audio files stored on the camera, without regard to the camera’s storage folder structure."
+    },
+    {
+      "name": "contentCatalogPercentCompleted",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The percentage of the camera’s content that has been catalogued."
+    },
+    {
+      "name": "files",
+      "type": "func",
+      "desc": "Returns an array of files of the selected type on the camera.",
+      "params": [
+        {
+          "name": "ofType",
+          "type": "String"
+        }
+      ],
+      "returnType": "[String]?"
+    },
+    {
+      "name": "requestReadData",
+      "type": "func",
+      "desc": "Asynchronously reads data of a specified length from a specified offset.",
+      "params": [
+        {
+          "name": "from",
+          "type": "ICCameraFile"
+        },
+        {
+          "name": "atOffset",
+          "type": "off_t"
+        },
+        {
+          "name": "length",
+          "type": "off_t"
+        },
+        {
+          "name": "readDelegate",
+          "type": "Any"
+        },
+        {
+          "name": "didReadDataSelector",
+          "type": "Selector"
+        },
+        {
+          "name": "contextInfo",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "cancelDownload",
+      "type": "func",
+      "desc": "Cancels a download from the camera.",
+      "params": []
+    },
+    {
+      "name": "isLocked",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the device is locked, preventing deletion of any asset."
+    },
+    {
+      "name": "requestDeleteFiles",
+      "type": "func",
+      "desc": "Deletes files from the camera.",
+      "params": [
+        {
+          "type": "[ICCameraItem]"
+        }
+      ]
+    },
+    {
+      "name": "cancelDelete",
+      "type": "func",
+      "desc": "Cancels the current delete operation.",
+      "params": []
+    },
+    {
+      "name": "tetheredCaptureEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether tethered capture is enabled on the camera."
+    },
+    {
+      "name": "ptpEventHandler",
+      "type": "var",
+      "datatype": "(Data)",
+      "desc": "A closure for handling PTP event packets."
+    },
+    {
+      "name": "requestEnableTethering",
+      "type": "func",
+      "desc": "Enables tethered capture if the camera has the capability to take pictures while connected.",
+      "params": []
+    },
+    {
+      "name": "requestTakePicture",
+      "type": "func",
+      "desc": "Captures a new image using the camera.",
+      "params": []
+    },
+    {
+      "name": "requestSendPTPCommand",
+      "type": "func",
+      "desc": "Sends a Picture Transfer Protocol (PTP) command to a camera asynchronously.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "name": "outData",
+          "type": "Data?"
+        },
+        {
+          "name": "sendCommandDelegate",
+          "type": "Any"
+        },
+        {
+          "name": "didSendCommand",
+          "type": "Selector"
+        },
+        {
+          "name": "contextInfo",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "requestDisableTethering",
+      "type": "func",
+      "desc": "Disables tethered capture on the camera.",
+      "params": []
+    },
+    {
+      "name": "batteryLevelAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the battery charge level is available."
+    },
+    {
+      "name": "batteryLevel",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The battery charge level."
+    },
+    {
+      "name": "timeOffset",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The time offset, in seconds, between the camera’s clock and the computer’s clock."
+    },
+    {
+      "name": "requestSyncClock",
+      "type": "func",
+      "desc": "Synchronizes the camera’s clock with the computer’s clock.",
+      "params": []
+    },
+    {
+      "name": "isAccessRestrictedAppleDevice",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the device is an Apple device, passcode-locked, and connected to an untrusted host."
+    },
+    {
+      "name": "iCloudPhotosEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the iCloud Photo Library is enabled on the device."
+    },
+    {
+      "name": "mountPoint",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The file system mount point for a camera using the mass storage transport type."
+    },
+    {
+      "name": "isEjectable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the device can be ‘soft’ removed or disconnected."
+    }
+  ]
+}

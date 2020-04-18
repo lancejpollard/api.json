@@ -1,0 +1,121 @@
+{
+  "type": "Class",
+  "name": "AVCaptureResolvedPhotoSettings",
+  "desc": "A description of the features and settings in use for an in-progress or complete photo capture request.",
+  "items": [
+    {
+      "name": "uniqueID",
+      "type": "var",
+      "datatype": "Int64",
+      "desc": "The unique identifier for the photo capture this settings object corresponds to."
+    },
+    {
+      "name": "expectedPhotoCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of photo capture results in the capture request."
+    },
+    {
+      "name": "isFlashEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the camera flash will fire or has fired for this capture."
+    },
+    {
+      "name": "isStillImageStabilizationEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this capture uses image stabilization."
+    },
+    {
+      "name": "isDualCameraFusionEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this capture combines image data from a dual camera."
+    },
+    {
+      "name": "isRedEyeReductionEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the camera automatically reduces red-eye when capturing photos."
+    },
+    {
+      "name": "isVirtualDeviceFusionEnabled",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "photoProcessingTimeRange",
+      "type": "var",
+      "datatype": "CMTimeRange"
+    },
+    {
+      "name": "photoDimensions",
+      "type": "var",
+      "datatype": "CMVideoDimensions",
+      "desc": "The size, in pixels, of the photo image (in a processed format such as JPEG) delivered by this capture."
+    },
+    {
+      "name": "rawPhotoDimensions",
+      "type": "var",
+      "datatype": "CMVideoDimensions",
+      "desc": "The size, in pixels, of the RAW-format photo image delivered by this capture."
+    },
+    {
+      "name": "previewDimensions",
+      "type": "var",
+      "datatype": "CMVideoDimensions",
+      "desc": "The size, in pixels, of the preview image delivered along with this capture."
+    },
+    {
+      "name": "embeddedThumbnailDimensions",
+      "type": "var",
+      "datatype": "CMVideoDimensions",
+      "desc": "The size, in pixels, of the thumbnail image delivered in this capture."
+    },
+    {
+      "name": "rawEmbeddedThumbnailDimensions",
+      "type": "var",
+      "datatype": "CMVideoDimensions",
+      "desc": "The size, in pixels, of the RAW-format embedded thumbnail image delivered by this capture."
+    },
+    {
+      "name": "livePhotoMovieDimensions",
+      "type": "var",
+      "datatype": "CMVideoDimensions",
+      "desc": "The size, in pixels, of the Live Photo movie content delivered by this capture."
+    },
+    {
+      "name": "portraitEffectsMatteDimensions",
+      "type": "var",
+      "datatype": "CMVideoDimensions",
+      "desc": "The size, in pixels, of the portrait effects matte delivered by this capture."
+    },
+    {
+      "name": "dimensionsForSemanticSegmentationMatte",
+      "type": "func",
+      "params": [
+        {
+          "name": "ofType",
+          "type": "AVSemanticSegmentationMatte.MatteType"
+        }
+      ],
+      "returnType": "CMVideoDimensions"
+    },
+    {
+      "name": "capturePhoto",
+      "type": "func",
+      "desc": "Initiates a photo capture using the specified settings.",
+      "params": [
+        {
+          "name": "with",
+          "type": "AVCapturePhotoSettings"
+        },
+        {
+          "name": "delegate",
+          "type": "AVCapturePhotoCaptureDelegate"
+        }
+      ]
+    }
+  ]
+}

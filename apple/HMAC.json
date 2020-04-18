@@ -1,0 +1,97 @@
+{
+  "type": "Generic Structure",
+  "name": "HMAC",
+  "desc": "A hash-based message authentication algorithm.",
+  "items": [
+    {
+      "name": "authenticationCode<D>",
+      "type": "static func",
+      "desc": "Computes a message authentication code for the given data.",
+      "params": [
+        {
+          "name": "for",
+          "type": "D"
+        },
+        {
+          "name": "using",
+          "type": "SymmetricKey"
+        }
+      ],
+      "returnType": "HMAC<H>.MAC"
+    },
+    {
+      "name": "update<D>",
+      "type": "func",
+      "desc": "Updates the message authentication code computation with a block of data.",
+      "params": [
+        {
+          "name": "data",
+          "type": "D"
+        }
+      ]
+    },
+    {
+      "name": "finalize",
+      "type": "func",
+      "desc": "Finalizes the message authentication computation and returns the computed code.",
+      "params": [],
+      "returnType": "HMAC<H>.MAC"
+    },
+    {
+      "name": "isValidAuthenticationCode<D>",
+      "type": "static func",
+      "desc": "Returns a Boolean indicating whether the given code is valid for a block of data.",
+      "params": [
+        {
+          "type": "HMAC<H>.MAC"
+        },
+        {
+          "name": "authenticating",
+          "type": "D"
+        },
+        {
+          "name": "using",
+          "type": "SymmetricKey"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isValidAuthenticationCode",
+      "type": "static func",
+      "desc": "Returns a Boolean indicating whether the given code is valid for a block of data stored in a buffer.",
+      "params": [
+        {
+          "type": "HMAC<H>.MAC"
+        },
+        {
+          "name": "authenticating",
+          "type": "UnsafeRawBufferPointer"
+        },
+        {
+          "name": "using",
+          "type": "SymmetricKey"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isValidAuthenticationCode<C, D>",
+      "type": "static func",
+      "params": [
+        {
+          "type": "C"
+        },
+        {
+          "name": "authenticating",
+          "type": "D"
+        },
+        {
+          "name": "using",
+          "type": "SymmetricKey"
+        }
+      ],
+      "returnType": "Bool"
+    }
+  ]
+}

@@ -1,0 +1,937 @@
+{
+  "type": "Protocol",
+  "name": "MTLDevice",
+  "desc": "The Metal interface to a GPU that you use to draw graphics or do parallel computation.",
+  "items": [
+    {
+      "name": "MTLCreateSystemDefaultDevice",
+      "type": "func",
+      "desc": "Returns a reference to the preferred default Metal device object.",
+      "params": [],
+      "returnType": "MTLDevice?"
+    },
+    {
+      "name": "MTLCopyAllDevices",
+      "type": "func",
+      "desc": "Returns an array of references to all Metal device objects in the system.",
+      "params": [],
+      "returnType": "[MTLDevice]"
+    },
+    {
+      "name": "MTLRemoveDeviceObserver",
+      "type": "func",
+      "desc": "Removes a registered observer of device notifications.",
+      "params": [
+        {
+          "type": "NSObjectProtocol"
+        }
+      ]
+    },
+    {
+      "name": "name",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The name of the device."
+    },
+    {
+      "name": "isHeadless",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether a device is configured as headless."
+    },
+    {
+      "name": "isLowPower",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether a device is low-power."
+    },
+    {
+      "name": "isRemovable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether or not a GPU is removable."
+    },
+    {
+      "name": "registryID",
+      "type": "var",
+      "datatype": "UInt64",
+      "desc": "The registry ID value for the device."
+    },
+    {
+      "name": "location",
+      "type": "var",
+      "datatype": "MTLDeviceLocation",
+      "desc": "The physical location of the GPU relative to the host computer."
+    },
+    {
+      "name": "locationNumber",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A more detailed specifier for the GPU's location."
+    },
+    {
+      "name": "maxTransferRate",
+      "type": "var",
+      "datatype": "UInt64",
+      "desc": "The highest theoretical rate of transfer between system RAM and dedicated GPU memory (VRAM), measured in bytes per second."
+    },
+    {
+      "name": "hasUnifiedMemory",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean that indicates whether the GPU shares all of its memory with the CPU."
+    },
+    {
+      "name": "MTLDeviceLocation",
+      "type": "enum",
+      "desc": "Options describing possible locations for the GPU."
+    },
+    {
+      "name": "peerGroupID",
+      "type": "var",
+      "datatype": "UInt64",
+      "desc": "The peer group, if any, that the GPU belongs to."
+    },
+    {
+      "name": "peerCount",
+      "type": "var",
+      "datatype": "UInt32",
+      "desc": "The number of GPUs in the peer group."
+    },
+    {
+      "name": "peerIndex",
+      "type": "var",
+      "datatype": "UInt32",
+      "desc": "The unique identifier for a GPU in a peer group."
+    },
+    {
+      "name": "supportsFamily",
+      "type": "func",
+      "desc": "Determines whether the device object supports the feature set of a particular GPU family.",
+      "params": [
+        {
+          "type": "MTLGPUFamily"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "supportsFeatureSet",
+      "type": "func",
+      "desc": "Determines whether a device supports a particular feature set.",
+      "params": [
+        {
+          "type": "MTLFeatureSet"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "MTLGPUFamily",
+      "type": "enum",
+      "desc": "Options for families of GPUs."
+    },
+    {
+      "name": "MTLFeatureSet",
+      "type": "enum",
+      "desc": "The device feature sets that define specific platform, hardware, and software configurations."
+    },
+    {
+      "name": "recommendedMaxWorkingSetSize",
+      "type": "var",
+      "datatype": "UInt64",
+      "desc": "An approximation of how much memory, in bytes, this device can use with good performance."
+    },
+    {
+      "name": "currentAllocatedSize",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The current size, in bytes, of all resources allocated on this device for this process."
+    },
+    {
+      "name": "maxThreadgroupMemoryLength",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum threadgroup memory available to a compute kernel, in bytes."
+    },
+    {
+      "name": "maxThreadsPerThreadgroup",
+      "type": "var",
+      "datatype": "MTLSize",
+      "desc": "The maximum number of threads along each dimension of a threadgroup."
+    },
+    {
+      "name": "areProgrammableSamplePositionsSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean that indicates whether a device supports programmable sample positions."
+    },
+    {
+      "name": "getDefaultSamplePositions",
+      "type": "func",
+      "desc": "Retrieves the default sample positions for a specific sample count.",
+      "params": [
+        {
+          "name": "sampleCount",
+          "type": "Int"
+        }
+      ],
+      "returnType": "[MTLSamplePosition]"
+    },
+    {
+      "name": "areRasterOrderGroupsSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether a device supports raster order groups."
+    },
+    {
+      "name": "isDepth24Stencil8PixelFormatSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether a device supports a packed depth-and-stencil pixel format."
+    },
+    {
+      "name": "areBarycentricCoordsSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the GPU supports barycentric coordinates."
+    },
+    {
+      "name": "supportsShaderBarycentricCoordinates",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Required."
+    },
+    {
+      "name": "supportsVertexAmplificationCount",
+      "type": "func",
+      "desc": "Determines whether a given amplification count is supported by the device object.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "makeCommandQueue",
+      "type": "func",
+      "desc": "Creates a command submission queue.",
+      "params": [],
+      "returnType": "MTLCommandQueue?"
+    },
+    {
+      "name": "makeCommandQueue",
+      "type": "func",
+      "desc": "Creates a command submission queue with a fixed maximum number of uncompleted command buffers.",
+      "params": [
+        {
+          "name": "maxCommandBufferCount",
+          "type": "Int"
+        }
+      ],
+      "returnType": "MTLCommandQueue?"
+    },
+    {
+      "name": "makeEvent",
+      "type": "func",
+      "desc": "Creates a new event whose use is limited to the device object.",
+      "params": [],
+      "returnType": "MTLEvent?"
+    },
+    {
+      "name": "makeSharedEvent",
+      "type": "func",
+      "desc": "Creates a shareable event.",
+      "params": [],
+      "returnType": "MTLSharedEvent?"
+    },
+    {
+      "name": "makeSharedEvent",
+      "type": "func",
+      "desc": "Re-creates a shareable event from a shareable event handle.",
+      "params": [
+        {
+          "name": "handle",
+          "type": "MTLSharedEventHandle"
+        }
+      ],
+      "returnType": "MTLSharedEvent?"
+    },
+    {
+      "name": "makeFence",
+      "type": "func",
+      "desc": "Creates a new fence.",
+      "params": [],
+      "returnType": "MTLFence?"
+    },
+    {
+      "name": "makeDefaultLibrary",
+      "type": "func",
+      "desc": "Creates a library object containing the functions in the app’s default Metal library.",
+      "params": [],
+      "returnType": "MTLLibrary?"
+    },
+    {
+      "name": "makeDefaultLibrary",
+      "type": "func",
+      "desc": "Creates a library object containing the functions stored in the default Metal library in the specified bundle.",
+      "params": [
+        {
+          "name": "bundle",
+          "type": "Bundle"
+        }
+      ],
+      "returnType": "MTLLibrary"
+    },
+    {
+      "name": "makeLibrary",
+      "type": "func",
+      "desc": "Creates a library object containing the functions in a Metal library file at a specified path.",
+      "params": [
+        {
+          "name": "filepath",
+          "type": "String"
+        }
+      ],
+      "returnType": "MTLLibrary"
+    },
+    {
+      "name": "makeLibrary",
+      "type": "func",
+      "desc": "Creates a library object containing the functions in a Metal library file at a specified URL.",
+      "params": [
+        {
+          "name": "URL",
+          "type": "URL"
+        }
+      ],
+      "returnType": "MTLLibrary"
+    },
+    {
+      "name": "makeLibrary",
+      "type": "func",
+      "desc": "Creates a library object containing the functions stored in a binary data object created from a precompiled Metal library.",
+      "params": [
+        {
+          "name": "data",
+          "type": "__DispatchData"
+        }
+      ],
+      "returnType": "MTLLibrary"
+    },
+    {
+      "name": "makeLibrary",
+      "type": "func",
+      "desc": "Creates a library object asynchronously by compiling the functions stored in the specified source string.",
+      "params": [
+        {
+          "name": "source",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "MTLCompileOptions?"
+        },
+        {
+          "name": "completionHandler",
+          "type": "MTLNewLibraryCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "makeLibrary",
+      "type": "func",
+      "desc": "Creates a library object synchronously by compiling the functions stored in the specified source string.",
+      "params": [
+        {
+          "name": "source",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "MTLCompileOptions?"
+        }
+      ],
+      "returnType": "MTLLibrary"
+    },
+    {
+      "name": "makeRenderPipelineState",
+      "type": "func",
+      "desc": "Asynchronously creates a render pipeline state object.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLRenderPipelineDescriptor"
+        },
+        {
+          "name": "completionHandler",
+          "type": "MTLNewRenderPipelineStateCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "makeRenderPipelineState",
+      "type": "func",
+      "desc": "Asynchronously creates a render pipeline state object and associated reflection information.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLRenderPipelineDescriptor"
+        },
+        {
+          "name": "options",
+          "type": "MTLPipelineOption"
+        },
+        {
+          "name": "completionHandler",
+          "type": "MTLNewRenderPipelineStateWithReflectionCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "makeRenderPipelineState",
+      "type": "func",
+      "desc": "Synchronously creates a render pipeline state object.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLRenderPipelineDescriptor"
+        }
+      ],
+      "returnType": "MTLRenderPipelineState"
+    },
+    {
+      "name": "makeRenderPipelineState",
+      "type": "func",
+      "desc": "Synchronously creates a render pipeline state object and associated reflection information.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLRenderPipelineDescriptor"
+        },
+        {
+          "name": "options",
+          "type": "MTLPipelineOption"
+        },
+        {
+          "name": "reflection",
+          "type": "AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>?"
+        }
+      ],
+      "returnType": "MTLRenderPipelineState"
+    },
+    {
+      "name": "makeRenderPipelineState",
+      "type": "func",
+      "desc": "Asynchronously creates a render pipeline state object, and associated reflection information, for a tile shader.",
+      "params": [
+        {
+          "name": "tileDescriptor",
+          "type": "MTLTileRenderPipelineDescriptor"
+        },
+        {
+          "name": "options",
+          "type": "MTLPipelineOption"
+        },
+        {
+          "name": "completionHandler",
+          "type": "MTLNewRenderPipelineStateWithReflectionCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "makeRenderPipelineState",
+      "type": "func",
+      "desc": "Synchronously creates a render pipeline state object, and associated reflection information, for a tile shader.",
+      "params": [
+        {
+          "name": "tileDescriptor",
+          "type": "MTLTileRenderPipelineDescriptor"
+        },
+        {
+          "name": "options",
+          "type": "MTLPipelineOption"
+        },
+        {
+          "name": "reflection",
+          "type": "AutoreleasingUnsafeMutablePointer<MTLAutoreleasedRenderPipelineReflection?>?"
+        }
+      ],
+      "returnType": "MTLRenderPipelineState"
+    },
+    {
+      "name": "makeComputePipelineState",
+      "type": "func",
+      "desc": "Asynchronously creates a compute pipeline state object, and associated reflection information, using a compute pipeline descriptor.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLComputePipelineDescriptor"
+        },
+        {
+          "name": "options",
+          "type": "MTLPipelineOption"
+        },
+        {
+          "name": "completionHandler",
+          "type": "MTLNewComputePipelineStateWithReflectionCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "makeComputePipelineState",
+      "type": "func",
+      "desc": "Asynchronously creates a new compute pipeline state object using a function object.",
+      "params": [
+        {
+          "name": "function",
+          "type": "MTLFunction"
+        },
+        {
+          "name": "completionHandler",
+          "type": "MTLNewComputePipelineStateCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "makeComputePipelineState",
+      "type": "func",
+      "desc": "Asynchronously creates a new compute pipeline state object, and associated reflection information, using a function object.",
+      "params": [
+        {
+          "name": "function",
+          "type": "MTLFunction"
+        },
+        {
+          "name": "options",
+          "type": "MTLPipelineOption"
+        },
+        {
+          "name": "completionHandler",
+          "type": "MTLNewComputePipelineStateWithReflectionCompletionHandler"
+        }
+      ]
+    },
+    {
+      "name": "makeComputePipelineState",
+      "type": "func",
+      "desc": "Synchronously creates a compute pipeline state object, and associated reflection information, using a compute pipeline descriptor.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLComputePipelineDescriptor"
+        },
+        {
+          "name": "options",
+          "type": "MTLPipelineOption"
+        },
+        {
+          "name": "reflection",
+          "type": "AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>?"
+        }
+      ],
+      "returnType": "MTLComputePipelineState"
+    },
+    {
+      "name": "makeComputePipelineState",
+      "type": "func",
+      "desc": "Synchronously creates a new compute pipeline state object using a function object.",
+      "params": [
+        {
+          "name": "function",
+          "type": "MTLFunction"
+        }
+      ],
+      "returnType": "MTLComputePipelineState"
+    },
+    {
+      "name": "makeComputePipelineState",
+      "type": "func",
+      "desc": "Synchronously creates a new compute pipeline state object, and associated reflection information, using a function object.",
+      "params": [
+        {
+          "name": "function",
+          "type": "MTLFunction"
+        },
+        {
+          "name": "options",
+          "type": "MTLPipelineOption"
+        },
+        {
+          "name": "reflection",
+          "type": "AutoreleasingUnsafeMutablePointer<MTLAutoreleasedComputePipelineReflection?>?"
+        }
+      ],
+      "returnType": "MTLComputePipelineState"
+    },
+    {
+      "name": "maxBufferLength",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum size of a buffer, in bytes."
+    },
+    {
+      "name": "makeBuffer",
+      "type": "func",
+      "desc": "Allocates a new zero-filled buffer of a given length.",
+      "params": [
+        {
+          "name": "length",
+          "type": "Int"
+        },
+        {
+          "name": "options",
+          "type": "MTLResourceOptions"
+        }
+      ],
+      "returnType": "MTLBuffer?"
+    },
+    {
+      "name": "makeBuffer",
+      "type": "func",
+      "desc": "Allocates a new buffer of a given length and initializes its contents by copying existing data into it.",
+      "params": [
+        {
+          "name": "bytes",
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        },
+        {
+          "name": "options",
+          "type": "MTLResourceOptions"
+        }
+      ],
+      "returnType": "MTLBuffer?"
+    },
+    {
+      "name": "supportsTextureSampleCount",
+      "type": "func",
+      "desc": "Determines whether a device supports a given texture sample count.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "minimumLinearTextureAlignment",
+      "type": "func",
+      "desc": "Calculates the minimum alignment required for creating a linear texture with a given pixel format.",
+      "params": [
+        {
+          "name": "for",
+          "type": "MTLPixelFormat"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "minimumTextureBufferAlignment",
+      "type": "func",
+      "desc": "Calculates the minimum alignment required when creating a texture buffer from a buffer.",
+      "params": [
+        {
+          "name": "for",
+          "type": "MTLPixelFormat"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "readWriteTextureSupport",
+      "type": "var",
+      "datatype": "MTLReadWriteTextureTier",
+      "desc": "The device objects's read-write texture support tier."
+    },
+    {
+      "name": "makeTexture",
+      "type": "func",
+      "desc": "Creates a texture.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLTextureDescriptor"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "makeTexture",
+      "type": "func",
+      "desc": "Creates a texture using an IOSurface to store the texture data.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLTextureDescriptor"
+        },
+        {
+          "name": "iosurface",
+          "type": "IOSurfaceRef"
+        },
+        {
+          "name": "plane",
+          "type": "Int"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "makeSharedTexture",
+      "type": "func",
+      "desc": "Create a texture that can be shared across process boundaries.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLTextureDescriptor"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "makeSharedTexture",
+      "type": "func",
+      "desc": "Creates a texture referencing an existing shared texture.",
+      "params": [
+        {
+          "name": "handle",
+          "type": "MTLSharedTextureHandle"
+        }
+      ],
+      "returnType": "MTLTexture?"
+    },
+    {
+      "name": "makeSamplerState",
+      "type": "func",
+      "desc": "Creates a sampler state object.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLSamplerDescriptor"
+        }
+      ],
+      "returnType": "MTLSamplerState?"
+    },
+    {
+      "name": "argumentBuffersSupport",
+      "type": "var",
+      "datatype": "MTLArgumentBuffersTier",
+      "desc": "Determines the argument buffers tier supported by the device."
+    },
+    {
+      "name": "maxArgumentBufferSamplerCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum number of unique argument buffer samplers per app."
+    },
+    {
+      "name": "makeArgumentEncoder",
+      "type": "func",
+      "desc": "Creates an argument encoder for a specific array of arguments.",
+      "params": [
+        {
+          "name": "arguments",
+          "type": "[MTLArgumentDescriptor]"
+        }
+      ],
+      "returnType": "MTLArgumentEncoder?"
+    },
+    {
+      "name": "makeIndirectCommandBuffer",
+      "type": "func",
+      "desc": "Creates an indirect command buffer.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLIndirectCommandBufferDescriptor"
+        },
+        {
+          "name": "maxCommandCount",
+          "type": "Int"
+        },
+        {
+          "name": "options",
+          "type": "MTLResourceOptions"
+        }
+      ],
+      "returnType": "MTLIndirectCommandBuffer?"
+    },
+    {
+      "name": "makeHeap",
+      "type": "func",
+      "desc": "Creates a heap.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLHeapDescriptor"
+        }
+      ],
+      "returnType": "MTLHeap?"
+    },
+    {
+      "name": "heapBufferSizeAndAlign",
+      "type": "func",
+      "desc": "Returns the size and alignment, in bytes, of a buffer sub-allocated from a heap.",
+      "params": [
+        {
+          "name": "length",
+          "type": "Int"
+        },
+        {
+          "name": "options",
+          "type": "MTLResourceOptions"
+        }
+      ],
+      "returnType": "MTLSizeAndAlign"
+    },
+    {
+      "name": "heapTextureSizeAndAlign",
+      "type": "func",
+      "desc": "Returns the size and alignment, in bytes, of a texture sub-allocated from a heap.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLTextureDescriptor"
+        }
+      ],
+      "returnType": "MTLSizeAndAlign"
+    },
+    {
+      "name": "makeDepthStencilState",
+      "type": "func",
+      "desc": "Creates a new object that contains depth and stencil test state.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLDepthStencilDescriptor"
+        }
+      ],
+      "returnType": "MTLDepthStencilState?"
+    },
+    {
+      "name": "counterSets",
+      "type": "var",
+      "datatype": "[MTLCounterSet]?",
+      "desc": "The counter sets supported by the device object."
+    },
+    {
+      "name": "makeCounterSampleBuffer",
+      "type": "func",
+      "desc": "Creates a counter sample buffer.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLCounterSampleBufferDescriptor"
+        }
+      ],
+      "returnType": "MTLCounterSampleBuffer"
+    },
+    {
+      "name": "supportsRasterizationRateMap",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the device object supports the desired number of layers in a rasterization rate map.",
+      "params": [
+        {
+          "name": "layerCount",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "makeRasterizationRateMap",
+      "type": "func",
+      "desc": "Creates a rasterization rate map.",
+      "params": [
+        {
+          "name": "descriptor",
+          "type": "MTLRasterizationRateMapDescriptor"
+        }
+      ],
+      "returnType": "MTLRasterizationRateMap?"
+    },
+    {
+      "name": "sparseTileSizeInBytes",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The size of sparse tiles created by this device object, measured in bytes."
+    },
+    {
+      "name": "sparseTileSize",
+      "type": "func",
+      "desc": "Returns the dimensions of a sparse tile for a specific texture.",
+      "params": [
+        {
+          "name": "with",
+          "type": "MTLTextureType"
+        },
+        {
+          "name": "pixelFormat",
+          "type": "MTLPixelFormat"
+        },
+        {
+          "name": "sampleCount",
+          "type": "Int"
+        }
+      ],
+      "returnType": "MTLSize"
+    },
+    {
+      "name": "convertSparsePixelRegions",
+      "type": "func",
+      "desc": "Converts a list of regions, specified in pixel coordinates, to sparse tile units.",
+      "params": [
+        {
+          "type": "UnsafePointer<MTLRegion>"
+        },
+        {
+          "name": "toTileRegions",
+          "type": "UnsafeMutablePointer<MTLRegion>"
+        },
+        {
+          "name": "withTileSize",
+          "type": "MTLSize"
+        },
+        {
+          "name": "alignmentMode",
+          "type": "MTLSparseTextureRegionAlignmentMode"
+        },
+        {
+          "name": "numRegions",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "convertSparseTileRegions",
+      "type": "func",
+      "desc": "Converts a list of regions, specified in sparse tile coordinates, to pixel units.",
+      "params": [
+        {
+          "type": "UnsafePointer<MTLRegion>"
+        },
+        {
+          "name": "toPixelRegions",
+          "type": "UnsafeMutablePointer<MTLRegion>"
+        },
+        {
+          "name": "withTileSize",
+          "type": "MTLSize"
+        },
+        {
+          "name": "numRegions",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "MTLSparseTextureRegionAlignmentMode",
+      "type": "enum",
+      "desc": "Options used when converting between a pixel-based region within a texture to a tile-based region."
+    }
+  ]
+}

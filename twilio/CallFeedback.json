@@ -1,0 +1,105 @@
+{
+  "type": "CallFeedback",
+  "attrs": {
+    "account_sid": {
+      "type": "sid<AC>",
+      "desc": "The unique id of the Account responsible for this resource."
+    },
+    "date_created": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date that this resource was created, given in RFC 2822 format."
+    },
+    "date_updated": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date that this resource was last updated, given in RFC 2822 format."
+    },
+    "issues": {
+      "type": "enum:issues[]",
+      "desc": "A list of issues experienced during the call. The issues can be: imperfect-audio, dropped-call, incorrect-caller-id, post-dial-delay, digits-not-captured, audio-latency, unsolicited-call, or one-way-audio."
+    },
+    "quality_score": {
+      "type": "integer",
+      "desc": "1 to 5 quality score where 1 represents imperfect experience and 5 represents a perfect call."
+    },
+    "sid": {
+      "type": "sid<CA>",
+      "desc": "A 34 character string that uniquely identifies this resource."
+    }
+  },
+  "actions": [
+    {
+      "title": "Create a call Feedback resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Feedback.json",
+      "desc": "Each feedback entry must have a quality_score and it can also have zero or more issue entries.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The unique id of the Account responsible for this resource.",
+          "required": false
+        },
+        "CallSid": {
+          "type": "sid<CA>",
+          "desc": "The call sid that uniquely identifies the call",
+          "required": false
+        },
+        "QualityScore": {
+          "type": "integer",
+          "desc": "The call quality expressed as an integer from 1 to 5 where 1 represents very poor call quality and 5 represents a perfect call.",
+          "required": true
+        },
+        "Issue": {
+          "type": "enum:issues[]",
+          "desc": "A list of one or more issues experienced during the call. Issues can be: imperfect-audio, dropped-call, incorrect-caller-id, post-dial-delay, digits-not-captured, audio-latency, unsolicited-call, or one-way-audio.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Fetch a call Feedback resource",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Feedback.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The unique id of the Account responsible for this resource.",
+          "required": false
+        },
+        "CallSid": {
+          "type": "sid<CA>",
+          "desc": "The call sid that uniquely identifies the call",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Update a call Feedback resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Feedback.json",
+      "desc": "Each feedback entry must have a quality_score and it can also have zero or more issue entries.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The unique id of the Account responsible for this resource.",
+          "required": false
+        },
+        "CallSid": {
+          "type": "sid<CA>",
+          "desc": "The call sid that uniquely identifies the call",
+          "required": false
+        },
+        "QualityScore": {
+          "type": "integer",
+          "desc": "The call quality expressed as an integer from 1 to 5 where 1 represents very poor call quality and 5 represents a perfect call.",
+          "required": true
+        },
+        "Issue": {
+          "type": "enum:issues[]",
+          "desc": "One or more issues experienced during the call. The issues can be: imperfect-audio, dropped-call, incorrect-caller-id, post-dial-delay, digits-not-captured, audio-latency, unsolicited-call, or one-way-audio.",
+          "required": false
+        }
+      }
+    }
+  ]
+}

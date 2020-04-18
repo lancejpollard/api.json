@@ -1,0 +1,227 @@
+{
+  "type": "Class",
+  "name": "AVMetadataItem",
+  "desc": "A metadata item associated with an audiovisual asset or one of its tracks.",
+  "items": [
+    {
+      "name": "key",
+      "type": "var",
+      "datatype": "(NSCopying",
+      "desc": "The key of the metadata item."
+    },
+    {
+      "name": "keySpace",
+      "type": "var",
+      "datatype": "AVMetadataKeySpace?",
+      "desc": "The key space for the metadata item’s key."
+    },
+    {
+      "name": "commonKey",
+      "type": "var",
+      "datatype": "AVMetadataKey?",
+      "desc": "The common key of the metadata item."
+    },
+    {
+      "name": "value",
+      "type": "var",
+      "datatype": "(NSCopying",
+      "desc": "The value of the metadata item."
+    },
+    {
+      "name": "time",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The timestamp of the metadata item."
+    },
+    {
+      "name": "duration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The duration of the metadata item."
+    },
+    {
+      "name": "locale",
+      "type": "var",
+      "datatype": "Locale?",
+      "desc": "The locale of the metadata item."
+    },
+    {
+      "name": "dataValue",
+      "type": "var",
+      "datatype": "Data?",
+      "desc": "The raw bytes of the value for the metadata item."
+    },
+    {
+      "name": "extraAttributes",
+      "type": "var",
+      "datatype": "[AVMetadataExtraAttributeKey",
+      "desc": "The additional attributes supplied by the metadata item."
+    },
+    {
+      "name": "dataType",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The data type of the metadata item's value."
+    },
+    {
+      "name": "extendedLanguageTag",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The IETF BCP 47 (RFC 4646) language identifier of the metadata item."
+    },
+    {
+      "name": "startDate",
+      "type": "var",
+      "datatype": "Date?",
+      "desc": "The start date of the timed metadata."
+    },
+    {
+      "name": "identifier",
+      "type": "class func",
+      "desc": "Provides the metadata identifier that’s equivalent to a key and key space.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "Any"
+        },
+        {
+          "name": "keySpace",
+          "type": "AVMetadataKeySpace"
+        }
+      ],
+      "returnType": "AVMetadataIdentifier?"
+    },
+    {
+      "name": "identifier",
+      "type": "var",
+      "datatype": "AVMetadataIdentifier?",
+      "desc": "The identifier of the metadata item."
+    },
+    {
+      "name": "key",
+      "type": "class func",
+      "desc": "Returns the metadata key associated with the identifier.",
+      "params": [
+        {
+          "name": "forIdentifier",
+          "type": "AVMetadataIdentifier"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "keySpace",
+      "type": "class func",
+      "desc": "Returns the metadata key space associated with the identifier.",
+      "params": [
+        {
+          "name": "forIdentifier",
+          "type": "AVMetadataIdentifier"
+        }
+      ],
+      "returnType": "AVMetadataKeySpace?"
+    },
+    {
+      "name": "stringValue",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The value of the metadata item formatted as a string."
+    },
+    {
+      "name": "numberValue",
+      "type": "var",
+      "datatype": "NSNumber?",
+      "desc": "The value of the metadata item formatted as a number."
+    },
+    {
+      "name": "dateValue",
+      "type": "var",
+      "datatype": "Date?",
+      "desc": "The value of the metadata item formatted as a date."
+    },
+    {
+      "name": "metadataItems",
+      "type": "class func",
+      "desc": "Provides an array of metadata items that match a specified key or key space.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[AVMetadataItem]"
+        },
+        {
+          "name": "withKey",
+          "type": "Any?"
+        },
+        {
+          "name": "keySpace",
+          "type": "AVMetadataKeySpace?"
+        }
+      ],
+      "returnType": "[AVMetadataItem]"
+    },
+    {
+      "name": "metadataItems",
+      "type": "class func",
+      "desc": "Provides an array of metadata items that match a specified locale.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[AVMetadataItem]"
+        },
+        {
+          "name": "with",
+          "type": "Locale"
+        }
+      ],
+      "returnType": "[AVMetadataItem]"
+    },
+    {
+      "name": "metadataItems",
+      "type": "class func",
+      "desc": "Provides the subset of metadata items whose locales match one of the specified language identifiers.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[AVMetadataItem]"
+        },
+        {
+          "name": "filteredAndSortedAccordingToPreferredLanguages",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "[AVMetadataItem]"
+    },
+    {
+      "name": "metadataItems",
+      "type": "class func",
+      "desc": "Filters an array of metadata items using the metadata item filter.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[AVMetadataItem]"
+        },
+        {
+          "name": "filteredBy",
+          "type": "AVMetadataItemFilter"
+        }
+      ],
+      "returnType": "[AVMetadataItem]"
+    },
+    {
+      "name": "metadataItems",
+      "type": "class func",
+      "desc": "Filters an array of metadata items according to the supplied identifier.",
+      "params": [
+        {
+          "name": "from",
+          "type": "[AVMetadataItem]"
+        },
+        {
+          "name": "filteredByIdentifier",
+          "type": "AVMetadataIdentifier"
+        }
+      ],
+      "returnType": "[AVMetadataItem]"
+    }
+  ]
+}

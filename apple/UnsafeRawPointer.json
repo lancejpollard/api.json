@@ -1,0 +1,379 @@
+{
+  "type": "Structure",
+  "name": "UnsafeRawPointer",
+  "desc": "A raw pointer for accessing untyped data.",
+  "items": [
+    {
+      "name": "customMirror",
+      "type": "var",
+      "datatype": "Mirror",
+      "desc": "The custom mirror for this instance."
+    },
+    {
+      "name": "customPlaygroundQuickLook",
+      "type": "var",
+      "datatype": "_PlaygroundQuickLook",
+      "desc": "A custom playground Quick Look for this instance."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual representation of the pointer, suitable for debugging."
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The hash value."
+    },
+    {
+      "name": "advanced",
+      "type": "func",
+      "desc": "Returns a value that is offset the specified distance from this value.",
+      "params": [
+        {
+          "name": "by",
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafeRawPointer"
+    },
+    {
+      "name": "assumingMemoryBound<T>",
+      "type": "func",
+      "desc": "Returns a typed pointer to the memory referenced by this pointer, assuming that the memory is already bound to the specified type.",
+      "params": [
+        {
+          "name": "to",
+          "type": "T.Type"
+        }
+      ],
+      "returnType": "UnsafePointer<T>"
+    },
+    {
+      "name": "bindMemory<T>",
+      "type": "func",
+      "desc": "Binds the memory to the specified type and returns a typed pointer to the bound memory.",
+      "params": [
+        {
+          "name": "to",
+          "type": "T.Type"
+        },
+        {
+          "name": "capacity",
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafePointer<T>"
+    },
+    {
+      "name": "deallocate",
+      "type": "func",
+      "desc": "Deallocates the previously allocated memory block referenced by this pointer.",
+      "params": []
+    },
+    {
+      "name": "distance",
+      "type": "func",
+      "desc": "Returns the distance from this pointer to the given pointer, counted as instances of the pointer’s Pointee type.",
+      "params": [
+        {
+          "name": "to",
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "desc": "Hashes the essential components of this value by feeding them into the given hasher.",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "load<T>",
+      "type": "func",
+      "desc": "Returns a new instance of the given type, constructed from the raw memory at the specified offset.",
+      "params": [
+        {
+          "name": "fromByteOffset",
+          "type": "Int"
+        },
+        {
+          "name": "as",
+          "type": "T.Type"
+        }
+      ],
+      "returnType": "T"
+    },
+    {
+      "name": "predecessor",
+      "type": "func",
+      "desc": "Returns a pointer to the previous consecutive instance.",
+      "params": [],
+      "returnType": "UnsafeRawPointer"
+    },
+    {
+      "name": "successor",
+      "type": "func",
+      "desc": "Returns a pointer to the next consecutive instance.",
+      "params": [],
+      "returnType": "UnsafeRawPointer"
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "+",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafeRawPointer"
+    },
+    {
+      "name": "+",
+      "type": "static func",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "UnsafeRawPointer"
+    },
+    {
+      "name": "+=",
+      "type": "static func",
+      "params": [
+        {
+          "type": "inout UnsafeRawPointer"
+        },
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "-",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "UnsafeRawPointer"
+    },
+    {
+      "name": "-",
+      "type": "static func",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "-=",
+      "type": "static func",
+      "params": [
+        {
+          "type": "inout UnsafeRawPointer"
+        },
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a partial range extending upward from a lower bound.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "PartialRangeFrom<UnsafeRawPointer>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a partial range up to, and including, its upper bound.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "PartialRangeThrough<UnsafeRawPointer>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a closed range that contains both of its bounds.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "ClosedRange<UnsafeRawPointer>"
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a partial range up to, but not including, its upper bound.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "PartialRangeUpTo<UnsafeRawPointer>"
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a half-open range that contains its lower bound but not its upper bound.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Range<UnsafeRawPointer>"
+    },
+    {
+      "name": "<",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is less than that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "<",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the first pointer references an earlier memory location than the second pointer.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "<=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is less than or equal to that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are equal.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two pointers are equal.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": ">",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is greater than that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": ">=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is greater than or equal to that of the second argument.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "type": "UnsafeRawPointer"
+        }
+      ],
+      "returnType": "Bool"
+    }
+  ]
+}

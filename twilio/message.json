@@ -1,0 +1,262 @@
+{
+  "type": "Message",
+  "attrs": {
+    "account_sid": {
+      "type": "sid<AC>",
+      "desc": "The SID of the Account that sent the message that created the resource."
+    },
+    "api_version": {
+      "type": "string",
+      "desc": "The API version used to process the message."
+    },
+    "body": {
+      "type": "string",
+      "desc": "The message text. Can be up to 1,600 characters long."
+    },
+    "date_created": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that the resource was created specified in RFC 2822 format."
+    },
+    "date_updated": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that the resource was last updated specified in RFC 2822 format."
+    },
+    "date_sent": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that the resource was sent specified in RFC 2822 format. For outgoing messages, this is when we sent the message. For incoming messages, this is when we made the HTTP request to your application."
+    },
+    "direction": {
+      "type": "enum:direction",
+      "desc": "The direction of the message. Can be: inbound for incoming messages, outbound-api for messages initiated by a REST API, outbound-call for messages initiated during a call, or outbound-reply for messages initiated in response to an incoming message."
+    },
+    "error_code": {
+      "type": "integer?",
+      "desc": "The error code returned if your message status is failed or undelivered. The error_code provides more information about the failure. If the message was successful, this value is null."
+    },
+    "error_message": {
+      "type": "string",
+      "desc": "The description of the error_code if your message status is failed or undelivered. If the message was successful, this value is null."
+    },
+    "from": {
+      "type": "phone_number",
+      "desc": "The phone number (in E.164 format), alphanumeric sender ID, or Wireless SIM that initiated the message. For incoming messages, this will be the number of the sending phone. For outgoing messages, this value will be one of your Twilio phone numbers or the alphanumeric sender ID used."
+    },
+    "messaging_service_sid": {
+      "type": "sid<MG>",
+      "desc": "The SID of the Messaging Service used with the message. The value is null if a Messaging Service was not used."
+    },
+    "num_media": {
+      "type": "string",
+      "desc": "The number of media files associated with the message. A message can send up to 10 media files."
+    },
+    "num_segments": {
+      "type": "string",
+      "desc": "The number of segments that make up the complete message. A message body that is too large to be sent in a single SMS message is segmented and charged as multiple messages. Inbound messages over 160 characters are reassembled when the message is received. Note: When using a Messaging Service to send messages, num_segments will always be 0 in Twilio's response to your API request."
+    },
+    "price": {
+      "type": "string",
+      "desc": "The amount billed for the message, in the currency specified by price_unit.  Note that your account is charged for each segment we send to the handset."
+    },
+    "price_unit": {
+      "type": "currency",
+      "desc": "The currency in which price is measured, in ISO 4127 format (e.g. usd, eur, jpy)."
+    },
+    "sid": {
+      "type": "sid<MM>",
+      "desc": "The unique string that that we created to identify the Message resource."
+    },
+    "status": {
+      "type": "enum:status",
+      "desc": "The status of the message. Can be: accepted, queued, sending, sent, failed, delivered, undelivered, receiving, received, or read (WhatsApp only). For more information, See detailed descriptions."
+    },
+    "subresource_uris": {
+      "type": "uri_map",
+      "desc": "A list of related resources identified by their URIs relative to https://api.twilio.com"
+    },
+    "to": {
+      "type": "string",
+      "desc": "The phone number in E.164 format that received the message. For incoming messages, this will be one of your Twilio phone numbers. For outgoing messages, this will be the sending phone."
+    },
+    "uri": {
+      "type": "string",
+      "desc": "The URI of the resource, relative to https://api.twilio.com."
+    }
+  },
+  "actions": [
+    {
+      "title": "Create a Message resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Messages.json",
+      "desc": "To send a new outgoing message, make an HTTP POST to this Messages list resource URI.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that will create the resource.",
+          "required": false
+        },
+        "To": {
+          "type": "phone_number",
+          "desc": "The destination phone number in E.164 format for SMS/MMS or Channel user address for other 3rd-party channels.",
+          "required": true
+        },
+        "StatusCallback": {
+          "type": "url",
+          "desc": "The URL we should call using the status_callback_method to send status information to your application. If specified, we POST these message status changes to the URL: queued, failed, sent, delivered, or undelivered. Twilio will POST its standard request parameters as well as some additional parameters including MessageSid, MessageStatus, and ErrorCode. If you include this parameter with the messaging_service_sid, we use this URL instead of the Status Callback URL of the Messaging Service. URLs must contain a valid hostname and underscores are not allowed.",
+          "required": false
+        },
+        "ApplicationSid": {
+          "type": "sid<AP>",
+          "desc": "The SID of the application that should receive message status. We POST a message_sid parameter and a message_status parameter with a value of sent or failed to the application's message_status_callback. If a status_callback parameter is also passed, it will be ignored and the application's message_status_callback parameter will be used.",
+          "required": false
+        },
+        "MaxPrice": {
+          "type": "decimal",
+          "desc": "The maximum total price in US dollars that you will pay for the message to be delivered. Can be a decimal value that has up to 4 decimal places. All messages are queued for delivery and the message cost is checked before the message is sent. If the cost exceeds max_price, the message will fail and a status of Failed is sent to the status callback. If MaxPrice is not set, the message cost is not checked.",
+          "required": false
+        },
+        "ProvideFeedback": {
+          "type": "boolean",
+          "desc": "Whether to confirm delivery of the message. Set this value to true if you are sending messages that have a trackable user action and you intend to confirm delivery of the message using the Message Feedback API. This parameter is false by default.",
+          "required": false
+        },
+        "ValidityPeriod": {
+          "type": "integer",
+          "desc": "How long in seconds the message can remain in our outgoing message queue. After this period elapses, the message fails and we call your status callback. Can be between 1 and the default value of 14,400 seconds. After a message has been accepted by a carrier, however, we cannot guarantee that the message will not be queued after this period. We recommend that this value be at least 5 seconds.",
+          "required": false
+        },
+        "ForceDelivery": {
+          "type": "boolean",
+          "desc": "Reserved",
+          "required": false
+        },
+        "ContentRetention": {
+          "type": "enum:content_retention",
+          "desc": "Determines if the message content can be stored or redacted based on privacy settings",
+          "required": false
+        },
+        "AddressRetention": {
+          "type": "enum:address_retention",
+          "desc": "Determines if the address can be stored or obfuscated based on privacy settings",
+          "required": false
+        },
+        "SmartEncoded": {
+          "type": "boolean",
+          "desc": "Whether to detect Unicode characters that have a similar GSM-7 character and replace them. Can be: true or false.",
+          "required": false
+        },
+        "PersistentAction": {
+          "type": "string[]",
+          "desc": "Rich actions for Channels Messages.",
+          "required": false
+        },
+        "From": {
+          "type": "phone_number",
+          "desc": "A Twilio phone number in E.164 format, an alphanumeric sender ID, or a Channel Endpoint address that is enabled for the type of message you want to send. Phone numbers or short codes purchased from Twilio also work here. You cannot, for example, spoof messages from a private cell phone number. If you are using messaging_service_sid, this parameter must be empty.",
+          "required": false
+        },
+        "MessagingServiceSid": {
+          "type": "sid<MG>",
+          "desc": "The SID of the Messaging Service you want to associate with the Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured and leave the from parameter empty. When only this parameter is set, Twilio will use your enabled Copilot Features to select the from phone number for delivery.",
+          "required": false
+        },
+        "Body": {
+          "type": "string",
+          "desc": "The text of the message you want to send. Can be up to 1,600 characters in length.",
+          "required": false
+        },
+        "MediaUrl": {
+          "type": "url[]",
+          "desc": "The URL of the media to send with the message. The media can be of type gif, png, and jpeg and will be formatted correctly on the recipient's device. The media size limit is 5MB for supported file types (JPEG, PNG, GIF) and 500KB for other types of accepted media. To send more than one image in the message body, provide multiple media_url parameters in the POST request. You can include up to 10 media_url parameters per message. You can send images in an SMS message in only the US and Canada.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Fetch a Message resource",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Messages/{Sid}.json",
+      "desc": "Returns a single message specified by the provided Message {SID}.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Message resource to fetch.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<MM>",
+          "desc": "The Twilio-provided string that uniquely identifies the Message resource to fetch.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Read multiple Message resources",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Messages.json",
+      "desc": "Returns a list of messages associated with your account. The list includes paging information.\nWhen getting the list of all messages, results will be sorted on the DateSent field with the most recent messages appearing first.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Message resources to read.",
+          "required": false
+        },
+        "To": {
+          "type": "phone_number",
+          "desc": "Read messages sent to only this phone number.",
+          "required": false
+        },
+        "From": {
+          "type": "phone_number",
+          "desc": "Read messages sent from only this phone number or alphanumeric sender ID.",
+          "required": false
+        },
+        "DateSent": {
+          "type": "date_time_inequality<iso8601>",
+          "desc": "The date of the messages to show. Specify a date as YYYY-MM-DD in GMT to read only messages sent on this date. For example: 2009-07-06. You can also specify an inequality, such as DateSent<=YYYY-MM-DD, to read messages sent on or before midnight on a date, and DateSent>=YYYY-MM-DD to read messages sent on or after midnight on a date.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Update a Message resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Messages/{Sid}.json",
+      "desc": "Updates the body of a Message resource.\nThis action is primarily used to redact messages: to do so, POST to the above URI and set the Body parameter as an empty string: \"\". This will allow you to effectively redact the text of a message while keeping the other message resource properties intact.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Message resources to update.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<MM>",
+          "desc": "The Twilio-provided string that uniquely identifies the Message resource to update.",
+          "required": false
+        },
+        "Body": {
+          "type": "string",
+          "desc": "The text of the message you want to send. Can be up to 1,600 characters long.",
+          "required": true
+        }
+      }
+    },
+    {
+      "title": "Delete a Message resource",
+      "method": "delete",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Messages/{Sid}.json",
+      "desc": "Deletes a message record from your account. Once the record is deleted, it will no longer appear in the API and Account Portal logs.\nIf successful, returns HTTP 204 (No Content) with no body.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Message resources to delete.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<MM>",
+          "desc": "The Twilio-provided string that uniquely identifies the Message resource to delete.",
+          "required": false
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "path": "/accountHolderBalance",
+  "method": "POST",
+  "desc": "This endpoint is used to retrieve the balance(s) of the accounts of an account holder. An account's balances are on a per-currency basis (i.e., an account may have multiple balances: one per currency).",
+  "req": {
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the Account Holder of which to retrieve the balance.",
+      "required": true
+    }
+  },
+  "res": {
+    "balancePerAccount": {
+      "type": "array",
+      "desc": "A list of each account and their balances.",
+      "required": true,
+      "children": {
+        "accountCode": {
+          "type": "string",
+          "desc": "The code of the account that holds the balance.",
+          "required": false
+        },
+        "detailBalance": {
+          "type": "array",
+          "desc": "Details of the balance held by the account.",
+          "required": true,
+          "children": {
+            "balance": {
+              "type": "array",
+              "desc": "The list of balances held by the account.",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "onHoldBalance": {
+              "type": "array",
+              "desc": "The list of on hold balances held by the account.",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "pendingBalance": {
+              "type": "array",
+              "desc": "The list of pending balances held by the account.",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    },
+    "totalBalance": {
+      "type": "array",
+      "desc": "The total balance of the account holder.",
+      "required": true,
+      "children": {
+        "balance": {
+          "type": "array",
+          "desc": "The list of balances held by the account.",
+          "required": true,
+          "children": {
+            "currency": {
+              "type": "string",
+              "desc": "The three-character ISO currency code.",
+              "required": true
+            },
+            "value": {
+              "type": "integer",
+              "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+              "required": true
+            }
+          }
+        },
+        "onHoldBalance": {
+          "type": "array",
+          "desc": "The list of on hold balances held by the account.",
+          "required": true,
+          "children": {
+            "currency": {
+              "type": "string",
+              "desc": "The three-character ISO currency code.",
+              "required": true
+            },
+            "value": {
+              "type": "integer",
+              "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+              "required": true
+            }
+          }
+        },
+        "pendingBalance": {
+          "type": "array",
+          "desc": "The list of pending balances held by the account.",
+          "required": true,
+          "children": {
+            "currency": {
+              "type": "string",
+              "desc": "The three-character ISO currency code.",
+              "required": true
+            },
+            "value": {
+              "type": "integer",
+              "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

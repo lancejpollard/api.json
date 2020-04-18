@@ -1,0 +1,1145 @@
+[
+  {
+    "title": "AccountLimit",
+    "attrs": {
+      "Type": {
+        "desc": "The limit that you requested. Valid values include the following:",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "max_health_checks_by_owner",
+          "max_hosted_zones_by_owner",
+          "max_traffic_policy_instances_by_owner"
+        ]
+      },
+      "Value": {
+        "desc": "The current value for the limit that is specified by Type.",
+        "type": "Long",
+        "required": "yes",
+        "values": [
+          "max_health_checks_by_owner",
+          "max_hosted_zones_by_owner",
+          "max_traffic_policy_instances_by_owner"
+        ]
+      }
+    }
+  },
+  {
+    "title": "AlarmIdentifier",
+    "attrs": {
+      "Name": {
+        "desc": "The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Region": {
+        "desc": "For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2",
+          "ca-central-1",
+          "eu-central-1",
+          "eu-west-1"
+        ]
+      }
+    }
+  },
+  {
+    "title": "AliasTarget",
+    "attrs": {
+      "DNSName": {
+        "desc": "Alias resource record sets only: The value that you specify depends on where you want to route queries:",
+        "type": "String",
+        "required": "yes"
+      },
+      "EvaluateTargetHealth": {
+        "desc": "Applies only to alias, failover alias, geolocation alias, latency alias, and weighted alias resource record sets: When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.",
+        "type": "Boolean",
+        "required": "yes"
+      },
+      "HostedZoneId": {
+        "desc": "Alias resource records sets only: The value used depends on where you want to route traffic:",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "Change",
+    "attrs": {
+      "Action": {
+        "desc": "The action to perform:",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "create",
+          "delete",
+          "upsert"
+        ]
+      },
+      "ResourceRecordSet": {
+        "desc": "Information about the resource record set to create, delete, or update.",
+        "type": "ResourceRecordSet object",
+        "required": "yes",
+        "values": [
+          "create",
+          "delete",
+          "upsert"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ChangeBatch",
+    "attrs": {
+      "Changes": {
+        "desc": "Information about the changes to make to the record sets.",
+        "type": "Array of Change objects",
+        "required": "yes"
+      },
+      "Comment": {
+        "desc": "Optional: Any comments you want to include about a change batch request.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "ChangeInfo",
+    "attrs": {
+      "Comment": {
+        "desc": "A complex type that describes change information about changes made to your hosted zone.",
+        "type": "String",
+        "required": "no"
+      },
+      "Id": {
+        "desc": "The ID of the request.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Status": {
+        "desc": "The current state of the request. PENDING indicates that this request has not yet been applied to all Amazon Route 53 DNS servers.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "pending",
+          "insync"
+        ]
+      },
+      "SubmittedAt": {
+        "desc": "The date and time that the change request was submitted in ISO 8601 format and Coordinated Universal Time (UTC). For example, the value 2017-03-27T17:48:16.751Z represents March 27, 2017 at 17:48:16.751 UTC.",
+        "type": "Timestamp",
+        "required": "yes",
+        "values": [
+          "pending",
+          "insync"
+        ]
+      }
+    }
+  },
+  {
+    "title": "CloudWatchAlarmConfiguration",
+    "attrs": {
+      "ComparisonOperator": {
+        "desc": "For the metric that the CloudWatch alarm is associated with, the arithmetic operation that is used for the comparison.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "greaterthanorequaltothreshold",
+          "greaterthanthreshold",
+          "lessthanthreshold",
+          "lessthanorequaltothreshold"
+        ]
+      },
+      "Dimensions": {
+        "desc": "For the metric that the CloudWatch alarm is associated with, a complex type that contains information about the dimensions for the metric. For information, see Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference in the Amazon CloudWatch User Guide.",
+        "type": "Array of Dimension objects",
+        "required": "no",
+        "values": [
+          "greaterthanorequaltothreshold",
+          "greaterthanthreshold",
+          "lessthanthreshold",
+          "lessthanorequaltothreshold"
+        ]
+      },
+      "EvaluationPeriods": {
+        "desc": "For the metric that the CloudWatch alarm is associated with, the number of periods that the metric is compared to the threshold.",
+        "type": "Integer",
+        "required": "yes",
+        "values": [
+          "greaterthanorequaltothreshold",
+          "greaterthanthreshold",
+          "lessthanthreshold",
+          "lessthanorequaltothreshold"
+        ]
+      },
+      "MetricName": {
+        "desc": "The name of the CloudWatch metric that the alarm is associated with.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "greaterthanorequaltothreshold",
+          "greaterthanthreshold",
+          "lessthanthreshold",
+          "lessthanorequaltothreshold"
+        ]
+      },
+      "Namespace": {
+        "desc": "The namespace of the metric that the alarm is associated with. For more information, see Amazon CloudWatch Namespaces, Dimensions, and Metrics Reference in the Amazon CloudWatch User Guide.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "greaterthanorequaltothreshold",
+          "greaterthanthreshold",
+          "lessthanthreshold",
+          "lessthanorequaltothreshold"
+        ]
+      },
+      "Period": {
+        "desc": "For the metric that the CloudWatch alarm is associated with, the duration of one evaluation period in seconds.",
+        "type": "Integer",
+        "required": "yes",
+        "values": [
+          "greaterthanorequaltothreshold",
+          "greaterthanthreshold",
+          "lessthanthreshold",
+          "lessthanorequaltothreshold"
+        ]
+      },
+      "Statistic": {
+        "desc": "For the metric that the CloudWatch alarm is associated with, the statistic that is applied to the metric.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "average",
+          "sum",
+          "samplecount",
+          "maximum",
+          "minimum"
+        ]
+      },
+      "Threshold": {
+        "desc": "For the metric that the CloudWatch alarm is associated with, the value the metric is compared with.",
+        "type": "Double",
+        "required": "yes",
+        "values": [
+          "average",
+          "sum",
+          "samplecount",
+          "maximum",
+          "minimum"
+        ]
+      }
+    }
+  },
+  {
+    "title": "DelegationSet",
+    "attrs": {
+      "CallerReference": {
+        "desc": "The value that you specified for CallerReference when you created the reusable delegation set.",
+        "type": "String",
+        "required": "no"
+      },
+      "Id": {
+        "desc": "The ID that Amazon Route 53 assigns to a reusable delegation set.",
+        "type": "String",
+        "required": "no"
+      },
+      "NameServers": {
+        "desc": "A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.",
+        "type": "Array of strings",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "Dimension",
+    "attrs": {
+      "Name": {
+        "desc": "For the metric that the CloudWatch alarm is associated with, the name of one dimension.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Value": {
+        "desc": "For the metric that the CloudWatch alarm is associated with, the value of one dimension.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "GeoLocation",
+    "attrs": {
+      "ContinentCode": {
+        "desc": "The two-letter code for the continent.",
+        "type": "String",
+        "required": "no"
+      },
+      "CountryCode": {
+        "desc": "For geolocation resource record sets, the two-letter code for a country.",
+        "type": "String",
+        "required": "no"
+      },
+      "SubdivisionCode": {
+        "desc": "For geolocation resource record sets, the two-letter code for a state of the United States. Route 53 doesn't support any other values for SubdivisionCode. For a list of state abbreviations, see Appendix B: Two–Letter State and Possession Abbreviations on the United States Postal Service website.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "GeoLocationDetails",
+    "attrs": {
+      "ContinentCode": {
+        "desc": "The two-letter code for the continent.",
+        "type": "String",
+        "required": "no"
+      },
+      "ContinentName": {
+        "desc": "The full name of the continent.",
+        "type": "String",
+        "required": "no"
+      },
+      "CountryCode": {
+        "desc": "The two-letter code for the country.",
+        "type": "String",
+        "required": "no"
+      },
+      "CountryName": {
+        "desc": "The name of the country.",
+        "type": "String",
+        "required": "no"
+      },
+      "SubdivisionCode": {
+        "desc": "The code for the subdivision. Route 53 currently supports only states in the United States.",
+        "type": "String",
+        "required": "no"
+      },
+      "SubdivisionName": {
+        "desc": "The full name of the subdivision. Route 53 currently supports only states in the United States.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "HealthCheck",
+    "attrs": {
+      "CallerReference": {
+        "desc": "A unique string that you specified when you created the health check.",
+        "type": "String",
+        "required": "yes"
+      },
+      "CloudWatchAlarmConfiguration": {
+        "desc": "A complex type that contains information about the CloudWatch alarm that Amazon Route 53 is monitoring for this health check.",
+        "type": "CloudWatchAlarmConfiguration object",
+        "required": "no"
+      },
+      "HealthCheckConfig": {
+        "desc": "A complex type that contains detailed information about one health check.",
+        "type": "HealthCheckConfig object",
+        "required": "yes"
+      },
+      "HealthCheckVersion": {
+        "desc": "The version of the health check. You can optionally pass this value in a call to UpdateHealthCheck to prevent overwriting another change to the health check.",
+        "type": "Long",
+        "required": "yes"
+      },
+      "Id": {
+        "desc": "The identifier that Amazon Route 53assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.",
+        "type": "String",
+        "required": "yes"
+      },
+      "LinkedService": {
+        "desc": "If the health check was created by another service, the service that created the health check. When a health check is created by another service, you can't edit or delete it using Amazon Route 53.",
+        "type": "LinkedService object",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "HealthCheckConfig",
+    "attrs": {
+      "AlarmIdentifier": {
+        "desc": "A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.",
+        "type": "AlarmIdentifier object",
+        "required": "no"
+      },
+      "ChildHealthChecks": {
+        "desc": "(CALCULATED Health Checks Only) A complex type that contains one ChildHealthCheck element for each health check that you want to associate with a CALCULATED health check.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "Disabled": {
+        "desc": "Stops Route 53 from performing health checks. When you disable a health check, here's what happens:",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "EnableSNI": {
+        "desc": "Specify whether you want Amazon Route 53 to send the value of FullyQualifiedDomainName to the endpoint in the client_hello message during TLS negotiation. This allows the endpoint to respond to HTTPS health check requests with the applicable SSL/TLS certificate.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "FailureThreshold": {
+        "desc": "The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see How Amazon Route 53 Determines Whether an Endpoint Is Healthy in the Amazon Route 53 Developer Guide.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "FullyQualifiedDomainName": {
+        "desc": "Amazon Route 53 behavior depends on whether you specify a value for IPAddress.",
+        "type": "String",
+        "required": "no"
+      },
+      "HealthThreshold": {
+        "desc": "The number of child health checks that are associated with a CALCULATED health check that Amazon Route 53 must consider healthy for the CALCULATED health check to be considered healthy. To specify the child health checks that you want to associate with a CALCULATED health check, use the ChildHealthChecks element.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "InsufficientDataHealthStatus": {
+        "desc": "When CloudWatch has insufficient data about the metric to determine the alarm state, the status that you want Amazon Route 53 to assign to the health check:",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "healthy",
+          "unhealthy",
+          "lastknownstatus"
+        ]
+      },
+      "Inverted": {
+        "desc": "Specify whether you want Amazon Route 53 to invert the status of a health check, for example, to consider a health check unhealthy when it otherwise would be considered healthy.",
+        "type": "Boolean",
+        "required": "no",
+        "values": [
+          "healthy",
+          "unhealthy",
+          "lastknownstatus"
+        ]
+      },
+      "IPAddress": {
+        "desc": "The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for IPAddress, Route 53 sends a DNS request to resolve the domain name that you specify in FullyQualifiedDomainName at the interval that you specify in RequestInterval. Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "healthy",
+          "unhealthy",
+          "lastknownstatus"
+        ]
+      },
+      "MeasureLatency": {
+        "desc": "Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the Health Checks page in the Route 53 console.",
+        "type": "Boolean",
+        "required": "no",
+        "values": [
+          "healthy",
+          "unhealthy",
+          "lastknownstatus"
+        ]
+      },
+      "Port": {
+        "desc": "The port on the endpoint that you want Amazon Route 53 to perform health checks on.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "healthy",
+          "unhealthy",
+          "lastknownstatus"
+        ]
+      },
+      "Regions": {
+        "desc": "A complex type that contains one Region element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.",
+        "type": "Array of strings",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-west-1",
+          "us-west-2",
+          "eu-west-1",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          ""
+        ]
+      },
+      "RequestInterval": {
+        "desc": "The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.",
+        "type": "Integer",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-west-1",
+          "us-west-2",
+          "eu-west-1",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          ""
+        ]
+      },
+      "ResourcePath": {
+        "desc": "The path, if any, that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example, the file /docs/route53-health-check.html. You can also include query string parameters, for example, /welcome.html?language=jp&login=y.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-west-1",
+          "us-west-2",
+          "eu-west-1",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          ""
+        ]
+      },
+      "SearchString": {
+        "desc": "If the value of Type is HTTP_STR_MATCH or HTTPS_STR_MATCH, the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Route 53 considers the resource healthy.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-west-1",
+          "us-west-2",
+          "eu-west-1",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          ""
+        ]
+      },
+      "Type": {
+        "desc": "The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "http",
+          "https",
+          "http_str_match",
+          "https_str_match",
+          "tcp",
+          "calculated",
+          "cloudwatch_metric"
+        ]
+      }
+    }
+  },
+  {
+    "title": "HealthCheckObservation",
+    "attrs": {
+      "IPAddress": {
+        "desc": "The IP address of the Amazon Route 53 health checker that provided the failure reason in StatusReport.",
+        "type": "String",
+        "required": "no"
+      },
+      "Region": {
+        "desc": "The region of the Amazon Route 53 health checker that provided the status in StatusReport.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-west-1",
+          "us-west-2",
+          "eu-west-1",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          ""
+        ]
+      },
+      "StatusReport": {
+        "desc": "A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.",
+        "type": "StatusReport object",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-west-1",
+          "us-west-2",
+          "eu-west-1",
+          "ap-southeast-1",
+          "ap-southeast-2",
+          ""
+        ]
+      }
+    }
+  },
+  {
+    "title": "HostedZone",
+    "attrs": {
+      "CallerReference": {
+        "desc": "The value that you specified for CallerReference when you created the hosted zone.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Config": {
+        "desc": "A complex type that includes the Comment and PrivateZone elements. If you omitted the HostedZoneConfig and Comment elements from the request, the Config and Comment elements don't appear in the response.",
+        "type": "HostedZoneConfig object",
+        "required": "no"
+      },
+      "Id": {
+        "desc": "The ID that Amazon Route 53 assigned to the hosted zone when you created it.",
+        "type": "String",
+        "required": "yes"
+      },
+      "LinkedService": {
+        "desc": "If the hosted zone was created by another service, the service that created the hosted zone. When a hosted zone is created by another service, you can't edit or delete it using Route 53.",
+        "type": "LinkedService object",
+        "required": "no"
+      },
+      "Name": {
+        "desc": "The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ResourceRecordSetCount": {
+        "desc": "The number of resource record sets in the hosted zone.",
+        "type": "Long",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "HostedZoneConfig",
+    "attrs": {
+      "Comment": {
+        "desc": "Any comments that you want to include about the hosted zone.",
+        "type": "String",
+        "required": "no"
+      },
+      "PrivateZone": {
+        "desc": "A value that indicates whether this is a private hosted zone.",
+        "type": "Boolean",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "HostedZoneLimit",
+    "attrs": {
+      "Type": {
+        "desc": "The limit that you requested. Valid values include the following:",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "max_rrsets_by_zone",
+          "max_vpcs_associated_by_zone"
+        ]
+      },
+      "Value": {
+        "desc": "The current value for the limit that is specified by Type.",
+        "type": "Long",
+        "required": "yes",
+        "values": [
+          "max_rrsets_by_zone",
+          "max_vpcs_associated_by_zone"
+        ]
+      }
+    }
+  },
+  {
+    "title": "LinkedService",
+    "attrs": {
+      "Description": {
+        "desc": "If the health check or hosted zone was created by another service, an optional description that can be provided by the other service. When a resource is created by another service, you can't edit or delete it using Amazon Route 53.",
+        "type": "String",
+        "required": "no"
+      },
+      "ServicePrincipal": {
+        "desc": "If the health check or hosted zone was created by another service, the service that created the resource. When a resource is created by another service, you can't edit or delete it using Amazon Route 53.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "QueryLoggingConfig",
+    "attrs": {
+      "CloudWatchLogsLogGroupArn": {
+        "desc": "The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.",
+        "type": "String",
+        "required": "yes"
+      },
+      "HostedZoneId": {
+        "desc": "The ID of the hosted zone that CloudWatch Logs is logging queries for.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Id": {
+        "desc": "The ID for a configuration for DNS query logging.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "ResourceRecord",
+    "attrs": {
+      "Value": {
+        "desc": "The current or new DNS record value, not to exceed 4,000 characters. In the case of a DELETE action, if the current value does not match the actual value, an error is returned. For descriptions about how to format Value for different record types, see Supported DNS Resource Record Types in the Amazon Route 53 Developer Guide.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "ResourceRecordSet",
+    "attrs": {
+      "AliasTarget": {
+        "desc": "Alias resource record sets only: Information about the AWS resource, such as a CloudFront distribution or an Amazon S3 bucket, that you want to route traffic to.",
+        "type": "AliasTarget object",
+        "required": "no"
+      },
+      "Failover": {
+        "desc": "Failover resource record sets only: To configure failover, you add the Failover element to two resource record sets. For one resource record set, you specify PRIMARY as the value for Failover; for the other resource record set, you specify SECONDARY. In addition, you include the HealthCheckId element and specify the health check that you want Amazon Route 53 to perform for each resource record set.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "primary",
+          "secondary"
+        ]
+      },
+      "GeoLocation": {
+        "desc": "Geolocation resource record sets only: A complex type that lets you control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query. For example, if you want all queries from Africa to be routed to a web server with an IP address of 192.0.2.111, create a resource record set with a Type of A and a ContinentCode of AF.",
+        "type": "GeoLocation object",
+        "required": "no",
+        "values": [
+          "primary",
+          "secondary"
+        ]
+      },
+      "HealthCheckId": {
+        "desc": "If you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the HealthCheckId element and specify the ID of the applicable health check.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "primary",
+          "secondary"
+        ]
+      },
+      "MultiValueAnswer": {
+        "desc": "Multivalue answer resource record sets only: To route traffic approximately randomly to multiple resources, such as web servers, create one multivalue answer record for each resource and specify true for MultiValueAnswer. Note the following:",
+        "type": "Boolean",
+        "required": "no",
+        "values": [
+          "primary",
+          "secondary"
+        ]
+      },
+      "Name": {
+        "desc": "For ChangeResourceRecordSets requests, the name of the record that you want to create, update, or delete. For ListResourceRecordSets responses, the name of a record in the specified hosted zone.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "primary",
+          "secondary"
+        ]
+      },
+      "Region": {
+        "desc": "Latency-based resource record sets only: The Amazon EC2 Region where you created the resource that this resource record set refers to. The resource typically is an AWS resource, such as an EC2 instance or an ELB load balancer, and is referred to by an IP address or a DNS domain name, depending on the record type.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2",
+          "ca-central-1",
+          "eu-west-1",
+          "eu-west-2"
+        ]
+      },
+      "ResourceRecords": {
+        "desc": "Information about the resource records to act upon.",
+        "type": "Array of ResourceRecord objects",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2",
+          "ca-central-1",
+          "eu-west-1",
+          "eu-west-2"
+        ]
+      },
+      "SetIdentifier": {
+        "desc": "Resource record sets that have a routing policy other than simple: An identifier that differentiates among multiple resource record sets that have the same combination of name and type, such as multiple weighted resource record sets named acme.example.com that have a type of A. In a group of resource record sets that have the same name and type, the value of SetIdentifier must be unique for each resource record set.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2",
+          "ca-central-1",
+          "eu-west-1",
+          "eu-west-2"
+        ]
+      },
+      "TrafficPolicyInstanceId": {
+        "desc": "When you create a traffic policy instance, Amazon Route 53 automatically creates a resource record set. TrafficPolicyInstanceId is the ID of the traffic policy instance that Route 53 created this resource record set for.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2",
+          "ca-central-1",
+          "eu-west-1",
+          "eu-west-2"
+        ]
+      },
+      "TTL": {
+        "desc": "The resource record cache time to live (TTL), in seconds. Note the following:",
+        "type": "Long",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2",
+          "ca-central-1",
+          "eu-west-1",
+          "eu-west-2"
+        ]
+      },
+      "Type": {
+        "desc": "The DNS record type. For information about different record types and how data is encoded for them, see Supported DNS Resource Record Types in the Amazon Route 53 Developer Guide.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "soa",
+          "a",
+          "txt",
+          "ns",
+          "cname",
+          "mx",
+          "naptr",
+          "ptr",
+          "srv",
+          "spf",
+          "aaaa",
+          "caa"
+        ]
+      },
+      "Weight": {
+        "desc": "Weighted resource record sets only: Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set. Route 53 calculates the sum of the weights for the resource record sets that have the same combination of DNS name and type. Route 53 then responds to queries based on the ratio of a resource's weight to the total. Note the following:",
+        "type": "Long",
+        "required": "no",
+        "values": [
+          "soa",
+          "a",
+          "txt",
+          "ns",
+          "cname",
+          "mx",
+          "naptr",
+          "ptr",
+          "srv",
+          "spf",
+          "aaaa",
+          "caa"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ResourceTagSet",
+    "attrs": {
+      "ResourceId": {
+        "desc": "The ID for the specified resource.",
+        "type": "String",
+        "required": "no"
+      },
+      "ResourceType": {
+        "desc": "The type of the resource.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "healthcheck",
+          "hostedzone"
+        ]
+      },
+      "Tags": {
+        "desc": "The tags associated with the specified resource.",
+        "type": "Array of Tag objects",
+        "required": "no",
+        "values": [
+          "healthcheck",
+          "hostedzone"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ReusableDelegationSetLimit",
+    "attrs": {
+      "Type": {
+        "desc": "The limit that you requested: MAX_ZONES_BY_REUSABLE_DELEGATION_SET, the maximum number of hosted zones that you can associate with the specified reusable delegation set.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "max_zones_by_reusable_delegation_set"
+        ]
+      },
+      "Value": {
+        "desc": "The current value for the MAX_ZONES_BY_REUSABLE_DELEGATION_SET limit.",
+        "type": "Long",
+        "required": "yes",
+        "values": [
+          "max_zones_by_reusable_delegation_set"
+        ]
+      }
+    }
+  },
+  {
+    "title": "StatusReport",
+    "attrs": {
+      "CheckedTime": {
+        "desc": "The date and time that the health checker performed the health check in ISO 8601 format and Coordinated Universal Time (UTC). For example, the value 2017-03-27T17:48:16.751Z represents March 27, 2017 at 17:48:16.751 UTC.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Status": {
+        "desc": "A description of the status of the health check endpoint as reported by one of the Amazon Route 53 health checkers.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "desc": "The value of Key depends on the operation that you want to perform:",
+        "type": "String",
+        "required": "no"
+      },
+      "Value": {
+        "desc": "The value of Value depends on the operation that you want to perform:",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "TrafficPolicy",
+    "attrs": {
+      "Comment": {
+        "desc": "The comment that you specify in the CreateTrafficPolicy request, if any.",
+        "type": "String",
+        "required": "no"
+      },
+      "Document": {
+        "desc": "The definition of a traffic policy in JSON format. You specify the JSON document to use for a new traffic policy in the CreateTrafficPolicy request. For more information about the JSON format, see Traffic Policy Document Format.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Id": {
+        "desc": "The ID that Amazon Route 53 assigned to a traffic policy when you created it.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Name": {
+        "desc": "The name that you specified when you created the traffic policy.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Type": {
+        "desc": "The DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "soa",
+          "a",
+          "txt",
+          "ns",
+          "cname",
+          "mx",
+          "naptr",
+          "ptr",
+          "srv",
+          "spf",
+          "aaaa",
+          "caa"
+        ]
+      },
+      "Version": {
+        "desc": "The version number that Amazon Route 53 assigns to a traffic policy. For a new traffic policy, the value of Version is always 1.",
+        "type": "Integer",
+        "required": "yes",
+        "values": [
+          "soa",
+          "a",
+          "txt",
+          "ns",
+          "cname",
+          "mx",
+          "naptr",
+          "ptr",
+          "srv",
+          "spf",
+          "aaaa",
+          "caa"
+        ]
+      }
+    }
+  },
+  {
+    "title": "TrafficPolicyInstance",
+    "attrs": {
+      "HostedZoneId": {
+        "desc": "The ID of the hosted zone that Amazon Route 53 created resource record sets in.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Id": {
+        "desc": "The ID that Amazon Route 53 assigned to the new traffic policy instance.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Message": {
+        "desc": "If State is Failed, an explanation of the reason for the failure. If State is another value, Message is empty.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Name": {
+        "desc": "The DNS name, such as www.example.com, for which Amazon Route 53 responds to queries by using the resource record sets that are associated with this traffic policy instance.",
+        "type": "String",
+        "required": "yes"
+      },
+      "State": {
+        "desc": "The value of State is one of the following values:",
+        "type": "String",
+        "required": "yes"
+      },
+      "TrafficPolicyId": {
+        "desc": "The ID of the traffic policy that Amazon Route 53 used to create resource record sets in the specified hosted zone.",
+        "type": "String",
+        "required": "yes"
+      },
+      "TrafficPolicyType": {
+        "desc": "The DNS type that Amazon Route 53 assigned to all of the resource record sets that it created for this traffic policy instance.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "soa",
+          "a",
+          "txt",
+          "ns",
+          "cname",
+          "mx",
+          "naptr",
+          "ptr",
+          "srv",
+          "spf",
+          "aaaa",
+          "caa"
+        ]
+      },
+      "TrafficPolicyVersion": {
+        "desc": "The version of the traffic policy that Amazon Route 53 used to create resource record sets in the specified hosted zone.",
+        "type": "Integer",
+        "required": "yes",
+        "values": [
+          "soa",
+          "a",
+          "txt",
+          "ns",
+          "cname",
+          "mx",
+          "naptr",
+          "ptr",
+          "srv",
+          "spf",
+          "aaaa",
+          "caa"
+        ]
+      },
+      "TTL": {
+        "desc": "The TTL that Amazon Route 53 assigned to all of the resource record sets that it created in the specified hosted zone.",
+        "type": "Long",
+        "required": "yes",
+        "values": [
+          "soa",
+          "a",
+          "txt",
+          "ns",
+          "cname",
+          "mx",
+          "naptr",
+          "ptr",
+          "srv",
+          "spf",
+          "aaaa",
+          "caa"
+        ]
+      }
+    }
+  },
+  {
+    "title": "TrafficPolicySummary",
+    "attrs": {
+      "Id": {
+        "desc": "The ID that Amazon Route 53 assigned to the traffic policy when you created it.",
+        "type": "String",
+        "required": "yes"
+      },
+      "LatestVersion": {
+        "desc": "The version number of the latest version of the traffic policy.",
+        "type": "Integer",
+        "required": "yes"
+      },
+      "Name": {
+        "desc": "The name that you specified for the traffic policy when you created it.",
+        "type": "String",
+        "required": "yes"
+      },
+      "TrafficPolicyCount": {
+        "desc": "The number of traffic policies that are associated with the current AWS account.",
+        "type": "Integer",
+        "required": "yes"
+      },
+      "Type": {
+        "desc": "The DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "soa",
+          "a",
+          "txt",
+          "ns",
+          "cname",
+          "mx",
+          "naptr",
+          "ptr",
+          "srv",
+          "spf",
+          "aaaa",
+          "caa"
+        ]
+      }
+    }
+  },
+  {
+    "title": "VPC",
+    "attrs": {
+      "VPCId": {
+        "desc": "(Private hosted zones only) The ID of an Amazon VPC.",
+        "type": "String",
+        "required": "no"
+      },
+      "VPCRegion": {
+        "desc": "(Private hosted zones only) The region that an Amazon VPC was created in.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-1",
+          "us-west-2",
+          "eu-west-1",
+          "eu-west-2",
+          "eu-west-3"
+        ]
+      }
+    }
+  }
+]

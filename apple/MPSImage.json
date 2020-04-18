@@ -1,0 +1,365 @@
+{
+  "type": "Class",
+  "name": "MPSImage",
+  "desc": "A texture that may have more than four channels for use in convolutional neural networks.",
+  "items": [
+    {
+      "name": "setPurgeableState",
+      "type": "func",
+      "desc": "Set (or query) the purgeable state of the image’s underlying texture.",
+      "params": [
+        {
+          "type": "MPSPurgeableState"
+        }
+      ],
+      "returnType": "MPSPurgeableState"
+    },
+    {
+      "name": "MPSPurgeableState",
+      "type": "enum",
+      "desc": "The purgeable state of an image’s underlying texture."
+    },
+    {
+      "name": "readBytes",
+      "type": "func",
+      "params": [
+        {
+          "type": "UnsafeMutableRawPointer"
+        },
+        {
+          "name": "dataLayout",
+          "type": "MPSDataLayout"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "featureChannelInfo",
+          "type": "MPSImageReadWriteParams"
+        },
+        {
+          "name": "imageIndex",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "readBytes",
+      "type": "func",
+      "params": [
+        {
+          "type": "UnsafeMutableRawPointer"
+        },
+        {
+          "name": "dataLayout",
+          "type": "MPSDataLayout"
+        },
+        {
+          "name": "imageIndex",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "writeBytes",
+      "type": "func",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "dataLayout",
+          "type": "MPSDataLayout"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "featureChannelInfo",
+          "type": "MPSImageReadWriteParams"
+        },
+        {
+          "name": "imageIndex",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "writeBytes",
+      "type": "func",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "dataLayout",
+          "type": "MPSDataLayout"
+        },
+        {
+          "name": "imageIndex",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "MPSDataLayout",
+      "type": "enum",
+      "desc": "Options that define how buffer data is arranged."
+    },
+    {
+      "name": "defaultAllocator",
+      "type": "class func",
+      "params": [],
+      "returnType": "MPSImageAllocator"
+    },
+    {
+      "name": "device",
+      "type": "var",
+      "datatype": "MTLDevice",
+      "desc": "The device on which the image will be used."
+    },
+    {
+      "name": "width",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The formal width of the image, in pixels."
+    },
+    {
+      "name": "height",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The formal height of the image, in pixels."
+    },
+    {
+      "name": "featureChannels",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of feature channels per pixel."
+    },
+    {
+      "name": "numberOfImages",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of images for batch processing."
+    },
+    {
+      "name": "textureType",
+      "type": "var",
+      "datatype": "MTLTextureType",
+      "desc": "The type of the underlying texture, typically MTLTextureType.type2D or MTLTextureType.type2DArray."
+    },
+    {
+      "name": "MTLTextureType",
+      "type": "enum",
+      "desc": "The dimension of each image, including whether multiple images are arranged into an array or a cube."
+    },
+    {
+      "name": "pixelFormat",
+      "type": "var",
+      "datatype": "MTLPixelFormat",
+      "desc": "The pixel format of the underlying texture."
+    },
+    {
+      "name": "MTLPixelFormat",
+      "type": "enum",
+      "desc": "The data formats that describe the organization and characteristics of individual pixels in a texture."
+    },
+    {
+      "name": "precision",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of bits of numeric precision available for each feature channel."
+    },
+    {
+      "name": "usage",
+      "type": "var",
+      "datatype": "MTLTextureUsage",
+      "desc": "The intended usage of the underlying texture."
+    },
+    {
+      "name": "pixelSize",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of bytes from the first byte of one pixel to the first byte of the next pixel, in storage order. (Includes padding.)"
+    },
+    {
+      "name": "texture",
+      "type": "var",
+      "datatype": "MTLTexture",
+      "desc": "The underlying texture."
+    },
+    {
+      "name": "label",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "A string to help identify this object."
+    },
+    {
+      "name": "featureChannelFormat",
+      "type": "var",
+      "datatype": "MPSImageFeatureChannelFormat"
+    },
+    {
+      "name": "parent",
+      "type": "var",
+      "datatype": "MPSImage?"
+    },
+    {
+      "name": "batchRepresentation",
+      "type": "func",
+      "params": [],
+      "returnType": "[MPSImage]"
+    },
+    {
+      "name": "batchRepresentation",
+      "type": "func",
+      "params": [
+        {
+          "name": "withSubRange",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "[MPSImage]"
+    },
+    {
+      "name": "readBytes",
+      "type": "func",
+      "params": [
+        {
+          "type": "UnsafeMutableRawPointer"
+        },
+        {
+          "name": "dataLayout",
+          "type": "MPSDataLayout"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "bytesPerImage",
+          "type": "Int"
+        },
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "featureChannelInfo",
+          "type": "MPSImageReadWriteParams"
+        },
+        {
+          "name": "imageIndex",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "resourceSize",
+      "type": "func",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "subImage",
+      "type": "func",
+      "params": [
+        {
+          "name": "withFeatureChannelRange",
+          "type": "NSRange"
+        }
+      ],
+      "returnType": "MPSImage"
+    },
+    {
+      "name": "synchronize",
+      "type": "func",
+      "params": [
+        {
+          "name": "on",
+          "type": "MTLCommandBuffer"
+        }
+      ]
+    },
+    {
+      "name": "writeBytes",
+      "type": "func",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "dataLayout",
+          "type": "MPSDataLayout"
+        },
+        {
+          "name": "bytesPerColumn",
+          "type": "Int"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "bytesPerImage",
+          "type": "Int"
+        },
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "featureChannelInfo",
+          "type": "MPSImageReadWriteParams"
+        },
+        {
+          "name": "imageIndex",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "writeBytes",
+      "type": "func",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "dataLayout",
+          "type": "MPSDataLayout"
+        },
+        {
+          "name": "bytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "bytesPerImage",
+          "type": "Int"
+        },
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "featureChannelInfo",
+          "type": "MPSImageReadWriteParams"
+        },
+        {
+          "name": "imageIndex",
+          "type": "Int"
+        }
+      ]
+    }
+  ]
+}

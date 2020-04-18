@@ -1,0 +1,91 @@
+{
+  "path": "/scheduleAccountUpdater",
+  "method": "POST",
+  "desc": "When making the API call, you can submit either the credit card information, or the recurring detail reference and the shopper reference:\n\nIf the card information is provided, all the sub-fields for card are mandatory.\nIf the recurring detail reference is provided, the fields for shopperReference and selectedRecurringDetailReference are mandatory.",
+  "req": {
+    "additionalData": {
+      "type": "object",
+      "desc": "This field contains additional data, which may be required for a particular request.",
+      "required": false
+    },
+    "card": {
+      "type": "string",
+      "desc": "A container for credit card data.\nOptional if shopperReference and selectedRecurringDetailReference are provided.",
+      "required": true,
+      "children": {
+        "cvc": {
+          "type": "string",
+          "desc": "The card verification code (1-20 characters). Depending on the card brand, it is known also as:\n\nCVV2/CVC2 – length: 3 digits\nCID – length: 4 digits\n\n\nIf you are using Client-Side Encryption, the CVC code is present in the encrypted data. You must never post the card details to the server.\nThis field must be always present in a one-click payment request.\nWhen this value is returned in a response, it is always empty because it is not stored.",
+          "required": false
+        },
+        "expiryMonth": {
+          "type": "string",
+          "desc": "The card expiry month.\nFormat: 2 digits, zero-padded for single digits. For example:\n\n03 = March\n11 = November",
+          "required": true
+        },
+        "expiryYear": {
+          "type": "string",
+          "desc": "The card expiry year.\nFormat: 4 digits. For example: 2020",
+          "required": true
+        },
+        "holderName": {
+          "type": "string",
+          "desc": "The name of the cardholder, as printed on the card.",
+          "required": true
+        },
+        "issueNumber": {
+          "type": "string",
+          "desc": "The issue number of the card (for some UK debit cards only).",
+          "required": false
+        },
+        "number": {
+          "type": "string",
+          "desc": "The card number (4-19 characters). Do not use any separators.\nWhen this value is returned in a response, only the last 4 digits of the card number are returned.",
+          "required": true
+        },
+        "startMonth": {
+          "type": "string",
+          "desc": "The month component of the start date (for some UK debit cards only).",
+          "required": false
+        },
+        "startYear": {
+          "type": "string",
+          "desc": "The year component of the start date (for some UK debit cards only).",
+          "required": false
+        }
+      }
+    },
+    "merchantAccount": {
+      "type": "string",
+      "desc": "Account of the merchant.",
+      "required": true
+    },
+    "reference": {
+      "type": "string",
+      "desc": "A reference that merchants can apply for the call.",
+      "required": true
+    },
+    "selectedRecurringDetailReference": {
+      "type": "string",
+      "desc": "The selected detail recurring reference.\nOptional if card is provided.",
+      "required": false
+    },
+    "shopperReference": {
+      "type": "string",
+      "desc": "The reference of the shopper that owns the recurring contract.\nOptional if card is provided.",
+      "required": false
+    }
+  },
+  "res": {
+    "pspReference": {
+      "type": "string",
+      "desc": "Adyen's 16-character unique reference associated with the transaction. This value is globally unique; quote it when communicating with us about this request.",
+      "required": true
+    },
+    "result": {
+      "type": "string",
+      "desc": "The result of scheduling an Account Updater. If scheduling was successful, this field returns Success; otherwise it contains the error message.",
+      "required": true
+    }
+  }
+}

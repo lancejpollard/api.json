@@ -1,0 +1,530 @@
+{
+  "type": "Class",
+  "name": "AUAudioUnit",
+  "desc": "The AUAudioUnit class defines a host’s interface to an audio unit.",
+  "items": [
+    {
+      "name": "componentDescription",
+      "type": "var",
+      "datatype": "AudioComponentDescription",
+      "desc": "The component description with which the audio unit was created."
+    },
+    {
+      "name": "component",
+      "type": "var",
+      "datatype": "AudioComponent",
+      "desc": "The component found in the component description with which the audio unit was created."
+    },
+    {
+      "name": "componentName",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The audio unit’s component’s name."
+    },
+    {
+      "name": "componentVersion",
+      "type": "var",
+      "datatype": "UInt32",
+      "desc": "The audio unit’s component’s version."
+    },
+    {
+      "name": "audioUnitName",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The audio unit’s name, derived from the component’s name."
+    },
+    {
+      "name": "manufacturerName",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The manufacturer’s name, derived from the component’s name."
+    },
+    {
+      "name": "allocateRenderResources",
+      "type": "func",
+      "desc": "Allocates resources required to render audio.",
+      "params": []
+    },
+    {
+      "name": "deallocateRenderResources",
+      "type": "func",
+      "desc": "Deallocates resources required to render audio.",
+      "params": []
+    },
+    {
+      "name": "reset",
+      "type": "func",
+      "desc": "Resets transitory rendering state to its initial state.",
+      "params": []
+    },
+    {
+      "name": "renderResourcesAllocated",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Determines whether the audio unit has allocated render resources."
+    },
+    {
+      "name": "inputBusses",
+      "type": "var",
+      "datatype": "AUAudioUnitBusArray",
+      "desc": "An array containing the audio unit’s input connection points."
+    },
+    {
+      "name": "outputBusses",
+      "type": "var",
+      "datatype": "AUAudioUnitBusArray",
+      "desc": "An array containing the audio unit’s output connection points."
+    },
+    {
+      "name": "renderBlock",
+      "type": "var",
+      "datatype": "AURenderBlock",
+      "desc": "The block that hosts use to ask the audio unit to render audio."
+    },
+    {
+      "name": "scheduleParameterBlock",
+      "type": "var",
+      "datatype": "AUScheduleParameterBlock",
+      "desc": "The block that hosts use to schedule parameters."
+    },
+    {
+      "name": "maximumFramesToRender",
+      "type": "var",
+      "datatype": "AUAudioFrameCount",
+      "desc": "The maximum number of frames that the audio unit can render at once."
+    },
+    {
+      "name": "token",
+      "type": "func",
+      "desc": "Adds a block to be called on each render cycle.",
+      "params": [
+        {
+          "name": "byAddingRenderObserver",
+          "type": "AURenderObserver"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "removeRenderObserver",
+      "type": "func",
+      "desc": "Removes an observer block previously added to the render cycle.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "parameterTree",
+      "type": "var",
+      "datatype": "AUParameterTree?",
+      "desc": "An audio unit’s parameters, organized in a tree hierarchy."
+    },
+    {
+      "name": "allParameterValues",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Special read-only property for KVO."
+    },
+    {
+      "name": "parametersForOverview",
+      "type": "func",
+      "desc": "Returns the audio unit’s most important parameters.",
+      "params": [
+        {
+          "name": "withCount",
+          "type": "Int"
+        }
+      ],
+      "returnType": "[NSNumber]"
+    },
+    {
+      "name": "isMusicDeviceOrEffect",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Specifies whether an audio unit responds to MIDI events."
+    },
+    {
+      "name": "virtualMIDICableCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of virtual MIDI cables implemented by a music device or effect."
+    },
+    {
+      "name": "scheduleMIDIEventBlock",
+      "type": "var",
+      "datatype": "AUScheduleMIDIEventBlock?",
+      "desc": "A block used to schedule MIDI events."
+    },
+    {
+      "name": "fullState",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "A persistable snapshot of the audio unit’s properties and parameters, suitable for saving as a user preset."
+    },
+    {
+      "name": "fullStateForDocument",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "A persistable snapshot of the audio unit’s properties and parameters, suitable for saving in a user’s document."
+    },
+    {
+      "name": "factoryPresets",
+      "type": "var",
+      "datatype": "[AUAudioUnitPreset]?",
+      "desc": "A collection of presets provided by the audio unit’s developer."
+    },
+    {
+      "name": "currentPreset",
+      "type": "var",
+      "datatype": "AUAudioUnitPreset?",
+      "desc": "The audio unit’s last-selected preset."
+    },
+    {
+      "name": "latency",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The audio unit’s processing latency, in seconds."
+    },
+    {
+      "name": "tailTime",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The audio unit’s tail time, in seconds."
+    },
+    {
+      "name": "renderQuality",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "Provides a trade-off between rendering quality and CPU load."
+    },
+    {
+      "name": "shouldBypassEffect",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Determines whether an effect should route input directly to output, without any processing."
+    },
+    {
+      "name": "canProcessInPlace",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Determines whether an audio unit can process in place."
+    },
+    {
+      "name": "isRenderingOffline",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Communicates to an audio unit that it is rendering offline."
+    },
+    {
+      "name": "channelCapabilities",
+      "type": "var",
+      "datatype": "[NSNumber]?",
+      "desc": "Expresses valid combinations of input and output channels."
+    },
+    {
+      "name": "musicalContextBlock",
+      "type": "var",
+      "datatype": "AUHostMusicalContextBlock?",
+      "desc": "A callback to the host for musical context information."
+    },
+    {
+      "name": "transportStateBlock",
+      "type": "var",
+      "datatype": "AUHostTransportStateBlock?",
+      "desc": "A callback to the host for transport state information."
+    },
+    {
+      "name": "contextName",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "Information about the host context in which the audio unit is connected, for display in the audio unit’s view."
+    },
+    {
+      "name": "canPerformInput",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Determines whether the I/O device can perform input."
+    },
+    {
+      "name": "canPerformOutput",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Determines whether the I/O device can perform output."
+    },
+    {
+      "name": "isInputEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A flag enabling audio input from the unit."
+    },
+    {
+      "name": "isOutputEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A flag enabling audio output from the unit."
+    },
+    {
+      "name": "inputHandler",
+      "type": "var",
+      "datatype": "AUInputHandler?",
+      "desc": "The block that the output unit will call to notify when input is available."
+    },
+    {
+      "name": "outputProvider",
+      "type": "var",
+      "datatype": "AURenderPullInputBlock?",
+      "desc": "The block that the output unit will call to get audio to send to the output."
+    },
+    {
+      "name": "deviceID",
+      "type": "var",
+      "datatype": "AUAudioObjectID",
+      "desc": "Gets the I/O hardware device."
+    },
+    {
+      "name": "setDeviceID",
+      "type": "func",
+      "desc": "Sets the I/O hardware device.",
+      "params": [
+        {
+          "type": "AUAudioObjectID"
+        }
+      ]
+    },
+    {
+      "name": "startHardware",
+      "type": "func",
+      "desc": "Starts the audio hardware.",
+      "params": []
+    },
+    {
+      "name": "stopHardware",
+      "type": "func",
+      "desc": "Stops the audio hardware.",
+      "params": []
+    },
+    {
+      "name": "internalRenderBlock",
+      "type": "var",
+      "datatype": "AUInternalRenderBlock",
+      "desc": "The block which you must provide, via a getter, in order to implement rendering."
+    },
+    {
+      "name": "registerSubclass",
+      "type": "class func",
+      "desc": "Registers an audio unit subclass.",
+      "params": [
+        {
+          "type": "AnyClass"
+        },
+        {
+          "name": "as",
+          "type": "AudioComponentDescription"
+        },
+        {
+          "name": "name",
+          "type": "String"
+        },
+        {
+          "name": "version",
+          "type": "UInt32"
+        }
+      ]
+    },
+    {
+      "name": "shouldChange",
+      "type": "func",
+      "desc": "This is called when you set the format on a bus.",
+      "params": [
+        {
+          "name": "to",
+          "type": "AVAudioFormat"
+        },
+        {
+          "name": "for",
+          "type": "AUAudioUnitBus"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setRenderResourcesAllocated",
+      "type": "func",
+      "desc": "Sets the Boolean value of the renderResourcesAllocated property.",
+      "params": [
+        {
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "audioUnitShortName",
+      "type": "var",
+      "datatype": "String?"
+    },
+    {
+      "name": "channelMap",
+      "type": "var",
+      "datatype": "[NSNumber]?"
+    },
+    {
+      "name": "deviceInputLatency",
+      "type": "var",
+      "datatype": "TimeInterval"
+    },
+    {
+      "name": "deviceOutputLatency",
+      "type": "var",
+      "datatype": "TimeInterval"
+    },
+    {
+      "name": "isLoadedInProcess",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "isRunning",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "midiOutputBufferSizeHint",
+      "type": "var",
+      "datatype": "Int"
+    },
+    {
+      "name": "midiOutputEventBlock",
+      "type": "var",
+      "datatype": "AUMIDIOutputEventBlock?"
+    },
+    {
+      "name": "midiOutputNames",
+      "type": "var",
+      "datatype": "[String]"
+    },
+    {
+      "name": "profileChangedBlock",
+      "type": "var",
+      "datatype": "AUMIDICIProfileChangedBlock?"
+    },
+    {
+      "name": "providesUserInterface",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "supportsMPE",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "supportsUserPresets",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "userPresets",
+      "type": "var",
+      "datatype": "[AUAudioUnitPreset]"
+    },
+    {
+      "name": "deleteUserPreset",
+      "type": "func",
+      "params": [
+        {
+          "type": "AUAudioUnitPreset"
+        }
+      ]
+    },
+    {
+      "name": "disableProfile",
+      "type": "func",
+      "params": [
+        {
+          "type": "MIDICIProfile"
+        },
+        {
+          "name": "cable",
+          "type": "UInt8"
+        },
+        {
+          "name": "onChannel",
+          "type": "MIDIChannelNumber"
+        }
+      ]
+    },
+    {
+      "name": "enable",
+      "type": "func",
+      "params": [
+        {
+          "type": "MIDICIProfile"
+        },
+        {
+          "name": "cable",
+          "type": "UInt8"
+        },
+        {
+          "name": "onChannel",
+          "type": "MIDIChannelNumber"
+        }
+      ]
+    },
+    {
+      "name": "presetState",
+      "type": "func",
+      "params": [
+        {
+          "name": "for",
+          "type": "AUAudioUnitPreset"
+        }
+      ],
+      "returnType": "[String : Any]"
+    },
+    {
+      "name": "profileState",
+      "type": "func",
+      "params": [
+        {
+          "name": "forCable",
+          "type": "UInt8"
+        },
+        {
+          "name": "channel",
+          "type": "MIDIChannelNumber"
+        }
+      ],
+      "returnType": "MIDICIProfileState"
+    },
+    {
+      "name": "saveUserPreset",
+      "type": "func",
+      "params": [
+        {
+          "type": "AUAudioUnitPreset"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "func",
+      "params": [
+        {
+          "type": "AUAudioUnitViewConfiguration"
+        }
+      ]
+    },
+    {
+      "name": "supportedViewConfigurations",
+      "type": "func",
+      "params": [
+        {
+          "type": "[AUAudioUnitViewConfiguration]"
+        }
+      ],
+      "returnType": "IndexSet"
+    }
+  ]
+}

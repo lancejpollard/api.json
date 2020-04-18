@@ -1,0 +1,438 @@
+{
+  "type": "Protocol",
+  "name": "MTLComputeCommandEncoder",
+  "desc": "An object used to encode commands in a compute pass.",
+  "items": [
+    {
+      "name": "setComputePipelineState",
+      "type": "func",
+      "desc": "Sets the current compute pipeline state object.",
+      "params": [
+        {
+          "type": "MTLComputePipelineState"
+        }
+      ]
+    },
+    {
+      "name": "setBuffer",
+      "type": "func",
+      "desc": "Sets a buffer for the compute function.",
+      "params": [
+        {
+          "type": "MTLBuffer?"
+        },
+        {
+          "name": "offset",
+          "type": "Int"
+        },
+        {
+          "name": "index",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "setBuffers",
+      "type": "func",
+      "desc": "Sets an array of buffers for the vertex function.",
+      "params": [
+        {
+          "type": "[MTLBuffer?]"
+        },
+        {
+          "name": "offsets",
+          "type": "[Int]"
+        },
+        {
+          "name": "range",
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "setBufferOffset",
+      "type": "func",
+      "desc": "Sets where the data begins in a buffer already bound to the compute shader.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "name": "index",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "setBytes",
+      "type": "func",
+      "desc": "Sets a block of data for the compute shader.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        },
+        {
+          "name": "index",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "setSamplerState",
+      "type": "func",
+      "desc": "Sets a sampler for the compute function.",
+      "params": [
+        {
+          "type": "MTLSamplerState?"
+        },
+        {
+          "name": "index",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "setSamplerState",
+      "type": "func",
+      "desc": "Sets a sampler for the compute function, specifying clamp values for the level of detail.",
+      "params": [
+        {
+          "type": "MTLSamplerState?"
+        },
+        {
+          "name": "lodMinClamp",
+          "type": "Float"
+        },
+        {
+          "name": "lodMaxClamp",
+          "type": "Float"
+        },
+        {
+          "name": "index",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "setSamplerStates",
+      "type": "func",
+      "desc": "Sets an array of sampler states in a range of indices in the sampler state argument table.",
+      "params": [
+        {
+          "type": "[MTLSamplerState?]"
+        },
+        {
+          "name": "range",
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "setSamplerStates",
+      "type": "func",
+      "desc": "Sets multiple samplers for the compute function, specifying clamp values for the level of detail of each sampler.",
+      "params": [
+        {
+          "type": "[MTLSamplerState?]"
+        },
+        {
+          "name": "lodMinClamps",
+          "type": "[Float]"
+        },
+        {
+          "name": "lodMaxClamps",
+          "type": "[Float]"
+        },
+        {
+          "name": "range",
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "setTexture",
+      "type": "func",
+      "desc": "Sets a texture for the compute function.",
+      "params": [
+        {
+          "type": "MTLTexture?"
+        },
+        {
+          "name": "index",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "setTextures",
+      "type": "func",
+      "desc": "Sets an array of textures for the compute function.",
+      "params": [
+        {
+          "type": "[MTLTexture?]"
+        },
+        {
+          "name": "range",
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "setThreadgroupMemoryLength",
+      "type": "func",
+      "desc": "Sets the size of a block of threadgroup memory.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "name": "index",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "dispatchThreadgroups",
+      "type": "func",
+      "desc": "Encodes a compute command using a grid aligned to threadgroup boundaries.",
+      "params": [
+        {
+          "type": "MTLSize"
+        },
+        {
+          "name": "threadsPerThreadgroup",
+          "type": "MTLSize"
+        }
+      ]
+    },
+    {
+      "name": "dispatchThreads",
+      "type": "func",
+      "desc": "Encodes a compute command using an arbitrarily sized grid.",
+      "params": [
+        {
+          "type": "MTLSize"
+        },
+        {
+          "name": "threadsPerThreadgroup",
+          "type": "MTLSize"
+        }
+      ]
+    },
+    {
+      "name": "dispatchThreadgroups",
+      "type": "func",
+      "desc": "Encodes a dispatch call for a compute pass, using an indirect buffer that defines the size of a grid aligned to threadgroup boundaries.",
+      "params": [
+        {
+          "name": "indirectBuffer",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "indirectBufferOffset",
+          "type": "Int"
+        },
+        {
+          "name": "threadsPerThreadgroup",
+          "type": "MTLSize"
+        }
+      ]
+    },
+    {
+      "name": "useResource",
+      "type": "func",
+      "desc": "Specifies that a resource in an argument buffer can be safely used by a compute pass.",
+      "params": [
+        {
+          "type": "MTLResource"
+        },
+        {
+          "name": "usage",
+          "type": "MTLResourceUsage"
+        }
+      ]
+    },
+    {
+      "name": "useResources",
+      "type": "func",
+      "desc": "Specifies that an array of resources in an argument buffer can be safely used by a compute pass.",
+      "params": [
+        {
+          "type": "[MTLResource]"
+        },
+        {
+          "name": "usage",
+          "type": "MTLResourceUsage"
+        }
+      ]
+    },
+    {
+      "name": "useHeap",
+      "type": "func",
+      "desc": "Specifies that a heap containing resources in an argument buffer can be safely used by a compute pass.",
+      "params": [
+        {
+          "type": "MTLHeap"
+        }
+      ]
+    },
+    {
+      "name": "useHeaps",
+      "type": "func",
+      "desc": "Specifies that an array of heaps containing resources in an argument buffer can be safely used by a compute pass.",
+      "params": [
+        {
+          "type": "[MTLHeap]"
+        }
+      ]
+    },
+    {
+      "name": "setImageblockWidth",
+      "type": "func",
+      "desc": "Sets the size, in pixels, of the imageblock.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "name": "height",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "setStageInRegion",
+      "type": "func",
+      "desc": "Sets the region of the stage-in attributes to apply to the compute kernel.",
+      "params": [
+        {
+          "type": "MTLRegion"
+        }
+      ]
+    },
+    {
+      "name": "setStageInRegionWithIndirectBuffer",
+      "type": "func",
+      "desc": "Sets the region of the stage-in attributes to apply to the compute kernel using an indirect buffer.",
+      "params": [
+        {
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "indirectBufferOffset",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "dispatchType",
+      "type": "var",
+      "datatype": "MTLDispatchType",
+      "desc": "The strategy to use when dispatching commands encoded by the compute command encoder."
+    },
+    {
+      "name": "MTLDispatchType",
+      "type": "enum",
+      "desc": "Constants indicating how the compute command encoder's commands are dispatched."
+    },
+    {
+      "name": "memoryBarrier",
+      "type": "func",
+      "desc": "Encodes a barrier so that changes to a set of resource types made by commands encoded before the barrier are completed before further commands are executed.",
+      "params": [
+        {
+          "name": "scope",
+          "type": "MTLBarrierScope"
+        }
+      ]
+    },
+    {
+      "name": "memoryBarrier",
+      "type": "func",
+      "desc": "Encodes a barrier so that changes to a set of resources made by commands encoded before the barrier are completed before further commands are executed.",
+      "params": [
+        {
+          "name": "resources",
+          "type": "[MTLResource]"
+        }
+      ]
+    },
+    {
+      "name": "executeCommands",
+      "type": "func",
+      "desc": "Encodes a command to execute commands in an indirect command buffer, specifying the range indirectly.",
+      "params": [
+        {
+          "name": "in",
+          "type": "MTLIndirectCommandBuffer"
+        },
+        {
+          "name": "indirectBuffer",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "indirectBufferOffset",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "executeCommands",
+      "type": "func",
+      "desc": "Encodes a command to execute commands in an indirect command buffer.",
+      "params": [
+        {
+          "name": "in",
+          "type": "MTLIndirectCommandBuffer"
+        },
+        {
+          "name": "with",
+          "type": "NSRange"
+        }
+      ]
+    },
+    {
+      "name": "updateFence",
+      "type": "func",
+      "desc": "Tells the GPU to update the fence after all commands encoded by the compute command encoder have finished executing.",
+      "params": [
+        {
+          "type": "MTLFence"
+        }
+      ]
+    },
+    {
+      "name": "waitForFence",
+      "type": "func",
+      "desc": "Tells the GPU to wait until the fence is updated before executing any commands encoded by the compute command encoder.",
+      "params": [
+        {
+          "type": "MTLFence"
+        }
+      ]
+    },
+    {
+      "name": "sampleCounters",
+      "type": "func",
+      "desc": "Encodes a command to sample hardware counters at this point in the compute pass and store the samples into a counter sample buffer.",
+      "params": [
+        {
+          "name": "sampleBuffer",
+          "type": "MTLCounterSampleBuffer"
+        },
+        {
+          "name": "sampleIndex",
+          "type": "Int"
+        },
+        {
+          "name": "barrier",
+          "type": "Bool"
+        }
+      ]
+    }
+  ]
+}

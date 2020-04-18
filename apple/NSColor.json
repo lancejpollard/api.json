@@ -1,0 +1,400 @@
+{
+  "type": "Class",
+  "name": "NSColor",
+  "desc": "An object that stores color data and sometimes opacity (alpha value).",
+  "items": [
+    {
+      "name": "withSystemEffect",
+      "type": "func",
+      "desc": "Returns a new color object that represents the current color modified to include the specified visual effect.",
+      "params": [
+        {
+          "type": "NSColor.SystemEffect"
+        }
+      ],
+      "returnType": "NSColor"
+    },
+    {
+      "name": "NSColor.SystemEffect",
+      "type": "enum",
+      "desc": "Constants for user interactions that change the appearance of a view or control."
+    },
+    {
+      "name": "usingColorSpace",
+      "type": "func",
+      "desc": "Creates a new color object representing the color of the receiver in the specified color space.",
+      "params": [
+        {
+          "type": "NSColorSpace"
+        }
+      ],
+      "returnType": "NSColor?"
+    },
+    {
+      "name": "blended",
+      "type": "func",
+      "desc": "Creates a new color object whose component values are a weighted sum of the receiver’s and the specified color object's.",
+      "params": [
+        {
+          "name": "withFraction",
+          "type": "CGFloat"
+        },
+        {
+          "name": "of",
+          "type": "NSColor"
+        }
+      ],
+      "returnType": "NSColor?"
+    },
+    {
+      "name": "withAlphaComponent",
+      "type": "func",
+      "desc": "Creates a new color object that has the same color space and component values as the receiver, but the specified alpha component.",
+      "params": [
+        {
+          "type": "CGFloat"
+        }
+      ],
+      "returnType": "NSColor"
+    },
+    {
+      "name": "highlight",
+      "type": "func",
+      "desc": "Creates a new color object that represents a blend between the current color and the highlight color.",
+      "params": [
+        {
+          "name": "withLevel",
+          "type": "CGFloat"
+        }
+      ],
+      "returnType": "NSColor?"
+    },
+    {
+      "name": "shadow",
+      "type": "func",
+      "desc": "Creates a new color object that represents a blend between the current color and the shadow color.",
+      "params": [
+        {
+          "name": "withLevel",
+          "type": "CGFloat"
+        }
+      ],
+      "returnType": "NSColor?"
+    },
+    {
+      "name": "usingColorSpaceName",
+      "type": "func",
+      "desc": "Creates a new color object whose color is the same as the receiver’s, except that the new NSColor is in the specified color space.",
+      "params": [
+        {
+          "type": "NSColorSpaceName"
+        }
+      ],
+      "returnType": "NSColor?"
+    },
+    {
+      "name": "ignoresAlpha",
+      "type": "class var",
+      "datatype": "Bool",
+      "desc": "Returns a Boolean value indicating whether the app supports alpha."
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Writes the receiver’s data to the specified pasteboard.",
+      "params": [
+        {
+          "name": "to",
+          "type": "NSPasteboard"
+        }
+      ]
+    },
+    {
+      "name": "getCyan",
+      "type": "func",
+      "desc": "Returns the receiver’s CMYK and opacity values.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "magenta",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "yellow",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "black",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "alpha",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        }
+      ]
+    },
+    {
+      "name": "getHue",
+      "type": "func",
+      "desc": "Returns the receiver’s HSB component and opacity values in the respective arguments.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "saturation",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "brightness",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "alpha",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        }
+      ]
+    },
+    {
+      "name": "getRed",
+      "type": "func",
+      "desc": "Returns the receiver’s RGB component and opacity values in the respective arguments.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "green",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "blue",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "alpha",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        }
+      ]
+    },
+    {
+      "name": "getWhite",
+      "type": "func",
+      "desc": "Returns the grayscale and alpha values of the color.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        },
+        {
+          "name": "alpha",
+          "type": "UnsafeMutablePointer<CGFloat>?"
+        }
+      ]
+    },
+    {
+      "name": "numberOfComponents",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of components in the color."
+    },
+    {
+      "name": "getComponents",
+      "type": "func",
+      "desc": "Returns the components of the receiver as an array.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<CGFloat>"
+        }
+      ]
+    },
+    {
+      "name": "alphaComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The alpha (opacity) component value of the color."
+    },
+    {
+      "name": "whiteComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The white component value of the color."
+    },
+    {
+      "name": "redComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The red component value of the color."
+    },
+    {
+      "name": "greenComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The green component value of the color."
+    },
+    {
+      "name": "blueComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The blue component value of the color."
+    },
+    {
+      "name": "cyanComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The cyan component value of the color."
+    },
+    {
+      "name": "magentaComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The magenta component value of the color."
+    },
+    {
+      "name": "yellowComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The yellow component value of the color."
+    },
+    {
+      "name": "blackComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The black component value of the color."
+    },
+    {
+      "name": "hueComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The hue component value of the color."
+    },
+    {
+      "name": "saturationComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The saturation component value of the color."
+    },
+    {
+      "name": "brightnessComponent",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The brightness component value of the color."
+    },
+    {
+      "name": "catalogNameComponent",
+      "type": "var",
+      "datatype": "NSColorList.Name",
+      "desc": "The catalog containing the color’s name."
+    },
+    {
+      "name": "localizedCatalogNameComponent",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The localized version of the catalog name containing the color."
+    },
+    {
+      "name": "colorNameComponent",
+      "type": "var",
+      "datatype": "NSColor.Name",
+      "desc": "The name of the color."
+    },
+    {
+      "name": "localizedColorNameComponent",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The localized version of the color name."
+    },
+    {
+      "name": "type",
+      "type": "var",
+      "datatype": "NSColor.ColorType",
+      "desc": "The type of the color object."
+    },
+    {
+      "name": "usingType",
+      "type": "func",
+      "desc": "Returns a version of the color object that is compatible with the specified color type.",
+      "params": [
+        {
+          "type": "NSColor.ColorType"
+        }
+      ],
+      "returnType": "NSColor?"
+    },
+    {
+      "name": "NSColor.ColorType",
+      "type": "enum",
+      "desc": "Constants indicating the color's type, and which methods may be called on the color object."
+    },
+    {
+      "name": "colorSpace",
+      "type": "var",
+      "datatype": "NSColorSpace",
+      "desc": "The color space associated with the color."
+    },
+    {
+      "name": "colorSpaceName",
+      "type": "var",
+      "datatype": "NSColorSpaceName",
+      "desc": "The name of the color space associated with the color."
+    },
+    {
+      "name": "cgColor",
+      "type": "var",
+      "datatype": "CGColor",
+      "desc": "The Core Graphics color object corresponding to the color."
+    },
+    {
+      "name": "drawSwatch",
+      "type": "func",
+      "desc": "Draws the current color in the given rectangle.",
+      "params": [
+        {
+          "name": "in",
+          "type": "NSRect"
+        }
+      ]
+    },
+    {
+      "name": "set",
+      "type": "func",
+      "desc": "Sets the color of subsequent drawing to the color that the receiver represents.",
+      "params": []
+    },
+    {
+      "name": "setFill",
+      "type": "func",
+      "desc": "Sets the fill color of subsequent drawing to the receiver’s color.",
+      "params": []
+    },
+    {
+      "name": "setStroke",
+      "type": "func",
+      "desc": "Sets the stroke color of subsequent drawing to the receiver’s color.",
+      "params": []
+    },
+    {
+      "name": "systemColorsDidChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Sent when the system colors have changed, such as through a system control panel interface."
+    },
+    {
+      "name": "currentControlTintDidChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Sent after the user changes control tint preference."
+    },
+    {
+      "name": "systemIndigo",
+      "type": "class var",
+      "datatype": "NSColor"
+    },
+    {
+      "name": "systemTeal",
+      "type": "class var",
+      "datatype": "NSColor"
+    }
+  ]
+}

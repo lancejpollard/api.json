@@ -1,0 +1,4180 @@
+[
+  {
+    "title": "AbortMultipartUpload",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name to which the upload was taking place."
+      },
+      "Key": {
+        "desc": "Key of the object for which the multipart upload was initiated."
+      },
+      "uploadId": {
+        "desc": "Upload ID that identifies the multipart upload."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "CompleteMultipartUpload",
+    "req": {
+      "Bucket": {
+        "desc": "Name of the bucket to which the multipart upload was initiated."
+      },
+      "Key": {
+        "desc": "Object key for which the multipart upload was initiated."
+      },
+      "uploadId": {
+        "desc": "ID for the initiated multipart upload."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "CompleteMultipartUpload": {
+        "desc": "Root level tag for the CompleteMultipartUpload parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Part": {
+        "desc": "Array of CompletedPart data types.",
+        "type": "Array of CompletedPart data types",
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "CopyObject",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the destination bucket."
+      },
+      "Cache-Control": {
+        "desc": "Specifies caching behavior along the request/reply chain."
+      },
+      "Content-Disposition": {
+        "desc": "Specifies presentational information for the object."
+      },
+      "Content-Encoding": {
+        "desc": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field."
+      },
+      "Content-Language": {
+        "desc": "The language the content is in."
+      },
+      "Content-Type": {
+        "desc": "A standard MIME type describing the format of the object data."
+      },
+      "Expires": {
+        "desc": "The date and time at which the object is no longer cacheable."
+      },
+      "Key": {
+        "desc": "The key of the destination object."
+      },
+      "x-amz-acl": {
+        "desc": "The canned ACL to apply to the object.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-copy-source": {
+        "desc": "The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-copy-source-if-match": {
+        "desc": "Copies the object if its entity tag (ETag) matches the specified tag.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-copy-source-if-modified-since": {
+        "desc": "Copies the object if it has been modified since the specified time.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-copy-source-if-none-match": {
+        "desc": "Copies the object if its entity tag (ETag) is different than the specified ETag.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-copy-source-if-unmodified-since": {
+        "desc": "Copies the object if it hasn't been modified since the specified time.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-copy-source-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use when decrypting the source object (for example, AES256).",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-copy-source-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-copy-source-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-full-control": {
+        "desc": "Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-read": {
+        "desc": "Allows grantee to read the object data and its metadata.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-read-acp": {
+        "desc": "Allows grantee to read the object ACL.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-write-acp": {
+        "desc": "Allows grantee to write the ACL for the applicable object.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-metadata-directive": {
+        "desc": "Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.",
+        "values": [
+          "copy",
+          "replace"
+        ]
+      },
+      "x-amz-object-lock-legal-hold": {
+        "desc": "Specifies whether you want to apply a Legal Hold to the copied object.",
+        "values": [
+          "on",
+          "off"
+        ]
+      },
+      "x-amz-object-lock-mode": {
+        "desc": "The Object Lock mode that you want to apply to the copied object.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-object-lock-retain-until-date": {
+        "desc": "The date and time when you want the copied object's Object Lock to expire.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption": {
+        "desc": "The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-aws-kms-key-id": {
+        "desc": "Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see Specifying the Signature Version in Request Authentication in the Amazon S3 Developer Guide.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-context": {
+        "desc": "Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use to when encrypting the object (for example, AES256).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-storage-class": {
+        "desc": "The type of storage to use for the object. Defaults to 'STANDARD'.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-tagging": {
+        "desc": "The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-tagging-directive": {
+        "desc": "Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.",
+        "values": [
+          "copy",
+          "replace"
+        ]
+      },
+      "x-amz-website-redirect-location": {
+        "desc": "If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.",
+        "values": [
+          "copy",
+          "replace"
+        ]
+      }
+    },
+    "res": {
+      "x-amz-copy-source-version-id": {
+        "desc": "Version of the copied object in the destination bucket.",
+        "values": [
+          "copy",
+          "replace"
+        ]
+      },
+      "x-amz-expiration": {
+        "desc": "If the object expiration is configured, the response includes this header.",
+        "values": [
+          "copy",
+          "replace"
+        ]
+      },
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption": {
+        "desc": "The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-aws-kms-key-id": {
+        "desc": "If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-context": {
+        "desc": "If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-version-id": {
+        "desc": "Version ID of the newly created copy.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      }
+    }
+  },
+  {
+    "title": "CreateBucket",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket to create."
+      },
+      "x-amz-acl": {
+        "desc": "The canned ACL to apply to the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-bucket-object-lock-enabled": {
+        "desc": "Specifies whether you want S3 Object Lock to be enabled for the new bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-full-control": {
+        "desc": "Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-read": {
+        "desc": "Allows grantee to list the objects in the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-read-acp": {
+        "desc": "Allows grantee to read the bucket ACL.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-write": {
+        "desc": "Allows grantee to create, overwrite, and delete any object in the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-write-acp": {
+        "desc": "Allows grantee to write the ACL for the applicable bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      }
+    },
+    "res": {
+      "CreateBucketConfiguration": {
+        "desc": "Root level tag for the CreateBucketConfiguration parameters.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "LocationConstraint": {
+        "desc": "Specifies the Region where the bucket will be created. If you don't specify a Region, the bucket is created in the US East (N. Virginia) Region (us-east-1).",
+        "type": "String",
+        "values": [
+          "eu",
+          "eu-west-1",
+          "us-west-1",
+          "us-west-2",
+          "ap-south-1",
+          "ap-southeast-1",
+          "ap-southeast-2"
+        ]
+      }
+    }
+  },
+  {
+    "title": "CreateMultipartUpload",
+    "req": {
+      "Access Permissions": {
+        "desc": "When copying an object, you can optionally specify the accounts or groups that should be granted specific permissions on the new object. There are two ways to grant the permissions using the request headers:"
+      },
+      "Server-Side- Encryption-Specific Request Headers": {
+        "desc": "You can optionally tell Amazon S3 to encrypt data at rest using server-side encryption. Server-side encryption is for data encryption at rest. Amazon S3 encrypts your data as it writes it to disks in its data centers and decrypts it when you access it. The option you use depends on whether you want to use AWS managed encryption keys or provide your own encryption key."
+      },
+      "Access-Control-List (ACL)-Specific Request Headers": {
+        "desc": "You also can use the following access control–related headers with this operation. By default, all objects are private. Only the owner has full access control. When adding a new object, you can grant permissions to individual AWS accounts or to predefined groups defined by Amazon S3. These permissions are then added to the access control list (ACL) on the object. For more information, see Using ACLs. With this operation, you can grant access permissions using one of the following two methods:"
+      }
+    },
+    "res": {
+      "Bucket": {
+        "desc": "The name of the bucket to which to initiate the upload"
+      },
+      "Cache-Control": {
+        "desc": "Specifies caching behavior along the request/reply chain."
+      },
+      "Content-Disposition": {
+        "desc": "Specifies presentational information for the object."
+      },
+      "Content-Encoding": {
+        "desc": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field."
+      },
+      "Content-Language": {
+        "desc": "The language the content is in."
+      },
+      "Content-Type": {
+        "desc": "A standard MIME type describing the format of the object data."
+      },
+      "Expires": {
+        "desc": "The date and time at which the object is no longer cacheable."
+      },
+      "Key": {
+        "desc": "Object key for which the multipart upload is to be initiated."
+      },
+      "x-amz-acl": {
+        "desc": "The canned ACL to apply to the object.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-full-control": {
+        "desc": "Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-read": {
+        "desc": "Allows grantee to read the object data and its metadata.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-read-acp": {
+        "desc": "Allows grantee to read the object ACL.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-write-acp": {
+        "desc": "Allows grantee to write the ACL for the applicable object.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-object-lock-legal-hold": {
+        "desc": "Specifies whether you want to apply a Legal Hold to the uploaded object.",
+        "values": [
+          "on",
+          "off"
+        ]
+      },
+      "x-amz-object-lock-mode": {
+        "desc": "Specifies the Object Lock mode that you want to apply to the uploaded object.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-object-lock-retain-until-date": {
+        "desc": "Specifies the date and time when you want the Object Lock to expire.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption": {
+        "desc": "The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-aws-kms-key-id": {
+        "desc": "Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. For information about configuring using any of the officially supported AWS SDKs and AWS CLI, see Specifying the Signature Version in Request Authentication in the Amazon S3 Developer Guide.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-context": {
+        "desc": "Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use to when encrypting the object (for example, AES256).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-storage-class": {
+        "desc": "The type of storage to use for the object. Defaults to 'STANDARD'.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-tagging": {
+        "desc": "The tag-set for the object. The tag-set must be encoded as URL Query parameters.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-website-redirect-location": {
+        "desc": "If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      }
+    }
+  },
+  {
+    "title": "DeleteBucket",
+    "req": {
+      "Bucket": {
+        "desc": "Specifies the bucket being deleted."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketAnalyticsConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket from which an analytics configuration is deleted."
+      },
+      "id": {
+        "desc": "The ID that identifies the analytics configuration."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketCors",
+    "req": {
+      "Bucket": {
+        "desc": "Specifies the bucket whose cors configuration is being deleted."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketEncryption",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the server-side encryption configuration to delete."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketInventoryConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the inventory configuration to delete."
+      },
+      "id": {
+        "desc": "The ID used to identify the inventory configuration."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketLifecycle",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name of the lifecycle to delete."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketMetricsConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the metrics configuration to delete."
+      },
+      "id": {
+        "desc": "The ID used to identify the metrics configuration."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketPolicy",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketReplication",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketTagging",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket that has the tag set to be removed."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteBucketWebsite",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name for which you want to remove the website configuration."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "DeleteObject",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name of the bucket containing the object."
+      },
+      "Key": {
+        "desc": "Key name of the object to delete."
+      },
+      "versionId": {
+        "desc": "VersionId used to reference a specific version of the object."
+      },
+      "x-amz-bypass-governance-retention": {
+        "desc": "Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation."
+      },
+      "x-amz-mfa": {
+        "desc": "The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device. Required to permanently delete a versioned object if versioning is configured with MFA delete enabled."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "x-amz-delete-marker": {
+        "desc": "Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-version-id": {
+        "desc": "Returns the version ID of the delete marker created as a result of the DELETE operation.",
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "DeleteObjects",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name containing the objects to delete."
+      },
+      "x-amz-bypass-governance-retention": {
+        "desc": "Specifies whether you want to delete this object even if it has a Governance-type Object Lock in place. You must have sufficient permissions to perform this operation."
+      },
+      "x-amz-mfa": {
+        "desc": "The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device. Required to permanently delete a versioned object if versioning is configured with MFA delete enabled."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "Delete": {
+        "desc": "Root level tag for the Delete parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Object": {
+        "desc": "The objects to delete.",
+        "type": "Array of ObjectIdentifier data types",
+        "values": [
+          "requester"
+        ]
+      },
+      "Quiet": {
+        "desc": "Element to enable quiet mode for the request. When you add this element, you must set its value to true.",
+        "type": "Boolean",
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "DeleteObjectTagging",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name containing the objects from which to remove the tags."
+      },
+      "Key": {
+        "desc": "Name of the tag."
+      },
+      "versionId": {
+        "desc": "The versionId of the object that the tag-set will be removed from."
+      }
+    },
+    "res": {
+      "x-amz-version-id": {
+        "desc": "The versionId of the object the tag-set was removed from."
+      }
+    }
+  },
+  {
+    "title": "DeletePublicAccessBlock",
+    "req": {
+      "Bucket": {
+        "desc": "The Amazon S3 bucket whose PublicAccessBlock configuration you want to delete."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "GetBucketAccelerateConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "Name of the bucket for which the accelerate configuration is retrieved."
+      }
+    },
+    "res": {
+      "GetBucketAccelerateConfigurationOutput": {
+        "desc": "Root level tag for the GetBucketAccelerateConfigurationOutput parameters."
+      },
+      "Status": {
+        "desc": "The accelerate configuration of the bucket.",
+        "type": "String",
+        "values": [
+          "enabled",
+          "suspended"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetBucketAcl",
+    "req": {
+      "Bucket": {
+        "desc": "Specifies the S3 bucket whose ACL is being requested."
+      }
+    },
+    "res": {
+      "GetBucketAclOutput": {
+        "desc": "Root level tag for the GetBucketAclOutput parameters."
+      },
+      "Grants": {
+        "desc": "A list of grants.",
+        "type": "Array of Grant data types"
+      },
+      "Owner": {
+        "desc": "Container for the bucket owner's display name and ID.",
+        "type": "Owner data type"
+      }
+    }
+  },
+  {
+    "title": "GetBucketAnalyticsConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket from which an analytics configuration is retrieved."
+      },
+      "id": {
+        "desc": "The ID that identifies the analytics configuration."
+      }
+    },
+    "res": {
+      "AnalyticsConfiguration": {
+        "desc": "Root level tag for the AnalyticsConfiguration parameters."
+      },
+      "Filter": {
+        "desc": "The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.",
+        "type": "AnalyticsFilter data type"
+      },
+      "Id": {
+        "desc": "The ID that identifies the analytics configuration.",
+        "type": "String"
+      },
+      "StorageClassAnalysis": {
+        "desc": "Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.",
+        "type": "StorageClassAnalysis data type"
+      }
+    }
+  },
+  {
+    "title": "GetBucketCors",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name for which to get the cors configuration."
+      }
+    },
+    "res": {
+      "GetBucketCorsOutput": {
+        "desc": "Root level tag for the GetBucketCorsOutput parameters."
+      },
+      "CORSRule": {
+        "desc": "A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.",
+        "type": "Array of CORSRule data types"
+      }
+    }
+  },
+  {
+    "title": "GetBucketEncryption",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket from which the server-side encryption configuration is retrieved."
+      }
+    },
+    "res": {
+      "ServerSideEncryptionConfiguration": {
+        "desc": "Root level tag for the ServerSideEncryptionConfiguration parameters."
+      },
+      "Rule": {
+        "desc": "Container for information about a particular server-side encryption configuration rule.",
+        "type": "Array of ServerSideEncryptionRule data types"
+      }
+    }
+  },
+  {
+    "title": "GetBucketInventoryConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the inventory configuration to retrieve."
+      },
+      "id": {
+        "desc": "The ID used to identify the inventory configuration."
+      }
+    },
+    "res": {
+      "InventoryConfiguration": {
+        "desc": "Root level tag for the InventoryConfiguration parameters."
+      },
+      "Destination": {
+        "desc": "Contains information about where to publish the inventory results.",
+        "type": "InventoryDestination data type"
+      },
+      "Filter": {
+        "desc": "Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.",
+        "type": "InventoryFilter data type"
+      },
+      "Id": {
+        "desc": "The ID used to identify the inventory configuration.",
+        "type": "String"
+      },
+      "IncludedObjectVersions": {
+        "desc": "Object versions to include in the inventory list. If set to All, the list includes all the object versions, which adds the version-related fields VersionId, IsLatest, and DeleteMarker to the list. If set to Current, the list does not contain these version-related fields.",
+        "type": "String",
+        "values": [
+          "all",
+          "current"
+        ]
+      },
+      "IsEnabled": {
+        "desc": "Specifies whether the inventory is enabled or disabled. If set to True, an inventory list is generated. If set to False, no inventory list is generated.",
+        "type": "Boolean",
+        "values": [
+          "all",
+          "current"
+        ]
+      },
+      "OptionalFields": {
+        "desc": "Contains the optional fields that are included in the inventory results.",
+        "type": "Array of strings",
+        "values": [
+          "size",
+          "lastmodifieddate",
+          "storageclass",
+          "etag",
+          "ismultipartuploaded",
+          "replicationstatus"
+        ]
+      },
+      "Schedule": {
+        "desc": "Specifies the schedule for generating inventory results.",
+        "type": "InventorySchedule data type",
+        "values": [
+          "size",
+          "lastmodifieddate",
+          "storageclass",
+          "etag",
+          "ismultipartuploaded",
+          "replicationstatus"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetBucketLifecycle",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which to get the lifecycle information."
+      }
+    },
+    "res": {
+      "GetBucketLifecycleOutput": {
+        "desc": "Root level tag for the GetBucketLifecycleOutput parameters."
+      },
+      "Rule": {
+        "desc": "Container for a lifecycle rule.",
+        "type": "Array of Rule data types"
+      }
+    }
+  },
+  {
+    "title": "GetBucketLifecycleConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which to get the lifecycle information."
+      }
+    },
+    "res": {
+      "GetBucketLifecycleConfigurationOutput": {
+        "desc": "Root level tag for the GetBucketLifecycleConfigurationOutput parameters."
+      },
+      "Rule": {
+        "desc": "Container for a lifecycle rule.",
+        "type": "Array of LifecycleRule data types"
+      }
+    }
+  },
+  {
+    "title": "GetBucketLocation",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which to get the location."
+      }
+    },
+    "res": {
+      "GetBucketLocationOutput": {
+        "desc": "Root level tag for the GetBucketLocationOutput parameters."
+      },
+      "LocationConstraint": {
+        "desc": "Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see Regions and Endpoints.",
+        "type": "String",
+        "values": [
+          "eu",
+          "eu-west-1",
+          "us-west-1",
+          "us-west-2",
+          "ap-south-1",
+          "ap-southeast-1",
+          "ap-southeast-2"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetBucketLogging",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name for which to get the logging information."
+      }
+    },
+    "res": {
+      "GetBucketLoggingOutput": {
+        "desc": "Root level tag for the GetBucketLoggingOutput parameters."
+      },
+      "LoggingEnabled": {
+        "desc": "Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For more information, see PUT Bucket logging in the Amazon Simple Storage Service API Reference.",
+        "type": "LoggingEnabled data type"
+      }
+    }
+  },
+  {
+    "title": "GetBucketMetricsConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the metrics configuration to retrieve."
+      },
+      "id": {
+        "desc": "The ID used to identify the metrics configuration."
+      }
+    },
+    "res": {
+      "MetricsConfiguration": {
+        "desc": "Root level tag for the MetricsConfiguration parameters."
+      },
+      "Filter": {
+        "desc": "Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).",
+        "type": "MetricsFilter data type"
+      },
+      "Id": {
+        "desc": "The ID used to identify the metrics configuration.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "GetBucketNotification",
+    "req": {
+      "Bucket": {
+        "desc": "Name of the bucket for which to get the notification configuration."
+      }
+    },
+    "res": {
+      "NotificationConfigurationDeprecated": {
+        "desc": "Root level tag for the NotificationConfigurationDeprecated parameters."
+      },
+      "CloudFunctionConfiguration": {
+        "desc": "Container for specifying the AWS Lambda notification configuration.",
+        "type": "CloudFunctionConfiguration data type"
+      },
+      "QueueConfiguration": {
+        "desc": "This data type is deprecated. This data type specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.",
+        "type": "QueueConfigurationDeprecated data type"
+      },
+      "TopicConfiguration": {
+        "desc": "This data type is deprecated. A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.",
+        "type": "TopicConfigurationDeprecated data type"
+      }
+    }
+  },
+  {
+    "title": "GetBucketNotificationConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "Name of the bucket for which to get the notification configuration."
+      }
+    },
+    "res": {
+      "NotificationConfiguration": {
+        "desc": "Root level tag for the NotificationConfiguration parameters."
+      },
+      "CloudFunctionConfiguration": {
+        "desc": "Describes the AWS Lambda functions to invoke and the events for which to invoke them.",
+        "type": "Array of LambdaFunctionConfiguration data types"
+      },
+      "QueueConfiguration": {
+        "desc": "The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.",
+        "type": "Array of QueueConfiguration data types"
+      },
+      "TopicConfiguration": {
+        "desc": "The topic to which notifications are sent and the events for which notifications are generated.",
+        "type": "Array of TopicConfiguration data types"
+      }
+    }
+  },
+  {
+    "title": "GetBucketPolicy",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name for which to get the bucket policy."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "GetBucketPolicyStatus",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the Amazon S3 bucket whose policy status you want to retrieve."
+      }
+    },
+    "res": {
+      "PolicyStatus": {
+        "desc": "Root level tag for the PolicyStatus parameters."
+      },
+      "IsPublic": {
+        "desc": "The policy status for this bucket. TRUE indicates that this bucket is public. FALSE indicates that the bucket is not public.",
+        "type": "Boolean"
+      }
+    }
+  },
+  {
+    "title": "GetBucketReplication",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name for which to get the replication information."
+      }
+    },
+    "res": {
+      "ReplicationConfiguration": {
+        "desc": "Root level tag for the ReplicationConfiguration parameters."
+      },
+      "Role": {
+        "desc": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects. For more information, see How to Set Up Replication in the Amazon Simple Storage Service Developer Guide.",
+        "type": "String"
+      },
+      "Rule": {
+        "desc": "A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.",
+        "type": "Array of ReplicationRule data types"
+      }
+    }
+  },
+  {
+    "title": "GetBucketRequestPayment",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which to get the payment request configuration"
+      }
+    },
+    "res": {
+      "GetBucketRequestPaymentOutput": {
+        "desc": "Root level tag for the GetBucketRequestPaymentOutput parameters."
+      },
+      "Payer": {
+        "desc": "Specifies who pays for the download and request fees.",
+        "type": "String",
+        "values": [
+          "requester",
+          "bucketowner"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetBucketTagging",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which to get the tagging information."
+      }
+    },
+    "res": {
+      "GetBucketTaggingOutput": {
+        "desc": "Root level tag for the GetBucketTaggingOutput parameters."
+      },
+      "TagSet": {
+        "desc": "Contains the tag set.",
+        "type": "Array of Tag data types"
+      }
+    }
+  },
+  {
+    "title": "GetBucketVersioning",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which to get the versioning information."
+      }
+    },
+    "res": {
+      "GetBucketVersioningOutput": {
+        "desc": "Root level tag for the GetBucketVersioningOutput parameters."
+      },
+      "MFADelete": {
+        "desc": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
+        "type": "String",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      "Status": {
+        "desc": "The versioning state of the bucket.",
+        "type": "String",
+        "values": [
+          "enabled",
+          "suspended"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetBucketWebsite",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name for which to get the website configuration."
+      }
+    },
+    "res": {
+      "GetBucketWebsiteOutput": {
+        "desc": "Root level tag for the GetBucketWebsiteOutput parameters."
+      },
+      "ErrorDocument": {
+        "desc": "The object key name of the website error document to use for 4XX class errors.",
+        "type": "ErrorDocument data type"
+      },
+      "IndexDocument": {
+        "desc": "The name of the index document for the website (for example index.html).",
+        "type": "IndexDocument data type"
+      },
+      "RedirectAllRequestsTo": {
+        "desc": "Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.",
+        "type": "RedirectAllRequestsTo data type"
+      },
+      "RoutingRules": {
+        "desc": "Rules that define when a redirect is applied and the redirect behavior.",
+        "type": "Array of RoutingRule data types"
+      }
+    }
+  },
+  {
+    "title": "GetObject",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name containing the object."
+      },
+      "If-Match": {
+        "desc": "Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed)."
+      },
+      "If-Modified-Since": {
+        "desc": "Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified)."
+      },
+      "If-None-Match": {
+        "desc": "Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified)."
+      },
+      "If-Unmodified-Since": {
+        "desc": "Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed)."
+      },
+      "Key": {
+        "desc": "Key of the object to get."
+      },
+      "partNumber": {
+        "desc": "Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object."
+      },
+      "Range": {
+        "desc": "Downloads the specified range bytes of an object. For more information about the HTTP Range header, see https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35."
+      },
+      "response-cache-control": {
+        "desc": "Sets the Cache-Control header of the response."
+      },
+      "response-content-disposition": {
+        "desc": "Sets the Content-Disposition header of the response"
+      },
+      "response-content-encoding": {
+        "desc": "Sets the Content-Encoding header of the response."
+      },
+      "response-content-language": {
+        "desc": "Sets the Content-Language header of the response."
+      },
+      "response-content-type": {
+        "desc": "Sets the Content-Type header of the response."
+      },
+      "response-expires": {
+        "desc": "Sets the Expires header of the response."
+      },
+      "versionId": {
+        "desc": "VersionId used to reference a specific version of the object."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use to when encrypting the object (for example, AES256).",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "accept-ranges": {
+        "desc": "Indicates that a range of bytes was specified.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Cache-Control": {
+        "desc": "Specifies caching behavior along the request/reply chain.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Disposition": {
+        "desc": "Specifies presentational information for the object.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Encoding": {
+        "desc": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Language": {
+        "desc": "The language the content is in.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Length": {
+        "desc": "Size of the body in bytes.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Range": {
+        "desc": "The portion of the object returned in the response.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Type": {
+        "desc": "A standard MIME type describing the format of the object data.",
+        "values": [
+          "requester"
+        ]
+      },
+      "ETag": {
+        "desc": "An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Expires": {
+        "desc": "The date and time at which the object is no longer cacheable.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Last-Modified": {
+        "desc": "Last modified date of the object",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-delete-marker": {
+        "desc": "Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-expiration": {
+        "desc": "If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-missing-meta": {
+        "desc": "This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-mp-parts-count": {
+        "desc": "The count of parts this object has.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-object-lock-legal-hold": {
+        "desc": "Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.",
+        "values": [
+          "on",
+          "off"
+        ]
+      },
+      "x-amz-object-lock-mode": {
+        "desc": "The Object Lock mode currently in place for this object.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-object-lock-retain-until-date": {
+        "desc": "The date and time when this object's Object Lock will expire.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-replication-status": {
+        "desc": "Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.",
+        "values": [
+          "complete",
+          "pending",
+          "failed",
+          "replica"
+        ]
+      },
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-restore": {
+        "desc": "Provides information about object restoration operation and expiration time of the restored object copy.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption": {
+        "desc": "The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-aws-kms-key-id": {
+        "desc": "If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-storage-class": {
+        "desc": "Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-tagging-count": {
+        "desc": "The number of tags, if any, on the object.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-version-id": {
+        "desc": "Version of the object.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-website-redirect-location": {
+        "desc": "If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetObjectAcl",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name that contains the object for which to get the ACL information."
+      },
+      "Key": {
+        "desc": "The key of the object for which to get the ACL information."
+      },
+      "versionId": {
+        "desc": "VersionId used to reference a specific version of the object."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetObjectLegalHold",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name containing the object whose Legal Hold status you want to retrieve."
+      },
+      "Key": {
+        "desc": "The key name for the object whose Legal Hold status you want to retrieve."
+      },
+      "versionId": {
+        "desc": "The version ID of the object whose Legal Hold status you want to retrieve."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "LegalHold": {
+        "desc": "Root level tag for the LegalHold parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Status": {
+        "desc": "Indicates whether the specified object has a Legal Hold in place.",
+        "type": "String",
+        "values": [
+          "on",
+          "off"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetObjectLockConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket whose Object Lock configuration you want to retrieve."
+      }
+    },
+    "res": {
+      "ObjectLockConfiguration": {
+        "desc": "Root level tag for the ObjectLockConfiguration parameters."
+      },
+      "ObjectLockEnabled": {
+        "desc": "Indicates whether this bucket has an Object Lock configuration enabled.",
+        "type": "String",
+        "values": [
+          "enabled"
+        ]
+      },
+      "Rule": {
+        "desc": "The Object Lock rule in place for the specified object.",
+        "type": "ObjectLockRule data type",
+        "values": [
+          "enabled"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetObjectRetention",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name containing the object whose retention settings you want to retrieve."
+      },
+      "Key": {
+        "desc": "The key name for the object whose retention settings you want to retrieve."
+      },
+      "versionId": {
+        "desc": "The version ID for the object whose retention settings you want to retrieve."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "Retention": {
+        "desc": "Root level tag for the Retention parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Mode": {
+        "desc": "Indicates the Retention mode for the specified object.",
+        "type": "String",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "RetainUntilDate": {
+        "desc": "The date on which this Object Lock Retention will expire.",
+        "type": "Timestamp",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetObjectTagging",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name containing the object for which to get the tagging information."
+      },
+      "Key": {
+        "desc": "Object key for which to get the tagging information."
+      },
+      "versionId": {
+        "desc": "The versionId of the object for which to get the tagging information."
+      }
+    },
+    "res": {
+      "x-amz-version-id": {
+        "desc": "The versionId of the object for which you got the tagging information."
+      }
+    }
+  },
+  {
+    "title": "GetObjectTorrent",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the object for which to get the torrent files."
+      },
+      "Key": {
+        "desc": "The object key for which to get the information."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "GetPublicAccessBlock",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the Amazon S3 bucket whose PublicAccessBlock configuration you want to retrieve."
+      }
+    },
+    "res": {
+      "PublicAccessBlockConfiguration": {
+        "desc": "Root level tag for the PublicAccessBlockConfiguration parameters."
+      },
+      "BlockPublicAcls": {
+        "desc": "Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:",
+        "type": "Boolean"
+      },
+      "BlockPublicPolicy": {
+        "desc": "Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.",
+        "type": "Boolean"
+      },
+      "IgnorePublicAcls": {
+        "desc": "Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.",
+        "type": "Boolean"
+      },
+      "RestrictPublicBuckets": {
+        "desc": "Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.",
+        "type": "Boolean"
+      }
+    }
+  },
+  {
+    "title": "HeadBucket",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name."
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "HeadObject",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the object."
+      },
+      "If-Match": {
+        "desc": "Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed)."
+      },
+      "If-Modified-Since": {
+        "desc": "Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified)."
+      },
+      "If-None-Match": {
+        "desc": "Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified)."
+      },
+      "If-Unmodified-Since": {
+        "desc": "Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed)."
+      },
+      "Key": {
+        "desc": "The object key."
+      },
+      "partNumber": {
+        "desc": "Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object."
+      },
+      "Range": {
+        "desc": "Downloads the specified range bytes of an object. For more information about the HTTP Range header, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35."
+      },
+      "versionId": {
+        "desc": "VersionId used to reference a specific version of the object."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use to when encrypting the object (for example, AES256).",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "accept-ranges": {
+        "desc": "Indicates that a range of bytes was specified.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Cache-Control": {
+        "desc": "Specifies caching behavior along the request/reply chain.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Disposition": {
+        "desc": "Specifies presentational information for the object.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Encoding": {
+        "desc": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Language": {
+        "desc": "The language the content is in.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Length": {
+        "desc": "Size of the body in bytes.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Content-Type": {
+        "desc": "A standard MIME type describing the format of the object data.",
+        "values": [
+          "requester"
+        ]
+      },
+      "ETag": {
+        "desc": "An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Expires": {
+        "desc": "The date and time at which the object is no longer cacheable.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Last-Modified": {
+        "desc": "Last modified date of the object",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-delete-marker": {
+        "desc": "Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-expiration": {
+        "desc": "If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key-value pairs providing object expiration information. The value of the rule-id is URL encoded.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-missing-meta": {
+        "desc": "This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-mp-parts-count": {
+        "desc": "The count of parts this object has.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-object-lock-legal-hold": {
+        "desc": "Specifies whether a legal hold is in effect for this object. This header is only returned if the requester has the s3:GetObjectLegalHold permission. This header is not returned if the specified version of this object has never had a legal hold applied. For more information about S3 Object Lock, see Object Lock.",
+        "values": [
+          "on",
+          "off"
+        ]
+      },
+      "x-amz-object-lock-mode": {
+        "desc": "The Object Lock mode, if any, that's in effect for this object. This header is only returned if the requester has the s3:GetObjectRetention permission. For more information about S3 Object Lock, see Object Lock.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-object-lock-retain-until-date": {
+        "desc": "The date and time when the Object Lock retention period expires. This header is only returned if the requester has the s3:GetObjectRetention permission.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-replication-status": {
+        "desc": "Amazon S3 can return this header if your request involves a bucket that is either a source or destination in a replication rule.",
+        "values": [
+          "complete",
+          "pending",
+          "failed",
+          "replica"
+        ]
+      },
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-restore": {
+        "desc": "If the object is an archived object (an object whose storage class is GLACIER), the response includes this header if either the archive restoration is in progress (see RestoreObject or an archive copy is already restored.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption": {
+        "desc": "If the object is stored using server-side encryption either with an AWS KMS customer master key (CMK) or an Amazon S3-managed encryption key, the response includes this header with the value of the server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-aws-kms-key-id": {
+        "desc": "If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-storage-class": {
+        "desc": "Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-version-id": {
+        "desc": "Version of the object.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-website-redirect-location": {
+        "desc": "If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      }
+    }
+  },
+  {
+    "title": "ListBucketAnalyticsConfigurations",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket from which analytics configurations are retrieved."
+      },
+      "continuation-token": {
+        "desc": "The ContinuationToken that represents a placeholder from where this request should begin."
+      }
+    },
+    "res": {
+      "ListBucketAnalyticsConfigurationsOutput": {
+        "desc": "Root level tag for the ListBucketAnalyticsConfigurationsOutput parameters."
+      },
+      "AnalyticsConfiguration": {
+        "desc": "The list of analytics configurations for a bucket.",
+        "type": "Array of AnalyticsConfiguration data types"
+      },
+      "ContinuationToken": {
+        "desc": "The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.",
+        "type": "String"
+      },
+      "IsTruncated": {
+        "desc": "Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.",
+        "type": "Boolean"
+      },
+      "NextContinuationToken": {
+        "desc": "NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "ListBucketInventoryConfigurations",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the inventory configurations to retrieve."
+      },
+      "continuation-token": {
+        "desc": "The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands."
+      }
+    },
+    "res": {
+      "ListBucketInventoryConfigurationsOutput": {
+        "desc": "Root level tag for the ListBucketInventoryConfigurationsOutput parameters."
+      },
+      "ContinuationToken": {
+        "desc": "If sent in the request, the marker that is used as a starting point for this inventory configuration list response.",
+        "type": "String"
+      },
+      "InventoryConfiguration": {
+        "desc": "The list of inventory configurations for a bucket.",
+        "type": "Array of InventoryConfiguration data types"
+      },
+      "IsTruncated": {
+        "desc": "Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.",
+        "type": "Boolean"
+      },
+      "NextContinuationToken": {
+        "desc": "The marker used to continue this inventory configuration listing. Use the NextContinuationToken from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "ListBucketMetricsConfigurations",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the metrics configurations to retrieve."
+      },
+      "continuation-token": {
+        "desc": "The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands."
+      }
+    },
+    "res": {
+      "ListBucketMetricsConfigurationsOutput": {
+        "desc": "Root level tag for the ListBucketMetricsConfigurationsOutput parameters."
+      },
+      "ContinuationToken": {
+        "desc": "The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.",
+        "type": "String"
+      },
+      "IsTruncated": {
+        "desc": "Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.",
+        "type": "Boolean"
+      },
+      "MetricsConfiguration": {
+        "desc": "The list of metrics configurations for a bucket.",
+        "type": "Array of MetricsConfiguration data types"
+      },
+      "NextContinuationToken": {
+        "desc": "The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "ListBuckets",
+    "req": {
+      "ListBucketsOutput": {
+        "desc": "Root level tag for the ListBucketsOutput parameters.",
+        "required": "yes"
+      },
+      "Buckets": {
+        "desc": "The list of buckets owned by the requestor.",
+        "type": "Array of Bucket data types",
+        "required": "yes"
+      },
+      "Owner": {
+        "desc": "The owner of the buckets listed.",
+        "type": "Owner data type",
+        "required": "yes"
+      }
+    },
+    "res": {}
+  },
+  {
+    "title": "ListMultipartUploads",
+    "req": {
+      "Bucket": {
+        "desc": "Name of the bucket to which the multipart upload was initiated."
+      },
+      "delimiter": {
+        "desc": "Character you use to group keys."
+      },
+      "encoding-type": {
+        "desc": "Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.",
+        "values": [
+          "url"
+        ]
+      },
+      "key-marker": {
+        "desc": "Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.",
+        "values": [
+          "url"
+        ]
+      },
+      "max-uploads": {
+        "desc": "Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.",
+        "values": [
+          "url"
+        ]
+      },
+      "prefix": {
+        "desc": "Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)",
+        "values": [
+          "url"
+        ]
+      },
+      "upload-id-marker": {
+        "desc": "Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified upload-id-marker.",
+        "values": [
+          "url"
+        ]
+      }
+    },
+    "res": {
+      "ListMultipartUploadsOutput": {
+        "desc": "Root level tag for the ListMultipartUploadsOutput parameters.",
+        "values": [
+          "url"
+        ]
+      },
+      "Bucket": {
+        "desc": "Name of the bucket to which the multipart upload was initiated.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "CommonPrefixes": {
+        "desc": "If you specify a delimiter in the request, then the result returns each distinct key prefix containing the delimiter in a CommonPrefixes element. The distinct key prefixes are returned in the Prefix child element.",
+        "type": "Array of CommonPrefix data types",
+        "values": [
+          "url"
+        ]
+      },
+      "Delimiter": {
+        "desc": "Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "EncodingType": {
+        "desc": "Encoding type used by Amazon S3 to encode object keys in the response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "IsTruncated": {
+        "desc": "Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.",
+        "type": "Boolean",
+        "values": [
+          "url"
+        ]
+      },
+      "KeyMarker": {
+        "desc": "The key at or after which the listing began.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "MaxUploads": {
+        "desc": "Maximum number of multipart uploads that could have been included in the response.",
+        "type": "Integer",
+        "values": [
+          "url"
+        ]
+      },
+      "NextKeyMarker": {
+        "desc": "When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "NextUploadIdMarker": {
+        "desc": "When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "Prefix": {
+        "desc": "When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "Upload": {
+        "desc": "Container for elements related to a particular multipart upload. A response can contain zero or more Upload elements.",
+        "type": "Array of MultipartUpload data types",
+        "values": [
+          "url"
+        ]
+      },
+      "UploadIdMarker": {
+        "desc": "Upload ID after which listing began.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ListObjects",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket containing the objects."
+      },
+      "delimiter": {
+        "desc": "A delimiter is a character you use to group keys."
+      },
+      "encoding-type": {
+        "desc": "Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.",
+        "values": [
+          "url"
+        ]
+      },
+      "marker": {
+        "desc": "Specifies the key to start with when listing objects in a bucket.",
+        "values": [
+          "url"
+        ]
+      },
+      "max-keys": {
+        "desc": "Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.",
+        "values": [
+          "url"
+        ]
+      },
+      "prefix": {
+        "desc": "Limits the response to keys that begin with the specified prefix.",
+        "values": [
+          "url"
+        ]
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "ListObjectsOutput": {
+        "desc": "Root level tag for the ListObjectsOutput parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "CommonPrefixes": {
+        "desc": "All of the keys rolled up in a common prefix count as a single return when calculating the number of returns.",
+        "type": "Array of CommonPrefix data types",
+        "values": [
+          "requester"
+        ]
+      },
+      "Contents": {
+        "desc": "Metadata about each object returned.",
+        "type": "Array of Object data types",
+        "values": [
+          "requester"
+        ]
+      },
+      "Delimiter": {
+        "desc": "Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the CommonPrefixes collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the MaxKeys value.",
+        "type": "String",
+        "values": [
+          "requester"
+        ]
+      },
+      "EncodingType": {
+        "desc": "Encoding type used by Amazon S3 to encode object keys in the response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "IsTruncated": {
+        "desc": "A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.",
+        "type": "Boolean",
+        "values": [
+          "url"
+        ]
+      },
+      "Marker": {
+        "desc": "Indicates where in the bucket listing begins. Marker is included in the response if it was sent with the request.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "MaxKeys": {
+        "desc": "The maximum number of keys returned in the response body.",
+        "type": "Integer",
+        "values": [
+          "url"
+        ]
+      },
+      "Name": {
+        "desc": "Bucket name.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "NextMarker": {
+        "desc": "When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "Prefix": {
+        "desc": "Keys that begin with the indicated prefix.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ListObjectsV2",
+    "req": {
+      "Bucket": {
+        "desc": "Bucket name to list."
+      },
+      "continuation-token": {
+        "desc": "ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key."
+      },
+      "delimiter": {
+        "desc": "A delimiter is a character you use to group keys."
+      },
+      "encoding-type": {
+        "desc": "Encoding type used by Amazon S3 to encode object keys in the response.",
+        "values": [
+          "url"
+        ]
+      },
+      "fetch-owner": {
+        "desc": "The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true.",
+        "values": [
+          "url"
+        ]
+      },
+      "max-keys": {
+        "desc": "Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.",
+        "values": [
+          "url"
+        ]
+      },
+      "prefix": {
+        "desc": "Limits the response to keys that begin with the specified prefix.",
+        "values": [
+          "url"
+        ]
+      },
+      "start-after": {
+        "desc": "StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket.",
+        "values": [
+          "url"
+        ]
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "ListObjectsV2Output": {
+        "desc": "Root level tag for the ListObjectsV2Output parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "CommonPrefixes": {
+        "desc": "All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.",
+        "type": "Array of CommonPrefix data types",
+        "values": [
+          "requester"
+        ]
+      },
+      "Contents": {
+        "desc": "Metadata about each object returned.",
+        "type": "Array of Object data types",
+        "values": [
+          "requester"
+        ]
+      },
+      "ContinuationToken": {
+        "desc": "If ContinuationToken was sent with the request, it is included in the response.",
+        "type": "String",
+        "values": [
+          "requester"
+        ]
+      },
+      "Delimiter": {
+        "desc": "Causes keys that contain the same string between the prefix and the first occurrence of the delimiter to be rolled up into a single result element in the CommonPrefixes collection. These rolled-up keys are not returned elsewhere in the response. Each rolled-up result counts as only one return against the MaxKeys value.",
+        "type": "String",
+        "values": [
+          "requester"
+        ]
+      },
+      "EncodingType": {
+        "desc": "Encoding type used by Amazon S3 to encode object key names in the XML response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "IsTruncated": {
+        "desc": "Set to false if all of the results were returned. Set to true if more keys are available to return. If the number of results exceeds that specified by MaxKeys, all of the results might not be returned.",
+        "type": "Boolean",
+        "values": [
+          "url"
+        ]
+      },
+      "KeyCount": {
+        "desc": "KeyCount is the number of keys returned with this request. KeyCount will always be less than equals to MaxKeys field. Say you ask for 50 keys, your result will include less than equals 50 keys",
+        "type": "Integer",
+        "values": [
+          "url"
+        ]
+      },
+      "MaxKeys": {
+        "desc": "Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.",
+        "type": "Integer",
+        "values": [
+          "url"
+        ]
+      },
+      "Name": {
+        "desc": "Bucket name.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "NextContinuationToken": {
+        "desc": "NextContinuationToken is sent when isTruncated is true, which means there are more keys in the bucket that can be listed. The next list requests to Amazon S3 can be continued with this NextContinuationToken. NextContinuationToken is obfuscated and is not a real key",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "Prefix": {
+        "desc": "Keys that begin with the indicated prefix.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "StartAfter": {
+        "desc": "If StartAfter was sent with the request, it is included in the response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ListObjectVersions",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name that contains the objects."
+      },
+      "delimiter": {
+        "desc": "A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response."
+      },
+      "encoding-type": {
+        "desc": "Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.",
+        "values": [
+          "url"
+        ]
+      },
+      "key-marker": {
+        "desc": "Specifies the key to start with when listing objects in a bucket.",
+        "values": [
+          "url"
+        ]
+      },
+      "max-keys": {
+        "desc": "Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because max-keys was exceeded, the response contains <isTruncated>true</isTruncated>. To return the additional keys, see key-marker and version-id-marker.",
+        "values": [
+          "url"
+        ]
+      },
+      "prefix": {
+        "desc": "Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes.",
+        "values": [
+          "url"
+        ]
+      },
+      "version-id-marker": {
+        "desc": "Specifies the object version you want to start listing from.",
+        "values": [
+          "url"
+        ]
+      }
+    },
+    "res": {
+      "ListObjectVersionsOutput": {
+        "desc": "Root level tag for the ListObjectVersionsOutput parameters.",
+        "values": [
+          "url"
+        ]
+      },
+      "CommonPrefixes": {
+        "desc": "All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.",
+        "type": "Array of CommonPrefix data types",
+        "values": [
+          "url"
+        ]
+      },
+      "DeleteMarker": {
+        "desc": "Container for an object that is a delete marker.",
+        "type": "Array of DeleteMarkerEntry data types",
+        "values": [
+          "url"
+        ]
+      },
+      "Delimiter": {
+        "desc": "The delimiter grouping the included keys. A delimiter is a character that you specify to group keys. All keys that contain the same string between the prefix and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "EncodingType": {
+        "desc": "Encoding type used by Amazon S3 to encode object key names in the XML response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "IsTruncated": {
+        "desc": "A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.",
+        "type": "Boolean",
+        "values": [
+          "url"
+        ]
+      },
+      "KeyMarker": {
+        "desc": "Marks the last key returned in a truncated response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "MaxKeys": {
+        "desc": "Specifies the maximum number of objects to return.",
+        "type": "Integer",
+        "values": [
+          "url"
+        ]
+      },
+      "Name": {
+        "desc": "Bucket name.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "NextKeyMarker": {
+        "desc": "When the number of responses exceeds the value of MaxKeys, NextKeyMarker specifies the first key not returned that satisfies the search criteria. Use this value for the key-marker request parameter in a subsequent request.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "NextVersionIdMarker": {
+        "desc": "When the number of responses exceeds the value of MaxKeys, NextVersionIdMarker specifies the first object version not returned that satisfies the search criteria. Use this value for the version-id-marker request parameter in a subsequent request.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "Prefix": {
+        "desc": "Selects objects that start with the value supplied by this parameter.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      },
+      "Version": {
+        "desc": "Container for version information.",
+        "type": "Array of ObjectVersion data types",
+        "values": [
+          "url"
+        ]
+      },
+      "VersionIdMarker": {
+        "desc": "Marks the last version of the key returned in a truncated response.",
+        "type": "String",
+        "values": [
+          "url"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ListParts",
+    "req": {
+      "Bucket": {
+        "desc": "Name of the bucket to which the parts are being uploaded."
+      },
+      "Key": {
+        "desc": "Object key for which the multipart upload was initiated."
+      },
+      "max-parts": {
+        "desc": "Sets the maximum number of parts to return."
+      },
+      "part-number-marker": {
+        "desc": "Specifies the part after which listing should begin. Only parts with higher part numbers will be listed."
+      },
+      "uploadId": {
+        "desc": "Upload ID identifying the multipart upload whose parts are being listed."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "x-amz-abort-date": {
+        "desc": "If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-abort-rule-id": {
+        "desc": "This header is returned along with the x-amz-abort-date header. It identifies applicable lifecycle configuration rule that defines the action to abort incomplete multipart uploads.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutBucketAccelerateConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "Name of the bucket for which the accelerate configuration is set."
+      }
+    },
+    "res": {
+      "AccelerateConfiguration": {
+        "desc": "Root level tag for the AccelerateConfiguration parameters."
+      },
+      "Status": {
+        "desc": "Specifies the transfer acceleration status of the bucket.",
+        "type": "String",
+        "values": [
+          "enabled",
+          "suspended"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutBucketAcl",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket to which to apply the ACL."
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to RFC 1864."
+      },
+      "x-amz-acl": {
+        "desc": "The canned ACL to apply to the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-full-control": {
+        "desc": "Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-read": {
+        "desc": "Allows grantee to list the objects in the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-read-acp": {
+        "desc": "Allows grantee to read the bucket ACL.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-write": {
+        "desc": "Allows grantee to create, overwrite, and delete any object in the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "x-amz-grant-write-acp": {
+        "desc": "Allows grantee to write the ACL for the applicable bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      }
+    },
+    "res": {
+      "AccessControlPolicy": {
+        "desc": "Root level tag for the AccessControlPolicy parameters.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "Grants": {
+        "desc": "A list of grants.",
+        "type": "Array of Grant data types",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      },
+      "Owner": {
+        "desc": "Container for the bucket owner's display name and ID.",
+        "type": "Owner data type",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutBucketAnalyticsConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket to which an analytics configuration is stored."
+      },
+      "id": {
+        "desc": "The ID that identifies the analytics configuration."
+      }
+    },
+    "res": {
+      "AnalyticsConfiguration": {
+        "desc": "Root level tag for the AnalyticsConfiguration parameters."
+      },
+      "Filter": {
+        "desc": "The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.",
+        "type": "AnalyticsFilter data type"
+      },
+      "Id": {
+        "desc": "The ID that identifies the analytics configuration.",
+        "type": "String"
+      },
+      "StorageClassAnalysis": {
+        "desc": "Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.",
+        "type": "StorageClassAnalysis data type"
+      }
+    }
+  },
+  {
+    "title": "PutBucketCors",
+    "req": {
+      "Bucket": {
+        "desc": "Specifies the bucket impacted by the corsconfiguration."
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to RFC 1864."
+      }
+    },
+    "res": {
+      "CORSConfiguration": {
+        "desc": "Root level tag for the CORSConfiguration parameters."
+      },
+      "CORSRule": {
+        "desc": "A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.",
+        "type": "Array of CORSRule data types"
+      }
+    }
+  },
+  {
+    "title": "PutBucketEncryption",
+    "req": {
+      "Bucket": {
+        "desc": "Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or customer master keys stored in AWS KMS (SSE-KMS). For information about the Amazon S3 default encryption feature, see Amazon S3 Default Bucket Encryption in the Amazon Simple Storage Service Developer Guide."
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the server-side encryption configuration. This parameter is auto-populated when using the command from the CLI."
+      }
+    },
+    "res": {
+      "ServerSideEncryptionConfiguration": {
+        "desc": "Root level tag for the ServerSideEncryptionConfiguration parameters."
+      },
+      "Rule": {
+        "desc": "Container for information about a particular server-side encryption configuration rule.",
+        "type": "Array of ServerSideEncryptionRule data types"
+      }
+    }
+  },
+  {
+    "title": "PutBucketInventoryConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket where the inventory configuration will be stored."
+      },
+      "id": {
+        "desc": "The ID used to identify the inventory configuration."
+      }
+    },
+    "res": {
+      "InventoryConfiguration": {
+        "desc": "Root level tag for the InventoryConfiguration parameters."
+      },
+      "Destination": {
+        "desc": "Contains information about where to publish the inventory results.",
+        "type": "InventoryDestination data type"
+      },
+      "Filter": {
+        "desc": "Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.",
+        "type": "InventoryFilter data type"
+      },
+      "Id": {
+        "desc": "The ID used to identify the inventory configuration.",
+        "type": "String"
+      },
+      "IncludedObjectVersions": {
+        "desc": "Object versions to include in the inventory list. If set to All, the list includes all the object versions, which adds the version-related fields VersionId, IsLatest, and DeleteMarker to the list. If set to Current, the list does not contain these version-related fields.",
+        "type": "String",
+        "values": [
+          "all",
+          "current"
+        ]
+      },
+      "IsEnabled": {
+        "desc": "Specifies whether the inventory is enabled or disabled. If set to True, an inventory list is generated. If set to False, no inventory list is generated.",
+        "type": "Boolean",
+        "values": [
+          "all",
+          "current"
+        ]
+      },
+      "OptionalFields": {
+        "desc": "Contains the optional fields that are included in the inventory results.",
+        "type": "Array of strings",
+        "values": [
+          "size",
+          "lastmodifieddate",
+          "storageclass",
+          "etag",
+          "ismultipartuploaded",
+          "replicationstatus"
+        ]
+      },
+      "Schedule": {
+        "desc": "Specifies the schedule for generating inventory results.",
+        "type": "InventorySchedule data type",
+        "values": [
+          "size",
+          "lastmodifieddate",
+          "storageclass",
+          "etag",
+          "ismultipartuploaded",
+          "replicationstatus"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutBucketLifecycle",
+    "req": {
+      "Bucket": {},
+      "Content-MD5": {}
+    },
+    "res": {
+      "LifecycleConfiguration": {
+        "desc": "Root level tag for the LifecycleConfiguration parameters."
+      },
+      "Rule": {
+        "desc": "Specifies lifecycle configuration rules for an Amazon S3 bucket.",
+        "type": "Array of Rule data types"
+      }
+    }
+  },
+  {
+    "title": "PutBucketLifecycleConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which to set the configuration."
+      }
+    },
+    "res": {
+      "LifecycleConfiguration": {
+        "desc": "Root level tag for the LifecycleConfiguration parameters."
+      },
+      "Rule": {
+        "desc": "A lifecycle rule for individual objects in an Amazon S3 bucket.",
+        "type": "Array of LifecycleRule data types"
+      }
+    }
+  },
+  {
+    "title": "PutBucketLogging",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which to set the logging parameters."
+      },
+      "Content-MD5": {
+        "desc": "The MD5 hash of the PutBucketLogging request body."
+      }
+    },
+    "res": {
+      "BucketLoggingStatus": {
+        "desc": "Root level tag for the BucketLoggingStatus parameters."
+      },
+      "LoggingEnabled": {
+        "desc": "Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys for a bucket. For more information, see PUT Bucket logging in the Amazon Simple Storage Service API Reference.",
+        "type": "LoggingEnabled data type"
+      }
+    }
+  },
+  {
+    "title": "PutBucketMetricsConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket for which the metrics configuration is set."
+      },
+      "id": {
+        "desc": "The ID used to identify the metrics configuration."
+      }
+    },
+    "res": {
+      "MetricsConfiguration": {
+        "desc": "Root level tag for the MetricsConfiguration parameters."
+      },
+      "Filter": {
+        "desc": "Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).",
+        "type": "MetricsFilter data type"
+      },
+      "Id": {
+        "desc": "The ID used to identify the metrics configuration.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "PutBucketNotification",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket."
+      },
+      "Content-MD5": {
+        "desc": "The MD5 hash of the PutPublicAccessBlock request body."
+      }
+    },
+    "res": {
+      "NotificationConfiguration": {
+        "desc": "Root level tag for the NotificationConfiguration parameters."
+      },
+      "CloudFunctionConfiguration": {
+        "desc": "Container for specifying the AWS Lambda notification configuration.",
+        "type": "CloudFunctionConfiguration data type"
+      },
+      "QueueConfiguration": {
+        "desc": "This data type is deprecated. This data type specifies the configuration for publishing messages to an Amazon Simple Queue Service (Amazon SQS) queue when Amazon S3 detects specified events.",
+        "type": "QueueConfigurationDeprecated data type"
+      },
+      "TopicConfiguration": {
+        "desc": "This data type is deprecated. A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3 detects specified events.",
+        "type": "TopicConfigurationDeprecated data type"
+      }
+    }
+  },
+  {
+    "title": "PutBucketNotificationConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket."
+      }
+    },
+    "res": {
+      "NotificationConfiguration": {
+        "desc": "Root level tag for the NotificationConfiguration parameters."
+      },
+      "CloudFunctionConfiguration": {
+        "desc": "Describes the AWS Lambda functions to invoke and the events for which to invoke them.",
+        "type": "Array of LambdaFunctionConfiguration data types"
+      },
+      "QueueConfiguration": {
+        "desc": "The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.",
+        "type": "Array of QueueConfiguration data types"
+      },
+      "TopicConfiguration": {
+        "desc": "The topic to which notifications are sent and the events for which notifications are generated.",
+        "type": "Array of TopicConfiguration data types"
+      }
+    }
+  },
+  {
+    "title": "PutBucketPolicy",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket."
+      },
+      "Content-MD5": {
+        "desc": "The MD5 hash of the request body."
+      },
+      "x-amz-confirm-remove-self-bucket-access": {
+        "desc": "Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future."
+      }
+    },
+    "res": {
+      "Policy": {}
+    }
+  },
+  {
+    "title": "PutBucketReplication",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the bucket"
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see RFC 1864."
+      },
+      "x-amz-bucket-object-lock-token": {}
+    },
+    "res": {
+      "ReplicationConfiguration": {
+        "desc": "Root level tag for the ReplicationConfiguration parameters."
+      },
+      "Role": {
+        "desc": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects. For more information, see How to Set Up Replication in the Amazon Simple Storage Service Developer Guide.",
+        "type": "String"
+      },
+      "Rule": {
+        "desc": "A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.",
+        "type": "Array of ReplicationRule data types"
+      }
+    }
+  },
+  {
+    "title": "PutBucketRequestPayment",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name."
+      },
+      "Content-MD5": {
+        "desc": ">The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see RFC 1864."
+      }
+    },
+    "res": {
+      "RequestPaymentConfiguration": {
+        "desc": "Root level tag for the RequestPaymentConfiguration parameters."
+      },
+      "Payer": {
+        "desc": "Specifies who pays for the download and request fees.",
+        "type": "String",
+        "values": [
+          "requester",
+          "bucketowner"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutBucketTagging",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name."
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see RFC 1864."
+      }
+    },
+    "res": {
+      "Tagging": {
+        "desc": "Root level tag for the Tagging parameters."
+      },
+      "TagSet": {
+        "desc": "A collection for a set of tags",
+        "type": "Array of Tag data types"
+      }
+    }
+  },
+  {
+    "title": "PutBucketVersioning",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name."
+      },
+      "Content-MD5": {
+        "desc": ">The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see RFC 1864."
+      },
+      "x-amz-mfa": {
+        "desc": "The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device."
+      }
+    },
+    "res": {
+      "VersioningConfiguration": {
+        "desc": "Root level tag for the VersioningConfiguration parameters."
+      },
+      "MFADelete": {
+        "desc": "Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.",
+        "type": "String",
+        "values": [
+          "enabled",
+          "disabled"
+        ]
+      },
+      "Status": {
+        "desc": "The versioning state of the bucket.",
+        "type": "String",
+        "values": [
+          "enabled",
+          "suspended"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutBucketWebsite",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name."
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see RFC 1864."
+      }
+    },
+    "res": {
+      "WebsiteConfiguration": {
+        "desc": "Root level tag for the WebsiteConfiguration parameters."
+      },
+      "ErrorDocument": {
+        "desc": "The name of the error document for the website.",
+        "type": "ErrorDocument data type"
+      },
+      "IndexDocument": {
+        "desc": "The name of the index document for the website.",
+        "type": "IndexDocument data type"
+      },
+      "RedirectAllRequestsTo": {
+        "desc": "The redirect behavior for every request to this bucket's website endpoint.",
+        "type": "RedirectAllRequestsTo data type"
+      },
+      "RoutingRules": {
+        "desc": "Rules that define when a redirect is applied and the redirect behavior.",
+        "type": "Array of RoutingRule data types"
+      }
+    }
+  },
+  {
+    "title": "PutObject",
+    "req": {
+      "Bucket": {
+        "desc": "Bucket name to which the PUT operation was initiated."
+      },
+      "Cache-Control": {
+        "desc": "Can be used to specify caching behavior along the request/reply chain. For more information, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9."
+      },
+      "Content-Disposition": {
+        "desc": "Specifies presentational information for the object. For more information, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1."
+      },
+      "Content-Encoding": {
+        "desc": "Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11."
+      },
+      "Content-Language": {
+        "desc": "The language the content is in."
+      },
+      "Content-Length": {
+        "desc": "Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13."
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see REST Authentication."
+      },
+      "Content-Type": {
+        "desc": "A standard MIME type describing the format of the contents. For more information, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17."
+      },
+      "Expires": {
+        "desc": "The date and time at which the object is no longer cacheable. For more information, see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21."
+      },
+      "Key": {
+        "desc": "Object key for which the PUT operation was initiated."
+      },
+      "x-amz-acl": {
+        "desc": "The canned ACL to apply to the object. For more information, see Canned ACL.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-full-control": {
+        "desc": "Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-read": {
+        "desc": "Allows grantee to read the object data and its metadata.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-read-acp": {
+        "desc": "Allows grantee to read the object ACL.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-write-acp": {
+        "desc": "Allows grantee to write the ACL for the applicable object.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-object-lock-legal-hold": {
+        "desc": "Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see Object Lock.",
+        "values": [
+          "on",
+          "off"
+        ]
+      },
+      "x-amz-object-lock-mode": {
+        "desc": "The Object Lock mode that you want to apply to this object.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-object-lock-retain-until-date": {
+        "desc": "The date and time when you want this object's Object Lock to expire.",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption": {
+        "desc": "The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-aws-kms-key-id": {
+        "desc": "If x-amz-server-side-encryption is present and has the value of aws:kms, this header specifies the ID of the AWS Key Management Service (AWS KMS) symmetrical customer managed customer master key (CMK) that was used for the object.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-context": {
+        "desc": "Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use to when encrypting the object (for example, AES256).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-storage-class": {
+        "desc": "If you don't specify, S3 Standard is the default storage class. Amazon S3 supports other storage classes.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-tagging": {
+        "desc": "The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, \"Key1=Value1\")",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      },
+      "x-amz-website-redirect-location": {
+        "desc": "If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see Object Key and Metadata.",
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      }
+    },
+    "res": {
+      "Body": {
+        "values": [
+          "standard",
+          "reduced_redundancy",
+          "standard_ia",
+          "onezone_ia",
+          "intelligent_tiering",
+          ""
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutObjectAcl",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name that contains the object to which you want to attach the ACL."
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to RFC 1864.>"
+      },
+      "Key": {
+        "desc": "Key for which the PUT operation was initiated."
+      },
+      "versionId": {
+        "desc": "VersionId used to reference a specific version of the object."
+      },
+      "x-amz-acl": {
+        "desc": "The canned ACL to apply to the object. For more information, see Canned ACL.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-full-control": {
+        "desc": "Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-read": {
+        "desc": "Allows grantee to list the objects in the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-read-acp": {
+        "desc": "Allows grantee to read the bucket ACL.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-write": {
+        "desc": "Allows grantee to create, overwrite, and delete any object in the bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-grant-write-acp": {
+        "desc": "Allows grantee to write the ACL for the applicable bucket.",
+        "values": [
+          "private",
+          "public-read",
+          "public-read-write",
+          "authenticated-read",
+          "aws-exec-read",
+          ""
+        ]
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "AccessControlPolicy": {
+        "desc": "Root level tag for the AccessControlPolicy parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Grants": {
+        "desc": "A list of grants.",
+        "type": "Array of Grant data types",
+        "values": [
+          "requester"
+        ]
+      },
+      "Owner": {
+        "desc": "Container for the bucket owner's display name and ID.",
+        "type": "Owner data type",
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutObjectLegalHold",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name containing the object that you want to place a Legal Hold on."
+      },
+      "Content-MD5": {
+        "desc": "The MD5 hash for the request body."
+      },
+      "Key": {
+        "desc": "The key name for the object that you want to place a Legal Hold on."
+      },
+      "versionId": {
+        "desc": "The version ID of the object that you want to place a Legal Hold on."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "LegalHold": {
+        "desc": "Root level tag for the LegalHold parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Status": {
+        "desc": "Indicates whether the specified object has a Legal Hold in place.",
+        "type": "String",
+        "values": [
+          "on",
+          "off"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutObjectLockConfiguration",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket whose Object Lock configuration you want to create or replace."
+      },
+      "Content-MD5": {
+        "desc": "The MD5 hash for the request body."
+      },
+      "x-amz-bucket-object-lock-token": {
+        "desc": "A token to allow Object Lock to be enabled for an existing bucket."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "ObjectLockConfiguration": {
+        "desc": "Root level tag for the ObjectLockConfiguration parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "ObjectLockEnabled": {
+        "desc": "Indicates whether this bucket has an Object Lock configuration enabled.",
+        "type": "String",
+        "values": [
+          "enabled"
+        ]
+      },
+      "Rule": {
+        "desc": "The Object Lock rule in place for the specified object.",
+        "type": "ObjectLockRule data type",
+        "values": [
+          "enabled"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutObjectRetention",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name that contains the object you want to apply this Object Retention configuration to."
+      },
+      "Content-MD5": {
+        "desc": "The MD5 hash for the request body."
+      },
+      "Key": {
+        "desc": "The key name for the object that you want to apply this Object Retention configuration to."
+      },
+      "versionId": {
+        "desc": "The version ID for the object that you want to apply this Object Retention configuration to."
+      },
+      "x-amz-bypass-governance-retention": {
+        "desc": "Indicates whether this operation should bypass Governance-mode restrictions."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "Retention": {
+        "desc": "Root level tag for the Retention parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Mode": {
+        "desc": "Indicates the Retention mode for the specified object.",
+        "type": "String",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      },
+      "RetainUntilDate": {
+        "desc": "The date on which this Object Lock Retention will expire.",
+        "type": "Timestamp",
+        "values": [
+          "governance",
+          "compliance"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PutObjectTagging",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name containing the object."
+      },
+      "Content-MD5": {
+        "desc": "The MD5 hash for the request body."
+      },
+      "Key": {
+        "desc": "Name of the tag."
+      },
+      "versionId": {
+        "desc": "The versionId of the object that the tag-set will be added to."
+      }
+    },
+    "res": {
+      "Tagging": {
+        "desc": "Root level tag for the Tagging parameters."
+      },
+      "TagSet": {
+        "desc": "A collection for a set of tags",
+        "type": "Array of Tag data types"
+      }
+    }
+  },
+  {
+    "title": "PutPublicAccessBlock",
+    "req": {
+      "Bucket": {
+        "desc": "The name of the Amazon S3 bucket whose PublicAccessBlock configuration you want to set."
+      },
+      "Content-MD5": {
+        "desc": "The MD5 hash of the PutPublicAccessBlock request body."
+      }
+    },
+    "res": {
+      "PublicAccessBlockConfiguration": {
+        "desc": "Root level tag for the PublicAccessBlockConfiguration parameters."
+      },
+      "BlockPublicAcls": {
+        "desc": "Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:",
+        "type": "Boolean"
+      },
+      "BlockPublicPolicy": {
+        "desc": "Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.",
+        "type": "Boolean"
+      },
+      "IgnorePublicAcls": {
+        "desc": "Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.",
+        "type": "Boolean"
+      },
+      "RestrictPublicBuckets": {
+        "desc": "Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.",
+        "type": "Boolean"
+      }
+    }
+  },
+  {
+    "title": "RestoreObject",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name or containing the object to restore."
+      },
+      "Key": {
+        "desc": "Object key for which the operation was initiated."
+      },
+      "versionId": {
+        "desc": "VersionId used to reference a specific version of the object."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "RestoreRequest": {
+        "desc": "Root level tag for the RestoreRequest parameters.",
+        "values": [
+          "requester"
+        ]
+      },
+      "Days": {
+        "desc": "Lifetime of the active copy in days. Do not use with restores that specify OutputLocation.",
+        "type": "Integer",
+        "values": [
+          "requester"
+        ]
+      },
+      "Description": {
+        "desc": "The optional description for the job.",
+        "type": "String",
+        "values": [
+          "requester"
+        ]
+      },
+      "GlacierJobParameters": {
+        "desc": "S3 Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.",
+        "type": "GlacierJobParameters data type",
+        "values": [
+          "requester"
+        ]
+      },
+      "OutputLocation": {
+        "desc": "Describes the location where the restore job's output is stored.",
+        "type": "OutputLocation data type",
+        "values": [
+          "requester"
+        ]
+      },
+      "SelectParameters": {
+        "desc": "Describes the parameters for Select job types.",
+        "type": "SelectParameters data type",
+        "values": [
+          "requester"
+        ]
+      },
+      "Tier": {
+        "desc": "S3 Glacier retrieval tier at which the restore will be processed.",
+        "type": "String",
+        "values": [
+          "standard",
+          "bulk",
+          "expedited"
+        ]
+      },
+      "Type": {
+        "desc": "Type of restore request.",
+        "type": "String",
+        "values": [
+          "select"
+        ]
+      }
+    }
+  },
+  {
+    "title": "SelectObjectContent",
+    "req": {
+      "Bucket": {
+        "desc": "The S3 bucket."
+      },
+      "Key": {
+        "desc": "The object key."
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "The SSE Algorithm used to encrypt the object. For more information, see Server-Side Encryption (Using Customer-Provided Encryption Keys."
+      },
+      "x-amz-server-side-encryption-customer-key": {
+        "desc": "The SSE Customer Key. For more information, see Server-Side Encryption (Using Customer-Provided Encryption Keys."
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "The SSE Customer Key MD5. For more information, see Server-Side Encryption (Using Customer-Provided Encryption Keys."
+      }
+    },
+    "res": {
+      "SelectObjectContentRequest": {
+        "desc": "Root level tag for the SelectObjectContentRequest parameters."
+      },
+      "Expression": {
+        "desc": "The expression that is used to query the object.",
+        "type": "String"
+      },
+      "ExpressionType": {
+        "desc": "The type of the provided expression (for example, SQL).",
+        "type": "String",
+        "values": [
+          "sql"
+        ]
+      },
+      "InputSerialization": {
+        "desc": "Describes the format of the data in the object that is being queried.",
+        "type": "InputSerialization data type",
+        "values": [
+          "sql"
+        ]
+      },
+      "OutputSerialization": {
+        "desc": "Describes the format of the data that you want Amazon S3 to return in response.",
+        "type": "OutputSerialization data type",
+        "values": [
+          "sql"
+        ]
+      },
+      "RequestProgress": {
+        "desc": "Specifies if periodic request progress information should be enabled.",
+        "type": "RequestProgress data type",
+        "values": [
+          "sql"
+        ]
+      },
+      "ScanRange": {
+        "desc": "Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional, but when specified, it must not be empty. See RFC 2616, Section 14.35.1 about how to specify the start and end of the range.",
+        "type": "ScanRange data type",
+        "values": [
+          "sql"
+        ]
+      }
+    }
+  },
+  {
+    "title": "UploadPart",
+    "req": {
+      "Bucket": {
+        "desc": "Name of the bucket to which the multipart upload was initiated."
+      },
+      "Content-Length": {
+        "desc": "Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically."
+      },
+      "Content-MD5": {
+        "desc": "The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI. This parameter is required if object lock parameters are specified."
+      },
+      "Key": {
+        "desc": "Object key for which the multipart upload was initiated."
+      },
+      "partNumber": {
+        "desc": "Part number of part being uploaded. This is a positive integer between 1 and 10,000."
+      },
+      "uploadId": {
+        "desc": "Upload ID identifying the multipart upload whose part is being uploaded."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use to when encrypting the object (for example, AES256).",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "Body": {
+        "values": [
+          "requester"
+        ]
+      }
+    }
+  },
+  {
+    "title": "UploadPartCopy",
+    "req": {
+      "Bucket": {
+        "desc": "The bucket name."
+      },
+      "Key": {
+        "desc": "Object key for which the multipart upload was initiated."
+      },
+      "partNumber": {
+        "desc": "Part number of part being copied. This is a positive integer between 1 and 10,000."
+      },
+      "uploadId": {
+        "desc": "Upload ID identifying the multipart upload whose part is being copied."
+      },
+      "x-amz-copy-source": {
+        "desc": "The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded."
+      },
+      "x-amz-copy-source-if-match": {
+        "desc": "Copies the object if its entity tag (ETag) matches the specified tag."
+      },
+      "x-amz-copy-source-if-modified-since": {
+        "desc": "Copies the object if it has been modified since the specified time."
+      },
+      "x-amz-copy-source-if-none-match": {
+        "desc": "Copies the object if its entity tag (ETag) is different than the specified ETag."
+      },
+      "x-amz-copy-source-if-unmodified-since": {
+        "desc": "Copies the object if it hasn't been modified since the specified time."
+      },
+      "x-amz-copy-source-range": {
+        "desc": "The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first 10 bytes of the source. You can copy a range only if the source object is greater than 5 MB."
+      },
+      "x-amz-copy-source-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use when decrypting the source object (for example, AES256)."
+      },
+      "x-amz-copy-source-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created."
+      },
+      "x-amz-copy-source-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error."
+      },
+      "x-amz-request-payer": {
+        "desc": "Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets in the Amazon S3 Developer Guide.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "Specifies the algorithm to use to when encrypting the object (for example, AES256).",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key": {
+        "desc": "Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.",
+        "values": [
+          "requester"
+        ]
+      }
+    },
+    "res": {
+      "x-amz-copy-source-version-id": {
+        "desc": "The version of the source object that was copied, if you have enabled versioning on the source bucket.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-request-charged": {
+        "desc": "If present, indicates that the requester was successfully charged for the request.",
+        "values": [
+          "requester"
+        ]
+      },
+      "x-amz-server-side-encryption": {
+        "desc": "The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-aws-kms-key-id": {
+        "desc": "If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) that was used for the object.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-algorithm": {
+        "desc": "If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      },
+      "x-amz-server-side-encryption-customer-key-MD5": {
+        "desc": "If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.",
+        "values": [
+          "aes256",
+          "aws:kms"
+        ]
+      }
+    }
+  }
+]

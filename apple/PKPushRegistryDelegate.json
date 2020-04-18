@@ -1,0 +1,57 @@
+{
+  "type": "Protocol",
+  "name": "PKPushRegistryDelegate",
+  "desc": "The methods that you use to handle incoming PushKit notifications and registration events.",
+  "items": [
+    {
+      "name": "pushRegistry",
+      "type": "func",
+      "desc": "Tells the delegate that the system updated the credentials for the specified type of push notification.",
+      "params": [
+        {
+          "type": "PKPushRegistry"
+        },
+        {
+          "name": "didUpdate",
+          "type": "PKPushCredentials"
+        },
+        {
+          "name": "for",
+          "type": "PKPushType"
+        }
+      ]
+    },
+    {
+      "name": "pushRegistry",
+      "type": "func",
+      "desc": "Tells the delegate that the system invalidated the push token for the specified type.",
+      "params": [
+        {
+          "type": "PKPushRegistry"
+        },
+        {
+          "name": "didInvalidatePushTokenFor",
+          "type": "PKPushType"
+        }
+      ]
+    },
+    {
+      "name": "pushRegistry",
+      "type": "func",
+      "desc": "Notifies the delegate that a remote push has been received.",
+      "params": [
+        {
+          "type": "PKPushRegistry"
+        },
+        {
+          "name": "didReceiveIncomingPushWith",
+          "type": "PKPushPayload"
+        },
+        {
+          "name": "for",
+          "type": "PKPushType"
+        }
+      ]
+    }
+  ]
+}

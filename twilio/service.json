@@ -1,0 +1,281 @@
+{
+  "type": "Service",
+  "attrs": {
+    "sid": {
+      "type": "sid<MG>",
+      "desc": "The unique string that we created to identify the Service resource."
+    },
+    "account_sid": {
+      "type": "sid<AC>",
+      "desc": "The SID of the Account that created the Service resource."
+    },
+    "friendly_name": {
+      "type": "string",
+      "desc": "The string that you assigned to describe the resource."
+    },
+    "date_created": {
+      "type": "date_time<iso8601>",
+      "desc": "The date and time in GMT when the resource was created specified in ISO 8601 format."
+    },
+    "date_updated": {
+      "type": "date_time<iso8601>",
+      "desc": "The date and time in GMT when the resource was last updated specified in ISO 8601 format."
+    },
+    "inbound_request_url": {
+      "type": "url",
+      "desc": "The URL we call using inbound_method when a message is received by any phone number or short code in the Service. When this property is null, receiving inbound messages is disabled. All messages sent to the Twilio phone number or short code will not be logged and received on the Account."
+    },
+    "inbound_method": {
+      "type": "http_method",
+      "desc": "The HTTP method we use to call inbound_request_url. Can be GET or POST."
+    },
+    "fallback_url": {
+      "type": "url",
+      "desc": "The URL that we call using fallback_method if an error occurs while retrieving or executing the TwiML from the Inbound Request URL."
+    },
+    "fallback_method": {
+      "type": "http_method",
+      "desc": "The HTTP method we use to call fallback_url. Can be: GET or POST."
+    },
+    "status_callback": {
+      "type": "url",
+      "desc": "The URL we call to pass status updates about message delivery."
+    },
+    "sticky_sender": {
+      "type": "boolean",
+      "desc": "Whether to enable Sticky Sender on the Service instance."
+    },
+    "mms_converter": {
+      "type": "boolean",
+      "desc": "Whether to enable the MMS Converter for messages sent through the Service instance."
+    },
+    "smart_encoding": {
+      "type": "boolean",
+      "desc": "Whether to enable Smart Encoding for messages sent through the Service instance."
+    },
+    "scan_message_content": {
+      "type": "enum:scan_message_content",
+      "desc": "Reserved."
+    },
+    "fallback_to_long_code": {
+      "type": "boolean",
+      "desc": "Whether to enable Fallback to Long Code for messages sent through the Service instance."
+    },
+    "area_code_geomatch": {
+      "type": "boolean",
+      "desc": "Whether to enable Area Code Geomatch on the Service Instance."
+    },
+    "synchronous_validation": {
+      "type": "boolean",
+      "desc": "Reserved."
+    },
+    "validity_period": {
+      "type": "integer",
+      "desc": "How long, in seconds, messages sent from the Service are valid. Can be an integer from 1 to 14,400."
+    },
+    "url": {
+      "type": "url",
+      "desc": "The absolute URL of the Service resource."
+    },
+    "links": {
+      "type": "uri_map",
+      "desc": "The absolute URLs of related resources."
+    }
+  },
+  "actions": [
+    {
+      "title": "Create a Service resource",
+      "method": "post",
+      "url": "https://messaging.twilio.com/v1/Services",
+      "desc": null,
+      "req": {
+        "FriendlyName": {
+          "type": "string",
+          "desc": "A descriptive string that you create to describe the resource. It can be up to 64 characters long.",
+          "required": true
+        },
+        "InboundRequestUrl": {
+          "type": "url",
+          "desc": "The URL we should call using inbound_method when a message is received by any phone number or short code in the Service. When this property is null, receiving inbound messages is disabled.",
+          "required": false
+        },
+        "InboundMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call inbound_request_url. Can be GET or POST and the default is POST.",
+          "required": false
+        },
+        "FallbackUrl": {
+          "type": "url",
+          "desc": "The URL that we should call using fallback_method if an error occurs while retrieving or executing the TwiML from the Inbound Request URL.",
+          "required": false
+        },
+        "FallbackMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call fallback_url. Can be: GET or POST.",
+          "required": false
+        },
+        "StatusCallback": {
+          "type": "url",
+          "desc": "The URL we should call to pass status updates about message delivery.",
+          "required": false
+        },
+        "StickySender": {
+          "type": "boolean",
+          "desc": "Whether to enable Sticky Sender on the Service instance.",
+          "required": false
+        },
+        "MmsConverter": {
+          "type": "boolean",
+          "desc": "Whether to enable the MMS Converter for messages sent through the Service instance.",
+          "required": false
+        },
+        "SmartEncoding": {
+          "type": "boolean",
+          "desc": "Whether to enable Smart Encoding for messages sent through the Service instance.",
+          "required": false
+        },
+        "ScanMessageContent": {
+          "type": "enum:scan_message_content",
+          "desc": "Reserved.",
+          "required": false
+        },
+        "FallbackToLongCode": {
+          "type": "boolean",
+          "desc": "Whether to enable Fallback to Long Code for messages sent through the Service instance.",
+          "required": false
+        },
+        "AreaCodeGeomatch": {
+          "type": "boolean",
+          "desc": "Whether to enable Area Code Geomatch on the Service Instance.",
+          "required": false
+        },
+        "ValidityPeriod": {
+          "type": "integer",
+          "desc": "How long, in seconds, messages sent from the Service are valid. Can be an integer from 1 to 14,400.",
+          "required": false
+        },
+        "SynchronousValidation": {
+          "type": "boolean",
+          "desc": "Reserved.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Fetch a Service resource",
+      "method": "get",
+      "url": "https://messaging.twilio.com/v1/Services/{Sid}",
+      "desc": null,
+      "req": {
+        "Sid": {
+          "type": "sid<MG>",
+          "desc": "The SID of the Service resource to fetch.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Read multiple Service resources",
+      "method": "get",
+      "url": "https://messaging.twilio.com/v1/Services",
+      "desc": null,
+      "req": {}
+    },
+    {
+      "title": "Update a Service resource",
+      "method": "post",
+      "url": "https://messaging.twilio.com/v1/Services/{Sid}",
+      "desc": "You may specify one or more of the optional parameters above to update the Service's respective properties. Parameters not specified in your request are not updated.",
+      "req": {
+        "Sid": {
+          "type": "sid<MG>",
+          "desc": "The SID of the Service resource to update.",
+          "required": false
+        },
+        "FriendlyName": {
+          "type": "string",
+          "desc": "A descriptive string that you create to describe the resource. It can be up to 64 characters long.",
+          "required": false
+        },
+        "InboundRequestUrl": {
+          "type": "url",
+          "desc": "The URL we should call using inbound_method when a message is received by any phone number or short code in the Service. When this property is null, receiving inbound messages is disabled.",
+          "required": false
+        },
+        "InboundMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call inbound_request_url. Can be GET or POST and the default is POST.",
+          "required": false
+        },
+        "FallbackUrl": {
+          "type": "url",
+          "desc": "The URL that we should call using fallback_method if an error occurs while retrieving or executing the TwiML from the Inbound Request URL.",
+          "required": false
+        },
+        "FallbackMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method we should use to call fallback_url. Can be: GET or POST.",
+          "required": false
+        },
+        "StatusCallback": {
+          "type": "url",
+          "desc": "The URL we should call to pass status updates about message delivery.",
+          "required": false
+        },
+        "StickySender": {
+          "type": "boolean",
+          "desc": "Whether to enable Sticky Sender on the Service instance.",
+          "required": false
+        },
+        "MmsConverter": {
+          "type": "boolean",
+          "desc": "Whether to enable the MMS Converter for messages sent through the Service instance.",
+          "required": false
+        },
+        "SmartEncoding": {
+          "type": "boolean",
+          "desc": "Whether to enable Smart Encoding for messages sent through the Service instance.",
+          "required": false
+        },
+        "ScanMessageContent": {
+          "type": "enum:scan_message_content",
+          "desc": "Reserved.",
+          "required": false
+        },
+        "FallbackToLongCode": {
+          "type": "boolean",
+          "desc": "Whether to enable Fallback to Long Code for messages sent through the Service instance.",
+          "required": false
+        },
+        "AreaCodeGeomatch": {
+          "type": "boolean",
+          "desc": "Whether to enable Area Code Geomatch on the Service Instance.",
+          "required": false
+        },
+        "ValidityPeriod": {
+          "type": "integer",
+          "desc": "How long, in seconds, messages sent from the Service are valid. Can be an integer from 1 to 14,400.",
+          "required": false
+        },
+        "SynchronousValidation": {
+          "type": "boolean",
+          "desc": "Reserved.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Delete a Service resource",
+      "method": "delete",
+      "url": "https://messaging.twilio.com/v1/Services/{Sid}",
+      "desc": "When a Service is deleted, all phone numbers and short codes in the Service are returned to your Account.",
+      "req": {
+        "Sid": {
+          "type": "sid<MG>",
+          "desc": "The SID of the Service resource to delete.",
+          "required": false
+        }
+      }
+    }
+  ]
+}

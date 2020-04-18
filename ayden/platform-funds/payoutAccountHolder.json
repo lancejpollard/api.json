@@ -1,0 +1,115 @@
+{
+  "path": "/payoutAccountHolder",
+  "method": "POST",
+  "desc": "This endpoint is used to pay out a specified amount from an account to the bank account of the account's account holder.",
+  "req": {
+    "accountCode": {
+      "type": "string",
+      "desc": "The code of the account from which the payout is to be made.",
+      "required": true
+    },
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the Account Holder who owns the account from which the payout is to be made.\nThe Account Holder is the party to which the payout will be made.",
+      "required": true
+    },
+    "amount": {
+      "type": "string",
+      "desc": "The amount to pay out.",
+      "required": true,
+      "children": {
+        "currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": true
+        },
+        "value": {
+          "type": "integer",
+          "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+          "required": true
+        }
+      }
+    },
+    "bankAccountUUID": {
+      "type": "string",
+      "desc": "The unique ID of the Bank Account held by the Account Holder to which the payout is to be made.\nIf left blank, a bank account is automatically selected.",
+      "required": false
+    },
+    "description": {
+      "type": "string",
+      "desc": "A description of the payout. Maximum 35 characters.\nAllowed: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/?:().,'+ \";",
+      "required": false
+    },
+    "merchantReference": {
+      "type": "string",
+      "desc": "A value that can be supplied at the discretion of the executing user in order to link multiple transactions to one another.",
+      "required": false
+    },
+    "payoutMethodCode": {
+      "type": "string",
+      "desc": "The unique ID of the payout method held by the Account Holder to which the payout is to be made.\nIf left blank, a payout instrument is automatically selected.",
+      "required": false
+    }
+  },
+  "res": {
+    "bankAccountUUID": {
+      "type": "string",
+      "desc": "The unique ID of the Bank Account to which the payout was made.",
+      "required": false
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "merchantReference": {
+      "type": "string",
+      "desc": "The value supplied by the executing user when initiating the transfer; may be used to link multiple transactions.",
+      "required": false
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

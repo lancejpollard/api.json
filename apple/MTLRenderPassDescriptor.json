@@ -1,0 +1,116 @@
+{
+  "type": "Class",
+  "name": "MTLRenderPassDescriptor",
+  "desc": "A group of render targets that hold the results of a render pass.",
+  "items": [
+    {
+      "name": "colorAttachments",
+      "type": "var",
+      "datatype": "MTLRenderPassColorAttachmentDescriptorArray",
+      "desc": "An array of state information for attachments that store color data."
+    },
+    {
+      "name": "depthAttachment",
+      "type": "var",
+      "datatype": "MTLRenderPassDepthAttachmentDescriptor!",
+      "desc": "State information for an attachment that stores depth data."
+    },
+    {
+      "name": "stencilAttachment",
+      "type": "var",
+      "datatype": "MTLRenderPassStencilAttachmentDescriptor!",
+      "desc": "State information for an attachment that stores stencil data."
+    },
+    {
+      "name": "visibilityResultBuffer",
+      "type": "var",
+      "datatype": "MTLBuffer?",
+      "desc": "A buffer where the GPU writes visibility test results when fragments pass depth and stencil tests."
+    },
+    {
+      "name": "renderTargetArrayLength",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of active layers that all attachments must have for layered rendering."
+    },
+    {
+      "name": "renderTargetWidth",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The width, in pixels, to constrain the render target to."
+    },
+    {
+      "name": "renderTargetHeight",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The height, in pixels, to constrain the render target to."
+    },
+    {
+      "name": "MTLSamplePositionMake",
+      "type": "func",
+      "desc": "Returns a new sample position on a subpixel grid.",
+      "params": [
+        {
+          "type": "Float"
+        },
+        {
+          "type": "Float"
+        }
+      ],
+      "returnType": "MTLSamplePosition"
+    },
+    {
+      "name": "setSamplePositions",
+      "type": "func",
+      "desc": "Sets the programmable sample positions for a render pass.",
+      "params": [
+        {
+          "type": "[MTLSamplePosition]"
+        }
+      ]
+    },
+    {
+      "name": "getSamplePositions",
+      "type": "func",
+      "desc": "Returns the programmable sample positions set for a render pass.",
+      "params": [],
+      "returnType": "[MTLSamplePosition]"
+    },
+    {
+      "name": "imageblockSampleLength",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The per-sample size, in bytes, of the largest explicit imageblock layout in the render pass."
+    },
+    {
+      "name": "threadgroupMemoryLength",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The per-tile size, in bytes, of the persistent threadgroup memory allocation."
+    },
+    {
+      "name": "tileWidth",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The tile width, in pixels."
+    },
+    {
+      "name": "tileHeight",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The tile height, in pixels."
+    },
+    {
+      "name": "defaultRasterSampleCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The raster sample count for the render pass when no attachments are given."
+    },
+    {
+      "name": "rasterizationRateMap",
+      "type": "var",
+      "datatype": "MTLRasterizationRateMap?",
+      "desc": "The rasterization rate map to use when executing the render pass."
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "path": "/updateNotificationConfiguration",
+  "method": "POST",
+  "desc": "This endpoint is used to update an existing notification subscription configuration. If updating the event types, all event types desired must be provided, otherwise the previous event type configuration will be overwritten.",
+  "req": {
+    "configurationDetails": {
+      "type": "boolean",
+      "desc": "Details of the notification subscription configuration to be updated.",
+      "required": true,
+      "children": {
+        "active": {
+          "type": "boolean",
+          "desc": "Indicates whether the notification subscription is active.",
+          "required": false
+        },
+        "apiVersion": {
+          "type": "integer",
+          "desc": "The API version of the notification to send.",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "desc": "A description of the notification subscription configuration.\n\nRequired when creating a configuration, forbidden when updating a configuration.",
+          "required": false
+        },
+        "eventConfigs": {
+          "type": "array",
+          "desc": "The types of events whose notifications apply to this configuration.",
+          "required": true,
+          "children": {
+            "eventType": {
+              "type": "string",
+              "desc": "The type of event triggering the notification.\n\nPermitted values: ACCOUNT_HOLDER_CREATED, ACCOUNT_CREATED, ACCOUNT_UPDATED, ACCOUNT_HOLDER_UPDATED, ACCOUNT_HOLDER_STATUS_CHANGE, ACCOUNT_HOLDER_STORE_STATUS_CHANGE, ACCOUNT_HOLDER_VERIFICATION, ACCOUNT_HOLDER_LIMIT_REACHED, ACCOUNT_HOLDER_PAYOUT, PAYMENT_FAILURE, SCHEDULED_REFUNDS, REPORT_AVAILABLE, TRANSFER_FUNDS, BENEFICIARY_SETUP, COMPENSATE_NEGATIVE_BALANCE.",
+              "required": true
+            },
+            "includeMode": {
+              "type": "string",
+              "desc": "Indicates whether the specified eventType is to be sent to the endpoint or all events other than the specified eventType (and other specified eventTypes) are to be sent.\n\nPermitted values: INCLUDE, EXCLUDE.\n\nINCLUDE: send the specified eventType.\nEXCLUDE: send all eventTypes other than the specified eventType (and other eventTypes marked with EXCLUDE).",
+              "required": true
+            }
+          }
+        },
+        "hmacSignatureKey": {
+          "type": "string",
+          "desc": "A string with which to salt the notification(s) before hashing. If this field is provided, a hash value will be included under the notification header HmacSignature and the hash protocol will be included under the notification header Protocol. A notification body along with its hmacSignatureKey and Protocol can be used to calculate a hash value; matching this hash value with the HmacSignature will ensure that the notification body has not been tampered with or corrupted.\n\nMust be a 32-byte hex-encoded string (i.e. a string containing 64 hexadecimal characters; e.g. \"b0ea55c2fe60d4d1d605e9c385e0e7f7e6cafbb939ce07010f31a327a0871f27\").\n\nThe omission of this field will preclude the provision of the HmacSignature and Protocol headers in notification(s).",
+          "required": false
+        },
+        "notificationId": {
+          "type": "integer",
+          "desc": "The ID of the configuration.\n\nRequired if updating an existing configuration, ignored during the creation of a configuration.",
+          "required": false
+        },
+        "notifyPassword": {
+          "type": "string",
+          "desc": "The password to use when accessing the notifyURL with the specified username.",
+          "required": false
+        },
+        "notifyURL": {
+          "type": "string",
+          "desc": "The URL to which the notifications are to be sent.",
+          "required": true
+        },
+        "notifyUsername": {
+          "type": "string",
+          "desc": "The username to use when accessing the notifyURL.",
+          "required": false
+        },
+        "sslProtocol": {
+          "type": "string",
+          "desc": "The SSL protocol employed by the endpoint.\n\nPermitted values: SSL, SSLInsecureCiphers, TLS, TLSv10, TLSv10InsecureCiphers, TLSv11, TLSv12.",
+          "required": false
+        }
+      }
+    }
+  },
+  "res": {
+    "configurationDetails": {
+      "type": "boolean",
+      "desc": "Details of the notification subscription configuration.",
+      "required": true,
+      "children": {
+        "active": {
+          "type": "boolean",
+          "desc": "Indicates whether the notification subscription is active.",
+          "required": false
+        },
+        "apiVersion": {
+          "type": "integer",
+          "desc": "The API version of the notification to send.",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "desc": "A description of the notification subscription configuration.\n\nRequired when creating a configuration, forbidden when updating a configuration.",
+          "required": false
+        },
+        "eventConfigs": {
+          "type": "array",
+          "desc": "The types of events whose notifications apply to this configuration.",
+          "required": true,
+          "children": {
+            "eventType": {
+              "type": "string",
+              "desc": "The type of event triggering the notification.\n\nPermitted values: ACCOUNT_HOLDER_CREATED, ACCOUNT_CREATED, ACCOUNT_UPDATED, ACCOUNT_HOLDER_UPDATED, ACCOUNT_HOLDER_STATUS_CHANGE, ACCOUNT_HOLDER_STORE_STATUS_CHANGE, ACCOUNT_HOLDER_VERIFICATION, ACCOUNT_HOLDER_LIMIT_REACHED, ACCOUNT_HOLDER_PAYOUT, PAYMENT_FAILURE, SCHEDULED_REFUNDS, REPORT_AVAILABLE, TRANSFER_FUNDS, BENEFICIARY_SETUP, COMPENSATE_NEGATIVE_BALANCE.",
+              "required": true
+            },
+            "includeMode": {
+              "type": "string",
+              "desc": "Indicates whether the specified eventType is to be sent to the endpoint or all events other than the specified eventType (and other specified eventTypes) are to be sent.\n\nPermitted values: INCLUDE, EXCLUDE.\n\nINCLUDE: send the specified eventType.\nEXCLUDE: send all eventTypes other than the specified eventType (and other eventTypes marked with EXCLUDE).",
+              "required": true
+            }
+          }
+        },
+        "hmacSignatureKey": {
+          "type": "string",
+          "desc": "A string with which to salt the notification(s) before hashing. If this field is provided, a hash value will be included under the notification header HmacSignature and the hash protocol will be included under the notification header Protocol. A notification body along with its hmacSignatureKey and Protocol can be used to calculate a hash value; matching this hash value with the HmacSignature will ensure that the notification body has not been tampered with or corrupted.\n\nMust be a 32-byte hex-encoded string (i.e. a string containing 64 hexadecimal characters; e.g. \"b0ea55c2fe60d4d1d605e9c385e0e7f7e6cafbb939ce07010f31a327a0871f27\").\n\nThe omission of this field will preclude the provision of the HmacSignature and Protocol headers in notification(s).",
+          "required": false
+        },
+        "notificationId": {
+          "type": "integer",
+          "desc": "The ID of the configuration.\n\nRequired if updating an existing configuration, ignored during the creation of a configuration.",
+          "required": false
+        },
+        "notifyPassword": {
+          "type": "string",
+          "desc": "The password to use when accessing the notifyURL with the specified username.",
+          "required": false
+        },
+        "notifyURL": {
+          "type": "string",
+          "desc": "The URL to which the notifications are to be sent.",
+          "required": true
+        },
+        "notifyUsername": {
+          "type": "string",
+          "desc": "The username to use when accessing the notifyURL.",
+          "required": false
+        },
+        "sslProtocol": {
+          "type": "string",
+          "desc": "The SSL protocol employed by the endpoint.\n\nPermitted values: SSL, SSLInsecureCiphers, TLS, TLSv10, TLSv10InsecureCiphers, TLSv11, TLSv12.",
+          "required": false
+        }
+      }
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

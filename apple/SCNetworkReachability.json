@@ -1,0 +1,136 @@
+{
+  "name": "SCNetworkReachability",
+  "items": [
+    {
+      "name": "SCNetworkReachabilityCreateWithAddress",
+      "type": "func",
+      "desc": "Creates a reachability reference to the specified network address.",
+      "params": [
+        {
+          "type": "CFAllocator?"
+        },
+        {
+          "type": "UnsafePointer<sockaddr>"
+        }
+      ],
+      "returnType": "SCNetworkReachability?"
+    },
+    {
+      "name": "SCNetworkReachabilityCreateWithAddressPair",
+      "type": "func",
+      "desc": "Creates a reachability reference to the specified network address.",
+      "params": [
+        {
+          "type": "CFAllocator?"
+        },
+        {
+          "type": "UnsafePointer<sockaddr>?"
+        },
+        {
+          "type": "UnsafePointer<sockaddr>?"
+        }
+      ],
+      "returnType": "SCNetworkReachability?"
+    },
+    {
+      "name": "SCNetworkReachabilityCreateWithName",
+      "type": "func",
+      "desc": "Creates a reachability reference to the specified network host or node name.",
+      "params": [
+        {
+          "type": "CFAllocator?"
+        },
+        {
+          "type": "UnsafePointer<Int8>"
+        }
+      ],
+      "returnType": "SCNetworkReachability?"
+    },
+    {
+      "name": "SCNetworkReachabilityGetFlags",
+      "type": "func",
+      "desc": "Determines if the specified network target is reachable using the current network configuration.",
+      "params": [
+        {
+          "type": "SCNetworkReachability"
+        },
+        {
+          "type": "UnsafeMutablePointer<SCNetworkReachabilityFlags>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "SCNetworkReachabilityGetTypeID",
+      "type": "func",
+      "desc": "Returns the type identifier of all SCNetworkReachability instances.",
+      "params": [],
+      "returnType": "CFTypeID"
+    },
+    {
+      "name": "SCNetworkReachabilitySetCallback",
+      "type": "func",
+      "desc": "Assigns a client to the specified target, which receives callbacks when the reachability of the target changes.",
+      "params": [
+        {
+          "type": "SCNetworkReachability"
+        },
+        {
+          "type": "SCNetworkReachabilityCallBack?"
+        },
+        {
+          "type": "UnsafeMutablePointer<SCNetworkReachabilityContext>?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "SCNetworkReachabilityScheduleWithRunLoop",
+      "type": "func",
+      "desc": "Schedules the specified network target with the specified run loop and mode.",
+      "params": [
+        {
+          "type": "SCNetworkReachability"
+        },
+        {
+          "type": "CFRunLoop"
+        },
+        {
+          "type": "CFString"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "SCNetworkReachabilityUnscheduleFromRunLoop",
+      "type": "func",
+      "desc": "Unschedules the specified target from the specified run loop and mode.",
+      "params": [
+        {
+          "type": "SCNetworkReachability"
+        },
+        {
+          "type": "CFRunLoop"
+        },
+        {
+          "type": "CFString"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "SCNetworkReachabilitySetDispatchQueue",
+      "type": "func",
+      "desc": "Schedules callbacks for the specified target on the specified dispatch queue.",
+      "params": [
+        {
+          "type": "SCNetworkReachability"
+        },
+        {
+          "type": "DispatchQueue?"
+        }
+      ],
+      "returnType": "Bool"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "type": "Class",
+  "name": "AVAssetExportSession",
+  "desc": "An object that transcodes the contents of an asset source object to create an output of the form described by a specified export preset.",
+  "items": [
+    {
+      "name": "outputURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The URL of the export session’s output."
+    },
+    {
+      "name": "supportedFileTypes",
+      "type": "var",
+      "datatype": "[AVFileType]",
+      "desc": "An array containing the types of files the session can write."
+    },
+    {
+      "name": "outputFileType",
+      "type": "var",
+      "datatype": "AVFileType?",
+      "desc": "The type of file written by the session."
+    },
+    {
+      "name": "fileLengthLimit",
+      "type": "var",
+      "datatype": "Int64",
+      "desc": "The file length that the output of the session should not exceed."
+    },
+    {
+      "name": "timeRange",
+      "type": "var",
+      "datatype": "CMTimeRange",
+      "desc": "The time range exported from the source."
+    },
+    {
+      "name": "metadata",
+      "type": "var",
+      "datatype": "[AVMetadataItem]?",
+      "desc": "The metadata written to the output file by the export session."
+    },
+    {
+      "name": "metadataItemFilter",
+      "type": "var",
+      "datatype": "AVMetadataItemFilter?",
+      "desc": "Specifies a filter object used during export to determine which metadata items to transfer from the source asset."
+    },
+    {
+      "name": "audioMix",
+      "type": "var",
+      "datatype": "AVAudioMix?",
+      "desc": "The parameters for audio mixing and an indication whether to enable nondefault audio mixing for export."
+    },
+    {
+      "name": "audioTimePitchAlgorithm",
+      "type": "var",
+      "datatype": "AVAudioTimePitchAlgorithm",
+      "desc": "A processing algorithm used to manage audio pitch for scaled audio edits."
+    },
+    {
+      "name": "shouldOptimizeForNetworkUse",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether to optimize the movie should for network use."
+    },
+    {
+      "name": "videoComposition",
+      "type": "var",
+      "datatype": "AVVideoComposition?",
+      "desc": "The instructions for video composition, and indicates whether video composition is enabled for export."
+    },
+    {
+      "name": "customVideoCompositor",
+      "type": "var",
+      "datatype": "AVVideoCompositing?",
+      "desc": "The custom video compositor instance used, if any."
+    },
+    {
+      "name": "canPerformMultiplePassesOverSourceMediaData",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the export session can perform multiple passes over the source media to achieve better results."
+    },
+    {
+      "name": "directoryForTemporaryFiles",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "A directory that is suitable for containing temporary files generated during the export process."
+    },
+    {
+      "name": "presetName",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The name of the preset used to initialize the session."
+    },
+    {
+      "name": "allExportPresets",
+      "type": "class func",
+      "desc": "Returns all available export preset names.",
+      "params": [],
+      "returnType": "[String]"
+    },
+    {
+      "name": "exportPresets",
+      "type": "class func",
+      "desc": "Returns the identifiers compatible with a given asset.",
+      "params": [
+        {
+          "name": "compatibleWith",
+          "type": "AVAsset"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "cancelExport",
+      "type": "func",
+      "desc": "Cancels the execution of an export session.",
+      "params": []
+    },
+    {
+      "name": "error",
+      "type": "var",
+      "datatype": "Error?",
+      "desc": "Describes the error that occurred."
+    },
+    {
+      "name": "AVAssetExportSession.Status",
+      "type": "enum",
+      "desc": "A set of statuses used for relaying the state of an export session."
+    },
+    {
+      "name": "estimatedOutputFileLength",
+      "type": "var",
+      "datatype": "Int64",
+      "desc": "The estimated size, in bytes, of the exported file."
+    },
+    {
+      "name": "maxDuration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "Provides an estimate of the maximum duration of the exported media."
+    },
+    {
+      "name": "progress",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The progress of the export on a scale from 0 to 1."
+    },
+    {
+      "name": "status",
+      "type": "var",
+      "datatype": "AVAssetExportSession.Status",
+      "desc": "The status of the export session."
+    },
+    {
+      "name": "asset",
+      "type": "var",
+      "datatype": "AVAsset",
+      "desc": "The asset used to initialize the export session."
+    },
+    {
+      "name": "AVVideoTransferFunction_ITU_R_2100_HLG",
+      "type": "let",
+      "datatype": "String",
+      "desc": "The transfer function for the ITU_R BT.2100 color space."
+    }
+  ]
+}

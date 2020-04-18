@@ -1,0 +1,1620 @@
+[
+  {
+    "title": "AccessDetail",
+    "attrs": {
+      "EntityPath": {
+        "desc": "The path of the Organizations entity (root, organizational unit, or account) from which an authenticated principal last attempted to access the service. AWS does not report unauthenticated requests.",
+        "type": "String",
+        "required": "no"
+      },
+      "LastAuthenticatedTime": {
+        "desc": "The date and time, in ISO 8601 date-time format, when an authenticated principal most recently attempted to access the service. AWS does not report unauthenticated requests.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Region": {
+        "desc": "The Region where the last service access attempt occurred.",
+        "type": "String",
+        "required": "no"
+      },
+      "ServiceName": {
+        "desc": "The name of the service in which access was attempted.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServiceNamespace": {
+        "desc": "The namespace of the service in which access was attempted.",
+        "type": "String",
+        "required": "yes"
+      },
+      "TotalAuthenticatedEntities": {
+        "desc": "The number of accounts with authenticated principals (root users, IAM users, and IAM roles) that attempted to access the service in the reporting period.",
+        "type": "Integer",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "AccessKey",
+    "attrs": {
+      "AccessKeyId": {
+        "desc": "The ID for this access key.",
+        "type": "String",
+        "required": "yes"
+      },
+      "CreateDate": {
+        "desc": "The date when the access key was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "SecretAccessKey": {
+        "desc": "The secret key used to sign requests.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Status": {
+        "desc": "The status of the access key. Active means that the key is valid for API calls, while Inactive means it is not.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UserName": {
+        "desc": "The name of the IAM user that the access key is associated with.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      }
+    }
+  },
+  {
+    "title": "AccessKeyLastUsed",
+    "attrs": {
+      "LastUsedDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the access key was most recently used. This field is null in the following situations:",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "Region": {
+        "desc": "The AWS Region where this access key was most recently used. The value for this field is \"N/A\" in the following situations:",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServiceName": {
+        "desc": "The name of the AWS service with which this access key was most recently used. The value of this field is \"N/A\" in the following situations:",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "AccessKeyMetadata",
+    "attrs": {
+      "AccessKeyId": {
+        "desc": "The ID for this access key.",
+        "type": "String",
+        "required": "no"
+      },
+      "CreateDate": {
+        "desc": "The date when the access key was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Status": {
+        "desc": "The status of the access key. Active means that the key is valid for API calls; Inactive means it is not.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UserName": {
+        "desc": "The name of the IAM user that the key is associated with.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      }
+    }
+  },
+  {
+    "title": "AttachedPermissionsBoundary",
+    "attrs": {
+      "PermissionsBoundaryArn": {
+        "desc": "The ARN of the policy used to set the permissions boundary for the user or role.",
+        "type": "String",
+        "required": "no"
+      },
+      "PermissionsBoundaryType": {
+        "desc": "The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of Policy.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "permissionsboundarypolicy"
+        ]
+      }
+    }
+  },
+  {
+    "title": "AttachedPolicy",
+    "attrs": {
+      "PolicyArn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "no"
+      },
+      "PolicyName": {
+        "desc": "The friendly name of the attached policy.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "ContextEntry",
+    "attrs": {
+      "ContextKeyName": {
+        "desc": "The full name of a condition context key, including the service prefix. For example, aws:SourceIp or s3:VersionId.",
+        "type": "String",
+        "required": "no"
+      },
+      "ContextKeyType": {
+        "desc": "The data type of the value (or values) specified in the ContextKeyValues parameter.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "string",
+          "stringlist",
+          "numeric",
+          "numericlist",
+          "boolean",
+          "booleanlist",
+          "ip",
+          "iplist"
+        ]
+      },
+      "ContextKeyValues.member.N": {
+        "desc": "The value (or values, if the condition context key supports multiple values) to provide to the simulation when the key is referenced by a Condition element in an input policy.",
+        "type": "Array of strings",
+        "required": "no",
+        "values": [
+          "string",
+          "stringlist",
+          "numeric",
+          "numericlist",
+          "boolean",
+          "booleanlist",
+          "ip",
+          "iplist"
+        ]
+      }
+    }
+  },
+  {
+    "title": "DeletionTaskFailureReasonType",
+    "attrs": {
+      "Reason": {
+        "desc": "A short description of the reason that the service-linked role deletion failed.",
+        "type": "String",
+        "required": "no"
+      },
+      "RoleUsageList.member.N": {
+        "desc": "A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.",
+        "type": "Array of RoleUsageType objects",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "EntityDetails",
+    "attrs": {
+      "EntityInfo": {
+        "desc": "The EntityInfo object that contains details about the entity (user or role).",
+        "type": "EntityInfo object",
+        "required": "yes"
+      },
+      "LastAuthenticated": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests.",
+        "type": "Timestamp",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "EntityInfo",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Id": {
+        "desc": "The identifier of the entity (user or role).",
+        "type": "String",
+        "required": "yes"
+      },
+      "Name": {
+        "desc": "The name of the entity (user or role).",
+        "type": "String",
+        "required": "yes"
+      },
+      "Path": {
+        "desc": "The path to the entity (user or role). For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "Type": {
+        "desc": "The type of entity (user or role).",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "user",
+          "role",
+          "group"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ErrorDetails",
+    "attrs": {
+      "Code": {
+        "desc": "The error code associated with the operation failure.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Message": {
+        "desc": "Detailed information about the reason that the operation failed.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "EvaluationResult",
+    "attrs": {
+      "EvalActionName": {
+        "desc": "The name of the API operation tested on the indicated resource.",
+        "type": "String",
+        "required": "yes"
+      },
+      "EvalDecision": {
+        "desc": "The result of the simulation.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "EvalDecisionDetails.entry.N.value (value)": {
+        "desc": "Additional details about the results of the cross-account evaluation decision. This parameter is populated for only cross-account simulations. It contains a brief summary of how each policy type contributes to the final evaluation decision.",
+        "type": "String to string map",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "EvalResourceName": {
+        "desc": "The ARN of the resource that the indicated API operation was tested on.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "MatchedStatements.member.N": {
+        "desc": "A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.",
+        "type": "Array of Statement objects",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "MissingContextValues.member.N": {
+        "desc": "A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when the resource in a simulation is \"*\", either explicitly, or when the ResourceArns parameter blank. If you include a list of resources, then any missing context values are instead included under the ResourceSpecificResults section. To discover the context keys used by a set of policies, you can call GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy.",
+        "type": "Array of strings",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "OrganizationsDecisionDetail": {
+        "desc": "A structure that details how Organizations and its service control policies affect the results of the simulation. Only applies if the simulated user's account is part of an organization.",
+        "type": "OrganizationsDecisionDetail object",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "PermissionsBoundaryDecisionDetail": {
+        "desc": "Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.",
+        "type": "PermissionsBoundaryDecisionDetail object",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "ResourceSpecificResults.member.N": {
+        "desc": "The individual results of the simulation of the API operation specified in EvalActionName on each resource.",
+        "type": "Array of ResourceSpecificResult objects",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Group",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN) specifying the group. For more information about ARNs and how to use them in policies, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the group was created.",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "GroupId": {
+        "desc": "The stable and unique string identifying the group. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "GroupName": {
+        "desc": "The friendly name that identifies the group.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Path": {
+        "desc": "The path to the group. For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "GroupDetail",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "no"
+      },
+      "AttachedManagedPolicies.member.N": {
+        "desc": "A list of the managed policies attached to the group.",
+        "type": "Array of AttachedPolicy objects",
+        "required": "no"
+      },
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the group was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "GroupId": {
+        "desc": "The stable and unique string identifying the group. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "GroupName": {
+        "desc": "The friendly name that identifies the group.",
+        "type": "String",
+        "required": "no"
+      },
+      "GroupPolicyList.member.N": {
+        "desc": "A list of the inline policies embedded in the group.",
+        "type": "Array of PolicyDetail objects",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The path to the group. For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "InstanceProfile",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "CreateDate": {
+        "desc": "The date when the instance profile was created.",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "InstanceProfileId": {
+        "desc": "The stable and unique string identifying the instance profile. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "InstanceProfileName": {
+        "desc": "The name identifying the instance profile.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Path": {
+        "desc": "The path to the instance profile. For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Roles.member.N": {
+        "desc": "The role associated with the instance profile.",
+        "type": "Array of Role objects",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "ListPoliciesGrantingServiceAccessEntry",
+    "attrs": {
+      "Policies.member.N": {
+        "desc": "The PoliciesGrantingServiceAccess object that contains details about the policy.",
+        "type": "Array of PolicyGrantingServiceAccess objects",
+        "required": "no"
+      },
+      "ServiceNamespace": {
+        "desc": "The namespace of the service that was accessed.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "LoginProfile",
+    "attrs": {
+      "CreateDate": {
+        "desc": "The date when the password for the user was created.",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "PasswordResetRequired": {
+        "desc": "Specifies whether the user is required to set a new password on next sign-in.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "UserName": {
+        "desc": "The name of the user, which can be used for signing in to the AWS Management Console.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "ManagedPolicyDetail",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "no"
+      },
+      "AttachmentCount": {
+        "desc": "The number of principal entities (users, groups, and roles) that the policy is attached to.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the policy was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "DefaultVersionId": {
+        "desc": "The identifier for the version of the policy that is set as the default (operative) version.",
+        "type": "String",
+        "required": "no"
+      },
+      "Description": {
+        "desc": "A friendly description of the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "IsAttachable": {
+        "desc": "Specifies whether the policy can be attached to an IAM user, group, or role.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The path to the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "PermissionsBoundaryUsageCount": {
+        "desc": "The number of entities (users and roles) for which the policy is used as the permissions boundary.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "PolicyId": {
+        "desc": "The stable and unique string identifying the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "PolicyName": {
+        "desc": "The friendly name (not ARN) identifying the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "PolicyVersionList.member.N": {
+        "desc": "A list containing information about the versions of the policy.",
+        "type": "Array of PolicyVersion objects",
+        "required": "no"
+      },
+      "UpdateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the policy was last updated.",
+        "type": "Timestamp",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "MFADevice",
+    "attrs": {
+      "EnableDate": {
+        "desc": "The date when the MFA device was enabled for the user.",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "SerialNumber": {
+        "desc": "The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN.",
+        "type": "String",
+        "required": "yes"
+      },
+      "UserName": {
+        "desc": "The user with whom the MFA device is associated.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "OpenIDConnectProviderListEntry",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "OrganizationsDecisionDetail",
+    "attrs": {
+      "AllowedByOrganizations": {
+        "desc": "Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.",
+        "type": "Boolean",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "PasswordPolicy",
+    "attrs": {
+      "AllowUsersToChangePassword": {
+        "desc": "Specifies whether IAM users are allowed to change their own password.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "ExpirePasswords": {
+        "desc": "Indicates whether passwords in the account expire. Returns true if MaxPasswordAge contains a value greater than 0. Returns false if MaxPasswordAge is 0 or not present.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "HardExpiry": {
+        "desc": "Specifies whether IAM users are prevented from setting a new password after their password has expired.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "MaxPasswordAge": {
+        "desc": "The number of days that an IAM user password is valid.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "MinimumPasswordLength": {
+        "desc": "Minimum length to require for IAM user passwords.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "PasswordReusePrevention": {
+        "desc": "Specifies the number of previous passwords that IAM users are prevented from reusing.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "RequireLowercaseCharacters": {
+        "desc": "Specifies whether to require lowercase characters for IAM user passwords.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "RequireNumbers": {
+        "desc": "Specifies whether to require numbers for IAM user passwords.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "RequireSymbols": {
+        "desc": "Specifies whether to require symbols for IAM user passwords.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "RequireUppercaseCharacters": {
+        "desc": "Specifies whether to require uppercase characters for IAM user passwords.",
+        "type": "Boolean",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "PermissionsBoundaryDecisionDetail",
+    "attrs": {
+      "AllowedByPermissionsBoundary": {
+        "desc": "Specifies whether an action is allowed by a permissions boundary that is applied to an IAM entity (user or role). A value of true means that the permissions boundary does not deny the action. This means that the policy includes an Allow statement that matches the request. In this case, if an identity-based policy also allows the action, the request is allowed. A value of false means that either the requested action is not allowed (implicitly denied) or that the action is explicitly denied by the permissions boundary. In both of these cases, the action is not allowed, regardless of the identity-based policy.",
+        "type": "Boolean",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "Policy",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "no"
+      },
+      "AttachmentCount": {
+        "desc": "The number of entities (users, groups, and roles) that the policy is attached to.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the policy was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "DefaultVersionId": {
+        "desc": "The identifier for the version of the policy that is set as the default version.",
+        "type": "String",
+        "required": "no"
+      },
+      "Description": {
+        "desc": "A friendly description of the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "IsAttachable": {
+        "desc": "Specifies whether the policy can be attached to an IAM user, group, or role.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The path to the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "PermissionsBoundaryUsageCount": {
+        "desc": "The number of entities (users and roles) for which the policy is used to set the permissions boundary.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "PolicyId": {
+        "desc": "The stable and unique string identifying the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "PolicyName": {
+        "desc": "The friendly name (not ARN) identifying the policy.",
+        "type": "String",
+        "required": "no"
+      },
+      "UpdateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the policy was last updated.",
+        "type": "Timestamp",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "PolicyDetail",
+    "attrs": {
+      "PolicyDocument": {
+        "desc": "The policy document.",
+        "type": "String",
+        "required": "no"
+      },
+      "PolicyName": {
+        "desc": "The name of the policy.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "PolicyGrantingServiceAccess",
+    "attrs": {
+      "EntityName": {
+        "desc": "The name of the entity (user or role) to which the inline policy is attached.",
+        "type": "String",
+        "required": "no"
+      },
+      "EntityType": {
+        "desc": "The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "user",
+          "role",
+          "group"
+        ]
+      },
+      "PolicyArn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "user",
+          "role",
+          "group"
+        ]
+      },
+      "PolicyName": {
+        "desc": "The policy name.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "user",
+          "role",
+          "group"
+        ]
+      },
+      "PolicyType": {
+        "desc": "The policy type. For more information about these policy types, see Managed Policies and Inline Policies in the IAM User Guide.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "inline",
+          "managed"
+        ]
+      }
+    }
+  },
+  {
+    "title": "PolicyGroup",
+    "attrs": {
+      "GroupId": {
+        "desc": "The stable and unique string identifying the group. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "GroupName": {
+        "desc": "The name (friendly name, not ARN) identifying the group.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "PolicyRole",
+    "attrs": {
+      "RoleId": {
+        "desc": "The stable and unique string identifying the role. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "RoleName": {
+        "desc": "The name (friendly name, not ARN) identifying the role.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "PolicyUser",
+    "attrs": {
+      "UserId": {
+        "desc": "The stable and unique string identifying the user. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "UserName": {
+        "desc": "The name (friendly name, not ARN) identifying the user.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "PolicyVersion",
+    "attrs": {
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the policy version was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Document": {
+        "desc": "The policy document.",
+        "type": "String",
+        "required": "no"
+      },
+      "IsDefaultVersion": {
+        "desc": "Specifies whether the policy version is set as the policy's default version.",
+        "type": "Boolean",
+        "required": "no"
+      },
+      "VersionId": {
+        "desc": "The identifier for the policy version.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "Position",
+    "attrs": {
+      "Column": {
+        "desc": "The column in the line containing the specified position in the document.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "Line": {
+        "desc": "The line containing the specified position in the document.",
+        "type": "Integer",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "ResourceSpecificResult",
+    "attrs": {
+      "EvalDecisionDetails.entry.N.value (value)": {
+        "desc": "Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.",
+        "type": "String to string map",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "EvalResourceDecision": {
+        "desc": "The result of the simulation of the simulated API operation on the resource specified in EvalResourceName.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "EvalResourceName": {
+        "desc": "The name of the simulated resource, in Amazon Resource Name (ARN) format.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "MatchedStatements.member.N": {
+        "desc": "A list of the statements in the input policies that determine the result for this part of the simulation. Remember that even if multiple statements allow the operation on the resource, if any statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.",
+        "type": "Array of Statement objects",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "MissingContextValues.member.N": {
+        "desc": "A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the ResourceArns parameter instead of \"*\". If you do not specify individual resources, by setting ResourceArns to \"*\" or by not including the ResourceArns parameter, then any missing context values are instead included under the EvaluationResults section. To discover the context keys used by a set of policies, you can call GetContextKeysForCustomPolicy or GetContextKeysForPrincipalPolicy.",
+        "type": "Array of strings",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      },
+      "PermissionsBoundaryDecisionDetail": {
+        "desc": "Contains information about the effect that a permissions boundary has on a policy simulation when that boundary is applied to an IAM entity.",
+        "type": "PermissionsBoundaryDecisionDetail object",
+        "required": "no",
+        "values": [
+          "allowed",
+          "explicitdeny",
+          "implicitdeny"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Role",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and how to use them in policies, see IAM Identifiers in the IAM User Guide guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "AssumeRolePolicyDocument": {
+        "desc": "The policy that grants an entity permission to assume the role.",
+        "type": "String",
+        "required": "no"
+      },
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the role was created.",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "Description": {
+        "desc": "A description of the role that you provide.",
+        "type": "String",
+        "required": "no"
+      },
+      "MaxSessionDuration": {
+        "desc": "The maximum session duration (in seconds) for the specified role. Anyone who uses the AWS CLI, or API to assume the role can specify the duration using the optional DurationSeconds API parameter or duration-seconds CLI parameter.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The path to the role. For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "PermissionsBoundary": {
+        "desc": "The ARN of the policy used to set the permissions boundary for the role.",
+        "type": "AttachedPermissionsBoundary object",
+        "required": "no"
+      },
+      "RoleId": {
+        "desc": "The stable and unique string identifying the role. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "RoleLastUsed": {
+        "desc": "Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see Regions Where Data Is Tracked in the IAM User Guide.",
+        "type": "RoleLastUsed object",
+        "required": "no"
+      },
+      "RoleName": {
+        "desc": "The friendly name that identifies the role.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Tags.member.N": {
+        "desc": "A list of tags that are attached to the specified role. For more information about tagging, see Tagging IAM Identities in the IAM User Guide.",
+        "type": "Array of Tag objects",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "RoleDetail",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "no"
+      },
+      "AssumeRolePolicyDocument": {
+        "desc": "The trust policy that grants permission to assume the role.",
+        "type": "String",
+        "required": "no"
+      },
+      "AttachedManagedPolicies.member.N": {
+        "desc": "A list of managed policies attached to the role. These policies are the role's access (permissions) policies.",
+        "type": "Array of AttachedPolicy objects",
+        "required": "no"
+      },
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the role was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "InstanceProfileList.member.N": {
+        "desc": "A list of instance profiles that contain this role.",
+        "type": "Array of InstanceProfile objects",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The path to the role. For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "PermissionsBoundary": {
+        "desc": "The ARN of the policy used to set the permissions boundary for the role.",
+        "type": "AttachedPermissionsBoundary object",
+        "required": "no"
+      },
+      "RoleId": {
+        "desc": "The stable and unique string identifying the role. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "RoleLastUsed": {
+        "desc": "Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see Regions Where Data Is Tracked in the IAM User Guide.",
+        "type": "RoleLastUsed object",
+        "required": "no"
+      },
+      "RoleName": {
+        "desc": "The friendly name that identifies the role.",
+        "type": "String",
+        "required": "no"
+      },
+      "RolePolicyList.member.N": {
+        "desc": "A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.",
+        "type": "Array of PolicyDetail objects",
+        "required": "no"
+      },
+      "Tags.member.N": {
+        "desc": "A list of tags that are attached to the specified role. For more information about tagging, see Tagging IAM Identities in the IAM User Guide.",
+        "type": "Array of Tag objects",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "RoleLastUsed",
+    "attrs": {
+      "LastUsedDate": {
+        "desc": "The date and time, in ISO 8601 date-time format that the role was last used.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Region": {
+        "desc": "The name of the AWS Region in which the role was last used.",
+        "type": "String",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "RoleUsageType",
+    "attrs": {
+      "Region": {
+        "desc": "The name of the Region where the service-linked role is being used.",
+        "type": "String",
+        "required": "no"
+      },
+      "Resources.member.N": {
+        "desc": "The name of the resource that is using the service-linked role.",
+        "type": "Array of strings",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "SAMLProviderListEntry",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN) of the SAML provider.",
+        "type": "String",
+        "required": "no"
+      },
+      "CreateDate": {
+        "desc": "The date and time when the SAML provider was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "ValidUntil": {
+        "desc": "The expiration date and time for the SAML provider.",
+        "type": "Timestamp",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "ServerCertificate",
+    "attrs": {
+      "CertificateBody": {
+        "desc": "The contents of the public key certificate.",
+        "type": "String",
+        "required": "yes"
+      },
+      "CertificateChain": {
+        "desc": "The contents of the public key certificate chain.",
+        "type": "String",
+        "required": "no"
+      },
+      "ServerCertificateMetadata": {
+        "desc": "The meta information of the server certificate, such as its name, path, ID, and ARN.",
+        "type": "ServerCertificateMetadata object",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "ServerCertificateMetadata",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN) specifying the server certificate. For more information about ARNs and how to use them in policies, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Expiration": {
+        "desc": "The date on which the certificate is set to expire.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The path to the server certificate. For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServerCertificateId": {
+        "desc": "The stable and unique string identifying the server certificate. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServerCertificateName": {
+        "desc": "The name that identifies the server certificate.",
+        "type": "String",
+        "required": "yes"
+      },
+      "UploadDate": {
+        "desc": "The date when the server certificate was uploaded.",
+        "type": "Timestamp",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "ServiceLastAccessed",
+    "attrs": {
+      "LastAuthenticated": {
+        "desc": "The date and time, in ISO 8601 date-time format, when an authenticated entity most recently attempted to access the service. AWS does not report unauthenticated requests.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "LastAuthenticatedEntity": {
+        "desc": "The ARN of the authenticated entity (user or role) that last attempted to access the service. AWS does not report unauthenticated requests.",
+        "type": "String",
+        "required": "no"
+      },
+      "ServiceName": {
+        "desc": "The name of the service in which access was attempted.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServiceNamespace": {
+        "desc": "The namespace of the service in which access was attempted.",
+        "type": "String",
+        "required": "yes"
+      },
+      "TotalAuthenticatedEntities": {
+        "desc": "The total number of authenticated principals (root user, IAM users, or IAM roles) that have attempted to access the service.",
+        "type": "Integer",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "ServiceSpecificCredential",
+    "attrs": {
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the service-specific credential were created.",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "ServiceName": {
+        "desc": "The name of the service associated with the service-specific credential.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServicePassword": {
+        "desc": "The generated password for the service-specific credential.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServiceSpecificCredentialId": {
+        "desc": "The unique identifier for the service-specific credential.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServiceUserName": {
+        "desc": "The generated user name for the service-specific credential. This value is generated by combining the IAM user's name combined with the ID number of the AWS account, as in jane-at-123456789012, for example. This value cannot be configured by the user.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Status": {
+        "desc": "The status of the service-specific credential. Active means that the key is valid for API calls, while Inactive means it is not.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UserName": {
+        "desc": "The name of the IAM user associated with the service-specific credential.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      }
+    }
+  },
+  {
+    "title": "ServiceSpecificCredentialMetadata",
+    "attrs": {
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the service-specific credential were created.",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "ServiceName": {
+        "desc": "The name of the service associated with the service-specific credential.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServiceSpecificCredentialId": {
+        "desc": "The unique identifier for the service-specific credential.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ServiceUserName": {
+        "desc": "The generated user name for the service-specific credential.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Status": {
+        "desc": "The status of the service-specific credential. Active means that the key is valid for API calls, while Inactive means it is not.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UserName": {
+        "desc": "The name of the IAM user associated with the service-specific credential.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      }
+    }
+  },
+  {
+    "title": "SigningCertificate",
+    "attrs": {
+      "CertificateBody": {
+        "desc": "The contents of the signing certificate.",
+        "type": "String",
+        "required": "yes"
+      },
+      "CertificateId": {
+        "desc": "The ID for the signing certificate.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Status": {
+        "desc": "The status of the signing certificate. Active means that the key is valid for API calls, while Inactive means it is not.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UploadDate": {
+        "desc": "The date when the signing certificate was uploaded.",
+        "type": "Timestamp",
+        "required": "no",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UserName": {
+        "desc": "The name of the user the signing certificate is associated with.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      }
+    }
+  },
+  {
+    "title": "SSHPublicKey",
+    "attrs": {
+      "Fingerprint": {
+        "desc": "The MD5 message digest of the SSH public key.",
+        "type": "String",
+        "required": "yes"
+      },
+      "SSHPublicKeyBody": {
+        "desc": "The SSH public key.",
+        "type": "String",
+        "required": "yes"
+      },
+      "SSHPublicKeyId": {
+        "desc": "The unique identifier for the SSH public key.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Status": {
+        "desc": "The status of the SSH public key. Active means that the key can be used for authentication with an AWS CodeCommit repository. Inactive means that the key cannot be used.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UploadDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the SSH public key was uploaded.",
+        "type": "Timestamp",
+        "required": "no",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UserName": {
+        "desc": "The name of the IAM user associated with the SSH public key.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      }
+    }
+  },
+  {
+    "title": "SSHPublicKeyMetadata",
+    "attrs": {
+      "SSHPublicKeyId": {
+        "desc": "The unique identifier for the SSH public key.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Status": {
+        "desc": "The status of the SSH public key. Active means that the key can be used for authentication with an AWS CodeCommit repository. Inactive means that the key cannot be used.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UploadDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the SSH public key was uploaded.",
+        "type": "Timestamp",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      },
+      "UserName": {
+        "desc": "The name of the IAM user associated with the SSH public key.",
+        "type": "String",
+        "required": "yes",
+        "values": [
+          "active",
+          "inactive"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Statement",
+    "attrs": {
+      "EndPosition": {
+        "desc": "The row and column of the end of a Statement in an IAM policy.",
+        "type": "Position object",
+        "required": "no"
+      },
+      "SourcePolicyId": {
+        "desc": "The identifier of the policy that was provided as an input.",
+        "type": "String",
+        "required": "no"
+      },
+      "SourcePolicyType": {
+        "desc": "The type of the policy.",
+        "type": "String",
+        "required": "no",
+        "values": [
+          "user",
+          "group",
+          "role",
+          "aws-managed",
+          "user-managed",
+          "resource",
+          "none"
+        ]
+      },
+      "StartPosition": {
+        "desc": "The row and column of the beginning of the Statement in an IAM policy.",
+        "type": "Position object",
+        "required": "no",
+        "values": [
+          "user",
+          "group",
+          "role",
+          "aws-managed",
+          "user-managed",
+          "resource",
+          "none"
+        ]
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "desc": "The key name that can be used to look up or retrieve the associated value. For example, Department or Cost Center are common choices.",
+        "type": "String",
+        "required": "yes"
+      },
+      "Value": {
+        "desc": "The value associated with this tag. For example, tags with a key name of Department could have values such as Human Resources, Accounting, and Support. Tags with a key name of Cost Center might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "User",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the user was created.",
+        "type": "Timestamp",
+        "required": "yes"
+      },
+      "PasswordLastUsed": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the user's password was last used to sign in to an AWS website. For a list of AWS websites that capture a user's last sign-in time, see the Credential Reports topic in the IAM User Guide. If a password is used more than once in a five-minute span, only the first use is returned in this field. If the field is null (no value), then it indicates that they never signed in with a password. This can be because:",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The path to the user. For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "PermissionsBoundary": {
+        "desc": "The ARN of the policy used to set the permissions boundary for the user.",
+        "type": "AttachedPermissionsBoundary object",
+        "required": "no"
+      },
+      "Tags.member.N": {
+        "desc": "A list of tags that are associated with the specified user. For more information about tagging, see Tagging IAM Identities in the IAM User Guide.",
+        "type": "Array of Tag objects",
+        "required": "no"
+      },
+      "UserId": {
+        "desc": "The stable and unique string identifying the user. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "yes"
+      },
+      "UserName": {
+        "desc": "The friendly name identifying the user.",
+        "type": "String",
+        "required": "yes"
+      }
+    }
+  },
+  {
+    "title": "UserDetail",
+    "attrs": {
+      "Arn": {
+        "desc": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources.",
+        "type": "String",
+        "required": "no"
+      },
+      "AttachedManagedPolicies.member.N": {
+        "desc": "A list of the managed policies attached to the user.",
+        "type": "Array of AttachedPolicy objects",
+        "required": "no"
+      },
+      "CreateDate": {
+        "desc": "The date and time, in ISO 8601 date-time format, when the user was created.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "GroupList.member.N": {
+        "desc": "A list of IAM groups that the user is in.",
+        "type": "Array of strings",
+        "required": "no"
+      },
+      "Path": {
+        "desc": "The path to the user. For more information about paths, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "PermissionsBoundary": {
+        "desc": "The ARN of the policy used to set the permissions boundary for the user.",
+        "type": "AttachedPermissionsBoundary object",
+        "required": "no"
+      },
+      "Tags.member.N": {
+        "desc": "A list of tags that are associated with the specified user. For more information about tagging, see Tagging IAM Identities in the IAM User Guide.",
+        "type": "Array of Tag objects",
+        "required": "no"
+      },
+      "UserId": {
+        "desc": "The stable and unique string identifying the user. For more information about IDs, see IAM Identifiers in the IAM User Guide.",
+        "type": "String",
+        "required": "no"
+      },
+      "UserName": {
+        "desc": "The friendly name identifying the user.",
+        "type": "String",
+        "required": "no"
+      },
+      "UserPolicyList.member.N": {
+        "desc": "A list of the inline policies embedded in the user.",
+        "type": "Array of PolicyDetail objects",
+        "required": "no"
+      }
+    }
+  },
+  {
+    "title": "VirtualMFADevice",
+    "attrs": {
+      "Base32StringSeed": {
+        "desc": "The base32 seed defined as specified in RFC3548. The Base32StringSeed is base64-encoded.",
+        "type": "Base64-encoded binary data object",
+        "required": "no"
+      },
+      "EnableDate": {
+        "desc": "The date and time on which the virtual MFA device was enabled.",
+        "type": "Timestamp",
+        "required": "no"
+      },
+      "QRCodePNG": {
+        "desc": "A QR code PNG image that encodes otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String where $virtualMFADeviceName is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format. The Base32String value is base64-encoded.",
+        "type": "Base64-encoded binary data object",
+        "required": "no"
+      },
+      "SerialNumber": {
+        "desc": "The serial number associated with VirtualMFADevice.",
+        "type": "String",
+        "required": "yes"
+      },
+      "User": {
+        "desc": "The IAM user associated with this virtual MFA device.",
+        "type": "User object",
+        "required": "no"
+      }
+    }
+  }
+]

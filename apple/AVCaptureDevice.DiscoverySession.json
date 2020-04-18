@@ -1,0 +1,91 @@
+{
+  "type": "Class",
+  "name": "AVCaptureDevice.DiscoverySession",
+  "desc": "A query for finding and monitoring available capture devices.",
+  "items": [
+    {
+      "name": "devices",
+      "type": "var",
+      "datatype": "[AVCaptureDevice]",
+      "desc": "An array of currently available devices matching the session’s criteria."
+    },
+    {
+      "name": "supportedMultiCamDeviceSets",
+      "type": "var",
+      "datatype": "[Set<AVCaptureDevice>]",
+      "desc": "An array of sets of capture devices that you can use simultaneously in a multi-camera session."
+    },
+    {
+      "name": "default",
+      "type": "class func",
+      "desc": "Returns the default device used to capture data of a given media type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVMediaType"
+        }
+      ],
+      "returnType": "AVCaptureDevice?"
+    },
+    {
+      "name": "default",
+      "type": "class func",
+      "desc": "Returns the default device for the specified device type, media type, and position.",
+      "params": [
+        {
+          "type": "AVCaptureDevice.DeviceType"
+        },
+        {
+          "name": "for",
+          "type": "AVMediaType?"
+        },
+        {
+          "name": "position",
+          "type": "AVCaptureDevice.Position"
+        }
+      ],
+      "returnType": "AVCaptureDevice?"
+    },
+    {
+      "name": "AVCaptureDevice.Position",
+      "type": "enum",
+      "desc": "Constants to specify the position of a capture device."
+    },
+    {
+      "name": "ct AVCaptureDevice.DeviceType",
+      "type": "enum",
+      "desc": "Values identifying the capture device’s type."
+    },
+    {
+      "name": "AVCaptureDeviceWasConnected",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when a new device becomes available."
+    },
+    {
+      "name": "AVCaptureDeviceWasDisconnected",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when an existing device becomes unavailable."
+    },
+    {
+      "name": "devices",
+      "type": "class func",
+      "desc": "Returns an array of the available capture devices on the system.",
+      "params": [],
+      "returnType": "[AVCaptureDevice]"
+    },
+    {
+      "name": "devices",
+      "type": "class func",
+      "desc": "Returns an array of the devices able to capture data of a given media type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVMediaType"
+        }
+      ],
+      "returnType": "[AVCaptureDevice]"
+    }
+  ]
+}

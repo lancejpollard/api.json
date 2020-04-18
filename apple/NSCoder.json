@@ -1,0 +1,1268 @@
+{
+  "type": "Class",
+  "name": "NSCoder",
+  "desc": "An abstract class that serves as the basis for objects that enable archiving and distribution of other objects.",
+  "items": [
+    {
+      "name": "allowsKeyedCoding",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver supports keyed coding of objects."
+    },
+    {
+      "name": "containsValue",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether an encoded value is available for a string.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "decodingFailurePolicy",
+      "type": "var",
+      "datatype": "NSCoder.DecodingFailurePolicy",
+      "desc": "The action the coder should take when decoding fails."
+    },
+    {
+      "name": "NSCoder.DecodingFailurePolicy",
+      "type": "enum",
+      "desc": "Policies describing the action the coder should take when encountering decode failures."
+    },
+    {
+      "name": "encodeArray",
+      "type": "func",
+      "desc": "Encodes an array of the given Objective-C type, provided the number of items and a pointer.",
+      "params": [
+        {
+          "name": "ofObjCType",
+          "type": "UnsafePointer<Int8>"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        },
+        {
+          "name": "at",
+          "type": "UnsafeRawPointer"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a Boolean value and associates it with the string key.",
+      "params": [
+        {
+          "type": "Bool"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encodeBycopyObject",
+      "type": "func",
+      "desc": "An encoding method for subclasses to override such that it creates a copy, rather than a proxy, when decoded.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "encodeByrefObject",
+      "type": "func",
+      "desc": "An encoding method for subclasses to override such that it creates a proxy, rather than a copy, when decoded.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "encodeBytes",
+      "type": "func",
+      "desc": "Encodes a buffer of data of an unspecified type.",
+      "params": [
+        {
+          "type": "UnsafeRawPointer?"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "encodeBytes",
+      "type": "func",
+      "desc": "Encodes a buffer of data, given its length and a pointer, and associates it with a string key.",
+      "params": [
+        {
+          "type": "UnsafePointer<UInt8>?"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encodeConditionalObject",
+      "type": "func",
+      "desc": "An encoding method for subclasses to override to conditionally encode an object, preserving common references to it.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "encodeConditionalObject",
+      "type": "func",
+      "desc": "An encoding method for subclasses to override to conditionally encode an object, preserving common references to it, only if it has been unconditionally encoded.",
+      "params": [
+        {
+          "type": "Any?"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given data object.",
+      "params": [
+        {
+          "type": "Data"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a double-precision floating point value and associates it with the string key.",
+      "params": [
+        {
+          "type": "Double"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a floating point value and associates it with the string key.",
+      "params": [
+        {
+          "type": "Float"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encodeCInt",
+      "type": "func",
+      "desc": "Encodes a C integer value and associates it with the string key.",
+      "params": [
+        {
+          "type": "Int32"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes an integer value and associates it with the string key.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a 32-bit integer value and associates it with the string key.",
+      "params": [
+        {
+          "type": "Int32"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a 64-bit integer value and associates it with the string key.",
+      "params": [
+        {
+          "type": "Int64"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes an object.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes an object and associates it with the string key.",
+      "params": [
+        {
+          "type": "Any?"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a point.",
+      "params": [
+        {
+          "type": "NSPoint"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a point and associates it with the string key.",
+      "params": [
+        {
+          "type": "NSPoint"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encodePropertyList",
+      "type": "func",
+      "desc": "Encodes a property list.",
+      "params": [
+        {
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a rectangle structure.",
+      "params": [
+        {
+          "type": "NSRect"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a rectangle structure and associates it with the string key.",
+      "params": [
+        {
+          "type": "NSRect"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encodeRootObject",
+      "type": "func",
+      "desc": "An encoding method for subclasses to override to encode an interconnected group of objects, starting with the provided root object.",
+      "params": [
+        {
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a size structure.",
+      "params": [
+        {
+          "type": "NSSize"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a size structure and associates it with the given string key.",
+      "params": [
+        {
+          "type": "NSSize"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encodeValue",
+      "type": "func",
+      "desc": "Encodes a value of the given type at the given address.",
+      "params": [
+        {
+          "name": "ofObjCType",
+          "type": "UnsafePointer<Int8>"
+        },
+        {
+          "name": "at",
+          "type": "UnsafeRawPointer"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes an affine transform and associates it with the specified key in the receiver’s archive.",
+      "params": [
+        {
+          "type": "CGAffineTransform"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a point and associates it with the specified key in the receiver’s archive.",
+      "params": [
+        {
+          "type": "CGPoint"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a rectangle and associates it with the specified key in the receiver’s archive.",
+      "params": [
+        {
+          "type": "CGRect"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes size information and associates it with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "type": "CGSize"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes vector data and associates it with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "type": "CGVector"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes directional edge inset data and associates it with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "type": "NSDirectionalEdgeInsets"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes edge inset data and associates it with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "type": "UIEdgeInsets"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes offset data and associates it with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "type": "UIOffset"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given Core Media time structure and associates it with a specified key.",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given Core Media time range structure and associates it with a specified key.",
+      "params": [
+        {
+          "type": "CMTimeRange"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given Core Media time mapping structure and associates it with a specified key.",
+      "params": [
+        {
+          "type": "CMTimeMapping"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "requiresSecureCoding",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the archiver requires all archived classes to resist object substitution attacks."
+    },
+    {
+      "name": "allowedClasses",
+      "type": "var",
+      "datatype": "Set<AnyHashable>?",
+      "desc": "The set of coded classes allowed for secure coding."
+    },
+    {
+      "name": "decodeObject<DecodedObjectType>",
+      "type": "func",
+      "desc": "Decode an object as an expected type, failing if the archived type doesn’t match.",
+      "params": [
+        {
+          "name": "of",
+          "type": "DecodedObjectType.Type"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "DecodedObjectType?"
+    },
+    {
+      "name": "decodeObject",
+      "type": "func",
+      "desc": "Decode an object as one of several expected types, failing if the archived type doesn’t match any of the types.",
+      "params": [
+        {
+          "name": "of",
+          "type": "[AnyClass]?"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "decodeTopLevelObject",
+      "type": "func",
+      "desc": "Decodes a previously-encoded object.",
+      "params": [],
+      "returnType": "Any?"
+    },
+    {
+      "name": "decodeTopLevelObject",
+      "type": "func",
+      "desc": "Decodes the previously-encoded object associated by a key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "decodeTopLevelObject<DecodedObjectType>",
+      "type": "func",
+      "desc": "Decode an object as one of several expected types, failing if the archived type does not match.",
+      "params": [
+        {
+          "name": "of",
+          "type": "DecodedObjectType.Type"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "DecodedObjectType?"
+    },
+    {
+      "name": "decodeTopLevelObject",
+      "type": "func",
+      "desc": "Decode an object as one of several expected types, failing if the archived type does not match.",
+      "params": [
+        {
+          "name": "of",
+          "type": "[AnyClass]?"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "decodeArray",
+      "type": "func",
+      "desc": "Decodes an array of count items, whose Objective-C type is given by itemType.",
+      "params": [
+        {
+          "name": "ofObjCType",
+          "type": "UnsafePointer<Int8>"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        },
+        {
+          "name": "at",
+          "type": "UnsafeMutableRawPointer"
+        }
+      ]
+    },
+    {
+      "name": "decodeBool",
+      "type": "func",
+      "desc": "Decodes and returns a boolean value that was previously encoded with encode(_:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "decodeBytes",
+      "type": "func",
+      "desc": "Decodes a buffer of data that was previously encoded with encodeBytes(_:length:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        },
+        {
+          "name": "returnedLength",
+          "type": "UnsafeMutablePointer<Int>?"
+        }
+      ],
+      "returnType": "UnsafePointer<UInt8>?"
+    },
+    {
+      "name": "decodeBytes",
+      "type": "func",
+      "desc": "Decodes a buffer of data whose types are unspecified.",
+      "params": [
+        {
+          "name": "withReturnedLength",
+          "type": "UnsafeMutablePointer<Int>"
+        }
+      ],
+      "returnType": "UnsafeMutableRawPointer?"
+    },
+    {
+      "name": "decodeData",
+      "type": "func",
+      "desc": "Decodes and returns an NSData object that was previously encoded with encode(_:). Subclasses must override this method.",
+      "params": [],
+      "returnType": "Data?"
+    },
+    {
+      "name": "decodeDouble",
+      "type": "func",
+      "desc": "Decodes and returns a double value that was previously encoded with either encode(_:forKey:) or encode(_:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Double"
+    },
+    {
+      "name": "decodeFloat",
+      "type": "func",
+      "desc": "Decodes and returns a float value that was previously encoded with encode(_:forKey:) or encode(_:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Float"
+    },
+    {
+      "name": "decodeCInt",
+      "type": "func",
+      "desc": "Decodes and returns an int value that was previously encoded with encodeCInt(_:forKey:), encode(_:forKey:), encode(_:forKey:), or encode(_:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Int32"
+    },
+    {
+      "name": "decodeInteger",
+      "type": "func",
+      "desc": "Decodes and returns an NSInteger value that was previously encoded with encodeCInt(_:forKey:), encode(_:forKey:), encode(_:forKey:), or encode(_:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "decodeInt32",
+      "type": "func",
+      "desc": "Decodes and returns a 32-bit integer value that was previously encoded with encodeCInt(_:forKey:), encode(_:forKey:), encode(_:forKey:), or encode(_:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Int32"
+    },
+    {
+      "name": "decodeInt64",
+      "type": "func",
+      "desc": "Decodes and returns a 64-bit integer value that was previously encoded with encodeCInt(_:forKey:), encode(_:forKey:), encode(_:forKey:), or encode(_:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Int64"
+    },
+    {
+      "name": "decodeObject",
+      "type": "func",
+      "desc": "Decodes and returns an object that was previously encoded with any of the encode…Object methods.",
+      "params": [],
+      "returnType": "Any?"
+    },
+    {
+      "name": "decodeObject",
+      "type": "func",
+      "desc": "Decodes and returns a previously-encoded object that was previously encoded with encode(_:forKey:) or encodeConditionalObject(_:forKey:) and associated with the string key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "decodePoint",
+      "type": "func",
+      "desc": "Decodes and returns an NSPoint structure that was previously encoded with encode(_:).",
+      "params": [],
+      "returnType": "NSPoint"
+    },
+    {
+      "name": "decodePoint",
+      "type": "func",
+      "desc": "Decodes and returns an NSPoint structure that was previously encoded with encode(_:forKey:).",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSPoint"
+    },
+    {
+      "name": "decodePropertyList",
+      "type": "func",
+      "desc": "Decodes a property list that was previously encoded with encodePropertyList(_:).",
+      "params": [],
+      "returnType": "Any?"
+    },
+    {
+      "name": "decodeRect",
+      "type": "func",
+      "desc": "Decodes and returns an NSRect structure that was previously encoded with encode(_:).",
+      "params": [],
+      "returnType": "NSRect"
+    },
+    {
+      "name": "decodeRect",
+      "type": "func",
+      "desc": "Decodes and returns an NSRect structure that was previously encoded with encode(_:forKey:).",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSRect"
+    },
+    {
+      "name": "decodeSize",
+      "type": "func",
+      "desc": "Decodes and returns an NSSize structure that was previously encoded with encode(_:).",
+      "params": [],
+      "returnType": "NSSize"
+    },
+    {
+      "name": "decodeSize",
+      "type": "func",
+      "desc": "Decodes and returns an NSSize structure that was previously encoded with encode(_:forKey:).",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSSize"
+    },
+    {
+      "name": "decodeValue",
+      "type": "func",
+      "desc": "Decodes a single value, whose Objective-C type is given by valueType.",
+      "params": [
+        {
+          "name": "ofObjCType",
+          "type": "UnsafePointer<Int8>"
+        },
+        {
+          "name": "at",
+          "type": "UnsafeMutableRawPointer"
+        }
+      ]
+    },
+    {
+      "name": "decodeValue",
+      "type": "func",
+      "desc": "Decodes a single value of a known type from the specified data buffer.",
+      "params": [
+        {
+          "name": "ofObjCType",
+          "type": "UnsafePointer<Int8>"
+        },
+        {
+          "name": "at",
+          "type": "UnsafeMutableRawPointer"
+        },
+        {
+          "name": "size",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "decodePropertyList",
+      "type": "func",
+      "desc": "Returns a decoded property list for the specified key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "decodeCGAffineTransform",
+      "type": "func",
+      "desc": "Decodes and returns the Core Graphics affine transform structure associated with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGAffineTransform"
+    },
+    {
+      "name": "decodeCGPoint",
+      "type": "func",
+      "desc": "Decodes and returns the Core Graphics point structure associated with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGPoint"
+    },
+    {
+      "name": "decodeCGRect",
+      "type": "func",
+      "desc": "Decodes and returns the Core Graphics rectangle structure associated with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGRect"
+    },
+    {
+      "name": "decodeCGSize",
+      "type": "func",
+      "desc": "Decodes and returns the Core Graphics size structure associated with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGSize"
+    },
+    {
+      "name": "decodeCGVector",
+      "type": "func",
+      "desc": "Decodes and returns the Core Graphics vector data associated with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGVector"
+    },
+    {
+      "name": "decodeDirectionalEdgeInsets",
+      "type": "func",
+      "desc": "Decodes and returns the UIKit directional edge insets structure associated with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSDirectionalEdgeInsets"
+    },
+    {
+      "name": "decodeUIEdgeInsets",
+      "type": "func",
+      "desc": "Decodes and returns the UIKit edge insets structure associated with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "UIEdgeInsets"
+    },
+    {
+      "name": "decodeUIOffset",
+      "type": "func",
+      "desc": "Decodes and returns the UIKit offset structure associated with the specified key in the coder’s archive.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "UIOffset"
+    },
+    {
+      "name": "decodeTime",
+      "type": "func",
+      "desc": "Returns the Core Media time structure associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "decodeTimeRange",
+      "type": "func",
+      "desc": "Returns the Core Media time range structure associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "CMTimeRange"
+    },
+    {
+      "name": "decodeTimeMapping",
+      "type": "func",
+      "desc": "Returns the Core Media time mapping structure associated with a given key.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "CMTimeMapping"
+    },
+    {
+      "name": "failWithError",
+      "type": "func",
+      "desc": "Signals to this coder that the decode operation has failed.",
+      "params": [
+        {
+          "type": "Error"
+        }
+      ]
+    },
+    {
+      "name": "error",
+      "type": "var",
+      "datatype": "Error?",
+      "desc": "An error in the top-level encode."
+    },
+    {
+      "name": "systemVersion",
+      "type": "var",
+      "datatype": "UInt32",
+      "desc": "The system version in effect for the archive."
+    },
+    {
+      "name": "version",
+      "type": "func",
+      "desc": "This method is present for historical reasons and is not used with keyed archivers.",
+      "params": [
+        {
+          "name": "forClassName",
+          "type": "String"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "cgAffineTransform",
+      "type": "class func",
+      "desc": "Returns a Core Graphics affine transform structure corresponding to the data in a given string.",
+      "params": [
+        {
+          "name": "for",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGAffineTransform"
+    },
+    {
+      "name": "cgPoint",
+      "type": "class func",
+      "desc": "Returns a Core Graphics point structure corresponding to the data in a given string.",
+      "params": [
+        {
+          "name": "for",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGPoint"
+    },
+    {
+      "name": "cgRect",
+      "type": "class func",
+      "desc": "Returns a Core Graphics rectangle structure corresponding to the data in a given string.",
+      "params": [
+        {
+          "name": "for",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGRect"
+    },
+    {
+      "name": "cgSize",
+      "type": "class func",
+      "desc": "Returns a Core Graphics size structure corresponding to the data in a given string.",
+      "params": [
+        {
+          "name": "for",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGSize"
+    },
+    {
+      "name": "cgVector",
+      "type": "class func",
+      "desc": "Returns a Core Graphics vector corresponding to the data in a given string.",
+      "params": [
+        {
+          "name": "for",
+          "type": "String"
+        }
+      ],
+      "returnType": "CGVector"
+    },
+    {
+      "name": "nsDirectionalEdgeInsets",
+      "type": "class func",
+      "desc": "Returns a directional edge insets structure based on the data in the specified string.",
+      "params": [
+        {
+          "name": "for",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSDirectionalEdgeInsets"
+    },
+    {
+      "name": "uiEdgeInsets",
+      "type": "class func",
+      "desc": "Returns a UIKit edge insets structure based on the data in the specified string.",
+      "params": [
+        {
+          "name": "for",
+          "type": "String"
+        }
+      ],
+      "returnType": "UIEdgeInsets"
+    },
+    {
+      "name": "uiOffset",
+      "type": "class func",
+      "desc": "Returns a UIKit offset structure corresponding to the data in a given string.",
+      "params": [
+        {
+          "name": "for",
+          "type": "String"
+        }
+      ],
+      "returnType": "UIOffset"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string formatted to contain the data from a rectangle.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CGRect"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string formatted to contain the data from a vector data structure.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CGVector"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string formatted to contain the data from an affine transform.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CGAffineTransform"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string formatted to contain the data from a point.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CGPoint"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string formatted to contain the data from a size data structure.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CGSize"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string formatted to contain the data from a directional edge insets structure.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSDirectionalEdgeInsets"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string formatted to contain the data from an edge insets structure.",
+      "params": [
+        {
+          "name": "for",
+          "type": "UIEdgeInsets"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "string",
+      "type": "class func",
+      "desc": "Returns a string formatted to contain the data from an offset structure.",
+      "params": [
+        {
+          "name": "for",
+          "type": "UIOffset"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "NSCoderErrorMaximum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The end of the range of error codes reserved for coder errors."
+    },
+    {
+      "name": "NSCoderErrorMinimum",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The start of the range of error codes reserved for coder errors."
+    },
+    {
+      "name": "NSCoderReadCorruptError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "Decoding failed due to corrupt data."
+    },
+    {
+      "name": "NSCoderValueNotFoundError",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The requested data wasn’t found."
+    }
+  ]
+}

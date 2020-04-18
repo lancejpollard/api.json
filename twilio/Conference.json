@@ -1,0 +1,131 @@
+{
+  "type": "Conference",
+  "attrs": {
+    "account_sid": {
+      "type": "sid<AC>",
+      "desc": "The SID of the Account that created this Conference resource."
+    },
+    "date_created": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that this resource was created specified in RFC 2822 format."
+    },
+    "date_updated": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that this resource was last updated, specified in RFC 2822 format."
+    },
+    "api_version": {
+      "type": "string",
+      "desc": "The API version used to create this conference."
+    },
+    "friendly_name": {
+      "type": "string",
+      "desc": "A string that you assigned to describe this conference room."
+    },
+    "region": {
+      "type": "string",
+      "desc": "A string that represents the Twilio Region where the conference audio was mixed. May be us1, ie1,  de1, sg1, br1, au1, and jp1. Basic conference audio will always be mixed in us1. Global Conference audio will be mixed nearest to the majority of participants."
+    },
+    "sid": {
+      "type": "sid<CF>",
+      "desc": "The unique string that that we created to identify this Conference resource."
+    },
+    "status": {
+      "type": "enum:status",
+      "desc": "The status of this conference. Can be: init, in-progress, or completed."
+    },
+    "uri": {
+      "type": "uri",
+      "desc": "The URI of this resource, relative to https://api.twilio.com."
+    },
+    "subresource_uris": {
+      "type": "uri_map",
+      "desc": "A list of related resources identified by their URIs relative to https://api.twilio.com."
+    }
+  },
+  "actions": [
+    {
+      "title": "Fetch a Conference resource",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Conferences/{Sid}.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Conference resource(s) to fetch.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<CF>",
+          "desc": "The Twilio-provided string that uniquely identifies the Conference resource to fetch",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Read multiple Conference resources",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Conferences.json",
+      "desc": "Read all the conferences within your account.\nThe list of conferences that we return includes paging information.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Conference resource(s) to read.",
+          "required": false
+        },
+        "DateCreated": {
+          "type": "date_inequality<iso8601>",
+          "desc": "The date_created value, specified as YYYY-MM-DD, of the resources to read. To read conferences that started on or before midnight on a date, use <=YYYY-MM-DD, and to specify  conferences that started on or after midnight on a date, use >=YYYY-MM-DD.",
+          "required": false
+        },
+        "DateUpdated": {
+          "type": "date_inequality<iso8601>",
+          "desc": "The date_updated value, specified as YYYY-MM-DD, of the resources to read. To read conferences that were last updated on or before midnight on a date, use <=YYYY-MM-DD, and to specify conferences that were last updated on or after midnight on a given date, use  >=YYYY-MM-DD.",
+          "required": false
+        },
+        "FriendlyName": {
+          "type": "string",
+          "desc": "The string that identifies the Conference resources to read.",
+          "required": false
+        },
+        "Status": {
+          "type": "enum:status",
+          "desc": "The status of the resources to read. Can be: init, in-progress, or completed.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Update a Conference resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Conferences/{Sid}.json",
+      "desc": "You can use the update action to change the conference's properties as well as to end the conference.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Conference resource(s) to update.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid_like<CF>",
+          "desc": "The Twilio-provided string that uniquely identifies the Conference resource to update",
+          "required": false
+        },
+        "Status": {
+          "type": "enum:update_status",
+          "desc": "The new status of the resource. Can be:  Can be: init, in-progress, or completed. Specifying completed will end the conference and hang up all participants",
+          "required": false
+        },
+        "AnnounceUrl": {
+          "type": "url",
+          "desc": "The URL we should call to announce something into the conference. The URL can return an MP3, a WAV, or a TwiML document with <Play> or <Say>.",
+          "required": false
+        },
+        "AnnounceMethod": {
+          "type": "http_method",
+          "desc": "The HTTP method used to call announce_url. Can be: GET or POST and the default is POST",
+          "required": false
+        }
+      }
+    }
+  ]
+}

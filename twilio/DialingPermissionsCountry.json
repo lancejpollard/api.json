@@ -1,0 +1,94 @@
+{
+  "type": "DialingPermissions Country",
+  "attrs": {
+    "iso_code": {
+      "type": "iso_country_code",
+      "desc": "The ISO country code."
+    },
+    "name": {
+      "type": "string",
+      "desc": "The name of the country."
+    },
+    "continent": {
+      "type": "string",
+      "desc": "The name of the continent in which the country is located."
+    },
+    "country_codes": {
+      "type": "string[]",
+      "desc": "The E.164 assigned country codes(s)"
+    },
+    "low_risk_numbers_enabled": {
+      "type": "boolean",
+      "desc": "Whether dialing to low-risk numbers is enabled."
+    },
+    "high_risk_special_numbers_enabled": {
+      "type": "boolean",
+      "desc": "Whether dialing to high-risk special services numbers is enabled. These prefixes include number ranges allocated by the country and include premium numbers, special services, shared cost, and others"
+    },
+    "high_risk_tollfraud_numbers_enabled": {
+      "type": "boolean",
+      "desc": "Whether dialing to high-risk toll fraud numbers is enabled. These prefixes include narrow number ranges that have a high-risk of international revenue sharing fraud (IRSF) attacks, also known as toll fraud. These prefixes are collected from anti-fraud databases and verified by analyzing calls on our network. These prefixes are not available for download and are updated frequently"
+    },
+    "url": {
+      "type": "url",
+      "desc": "The absolute URL of this resource."
+    },
+    "links": {
+      "type": "uri_map",
+      "desc": "A list of URLs related to this resource."
+    }
+  },
+  "actions": [
+    {
+      "title": "Fetch a DialingPermissions Country resource",
+      "method": "get",
+      "url": "https://voice.twilio.com/v1/DialingPermissions/Countries/{IsoCode}",
+      "desc": null,
+      "req": {
+        "IsoCode": {
+          "type": "iso_country_code",
+          "desc": "The ISO country code of the DialingPermissions Country resource to fetch",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Read multiple DialingPermissions Country resources",
+      "method": "get",
+      "url": "https://voice.twilio.com/v1/DialingPermissions/Countries",
+      "desc": null,
+      "req": {
+        "IsoCode": {
+          "type": "iso_country_code",
+          "desc": "Filter to retrieve the country permissions by specifying the ISO country code",
+          "required": false
+        },
+        "Continent": {
+          "type": "string",
+          "desc": "Filter to retrieve the country permissions by specifying the continent",
+          "required": false
+        },
+        "CountryCode": {
+          "type": "string",
+          "desc": "Filter the results by specified country codes",
+          "required": false
+        },
+        "LowRiskNumbersEnabled": {
+          "type": "boolean",
+          "desc": "Filter to retrieve the country permissions with dialing to low-risk numbers enabled. Can be: true or false.",
+          "required": false
+        },
+        "HighRiskSpecialNumbersEnabled": {
+          "type": "boolean",
+          "desc": "Filter to retrieve the country permissions with dialing to high-risk special service numbers enabled. Can be: true or false",
+          "required": false
+        },
+        "HighRiskTollfraudNumbersEnabled": {
+          "type": "boolean",
+          "desc": "Filter to retrieve the country permissions with dialing to high-risk toll fraud numbers enabled. Can be: true or false.",
+          "required": false
+        }
+      }
+    }
+  ]
+}

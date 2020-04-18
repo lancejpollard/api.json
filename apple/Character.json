@@ -1,0 +1,337 @@
+{
+  "type": "Structure",
+  "name": "Character",
+  "desc": "A single extended grapheme cluster that approximates a user-perceived character.",
+  "items": [
+    {
+      "name": "write<Target>",
+      "type": "func",
+      "desc": "Writes the character into the given output stream.",
+      "params": [
+        {
+          "name": "to",
+          "type": "inout Target"
+        }
+      ]
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are equal.",
+      "params": [
+        {
+          "type": "Character"
+        },
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "Character"
+        },
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "<",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is less than that of the second argument.",
+      "params": [
+        {
+          "type": "Character"
+        },
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "<=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is less than or equal to that of the second argument.",
+      "params": [
+        {
+          "type": "Character"
+        },
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": ">",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is greater than that of the second argument.",
+      "params": [
+        {
+          "type": "Character"
+        },
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": ">=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether the value of the first argument is greater than or equal to that of the second argument.",
+      "params": [
+        {
+          "type": "Character"
+        },
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "unicodeScalars",
+      "type": "var",
+      "datatype": "Character.UnicodeScalarView"
+    },
+    {
+      "name": "isASCII",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this is an ASCII character."
+    },
+    {
+      "name": "asciiValue",
+      "type": "var",
+      "datatype": "UInt8?",
+      "desc": "The ASCII encoding value of this character, if it is an ASCII character."
+    },
+    {
+      "name": "isLetter",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character is a letter."
+    },
+    {
+      "name": "isPunctuation",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents punctuation."
+    },
+    {
+      "name": "isNewline",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents a newline."
+    },
+    {
+      "name": "isWhitespace",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents whitespace, including newlines."
+    },
+    {
+      "name": "isSymbol",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents a symbol."
+    },
+    {
+      "name": "isMathSymbol",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents a symbol that naturally appears in mathematical contexts."
+    },
+    {
+      "name": "isCurrencySymbol",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents a currency symbol."
+    },
+    {
+      "name": "isCased",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character changes under any form of case conversion."
+    },
+    {
+      "name": "isUppercase",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character is considered uppercase."
+    },
+    {
+      "name": "uppercased",
+      "type": "func",
+      "desc": "Returns an uppercased version of this character.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "isLowercase",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character is considered lowercase."
+    },
+    {
+      "name": "lowercased",
+      "type": "func",
+      "desc": "Returns a lowercased version of this character.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "isNumber",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents a number."
+    },
+    {
+      "name": "isWholeNumber",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents a whole number."
+    },
+    {
+      "name": "wholeNumberValue",
+      "type": "var",
+      "datatype": "Int?",
+      "desc": "The numeric value this character represents, if it represents a whole number."
+    },
+    {
+      "name": "isHexDigit",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this character represents a hexadecimal digit."
+    },
+    {
+      "name": "hexDigitValue",
+      "type": "var",
+      "datatype": "Int?",
+      "desc": "The numeric value this character represents, if it is a hexadecimal digit."
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a half-open range that contains its lower bound but not its upper bound.",
+      "params": [
+        {
+          "type": "Character"
+        },
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "Range<Character>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a closed range that contains both of its bounds.",
+      "params": [
+        {
+          "type": "Character"
+        },
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "ClosedRange<Character>"
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a partial range up to, but not including, its upper bound.",
+      "params": [
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "PartialRangeUpTo<Character>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a partial range up to, and including, its upper bound.",
+      "params": [
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "PartialRangeThrough<Character>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a partial range extending upward from a lower bound.",
+      "params": [
+        {
+          "type": "Character"
+        }
+      ],
+      "returnType": "PartialRangeFrom<Character>"
+    },
+    {
+      "name": "description",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual representation of this instance."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual representation of the character, suitable for debugging."
+    },
+    {
+      "name": "customMirror",
+      "type": "var",
+      "datatype": "Mirror",
+      "desc": "A mirror that reflects the Character instance."
+    },
+    {
+      "name": "customPlaygroundQuickLook",
+      "type": "var",
+      "datatype": "_PlaygroundQuickLook",
+      "desc": "A custom playground Quick Look for the Character instance."
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "desc": "Hashes the essential components of this value by feeding them into the given hasher.",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The hash value."
+    },
+    {
+      "name": "utf16",
+      "type": "var",
+      "datatype": "Character.UTF16View",
+      "desc": "A UTF-16 encoding of self."
+    },
+    {
+      "name": "utf8",
+      "type": "var",
+      "datatype": "Character.UTF8View",
+      "desc": "A UTF-8 encoding of self."
+    }
+  ]
+}

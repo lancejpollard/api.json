@@ -1,0 +1,51 @@
+{
+  "type": "Protocol",
+  "name": "MTLCommandEncoder",
+  "desc": "An encoder that writes GPU commands into a command buffer.",
+  "items": [
+    {
+      "name": "endEncoding",
+      "type": "func",
+      "desc": "Declares that all command generation from the encoder is completed.",
+      "params": []
+    },
+    {
+      "name": "insertDebugSignpost",
+      "type": "func",
+      "desc": "Inserts a debug string into the captured frame data.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "pushDebugGroup",
+      "type": "func",
+      "desc": "Pushes a specific string onto a stack of debug group strings for the command encoder.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "popDebugGroup",
+      "type": "func",
+      "desc": "Pops the latest string off of a stack of debug group strings for the command encoder.",
+      "params": []
+    },
+    {
+      "name": "device",
+      "type": "var",
+      "datatype": "MTLDevice",
+      "desc": "The Metal device from which the command encoder was created."
+    },
+    {
+      "name": "label",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "A string that labels the command encoder."
+    }
+  ]
+}

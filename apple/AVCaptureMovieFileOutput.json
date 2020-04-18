@@ -1,0 +1,90 @@
+{
+  "type": "Class",
+  "name": "AVCaptureMovieFileOutput",
+  "desc": "A capture output that records video and audio to a QuickTime movie file.",
+  "items": [
+    {
+      "name": "movieFragmentInterval",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The number of seconds of output that are written per fragment."
+    },
+    {
+      "name": "metadata",
+      "type": "var",
+      "datatype": "[AVMetadataItem]?",
+      "desc": "The metadata for the output file."
+    },
+    {
+      "name": "supportedOutputSettingsKeys",
+      "type": "func",
+      "desc": "The list of supported keys for the output settings dictionary.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVCaptureConnection"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "outputSettings",
+      "type": "func",
+      "desc": "Returns the options used to reencode media from a given connection as it's being recorded.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVCaptureConnection"
+        }
+      ],
+      "returnType": "[String : Any]"
+    },
+    {
+      "name": "setOutputSettings",
+      "type": "func",
+      "desc": "Sets the options dictionary used to reencode media from the given connection as it's being recorded.",
+      "params": [
+        {
+          "name": "[String",
+          "type": "Any]?"
+        },
+        {
+          "name": "for",
+          "type": "AVCaptureConnection"
+        }
+      ]
+    },
+    {
+      "name": "availableVideoCodecTypes",
+      "type": "var",
+      "datatype": "[AVVideoCodecType]",
+      "desc": "The video codec types currently supported for recording movie files."
+    },
+    {
+      "name": "recordsVideoOrientationAndMirroringChangesAsMetadataTrack",
+      "type": "func",
+      "desc": "A Boolean indicating whether the capture device records video orientation.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVCaptureConnection"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setRecordsVideoOrientationAndMirroringChangesAsMetadataTrack",
+      "type": "func",
+      "desc": "A Boolean indicating whether the capture device sets video orientation.",
+      "params": [
+        {
+          "type": "Bool"
+        },
+        {
+          "name": "for",
+          "type": "AVCaptureConnection"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "type": "Class",
+  "name": "Timer",
+  "desc": "A timer that fires after a certain time interval has elapsed, sending a specified message to a target object.",
+  "items": [
+    {
+      "name": "scheduledTimer",
+      "type": "class func",
+      "desc": "Creates a timer and schedules it on the current run loop in the default mode.",
+      "params": [
+        {
+          "name": "timeInterval",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "target",
+          "type": "Any"
+        },
+        {
+          "name": "selector",
+          "type": "Selector"
+        },
+        {
+          "name": "userInfo",
+          "type": "Any?"
+        },
+        {
+          "name": "repeats",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Timer"
+    },
+    {
+      "name": "scheduledTimer",
+      "type": "class func",
+      "desc": "Creates a new timer and schedules it on the current run loop in the default mode.",
+      "params": [
+        {
+          "name": "timeInterval",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "invocation",
+          "type": "NSInvocation"
+        },
+        {
+          "name": "repeats",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Timer"
+    },
+    {
+      "name": "fire",
+      "type": "func",
+      "desc": "Causes the timer's message to be sent to its target.",
+      "params": []
+    },
+    {
+      "name": "invalidate",
+      "type": "func",
+      "desc": "Stops the timer from ever firing again and requests its removal from its run loop.",
+      "params": []
+    },
+    {
+      "name": "isValid",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the timer is currently valid."
+    },
+    {
+      "name": "fireDate",
+      "type": "var",
+      "datatype": "Date",
+      "desc": "The date at which the timer will fire."
+    },
+    {
+      "name": "timeInterval",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The timer’s time interval, in seconds."
+    },
+    {
+      "name": "userInfo",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "The receiver's userInfo object."
+    },
+    {
+      "name": "tolerance",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The amount of time after the scheduled fire date that the timer may fire."
+    },
+    {
+      "name": "publish",
+      "type": "static func",
+      "desc": "Returns a publisher that repeatedly emits the current date on the given interval.",
+      "params": [
+        {
+          "name": "every",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "tolerance",
+          "type": "TimeInterval?"
+        },
+        {
+          "name": "on",
+          "type": "RunLoop"
+        },
+        {
+          "name": "in",
+          "type": "RunLoop.Mode"
+        },
+        {
+          "name": "options",
+          "type": "RunLoop.SchedulerOptions?"
+        }
+      ],
+      "returnType": "Timer.TimerPublisher"
+    }
+  ]
+}

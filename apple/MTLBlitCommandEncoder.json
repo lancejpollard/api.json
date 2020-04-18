@@ -1,0 +1,576 @@
+{
+  "type": "Protocol",
+  "name": "MTLBlitCommandEncoder",
+  "desc": "An encoder that encodes memory copying, filtering, and fill commands.",
+  "items": [
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Encodes a command to copy data from a source buffer into a destination buffer.",
+      "params": [
+        {
+          "name": "from",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "sourceOffset",
+          "type": "Int"
+        },
+        {
+          "name": "to",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "destinationOffset",
+          "type": "Int"
+        },
+        {
+          "name": "size",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Encodes a command to copy image data from a source buffer into a destination texture.",
+      "params": [
+        {
+          "name": "from",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "sourceOffset",
+          "type": "Int"
+        },
+        {
+          "name": "sourceBytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "sourceBytesPerImage",
+          "type": "Int"
+        },
+        {
+          "name": "sourceSize",
+          "type": "MTLSize"
+        },
+        {
+          "name": "to",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "destinationSlice",
+          "type": "Int"
+        },
+        {
+          "name": "destinationLevel",
+          "type": "Int"
+        },
+        {
+          "name": "destinationOrigin",
+          "type": "MTLOrigin"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Encodes a command to copy image data from a slice of a source texture into a destination buffer.",
+      "params": [
+        {
+          "name": "from",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "sourceSlice",
+          "type": "Int"
+        },
+        {
+          "name": "sourceLevel",
+          "type": "Int"
+        },
+        {
+          "name": "sourceOrigin",
+          "type": "MTLOrigin"
+        },
+        {
+          "name": "sourceSize",
+          "type": "MTLSize"
+        },
+        {
+          "name": "to",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "destinationOffset",
+          "type": "Int"
+        },
+        {
+          "name": "destinationBytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "destinationBytesPerImage",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Encodes a command to copy image data from a source buffer into a destination texture.",
+      "params": [
+        {
+          "name": "from",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "sourceOffset",
+          "type": "Int"
+        },
+        {
+          "name": "sourceBytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "sourceBytesPerImage",
+          "type": "Int"
+        },
+        {
+          "name": "sourceSize",
+          "type": "MTLSize"
+        },
+        {
+          "name": "to",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "destinationSlice",
+          "type": "Int"
+        },
+        {
+          "name": "destinationLevel",
+          "type": "Int"
+        },
+        {
+          "name": "destinationOrigin",
+          "type": "MTLOrigin"
+        },
+        {
+          "name": "options",
+          "type": "MTLBlitOption"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Encodes a command to copy image data from a slice of a source texture into a destination buffer.",
+      "params": [
+        {
+          "name": "from",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "sourceSlice",
+          "type": "Int"
+        },
+        {
+          "name": "sourceLevel",
+          "type": "Int"
+        },
+        {
+          "name": "sourceOrigin",
+          "type": "MTLOrigin"
+        },
+        {
+          "name": "sourceSize",
+          "type": "MTLSize"
+        },
+        {
+          "name": "to",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "destinationOffset",
+          "type": "Int"
+        },
+        {
+          "name": "destinationBytesPerRow",
+          "type": "Int"
+        },
+        {
+          "name": "destinationBytesPerImage",
+          "type": "Int"
+        },
+        {
+          "name": "options",
+          "type": "MTLBlitOption"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Encodes a command to copy a texture's data to another texture.",
+      "params": [
+        {
+          "name": "from",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "to",
+          "type": "MTLTexture"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Encodes a command to copy a subset of texture data to another texture.",
+      "params": [
+        {
+          "name": "from",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "sourceSlice",
+          "type": "Int"
+        },
+        {
+          "name": "sourceLevel",
+          "type": "Int"
+        },
+        {
+          "name": "to",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "destinationSlice",
+          "type": "Int"
+        },
+        {
+          "name": "destinationLevel",
+          "type": "Int"
+        },
+        {
+          "name": "sliceCount",
+          "type": "Int"
+        },
+        {
+          "name": "levelCount",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "copy",
+      "type": "func",
+      "desc": "Encodes a command to copy image data from a slice of a source texture into a slice of a destination texture.",
+      "params": [
+        {
+          "name": "from",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "sourceSlice",
+          "type": "Int"
+        },
+        {
+          "name": "sourceLevel",
+          "type": "Int"
+        },
+        {
+          "name": "sourceOrigin",
+          "type": "MTLOrigin"
+        },
+        {
+          "name": "sourceSize",
+          "type": "MTLSize"
+        },
+        {
+          "name": "to",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "destinationSlice",
+          "type": "Int"
+        },
+        {
+          "name": "destinationLevel",
+          "type": "Int"
+        },
+        {
+          "name": "destinationOrigin",
+          "type": "MTLOrigin"
+        }
+      ]
+    },
+    {
+      "name": "fill",
+      "type": "func",
+      "desc": "Fills a buffer with a constant value in each byte.",
+      "params": [
+        {
+          "name": "buffer",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "range",
+          "type": "Range<Int>"
+        },
+        {
+          "name": "value",
+          "type": "UInt8"
+        }
+      ]
+    },
+    {
+      "name": "generateMipmaps",
+      "type": "func",
+      "desc": "Encodes a command to generate mipmaps for a texture from the base mipmap level up to the maximum level.",
+      "params": [
+        {
+          "name": "for",
+          "type": "MTLTexture"
+        }
+      ]
+    },
+    {
+      "name": "copyIndirectCommandBuffer",
+      "type": "func",
+      "desc": "Encodes a command to copy commands from an indirect command buffer into another indirect command buffer.",
+      "params": [
+        {
+          "type": "MTLIndirectCommandBuffer"
+        },
+        {
+          "name": "sourceRange",
+          "type": "Range<Int>"
+        },
+        {
+          "name": "destination",
+          "type": "MTLIndirectCommandBuffer"
+        },
+        {
+          "name": "destinationIndex",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "optimizeIndirectCommandBuffer",
+      "type": "func",
+      "desc": "Encodes a command to optimize a range in the indirect command buffer to improve performance.",
+      "params": [
+        {
+          "type": "MTLIndirectCommandBuffer"
+        },
+        {
+          "name": "range",
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "resetCommandsInBuffer",
+      "type": "func",
+      "desc": "Encodes a command to reset a range of commands in an indirect command buffer.",
+      "params": [
+        {
+          "type": "MTLIndirectCommandBuffer"
+        },
+        {
+          "name": "range",
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "synchronize",
+      "type": "func",
+      "desc": "Encodes a command to synchronize the contents of a managed resource from the GPU to the CPU.",
+      "params": [
+        {
+          "name": "resource",
+          "type": "MTLResource"
+        }
+      ]
+    },
+    {
+      "name": "synchronize",
+      "type": "func",
+      "desc": "Encodes a command to synchronize part of a managed texture from the GPU to the CPU.",
+      "params": [
+        {
+          "name": "texture",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "slice",
+          "type": "Int"
+        },
+        {
+          "name": "level",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "updateFence",
+      "type": "func",
+      "desc": "Updates the given fence to capture all GPU work enqueued by the command encoder up to this specific point.",
+      "params": [
+        {
+          "type": "MTLFence"
+        }
+      ]
+    },
+    {
+      "name": "waitForFence",
+      "type": "func",
+      "desc": "Prevents further GPU commands from being enqueued by the command encoder until the given fence is reached.",
+      "params": [
+        {
+          "type": "MTLFence"
+        }
+      ]
+    },
+    {
+      "name": "optimizeContentsForGPUAccess",
+      "type": "func",
+      "desc": "Encodes a command to optimize a texture for better performance when the GPU accesses it.",
+      "params": [
+        {
+          "name": "texture",
+          "type": "MTLTexture"
+        }
+      ]
+    },
+    {
+      "name": "optimizeContentsForGPUAccess",
+      "type": "func",
+      "desc": "Encodes a command to optimize part of a texture for better performance when the GPU accesses it.",
+      "params": [
+        {
+          "name": "texture",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "slice",
+          "type": "Int"
+        },
+        {
+          "name": "level",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "optimizeContentsForCPUAccess",
+      "type": "func",
+      "desc": "Encodes a command to optimize a texture for better performance when the CPU accesses it.",
+      "params": [
+        {
+          "name": "texture",
+          "type": "MTLTexture"
+        }
+      ]
+    },
+    {
+      "name": "optimizeContentsForCPUAccess",
+      "type": "func",
+      "desc": "Encodes a command to optimize part of a texture for better performance when the CPU accesses it.",
+      "params": [
+        {
+          "name": "texture",
+          "type": "MTLTexture"
+        },
+        {
+          "name": "slice",
+          "type": "Int"
+        },
+        {
+          "name": "level",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "sampleCounters",
+      "type": "func",
+      "desc": "Encodes a command to sample hardware counters at this point in the blit pass and store the samples into a counter sample buffer.",
+      "params": [
+        {
+          "name": "sampleBuffer",
+          "type": "MTLCounterSampleBuffer"
+        },
+        {
+          "name": "sampleIndex",
+          "type": "Int"
+        },
+        {
+          "name": "barrier",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "getTextureAccessCounters",
+      "type": "func",
+      "desc": "Retrieves information about texture access patterns from the GPU.",
+      "params": [
+        {
+          "type": "MTLTexture"
+        },
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "mipLevel",
+          "type": "Int"
+        },
+        {
+          "name": "slice",
+          "type": "Int"
+        },
+        {
+          "name": "resetCounters",
+          "type": "Bool"
+        },
+        {
+          "name": "countersBuffer",
+          "type": "MTLBuffer"
+        },
+        {
+          "name": "countersBufferOffset",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "resetTextureAccessCounters",
+      "type": "func",
+      "desc": "Resets the GPU's texture access data.",
+      "params": [
+        {
+          "type": "MTLTexture"
+        },
+        {
+          "name": "region",
+          "type": "MTLRegion"
+        },
+        {
+          "name": "mipLevel",
+          "type": "Int"
+        },
+        {
+          "name": "slice",
+          "type": "Int"
+        }
+      ]
+    }
+  ]
+}

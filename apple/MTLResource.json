@@ -1,0 +1,105 @@
+{
+  "type": "Protocol",
+  "name": "MTLResource",
+  "desc": "An allocation of memory that is accessible to a GPU.",
+  "items": [
+    {
+      "name": "device",
+      "type": "var",
+      "datatype": "MTLDevice",
+      "desc": "The device object that created the resource."
+    },
+    {
+      "name": "label",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "A string that identifies the resource."
+    },
+    {
+      "name": "cpuCacheMode",
+      "type": "var",
+      "datatype": "MTLCPUCacheMode",
+      "desc": "The CPU cache mode that defines the CPU mapping of the resource."
+    },
+    {
+      "name": "storageMode",
+      "type": "var",
+      "datatype": "MTLStorageMode",
+      "desc": "The location and access permissions of the resource."
+    },
+    {
+      "name": "hazardTrackingMode",
+      "type": "var",
+      "datatype": "MTLHazardTrackingMode",
+      "desc": "A mode that determines whether Metal tracks and synchronizes resource access."
+    },
+    {
+      "name": "resourceOptions",
+      "type": "var",
+      "datatype": "MTLResourceOptions",
+      "desc": "The storage mode, CPU cache mode, and hazard tracking mode of the resource."
+    },
+    {
+      "name": "MTLCPUCacheMode",
+      "type": "enum",
+      "desc": "Options for the CPU cache mode that define the CPU mapping of the resource."
+    },
+    {
+      "name": "MTLStorageMode",
+      "type": "enum",
+      "desc": "Options for the memory location and access permissions for a resource."
+    },
+    {
+      "name": "MTLHazardTrackingMode",
+      "type": "enum",
+      "desc": "The options you use to specify the hazard tracking mode."
+    },
+    {
+      "name": "setPurgeableState",
+      "type": "func",
+      "desc": "Specifies or queries the resource’s purgeable state.",
+      "params": [
+        {
+          "type": "MTLPurgeableState"
+        }
+      ],
+      "returnType": "MTLPurgeableState"
+    },
+    {
+      "name": "MTLPurgeableState",
+      "type": "enum",
+      "desc": "The purgeable state of the resource."
+    },
+    {
+      "name": "heapOffset",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The distance, in bytes, from the beginning of the heap to the first byte of the resource, if you allocated the resource on a heap."
+    },
+    {
+      "name": "heap",
+      "type": "var",
+      "datatype": "MTLHeap?",
+      "desc": "The heap on which the resource is allocated, if any."
+    },
+    {
+      "name": "makeAliasable",
+      "type": "func",
+      "desc": "Allows future heap resource allocations to alias against the resource’s memory.",
+      "params": []
+    },
+    {
+      "name": "isAliasable",
+      "type": "func",
+      "desc": "A Boolean value that indicates whether future heap resource allocations may alias against the resource’s memory.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "allocatedSize",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The size of the resource, in bytes."
+    }
+  ]
+}

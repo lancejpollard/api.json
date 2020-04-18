@@ -1,0 +1,226 @@
+{
+  "type": "Protocol",
+  "name": "ICCameraDeviceDelegate",
+  "desc": "Methods for detecting cameras, getting metadata and thumbnails, handling access and capability changes, and performing other actions on connected cameras.",
+  "items": [
+    {
+      "name": "deviceDidBecomeReady",
+      "type": "func",
+      "desc": "Tells the client that the camera device is done enumerating its content and is ready to receive requests.",
+      "params": [
+        {
+          "name": "withCompleteContentCatalog",
+          "type": "ICCameraDevice"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when objects are added to the device.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didAdd",
+          "type": "[ICCameraItem]"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when an object is added to the device.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didAdd",
+          "type": "ICCameraItem"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when objects are removed from the device.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didRemove",
+          "type": "[ICCameraItem]"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when the camera completes a delete operation.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didCompleteDeleteFilesWithError",
+          "type": "Error?"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when an object is removed from the device.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didRemove",
+          "type": "ICCameraItem"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when one or more objects are renamed on the device.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didRenameItems",
+          "type": "[ICCameraItem]"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when the camera is about to execute queued requests for the metadata of a specific item.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "shouldGetMetadataOf",
+          "type": "ICCameraItem"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when the metadata requested for an item on a camera is available.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didReceiveMetadataFor",
+          "type": "ICCameraItem"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when the requested thumbnail is available.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didReceiveThumbnail",
+          "type": "CGImage?"
+        },
+        {
+          "name": "for",
+          "type": "ICCameraItem"
+        },
+        {
+          "name": "error",
+          "type": "Error?"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when the requested thumbnail is available.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didReceiveThumbnailFor",
+          "type": "ICCameraItem"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client when the camera is about to execute queued requests for the thumbnail of a specific item.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "shouldGetThumbnailOf",
+          "type": "ICCameraItem"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "cameraDeviceDidChangeCapability",
+      "type": "func",
+      "desc": "Tells the client when a capability of a camera changes.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        }
+      ]
+    },
+    {
+      "name": "cameraDeviceDidEnableAccessRestriction",
+      "type": "func",
+      "desc": "Tells the client when an Apple device has been locked, and media is unavailable until the restriction has been removed.",
+      "params": [
+        {
+          "type": "ICDevice"
+        }
+      ]
+    },
+    {
+      "name": "cameraDeviceDidRemoveAccessRestriction",
+      "type": "func",
+      "desc": "Tells the client when an Apple device has been unlocked, paired to the host, and media is available.",
+      "params": [
+        {
+          "type": "ICDevice"
+        }
+      ]
+    },
+    {
+      "name": "cameraDevice",
+      "type": "func",
+      "desc": "Tells the client about a PTP event.",
+      "params": [
+        {
+          "type": "ICCameraDevice"
+        },
+        {
+          "name": "didReceivePTPEvent",
+          "type": "Data"
+        }
+      ]
+    }
+  ]
+}

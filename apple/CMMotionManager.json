@@ -1,0 +1,266 @@
+{
+  "type": "Class",
+  "name": "CMMotionManager",
+  "desc": "The object for starting and managing motion services.",
+  "items": [
+    {
+      "name": "isDeviceMotionAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the device-motion service is available on the device."
+    },
+    {
+      "name": "isAccelerometerAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether an accelerometer is available on the device."
+    },
+    {
+      "name": "isGyroAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether a gyroscope is available on the device."
+    },
+    {
+      "name": "isMagnetometerAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether a magnetometer is available on the device."
+    },
+    {
+      "name": "isDeviceMotionActive",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether the app is receiving updates from the device-motion service."
+    },
+    {
+      "name": "isAccelerometerActive",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether accelerometer updates are currently happening."
+    },
+    {
+      "name": "isGyroActive",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether gyroscope updates are currently happening."
+    },
+    {
+      "name": "isMagnetometerActive",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether magnetometer updates are currently happening."
+    },
+    {
+      "name": "showsDeviceMovementDisplay",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Controls whether the device-movement display is shown."
+    },
+    {
+      "name": "deviceMotionUpdateInterval",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The interval, in seconds, for providing device-motion updates to the block handler."
+    },
+    {
+      "name": "startDeviceMotionUpdates",
+      "type": "func",
+      "desc": "Starts device-motion updates on an operation queue and using a specified reference frame and block handler.",
+      "params": [
+        {
+          "name": "using",
+          "type": "CMAttitudeReferenceFrame"
+        },
+        {
+          "name": "to",
+          "type": "OperationQueue"
+        },
+        {
+          "name": "withHandler",
+          "type": "CMDeviceMotionHandler"
+        }
+      ]
+    },
+    {
+      "name": "startDeviceMotionUpdates",
+      "type": "func",
+      "desc": "Starts device-motion updates on an operation queue and using a specified block handler.",
+      "params": [
+        {
+          "name": "to",
+          "type": "OperationQueue"
+        },
+        {
+          "name": "withHandler",
+          "type": "CMDeviceMotionHandler"
+        }
+      ]
+    },
+    {
+      "name": "startDeviceMotionUpdates",
+      "type": "func",
+      "desc": "Starts device-motion updates using a reference frame but without a block handler.",
+      "params": [
+        {
+          "name": "using",
+          "type": "CMAttitudeReferenceFrame"
+        }
+      ]
+    },
+    {
+      "name": "startDeviceMotionUpdates",
+      "type": "func",
+      "desc": "Starts device-motion updates without a block handler.",
+      "params": []
+    },
+    {
+      "name": "stopDeviceMotionUpdates",
+      "type": "func",
+      "desc": "Stops device-motion updates.",
+      "params": []
+    },
+    {
+      "name": "deviceMotion",
+      "type": "var",
+      "datatype": "CMDeviceMotion?",
+      "desc": "The latest sample of device-motion data."
+    },
+    {
+      "name": "accelerometerUpdateInterval",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The interval, in seconds, for providing accelerometer updates to the block handler."
+    },
+    {
+      "name": "startAccelerometerUpdates",
+      "type": "func",
+      "desc": "Starts accelerometer updates on an operation queue and with a specified handler.",
+      "params": [
+        {
+          "name": "to",
+          "type": "OperationQueue"
+        },
+        {
+          "name": "withHandler",
+          "type": "CMAccelerometerHandler"
+        }
+      ]
+    },
+    {
+      "name": "startAccelerometerUpdates",
+      "type": "func",
+      "desc": "Starts accelerometer updates without a handler.",
+      "params": []
+    },
+    {
+      "name": "stopAccelerometerUpdates",
+      "type": "func",
+      "desc": "Stops accelerometer updates.",
+      "params": []
+    },
+    {
+      "name": "accelerometerData",
+      "type": "var",
+      "datatype": "CMAccelerometerData?",
+      "desc": "The latest sample of accelerometer data."
+    },
+    {
+      "name": "gyroUpdateInterval",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The interval, in seconds, for providing gyroscope updates to the block handler."
+    },
+    {
+      "name": "startGyroUpdates",
+      "type": "func",
+      "desc": "Starts gyroscope updates on an operation queue and with a specified handler.",
+      "params": [
+        {
+          "name": "to",
+          "type": "OperationQueue"
+        },
+        {
+          "name": "withHandler",
+          "type": "CMGyroHandler"
+        }
+      ]
+    },
+    {
+      "name": "startGyroUpdates",
+      "type": "func",
+      "desc": "Starts gyroscope updates without a handler.",
+      "params": []
+    },
+    {
+      "name": "stopGyroUpdates",
+      "type": "func",
+      "desc": "Stops gyroscope updates.",
+      "params": []
+    },
+    {
+      "name": "gyroData",
+      "type": "var",
+      "datatype": "CMGyroData?",
+      "desc": "The latest sample of gyroscope data."
+    },
+    {
+      "name": "magnetometerUpdateInterval",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The interval, in seconds, at which the system delivers magnetometer data to the block handler."
+    },
+    {
+      "name": "startMagnetometerUpdates",
+      "type": "func",
+      "desc": "Starts magnetometer updates on an operation queue and with a specified handler.",
+      "params": [
+        {
+          "name": "to",
+          "type": "OperationQueue"
+        },
+        {
+          "name": "withHandler",
+          "type": "CMMagnetometerHandler"
+        }
+      ]
+    },
+    {
+      "name": "startMagnetometerUpdates",
+      "type": "func",
+      "desc": "Starts magnetometer updates without a block handler.",
+      "params": []
+    },
+    {
+      "name": "stopMagnetometerUpdates",
+      "type": "func",
+      "desc": "Stops magnetometer updates.",
+      "params": []
+    },
+    {
+      "name": "magnetometerData",
+      "type": "var",
+      "datatype": "CMMagnetometerData?",
+      "desc": "The latest sample of magnetometer data."
+    },
+    {
+      "name": "attitudeReferenceFrame",
+      "type": "var",
+      "datatype": "CMAttitudeReferenceFrame",
+      "desc": "Returns either the reference frame currently being used or the default attitude reference frame."
+    },
+    {
+      "name": "availableAttitudeReferenceFrames",
+      "type": "class func",
+      "desc": "Returns a bitmask specifying the available attitude reference frames on the device.",
+      "params": [],
+      "returnType": "CMAttitudeReferenceFrame"
+    },
+    {
+      "name": "CMErrorDomain",
+      "type": "let",
+      "datatype": "String",
+      "desc": "The error domain for Core Motion."
+    }
+  ]
+}

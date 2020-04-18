@@ -1,0 +1,143 @@
+{
+  "type": "Queue",
+  "attrs": {
+    "account_sid": {
+      "type": "sid<AC>",
+      "desc": "The SID of the Account that created this Queue resource."
+    },
+    "average_wait_time": {
+      "type": "integer",
+      "desc": "The average wait time in seconds of the members in this queue. This is calculated at the time of the request."
+    },
+    "current_size": {
+      "type": "integer",
+      "desc": "The number of calls currently in the queue."
+    },
+    "date_created": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that this resource was created specified in RFC 2822 format."
+    },
+    "date_updated": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that this resource was last updated, specified in RFC 2822 format."
+    },
+    "friendly_name": {
+      "type": "string",
+      "desc": "A string that you assigned to describe this resource."
+    },
+    "max_size": {
+      "type": "integer",
+      "desc": "The maximum number of calls that can be in the queue. The default is 100 and the maximum is 5000."
+    },
+    "sid": {
+      "type": "sid<QU>",
+      "desc": "The unique string that that we created to identify this Queue resource."
+    },
+    "uri": {
+      "type": "uri",
+      "desc": "The URI of this resource, relative to https://api.twilio.com."
+    }
+  },
+  "actions": [
+    {
+      "title": "Create a Queue resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Queues.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that will create the resource.",
+          "required": false
+        },
+        "FriendlyName": {
+          "type": "string",
+          "desc": "A descriptive string that you created to describe this resource. It can be up to 64 characters long.",
+          "required": true
+        },
+        "MaxSize": {
+          "type": "integer",
+          "desc": "The maximum number of calls allowed to be in the queue. The default is 100. The maximum is 5000.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Fetch a Queue resource",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Queues/{Sid}.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Queue resource to fetch.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<QU>",
+          "desc": "The Twilio-provided string that uniquely identifies the Queue resource to fetch",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Read multiple Queue resources",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Queues.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Queue resources to read.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Update a Queue resource",
+      "method": "post",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Queues/{Sid}.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Queue resource to update.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<QU>",
+          "desc": "The Twilio-provided string that uniquely identifies the Queue resource to update",
+          "required": false
+        },
+        "FriendlyName": {
+          "type": "string",
+          "desc": "A descriptive string that you created to describe this resource. It can be up to 64 characters long.",
+          "required": false
+        },
+        "MaxSize": {
+          "type": "integer",
+          "desc": "The maximum number of calls allowed to be in the queue. The default is 100. The maximum is 5000.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Delete a Queue resource",
+      "method": "delete",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Queues/{Sid}.json",
+      "desc": null,
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Queue resource to delete.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<QU>",
+          "desc": "The Twilio-provided string that uniquely identifies the Queue resource to delete",
+          "required": false
+        }
+      }
+    }
+  ]
+}

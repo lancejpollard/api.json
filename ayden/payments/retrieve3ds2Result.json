@@ -1,0 +1,76 @@
+{
+  "path": "/retrieve3ds2Result",
+  "method": "POST",
+  "desc": "Retrieves the threeDS2Result after doing a 3D Secure 2 authentication only.",
+  "req": {
+    "merchantAccount": {
+      "type": "string",
+      "desc": "The merchant account identifier, with which you want to process the transaction.",
+      "required": true
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The pspReference returned in the /authorise call.",
+      "required": true
+    }
+  },
+  "res": {
+    "threeDS2Result": {
+      "type": "string",
+      "desc": "The result of the 3D Secure 2 authentication.",
+      "required": false,
+      "children": {
+        "authenticationValue": {
+          "type": "string",
+          "desc": "The authenticationValue value as defined in the 3D Secure 2 specification.",
+          "required": false
+        },
+        "cavvAlgorithm": {
+          "type": "string",
+          "desc": "The algorithm used by the ACS to calculate the authentication value, only for CartesBancaires integrations.",
+          "required": false
+        },
+        "dsTransID": {
+          "type": "string",
+          "desc": "The dsTransID value as defined in the 3D Secure 2 specification.",
+          "required": false
+        },
+        "eci": {
+          "type": "string",
+          "desc": "The eci value as defined in the 3D Secure 2 specification.",
+          "required": false
+        },
+        "messageVersion": {
+          "type": "string",
+          "desc": "The messageVersion value as defined in the 3D Secure 2 specification.",
+          "required": false
+        },
+        "threeDSServerTransID": {
+          "type": "string",
+          "desc": "The threeDSServerTransID value as defined in the 3D Secure 2 specification.",
+          "required": false
+        },
+        "timestamp": {
+          "type": "string",
+          "desc": "The timestamp value of the 3D Secure 2 authentication.",
+          "required": false
+        },
+        "transStatus": {
+          "type": "string",
+          "desc": "The transStatus value as defined in the 3D Secure 2 specification.",
+          "required": false
+        },
+        "transStatusReason": {
+          "type": "string",
+          "desc": "The transStatusReason value as defined in the 3D Secure 2 specification.",
+          "required": false
+        },
+        "whiteListStatus": {
+          "type": "string",
+          "desc": "The whiteListStatus value as defined in the 3D Secure 2 specification.",
+          "required": false
+        }
+      }
+    }
+  }
+}

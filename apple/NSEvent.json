@@ -1,0 +1,707 @@
+{
+  "type": "Class",
+  "name": "NSEvent",
+  "desc": "An object that contains information about an input action such as a mouse click or a key press.",
+  "items": [
+    {
+      "name": "keyEvent",
+      "type": "class func",
+      "desc": "Returns a new NSEvent object describing a key event.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent.EventType"
+        },
+        {
+          "name": "location",
+          "type": "NSPoint"
+        },
+        {
+          "name": "modifierFlags",
+          "type": "NSEvent.ModifierFlags"
+        },
+        {
+          "name": "timestamp",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "windowNumber",
+          "type": "Int"
+        },
+        {
+          "name": "context",
+          "type": "NSGraphicsContext?"
+        },
+        {
+          "name": "characters",
+          "type": "String"
+        },
+        {
+          "name": "charactersIgnoringModifiers",
+          "type": "String"
+        },
+        {
+          "name": "isARepeat",
+          "type": "Bool"
+        },
+        {
+          "name": "keyCode",
+          "type": "UInt16"
+        }
+      ],
+      "returnType": "NSEvent?"
+    },
+    {
+      "name": "mouseEvent",
+      "type": "class func",
+      "desc": "Returns a new NSEvent object describing a mouse-down, -up, -moved, or -dragged event.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent.EventType"
+        },
+        {
+          "name": "location",
+          "type": "NSPoint"
+        },
+        {
+          "name": "modifierFlags",
+          "type": "NSEvent.ModifierFlags"
+        },
+        {
+          "name": "timestamp",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "windowNumber",
+          "type": "Int"
+        },
+        {
+          "name": "context",
+          "type": "NSGraphicsContext?"
+        },
+        {
+          "name": "eventNumber",
+          "type": "Int"
+        },
+        {
+          "name": "clickCount",
+          "type": "Int"
+        },
+        {
+          "name": "pressure",
+          "type": "Float"
+        }
+      ],
+      "returnType": "NSEvent?"
+    },
+    {
+      "name": "enterExitEvent",
+      "type": "class func",
+      "desc": "Returns a new NSEvent object describing a tracking-rectangle or cursor-update event.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent.EventType"
+        },
+        {
+          "name": "location",
+          "type": "NSPoint"
+        },
+        {
+          "name": "modifierFlags",
+          "type": "NSEvent.ModifierFlags"
+        },
+        {
+          "name": "timestamp",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "windowNumber",
+          "type": "Int"
+        },
+        {
+          "name": "context",
+          "type": "NSGraphicsContext?"
+        },
+        {
+          "name": "eventNumber",
+          "type": "Int"
+        },
+        {
+          "name": "trackingNumber",
+          "type": "Int"
+        },
+        {
+          "name": "userData",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ],
+      "returnType": "NSEvent?"
+    },
+    {
+      "name": "otherEvent",
+      "type": "class func",
+      "desc": "Returns a new NSEvent object describing a custom event.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent.EventType"
+        },
+        {
+          "name": "location",
+          "type": "NSPoint"
+        },
+        {
+          "name": "modifierFlags",
+          "type": "NSEvent.ModifierFlags"
+        },
+        {
+          "name": "timestamp",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "windowNumber",
+          "type": "Int"
+        },
+        {
+          "name": "context",
+          "type": "NSGraphicsContext?"
+        },
+        {
+          "name": "subtype",
+          "type": "Int16"
+        },
+        {
+          "name": "data1",
+          "type": "Int"
+        },
+        {
+          "name": "data2",
+          "type": "Int"
+        }
+      ],
+      "returnType": "NSEvent?"
+    },
+    {
+      "name": "type",
+      "type": "var",
+      "datatype": "NSEvent.EventType",
+      "desc": "The event’s type."
+    },
+    {
+      "name": "NSEvent.EventType",
+      "type": "enum",
+      "desc": "The types of events handled by responder objects."
+    },
+    {
+      "name": "subtype",
+      "type": "var",
+      "datatype": "NSEvent.EventSubtype",
+      "desc": "The event’s subtype."
+    },
+    {
+      "name": "NSEvent.EventSubtype",
+      "type": "enum",
+      "desc": "Subtypes for various types of events."
+    },
+    {
+      "name": "modifierFlags",
+      "type": "var",
+      "datatype": "NSEvent.ModifierFlags",
+      "desc": "An integer bit field indicating the event’s modifier keys."
+    },
+    {
+      "name": "context",
+      "type": "var",
+      "datatype": "NSGraphicsContext?",
+      "desc": "The display graphics context for this event."
+    },
+    {
+      "name": "locationInWindow",
+      "type": "var",
+      "datatype": "NSPoint",
+      "desc": "The receiver’s location in the base coordinate system of the associated window."
+    },
+    {
+      "name": "timestamp",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The time when the event occurred in seconds since system startup."
+    },
+    {
+      "name": "window",
+      "type": "var",
+      "datatype": "NSWindow?",
+      "desc": "The window object associated with the event."
+    },
+    {
+      "name": "windowNumber",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The identifier for the window device associated with the event."
+    },
+    {
+      "name": "eventRef",
+      "type": "var",
+      "datatype": "UnsafeRawPointer?",
+      "desc": "An opaque Carbon type associated with this event."
+    },
+    {
+      "name": "cgEvent",
+      "type": "var",
+      "datatype": "CGEvent?",
+      "desc": "The Core Graphics event object corresponding to this event."
+    },
+    {
+      "name": "modifierFlags",
+      "type": "class var",
+      "datatype": "NSEvent.ModifierFlags",
+      "desc": "Returns the currently pressed modifier flags."
+    },
+    {
+      "name": "keyRepeatDelay",
+      "type": "class var",
+      "datatype": "TimeInterval",
+      "desc": "Returns the length of time a key must be held down in order to generate the first key repeat event."
+    },
+    {
+      "name": "keyRepeatInterval",
+      "type": "class var",
+      "datatype": "TimeInterval",
+      "desc": "Returns the length between subsequent key repeat events being posted."
+    },
+    {
+      "name": "characters",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The characters associated with a key-up or key-down event."
+    },
+    {
+      "name": "charactersIgnoringModifiers",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The characters generated by a key event as if no modifier key (except for Shift) applies."
+    },
+    {
+      "name": "isARepeat",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the key event is a repeat."
+    },
+    {
+      "name": "keyCode",
+      "type": "var",
+      "datatype": "UInt16",
+      "desc": "The virtual key code for the keyboard key associated with a key event."
+    },
+    {
+      "name": "pressedMouseButtons",
+      "type": "class var",
+      "datatype": "Int",
+      "desc": "Returns the indices of the currently depressed mouse buttons."
+    },
+    {
+      "name": "doubleClickInterval",
+      "type": "class var",
+      "datatype": "TimeInterval",
+      "desc": "Returns the time, in seconds, in which a second mouse click must occur in order to be considered a double click."
+    },
+    {
+      "name": "mouseLocation",
+      "type": "class var",
+      "datatype": "NSPoint",
+      "desc": "Reports the current mouse position in screen coordinates."
+    },
+    {
+      "name": "buttonNumber",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The button number for a mouse event."
+    },
+    {
+      "name": "clickCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of mouse clicks associated with a mouse-down or mouse-up event."
+    },
+    {
+      "name": "associatedEventsMask",
+      "type": "var",
+      "datatype": "NSEvent.EventTypeMask",
+      "desc": "The associated events mask of a mouse event."
+    },
+    {
+      "name": "eventNumber",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The counter value of the latest mouse or tracking-rectangle event object; every system-generated mouse and tracking-rectangle event increments this counter."
+    },
+    {
+      "name": "trackingNumber",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The identifier of a mouse-tracking event."
+    },
+    {
+      "name": "trackingArea",
+      "type": "var",
+      "datatype": "NSTrackingArea?",
+      "desc": "The NSTrackingArea object for the event."
+    },
+    {
+      "name": "userData",
+      "type": "var",
+      "datatype": "UnsafeMutableRawPointer?",
+      "desc": "The data associated with a mouse-tracking event."
+    },
+    {
+      "name": "data1",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "Additional data associated with this event."
+    },
+    {
+      "name": "data2",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "Additional data associated with this event."
+    },
+    {
+      "name": "deltaX",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The x-coordinate change for mouse-move, mouse-drag, and swipe events."
+    },
+    {
+      "name": "deltaY",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The y-coordinate change for mouse-move, mouse-drag, and swipe events."
+    },
+    {
+      "name": "deltaZ",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The z-coordinate change for a scroll wheel, mouse-move, or mouse-drag event."
+    },
+    {
+      "name": "pressure",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "A value from 0.0 through 1.0 indicating the degree of pressure applied to an appropriate input device."
+    },
+    {
+      "name": "stage",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A value of 0, 1, or 2, indicating the stage of a gesture event of type NSEvent.EventType.pressure."
+    },
+    {
+      "name": "stageTransition",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The transition value for the stage of a pressure gesture event of type NSEvent.EventType.pressure."
+    },
+    {
+      "name": "pressureBehavior",
+      "type": "var",
+      "datatype": "NSEvent.PressureBehavior",
+      "desc": "The pressure behavior and progression for an event of type NSEvent.EventType.pressure."
+    },
+    {
+      "name": "NSEvent.PressureBehavior",
+      "type": "enum",
+      "desc": "These constants describe the behavior and progression of a pressure gesture."
+    },
+    {
+      "name": "capabilityMask",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A mask whose set bits indicate the capabilities of the tablet device that generated this event."
+    },
+    {
+      "name": "deviceID",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A special identifier that is used to match tablet-pointer and tablet-proximity events."
+    },
+    {
+      "name": "isEnteringProximity",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether a pointing device is entering or leaving the proximity of its tablet."
+    },
+    {
+      "name": "pointingDeviceID",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The index of the pointing device currently in proximity with the tablet."
+    },
+    {
+      "name": "pointingDeviceSerialNumber",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The vendor-assigned serial number of a pointing device."
+    },
+    {
+      "name": "pointingDeviceType",
+      "type": "var",
+      "datatype": "NSEvent.PointingDeviceType",
+      "desc": "The kind of pointing device associated with this event."
+    },
+    {
+      "name": "NSEvent.PointingDeviceType",
+      "type": "enum",
+      "desc": "The pointing-device types for tablet-proximity events or mouse events with a proximity event subtype."
+    },
+    {
+      "name": "systemTabletID",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The index of the tablet device connected to the system."
+    },
+    {
+      "name": "tabletID",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The USB model identifier of the tablet device associated with this event."
+    },
+    {
+      "name": "uniqueID",
+      "type": "var",
+      "datatype": "UInt64",
+      "desc": "The unique identifier of the pointing device that generated this event."
+    },
+    {
+      "name": "vendorID",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The vendor identifier of the tablet associated with the event."
+    },
+    {
+      "name": "vendorPointingDeviceType",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A coded bit field whose set bits indicate the type of pointing device (within a vendor selection) associated with the event."
+    },
+    {
+      "name": "absoluteX",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The absolute x coordinate of a pointing device on its tablet at full tablet resolution."
+    },
+    {
+      "name": "absoluteY",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The absolute y coordinate of a pointing device on its tablet at full tablet resolution."
+    },
+    {
+      "name": "absoluteZ",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The absolute z coordinate of pointing device on its tablet at full tablet resolution."
+    },
+    {
+      "name": "buttonMask",
+      "type": "var",
+      "datatype": "NSEvent.ButtonMask",
+      "desc": "A bit mask identifying the buttons pressed for a tablet event."
+    },
+    {
+      "name": "rotation",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The rotation in degrees of the tablet pointing device associated with this event."
+    },
+    {
+      "name": "tangentialPressure",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The tangential pressure on the device that generated this event."
+    },
+    {
+      "name": "tilt",
+      "type": "var",
+      "datatype": "NSPoint",
+      "desc": "The scaled tilt values of the pointing device that generated this event."
+    },
+    {
+      "name": "vendorDefined",
+      "type": "var",
+      "datatype": "Any",
+      "desc": "An array of three vendor-defined NSNumber objects associated with a pointing-type event."
+    },
+    {
+      "name": "startPeriodicEvents",
+      "type": "class func",
+      "desc": "Begins generating periodic events for the current thread.",
+      "params": [
+        {
+          "name": "afterDelay",
+          "type": "TimeInterval"
+        },
+        {
+          "name": "withPeriod",
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "stopPeriodicEvents",
+      "type": "class func",
+      "desc": "Stops generating periodic events for the current thread and discards any periodic events remaining in the queue.",
+      "params": []
+    },
+    {
+      "name": "magnification",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The change in magnification."
+    },
+    {
+      "name": "touches",
+      "type": "func",
+      "desc": "Returns all the NSTouch objects associated with a specific phase.",
+      "params": [
+        {
+          "name": "matching",
+          "type": "NSTouch.Phase"
+        },
+        {
+          "name": "in",
+          "type": "NSView?"
+        }
+      ],
+      "returnType": "Set<NSTouch>"
+    },
+    {
+      "name": "allTouches",
+      "type": "func",
+      "params": [],
+      "returnType": "Set<NSTouch>"
+    },
+    {
+      "name": "touches",
+      "type": "func",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSView"
+        }
+      ],
+      "returnType": "Set<NSTouch>"
+    },
+    {
+      "name": "coalescedTouches",
+      "type": "func",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSTouch"
+        }
+      ],
+      "returnType": "[NSTouch]"
+    },
+    {
+      "name": "isMouseCoalescingEnabled",
+      "type": "class var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "removeMonitor",
+      "type": "class func",
+      "desc": "Remove the specified event monitor.",
+      "params": [
+        {
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "name": "hasPreciseScrollingDeltas",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether precise scrolling deltas are available."
+    },
+    {
+      "name": "scrollingDeltaX",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The scroll wheel’s horizontal delta."
+    },
+    {
+      "name": "scrollingDeltaY",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The scroll wheel’s vertical delta."
+    },
+    {
+      "name": "momentumPhase",
+      "type": "var",
+      "datatype": "NSEvent.Phase",
+      "desc": "The momentum phase for a scroll or flick gesture."
+    },
+    {
+      "name": "phase",
+      "type": "var",
+      "datatype": "NSEvent.Phase",
+      "desc": "The phase of a gesture event, such as a magnify, scroll, or pressure change."
+    },
+    {
+      "name": "isSwipeTrackingFromScrollEventsEnabled",
+      "type": "class var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "isDirectionInvertedFromDevice",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the user has changed the device inversion."
+    },
+    {
+      "name": "location",
+      "type": "func",
+      "desc": "Returns the location of the receiver in the coordinate system of the given node.",
+      "params": [
+        {
+          "name": "in",
+          "type": "SKNode"
+        }
+      ],
+      "returnType": "CGPoint"
+    },
+    {
+      "name": "specialKey",
+      "type": "var",
+      "datatype": "NSEvent.SpecialKey?"
+    },
+    {
+      "name": "foreverDuration",
+      "type": "class let",
+      "datatype": "TimeInterval"
+    },
+    {
+      "name": "characters",
+      "type": "func",
+      "params": [
+        {
+          "name": "byApplyingModifiers",
+          "type": "NSEvent.ModifierFlags"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "NSEvent.GestureAxis",
+      "type": "enum",
+      "desc": "The gesture tracking axis."
+    },
+    {
+      "name": "s NSTouch",
+      "type": "enum",
+      "desc": "A snapshot of a particular touch at an instant in time."
+    }
+  ]
+}

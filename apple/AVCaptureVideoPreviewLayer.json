@@ -1,0 +1,101 @@
+{
+  "type": "Class",
+  "name": "AVCaptureVideoPreviewLayer",
+  "desc": "A Core Animation layer that displays the video as it’s captured.",
+  "items": [
+    {
+      "name": "videoGravity",
+      "type": "var",
+      "datatype": "AVLayerVideoGravity",
+      "desc": "Indicates how the layer displays the video content within its bounds."
+    },
+    {
+      "name": "isPreviewing",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the layer is rendering video frames from its source."
+    },
+    {
+      "name": "session",
+      "type": "var",
+      "datatype": "AVCaptureSession?",
+      "desc": "The previewed capture session."
+    },
+    {
+      "name": "connection",
+      "type": "var",
+      "datatype": "AVCaptureConnection?",
+      "desc": "The capture connection describing the AVCaptureInputPort to which the preview layer is connected."
+    },
+    {
+      "name": "setSessionWithNoConnection",
+      "type": "func",
+      "desc": "Attaches the layer to a given session without implicitly forming a connection.",
+      "params": [
+        {
+          "type": "AVCaptureSession"
+        }
+      ]
+    },
+    {
+      "name": "captureDevicePointConverted",
+      "type": "func",
+      "desc": "Converts a point from layer coordinates to the coordinate space of the capture device.",
+      "params": [
+        {
+          "name": "fromLayerPoint",
+          "type": "CGPoint"
+        }
+      ],
+      "returnType": "CGPoint"
+    },
+    {
+      "name": "layerPointConverted",
+      "type": "func",
+      "desc": "Converts a point from the coordinate space of the capture device to the coordinate space of the layer.",
+      "params": [
+        {
+          "name": "fromCaptureDevicePoint",
+          "type": "CGPoint"
+        }
+      ],
+      "returnType": "CGPoint"
+    },
+    {
+      "name": "layerRectConverted",
+      "type": "func",
+      "desc": "Converts a rectangle in the coordinate system used for metadata outputs to one in the preview layer’s coordinate system.",
+      "params": [
+        {
+          "name": "fromMetadataOutputRect",
+          "type": "CGRect"
+        }
+      ],
+      "returnType": "CGRect"
+    },
+    {
+      "name": "metadataOutputRectConverted",
+      "type": "func",
+      "desc": "Converts a rectangle in the preview layer’s coordinate system to one in the coordinate system used for metadata outputs.",
+      "params": [
+        {
+          "name": "fromLayerRect",
+          "type": "CGRect"
+        }
+      ],
+      "returnType": "CGRect"
+    },
+    {
+      "name": "transformedMetadataObject",
+      "type": "func",
+      "desc": "Converts a metadata object’s visual properties to layer coordinates.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVMetadataObject"
+        }
+      ],
+      "returnType": "AVMetadataObject?"
+    }
+  ]
+}

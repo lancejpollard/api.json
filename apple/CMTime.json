@@ -1,0 +1,351 @@
+{
+  "name": "CMTime",
+  "desc": "A struct representing a time value such as a timestamp or duration.",
+  "items": [
+    {
+      "name": "CMTimeMake",
+      "type": "func",
+      "desc": "Makes a valid CMTime with value and timescale.  Epoch is implied to be 0.",
+      "params": [
+        {
+          "name": "value",
+          "type": "Int64"
+        },
+        {
+          "name": "timescale",
+          "type": "Int32"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeMakeFromDictionary",
+      "type": "func",
+      "desc": "Reconstitutes a CMTime struct from a CFDictionary previously created by CMTimeCopyAsDictionary(_:allocator:).",
+      "params": [
+        {
+          "type": "CFDictionary?"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeMakeWithEpoch",
+      "type": "func",
+      "desc": "Makes a valid CMTime with value, scale and epoch.",
+      "params": [
+        {
+          "name": "value",
+          "type": "Int64"
+        },
+        {
+          "name": "timescale",
+          "type": "Int32"
+        },
+        {
+          "name": "epoch",
+          "type": "Int64"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeMakeWithSeconds",
+      "type": "func",
+      "desc": "Makes a CMTime from a Float64 number of seconds, and a preferred timescale.",
+      "params": [
+        {
+          "type": "Float64"
+        },
+        {
+          "name": "preferredTimescale",
+          "type": "Int32"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeAdd",
+      "type": "func",
+      "desc": "Returns the sum of two CMTimes.",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeSubtract",
+      "type": "func",
+      "desc": "Returns the difference of two CMTimes.",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeMultiply",
+      "type": "func",
+      "desc": "Returns the product of a CMTime and a 32-bit integer.",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "name": "multiplier",
+          "type": "Int32"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeMultiplyByFloat64",
+      "type": "func",
+      "desc": "Returns the product of a CMTime and a 64-bit float.",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "name": "multiplier",
+          "type": "Float64"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeMultiplyByRatio",
+      "type": "func",
+      "desc": "Returns the result of multiplying a CMTime by an integer, then dividing by another integer.",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "name": "multiplier",
+          "type": "Int32"
+        },
+        {
+          "name": "divisor",
+          "type": "Int32"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeConvertScale",
+      "type": "func",
+      "desc": "Returns a new CMTime containing the source CMTime converted to a new timescale (rounding as requested).",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "name": "timescale",
+          "type": "Int32"
+        },
+        {
+          "name": "method",
+          "type": "CMTimeRoundingMethod"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeCompare",
+      "type": "func",
+      "desc": "Returns the numerical relationship of two CMTimes.",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Int32"
+    },
+    {
+      "name": "CMTimeAbsoluteValue",
+      "type": "func",
+      "desc": "Returns the absolute value of a CMTime.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeGetSeconds",
+      "type": "func",
+      "desc": "Converts a CMTime to seconds.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Float64"
+    },
+    {
+      "name": "CMTimeMaximum",
+      "type": "func",
+      "desc": "Returns the greater of two CMTimes (as defined by CMTimeCompare(_:_:)).",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTimeMinimum",
+      "type": "func",
+      "desc": "Returns the lesser of two CMTimes (as defined by CMTimeCompare(_:_:)).",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "CMTime"
+    },
+    {
+      "name": "CMTIME_IS_VALID",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given time is valid.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "CMTIME_IS_INVALID",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given time is invalid.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "CMTIME_IS_POSITIVEINFINITY",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given time is positive infinity.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "CMTIME_IS_NEGATIVEINFINITY",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given time is negative infinity.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "CMTIME_IS_INDEFINITE",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given time is indefinite.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "CMTIME_IS_NUMERIC",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given time is numeric.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "CMTIME_HAS_BEEN_ROUNDED",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a given time has been rounded.",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "CMTimeShow",
+      "type": "func",
+      "desc": "Prints a description of the CMTime (Similar to CFShow(_:)).",
+      "params": [
+        {
+          "type": "CMTime"
+        }
+      ]
+    },
+    {
+      "name": "CMTimeCopyDescription",
+      "type": "func",
+      "desc": "Creates a CFString with a description of a CMTime ( Similar to CFCopyDescription ).",
+      "params": [
+        {
+          "name": "allocator",
+          "type": "CFAllocator?"
+        },
+        {
+          "name": "time",
+          "type": "CMTime"
+        }
+      ],
+      "returnType": "CFString?"
+    },
+    {
+      "name": "CMTimeCopyAsDictionary",
+      "type": "func",
+      "desc": "Returns a CFDictionary version of a CMTime.",
+      "params": [
+        {
+          "type": "CMTime"
+        },
+        {
+          "name": "allocator",
+          "type": "CFAllocator?"
+        }
+      ],
+      "returnType": "CFDictionary?"
+    },
+    {
+      "name": "CMTimeRoundingMethod",
+      "type": "enum",
+      "desc": "Type for constants used to specify the rounding method to use when computing time.value during timescale conversions."
+    }
+  ]
+}

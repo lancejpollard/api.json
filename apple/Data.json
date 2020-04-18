@@ -1,0 +1,1149 @@
+{
+  "type": "Structure",
+  "name": "Data",
+  "desc": "A byte buffer in memory.",
+  "items": [
+    {
+      "name": "resetBytes",
+      "type": "func",
+      "desc": "Sets a region of the data buffer to 0.",
+      "params": [
+        {
+          "name": "in",
+          "type": "Range<Data.Index>"
+        }
+      ]
+    },
+    {
+      "name": "Data.Deallocator",
+      "type": "enum",
+      "desc": "A deallocator you use to customize how the backing store is deallocated for data created with the no-copy initializer."
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Writes the contents of the data buffer to a location.",
+      "params": [
+        {
+          "name": "to",
+          "type": "URL"
+        },
+        {
+          "name": "options",
+          "type": "Data.WritingOptions"
+        }
+      ]
+    },
+    {
+      "name": "base64EncodedData",
+      "type": "func",
+      "desc": "Returns Base-64 encoded data.",
+      "params": [
+        {
+          "name": "options",
+          "type": "Data.Base64EncodingOptions"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "base64EncodedString",
+      "type": "func",
+      "desc": "Returns a Base-64 encoded string.",
+      "params": [
+        {
+          "name": "options",
+          "type": "Data.Base64EncodingOptions"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "isEmpty",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the collection is empty."
+    },
+    {
+      "name": "copyBytes",
+      "type": "func",
+      "desc": "Copies the contents of the data to memory.",
+      "params": [
+        {
+          "name": "to",
+          "type": "UnsafeMutablePointer<UInt8>"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "copyBytes",
+      "type": "func",
+      "desc": "Copies a subset of the contents of the data to memory.",
+      "params": [
+        {
+          "name": "to",
+          "type": "UnsafeMutablePointer<UInt8>"
+        },
+        {
+          "name": "from",
+          "type": "Range<Data.Index>"
+        }
+      ]
+    },
+    {
+      "name": "copyBytes<DestinationType>",
+      "type": "func",
+      "desc": "Copies the bytes in a range from the data into a buffer.",
+      "params": [
+        {
+          "name": "to",
+          "type": "UnsafeMutableBufferPointer<DestinationType>"
+        },
+        {
+          "name": "from",
+          "type": "Range<Data.Index>?"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "append",
+      "type": "func",
+      "desc": "Appends the specified data to the end of this data.",
+      "params": [
+        {
+          "type": "Data"
+        }
+      ]
+    },
+    {
+      "name": "append<SourceType>",
+      "type": "func",
+      "desc": "Append a buffer of bytes to the data.",
+      "params": [
+        {
+          "type": "UnsafeBufferPointer<SourceType>"
+        }
+      ]
+    },
+    {
+      "name": "append",
+      "type": "func",
+      "desc": "Appends the specified bytes from memory to the end of the data.",
+      "params": [
+        {
+          "type": "UnsafePointer<UInt8>"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "append",
+      "type": "func",
+      "desc": "Appends the bytes in the specified array to the end of the data.",
+      "params": [
+        {
+          "name": "contentsOf",
+          "type": "[UInt8]"
+        }
+      ]
+    },
+    {
+      "name": "reserveCapacity",
+      "type": "func",
+      "desc": "Prepares the collection to store the specified number of elements, when doing so is appropriate for the underlying type.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes and returns the element at the specified position.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ],
+      "returnType": "UInt8"
+    },
+    {
+      "name": "removeAll",
+      "type": "func",
+      "desc": "Removes all elements from the collection.",
+      "params": [
+        {
+          "name": "keepingCapacity",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "removeSubrange",
+      "type": "func",
+      "desc": "Removes the elements in the specified subrange from the collection.",
+      "params": [
+        {
+          "type": "Range<Int>"
+        }
+      ]
+    },
+    {
+      "name": "replaceSubrange",
+      "type": "func",
+      "desc": "Replaces a region of bytes in the data with new data.",
+      "params": [
+        {
+          "type": "Range<Data.Index>"
+        },
+        {
+          "name": "with",
+          "type": "Data"
+        }
+      ]
+    },
+    {
+      "name": "replaceSubrange<ByteCollection>",
+      "type": "func",
+      "desc": "Replaces a region of bytes in the data with new bytes from a collection.",
+      "params": [
+        {
+          "type": "Range<Data.Index>"
+        },
+        {
+          "name": "with",
+          "type": "ByteCollection"
+        }
+      ]
+    },
+    {
+      "name": "replaceSubrange<SourceType>",
+      "type": "func",
+      "desc": "Replaces a region of bytes in the data with new bytes from a buffer.",
+      "params": [
+        {
+          "type": "Range<Data.Index>"
+        },
+        {
+          "name": "with",
+          "type": "UnsafeBufferPointer<SourceType>"
+        }
+      ]
+    },
+    {
+      "name": "replaceSubrange",
+      "type": "func",
+      "desc": "Replaces a region of bytes in the data with bytes from memory.",
+      "params": [
+        {
+          "type": "Range<Data.Index>"
+        },
+        {
+          "name": "with",
+          "type": "UnsafeRawPointer"
+        },
+        {
+          "name": "count",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "max",
+      "type": "func",
+      "desc": "Returns the maximum element in the sequence.",
+      "params": [],
+      "returnType": "UInt8?"
+    },
+    {
+      "name": "min",
+      "type": "func",
+      "desc": "Returns the minimum element in the sequence.",
+      "params": [],
+      "returnType": "UInt8?"
+    },
+    {
+      "name": "range",
+      "type": "func",
+      "desc": "Finds the range of the specified data as a subsequence of this data, if it exists.",
+      "params": [
+        {
+          "name": "of",
+          "type": "Data"
+        },
+        {
+          "name": "options",
+          "type": "Data.SearchOptions"
+        },
+        {
+          "name": "in",
+          "type": "Range<Data.Index>?"
+        }
+      ],
+      "returnType": "Range<Data.Index>?"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence, up to the specified maximum length, containing the initial elements of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence from the start of the collection through the specified position.",
+      "params": [
+        {
+          "name": "through",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence from the start of the collection up to, but not including, the specified position.",
+      "params": [
+        {
+          "name": "upTo",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "suffix",
+      "type": "func",
+      "desc": "Returns a subsequence, up to the given maximum length, containing the final elements of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "suffix",
+      "type": "func",
+      "desc": "Returns a subsequence from the specified position to the end of the collection.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "dropLast",
+      "type": "func",
+      "desc": "Returns a subsequence containing all but the specified number of final elements.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "dropFirst",
+      "type": "func",
+      "desc": "Returns a subsequence containing all but the given number of initial elements.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "advanced",
+      "type": "func",
+      "desc": "Returns a new data buffer created by removing the given number of bytes from the front of the original buffer.",
+      "params": [
+        {
+          "name": "by",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "lazy",
+      "type": "var",
+      "datatype": "LazySequence<Data>",
+      "desc": "A sequence containing the same elements as this sequence, but on which some operations, such as map and filter, are implemented lazily."
+    },
+    {
+      "name": "enumerated",
+      "type": "func",
+      "desc": "Returns a sequence of pairs (n, x), where n represents a consecutive integer starting at zero and x represents an element of the sequence.",
+      "params": [],
+      "returnType": "EnumeratedSequence<Data>"
+    },
+    {
+      "name": "makeIterator",
+      "type": "func",
+      "desc": "Returns an iterator over the contents of the data.",
+      "params": [],
+      "returnType": "Data.Iterator"
+    },
+    {
+      "name": "sorted",
+      "type": "func",
+      "desc": "Returns the elements of the sequence, sorted.",
+      "params": [],
+      "returnType": "[UInt8]"
+    },
+    {
+      "name": "reversed",
+      "type": "func",
+      "desc": "Returns a view presenting the elements of the collection in reverse order.",
+      "params": [],
+      "returnType": "ReversedCollection<Data>"
+    },
+    {
+      "name": "subdata",
+      "type": "func",
+      "desc": "Returns a new copy of the data in a specified range.",
+      "params": [
+        {
+          "name": "in",
+          "type": "Range<Data.Index>"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "split",
+      "type": "func",
+      "desc": "Returns the longest possible subsequences of the collection, in order, around elements equal to the given element.",
+      "params": [
+        {
+          "name": "separator",
+          "type": "UInt8"
+        },
+        {
+          "name": "maxSplits",
+          "type": "Int"
+        },
+        {
+          "name": "omittingEmptySubsequences",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "[Data]"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether or not two data buffers are equivalent.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "type": "Data"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "elementsEqual<OtherSequence>",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether this sequence and another sequence contain the same elements in the same order.",
+      "params": [
+        {
+          "type": "OtherSequence"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "starts<PossiblePrefix>",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the initial elements of the sequence are the same as the elements in another sequence.",
+      "params": [
+        {
+          "name": "with",
+          "type": "PossiblePrefix"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "lexicographicallyPrecedes<OtherSequence>",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the sequence precedes another sequence in a lexicographical (dictionary) ordering, using the less-than operator (<) to compare elements.",
+      "params": [
+        {
+          "type": "OtherSequence"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "startIndex",
+      "type": "var",
+      "datatype": "Data.Index",
+      "desc": "The beginning index into the data."
+    },
+    {
+      "name": "endIndex",
+      "type": "var",
+      "datatype": "Data.Index",
+      "desc": "The end index into the data."
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns an index that is the specified distance from the given index.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the index that immediately follows the specified index.",
+      "params": [
+        {
+          "name": "after",
+          "type": "Data.Index"
+        }
+      ],
+      "returnType": "Data.Index"
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the index that immediately precedes the specified index.",
+      "params": [
+        {
+          "name": "before",
+          "type": "Data.Index"
+        }
+      ],
+      "returnType": "Data.Index"
+    },
+    {
+      "name": "distance",
+      "type": "func",
+      "desc": "Returns the distance between two indices.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Int"
+        },
+        {
+          "name": "to",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "description",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual description of the data."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual description the data suitable for debugging."
+    },
+    {
+      "name": "customMirror",
+      "type": "var",
+      "datatype": "Mirror",
+      "desc": "A mirror that reflects the data."
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The hash value for the data."
+    },
+    {
+      "name": "count",
+      "type": "var",
+      "datatype": "Int"
+    },
+    {
+      "name": "first",
+      "type": "var",
+      "datatype": "UInt8?",
+      "desc": "The first element of the collection."
+    },
+    {
+      "name": "indices",
+      "type": "var",
+      "datatype": "Range<Int>"
+    },
+    {
+      "name": "last",
+      "type": "var",
+      "datatype": "UInt8?",
+      "desc": "The last element of the collection."
+    },
+    {
+      "name": "publisher",
+      "type": "var",
+      "datatype": "Publishers.Sequence<Data,"
+    },
+    {
+      "name": "regions",
+      "type": "var",
+      "datatype": "CollectionOfOne<Data>"
+    },
+    {
+      "name": "underestimatedCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A value less than or equal to the number of elements in the collection."
+    },
+    {
+      "name": "append",
+      "type": "func",
+      "desc": "Adds an element to the end of the collection.",
+      "params": [
+        {
+          "type": "UInt8"
+        }
+      ]
+    },
+    {
+      "name": "append<S>",
+      "type": "func",
+      "params": [
+        {
+          "name": "contentsOf",
+          "type": "S"
+        }
+      ]
+    },
+    {
+      "name": "append<S>",
+      "type": "func",
+      "desc": "Adds the elements of a sequence or collection to the end of this collection.",
+      "params": [
+        {
+          "name": "contentsOf",
+          "type": "S"
+        }
+      ]
+    },
+    {
+      "name": "applying",
+      "type": "func",
+      "desc": "Applies the given difference to this collection.",
+      "params": [
+        {
+          "type": "CollectionDifference<UInt8>"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "contains",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the sequence contains the given element.",
+      "params": [
+        {
+          "type": "UInt8"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "copyBytes",
+      "type": "func",
+      "params": [
+        {
+          "name": "to",
+          "type": "UnsafeMutableRawBufferPointer"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "difference<C>",
+      "type": "func",
+      "desc": "Returns the difference needed to produce this collection’s ordered elements from the given collection.",
+      "params": [
+        {
+          "name": "from",
+          "type": "C"
+        }
+      ],
+      "returnType": "CollectionDifference<UInt8>"
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "params": [
+        {
+          "name": "to",
+          "type": "Encoder"
+        }
+      ]
+    },
+    {
+      "name": "firstIndex",
+      "type": "func",
+      "desc": "Returns the first index where the specified value appears in the collection.",
+      "params": [
+        {
+          "name": "of",
+          "type": "UInt8"
+        }
+      ],
+      "returnType": "Int?"
+    },
+    {
+      "name": "firstRange<D>",
+      "type": "func",
+      "params": [
+        {
+          "name": "of",
+          "type": "D"
+        }
+      ],
+      "returnType": "Range<Int>?"
+    },
+    {
+      "name": "firstRange<D, R>",
+      "type": "func",
+      "params": [
+        {
+          "name": "of",
+          "type": "D"
+        },
+        {
+          "name": "in",
+          "type": "R"
+        }
+      ],
+      "returnType": "Range<Int>?"
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Offsets the given index by the specified distance.",
+      "params": [
+        {
+          "type": "inout Int"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Offsets the given index by the specified distance, or so that it equals the given limiting index.",
+      "params": [
+        {
+          "type": "inout Int"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        },
+        {
+          "name": "limitedBy",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Replaces the given index with its successor.",
+      "params": [
+        {
+          "name": "after",
+          "type": "inout Int"
+        }
+      ]
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Replaces the given index with its predecessor.",
+      "params": [
+        {
+          "name": "before",
+          "type": "inout Int"
+        }
+      ]
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns an index that is the specified distance from the given index, unless that distance is beyond a given limiting index.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        },
+        {
+          "name": "limitedBy",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Int?"
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the first index where the specified value appears in the collection.",
+      "params": [
+        {
+          "name": "of",
+          "type": "UInt8"
+        }
+      ],
+      "returnType": "Int?"
+    },
+    {
+      "name": "insert",
+      "type": "func",
+      "desc": "Inserts a new element into the collection at the specified position.",
+      "params": [
+        {
+          "type": "UInt8"
+        },
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "insert<C>",
+      "type": "func",
+      "desc": "Inserts the elements of a sequence into the collection at the specified position.",
+      "params": [
+        {
+          "name": "contentsOf",
+          "type": "C"
+        },
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "lastIndex",
+      "type": "func",
+      "desc": "Returns the last index where the specified value appears in the collection.",
+      "params": [
+        {
+          "name": "of",
+          "type": "UInt8"
+        }
+      ],
+      "returnType": "Int?"
+    },
+    {
+      "name": "lastRange<D>",
+      "type": "func",
+      "params": [
+        {
+          "name": "of",
+          "type": "D"
+        }
+      ],
+      "returnType": "Range<Int>?"
+    },
+    {
+      "name": "lastRange<D, R>",
+      "type": "func",
+      "params": [
+        {
+          "name": "of",
+          "type": "D"
+        },
+        {
+          "name": "in",
+          "type": "R"
+        }
+      ],
+      "returnType": "Range<Int>?"
+    },
+    {
+      "name": "popFirst",
+      "type": "func",
+      "desc": "Removes and returns the first element of the collection.",
+      "params": [],
+      "returnType": "UInt8?"
+    },
+    {
+      "name": "popLast",
+      "type": "func",
+      "desc": "Removes and returns the last element of the collection.",
+      "params": [],
+      "returnType": "UInt8?"
+    },
+    {
+      "name": "randomElement",
+      "type": "func",
+      "desc": "Returns a random element of the collection.",
+      "params": [],
+      "returnType": "UInt8?"
+    },
+    {
+      "name": "randomElement<T>",
+      "type": "func",
+      "desc": "Returns a random element of the collection, using the given generator as a source for randomness.",
+      "params": [
+        {
+          "name": "using",
+          "type": "inout T"
+        }
+      ],
+      "returnType": "UInt8?"
+    },
+    {
+      "name": "removeFirst",
+      "type": "func",
+      "desc": "Removes and returns the first element of the collection.",
+      "params": [],
+      "returnType": "UInt8"
+    },
+    {
+      "name": "removeFirst",
+      "type": "func",
+      "desc": "Removes the specified number of elements from the beginning of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "removeLast",
+      "type": "func",
+      "desc": "Removes and returns the last element of the collection.",
+      "params": [],
+      "returnType": "UInt8"
+    },
+    {
+      "name": "removeLast",
+      "type": "func",
+      "desc": "Removes the specified number of elements from the end of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "removeSubrange<R>",
+      "type": "func",
+      "desc": "Removes the elements in the specified subrange from the collection.",
+      "params": [
+        {
+          "type": "R"
+        }
+      ]
+    },
+    {
+      "name": "replaceSubrange<C, R>",
+      "type": "func",
+      "desc": "Replaces the specified subrange of elements with the given collection.",
+      "params": [
+        {
+          "type": "R"
+        },
+        {
+          "name": "with",
+          "type": "C"
+        }
+      ]
+    },
+    {
+      "name": "resetBytes<R>",
+      "type": "func",
+      "params": [
+        {
+          "name": "in",
+          "type": "R"
+        }
+      ]
+    },
+    {
+      "name": "reverse",
+      "type": "func",
+      "desc": "Reverses the elements of the collection in place.",
+      "params": []
+    },
+    {
+      "name": "shuffle",
+      "type": "func",
+      "desc": "Shuffles the collection in place.",
+      "params": []
+    },
+    {
+      "name": "shuffle<T>",
+      "type": "func",
+      "desc": "Shuffles the collection in place, using the given generator as a source for randomness.",
+      "params": [
+        {
+          "name": "using",
+          "type": "inout T"
+        }
+      ]
+    },
+    {
+      "name": "shuffled",
+      "type": "func",
+      "desc": "Returns the elements of the sequence, shuffled.",
+      "params": [],
+      "returnType": "[UInt8]"
+    },
+    {
+      "name": "shuffled<T>",
+      "type": "func",
+      "desc": "Returns the elements of the sequence, shuffled using the given generator as a source for randomness.",
+      "params": [
+        {
+          "name": "using",
+          "type": "inout T"
+        }
+      ],
+      "returnType": "[UInt8]"
+    },
+    {
+      "name": "sort",
+      "type": "func",
+      "desc": "Sorts the collection in place.",
+      "params": []
+    },
+    {
+      "name": "swapAt",
+      "type": "func",
+      "desc": "Exchanges the values at the specified indices of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        },
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "type": "Data"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "+ <Other>",
+      "type": "static func",
+      "desc": "Creates a new collection by concatenating the elements of a sequence and a collection.",
+      "params": [
+        {
+          "type": "Other"
+        },
+        {
+          "type": "Data"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "+ <Other>",
+      "type": "static func",
+      "desc": "Creates a new collection by concatenating the elements of a collection and a sequence.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "type": "Other"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "+ <Other>",
+      "type": "static func",
+      "desc": "Creates a new collection by concatenating the elements of two collections.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "type": "Other"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "+= <Other>",
+      "type": "static func",
+      "desc": "Appends the elements of a sequence to a range-replaceable collection.",
+      "params": [
+        {
+          "type": "inout Data"
+        },
+        {
+          "type": "Other"
+        }
+      ]
+    }
+  ]
+}

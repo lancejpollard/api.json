@@ -1,0 +1,127 @@
+{
+  "path": "/updateAccount",
+  "method": "POST",
+  "desc": "This endpoint is used to update the description or payout schedule of an existing account.",
+  "req": {
+    "accountCode": {
+      "type": "string",
+      "desc": "The code of the account to update.",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "desc": "A description of the account.",
+      "required": false
+    },
+    "metadata": {
+      "type": "object",
+      "desc": "A set of key and value pairs for general use by the merchant.\nThe keys do not have specific names and may be used for storing miscellaneous data as desired.\n\nNote that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.",
+      "required": false
+    },
+    "payoutSchedule": {
+      "type": "string",
+      "desc": "The details of the payout schedule, to which the account should be updated.",
+      "required": true,
+      "children": {
+        "action": {
+          "type": "string",
+          "desc": "Direction on how to handle any payouts that have already been scheduled.\nPermitted values:\n\nCLOSE will close the existing batch of payouts.\nUPDATE will reschedule the existing batch to the new schedule.\nNOTHING (default) will allow the payout to proceed.",
+          "required": false
+        },
+        "reason": {
+          "type": "string",
+          "desc": "The reason for the payout schedule update.\n\nThis field is required when the schedule parameter is set to HOLD.",
+          "required": false
+        },
+        "schedule": {
+          "type": "string",
+          "desc": "The payout schedule to which the account is to be updated.\nPermitted values: DEFAULT, HOLD, DAILY, WEEKLY, MONTHLY.\nHOLD will prevent scheduled payouts from happening but will still allow manual payouts to occur.",
+          "required": true
+        }
+      }
+    }
+  },
+  "res": {
+    "accountCode": {
+      "type": "string",
+      "desc": "The code of the account.",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "desc": "The description of the account.",
+      "required": false
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "A list of fields that caused the /updateAccount request to fail.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "desc": "",
+      "required": false
+    },
+    "payoutSchedule": {
+      "type": "string",
+      "desc": "The payout schedule of the account.",
+      "required": true,
+      "children": {
+        "nextScheduledPayout": {
+          "type": "string",
+          "desc": "The date of the next scheduled payout.",
+          "required": true
+        },
+        "schedule": {
+          "type": "string",
+          "desc": "The payout schedule of the account.\n\nPermitted values: DEFAULT, HOLD, DAILY, WEEKLY, MONTHLY.",
+          "required": true
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

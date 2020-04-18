@@ -1,0 +1,207 @@
+{
+  "path": "/unSuspendAccountHolder",
+  "method": "POST",
+  "desc": "This endpoint is used to reinstate an existing account holder, which has been suspended through the /suspendAccountHolder endpoint. An account holder which has been suspended due to KYC verification issues cannot be reinstated through this endpoint.",
+  "req": {
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the account holder to be reinstated.",
+      "required": true
+    }
+  },
+  "res": {
+    "accountHolderStatus": {
+      "type": "array",
+      "desc": "The new status of the Account Holder.",
+      "required": true,
+      "children": {
+        "events": {
+          "type": "array",
+          "desc": "A list of events scheduled for the account holder.",
+          "required": true,
+          "children": {
+            "event": {
+              "type": "string",
+              "desc": "The event.\n\nPermitted values: InactivateAccount, RefundNotPaidOutTransfers.\nFor more information, refer to Verification checks.",
+              "required": true
+            },
+            "executionDate": {
+              "type": "string",
+              "desc": "The date on which the event will take place.",
+              "required": true
+            },
+            "reason": {
+              "type": "string",
+              "desc": "The reason why this event has been created.",
+              "required": true
+            }
+          }
+        },
+        "payoutState": {
+          "type": "boolean",
+          "desc": "The payout state of the account holder.",
+          "required": true,
+          "children": {
+            "allowPayout": {
+              "type": "boolean",
+              "desc": "Indicates whether payouts are allowed. This field is the overarching payout status, and is the aggregate of multiple conditions (e.g., KYC status, disabled flag, etc). If this field is false, no payouts will be permitted for any of the account holder's accounts. If this field is true, payouts will be permitted for any of the account holder's accounts.",
+              "required": true
+            },
+            "disableReason": {
+              "type": "string",
+              "desc": "The reason why payouts (to all of the account holder's accounts) have been disabled (by the platform). If the disabled field is true, this field can be used to explain why.",
+              "required": true
+            },
+            "disabled": {
+              "type": "boolean",
+              "desc": "Indicates whether payouts have been disabled (by the platform) for all of the account holder's accounts. A platform may enable and disable this field at their discretion. If this field is true, allowPayout will be false and no payouts will be permitted for any of the account holder's accounts. If this field is false, allowPayout may or may not be enabled, depending on other factors.",
+              "required": true
+            },
+            "notAllowedReason": {
+              "type": "string",
+              "desc": "The reason why payouts (to all of the account holder's accounts) have been disabled (by Adyen). If payouts have been disabled by Adyen, this field will explain why. If this field is blank, payouts have not been disabled by Adyen.",
+              "required": true
+            },
+            "payoutLimit": {
+              "type": "string",
+              "desc": "The maximum amount that payouts are limited to. Only applies if payouts are allowed but limited.",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "tierNumber": {
+              "type": "integer",
+              "desc": "The payout tier that the account holder occupies.",
+              "required": true
+            }
+          }
+        },
+        "processingState": {
+          "type": "string",
+          "desc": "The processing state of the account holder.",
+          "required": true,
+          "children": {
+            "disableReason": {
+              "type": "string",
+              "desc": "The reason why processing has been disabled.",
+              "required": true
+            },
+            "disabled": {
+              "type": "boolean",
+              "desc": "Indicates whether the processing of payments is allowed.",
+              "required": true
+            },
+            "processedFrom": {
+              "type": "string",
+              "desc": "The lower bound of the processing tier (i.e., an account holder must have processed at least this amount of money in order to be placed into this tier).",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "processedTo": {
+              "type": "string",
+              "desc": "The upper bound of the processing tier (i.e., an account holder must have processed less than this amount of money in order to be placed into this tier).",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "tierNumber": {
+              "type": "integer",
+              "desc": "The processing tier that the account holder occupies.",
+              "required": true
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "desc": "The status of the account holder.\n\nPermitted values: Active, Inactive, Suspended, Closed.",
+          "required": true
+        },
+        "statusReason": {
+          "type": "string",
+          "desc": "The reason why the status was assigned to the account holder.",
+          "required": true
+        }
+      }
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

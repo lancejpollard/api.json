@@ -1,0 +1,117 @@
+{
+  "type": "Class",
+  "name": "DistributedNotificationCenter",
+  "desc": "A notification dispatch mechanism that enables the broadcast of notifications across task boundaries.",
+  "items": [
+    {
+      "name": "default",
+      "type": "class func",
+      "desc": "Returns the default distributed notification center, representing the local notification center for the computer.",
+      "params": [],
+      "returnType": "DistributedNotificationCenter"
+    },
+    {
+      "name": "forType",
+      "type": "class func",
+      "desc": "Returns the distributed notification center for a particular notification center type.",
+      "params": [
+        {
+          "type": "DistributedNotificationCenter.CenterType"
+        }
+      ],
+      "returnType": "DistributedNotificationCenter"
+    },
+    {
+      "name": "addObserver",
+      "type": "func",
+      "desc": "Adds an entry to the notification center's dispatch table with an observer, a selector, and an optional notification name and sender.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "selector",
+          "type": "Selector"
+        },
+        {
+          "name": "name",
+          "type": "NSNotification.Name?"
+        },
+        {
+          "name": "object",
+          "type": "String?"
+        }
+      ]
+    },
+    {
+      "name": "addObserver",
+      "type": "func",
+      "desc": "Adds an entry to the receiver’s dispatch table with a specific observer and suspended-notifications behavior, and optional notification name and sender.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "selector",
+          "type": "Selector"
+        },
+        {
+          "name": "name",
+          "type": "NSNotification.Name?"
+        },
+        {
+          "name": "object",
+          "type": "String?"
+        },
+        {
+          "name": "suspensionBehavior",
+          "type": "DistributedNotificationCenter.SuspensionBehavior"
+        }
+      ]
+    },
+    {
+      "name": "removeObserver",
+      "type": "func",
+      "desc": "Removes matching entries from the receiver’s dispatch table.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "name",
+          "type": "NSNotification.Name?"
+        },
+        {
+          "name": "object",
+          "type": "String?"
+        }
+      ]
+    },
+    {
+      "name": "post",
+      "type": "func",
+      "desc": "Creates a notification, and posts it to the receiver.",
+      "params": [
+        {
+          "name": "name",
+          "type": "NSNotification.Name"
+        },
+        {
+          "name": "object",
+          "type": "String?"
+        }
+      ]
+    },
+    {
+      "name": "suspended",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Suspends or resumes notification delivery."
+    },
+    {
+      "name": "DistributedNotificationCenter.SuspensionBehavior",
+      "type": "enum",
+      "desc": "These constants specify the types of notification delivery suspension behaviors."
+    }
+  ]
+}

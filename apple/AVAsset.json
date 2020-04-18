@@ -1,0 +1,286 @@
+{
+  "type": "Class",
+  "name": "AVAsset",
+  "desc": "The abstract class used to model timed audiovisual media such as videos and sounds.",
+  "items": [
+    {
+      "name": "cancelLoading",
+      "type": "func",
+      "desc": "Cancels the loading of all values for all observers.",
+      "params": []
+    },
+    {
+      "name": "duration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The duration of the asset."
+    },
+    {
+      "name": "providesPreciseDurationAndTiming",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates  whether the asset provides precise timing."
+    },
+    {
+      "name": "creationDate",
+      "type": "var",
+      "datatype": "AVMetadataItem?",
+      "desc": "A value that indicates the creation date of the asset."
+    },
+    {
+      "name": "naturalSize",
+      "type": "var",
+      "datatype": "CGSize",
+      "desc": "The encoded or authored size of the visual portion of the asset."
+    },
+    {
+      "name": "preferredRate",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The natural rate at which the asset is to be played."
+    },
+    {
+      "name": "preferredTransform",
+      "type": "var",
+      "datatype": "CGAffineTransform",
+      "desc": "The preferred transform to apply to the visual content of the asset for presentation or processing."
+    },
+    {
+      "name": "preferredVolume",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The preferred volume at which the audible media of the asset is to be played."
+    },
+    {
+      "name": "preferredDisplayCriteria",
+      "type": "var",
+      "datatype": "AVDisplayCriteria",
+      "desc": "The display criteria that define the optimal TV display mode for the asset."
+    },
+    {
+      "name": "isPlayable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset, or its URL, can be used to initialize an instance of a player item."
+    },
+    {
+      "name": "isExportable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset can be exported using an asset export session."
+    },
+    {
+      "name": "isReadable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset’s media data can be extracted using an asset reader."
+    },
+    {
+      "name": "isComposable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset can be used within a segment of a composition track."
+    },
+    {
+      "name": "hasProtectedContent",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset has protected content."
+    },
+    {
+      "name": "isCompatibleWithAirPlayVideo",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset is compatible with AirPlay Video."
+    },
+    {
+      "name": "isCompatibleWithSavedPhotosAlbum",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates  whether the asset can be written to the Saved Photos album."
+    },
+    {
+      "name": "tracks",
+      "type": "var",
+      "datatype": "[AVAssetTrack]",
+      "desc": "The collection of all tracks contained by the asset."
+    },
+    {
+      "name": "trackGroups",
+      "type": "var",
+      "datatype": "[AVAssetTrackGroup]",
+      "desc": "An array containing all of the track groups in the asset."
+    },
+    {
+      "name": "track",
+      "type": "func",
+      "desc": "Returns the track associated with a specified track identifier.",
+      "params": [
+        {
+          "name": "withTrackID",
+          "type": "CMPersistentTrackID"
+        }
+      ],
+      "returnType": "AVAssetTrack?"
+    },
+    {
+      "name": "tracks",
+      "type": "func",
+      "desc": "Returns an array of asset tracks associated with an asset for the specified media type.",
+      "params": [
+        {
+          "name": "withMediaType",
+          "type": "AVMediaType"
+        }
+      ],
+      "returnType": "[AVAssetTrack]"
+    },
+    {
+      "name": "tracks",
+      "type": "func",
+      "desc": "Returns an array of asset tracks associated with an asset for the specified characteristic.",
+      "params": [
+        {
+          "name": "withMediaCharacteristic",
+          "type": "AVMediaCharacteristic"
+        }
+      ],
+      "returnType": "[AVAssetTrack]"
+    },
+    {
+      "name": "unusedTrackID",
+      "type": "func",
+      "desc": "Returns an ID that's unused by any of the tracks in the asset.",
+      "params": [],
+      "returnType": "CMPersistentTrackID"
+    },
+    {
+      "name": "lyrics",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The lyrics of the asset, in a language suitable for the current locale."
+    },
+    {
+      "name": "metadata",
+      "type": "var",
+      "datatype": "[AVMetadataItem]",
+      "desc": "An array of metadata items for all metadata identifiers for which a value is available."
+    },
+    {
+      "name": "commonMetadata",
+      "type": "var",
+      "datatype": "[AVMetadataItem]",
+      "desc": "An array of metadata items for each common metadata key for which a value is available."
+    },
+    {
+      "name": "availableMetadataFormats",
+      "type": "var",
+      "datatype": "[AVMetadataFormat]",
+      "desc": "An array of strings, each representing a metadata format that’s available to the asset."
+    },
+    {
+      "name": "metadata",
+      "type": "func",
+      "desc": "Returns an array of metadata items found in the container with the specified format.",
+      "params": [
+        {
+          "name": "forFormat",
+          "type": "AVMetadataFormat"
+        }
+      ],
+      "returnType": "[AVMetadataItem]"
+    },
+    {
+      "name": "availableChapterLocales",
+      "type": "var",
+      "datatype": "[Locale]",
+      "desc": "The locales available for chapter metadata in the asset."
+    },
+    {
+      "name": "chapterMetadataGroups",
+      "type": "func",
+      "desc": "Returns an array of chapters with a given title locale and containing specified keys.",
+      "params": [
+        {
+          "name": "withTitleLocale",
+          "type": "Locale"
+        },
+        {
+          "name": "containingItemsWithCommonKeys",
+          "type": "[AVMetadataKey]?"
+        }
+      ],
+      "returnType": "[AVTimedMetadataGroup]"
+    },
+    {
+      "name": "chapterMetadataGroups",
+      "type": "func",
+      "desc": "Returns an array of chapters whose locale best matches the list of preferred languages.",
+      "params": [
+        {
+          "name": "bestMatchingPreferredLanguages",
+          "type": "[String]"
+        }
+      ],
+      "returnType": "[AVTimedMetadataGroup]"
+    },
+    {
+      "name": "preferredMediaSelection",
+      "type": "var",
+      "datatype": "AVMediaSelection",
+      "desc": "The default media selections for this asset’s media selection groups."
+    },
+    {
+      "name": "availableMediaCharacteristicsWithMediaSelectionOptions",
+      "type": "var",
+      "datatype": "[AVMediaCharacteristic]",
+      "desc": "An array of media characteristics for which a media selection option is available."
+    },
+    {
+      "name": "mediaSelectionGroup",
+      "type": "func",
+      "desc": "Returns a media selection group object that contains one or more options with the specified media characteristic.",
+      "params": [
+        {
+          "name": "forMediaCharacteristic",
+          "type": "AVMediaCharacteristic"
+        }
+      ],
+      "returnType": "AVMediaSelectionGroup?"
+    },
+    {
+      "name": "allMediaSelections",
+      "type": "var",
+      "datatype": "[AVMediaSelection]"
+    },
+    {
+      "name": "referenceRestrictions",
+      "type": "var",
+      "datatype": "AVAssetReferenceRestrictions",
+      "desc": "The asset’s reference restrictions."
+    },
+    {
+      "name": "canContainFragments",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset is capable of being extended by fragments."
+    },
+    {
+      "name": "containsFragments",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the asset is extended by at least one movie fragment."
+    },
+    {
+      "name": "overallDurationHint",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The total duration of fragments that currently exist, or may exist in the future."
+    },
+    {
+      "name": "minimumTimeOffsetFromLive",
+      "type": "var",
+      "datatype": "CMTime"
+    }
+  ]
+}

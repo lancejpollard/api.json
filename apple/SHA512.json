@@ -1,0 +1,59 @@
+{
+  "type": "Structure",
+  "name": "SHA512",
+  "desc": "An implementation of Secure Hashing Algorithm 2 (SHA-2) hashing with a 512-bit digest.",
+  "items": [
+    {
+      "name": "byteCount",
+      "type": "static var",
+      "datatype": "Int",
+      "desc": "The number of bytes in a SHA512 digest."
+    },
+    {
+      "name": "hash<D>",
+      "type": "static func",
+      "desc": "Computes the SHA512 digest of the bytes in the given data instance and returns the computed digest.",
+      "params": [
+        {
+          "name": "data",
+          "type": "D"
+        }
+      ],
+      "returnType": "SHA512Digest"
+    },
+    {
+      "name": "update<D>",
+      "type": "func",
+      "desc": "Incrementally updates the hash function with the given data.",
+      "params": [
+        {
+          "name": "data",
+          "type": "D"
+        }
+      ]
+    },
+    {
+      "name": "update",
+      "type": "func",
+      "desc": "Incrementally updates the hash function with the contents of the buffer.",
+      "params": [
+        {
+          "name": "bufferPointer",
+          "type": "UnsafeRawBufferPointer"
+        }
+      ]
+    },
+    {
+      "name": "finalize",
+      "type": "func",
+      "desc": "Finalizes the hash function and returns the computed digest.",
+      "params": [],
+      "returnType": "SHA512.Digest"
+    },
+    {
+      "name": "blockByteCount",
+      "type": "static var",
+      "datatype": "Int"
+    }
+  ]
+}

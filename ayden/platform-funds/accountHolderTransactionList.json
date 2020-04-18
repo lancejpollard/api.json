@@ -1,0 +1,333 @@
+{
+  "path": "/accountHolderTransactionList",
+  "method": "POST",
+  "desc": "This endpoint is used to retrieve a list of Transactions for an account holder's accounts. The accounts and Transaction Statuses to be included on the list can be specified. Each call will return a maximum of fifty (50) Transactions per account; in order to retrieve the following set of Transactions another call should be made with the 'page' value incremented. Note that Transactions are ordered with most recent first.",
+  "req": {
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the account holder that owns the account(s) of which retrieve the transaction list.",
+      "required": true
+    },
+    "transactionListsPerAccount": {
+      "type": "array",
+      "desc": "A list of accounts to include in the transaction list. If left blank, the last fifty (50) transactions for all accounts of the account holder will be included.",
+      "required": true,
+      "children": {
+        "accountCode": {
+          "type": "string",
+          "desc": "The account for which to retrieve the transactions.",
+          "required": true
+        },
+        "page": {
+          "type": "integer",
+          "desc": "The page of transactions to retrieve.\nEach page lists fifty (50) transactions.  The most recent transactions are included on page 1.",
+          "required": true
+        }
+      }
+    },
+    "transactionStatuses": {
+      "type": "array",
+      "desc": "A list of statuses to include in the transaction list. If left blank, all transactions will be included.\n\nPermitted values:\n\nPendingCredit - a pending balance credit.\nCreditFailed - a pending credit failure; the balance will not be credited.\nCredited - a credited balance.\nPendingDebit - a pending balance debit (e.g., a refund).\nDebitFailed - a pending debit failure; the balance will not be debited.\nDebited - a debited balance (e.g., a refund).\nDebitReversedReceived - a pending refund reversal.\nDebitedReversed - a reversed refund.\nChargebackReceived - a received chargeback request.\nChargeback - a processed chargeback.\nChargebackReversedReceived - a pending chargeback reversal.\nChargebackReversed - a reversed chargeback.\nConverted - converted.\nManualCorrected - manual booking/adjustment by Adyen.\nPayout - a payout.\nPayoutReversed - a reversed payout.\nPendingFundTransfer - a pending transfer of funds from one account to another.\nFundTransfer - a transfer of funds from one account to another.",
+      "required": false
+    }
+  },
+  "res": {
+    "accountTransactionLists": {
+      "type": "array",
+      "desc": "A list of the transactions.",
+      "required": true,
+      "children": {
+        "accountCode": {
+          "type": "string",
+          "desc": "The code of the account.",
+          "required": false
+        },
+        "hasNextPage": {
+          "type": "boolean",
+          "desc": "Indicates whether there is a next page of transactions available.",
+          "required": false
+        },
+        "transactions": {
+          "type": "array",
+          "desc": "The list of transactions.",
+          "required": true,
+          "children": {
+            "amount": {
+              "type": "string",
+              "desc": "The amount of the transaction.",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "bankAccountDetail": {
+              "type": "string",
+              "desc": "The details of the bank account to where a payout was made.",
+              "required": false,
+              "children": {
+                "accountNumber": {
+                  "type": "string",
+                  "desc": "The bank account number (without separators).\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "accountType": {
+                  "type": "string",
+                  "desc": "The type of bank account.\nOnly applicable to bank accounts held in the USA.\nThe permitted values are: checking, savings.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "bankAccountName": {
+                  "type": "string",
+                  "desc": "The name of the bank account.",
+                  "required": false
+                },
+                "bankAccountReference": {
+                  "type": "string",
+                  "desc": "Merchant reference to the bank account.",
+                  "required": false
+                },
+                "bankAccountUUID": {
+                  "type": "string",
+                  "desc": "The unique identifier (UUID) of the Bank Account.\n\nIf, during an account holder create or update request, this field is left blank (but other fields provided), a new Bank Account will be created with a procedurally-generated UUID.\n\n\nIf, during an account holder create request, a UUID is provided, the creation of the Bank Account will fail while the creation of the account holder will continue.\n\n\nIf, during an account holder update request, a UUID that is not correlated with an existing Bank Account is provided, the update of the account holder will fail.\n\n\nIf, during an account holder update request, a UUID that is correlated with an existing Bank Account is provided, the existing Bank Account will be updated.",
+                  "required": false
+                },
+                "bankBicSwift": {
+                  "type": "string",
+                  "desc": "The bank identifier code.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "bankCity": {
+                  "type": "string",
+                  "desc": "The city in which the bank branch is located.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "bankCode": {
+                  "type": "string",
+                  "desc": "The bank code of the banking institution with which the bank account is registered.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "bankName": {
+                  "type": "string",
+                  "desc": "The name of the banking institution with which the bank account is held.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "branchCode": {
+                  "type": "string",
+                  "desc": "The branch code of the branch under which the bank account is registered. The value to be specified in this parameter depends on the country of the bank account:\n\nUnited States - Routing number\nUnited Kingdom - Sort code\nGermany - Bankleitzahl\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "checkCode": {
+                  "type": "string",
+                  "desc": "The check code of the bank account.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "countryCode": {
+                  "type": "string",
+                  "desc": "The two-letter country code in which the bank account is registered.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "currencyCode": {
+                  "type": "string",
+                  "desc": "The currency in which the bank account deals.\n\nThe permitted currency codes are defined in ISO-4217 (e.g. 'EUR').\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "iban": {
+                  "type": "string",
+                  "desc": "The international bank account number.\n\nThe IBAN standard is defined in ISO-13616.\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "ownerCity": {
+                  "type": "string",
+                  "desc": "The city of residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "ownerCountryCode": {
+                  "type": "string",
+                  "desc": "The country code of the country of residence of the bank account owner.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "ownerDateOfBirth": {
+                  "type": "string",
+                  "desc": "The date of birth of the bank account owner.",
+                  "required": false
+                },
+                "ownerHouseNumberOrName": {
+                  "type": "string",
+                  "desc": "The house name or number of the residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "ownerName": {
+                  "type": "string",
+                  "desc": "The name of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "ownerNationality": {
+                  "type": "string",
+                  "desc": "The country code of the country of nationality of the bank account owner.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "ownerPostalCode": {
+                  "type": "string",
+                  "desc": "The postal code of the residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "ownerState": {
+                  "type": "string",
+                  "desc": "The state of residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "ownerStreet": {
+                  "type": "string",
+                  "desc": "The street name of the residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "primaryAccount": {
+                  "type": "boolean",
+                  "desc": "If set to true, the bank account is a primary account.",
+                  "required": false
+                },
+                "taxId": {
+                  "type": "string",
+                  "desc": "The tax ID number.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                },
+                "urlForVerification": {
+                  "type": "string",
+                  "desc": "The URL to be used for bank account verification.\nThis may be generated on bank account creation.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+                  "required": false
+                }
+              }
+            },
+            "captureMerchantReference": {
+              "type": "string",
+              "desc": "The merchant reference of a related capture.",
+              "required": false
+            },
+            "capturePspReference": {
+              "type": "string",
+              "desc": "The psp reference of a related capture.",
+              "required": false
+            },
+            "creationDate": {
+              "type": "string",
+              "desc": "The date on which the transaction was performed.",
+              "required": false
+            },
+            "description": {
+              "type": "string",
+              "desc": "A description of the transaction.",
+              "required": false
+            },
+            "destinationAccountCode": {
+              "type": "string",
+              "desc": "The code of the account to which funds were credited during an outgoing fund transfer.",
+              "required": false
+            },
+            "disputePspReference": {
+              "type": "string",
+              "desc": "The psp reference of the related dispute.",
+              "required": false
+            },
+            "disputeReasonCode": {
+              "type": "string",
+              "desc": "The reason code of a dispute.",
+              "required": false
+            },
+            "merchantReference": {
+              "type": "string",
+              "desc": "The merchant reference of a transaction.",
+              "required": false
+            },
+            "paymentPspReference": {
+              "type": "string",
+              "desc": "The psp reference of the related authorisation or transfer.",
+              "required": false
+            },
+            "payoutPspReference": {
+              "type": "string",
+              "desc": "The psp reference of the related payout.",
+              "required": false
+            },
+            "pspReference": {
+              "type": "string",
+              "desc": "The psp reference of a transaction.",
+              "required": false
+            },
+            "sourceAccountCode": {
+              "type": "string",
+              "desc": "The code of the account from which funds were debited during an incoming fund transfer.",
+              "required": false
+            },
+            "transactionStatus": {
+              "type": "string",
+              "desc": "The status of the transaction.\n\nPermitted values: PendingCredit, CreditFailed, Credited, Converted, PendingDebit, DebitFailed, Debited, DebitReversedReceived, DebitedReversed, ChargebackReceived, Chargeback, ChargebackReversedReceived, ChargebackReversed, Payout, PayoutReversed, FundTransfer, PendingFundTransfer, ManualCorrected.",
+              "required": false
+            },
+            "transferCode": {
+              "type": "string",
+              "desc": "The transfer code of the transaction.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

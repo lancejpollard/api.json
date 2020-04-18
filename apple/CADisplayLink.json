@@ -1,0 +1,86 @@
+{
+  "type": "Class",
+  "name": "CADisplayLink",
+  "desc": "A timer object that allows your application to synchronize its drawing to the refresh rate of the display.",
+  "items": [
+    {
+      "name": "add",
+      "type": "func",
+      "desc": "Registers the display link with a run loop.",
+      "params": [
+        {
+          "name": "to",
+          "type": "RunLoop"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes the display link from the run loop for the given mode.",
+      "params": [
+        {
+          "name": "from",
+          "type": "RunLoop"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "invalidate",
+      "type": "func",
+      "desc": "Removes the display link from all run loop modes.",
+      "params": []
+    },
+    {
+      "name": "duration",
+      "type": "var",
+      "datatype": "CFTimeInterval",
+      "desc": "The time interval between screen refresh updates."
+    },
+    {
+      "name": "preferredFramesPerSecond",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The preferred frame rate for the display link callback."
+    },
+    {
+      "name": "frameInterval",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of frames that must pass before the display link notifies the target again."
+    },
+    {
+      "name": "isPaused",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that states whether the display link’s notifications to the target are suspended."
+    },
+    {
+      "name": "timestamp",
+      "type": "var",
+      "datatype": "CFTimeInterval",
+      "desc": "The time value associated with the last frame that was displayed."
+    },
+    {
+      "name": "targetTimestamp",
+      "type": "var",
+      "datatype": "CFTimeInterval",
+      "desc": "The time value associated with the next frame that was displayed."
+    },
+    {
+      "name": "CACurrentMediaTime",
+      "type": "func",
+      "desc": "Returns the current absolute time, in seconds.",
+      "params": [],
+      "returnType": "CFTimeInterval"
+    }
+  ]
+}

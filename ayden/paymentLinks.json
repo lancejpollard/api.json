@@ -1,0 +1,192 @@
+{
+  "path": "/paymentLinks",
+  "method": "POST",
+  "desc": "Creates a payment link to our hosted payment form where shoppers can pay. The list of payment methods presented to the shopper depends on the currency and country parameters sent in the request.\nFor more information, refer to Pay by Link documentation.",
+  "req": {
+    "allowedPaymentMethods": {
+      "type": "array",
+      "desc": "List of payments methods to be presented to the shopper. To refer to payment methods, use their paymentMethod.type from Payment methods overview.\nExample: \"allowedPaymentMethods\":[\"ideal\",\"giropay\"]",
+      "required": false
+    },
+    "amount": {
+      "type": "string",
+      "desc": "The amount information for the transaction (in minor units). For BIN or card verification requests, set amount to 0 (zero).",
+      "required": true,
+      "children": {
+        "currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": true
+        },
+        "value": {
+          "type": "integer",
+          "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+          "required": true
+        }
+      }
+    },
+    "billingAddress": {
+      "type": "string",
+      "desc": "The address where to send the invoice.\n\nFor 3D Secure 2 transactions, schemes require the billingAddress for both deviceChannel browser and app. Include all of the fields within this object.",
+      "required": true,
+      "children": {
+        "city": {
+          "type": "string",
+          "desc": "The name of the city.",
+          "required": true
+        },
+        "country": {
+          "type": "string",
+          "desc": "The two-character country code as defined in ISO-3166-1 alpha-2. For example, US.\n\nIf you don't know the country or are not collecting the country from the shopper, provide country as ZZ.",
+          "required": true
+        },
+        "houseNumberOrName": {
+          "type": "string",
+          "desc": "The number or name of the house.",
+          "required": true
+        },
+        "postalCode": {
+          "type": "string",
+          "desc": "A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.",
+          "required": true
+        },
+        "stateOrProvince": {
+          "type": "string",
+          "desc": "State or province codes as defined in ISO 3166-2. For example, CA in the US or ON in Canada.\n\nRequired for the US and Canada.",
+          "required": false
+        },
+        "street": {
+          "type": "string",
+          "desc": "The name of the street.\n\nThe house number should not be included in this field; it should be separately provided via houseNumberOrName.",
+          "required": true
+        }
+      }
+    },
+    "blockedPaymentMethods": {
+      "type": "array",
+      "desc": "List of payments methods to be hidden from the shopper. To refer to payment methods, use their paymentMethod.type from Payment methods overview.\nExample: \"blockedPaymentMethods\":[\"ideal\",\"giropay\"]",
+      "required": false
+    },
+    "countryCode": {
+      "type": "string",
+      "desc": "The shopper's country code.",
+      "required": true
+    },
+    "deliveryAddress": {
+      "type": "string",
+      "desc": "The address where the purchased goods should be delivered.",
+      "required": true,
+      "children": {
+        "city": {
+          "type": "string",
+          "desc": "The name of the city.",
+          "required": true
+        },
+        "country": {
+          "type": "string",
+          "desc": "The two-character country code as defined in ISO-3166-1 alpha-2. For example, US.\n\nIf you don't know the country or are not collecting the country from the shopper, provide country as ZZ.",
+          "required": true
+        },
+        "houseNumberOrName": {
+          "type": "string",
+          "desc": "The number or name of the house.",
+          "required": true
+        },
+        "postalCode": {
+          "type": "string",
+          "desc": "A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.",
+          "required": true
+        },
+        "stateOrProvince": {
+          "type": "string",
+          "desc": "State or province codes as defined in ISO 3166-2. For example, CA in the US or ON in Canada.\n\nRequired for the US and Canada.",
+          "required": false
+        },
+        "street": {
+          "type": "string",
+          "desc": "The name of the street.\n\nThe house number should not be included in this field; it should be separately provided via houseNumberOrName.",
+          "required": true
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "desc": "A short description visible on the Pay By Link page.\nMaximum length: 280 characters.",
+      "required": false
+    },
+    "expiresAt": {
+      "type": "string",
+      "desc": "The date that the Pay By Link expires, in ISO 8601 format. For example, 2019-11-23T12:25:28Z. Maximum expiry date should be 30 days from when the payment link is created. If not provided, the default expiry duration is 24 hours.",
+      "required": false
+    },
+    "merchantAccount": {
+      "type": "string",
+      "desc": "The merchant account identifier, with which you want to process the transaction.",
+      "required": true
+    },
+    "reference": {
+      "type": "string",
+      "desc": "The reference to uniquely identify a payment. This reference is used in all communication with you about the payment status. We recommend using a unique value per payment; however, it is not a requirement.\nIf you need to provide multiple references for a transaction, separate them with hyphens (\"-\").\nMaximum length: 80 characters.",
+      "required": true
+    },
+    "returnUrl": {
+      "type": "string",
+      "desc": "Website URL used for redirection after payment is completed.\nIf provided, a Continue button will be shown on the page. If shoppers select the button, they are redirected to the specified URL.",
+      "required": false
+    },
+    "shopperEmail": {
+      "type": "string",
+      "desc": "The shopper's email address. We recommend that you provide this data, as it is used in velocity fraud checks.\n\nFor 3D Secure 2 transactions, schemes require the shopperEmail for both deviceChannel browser and app.",
+      "required": false
+    },
+    "shopperLocale": {
+      "type": "string",
+      "desc": "The combination of a language code and a country code to specify the language to be used in the payment.",
+      "required": false
+    },
+    "shopperReference": {
+      "type": "string",
+      "desc": "The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID).\n\nThis field is required for recurring payments.",
+      "required": false
+    },
+    "storePaymentMethod": {
+      "type": "boolean",
+      "desc": "When true and shopperReference is provided, the payment details will be stored.",
+      "required": false
+    }
+  },
+  "res": {
+    "amount": {
+      "type": "string",
+      "desc": "The amount for which the Pay By Link URL was created.",
+      "required": true,
+      "children": {
+        "currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": true
+        },
+        "value": {
+          "type": "integer",
+          "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+          "required": true
+        }
+      }
+    },
+    "expiresAt": {
+      "type": "string",
+      "desc": "The date that the Pay By Link expires; e.g. 2019-03-23T12:25:28Z.",
+      "required": true
+    },
+    "reference": {
+      "type": "string",
+      "desc": "The reference that was specified when the Pay By Link URL was created.",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "desc": "The URL at which the shopper can complete the payment.",
+      "required": true
+    }
+  }
+}

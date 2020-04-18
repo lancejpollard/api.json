@@ -1,0 +1,93 @@
+{
+  "type": "Class",
+  "name": "AUAudioUnitBusArray",
+  "desc": "The AUAudioUnitBusArray class defines a container for an audio unit’s input or output busses.",
+  "items": [
+    {
+      "name": "count",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of busses in the array."
+    },
+    {
+      "name": "isCountChangeable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Determines whether the array can have a variable number of busses."
+    },
+    {
+      "name": "ownerAudioUnit",
+      "type": "var",
+      "datatype": "AUAudioUnit",
+      "desc": "The audio unit that owns the bus array."
+    },
+    {
+      "name": "busType",
+      "type": "var",
+      "datatype": "AUAudioUnitBusType",
+      "desc": "Determines whether the bus array is for input or output."
+    },
+    {
+      "name": "setBusCount",
+      "type": "func",
+      "desc": "Changes the number of busses in the array.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "addObserver",
+      "type": "func",
+      "desc": "Adds a KVO observer for a given property on all busses in the array.",
+      "params": [
+        {
+          "name": "toAllBusses",
+          "type": "NSObject"
+        },
+        {
+          "name": "forKeyPath",
+          "type": "String"
+        },
+        {
+          "name": "options",
+          "type": "NSKeyValueObservingOptions"
+        },
+        {
+          "name": "context",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "removeObserver",
+      "type": "func",
+      "desc": "Removes a KVO observer for a given property on all busses in the array.",
+      "params": [
+        {
+          "name": "fromAllBusses",
+          "type": "NSObject"
+        },
+        {
+          "name": "forKeyPath",
+          "type": "String"
+        },
+        {
+          "name": "context",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "replaceBusses",
+      "type": "func",
+      "desc": "Replaces the current bus array with a copy of the supplied bus array.",
+      "params": [
+        {
+          "type": "[AUAudioUnitBus]"
+        }
+      ]
+    }
+  ]
+}

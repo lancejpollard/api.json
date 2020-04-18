@@ -1,0 +1,253 @@
+{
+  "type": "Class",
+  "name": "Progress",
+  "desc": "An object that conveys ongoing progress for a given task to the user.",
+  "items": [
+    {
+      "name": "discreteProgress",
+      "type": "class func",
+      "desc": "Creates and returns an NSProgress instance with the specified totalUnitCount that is not part of any existing progress tree. The instance is initialized using init(parent:userInfo:) with the parent set to nil.",
+      "params": [
+        {
+          "name": "totalUnitCount",
+          "type": "Int64"
+        }
+      ],
+      "returnType": "Progress"
+    },
+    {
+      "name": "current",
+      "type": "class func",
+      "desc": "Returns the NSProgress instance, if any, associated with the current thread by a previous invocation of becomeCurrent(withPendingUnitCount:).",
+      "params": [],
+      "returnType": "Progress?"
+    },
+    {
+      "name": "becomeCurrent",
+      "type": "func",
+      "desc": "Sets the receiver as the current progress object of the current thread and specifies the portion of work to be performed by the next child progress object of the receiver.",
+      "params": [
+        {
+          "name": "withPendingUnitCount",
+          "type": "Int64"
+        }
+      ]
+    },
+    {
+      "name": "addChild",
+      "type": "func",
+      "desc": "Add a process object as a child of a progress tree. The inUnitCount indicates the expected work for the progress unit.",
+      "params": [
+        {
+          "type": "Progress"
+        },
+        {
+          "name": "withPendingUnitCount",
+          "type": "Int64"
+        }
+      ]
+    },
+    {
+      "name": "resignCurrent",
+      "type": "func",
+      "desc": "Balance the most recent previous invocation of becomeCurrent(withPendingUnitCount:) on the same thread by restoring the current progress object to what it was before becomeCurrent(withPendingUnitCount:) was invoked.",
+      "params": []
+    },
+    {
+      "name": "totalUnitCount",
+      "type": "var",
+      "datatype": "Int64",
+      "desc": "The total number of units of work tracked for the current progress."
+    },
+    {
+      "name": "completedUnitCount",
+      "type": "var",
+      "datatype": "Int64",
+      "desc": "The number of units of work for the current job that have already been completed."
+    },
+    {
+      "name": "localizedDescription",
+      "type": "var",
+      "datatype": "String!",
+      "desc": "A localized description of progress tracked by the receiver."
+    },
+    {
+      "name": "localizedAdditionalDescription",
+      "type": "var",
+      "datatype": "String!",
+      "desc": "A more specific localized description of progress tracked by the receiver."
+    },
+    {
+      "name": "fractionCompleted",
+      "type": "var",
+      "datatype": "Double",
+      "desc": "The fraction of the overall work completed by this progress object, including work done by any children it may have."
+    },
+    {
+      "name": "isCancellable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the receiver is tracking work that can be cancelled."
+    },
+    {
+      "name": "isCancelled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the receiver is tracking work that has been cancelled."
+    },
+    {
+      "name": "cancel",
+      "type": "func",
+      "desc": "Cancel progress tracking.",
+      "params": []
+    },
+    {
+      "name": "cancellationHandler",
+      "type": "var",
+      "datatype": "(()",
+      "desc": "The block to invoke when progress is cancelled."
+    },
+    {
+      "name": "isPausable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the receiver is tracking work that can be paused."
+    },
+    {
+      "name": "isPaused",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the receiver is tracking work that has been paused."
+    },
+    {
+      "name": "pause",
+      "type": "func",
+      "desc": "Pause progress tracking.",
+      "params": []
+    },
+    {
+      "name": "pausingHandler",
+      "type": "var",
+      "datatype": "(()",
+      "desc": "The block to invoke when progress is paused."
+    },
+    {
+      "name": "resume",
+      "type": "func",
+      "desc": "Resume progress tracking.",
+      "params": []
+    },
+    {
+      "name": "resumingHandler",
+      "type": "var",
+      "datatype": "(()",
+      "desc": "The block to invoke when progress is resumed."
+    },
+    {
+      "name": "isIndeterminate",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the tracked progress is indeterminate."
+    },
+    {
+      "name": "kind",
+      "type": "var",
+      "datatype": "ProgressKind?",
+      "desc": "A string identifying the kind of progress being made."
+    },
+    {
+      "name": "setUserInfoObject",
+      "type": "func",
+      "desc": "Set a value in the userInfo dictionary.",
+      "params": [
+        {
+          "type": "Any?"
+        },
+        {
+          "name": "forKey",
+          "type": "ProgressUserInfoKey"
+        }
+      ]
+    },
+    {
+      "name": "userInfo",
+      "type": "var",
+      "datatype": "[ProgressUserInfoKey",
+      "desc": "A dictionary of arbitrary values associated with the receiver."
+    },
+    {
+      "name": "estimatedTimeRemaining",
+      "type": "var",
+      "datatype": "TimeInterval?"
+    },
+    {
+      "name": "fileCompletedCount",
+      "type": "var",
+      "datatype": "Int?"
+    },
+    {
+      "name": "fileOperationKind",
+      "type": "var",
+      "datatype": "Progress.FileOperationKind?"
+    },
+    {
+      "name": "fileTotalCount",
+      "type": "var",
+      "datatype": "Int?"
+    },
+    {
+      "name": "fileURL",
+      "type": "var",
+      "datatype": "URL?"
+    },
+    {
+      "name": "isFinished",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "isOld",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "throughput",
+      "type": "var",
+      "datatype": "Int?"
+    },
+    {
+      "name": "publish",
+      "type": "func",
+      "params": []
+    },
+    {
+      "name": "unpublish",
+      "type": "func",
+      "params": []
+    },
+    {
+      "name": "addSubscriber",
+      "type": "class func",
+      "params": [
+        {
+          "name": "forFileURL",
+          "type": "URL"
+        },
+        {
+          "name": "withPublishingHandler",
+          "type": "Progress.PublishingHandler"
+        }
+      ],
+      "returnType": "Any"
+    },
+    {
+      "name": "removeSubscriber",
+      "type": "class func",
+      "params": [
+        {
+          "type": "Any"
+        }
+      ]
+    }
+  ]
+}

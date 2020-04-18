@@ -1,0 +1,334 @@
+{
+  "type": "Class",
+  "name": "NSAppleEventDescriptor",
+  "desc": "A wrapper for the Apple event descriptor data type.",
+  "items": [
+    {
+      "name": "appleEvent",
+      "type": "class func",
+      "desc": "Creates a descriptor that represents an Apple event, initialized according to the specified information.",
+      "params": [
+        {
+          "name": "withEventClass",
+          "type": "AEEventClass"
+        },
+        {
+          "name": "eventID",
+          "type": "AEEventID"
+        },
+        {
+          "name": "targetDescriptor",
+          "type": "NSAppleEventDescriptor?"
+        },
+        {
+          "name": "returnID",
+          "type": "AEReturnID"
+        },
+        {
+          "name": "transactionID",
+          "type": "AETransactionID"
+        }
+      ],
+      "returnType": "NSAppleEventDescriptor"
+    },
+    {
+      "name": "list",
+      "type": "class func",
+      "desc": "Creates and initializes an empty list descriptor.",
+      "params": [],
+      "returnType": "NSAppleEventDescriptor"
+    },
+    {
+      "name": "null",
+      "type": "class func",
+      "desc": "Creates and initializes a descriptor with no parameter or attribute values set.",
+      "params": [],
+      "returnType": "NSAppleEventDescriptor"
+    },
+    {
+      "name": "record",
+      "type": "class func",
+      "desc": "Creates and initializes a descriptor for an Apple event record whose data has yet to be set.",
+      "params": [],
+      "returnType": "NSAppleEventDescriptor"
+    },
+    {
+      "name": "aeDesc",
+      "type": "var",
+      "datatype": "UnsafePointer<AEDesc>?",
+      "desc": "The AEDesc structure encapsulated by the receiver, if it has one."
+    },
+    {
+      "name": "booleanValue",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "The contents of the receiver as a Boolean value, coercing (to typeBoolean) if necessary."
+    },
+    {
+      "name": "coerce",
+      "type": "func",
+      "desc": "Returns a descriptor obtained by coercing the receiver to the specified type.",
+      "params": [
+        {
+          "name": "toDescriptorType",
+          "type": "DescType"
+        }
+      ],
+      "returnType": "NSAppleEventDescriptor?"
+    },
+    {
+      "name": "data",
+      "type": "var",
+      "datatype": "Data",
+      "desc": "The receiver’s data."
+    },
+    {
+      "name": "descriptorType",
+      "type": "var",
+      "datatype": "DescType",
+      "desc": "The descriptor type of the receiver."
+    },
+    {
+      "name": "enumCodeValue",
+      "type": "var",
+      "datatype": "OSType",
+      "desc": "The contents of the receiver as an enumeration type, coercing to typeEnumerated if necessary."
+    },
+    {
+      "name": "int32Value",
+      "type": "var",
+      "datatype": "Int32",
+      "desc": "The contents of the receiver as an integer, coercing (to typeSInt32) if necessary."
+    },
+    {
+      "name": "numberOfItems",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of descriptors in the receiver’s descriptor list."
+    },
+    {
+      "name": "stringValue",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The contents of the receiver as a Unicode text string, coercing to typeUnicodeText if necessary."
+    },
+    {
+      "name": "typeCodeValue",
+      "type": "var",
+      "datatype": "OSType",
+      "desc": "The contents of the receiver as a type, coercing to typeType if necessary."
+    },
+    {
+      "name": "atIndex",
+      "type": "func",
+      "desc": "Returns the descriptor at the specified (one-based) position in the receiving descriptor list.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "NSAppleEventDescriptor?"
+    },
+    {
+      "name": "insert",
+      "type": "func",
+      "desc": "Inserts a descriptor at the specified (one-based) position in the receiving descriptor list, replacing the existing descriptor, if any, at that position.",
+      "params": [
+        {
+          "type": "NSAppleEventDescriptor"
+        },
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes the descriptor at the specified (one-based) position in the receiving descriptor list.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "forKeyword",
+      "type": "func",
+      "desc": "Returns the receiver’s descriptor for the specified keyword.",
+      "params": [
+        {
+          "type": "AEKeyword"
+        }
+      ],
+      "returnType": "NSAppleEventDescriptor?"
+    },
+    {
+      "name": "keywordForDescriptor",
+      "type": "func",
+      "desc": "Returns the keyword for the descriptor at the specified (one-based) position in the receiver.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ],
+      "returnType": "AEKeyword"
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes the receiver’s descriptor identified by the specified keyword.",
+      "params": [
+        {
+          "name": "withKeyword",
+          "type": "AEKeyword"
+        }
+      ]
+    },
+    {
+      "name": "setDescriptor",
+      "type": "func",
+      "desc": "Adds a descriptor, identified by a keyword, to the receiver.",
+      "params": [
+        {
+          "type": "NSAppleEventDescriptor"
+        },
+        {
+          "name": "forKeyword",
+          "type": "AEKeyword"
+        }
+      ]
+    },
+    {
+      "name": "attributeDescriptor",
+      "type": "func",
+      "desc": "Returns a descriptor for the receiver’s Apple event attribute identified by the specified keyword.",
+      "params": [
+        {
+          "name": "forKeyword",
+          "type": "AEKeyword"
+        }
+      ],
+      "returnType": "NSAppleEventDescriptor?"
+    },
+    {
+      "name": "eventClass",
+      "type": "var",
+      "datatype": "AEEventClass",
+      "desc": "The event class for the receiver."
+    },
+    {
+      "name": "eventID",
+      "type": "var",
+      "datatype": "AEEventID",
+      "desc": "The event ID for the receiver."
+    },
+    {
+      "name": "paramDescriptor",
+      "type": "func",
+      "desc": "Returns a descriptor for the receiver’s Apple event parameter identified by the specified keyword.",
+      "params": [
+        {
+          "name": "forKeyword",
+          "type": "AEKeyword"
+        }
+      ],
+      "returnType": "NSAppleEventDescriptor?"
+    },
+    {
+      "name": "removeParamDescriptor",
+      "type": "func",
+      "desc": "Removes the receiver’s parameter descriptor identified by the specified keyword.",
+      "params": [
+        {
+          "name": "withKeyword",
+          "type": "AEKeyword"
+        }
+      ]
+    },
+    {
+      "name": "returnID",
+      "type": "var",
+      "datatype": "AEReturnID",
+      "desc": "The receiver’s return ID (the ID for a reply Apple event)."
+    },
+    {
+      "name": "setAttribute",
+      "type": "func",
+      "desc": "Adds a descriptor to the receiver as an attribute identified by the specified keyword.",
+      "params": [
+        {
+          "type": "NSAppleEventDescriptor"
+        },
+        {
+          "name": "forKeyword",
+          "type": "AEKeyword"
+        }
+      ]
+    },
+    {
+      "name": "setParam",
+      "type": "func",
+      "desc": "Adds a descriptor to the receiver as an Apple event parameter identified by the specified keyword.",
+      "params": [
+        {
+          "type": "NSAppleEventDescriptor"
+        },
+        {
+          "name": "forKeyword",
+          "type": "AEKeyword"
+        }
+      ]
+    },
+    {
+      "name": "transactionID",
+      "type": "var",
+      "datatype": "AETransactionID",
+      "desc": "The receiver’s transaction ID, if any."
+    },
+    {
+      "name": "dateValue",
+      "type": "var",
+      "datatype": "Date?"
+    },
+    {
+      "name": "doubleValue",
+      "type": "var",
+      "datatype": "Double"
+    },
+    {
+      "name": "fileURLValue",
+      "type": "var",
+      "datatype": "URL?"
+    },
+    {
+      "name": "isRecordDescriptor",
+      "type": "var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "sendEvent",
+      "type": "func",
+      "params": [
+        {
+          "name": "options",
+          "type": "NSAppleEventDescriptor.SendOptions"
+        },
+        {
+          "name": "timeout",
+          "type": "TimeInterval"
+        }
+      ],
+      "returnType": "NSAppleEventDescriptor"
+    },
+    {
+      "name": "currentProcess",
+      "type": "class func",
+      "params": [],
+      "returnType": "NSAppleEventDescriptor"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "DialingPermissions BulkCountryUpdate",
+  "attrs": {
+    "update_count": {
+      "type": "integer",
+      "desc": "The number of countries updated"
+    },
+    "update_request": {
+      "type": "string",
+      "desc": "A bulk update request to change voice dialing country permissions stored as a URL-encoded, JSON array of update objects. For example : [ { \"iso_code\": \"GB\", \"low_risk_numbers_enabled\": \"true\", \"high_risk_special_numbers_enabled\":\"true\", \"high_risk_tollfraud_numbers_enabled\": \"false\" } ]"
+    }
+  },
+  "actions": [
+    {
+      "title": "Create a DialingPermissions BulkCountryUpdate resource",
+      "method": "post",
+      "url": "https://voice.twilio.com/v1/DialingPermissions/BulkCountryUpdates",
+      "desc": null,
+      "req": {
+        "UpdateRequest": {
+          "type": "string",
+          "desc": "URL encoded JSON array of update objects. example : [ { \"iso_code\": \"GB\", \"low_risk_numbers_enabled\": \"true\", \"high_risk_special_numbers_enabled\":\"true\", \"high_risk_tollfraud_numbers_enabled\": \"false\" } ]",
+          "required": true
+        }
+      }
+    }
+  ]
+}

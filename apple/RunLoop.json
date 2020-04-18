@@ -1,0 +1,201 @@
+{
+  "type": "Class",
+  "name": "RunLoop",
+  "desc": "The programmatic interface to objects that manage input sources.",
+  "items": [
+    {
+      "name": "current",
+      "type": "class var",
+      "datatype": "RunLoop",
+      "desc": "Returns the run loop for the current thread."
+    },
+    {
+      "name": "currentMode",
+      "type": "var",
+      "datatype": "RunLoop.Mode?",
+      "desc": "The receiver's current input mode."
+    },
+    {
+      "name": "limitDate",
+      "type": "func",
+      "desc": "Performs one pass through the run loop in the specified mode and returns the date at which the next timer is scheduled to fire.",
+      "params": [
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ],
+      "returnType": "Date?"
+    },
+    {
+      "name": "main",
+      "type": "class var",
+      "datatype": "RunLoop",
+      "desc": "Returns the run loop of the main thread."
+    },
+    {
+      "name": "getCFRunLoop",
+      "type": "func",
+      "desc": "Returns the receiver's underlying CFRunLoop object.",
+      "params": [],
+      "returnType": "CFRunLoop"
+    },
+    {
+      "name": "add",
+      "type": "func",
+      "desc": "Registers a given timer with a given input mode.",
+      "params": [
+        {
+          "type": "Timer"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "add",
+      "type": "func",
+      "desc": "Adds a port as an input source to the specified mode of the run loop.",
+      "params": [
+        {
+          "type": "Port"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes a port from the specified input mode of the run loop.",
+      "params": [
+        {
+          "type": "Port"
+        },
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "type": "func",
+      "desc": "Puts the receiver into a permanent loop, during which time it processes data from all attached input sources.",
+      "params": []
+    },
+    {
+      "name": "run",
+      "type": "func",
+      "desc": "Runs the loop once, blocking for input in the specified mode until a given date.",
+      "params": [
+        {
+          "name": "mode",
+          "type": "RunLoop.Mode"
+        },
+        {
+          "name": "before",
+          "type": "Date"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "run",
+      "type": "func",
+      "desc": "Runs the loop until the specified date, during which time it processes data from all attached input sources.",
+      "params": [
+        {
+          "name": "until",
+          "type": "Date"
+        }
+      ]
+    },
+    {
+      "name": "acceptInput",
+      "type": "func",
+      "desc": "Runs the loop once or until the specified date, accepting input only for the specified mode.",
+      "params": [
+        {
+          "name": "forMode",
+          "type": "RunLoop.Mode"
+        },
+        {
+          "name": "before",
+          "type": "Date"
+        }
+      ]
+    },
+    {
+      "name": "perform",
+      "type": "func",
+      "desc": "Schedules the sending of a message on the receiver.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "target",
+          "type": "Any"
+        },
+        {
+          "name": "argument",
+          "type": "Any?"
+        },
+        {
+          "name": "order",
+          "type": "Int"
+        },
+        {
+          "name": "modes",
+          "type": "[RunLoop.Mode]"
+        }
+      ]
+    },
+    {
+      "name": "cancelPerform",
+      "type": "func",
+      "desc": "Cancels the sending of a previously scheduled message.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "target",
+          "type": "Any"
+        },
+        {
+          "name": "argument",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "cancelPerformSelectors",
+      "type": "func",
+      "desc": "Cancels all outstanding ordered performs scheduled with a given target.",
+      "params": [
+        {
+          "name": "withTarget",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "name": "minimumTolerance",
+      "type": "var",
+      "datatype": "RunLoop.SchedulerTimeType.Stride",
+      "desc": "The minimum tolerance allowed by the run loop scheduler."
+    },
+    {
+      "name": "now",
+      "type": "var",
+      "datatype": "RunLoop.SchedulerTimeType",
+      "desc": "The run loop scheduler’s definition of the current moment in time."
+    }
+  ]
+}

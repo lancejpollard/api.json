@@ -1,0 +1,108 @@
+{
+  "type": "Transcription",
+  "attrs": {
+    "account_sid": {
+      "type": "sid<AC>",
+      "desc": "The SID of the Account that created the Transcription resource."
+    },
+    "api_version": {
+      "type": "string",
+      "desc": "The API version used to create the transcription."
+    },
+    "date_created": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that the resource was created specified in RFC 2822 format."
+    },
+    "date_updated": {
+      "type": "date_time<rfc2822>",
+      "desc": "The date and time in GMT that the resource was last updated specified in RFC 2822 format."
+    },
+    "duration": {
+      "type": "string",
+      "desc": "The duration of the transcribed audio in seconds."
+    },
+    "price": {
+      "type": "decimal",
+      "desc": "The charge for the transcript in the currency associated with the account. This value is populated after the transcript is complete so it may not be available immediately."
+    },
+    "price_unit": {
+      "type": "currency",
+      "desc": "The currency in which price is measured, in ISO 4127 format (e.g. usd, eur, jpy)."
+    },
+    "recording_sid": {
+      "type": "sid<RE>",
+      "desc": "The SID of the Recording from which the transcription was created."
+    },
+    "sid": {
+      "type": "sid<TR>",
+      "desc": "The unique string that that we created to identify the Transcription resource."
+    },
+    "status": {
+      "type": "enum:status",
+      "desc": "The status of the transcription. Can be: in-progress, completed, failed."
+    },
+    "transcription_text": {
+      "type": "string",
+      "desc": "The text content of the transcription."
+    },
+    "type": {
+      "type": "string",
+      "desc": "The transcription type. Can only be: fast."
+    },
+    "uri": {
+      "type": "uri",
+      "desc": "The URI of the resource, relative to https://api.twilio.com."
+    }
+  },
+  "actions": [
+    {
+      "title": "Fetch a Transcription resource",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Transcriptions/{Sid}.json",
+      "desc": "Twilio will respond with the JSON metadata for the Transcription. If you append \".txt\" to the end of the Transcription resource's URI, Twilio will return only the text of the transcription:\n/2010-04-01/Accounts/{AccountSid}/Transcriptions/{TranscriptionSid}.txt",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Transcription resource to fetch.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<TR>",
+          "desc": "The Twilio-provided string that uniquely identifies the Transcription resource to fetch.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Read multiple Transcription resources",
+      "method": "get",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Transcriptions.json",
+      "desc": "Returns the full set of Transcriptions generated from all recordings in an account.\nThe list Twilio returns includes paging information.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Transcription resources to read.",
+          "required": false
+        }
+      }
+    },
+    {
+      "title": "Delete a Transcription resource",
+      "method": "delete",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Transcriptions/{Sid}.json",
+      "desc": "Delete a transcription from your account.\nIf the request is successful, Twilio will return HTTP 204 (No Content) with no body.",
+      "req": {
+        "AccountSid": {
+          "type": "sid<AC>",
+          "desc": "The SID of the Account that created the Transcription resources to delete.",
+          "required": false
+        },
+        "Sid": {
+          "type": "sid<TR>",
+          "desc": "The Twilio-provided string that uniquely identifies the Transcription resource to delete.",
+          "required": false
+        }
+      }
+    }
+  ]
+}

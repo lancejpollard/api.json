@@ -1,0 +1,654 @@
+{
+  "type": "Class",
+  "name": "NSApplication",
+  "desc": "An object that manages an app’s main event loop and resources used by all of that app’s objects.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "NSApplication",
+      "desc": "Returns the application instance, creating it if it doesn’t exist yet."
+    },
+    {
+      "name": "NSApp",
+      "type": "var",
+      "datatype": "NSApplication!",
+      "desc": "The global variable for the shared app instance."
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "NSApplicationDelegate?",
+      "desc": "The app delegate object."
+    },
+    {
+      "name": "nextEvent",
+      "type": "func",
+      "desc": "Returns the next event matching a given mask, or nil if no such event is found before a specified expiration date.",
+      "params": [
+        {
+          "name": "matching",
+          "type": "NSEvent.EventTypeMask"
+        },
+        {
+          "name": "until",
+          "type": "Date?"
+        },
+        {
+          "name": "inMode",
+          "type": "RunLoop.Mode"
+        },
+        {
+          "name": "dequeue",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "NSEvent?"
+    },
+    {
+      "name": "discardEvents",
+      "type": "func",
+      "desc": "Removes all events matching the given mask and generated before the specified event.",
+      "params": [
+        {
+          "name": "matching",
+          "type": "NSEvent.EventTypeMask"
+        },
+        {
+          "name": "before",
+          "type": "NSEvent?"
+        }
+      ]
+    },
+    {
+      "name": "currentEvent",
+      "type": "var",
+      "datatype": "NSEvent?",
+      "desc": "The last event object that the app retrieved from the event queue."
+    },
+    {
+      "name": "isRunning",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the main event loop is running."
+    },
+    {
+      "name": "run",
+      "type": "func",
+      "desc": "Starts the main event loop.",
+      "params": []
+    },
+    {
+      "name": "finishLaunching",
+      "type": "func",
+      "desc": "Activates the app, opens any files specified by the NSOpen user default, and unhighlights the app’s icon.",
+      "params": []
+    },
+    {
+      "name": "stop",
+      "type": "func",
+      "desc": "Stops the main event loop.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "sendEvent",
+      "type": "func",
+      "desc": "Dispatches an event to other objects.",
+      "params": [
+        {
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "postEvent",
+      "type": "func",
+      "desc": "Adds a given event to the receiver’s event queue.",
+      "params": [
+        {
+          "type": "NSEvent"
+        },
+        {
+          "name": "atStart",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "tryToPerform",
+      "type": "func",
+      "desc": "Dispatches an action message to the specified target.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "sendAction",
+      "type": "func",
+      "desc": "Sends the given action message to the given target.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "to",
+          "type": "Any?"
+        },
+        {
+          "name": "from",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "target",
+      "type": "func",
+      "desc": "Returns the object that receives the action message specified by the given selector.",
+      "params": [
+        {
+          "name": "forAction",
+          "type": "Selector"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "target",
+      "type": "func",
+      "desc": "Searches for an object that can receive the message specified by the given selector.",
+      "params": [
+        {
+          "name": "forAction",
+          "type": "Selector"
+        },
+        {
+          "name": "to",
+          "type": "Any?"
+        },
+        {
+          "name": "from",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "terminate",
+      "type": "func",
+      "desc": "Terminates the receiver.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "reply",
+      "type": "func",
+      "desc": "Responds to NSTerminateLater once the app knows whether it can terminate.",
+      "params": [
+        {
+          "name": "toApplicationShouldTerminate",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "isActive",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether this is the active app."
+    },
+    {
+      "name": "activate",
+      "type": "func",
+      "desc": "Makes the receiver the active app.",
+      "params": [
+        {
+          "name": "ignoringOtherApps",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "deactivate",
+      "type": "func",
+      "desc": "Deactivates the receiver.",
+      "params": []
+    },
+    {
+      "name": "disableRelaunchOnLogin",
+      "type": "func",
+      "desc": "Disables relaunching the app on login.",
+      "params": []
+    },
+    {
+      "name": "enableRelaunchOnLogin",
+      "type": "func",
+      "desc": "Enables relaunching the app on login.",
+      "params": []
+    },
+    {
+      "name": "registerForRemoteNotifications",
+      "type": "func",
+      "desc": "Register for notifications sent by Apple Push Notification service (APNs).",
+      "params": []
+    },
+    {
+      "name": "unregisterForRemoteNotifications",
+      "type": "func",
+      "desc": "Unregister for notifications received from Apple Push Notification service.",
+      "params": []
+    },
+    {
+      "name": "enabledRemoteNotificationTypes",
+      "type": "var",
+      "datatype": "NSApplication.RemoteNotificationType",
+      "desc": "The types of push notifications that the app accepts."
+    },
+    {
+      "name": "registerForRemoteNotifications",
+      "type": "func",
+      "desc": "Register to receive notifications of the specified types from a provider through the Apple Push Notification service.",
+      "params": [
+        {
+          "name": "matching",
+          "type": "NSApplication.RemoteNotificationType"
+        }
+      ]
+    },
+    {
+      "name": "isRegisteredForRemoteNotifications",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the app is registered with Apple Push Notification service (APNs)."
+    },
+    {
+      "name": "appearance",
+      "type": "var",
+      "datatype": "NSAppearance?",
+      "desc": "The appearance associated with the app’s windows."
+    },
+    {
+      "name": "effectiveAppearance",
+      "type": "var",
+      "datatype": "NSAppearance",
+      "desc": "The appearance that AppKit uses to draw the app’s interface."
+    },
+    {
+      "name": "currentSystemPresentationOptions",
+      "type": "var",
+      "datatype": "NSApplication.PresentationOptions",
+      "desc": "The set of app presentation options that are currently in effect for the system."
+    },
+    {
+      "name": "presentationOptions",
+      "type": "var",
+      "datatype": "NSApplication.PresentationOptions",
+      "desc": "The presentation options that should be in effect for the system when this app is active."
+    },
+    {
+      "name": "userInterfaceLayoutDirection",
+      "type": "var",
+      "datatype": "NSUserInterfaceLayoutDirection",
+      "desc": "The layout direction of the user interface."
+    },
+    {
+      "name": "NSUserInterfaceLayoutDirection",
+      "type": "enum",
+      "desc": "Specifies the directional flow of the user interface."
+    },
+    {
+      "name": "dockTile",
+      "type": "var",
+      "datatype": "NSDockTile",
+      "desc": "The app’s Dock tile."
+    },
+    {
+      "name": "applicationIconImage",
+      "type": "var",
+      "datatype": "NSImage!",
+      "desc": "The image used for the app’s icon."
+    },
+    {
+      "name": "toggleTouchBarCustomizationPalette",
+      "type": "func",
+      "desc": "Show or hides the interface for customizing the Touch Bar.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "requestUserAttention",
+      "type": "func",
+      "desc": "Starts a user attention request.",
+      "params": [
+        {
+          "type": "NSApplication.RequestUserAttentionType"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "NSApplication.RequestUserAttentionType",
+      "type": "enum",
+      "desc": "These constants specify the level of severity of a user attention request and are used by cancelUserAttentionRequest(_:) and requestUserAttention(_:)."
+    },
+    {
+      "name": "cancelUserAttentionRequest",
+      "type": "func",
+      "desc": "Cancels a previous user attention request.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "reply",
+      "type": "func",
+      "desc": "Handles errors that might occur when the user attempts to open or print files.",
+      "params": [
+        {
+          "name": "toOpenOrPrint",
+          "type": "NSApplication.DelegateReply"
+        }
+      ]
+    },
+    {
+      "name": "NSApplication.DelegateReply",
+      "type": "enum",
+      "desc": "Constants that indicate whether a copy or print operation was successful, was canceled, or failed."
+    },
+    {
+      "name": "registerUserInterfaceItemSearchHandler",
+      "type": "func",
+      "desc": "Register an object that provides help data to your app.",
+      "params": [
+        {
+          "type": "NSUserInterfaceItemSearching"
+        }
+      ]
+    },
+    {
+      "name": "searchString",
+      "type": "func",
+      "desc": "Searches for the string in the user interface.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "inUserInterfaceItemString",
+          "type": "String"
+        },
+        {
+          "name": "range",
+          "type": "NSRange"
+        },
+        {
+          "name": "found",
+          "type": "UnsafeMutablePointer<NSRange>?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "unregisterUserInterfaceItemSearchHandler",
+      "type": "func",
+      "desc": "Unregister an object that provides help data to your app.",
+      "params": [
+        {
+          "type": "NSUserInterfaceItemSearching"
+        }
+      ]
+    },
+    {
+      "name": "showHelp",
+      "type": "func",
+      "desc": "If your project is properly registered, and the necessary keys have been set in the property list, this method launches Help Viewer and displays the first page of your app’s help book.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "activateContextHelpMode",
+      "type": "func",
+      "desc": "Places the receiver in context-sensitive help mode.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "helpMenu",
+      "type": "var",
+      "datatype": "NSMenu?",
+      "desc": "The help menu used by the app."
+    },
+    {
+      "name": "validRequestor",
+      "type": "func",
+      "desc": "Indicates whether the receiver can send and receive the specified pasteboard types.",
+      "params": [
+        {
+          "name": "forSendType",
+          "type": "NSPasteboard.PasteboardType?"
+        },
+        {
+          "name": "returnType",
+          "type": "NSPasteboard.PasteboardType?"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "servicesProvider",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "The object that provides the services the current app advertises in the Services menu of other apps."
+    },
+    {
+      "name": "isFullKeyboardAccessEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether Full Keyboard Access is enabled in the Keyboard preference pane."
+    },
+    {
+      "name": "hideOtherApplications",
+      "type": "func",
+      "desc": "Hides all apps, except the receiver.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "unhideAllApplications",
+      "type": "func",
+      "desc": "Unhides all apps, including the receiver.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "detachDrawingThread",
+      "type": "class func",
+      "desc": "Creates and executes a new thread based on the specified target and selector.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "toTarget",
+          "type": "Any"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "reportException",
+      "type": "func",
+      "desc": "Logs a given exception by calling NSLog().",
+      "params": [
+        {
+          "type": "NSException"
+        }
+      ]
+    },
+    {
+      "name": "activationPolicy",
+      "type": "func",
+      "desc": "Returns the app’s activation policy.",
+      "params": [],
+      "returnType": "NSApplication.ActivationPolicy"
+    },
+    {
+      "name": "setActivationPolicy",
+      "type": "func",
+      "desc": "Attempts to modify the app’s activation policy.",
+      "params": [
+        {
+          "type": "NSApplication.ActivationPolicy"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "NSApplication.ActivationPolicy",
+      "type": "enum",
+      "desc": "Activation policies (used by activationPolicy) that control whether and how an app may be activated."
+    },
+    {
+      "name": "orderedDocuments",
+      "type": "var",
+      "datatype": "[NSDocument]",
+      "desc": "An array of document objects arranged according to the front-to-back ordering of their associated windows."
+    },
+    {
+      "name": "orderedWindows",
+      "type": "var",
+      "datatype": "[NSWindow]",
+      "desc": "An array of window objects arranged according to their front-to-back ordering on the screen."
+    },
+    {
+      "name": "didBecomeActiveNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted immediately after the app becomes active."
+    },
+    {
+      "name": "didChangeScreenParametersNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the configuration of the displays attached to the computer is changed."
+    },
+    {
+      "name": "didFinishLaunchingNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted at the end of the finishLaunching() method to indicate that the app has completed launching and is ready to run."
+    },
+    {
+      "name": "didHideNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted at the end of the hide(_:) method to indicate that the app is now hidden."
+    },
+    {
+      "name": "didResignActiveNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted immediately after the app gives up its active status to another app."
+    },
+    {
+      "name": "didUnhideNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted at the end of the unhideWithoutActivation() method to indicate that the app is now visible."
+    },
+    {
+      "name": "didUpdateNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted at the end of the updateWindows() method to indicate that the app has finished updating its windows."
+    },
+    {
+      "name": "willBecomeActiveNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted immediately before the app becomes active."
+    },
+    {
+      "name": "willFinishLaunchingNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted at the start of the finishLaunching() method to indicate that the app has completed its initialization process and is about to finish launching."
+    },
+    {
+      "name": "willHideNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted at the start of the hide(_:) method to indicate that the app is about to be hidden."
+    },
+    {
+      "name": "willResignActiveNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted immediately before the app gives up its active status to another app."
+    },
+    {
+      "name": "willTerminateNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted by the terminate(_:) method to indicate that the app will terminate."
+    },
+    {
+      "name": "willUnhideNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted at the start of the unhideWithoutActivation() method to indicate that the app is about to become visible."
+    },
+    {
+      "name": "willUpdateNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted at the start of the updateWindows() method to indicate that the app is about to update its windows."
+    },
+    {
+      "name": "didFinishRestoringWindowsNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the app has finished restoring windows."
+    },
+    {
+      "name": "didChangeOcclusionStateNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the app’s occlusion state changes."
+    }
+  ]
+}

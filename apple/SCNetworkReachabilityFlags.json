@@ -1,0 +1,67 @@
+{
+  "type": "Structure",
+  "name": "SCNetworkReachabilityFlags",
+  "desc": "Flags that indicate the reachability of a network node name or address, including whether a connection is required, and whether some user intervention might be required when establishing a connection.",
+  "items": [
+    {
+      "name": "transientConnection",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address can be reached via a transient connection, such as PPP."
+    },
+    {
+      "name": "reachable",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address can be reached using the current network configuration."
+    },
+    {
+      "name": "connectionRequired",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address can be reached using the current network configuration, but a connection must first be established. If this flag is set, the kSCNetworkReachabilityFlagsConnectionOnTraffic flag, kSCNetworkReachabilityFlagsConnectionOnDemand flag, or kSCNetworkReachabilityFlagsIsWWAN flag is also typically set to indicate the type of connection required. If the user must manually make the connection, the kSCNetworkReachabilityFlagsInterventionRequired flag is also set."
+    },
+    {
+      "name": "connectionOnTraffic",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address can be reached using the current network configuration, but a connection must first be established. Any traffic directed to the specified name or address will initiate the connection."
+    },
+    {
+      "name": "interventionRequired",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address can be reached using the current network configuration, but a connection must first be established."
+    },
+    {
+      "name": "connectionOnDemand",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address can be reached using the current network configuration, but a connection must first be established."
+    },
+    {
+      "name": "isLocalAddress",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address is one that is associated with a network interface on the current system."
+    },
+    {
+      "name": "isDirect",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "Network traffic to the specified node name or address will not go through a gateway, but is routed directly to one of the interfaces in the system."
+    },
+    {
+      "name": "isWWAN",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address can be reached via a cellular connection, such as EDGE or GPRS."
+    },
+    {
+      "name": "connectionAutomatic",
+      "type": "static var",
+      "datatype": "SCNetworkReachabilityFlags",
+      "desc": "The specified node name or address can be reached using the current network configuration, but a connection must first be established. Any traffic directed to the specified name or address will initiate the connection. This flag is a synonym for connectionOnTraffic."
+    }
+  ]
+}

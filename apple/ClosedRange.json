@@ -1,0 +1,545 @@
+{
+  "type": "Generic Structure",
+  "name": "ClosedRange",
+  "desc": "An interval from a lower bound up to, and including, an upper bound.",
+  "items": [
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a closed range that contains both of its bounds.",
+      "params": [
+        {
+          "type": "Self"
+        },
+        {
+          "type": "Self"
+        }
+      ],
+      "returnType": "ClosedRange<Self>"
+    },
+    {
+      "name": "relative<C>",
+      "type": "func",
+      "desc": "Returns the range of indices described by this range expression within the given collection.",
+      "params": [
+        {
+          "name": "to",
+          "type": "C"
+        }
+      ],
+      "returnType": "Range<Bound>"
+    },
+    {
+      "name": "isEmpty",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the range contains no elements."
+    },
+    {
+      "name": "count",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of elements in the collection."
+    },
+    {
+      "name": "lowerBound",
+      "type": "let",
+      "datatype": "Bound",
+      "desc": "The range’s lower bound."
+    },
+    {
+      "name": "upperBound",
+      "type": "let",
+      "datatype": "Bound",
+      "desc": "The range’s upper bound."
+    },
+    {
+      "name": "contains",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the given element is contained within the range.",
+      "params": [
+        {
+          "type": "Bound"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "~=",
+      "type": "static func",
+      "params": [
+        {
+          "type": "ClosedRange<Bound>"
+        },
+        {
+          "type": "Bound"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "clamped",
+      "type": "func",
+      "desc": "Returns a copy of this range clamped to the given limiting range.",
+      "params": [
+        {
+          "name": "to",
+          "type": "ClosedRange<Bound>"
+        }
+      ],
+      "returnType": "ClosedRange<Bound>"
+    },
+    {
+      "name": "first",
+      "type": "var",
+      "datatype": "Bound?",
+      "desc": "The first element of the collection."
+    },
+    {
+      "name": "last",
+      "type": "var",
+      "datatype": "Bound?",
+      "desc": "The last element of the collection."
+    },
+    {
+      "name": "randomElement",
+      "type": "func",
+      "desc": "Returns a random element of the collection.",
+      "params": [],
+      "returnType": "Bound?"
+    },
+    {
+      "name": "randomElement<T>",
+      "type": "func",
+      "desc": "Returns a random element of the collection, using the given generator as a source for randomness.",
+      "params": [
+        {
+          "name": "using",
+          "type": "inout T"
+        }
+      ],
+      "returnType": "Bound?"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence, up to the specified maximum length, containing the initial elements of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<ClosedRange<Bound>>"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence from the start of the collection through the specified position.",
+      "params": [
+        {
+          "name": "through",
+          "type": "Index"
+        }
+      ],
+      "returnType": "Slice<ClosedRange<Bound>>"
+    },
+    {
+      "name": "prefix",
+      "type": "func",
+      "desc": "Returns a subsequence from the start of the collection up to, but not including, the specified position.",
+      "params": [
+        {
+          "name": "upTo",
+          "type": "Index"
+        }
+      ],
+      "returnType": "Slice<ClosedRange<Bound>>"
+    },
+    {
+      "name": "suffix",
+      "type": "func",
+      "desc": "Returns a subsequence, up to the given maximum length, containing the final elements of the collection.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<ClosedRange<Bound>>"
+    },
+    {
+      "name": "suffix",
+      "type": "func",
+      "desc": "Returns a subsequence from the specified position to the end of the collection.",
+      "params": [
+        {
+          "name": "from",
+          "type": "Index"
+        }
+      ],
+      "returnType": "Slice<ClosedRange<Bound>>"
+    },
+    {
+      "name": "dropFirst",
+      "type": "func",
+      "desc": "Returns a subsequence containing all but the given number of initial elements.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<ClosedRange<Bound>>"
+    },
+    {
+      "name": "dropLast",
+      "type": "func",
+      "desc": "Returns a subsequence containing all but the specified number of final elements.",
+      "params": [
+        {
+          "type": "Int"
+        }
+      ],
+      "returnType": "Slice<ClosedRange<Bound>>"
+    },
+    {
+      "name": "lazy",
+      "type": "var",
+      "datatype": "LazySequence<ClosedRange<Bound>>",
+      "desc": "A sequence containing the same elements as this sequence, but on which some operations, such as map and filter, are implemented lazily."
+    },
+    {
+      "name": "enumerated",
+      "type": "func",
+      "desc": "Returns a sequence of pairs (n, x), where n represents a consecutive integer starting at zero and x represents an element of the sequence.",
+      "params": [],
+      "returnType": "EnumeratedSequence<ClosedRange<Bound>>"
+    },
+    {
+      "name": "underestimatedCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A value less than or equal to the number of elements in the sequence, calculated nondestructively."
+    },
+    {
+      "name": "underestimatedCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "A value less than or equal to the number of elements in the collection."
+    },
+    {
+      "name": "reversed",
+      "type": "func",
+      "desc": "Returns a view presenting the elements of the collection in reverse order.",
+      "params": [],
+      "returnType": "ReversedCollection<ClosedRange<Bound>>"
+    },
+    {
+      "name": "shuffled",
+      "type": "func",
+      "desc": "Returns the elements of the sequence, shuffled.",
+      "params": [],
+      "returnType": "[Bound]"
+    },
+    {
+      "name": "shuffled<T>",
+      "type": "func",
+      "desc": "Returns the elements of the sequence, shuffled using the given generator as a source for randomness.",
+      "params": [
+        {
+          "name": "using",
+          "type": "inout T"
+        }
+      ],
+      "returnType": "[Bound]"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two ranges are equal.",
+      "params": [
+        {
+          "type": "ClosedRange<Bound>"
+        },
+        {
+          "type": "ClosedRange<Bound>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "ClosedRange<Bound>"
+        },
+        {
+          "type": "ClosedRange<Bound>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "overlaps",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether this range and the given range contain an element in common.",
+      "params": [
+        {
+          "type": "Range<Bound>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "overlaps",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether this range and the given range contain an element in common.",
+      "params": [
+        {
+          "type": "ClosedRange<Bound>"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "startIndex",
+      "type": "var",
+      "datatype": "ClosedRange<Bound>.Index",
+      "desc": "The position of the first element in the range."
+    },
+    {
+      "name": "endIndex",
+      "type": "var",
+      "datatype": "ClosedRange<Bound>.Index",
+      "desc": "The range’s “past the end” position—that is, the position one greater than the last valid subscript argument."
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the position immediately after the given index.",
+      "params": [
+        {
+          "name": "after",
+          "type": "ClosedRange<Bound>.Index"
+        }
+      ],
+      "returnType": "ClosedRange<Bound>.Index"
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Replaces the given index with its successor.",
+      "params": [
+        {
+          "name": "after",
+          "type": "inout Index"
+        }
+      ]
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns the position immediately before the given index.",
+      "params": [
+        {
+          "name": "before",
+          "type": "ClosedRange<Bound>.Index"
+        }
+      ],
+      "returnType": "ClosedRange<Bound>.Index"
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Replaces the given index with its predecessor.",
+      "params": [
+        {
+          "name": "before",
+          "type": "inout Index"
+        }
+      ]
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns an index that is the specified distance from the given index.",
+      "params": [
+        {
+          "type": "ClosedRange<Bound>.Index"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        }
+      ],
+      "returnType": "ClosedRange<Bound>.Index"
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Offsets the given index by the specified distance.",
+      "params": [
+        {
+          "type": "inout Index"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "index",
+      "type": "func",
+      "desc": "Returns an index that is the specified distance from the given index, unless that distance is beyond a given limiting index.",
+      "params": [
+        {
+          "type": "Index"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        },
+        {
+          "name": "limitedBy",
+          "type": "Index"
+        }
+      ],
+      "returnType": "Index?"
+    },
+    {
+      "name": "formIndex",
+      "type": "func",
+      "desc": "Offsets the given index by the specified distance, or so that it equals the given limiting index.",
+      "params": [
+        {
+          "type": "inout Index"
+        },
+        {
+          "name": "offsetBy",
+          "type": "Int"
+        },
+        {
+          "name": "limitedBy",
+          "type": "Index"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "distance",
+      "type": "func",
+      "desc": "Returns the distance between two indices.",
+      "params": [
+        {
+          "name": "from",
+          "type": "ClosedRange<Bound>.Index"
+        },
+        {
+          "name": "to",
+          "type": "ClosedRange<Bound>.Index"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "desc": "Hashes the essential components of this value by feeding them into the given hasher.",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    },
+    {
+      "name": "description",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual representation of the range."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual representation of the range, suitable for debugging."
+    },
+    {
+      "name": "customMirror",
+      "type": "var",
+      "datatype": "Mirror",
+      "desc": "The custom mirror for this instance."
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes this value into the given encoder.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Encoder"
+        }
+      ]
+    },
+    {
+      "name": "ClosedRange.Index",
+      "type": "enum",
+      "desc": "A type that represents a position in the collection."
+    },
+    {
+      "name": "alias ClosedRange.Element",
+      "type": "enum",
+      "desc": "A type representing the sequence’s elements."
+    },
+    {
+      "name": "alias ClosedRange.Iterator",
+      "type": "enum",
+      "desc": "A type that provides the sequence’s iteration interface and encapsulates its iteration state."
+    },
+    {
+      "name": "alias ClosedRange.SubSequence",
+      "type": "enum",
+      "desc": "A sequence that represents a contiguous subrange of the collection’s elements."
+    },
+    {
+      "name": "alias ClosedRange.Indices",
+      "type": "enum",
+      "desc": "A type that represents the indices that are valid for subscripting the collection, in ascending order."
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The hash value."
+    },
+    {
+      "name": "..<",
+      "type": "static func",
+      "desc": "Returns a half-open range that contains its lower bound but not its upper bound.",
+      "params": [
+        {
+          "type": "Self"
+        },
+        {
+          "type": "Self"
+        }
+      ],
+      "returnType": "Range<Self>"
+    },
+    {
+      "name": "...",
+      "type": "static func",
+      "desc": "Returns a closed range that contains both of its bounds.",
+      "params": [
+        {
+          "type": "Self"
+        },
+        {
+          "type": "Self"
+        }
+      ],
+      "returnType": "ClosedRange<Self>"
+    }
+  ]
+}

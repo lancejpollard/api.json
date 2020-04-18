@@ -1,0 +1,153 @@
+{
+  "type": "Class",
+  "name": "CBPeripheralManager",
+  "desc": "An object that manages and advertises peripheral services exposed by this app.",
+  "items": [
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "CBPeripheralManagerDelegate?",
+      "desc": "The delegate object specified to receive peripheral events."
+    },
+    {
+      "name": "authorizationStatus",
+      "type": "class func",
+      "desc": "Returns the app’s authorization status for sharing data while in the background.",
+      "params": [],
+      "returnType": "CBPeripheralManagerAuthorizationStatus"
+    },
+    {
+      "name": "CBPeripheralManagerAuthorizationStatus",
+      "type": "enum",
+      "desc": "Values representing the current authorization state of the peripheral manager."
+    },
+    {
+      "name": "CBPeripheralManagerState",
+      "type": "enum",
+      "desc": "Values that represent the current state of the peripheral manager."
+    },
+    {
+      "name": "add",
+      "type": "func",
+      "desc": "Publishes a service and any of its associated characteristics and characteristic descriptors to the local GATT database.",
+      "params": [
+        {
+          "type": "CBMutableService"
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "type": "func",
+      "desc": "Removes a specified published service from the local GATT database.",
+      "params": [
+        {
+          "type": "CBMutableService"
+        }
+      ]
+    },
+    {
+      "name": "removeAllServices",
+      "type": "func",
+      "desc": "Removes all published services from the local GATT database.",
+      "params": []
+    },
+    {
+      "name": "startAdvertising",
+      "type": "func",
+      "desc": "Advertises peripheral manager data.",
+      "params": [
+        {
+          "name": "[String",
+          "type": "Any]?"
+        }
+      ]
+    },
+    {
+      "name": "stopAdvertising",
+      "type": "func",
+      "desc": "Stops advertising peripheral manager data.",
+      "params": []
+    },
+    {
+      "name": "isAdvertising",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the peripheral is advertising data."
+    },
+    {
+      "name": "updateValue",
+      "type": "func",
+      "desc": "Send an updated characteristic value to one or more subscribed centrals, using a notification or indication.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "name": "for",
+          "type": "CBMutableCharacteristic"
+        },
+        {
+          "name": "onSubscribedCentrals",
+          "type": "[CBCentral]?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "respond",
+      "type": "func",
+      "desc": "Responds to a read or write request from a connected central.",
+      "params": [
+        {
+          "name": "to",
+          "type": "CBATTRequest"
+        },
+        {
+          "name": "withResult",
+          "type": "CBATTError.Code"
+        }
+      ]
+    },
+    {
+      "name": "setDesiredConnectionLatency",
+      "type": "func",
+      "desc": "Sets the desired connection latency for an existing connection to a central device.",
+      "params": [
+        {
+          "type": "CBPeripheralManagerConnectionLatency"
+        },
+        {
+          "name": "for",
+          "type": "CBCentral"
+        }
+      ]
+    },
+    {
+      "name": "CBPeripheralManagerConnectionLatency",
+      "type": "enum",
+      "desc": "Values representing the connection latency of the peripheral manager."
+    },
+    {
+      "name": "publishL2CAPChannel",
+      "type": "func",
+      "desc": "Creates a listener for incoming L2CAP channel connections.",
+      "params": [
+        {
+          "name": "withEncryption",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "unpublishL2CAPChannel",
+      "type": "func",
+      "desc": "Removes a published service from the local system.",
+      "params": [
+        {
+          "type": "CBL2CAPPSM"
+        }
+      ]
+    }
+  ]
+}

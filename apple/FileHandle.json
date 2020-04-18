@@ -1,0 +1,292 @@
+{
+  "type": "Class",
+  "name": "FileHandle",
+  "desc": "An object-oriented wrapper for a file descriptor.",
+  "items": [
+    {
+      "name": "standardError",
+      "type": "class var",
+      "datatype": "FileHandle",
+      "desc": "Returns the file handle associated with the standard error file."
+    },
+    {
+      "name": "standardInput",
+      "type": "class var",
+      "datatype": "FileHandle",
+      "desc": "Returns the file handle associated with the standard input file."
+    },
+    {
+      "name": "standardOutput",
+      "type": "class var",
+      "datatype": "FileHandle",
+      "desc": "Returns the file handle associated with the standard output file."
+    },
+    {
+      "name": "nullDevice",
+      "type": "class var",
+      "datatype": "FileHandle",
+      "desc": "Returns a file handle associated with a null device."
+    },
+    {
+      "name": "fileDescriptor",
+      "type": "var",
+      "datatype": "Int32",
+      "desc": "The POSIX file descriptor associated with the receiver."
+    },
+    {
+      "name": "availableData",
+      "type": "var",
+      "datatype": "Data",
+      "desc": "The data currently available in the receiver."
+    },
+    {
+      "name": "readDataToEndOfFile",
+      "type": "func",
+      "desc": "Synchronously reads the available data up to the end of file or maximum number of bytes.",
+      "params": [],
+      "returnType": "Data"
+    },
+    {
+      "name": "readData",
+      "type": "func",
+      "desc": "Synchronously reads data up to the specified number of bytes.",
+      "params": [
+        {
+          "name": "ofLength",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "write",
+      "type": "func",
+      "desc": "Synchronously writes the specified data to the receiver.",
+      "params": [
+        {
+          "type": "Data"
+        }
+      ]
+    },
+    {
+      "name": "readabilityHandler",
+      "type": "var",
+      "datatype": "((FileHandle)",
+      "desc": "The block to use for reading the contents of the file handle asynchronously."
+    },
+    {
+      "name": "writeabilityHandler",
+      "type": "var",
+      "datatype": "((FileHandle)",
+      "desc": "The block to use for writing the contents of the file handle asynchronously."
+    },
+    {
+      "name": "acceptConnectionInBackgroundAndNotify",
+      "type": "func",
+      "desc": "Accepts a socket connection (for stream-type sockets only) in the background and creates a file handle for the “near” (client) end of the communications channel.",
+      "params": []
+    },
+    {
+      "name": "acceptConnectionInBackgroundAndNotify",
+      "type": "func",
+      "desc": "Accepts a socket connection (for stream-type sockets only) in the background and creates a file handle for the “near” (client) end of the communications channel.",
+      "params": [
+        {
+          "name": "forModes",
+          "type": "[RunLoop.Mode]?"
+        }
+      ]
+    },
+    {
+      "name": "readInBackgroundAndNotify",
+      "type": "func",
+      "desc": "Reads from the file or communications channel in the background and posts a notification when finished.",
+      "params": []
+    },
+    {
+      "name": "readInBackgroundAndNotify",
+      "type": "func",
+      "desc": "Reads from the file or communications channel in the background and posts a notification when finished.",
+      "params": [
+        {
+          "name": "forModes",
+          "type": "[RunLoop.Mode]?"
+        }
+      ]
+    },
+    {
+      "name": "readToEndOfFileInBackgroundAndNotify",
+      "type": "func",
+      "desc": "Reads to the end of file from the file or communications channel in the background and posts a notification when finished.",
+      "params": []
+    },
+    {
+      "name": "readToEndOfFileInBackgroundAndNotify",
+      "type": "func",
+      "desc": "Reads to the end of file from the file or communications channel in the background and posts a notification when finished.",
+      "params": [
+        {
+          "name": "forModes",
+          "type": "[RunLoop.Mode]?"
+        }
+      ]
+    },
+    {
+      "name": "waitForDataInBackgroundAndNotify",
+      "type": "func",
+      "desc": "Asynchronously checks to see if data is available.",
+      "params": []
+    },
+    {
+      "name": "waitForDataInBackgroundAndNotify",
+      "type": "func",
+      "desc": "Asynchronously checks to see if data is available.",
+      "params": [
+        {
+          "name": "forModes",
+          "type": "[RunLoop.Mode]?"
+        }
+      ]
+    },
+    {
+      "name": "offsetInFile",
+      "type": "var",
+      "datatype": "UInt64",
+      "desc": "The position of the file pointer within the file represented by the receiver."
+    },
+    {
+      "name": "seekToEndOfFile",
+      "type": "func",
+      "desc": "Puts the file pointer at the end of the file referenced by the receiver and returns the new file offset.",
+      "params": [],
+      "returnType": "UInt64"
+    },
+    {
+      "name": "seek",
+      "type": "func",
+      "desc": "Moves the file pointer to the specified offset within the file represented by the receiver.",
+      "params": [
+        {
+          "name": "toFileOffset",
+          "type": "UInt64"
+        }
+      ]
+    },
+    {
+      "name": "closeFile",
+      "type": "func",
+      "desc": "Disallows further access to the represented file or communications channel and signals end of file on communications channels that permit writing.",
+      "params": []
+    },
+    {
+      "name": "synchronizeFile",
+      "type": "func",
+      "desc": "Causes all in-memory data and attributes of the file represented by the receiver to be written to permanent storage.",
+      "params": []
+    },
+    {
+      "name": "truncateFile",
+      "type": "func",
+      "desc": "Truncates or extends the file represented by the receiver to a specified offset within the file and puts the file pointer at that position.",
+      "params": [
+        {
+          "name": "atOffset",
+          "type": "UInt64"
+        }
+      ]
+    },
+    {
+      "name": "NSFileHandleConnectionAccepted",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "This notification is posted when an NSFileHandle object establishes a socket connection between two processes, creates an NSFileHandle object for one end of the connection, and makes this object available to observers by putting it in the userInfo dictionary."
+    },
+    {
+      "name": "NSFileHandleDataAvailable",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "This notification is posted when the file handle determines that data is currently available for reading in a file or at a communications channel."
+    },
+    {
+      "name": "readCompletionNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "This notification is posted when the file handle reads the data currently available in a file or at a communications channel."
+    },
+    {
+      "name": "NSFileHandleReadToEndOfFileCompletion",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "This notification is posted when the file handle reads all data in the file or, if a communications channel, until the other process signals the end of data."
+    },
+    {
+      "name": "close",
+      "type": "func",
+      "params": []
+    },
+    {
+      "name": "offset",
+      "type": "func",
+      "params": [],
+      "returnType": "UInt64"
+    },
+    {
+      "name": "read",
+      "type": "func",
+      "params": [
+        {
+          "name": "upToCount",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "readToEnd",
+      "type": "func",
+      "params": [],
+      "returnType": "Data?"
+    },
+    {
+      "name": "seek",
+      "type": "func",
+      "params": [
+        {
+          "name": "toOffset",
+          "type": "UInt64"
+        }
+      ]
+    },
+    {
+      "name": "seekToEnd",
+      "type": "func",
+      "params": [],
+      "returnType": "UInt64"
+    },
+    {
+      "name": "synchronize",
+      "type": "func",
+      "params": []
+    },
+    {
+      "name": "truncate",
+      "type": "func",
+      "params": [
+        {
+          "name": "atOffset",
+          "type": "UInt64"
+        }
+      ]
+    },
+    {
+      "name": "write<T>",
+      "type": "func",
+      "params": [
+        {
+          "name": "contentsOf",
+          "type": "T"
+        }
+      ]
+    }
+  ]
+}

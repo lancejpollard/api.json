@@ -1,0 +1,477 @@
+{
+  "type": "Structure",
+  "name": "URL",
+  "desc": "A value that identifies the location of a resource, such as an item on a remote server or the path to a local file.",
+  "items": [
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes the URL for later decoding.",
+      "params": [
+        {
+          "name": "to",
+          "type": "Encoder"
+        }
+      ]
+    },
+    {
+      "name": "dataRepresentation",
+      "type": "var",
+      "datatype": "Data",
+      "desc": "The data representation of the URL’s relativeString."
+    },
+    {
+      "name": "absoluteString",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The absolute string for the URL."
+    },
+    {
+      "name": "absoluteURL",
+      "type": "var",
+      "datatype": "URL",
+      "desc": "The absolute URL."
+    },
+    {
+      "name": "baseURL",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The base URL."
+    },
+    {
+      "name": "fragment",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The fragment component of the URL if the URL conforms to RFC 1808 (the most common form of URL), otherwise nil."
+    },
+    {
+      "name": "host",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The host component of a URL if the URL conforms to RFC 1808 (the most common form of URL), otherwise nil."
+    },
+    {
+      "name": "lastPathComponent",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The last path component of the URL, or an empty string if the path is an empty string."
+    },
+    {
+      "name": "path",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The path component of the URL if the URL conforms to RFC 1808 (the most common form of URL), otherwise an empty string."
+    },
+    {
+      "name": "pathComponents",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The path components of the URL, or an empty array if the path is an empty string."
+    },
+    {
+      "name": "pathExtension",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The path extension of the URL, or an empty string if the path is an empty string."
+    },
+    {
+      "name": "port",
+      "type": "var",
+      "datatype": "Int?",
+      "desc": "The port component of the URL if the URL conforms to RFC 1808 (the most common form of URL), otherwise nil."
+    },
+    {
+      "name": "query",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The query of the URL if the URL conforms to RFC 1808 (the most common form of URL), otherwise nil."
+    },
+    {
+      "name": "relativePath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The relative path of the URL if the URL conforms to RFC 1808 (the most common form of URL), otherwise nil."
+    },
+    {
+      "name": "relativeString",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The relative portion of a URL."
+    },
+    {
+      "name": "scheme",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The scheme of the URL."
+    },
+    {
+      "name": "standardized",
+      "type": "var",
+      "datatype": "URL",
+      "desc": "A version of the URL with any instances of “..” or “.” removed from its path."
+    },
+    {
+      "name": "standardizedFileURL",
+      "type": "var",
+      "datatype": "URL",
+      "desc": "A standardized version of the path of a file URL."
+    },
+    {
+      "name": "user",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The user component of the URL if the URL conforms to RFC 1808 (the most common form of URL), otherwise nil."
+    },
+    {
+      "name": "password",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The password component of the URL if the URL conforms to RFC 1808 (the most common form of URL), otherwise nil."
+    },
+    {
+      "name": "resourceValues",
+      "type": "func",
+      "desc": "Return a collection of resource values identified by the given resource keys.",
+      "params": [
+        {
+          "name": "forKeys",
+          "type": "Set<URLResourceKey>"
+        }
+      ],
+      "returnType": "URLResourceValues"
+    },
+    {
+      "name": "setResourceValues",
+      "type": "func",
+      "desc": "Sets the resource value identified by a given resource key.",
+      "params": [
+        {
+          "type": "URLResourceValues"
+        }
+      ]
+    },
+    {
+      "name": "removeCachedResourceValue",
+      "type": "func",
+      "desc": "Removes the cached resource value identified by a given resource value key from the URL object.",
+      "params": [
+        {
+          "name": "forKey",
+          "type": "URLResourceKey"
+        }
+      ]
+    },
+    {
+      "name": "removeAllCachedResourceValues",
+      "type": "func",
+      "desc": "Removes all cached resource values and all temporary resource values from the URL object.",
+      "params": []
+    },
+    {
+      "name": "setTemporaryResourceValue",
+      "type": "func",
+      "desc": "Sets a temporary resource value on the URL object.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "forKey",
+          "type": "URLResourceKey"
+        }
+      ]
+    },
+    {
+      "name": "isFileURL",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean that is true if the scheme is file:."
+    },
+    {
+      "name": "hasDirectoryPath",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean that is true if the URL path represents a directory."
+    },
+    {
+      "name": "resolveSymlinksInPath",
+      "type": "func",
+      "desc": "Resolves any symlinks in the path of a file URL.",
+      "params": []
+    },
+    {
+      "name": "resolvingSymlinksInPath",
+      "type": "func",
+      "desc": "Resolves any symlinks in the path of a file URL.",
+      "params": [],
+      "returnType": "URL"
+    },
+    {
+      "name": "standardize",
+      "type": "func",
+      "desc": "Standardizes the path of a file URL.",
+      "params": []
+    },
+    {
+      "name": "appendPathComponent",
+      "type": "func",
+      "desc": "Appends a path component to the URL.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "appendPathComponent",
+      "type": "func",
+      "desc": "Appends a path component to the URL.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "isDirectory",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "appendingPathComponent",
+      "type": "func",
+      "desc": "Returns a URL constructed by appending the given path component to self.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "URL"
+    },
+    {
+      "name": "appendingPathComponent",
+      "type": "func",
+      "desc": "Returns a URL constructed by appending the given path component to self.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "isDirectory",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "URL"
+    },
+    {
+      "name": "appendPathExtension",
+      "type": "func",
+      "desc": "Appends the given path extension to self.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "appendingPathExtension",
+      "type": "func",
+      "desc": "Returns a URL constructed by appending the given path extension to self.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "URL"
+    },
+    {
+      "name": "deleteLastPathComponent",
+      "type": "func",
+      "desc": "Returns a URL constructed by removing the last path component of self.",
+      "params": []
+    },
+    {
+      "name": "deletingLastPathComponent",
+      "type": "func",
+      "desc": "Returns a URL constructed by removing the last path component of self.",
+      "params": [],
+      "returnType": "URL"
+    },
+    {
+      "name": "deletePathExtension",
+      "type": "func",
+      "desc": "Returns a URL constructed by removing any path extension.",
+      "params": []
+    },
+    {
+      "name": "deletingPathExtension",
+      "type": "func",
+      "desc": "Returns a URL constructed by removing any path extension.",
+      "params": [],
+      "returnType": "URL"
+    },
+    {
+      "name": "bookmarkData",
+      "type": "func",
+      "desc": "Returns bookmark data for the URL, created with specified options and resource values.",
+      "params": [
+        {
+          "name": "options",
+          "type": "URL.BookmarkCreationOptions"
+        },
+        {
+          "name": "includingResourceValuesForKeys",
+          "type": "Set<URLResourceKey>?"
+        },
+        {
+          "name": "relativeTo",
+          "type": "URL?"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "bookmarkData",
+      "type": "static func",
+      "desc": "Initializes and returns bookmark data derived from an alias file pointed to by a specified URL.",
+      "params": [
+        {
+          "name": "withContentsOf",
+          "type": "URL"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "writeBookmarkData",
+      "type": "static func",
+      "desc": "Creates an alias file on disk at a specified location with specified bookmark data.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "name": "to",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "resourceValues",
+      "type": "static func",
+      "desc": "Returns the resource values for properties identified by a specified array of keys contained in specified bookmark data.",
+      "params": [
+        {
+          "name": "forKeys",
+          "type": "Set<URLResourceKey>"
+        },
+        {
+          "name": "fromBookmarkData",
+          "type": "Data"
+        }
+      ],
+      "returnType": "URLResourceValues?"
+    },
+    {
+      "name": "checkResourceIsReachable",
+      "type": "func",
+      "desc": "Returns whether the URL’s resource exists and is reachable.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "checkPromisedItemIsReachable",
+      "type": "func",
+      "desc": "Returns whether the promised item URL’s resource exists and is reachable.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "promisedItemResourceValues",
+      "type": "func",
+      "desc": "Gets resource values from URLs of ‘promised’ items.",
+      "params": [
+        {
+          "name": "forKeys",
+          "type": "Set<URLResourceKey>"
+        }
+      ],
+      "returnType": "URLResourceValues"
+    },
+    {
+      "name": "startAccessingSecurityScopedResource",
+      "type": "func",
+      "desc": "Given a url created by resolving a bookmark data created with security scope, make the resource referenced by the url accessible to the process.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "stopAccessingSecurityScopedResource",
+      "type": "func",
+      "desc": "Revokes the access granted to the url by a prior successful call to the complementary start function.",
+      "params": []
+    },
+    {
+      "name": "!=",
+      "type": "static func",
+      "desc": "Returns a Boolean value indicating whether two values are not equal.",
+      "params": [
+        {
+          "type": "URL"
+        },
+        {
+          "type": "URL"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "==",
+      "type": "static func",
+      "desc": "Indicates whether two URLs are the same.",
+      "params": [
+        {
+          "type": "URL"
+        },
+        {
+          "type": "URL"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "description",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual description of the URL."
+    },
+    {
+      "name": "debugDescription",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A textual description of the URL suitable for debugging."
+    },
+    {
+      "name": "customPlaygroundQuickLook",
+      "type": "var",
+      "datatype": "PlaygroundQuickLook",
+      "desc": "A playground quicklook for the URL."
+    },
+    {
+      "name": "hashValue",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The computed hash value for the URL."
+    },
+    {
+      "name": "hash",
+      "type": "func",
+      "desc": "Hashes the essential components of this URL by feeding them into the given hasher.",
+      "params": [
+        {
+          "name": "into",
+          "type": "inout Hasher"
+        }
+      ]
+    }
+  ]
+}

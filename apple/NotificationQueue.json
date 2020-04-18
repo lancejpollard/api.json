@@ -1,0 +1,79 @@
+{
+  "type": "Class",
+  "name": "NotificationQueue",
+  "desc": "A notification center buffer.",
+  "items": [
+    {
+      "name": "default",
+      "type": "class var",
+      "datatype": "NotificationQueue",
+      "desc": "Returns the default notification queue for the current thread."
+    },
+    {
+      "name": "enqueue",
+      "type": "func",
+      "desc": "Adds a notification to the notification queue with a specified posting style, criteria for coalescing, and run loop mode.",
+      "params": [
+        {
+          "type": "Notification"
+        },
+        {
+          "name": "postingStyle",
+          "type": "NotificationQueue.PostingStyle"
+        },
+        {
+          "name": "coalesceMask",
+          "type": "NotificationQueue.NotificationCoalescing"
+        },
+        {
+          "name": "forModes",
+          "type": "[RunLoop.Mode]?"
+        }
+      ]
+    },
+    {
+      "name": "enqueue",
+      "type": "func",
+      "desc": "Adds a notification to the notification queue with a specified posting style.",
+      "params": [
+        {
+          "type": "Notification"
+        },
+        {
+          "name": "postingStyle",
+          "type": "NotificationQueue.PostingStyle"
+        }
+      ]
+    },
+    {
+      "name": "dequeueNotifications",
+      "type": "func",
+      "desc": "Removes all notifications from the queue that match a provided notification using provided matching criteria.",
+      "params": [
+        {
+          "name": "matching",
+          "type": "Notification"
+        },
+        {
+          "name": "coalesceMask",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "NotificationQueue.PostingStyle",
+      "type": "enum",
+      "desc": "The constants that specify when notifications are posted."
+    },
+    {
+      "name": "ct Notification",
+      "type": "enum",
+      "desc": "A container for information broadcast through a notification center to all registered observers."
+    },
+    {
+      "name": "s NotificationCenter",
+      "type": "enum",
+      "desc": "A notification dispatch mechanism that enables the broadcast of information to registered observers."
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "type": "Class",
+  "name": "NSFileCoordinator",
+  "desc": "An object that coordinates the reading and writing of files and directories among file presenters.",
+  "items": [
+    {
+      "name": "addFilePresenter",
+      "type": "class func",
+      "desc": "Registers the specified file presenter object so that it can receive notifications.",
+      "params": [
+        {
+          "type": "NSFilePresenter"
+        }
+      ]
+    },
+    {
+      "name": "removeFilePresenter",
+      "type": "class func",
+      "desc": "Unregisters the specified file presenter object.",
+      "params": [
+        {
+          "type": "NSFilePresenter"
+        }
+      ]
+    },
+    {
+      "name": "filePresenters",
+      "type": "class var",
+      "datatype": "[NSFilePresenter]",
+      "desc": "Returns an array containing the currently registered file presenter objects."
+    },
+    {
+      "name": "purposeIdentifier",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string that uniquely identifies the file access that was performed by this file coordinator."
+    },
+    {
+      "name": "item",
+      "type": "func",
+      "desc": "Announces that your app is moving a file to a new URL.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "willMoveTo",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "func",
+      "desc": "Notifies relevant file presenters that the location of a file or directory changed.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "didMoveTo",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "cancel",
+      "type": "func",
+      "desc": "Cancels any active file coordination calls.",
+      "params": []
+    },
+    {
+      "name": "item",
+      "type": "func",
+      "desc": "Tells observing file providers that the item's ubiquity attributes have changed.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "didChangeUbiquityAttributes",
+          "type": "Set<URLResourceKey>"
+        }
+      ]
+    }
+  ]
+}

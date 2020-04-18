@@ -1,0 +1,110 @@
+{
+  "path": "/getUploadedDocuments",
+  "method": "POST",
+  "desc": "This endpoint is used to retrieve documents previously uploaded for use in the KYC Verification of an account holder.\nFor further information regarding KYC Verification, please refer to Verification checks.",
+  "req": {
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the Account Holder for which to retrieve the documents.",
+      "required": true
+    },
+    "bankAccountUUID": {
+      "type": "string",
+      "desc": "The code of the Bank Account for which to retrieve the documents.",
+      "required": false
+    },
+    "shareholderCode": {
+      "type": "string",
+      "desc": "The code of the Shareholder for which to retrieve the documents.",
+      "required": false
+    }
+  },
+  "res": {
+    "documentDetails": {
+      "type": "array",
+      "desc": "A list of the documents and their details.",
+      "required": true,
+      "children": {
+        "accountHolderCode": {
+          "type": "string",
+          "desc": "The code of account holder, to which the document applies.",
+          "required": true
+        },
+        "bankAccountUUID": {
+          "type": "string",
+          "desc": "The unique ID of the Bank Account to which the document applies.\n\nRequired if the documentType is BANK_STATEMENT (i.e., a document is being submitted in order to verify a bank account).\n\n\nRefer to the Onboarding and verification section for details on when a document should be submitted in order to verify a bank account.",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "desc": "Description of the document.",
+          "required": false
+        },
+        "documentType": {
+          "type": "string",
+          "desc": "The type of a document. Permitted values:\n\nBANK_STATEMENT denotes an image containing a bank statement or other document proving ownership of a specific bank account.\nPASSPORT denotes an image containing the identity page(s) of a passport.\nID_CARD_FRONT denotes an image containing only the front of the ID card. In order for a document to be usable, both the ID_CARD_FRONT and ID_CARD_BACK must be submitted.\nID_CARD_BACK denotes an image containing only the back of the ID card. In order for a document to be usable, both the ID_CARD_FRONT and ID_CARD_BACK must be submitted.\nDRIVING_LICENCE_FRONT denotes an image containing only the front of the driving licence. In order for a document to be usable, both the DRIVING_LICENCE_FRONT and DRIVING_LICENCE_BACK must be submitted.\nDRIVING_LICENCE_BACK denotes an image containing only the back of the driving licence. In order for a document to be usable, both the DRIVING_LICENCE_FRONT and DRIVING_LICENCE_FRONT must be submitted.\n\n\nPlease refer to Verification checks for details on when each document type should be submitted.",
+          "required": true
+        },
+        "filename": {
+          "type": "string",
+          "desc": "Filename of the document.",
+          "required": true
+        },
+        "shareholderCode": {
+          "type": "string",
+          "desc": "The code of the shareholder, to which the document applies.\n\nRequired if the account holder referred to by the accountHolderCode has a legalEntity of type Business and the documentType is either PASSPORT, ID_CARD_FRONT, ID_CARD_BACK, DRIVING_LICENCE_FRONT, DRIVING_LICENCE_BACK (i.e. a document is being submitted in order to verify a shareholder).\n\n\nRefer to the Onboarding and verification section for details on when a document should be submitted in order to verify a shareholder.",
+          "required": false
+        }
+      }
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

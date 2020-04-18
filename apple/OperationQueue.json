@@ -1,0 +1,118 @@
+{
+  "type": "Class",
+  "name": "OperationQueue",
+  "desc": "A queue that regulates the execution of operations.",
+  "items": [
+    {
+      "name": "main",
+      "type": "class var",
+      "datatype": "OperationQueue",
+      "desc": "Returns the operation queue associated with the main thread."
+    },
+    {
+      "name": "current",
+      "type": "class var",
+      "datatype": "OperationQueue?",
+      "desc": "Returns the operation queue that launched the current operation."
+    },
+    {
+      "name": "addOperation",
+      "type": "func",
+      "desc": "Adds the specified operation to the receiver.",
+      "params": [
+        {
+          "type": "Operation"
+        }
+      ]
+    },
+    {
+      "name": "addOperations",
+      "type": "func",
+      "desc": "Adds the specified operations to the queue.",
+      "params": [
+        {
+          "type": "[Operation]"
+        },
+        {
+          "name": "waitUntilFinished",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "operations",
+      "type": "var",
+      "datatype": "[Operation]",
+      "desc": "The operations currently in the queue."
+    },
+    {
+      "name": "operationCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of operations currently in the queue."
+    },
+    {
+      "name": "cancelAllOperations",
+      "type": "func",
+      "desc": "Cancels all queued and executing operations.",
+      "params": []
+    },
+    {
+      "name": "waitUntilAllOperationsAreFinished",
+      "type": "func",
+      "desc": "Blocks the current thread until all of the receiver’s queued and executing operations finish executing.",
+      "params": []
+    },
+    {
+      "name": "qualityOfService",
+      "type": "var",
+      "datatype": "QualityOfService",
+      "desc": "The default service level to apply to operations executed using the queue."
+    },
+    {
+      "name": "maxConcurrentOperationCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The maximum number of queued operations that can execute at the same time."
+    },
+    {
+      "name": "defaultMaxConcurrentOperationCount",
+      "type": "class let",
+      "datatype": "Int",
+      "desc": "The default maximum number of operations to be executed concurrently in a queue."
+    },
+    {
+      "name": "isSuspended",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the queue is actively scheduling operations for execution."
+    },
+    {
+      "name": "name",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The name of the operation queue."
+    },
+    {
+      "name": "underlyingQueue",
+      "type": "var",
+      "datatype": "DispatchQueue?",
+      "desc": "The dispatch queue used to execute operations."
+    },
+    {
+      "name": "minimumTolerance",
+      "type": "var",
+      "datatype": "OperationQueue.SchedulerTimeType.Stride"
+    },
+    {
+      "name": "now",
+      "type": "var",
+      "datatype": "OperationQueue.SchedulerTimeType"
+    },
+    {
+      "name": "progress",
+      "type": "var",
+      "datatype": "Progress"
+    }
+  ]
+}

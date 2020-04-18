@@ -1,0 +1,108 @@
+{
+  "type": "Class",
+  "name": "NSSharingService",
+  "desc": "A service that lets users share content with other services, such as social media services, or apps, such as Mail and Safari.",
+  "items": [
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "NSSharingServiceDelegate?",
+      "desc": "Specifies the delegate of the sharing service."
+    },
+    {
+      "name": "menuItemTitle",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The title of the service in the Share menu."
+    },
+    {
+      "name": "title",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The title of the sharing service."
+    },
+    {
+      "name": "accountName",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The account name used for posting on Twitter or Sina Weibo."
+    },
+    {
+      "name": "sharingServices",
+      "type": "class func",
+      "desc": "Returns a list of sharing services which could share all the provided items together.",
+      "params": [
+        {
+          "name": "forItems",
+          "type": "[Any]"
+        }
+      ],
+      "returnType": "[NSSharingService]"
+    },
+    {
+      "name": "canPerform",
+      "type": "func",
+      "desc": "Returns whether the service can share all the specified items.",
+      "params": [
+        {
+          "name": "withItems",
+          "type": "[Any]?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "perform",
+      "type": "func",
+      "desc": "Manually performs the service on the provided items.",
+      "params": [
+        {
+          "name": "withItems",
+          "type": "[Any]"
+        }
+      ]
+    },
+    {
+      "name": "recipients",
+      "type": "var",
+      "datatype": "[String]?",
+      "desc": "An array containing the user handles of the desired recipients."
+    },
+    {
+      "name": "alternateImage",
+      "type": "var",
+      "datatype": "NSImage?",
+      "desc": "The alternate image representing the sharing service."
+    },
+    {
+      "name": "image",
+      "type": "var",
+      "datatype": "NSImage",
+      "desc": "The primary image representing the sharing service."
+    },
+    {
+      "name": "subject",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The subject of the post."
+    },
+    {
+      "name": "attachmentFileURLs",
+      "type": "var",
+      "datatype": "[URL]?",
+      "desc": "An array of NSURL objects representing the files that were shared."
+    },
+    {
+      "name": "messageBody",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The message body as a string."
+    },
+    {
+      "name": "permanentLink",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "A permanent URL (permalink) that your app can use to access the post."
+    }
+  ]
+}

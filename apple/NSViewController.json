@@ -1,0 +1,352 @@
+{
+  "type": "Class",
+  "name": "NSViewController",
+  "desc": "A controller that manages a view, typically loaded from a nib file.",
+  "items": [
+    {
+      "name": "loadView",
+      "type": "func",
+      "desc": "Instantiates a view from a nib file and sets the value of the view property.",
+      "params": []
+    },
+    {
+      "name": "representedObject",
+      "type": "var",
+      "datatype": "Any?",
+      "desc": "The object whose value is presented in the receiver’s primary view."
+    },
+    {
+      "name": "nibBundle",
+      "type": "var",
+      "datatype": "Bundle?",
+      "desc": "The nib bundle to be loaded to instantiate the receiver’s primary view."
+    },
+    {
+      "name": "nibName",
+      "type": "var",
+      "datatype": "NSNib.Name?",
+      "desc": "The name of the nib file to be loaded to instantiate the receiver’s primary view."
+    },
+    {
+      "name": "view",
+      "type": "var",
+      "datatype": "NSView",
+      "desc": "The view controller’s primary view."
+    },
+    {
+      "name": "title",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The localized title of the receiver’s primary view."
+    },
+    {
+      "name": "commitEditing",
+      "type": "func",
+      "desc": "Attempt to commit any currently edited results of the receiver.",
+      "params": [
+        {
+          "name": "withDelegate",
+          "type": "Any?"
+        },
+        {
+          "name": "didCommit",
+          "type": "Selector?"
+        },
+        {
+          "name": "contextInfo",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "commitEditing",
+      "type": "func",
+      "desc": "Returns whether the receiver was able to commit any pending edits.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "discardEditing",
+      "type": "func",
+      "desc": "Causes the receiver to discard any changes, restoring the previous values.",
+      "params": []
+    },
+    {
+      "name": "storyboard",
+      "type": "var",
+      "datatype": "NSStoryboard?",
+      "desc": "The storyboard from which the view controller was loaded."
+    },
+    {
+      "name": "dismiss",
+      "type": "func",
+      "desc": "",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "viewDidLoad",
+      "type": "func",
+      "desc": "Called after the view controller’s view has been loaded into memory.",
+      "params": []
+    },
+    {
+      "name": "isViewLoaded",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the view controller’s view is loaded into memory."
+    },
+    {
+      "name": "viewWillAppear",
+      "type": "func",
+      "desc": "Called after the view controller’s view has been loaded into memory is about to be added to the view hierarchy in the window.",
+      "params": []
+    },
+    {
+      "name": "viewDidAppear",
+      "type": "func",
+      "desc": "Called when the view controller’s view is fully transitioned onto the screen.",
+      "params": []
+    },
+    {
+      "name": "viewWillDisappear",
+      "type": "func",
+      "desc": "Called when the view controller’s view is about to be removed from the view hierarchy in the window.",
+      "params": []
+    },
+    {
+      "name": "viewDidDisappear",
+      "type": "func",
+      "desc": "Called after the view controller’s view is removed from the view hierarchy in a window.",
+      "params": []
+    },
+    {
+      "name": "preferredContentSize",
+      "type": "var",
+      "datatype": "NSSize",
+      "desc": "The desired size of the view controller’s view, in screen units."
+    },
+    {
+      "name": "updateViewConstraints",
+      "type": "func",
+      "desc": "Called during Auto Layout constraint updating to enable the view controller to mediate the process.",
+      "params": []
+    },
+    {
+      "name": "viewWillLayout",
+      "type": "func",
+      "desc": "Called just before the layout() method of the view controller's view is called.",
+      "params": []
+    },
+    {
+      "name": "viewDidLayout",
+      "type": "func",
+      "desc": "Called immediately after the layout() method of the view controller's view is called.",
+      "params": []
+    },
+    {
+      "name": "addChild",
+      "type": "func",
+      "desc": "A convenience method for adding a child view controller at the end of the children array.",
+      "params": [
+        {
+          "type": "NSViewController"
+        }
+      ]
+    },
+    {
+      "name": "children",
+      "type": "var",
+      "datatype": "[NSViewController]",
+      "desc": "An array of view controllers that are hierarchical children of the view controller."
+    },
+    {
+      "name": "insertChild",
+      "type": "func",
+      "desc": "Inserts a specified child view controller into the children array at a specified position.",
+      "params": [
+        {
+          "type": "NSViewController"
+        },
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "removeChild",
+      "type": "func",
+      "desc": "Removes a specified child controller from the view controller.",
+      "params": [
+        {
+          "name": "at",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "removeFromParent",
+      "type": "func",
+      "desc": "Removes the called view controller from its parent view controller.",
+      "params": []
+    },
+    {
+      "name": "preferredContentSizeDidChange",
+      "type": "func",
+      "desc": "Called when there is a change in value of the preferredContentSize property of a child view controller or a presented view controller.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSViewController"
+        }
+      ]
+    },
+    {
+      "name": "present",
+      "type": "func",
+      "desc": "Presents another view controller using a specified, custom animator for presentation and dismissal.",
+      "params": [
+        {
+          "type": "NSViewController"
+        },
+        {
+          "name": "animator",
+          "type": "NSViewControllerPresentationAnimator"
+        }
+      ]
+    },
+    {
+      "name": "dismiss",
+      "type": "func",
+      "desc": "Dismisses a presented view controller, using the same animator that presented it.",
+      "params": [
+        {
+          "type": "NSViewController"
+        }
+      ]
+    },
+    {
+      "name": "present",
+      "type": "func",
+      "desc": "Presents another view controller as a popover.",
+      "params": [
+        {
+          "type": "NSViewController"
+        },
+        {
+          "name": "asPopoverRelativeTo",
+          "type": "NSRect"
+        },
+        {
+          "name": "of",
+          "type": "NSView"
+        },
+        {
+          "name": "preferredEdge",
+          "type": "NSRectEdge"
+        },
+        {
+          "name": "behavior",
+          "type": "NSPopover.Behavior"
+        }
+      ]
+    },
+    {
+      "name": "presentAsModalWindow",
+      "type": "func",
+      "desc": "Presents another view controller as a modal window, also known as an alert.",
+      "params": [
+        {
+          "type": "NSViewController"
+        }
+      ]
+    },
+    {
+      "name": "presentAsSheet",
+      "type": "func",
+      "desc": "Presents another view controller as a sheet.",
+      "params": [
+        {
+          "type": "NSViewController"
+        }
+      ]
+    },
+    {
+      "name": "parent",
+      "type": "var",
+      "datatype": "NSViewController?",
+      "desc": "The immediate ancestor view controller of the view controller."
+    },
+    {
+      "name": "presentedViewControllers",
+      "type": "var",
+      "datatype": "[NSViewController]?",
+      "desc": "The view controllers, if any, that are currently presented by the view controller."
+    },
+    {
+      "name": "presentingViewController",
+      "type": "var",
+      "datatype": "NSViewController?",
+      "desc": "The view controller that presented the view controller or that presented its farthest ancestor view controller."
+    },
+    {
+      "name": "extensionContext",
+      "type": "var",
+      "datatype": "NSExtensionContext?",
+      "desc": "For a view controller that is part of an app extension, the app extension context."
+    },
+    {
+      "name": "preferredScreenOrigin",
+      "type": "var",
+      "datatype": "NSPoint",
+      "desc": "For a view controller that is part of an app extension, the preferred screen origin."
+    },
+    {
+      "name": "preferredMaximumSize",
+      "type": "var",
+      "datatype": "NSSize",
+      "desc": "For a view controller that is part of an app extension, the largest allowable size for the app extension’s primary view, in screen units."
+    },
+    {
+      "name": "preferredMinimumSize",
+      "type": "var",
+      "datatype": "NSSize",
+      "desc": "For a view controller that is part of an app extension, the smallest allowable size for the app extension’s primary view, in screen units."
+    },
+    {
+      "name": "viewWillTransition",
+      "type": "func",
+      "desc": "For a view controller that is part of an app extension, called when its view is about to be resized.",
+      "params": [
+        {
+          "name": "to",
+          "type": "NSSize"
+        }
+      ]
+    },
+    {
+      "name": "sourceItemView",
+      "type": "var",
+      "datatype": "NSView?"
+    },
+    {
+      "name": "playgroundLiveViewRepresentation",
+      "type": "var",
+      "datatype": "PlaygroundLiveViewRepresentation"
+    },
+    {
+      "name": "present",
+      "type": "func",
+      "params": [
+        {
+          "name": "inWidget",
+          "type": "NSViewController"
+        }
+      ]
+    }
+  ]
+}

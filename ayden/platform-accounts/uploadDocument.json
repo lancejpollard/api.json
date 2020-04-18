@@ -1,0 +1,934 @@
+{
+  "path": "/uploadDocument",
+  "method": "POST",
+  "desc": "This endpoint is used to upload a document for use in the KYC verification of an account holder.\nFor further information regarding KYC Verification, please refer to Verification checks.",
+  "req": {
+    "documentContent": {
+      "type": "string",
+      "desc": "The content of the document as represented by a Base64-encoded string.\nTo learn about requirements, see Bank account check and Photo ID check.",
+      "required": true
+    },
+    "documentDetail": {
+      "type": "string",
+      "desc": "Details of the document being submitted.",
+      "required": true,
+      "children": {
+        "accountHolderCode": {
+          "type": "string",
+          "desc": "The code of account holder, to which the document applies.",
+          "required": true
+        },
+        "bankAccountUUID": {
+          "type": "string",
+          "desc": "The unique ID of the Bank Account to which the document applies.\n\nRequired if the documentType is BANK_STATEMENT (i.e., a document is being submitted in order to verify a bank account).\n\n\nRefer to the Onboarding and verification section for details on when a document should be submitted in order to verify a bank account.",
+          "required": false
+        },
+        "description": {
+          "type": "string",
+          "desc": "Description of the document.",
+          "required": false
+        },
+        "documentType": {
+          "type": "string",
+          "desc": "The type of a document. Permitted values:\n\nBANK_STATEMENT denotes an image containing a bank statement or other document proving ownership of a specific bank account.\nPASSPORT denotes an image containing the identity page(s) of a passport.\nID_CARD_FRONT denotes an image containing only the front of the ID card. In order for a document to be usable, both the ID_CARD_FRONT and ID_CARD_BACK must be submitted.\nID_CARD_BACK denotes an image containing only the back of the ID card. In order for a document to be usable, both the ID_CARD_FRONT and ID_CARD_BACK must be submitted.\nDRIVING_LICENCE_FRONT denotes an image containing only the front of the driving licence. In order for a document to be usable, both the DRIVING_LICENCE_FRONT and DRIVING_LICENCE_BACK must be submitted.\nDRIVING_LICENCE_BACK denotes an image containing only the back of the driving licence. In order for a document to be usable, both the DRIVING_LICENCE_FRONT and DRIVING_LICENCE_FRONT must be submitted.\n\n\nPlease refer to Verification checks for details on when each document type should be submitted.",
+          "required": true
+        },
+        "filename": {
+          "type": "string",
+          "desc": "Filename of the document.",
+          "required": true
+        },
+        "shareholderCode": {
+          "type": "string",
+          "desc": "The code of the shareholder, to which the document applies.\n\nRequired if the account holder referred to by the accountHolderCode has a legalEntity of type Business and the documentType is either PASSPORT, ID_CARD_FRONT, ID_CARD_BACK, DRIVING_LICENCE_FRONT, DRIVING_LICENCE_BACK (i.e. a document is being submitted in order to verify a shareholder).\n\n\nRefer to the Onboarding and verification section for details on when a document should be submitted in order to verify a shareholder.",
+          "required": false
+        }
+      }
+    }
+  },
+  "res": {
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the account holder.",
+      "required": false
+    },
+    "accountHolderDetails": {
+      "type": "string",
+      "desc": "Details of the account holder.",
+      "required": true,
+      "children": {
+        "address": {
+          "type": "string",
+          "desc": "The address of the account holder.",
+          "required": true,
+          "children": {
+            "city": {
+              "type": "string",
+              "desc": "The name of the city.\n\nRequired if either houseNumberOrName, street, postalCode, or stateOrProvince are provided.",
+              "required": false
+            },
+            "country": {
+              "type": "string",
+              "desc": "The two-character country code of the address. The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').\n\nIf you don't know the country or are not collecting the country from the shopper, provide country as ZZ.",
+              "required": true
+            },
+            "houseNumberOrName": {
+              "type": "string",
+              "desc": "The number or name of the house.",
+              "required": false
+            },
+            "postalCode": {
+              "type": "string",
+              "desc": "The postal code.\n\nA maximum of five (5) digits for an address in the USA, or a maximum of ten (10) characters for an address in all other countries.\nRequired if either houseNumberOrName, street, city, or stateOrProvince are provided.",
+              "required": false
+            },
+            "stateOrProvince": {
+              "type": "string",
+              "desc": "The abbreviation of the state or province.\n\nTwo (2) characters for an address in the USA or Canada, or a maximum of three (3) characters for an address in all other countries.\nRequired for an address in the USA or Canada if either houseNumberOrName, street, city, or postalCode are provided.",
+              "required": false
+            },
+            "street": {
+              "type": "string",
+              "desc": "The name of the street.\n\nThe house number should not be included in this field; it should be separately provided via houseNumberOrName.\nRequired if either houseNumberOrName, city, postalCode, or stateOrProvince are provided.",
+              "required": false
+            }
+          }
+        },
+        "bankAccountDetails": {
+          "type": "array",
+          "desc": "Each of the bank accounts associated with the account holder.\n\nEach array entry should represent one bank account.\nFor comprehensive detail regarding the required BankAccountDetail fields, please refer to the KYC Verification documentation.",
+          "required": false,
+          "children": {
+            "accountNumber": {
+              "type": "string",
+              "desc": "The bank account number (without separators).\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "accountType": {
+              "type": "string",
+              "desc": "The type of bank account.\nOnly applicable to bank accounts held in the USA.\nThe permitted values are: checking, savings.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "bankAccountName": {
+              "type": "string",
+              "desc": "The name of the bank account.",
+              "required": false
+            },
+            "bankAccountReference": {
+              "type": "string",
+              "desc": "Merchant reference to the bank account.",
+              "required": false
+            },
+            "bankAccountUUID": {
+              "type": "string",
+              "desc": "The unique identifier (UUID) of the Bank Account.\n\nIf, during an account holder create or update request, this field is left blank (but other fields provided), a new Bank Account will be created with a procedurally-generated UUID.\n\n\nIf, during an account holder create request, a UUID is provided, the creation of the Bank Account will fail while the creation of the account holder will continue.\n\n\nIf, during an account holder update request, a UUID that is not correlated with an existing Bank Account is provided, the update of the account holder will fail.\n\n\nIf, during an account holder update request, a UUID that is correlated with an existing Bank Account is provided, the existing Bank Account will be updated.",
+              "required": false
+            },
+            "bankBicSwift": {
+              "type": "string",
+              "desc": "The bank identifier code.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "bankCity": {
+              "type": "string",
+              "desc": "The city in which the bank branch is located.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "bankCode": {
+              "type": "string",
+              "desc": "The bank code of the banking institution with which the bank account is registered.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "bankName": {
+              "type": "string",
+              "desc": "The name of the banking institution with which the bank account is held.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "branchCode": {
+              "type": "string",
+              "desc": "The branch code of the branch under which the bank account is registered. The value to be specified in this parameter depends on the country of the bank account:\n\nUnited States - Routing number\nUnited Kingdom - Sort code\nGermany - Bankleitzahl\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "checkCode": {
+              "type": "string",
+              "desc": "The check code of the bank account.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "countryCode": {
+              "type": "string",
+              "desc": "The two-letter country code in which the bank account is registered.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "currencyCode": {
+              "type": "string",
+              "desc": "The currency in which the bank account deals.\n\nThe permitted currency codes are defined in ISO-4217 (e.g. 'EUR').\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "iban": {
+              "type": "string",
+              "desc": "The international bank account number.\n\nThe IBAN standard is defined in ISO-13616.\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "ownerCity": {
+              "type": "string",
+              "desc": "The city of residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "ownerCountryCode": {
+              "type": "string",
+              "desc": "The country code of the country of residence of the bank account owner.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "ownerDateOfBirth": {
+              "type": "string",
+              "desc": "The date of birth of the bank account owner.",
+              "required": false
+            },
+            "ownerHouseNumberOrName": {
+              "type": "string",
+              "desc": "The house name or number of the residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "ownerName": {
+              "type": "string",
+              "desc": "The name of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "ownerNationality": {
+              "type": "string",
+              "desc": "The country code of the country of nationality of the bank account owner.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').\n\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "ownerPostalCode": {
+              "type": "string",
+              "desc": "The postal code of the residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "ownerState": {
+              "type": "string",
+              "desc": "The state of residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "ownerStreet": {
+              "type": "string",
+              "desc": "The street name of the residence of the bank account owner.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "primaryAccount": {
+              "type": "boolean",
+              "desc": "If set to true, the bank account is a primary account.",
+              "required": false
+            },
+            "taxId": {
+              "type": "string",
+              "desc": "The tax ID number.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            },
+            "urlForVerification": {
+              "type": "string",
+              "desc": "The URL to be used for bank account verification.\nThis may be generated on bank account creation.\n\nRefer to the Onboarding and verification section for details on field requirements.",
+              "required": false
+            }
+          }
+        },
+        "businessDetails": {
+          "type": "string",
+          "desc": "Details applicable to Business legal entities.\nPopulated only if the account holder's legal entity is of type Business.\n\nRequired when being used in a /createAccountHolder request in which the legal entity is Business.",
+          "required": true,
+          "children": {
+            "doingBusinessAs": {
+              "type": "string",
+              "desc": "The registered name of the company (if it differs from the legal name of the company).",
+              "required": false
+            },
+            "legalBusinessName": {
+              "type": "string",
+              "desc": "The legal name of the company.",
+              "required": false
+            },
+            "registrationNumber": {
+              "type": "string",
+              "desc": "The registration number of the company.",
+              "required": false
+            },
+            "shareholders": {
+              "type": "array",
+              "desc": "Each of the shareholders associated with the company.\nEach array entry should represent one shareholder.",
+              "required": true,
+              "children": {
+                "address": {
+                  "type": "string",
+                  "desc": "The address of the contact.",
+                  "required": true,
+                  "children": {
+                    "city": {
+                      "type": "string",
+                      "desc": "The name of the city.\n\nRequired if either houseNumberOrName, street, postalCode, or stateOrProvince are provided.",
+                      "required": false
+                    },
+                    "country": {
+                      "type": "string",
+                      "desc": "The two-character country code of the address. The permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').\n\nIf you don't know the country or are not collecting the country from the shopper, provide country as ZZ.",
+                      "required": true
+                    },
+                    "houseNumberOrName": {
+                      "type": "string",
+                      "desc": "The number or name of the house.",
+                      "required": false
+                    },
+                    "postalCode": {
+                      "type": "string",
+                      "desc": "The postal code.\n\nA maximum of five (5) digits for an address in the USA, or a maximum of ten (10) characters for an address in all other countries.\nRequired if either houseNumberOrName, street, city, or stateOrProvince are provided.",
+                      "required": false
+                    },
+                    "stateOrProvince": {
+                      "type": "string",
+                      "desc": "The abbreviation of the state or province.\n\nTwo (2) characters for an address in the USA or Canada, or a maximum of three (3) characters for an address in all other countries.\nRequired for an address in the USA or Canada if either houseNumberOrName, street, city, or postalCode are provided.",
+                      "required": false
+                    },
+                    "street": {
+                      "type": "string",
+                      "desc": "The name of the street.\n\nThe house number should not be included in this field; it should be separately provided via houseNumberOrName.\nRequired if either houseNumberOrName, city, postalCode, or stateOrProvince are provided.",
+                      "required": false
+                    }
+                  }
+                },
+                "email": {
+                  "type": "string",
+                  "desc": "The e-mail address of the contact.",
+                  "required": false
+                },
+                "fullPhoneNumber": {
+                  "type": "string",
+                  "desc": "The phone number of the contact provided as a single string.  It will be handled as a landline phone.\nExamples: \"0031 6 11 22 33 44\", \"+316/1122-3344\", \"(0031) 611223344\"",
+                  "required": false
+                },
+                "name": {
+                  "type": "string",
+                  "desc": "The name of the contact.",
+                  "required": true,
+                  "children": {
+                    "firstName": {
+                      "type": "string",
+                      "desc": "The first name.",
+                      "required": true
+                    },
+                    "gender": {
+                      "type": "string",
+                      "desc": "The gender.\n\nThe following values are permitted: MALE, FEMALE, UNKNOWN.",
+                      "required": true
+                    },
+                    "infix": {
+                      "type": "string",
+                      "desc": "The name's infix, if applicable.\n\nA maximum length of twenty (20) characters is imposed.",
+                      "required": false
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "desc": "The last name.",
+                      "required": true
+                    }
+                  }
+                },
+                "personalData": {
+                  "type": "string",
+                  "desc": "Personal data of the Shareholder.",
+                  "required": true,
+                  "children": {
+                    "dateOfBirth": {
+                      "type": "string",
+                      "desc": "The date of birth of the person.\nThe date should be in ISO-8601 format yyyy-mm-dd (e.g. 2000-01-31).",
+                      "required": false
+                    },
+                    "documentData": {
+                      "type": "array",
+                      "desc": "Key value pairs of document type and identify numbers",
+                      "required": true,
+                      "children": {
+                        "expirationDate": {
+                          "type": "string",
+                          "desc": "The expiration date of the document.\nThe date should be in ISO-8601 format yyyy-mm-dd (e.g. 2000-01-31).",
+                          "required": false
+                        },
+                        "issuerCountry": {
+                          "type": "string",
+                          "desc": "The two-character country code of the issuer.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').",
+                          "required": false
+                        },
+                        "issuerState": {
+                          "type": "string",
+                          "desc": "The state issued the document (if applicable)",
+                          "required": false
+                        },
+                        "number": {
+                          "type": "string",
+                          "desc": "The number of the document. Delete the given type if the value empty.",
+                          "required": true
+                        },
+                        "type": {
+                          "type": "string",
+                          "desc": "The type of the document. More then one item pert type does not allowed.\nValid values: ID, PASSPORT, VISA, DRIVINGLICENSE",
+                          "required": true
+                        }
+                      }
+                    },
+                    "nationality": {
+                      "type": "string",
+                      "desc": "The nationality of the person represented by a two-character country code.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').",
+                      "required": false
+                    }
+                  }
+                },
+                "phoneNumber": {
+                  "type": "string",
+                  "desc": "The phone number of the contact.",
+                  "required": true,
+                  "children": {
+                    "phoneCountryCode": {
+                      "type": "string",
+                      "desc": "The two-character country code of the phone number.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').",
+                      "required": true
+                    },
+                    "phoneNumber": {
+                      "type": "string",
+                      "desc": "The phone number.\n\nThe inclusion of the phone number country code is not necessary.",
+                      "required": true
+                    },
+                    "phoneType": {
+                      "type": "string",
+                      "desc": "The type of the phone number.\n\nThe following values are permitted: Landline, Mobile, SIP, Fax.",
+                      "required": false
+                    }
+                  }
+                },
+                "shareholderCode": {
+                  "type": "string",
+                  "desc": "The unique identifier (UUID) of the Shareholder.\n\nIf, during an Account Holder create or update request, this field is left blank (but other fields provided), a new Shareholder will be created with a procedurally-generated UUID.\n\n\nIf, during an Account Holder create request, a UUID is provided, the creation of the Shareholder will fail while the creation of the Account Holder will continue.\n\n\nIf, during an Account Holder update request, a UUID that is not correlated with an existing Shareholder is provided, the update of the Shareholder will fail.\n\n\nIf, during an Account Holder update request, a UUID that is correlated with an existing Shareholder is provided, the existing Shareholder will be updated.",
+                  "required": false
+                },
+                "shareholderReference": {
+                  "type": "string",
+                  "desc": "Merchant reference to the Shareholder.",
+                  "required": false
+                },
+                "webAddress": {
+                  "type": "string",
+                  "desc": "The URL of the website of the contact.",
+                  "required": false
+                }
+              }
+            },
+            "taxId": {
+              "type": "string",
+              "desc": "The tax ID of the company.",
+              "required": false
+            }
+          }
+        },
+        "email": {
+          "type": "string",
+          "desc": "The email address of the account holder.",
+          "required": true
+        },
+        "fullPhoneNumber": {
+          "type": "string",
+          "desc": "The phone number of the account holder provided as a single string. It will be handled as a landline phone.\nExamples: \"0031 6 11 22 33 44\", \"+316/1122-3344\", \"(0031) 611223344\"",
+          "required": true
+        },
+        "individualDetails": {
+          "type": "string",
+          "desc": "Details applicable to Individual legal entities.\nPopulated only if the account holder's legal entity is of type Individual.\n\nRequired when being used in a /createAccountHolder request in which the legal entity is Individual.",
+          "required": true,
+          "children": {
+            "name": {
+              "type": "string",
+              "desc": "The name of the individual.\n\nMake sure your account holder registers using the name shown on their Photo ID.",
+              "required": true,
+              "children": {
+                "firstName": {
+                  "type": "string",
+                  "desc": "The first name.",
+                  "required": true
+                },
+                "gender": {
+                  "type": "string",
+                  "desc": "The gender.\n\nThe following values are permitted: MALE, FEMALE, UNKNOWN.",
+                  "required": true
+                },
+                "infix": {
+                  "type": "string",
+                  "desc": "The name's infix, if applicable.\n\nA maximum length of twenty (20) characters is imposed.",
+                  "required": false
+                },
+                "lastName": {
+                  "type": "string",
+                  "desc": "The last name.",
+                  "required": true
+                }
+              }
+            },
+            "personalData": {
+              "type": "string",
+              "desc": "Personal information of the individual.",
+              "required": true,
+              "children": {
+                "dateOfBirth": {
+                  "type": "string",
+                  "desc": "The date of birth of the person.\nThe date should be in ISO-8601 format yyyy-mm-dd (e.g. 2000-01-31).",
+                  "required": false
+                },
+                "documentData": {
+                  "type": "array",
+                  "desc": "Key value pairs of document type and identify numbers",
+                  "required": true,
+                  "children": {
+                    "expirationDate": {
+                      "type": "string",
+                      "desc": "The expiration date of the document.\nThe date should be in ISO-8601 format yyyy-mm-dd (e.g. 2000-01-31).",
+                      "required": false
+                    },
+                    "issuerCountry": {
+                      "type": "string",
+                      "desc": "The two-character country code of the issuer.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').",
+                      "required": false
+                    },
+                    "issuerState": {
+                      "type": "string",
+                      "desc": "The state issued the document (if applicable)",
+                      "required": false
+                    },
+                    "number": {
+                      "type": "string",
+                      "desc": "The number of the document. Delete the given type if the value empty.",
+                      "required": true
+                    },
+                    "type": {
+                      "type": "string",
+                      "desc": "The type of the document. More then one item pert type does not allowed.\nValid values: ID, PASSPORT, VISA, DRIVINGLICENSE",
+                      "required": true
+                    }
+                  }
+                },
+                "nationality": {
+                  "type": "string",
+                  "desc": "The nationality of the person represented by a two-character country code.\n\nThe permitted country codes are defined in ISO-3166-1 alpha-2 (e.g. 'NL').",
+                  "required": false
+                }
+              }
+            }
+          }
+        },
+        "merchantCategoryCode": {
+          "type": "string",
+          "desc": "The Merchant Category Code of the account holder.\n\nIf not specified in the request, this will be derived from the platform account (which is configured by Adyen).",
+          "required": false
+        },
+        "metadata": {
+          "type": "object",
+          "desc": "A set of key and value pairs for general use by the account holder or merchant.\nThe keys do not have specific names and may be used for storing miscellaneous data as desired.\n\nThe values being stored have a maximum length of eighty (80) characters and will be truncated if necessary.\nNote that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs.",
+          "required": false
+        },
+        "payoutMethods": {
+          "type": "array",
+          "desc": "Each of the card tokens associated with the account holder.\n\nEach array entry should represent one card token.\nFor comprehensive detail regarding the required CardToken fields, please refer to the KYC Verification documentation.",
+          "required": true,
+          "children": {
+            "merchantAccount": {
+              "type": "string",
+              "desc": "",
+              "required": true
+            },
+            "payoutMethodCode": {
+              "type": "string",
+              "desc": "",
+              "required": false
+            },
+            "payoutMethodType": {
+              "type": "string",
+              "desc": "",
+              "required": false
+            },
+            "recurringDetailReference": {
+              "type": "string",
+              "desc": "",
+              "required": true
+            },
+            "shopperReference": {
+              "type": "string",
+              "desc": "",
+              "required": true
+            }
+          }
+        },
+        "webAddress": {
+          "type": "string",
+          "desc": "The URL of the website of the account holder.",
+          "required": true
+        }
+      }
+    },
+    "accountHolderStatus": {
+      "type": "array",
+      "desc": "The new status of the account holder.",
+      "required": true,
+      "children": {
+        "events": {
+          "type": "array",
+          "desc": "A list of events scheduled for the account holder.",
+          "required": true,
+          "children": {
+            "event": {
+              "type": "string",
+              "desc": "The event.\n\nPermitted values: InactivateAccount, RefundNotPaidOutTransfers.\nFor more information, refer to Verification checks.",
+              "required": true
+            },
+            "executionDate": {
+              "type": "string",
+              "desc": "The date on which the event will take place.",
+              "required": true
+            },
+            "reason": {
+              "type": "string",
+              "desc": "The reason why this event has been created.",
+              "required": true
+            }
+          }
+        },
+        "payoutState": {
+          "type": "boolean",
+          "desc": "The payout state of the account holder.",
+          "required": true,
+          "children": {
+            "allowPayout": {
+              "type": "boolean",
+              "desc": "Indicates whether payouts are allowed. This field is the overarching payout status, and is the aggregate of multiple conditions (e.g., KYC status, disabled flag, etc). If this field is false, no payouts will be permitted for any of the account holder's accounts. If this field is true, payouts will be permitted for any of the account holder's accounts.",
+              "required": true
+            },
+            "disableReason": {
+              "type": "string",
+              "desc": "The reason why payouts (to all of the account holder's accounts) have been disabled (by the platform). If the disabled field is true, this field can be used to explain why.",
+              "required": true
+            },
+            "disabled": {
+              "type": "boolean",
+              "desc": "Indicates whether payouts have been disabled (by the platform) for all of the account holder's accounts. A platform may enable and disable this field at their discretion. If this field is true, allowPayout will be false and no payouts will be permitted for any of the account holder's accounts. If this field is false, allowPayout may or may not be enabled, depending on other factors.",
+              "required": true
+            },
+            "notAllowedReason": {
+              "type": "string",
+              "desc": "The reason why payouts (to all of the account holder's accounts) have been disabled (by Adyen). If payouts have been disabled by Adyen, this field will explain why. If this field is blank, payouts have not been disabled by Adyen.",
+              "required": true
+            },
+            "payoutLimit": {
+              "type": "string",
+              "desc": "The maximum amount that payouts are limited to. Only applies if payouts are allowed but limited.",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "tierNumber": {
+              "type": "integer",
+              "desc": "The payout tier that the account holder occupies.",
+              "required": true
+            }
+          }
+        },
+        "processingState": {
+          "type": "string",
+          "desc": "The processing state of the account holder.",
+          "required": true,
+          "children": {
+            "disableReason": {
+              "type": "string",
+              "desc": "The reason why processing has been disabled.",
+              "required": true
+            },
+            "disabled": {
+              "type": "boolean",
+              "desc": "Indicates whether the processing of payments is allowed.",
+              "required": true
+            },
+            "processedFrom": {
+              "type": "string",
+              "desc": "The lower bound of the processing tier (i.e., an account holder must have processed at least this amount of money in order to be placed into this tier).",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "processedTo": {
+              "type": "string",
+              "desc": "The upper bound of the processing tier (i.e., an account holder must have processed less than this amount of money in order to be placed into this tier).",
+              "required": true,
+              "children": {
+                "currency": {
+                  "type": "string",
+                  "desc": "The three-character ISO currency code.",
+                  "required": true
+                },
+                "value": {
+                  "type": "integer",
+                  "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+                  "required": true
+                }
+              }
+            },
+            "tierNumber": {
+              "type": "integer",
+              "desc": "The processing tier that the account holder occupies.",
+              "required": true
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "desc": "The status of the account holder.\n\nPermitted values: Active, Inactive, Suspended, Closed.",
+          "required": true
+        },
+        "statusReason": {
+          "type": "string",
+          "desc": "The reason why the status was assigned to the account holder.",
+          "required": true
+        }
+      }
+    },
+    "description": {
+      "type": "string",
+      "desc": "The description of the account holder.",
+      "required": false
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "in case the account holder has not been updated, contains account holder fields, that did not pass the validation.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "legalEntity": {
+      "type": "string",
+      "desc": "The legal entity of the account holder.",
+      "required": true
+    },
+    "primaryCurrency": {
+      "type": "string",
+      "desc": "The three-character ISO currency code, with which the prospective account holder primarily deals.",
+      "required": false
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    },
+    "verification": {
+      "type": "array",
+      "desc": "The details of KYC Verification of the account holder.",
+      "required": true,
+      "children": {
+        "accountHolder": {
+          "type": "array",
+          "desc": "The result(s) of the checks on the account holder.",
+          "required": true,
+          "children": {
+            "checks": {
+              "type": "array",
+              "desc": "A list of the checks and their statuses.",
+              "required": true,
+              "children": {
+                "requiredFields": {
+                  "type": "array",
+                  "desc": "A list of the fields required for execution of the check.",
+                  "required": true
+                },
+                "status": {
+                  "type": "string",
+                  "desc": "The status of the check.\n\nPermitted Values: DATA_PROVIDED, PASSED, PENDING, AWAITING_DATA, RETRY_LIMIT_REACHED, INVALID_DATA, FAILED.",
+                  "required": true
+                },
+                "summary": {
+                  "type": "integer",
+                  "desc": "A summary of the execution of the check.",
+                  "required": true,
+                  "children": {
+                    "kycCheckCode": {
+                      "type": "integer",
+                      "desc": "The code of the check.",
+                      "required": false
+                    },
+                    "kycCheckDescription": {
+                      "type": "string",
+                      "desc": "A description of the check.",
+                      "required": false
+                    }
+                  }
+                },
+                "type": {
+                  "type": "string",
+                  "desc": "The type of check.\n\nPermitted Values: COMPANY_VERIFICATION, IDENTITY_VERIFICATION, PASSPORT_VERIFICATION, BANK_ACCOUNT_VERIFICATION, NONPROFIT_VERIFICATION.",
+                  "required": true
+                }
+              }
+            }
+          }
+        },
+        "bankAccounts": {
+          "type": "array",
+          "desc": "The result(s) of the checks on the bank account(s).",
+          "required": true,
+          "children": {
+            "bankAccountUUID": {
+              "type": "string",
+              "desc": "The unique ID of the bank account to which the check applies.",
+              "required": true
+            },
+            "checks": {
+              "type": "array",
+              "desc": "A list of the checks and their statuses.",
+              "required": true,
+              "children": {
+                "requiredFields": {
+                  "type": "array",
+                  "desc": "A list of the fields required for execution of the check.",
+                  "required": true
+                },
+                "status": {
+                  "type": "string",
+                  "desc": "The status of the check.\n\nPermitted Values: DATA_PROVIDED, PASSED, PENDING, AWAITING_DATA, RETRY_LIMIT_REACHED, INVALID_DATA, FAILED.",
+                  "required": true
+                },
+                "summary": {
+                  "type": "integer",
+                  "desc": "A summary of the execution of the check.",
+                  "required": true,
+                  "children": {
+                    "kycCheckCode": {
+                      "type": "integer",
+                      "desc": "The code of the check.",
+                      "required": false
+                    },
+                    "kycCheckDescription": {
+                      "type": "string",
+                      "desc": "A description of the check.",
+                      "required": false
+                    }
+                  }
+                },
+                "type": {
+                  "type": "string",
+                  "desc": "The type of check.\n\nPermitted Values: COMPANY_VERIFICATION, IDENTITY_VERIFICATION, PASSPORT_VERIFICATION, BANK_ACCOUNT_VERIFICATION, NONPROFIT_VERIFICATION.",
+                  "required": true
+                }
+              }
+            }
+          }
+        },
+        "shareholders": {
+          "type": "array",
+          "desc": "The result(s) of the checks on the shareholder(s).",
+          "required": true,
+          "children": {
+            "checks": {
+              "type": "array",
+              "desc": "A list of the checks and their statuses.",
+              "required": true,
+              "children": {
+                "requiredFields": {
+                  "type": "array",
+                  "desc": "A list of the fields required for execution of the check.",
+                  "required": true
+                },
+                "status": {
+                  "type": "string",
+                  "desc": "The status of the check.\n\nPermitted Values: DATA_PROVIDED, PASSED, PENDING, AWAITING_DATA, RETRY_LIMIT_REACHED, INVALID_DATA, FAILED.",
+                  "required": true
+                },
+                "summary": {
+                  "type": "integer",
+                  "desc": "A summary of the execution of the check.",
+                  "required": true,
+                  "children": {
+                    "kycCheckCode": {
+                      "type": "integer",
+                      "desc": "The code of the check.",
+                      "required": false
+                    },
+                    "kycCheckDescription": {
+                      "type": "string",
+                      "desc": "A description of the check.",
+                      "required": false
+                    }
+                  }
+                },
+                "type": {
+                  "type": "string",
+                  "desc": "The type of check.\n\nPermitted Values: COMPANY_VERIFICATION, IDENTITY_VERIFICATION, PASSPORT_VERIFICATION, BANK_ACCOUNT_VERIFICATION, NONPROFIT_VERIFICATION.",
+                  "required": true
+                }
+              }
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder to which the check applies.",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

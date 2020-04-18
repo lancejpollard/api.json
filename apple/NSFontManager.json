@@ -1,0 +1,441 @@
+{
+  "type": "Class",
+  "name": "NSFontManager",
+  "desc": "The center of activity for the font-conversion system.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "NSFontManager",
+      "desc": "Returns the shared instance of the font manager for the application, creating it if necessary."
+    },
+    {
+      "name": "setFontManagerFactory",
+      "type": "class func",
+      "desc": "Sets the class that creates the shared font manager object.",
+      "params": [
+        {
+          "type": "AnyClass?"
+        }
+      ]
+    },
+    {
+      "name": "setFontPanelFactory",
+      "type": "class func",
+      "desc": "Sets the class that creates the shared Font panel object.",
+      "params": [
+        {
+          "type": "AnyClass?"
+        }
+      ]
+    },
+    {
+      "name": "availableFonts",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The names of the fonts available in the system (not the NSFont objects themselves)."
+    },
+    {
+      "name": "availableFontFamilies",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "The names of the font families available in the system."
+    },
+    {
+      "name": "availableFontNames",
+      "type": "func",
+      "desc": "Returns the names of the fonts available in the system whose traits are described exactly by the given font trait mask (not the NSFont objects themselves).",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSFontTraitMask"
+        }
+      ],
+      "returnType": "[String]?"
+    },
+    {
+      "name": "availableMembers",
+      "type": "func",
+      "desc": "Returns an array with one entry for each available member of a font family.",
+      "params": [
+        {
+          "name": "ofFontFamily",
+          "type": "String"
+        }
+      ],
+      "returnType": "[[Any]]?"
+    },
+    {
+      "name": "setSelectedFont",
+      "type": "func",
+      "desc": "Records the specified font as the currently selected font and updates the Font panel.",
+      "params": [
+        {
+          "type": "NSFont"
+        },
+        {
+          "name": "isMultiple",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "selectedFont",
+      "type": "var",
+      "datatype": "NSFont?",
+      "desc": "The currently selected font object."
+    },
+    {
+      "name": "isMultiple",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the currently selected font has multiple fonts."
+    },
+    {
+      "name": "sendAction",
+      "type": "func",
+      "desc": "A Boolean value that indicates whether a responder handled the font manager’s action message.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "localizedName",
+      "type": "func",
+      "desc": "Returns a localized string with the name of the specified font family and face, if one exists.",
+      "params": [
+        {
+          "name": "forFamily",
+          "type": "String"
+        },
+        {
+          "name": "face",
+          "type": "String?"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "addFontTrait",
+      "type": "func",
+      "desc": "Adds a trait to the font.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "removeFontTrait",
+      "type": "func",
+      "desc": "Removes a trait from the font.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "modifyFont",
+      "type": "func",
+      "desc": "Modifies a trait of the font.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "modifyFontViaPanel",
+      "type": "func",
+      "desc": "Modifies a font trait using input from the Font panel.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "orderFrontStylesPanel",
+      "type": "func",
+      "desc": "Opens the Font Styles panel.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "orderFrontFontPanel",
+      "type": "func",
+      "desc": "Opens the Font panel, creating it if necessary, and displays that panel in front of the app's windows.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "NSFontAction",
+      "type": "enum",
+      "desc": "Actions that modify a font."
+    },
+    {
+      "name": "convert",
+      "type": "func",
+      "desc": "Converts the given font according to the object that initiated a font change, typically the Font panel or Font menu.",
+      "params": [
+        {
+          "type": "NSFont"
+        }
+      ],
+      "returnType": "NSFont"
+    },
+    {
+      "name": "convert",
+      "type": "func",
+      "desc": "Returns a font whose traits are as similar as possible to those of the given font except for the typeface, which is changed to the given typeface.",
+      "params": [
+        {
+          "type": "NSFont"
+        },
+        {
+          "name": "toFace",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSFont?"
+    },
+    {
+      "name": "convert",
+      "type": "func",
+      "desc": "Returns a font whose traits are as similar as possible to those of the given font except for the font family, which is changed to the given family.",
+      "params": [
+        {
+          "type": "NSFont"
+        },
+        {
+          "name": "toFamily",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSFont"
+    },
+    {
+      "name": "convert",
+      "type": "func",
+      "desc": "Returns a new version of the font object containing a single additional trait.",
+      "params": [
+        {
+          "type": "NSFont"
+        },
+        {
+          "name": "toHaveTrait",
+          "type": "NSFontTraitMask"
+        }
+      ],
+      "returnType": "NSFont"
+    },
+    {
+      "name": "convert",
+      "type": "func",
+      "desc": "Returns a new version of a font object without the specified traits.",
+      "params": [
+        {
+          "type": "NSFont"
+        },
+        {
+          "name": "toNotHaveTrait",
+          "type": "NSFontTraitMask"
+        }
+      ],
+      "returnType": "NSFont"
+    },
+    {
+      "name": "convert",
+      "type": "func",
+      "desc": "Returns a font object whose traits are the same as those of the given font, except for the size, which is changed to the given size.",
+      "params": [
+        {
+          "type": "NSFont"
+        },
+        {
+          "name": "toSize",
+          "type": "CGFloat"
+        }
+      ],
+      "returnType": "NSFont"
+    },
+    {
+      "name": "convertWeight",
+      "type": "func",
+      "desc": "Returns a font object whose weight is greater or lesser than that of the given font.",
+      "params": [
+        {
+          "type": "Bool"
+        },
+        {
+          "name": "of",
+          "type": "NSFont"
+        }
+      ],
+      "returnType": "NSFont"
+    },
+    {
+      "name": "currentFontAction",
+      "type": "var",
+      "datatype": "NSFontAction",
+      "desc": "The current font conversion action."
+    },
+    {
+      "name": "convertFontTraits",
+      "type": "func",
+      "desc": "Converts font traits to a new traits mask value.",
+      "params": [
+        {
+          "type": "NSFontTraitMask"
+        }
+      ],
+      "returnType": "NSFontTraitMask"
+    },
+    {
+      "name": "font",
+      "type": "func",
+      "desc": "Attempts to load a font with the specified characteristics.",
+      "params": [
+        {
+          "name": "withFamily",
+          "type": "String"
+        },
+        {
+          "name": "traits",
+          "type": "NSFontTraitMask"
+        },
+        {
+          "name": "weight",
+          "type": "Int"
+        },
+        {
+          "name": "size",
+          "type": "CGFloat"
+        }
+      ],
+      "returnType": "NSFont?"
+    },
+    {
+      "name": "traits",
+      "type": "func",
+      "desc": "Returns the traits of the given font.",
+      "params": [
+        {
+          "name": "of",
+          "type": "NSFont"
+        }
+      ],
+      "returnType": "NSFontTraitMask"
+    },
+    {
+      "name": "fontNamed",
+      "type": "func",
+      "desc": "Indicates whether the given font has all the specified traits.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "hasTraits",
+          "type": "NSFontTraitMask"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "weight",
+      "type": "func",
+      "desc": "Returns an approximation of the specified font's weight.",
+      "params": [
+        {
+          "name": "of",
+          "type": "NSFont"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "isEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the font conversion system’s Font panel and Font menu items are enabled."
+    },
+    {
+      "name": "fontPanel",
+      "type": "func",
+      "desc": "Returns the application’s shared Font panel object, creating it if necessary.",
+      "params": [
+        {
+          "type": "Bool"
+        }
+      ],
+      "returnType": "NSFontPanel?"
+    },
+    {
+      "name": "setFontMenu",
+      "type": "func",
+      "desc": "Records the given menu as the application’s Font menu.",
+      "params": [
+        {
+          "type": "NSMenu"
+        }
+      ]
+    },
+    {
+      "name": "fontMenu",
+      "type": "func",
+      "desc": "Returns the menu that’s connected to the font conversion system, creating it if necessary.",
+      "params": [
+        {
+          "type": "Bool"
+        }
+      ],
+      "returnType": "NSMenu?"
+    },
+    {
+      "name": "action",
+      "type": "var",
+      "datatype": "Selector",
+      "desc": "The action sent to the first responder when the user selects a new font from the Font panel or chooses a command from the Font menu."
+    },
+    {
+      "name": "target",
+      "type": "var",
+      "datatype": "AnyObject?",
+      "desc": "The object that receives action messages related to the font manager."
+    },
+    {
+      "name": "setSelectedAttributes",
+      "type": "func",
+      "desc": "Informs the Font panel that the specified font attributes changed for the selected text.",
+      "params": [
+        {
+          "name": "[String",
+          "type": "Any]"
+        },
+        {
+          "name": "isMultiple",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "convertAttributes",
+      "type": "func",
+      "desc": "Converts attributes in response to an object initiating an attribute change, typically the Font panel or Font menu.",
+      "params": [
+        {
+          "name": "[String",
+          "type": "Any]"
+        }
+      ],
+      "returnType": "[String : Any]"
+    }
+  ]
+}

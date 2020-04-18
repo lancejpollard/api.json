@@ -1,0 +1,228 @@
+[
+  {
+    "title": "CreateGroup",
+    "req": {
+      "Description": {
+        "desc": "The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces.",
+        "type": "String",
+        "required": "no"
+      },
+      "Name": {
+        "desc": "The name of the group, which is the identifier of the group in other operations. A resource group name cannot be updated after it is created. A resource group name can have a maximum of 128 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with AWS or aws; these are reserved. A resource group name must be unique within your account.",
+        "type": "String",
+        "required": "yes"
+      },
+      "ResourceQuery": {
+        "desc": "The resource query that determines which AWS resources are members of this group.",
+        "type": "ResourceQuery object",
+        "required": "yes"
+      },
+      "Tags": {
+        "desc": "The tags to add to the group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.",
+        "type": "String to string map",
+        "required": "no"
+      }
+    },
+    "res": {
+      "Group": {
+        "desc": "A full description of the resource group after it is created.",
+        "type": "Group object"
+      },
+      "ResourceQuery": {
+        "desc": "The resource query associated with the group.",
+        "type": "ResourceQuery object"
+      },
+      "Tags": {
+        "desc": "The tags associated with the group.",
+        "type": "String to string map"
+      }
+    }
+  },
+  {
+    "title": "DeleteGroup",
+    "req": {
+      "GroupName": {
+        "desc": "The name of the resource group to delete."
+      }
+    },
+    "res": {
+      "Group": {
+        "desc": "A full description of the deleted resource group.",
+        "type": "Group object"
+      }
+    }
+  },
+  {
+    "title": "GetGroup",
+    "req": {
+      "GroupName": {
+        "desc": "The name of the resource group."
+      }
+    },
+    "res": {
+      "Group": {
+        "desc": "A full description of the resource group.",
+        "type": "Group object"
+      }
+    }
+  },
+  {
+    "title": "GetGroupQuery",
+    "req": {
+      "GroupName": {
+        "desc": "The name of the resource group."
+      }
+    },
+    "res": {
+      "GroupQuery": {
+        "desc": "The resource query associated with the specified group.",
+        "type": "GroupQuery object"
+      }
+    }
+  },
+  {
+    "title": "GetTags",
+    "req": {
+      "Arn": {
+        "desc": "The ARN of the resource group for which you want a list of tags. The resource must exist within the account you are using."
+      }
+    },
+    "res": {
+      "Arn": {
+        "desc": "The ARN of the tagged resource group.",
+        "type": "String"
+      },
+      "Tags": {
+        "desc": "The tags associated with the specified resource group.",
+        "type": "String to string map"
+      }
+    }
+  },
+  {
+    "title": "ListGroupResources",
+    "req": {
+      "GroupName": {
+        "desc": "The name of the resource group."
+      },
+      "MaxResults": {
+        "desc": "The maximum number of group member ARNs that are returned in a single call by ListGroupResources, in paginated output. By default, this number is 50."
+      },
+      "NextToken": {
+        "desc": "The NextToken value that is returned in a paginated ListGroupResources request. To get the next page of results, run the call again, add the NextToken parameter, and specify the NextToken value."
+      }
+    },
+    "res": {
+      "Filters": {
+        "desc": "Filters, formatted as ResourceFilter objects, that you want to apply to a ListGroupResources operation.",
+        "type": "Array of ResourceFilter objects"
+      }
+    }
+  },
+  {
+    "title": "ListGroups",
+    "req": {
+      "MaxResults": {
+        "desc": "The maximum number of resource group results that are returned by ListGroups in paginated output. By default, this number is 50."
+      },
+      "NextToken": {
+        "desc": "The NextToken value that is returned in a paginated ListGroups request. To get the next page of results, run the call again, add the NextToken parameter, and specify the NextToken value."
+      }
+    },
+    "res": {
+      "Filters": {
+        "desc": "Filters, formatted as GroupFilter objects, that you want to apply to a ListGroups operation.",
+        "type": "Array of GroupFilter objects"
+      }
+    }
+  },
+  {
+    "title": "SearchResources",
+    "req": {
+      "MaxResults": {
+        "desc": "The maximum number of group member ARNs returned by SearchResources in paginated output. By default, this number is 50.",
+        "type": "Integer",
+        "required": "no"
+      },
+      "NextToken": {
+        "desc": "The NextToken value that is returned in a paginated SearchResources request. To get the next page of results, run the call again, add the NextToken parameter, and specify the NextToken value.",
+        "type": "String",
+        "required": "no"
+      },
+      "ResourceQuery": {
+        "desc": "The search query, using the same formats that are supported for resource group definition.",
+        "type": "ResourceQuery object",
+        "required": "yes"
+      }
+    },
+    "res": {
+      "NextToken": {
+        "desc": "The NextToken value to include in a subsequent SearchResources request, to get more results.",
+        "type": "String"
+      },
+      "QueryErrors": {
+        "desc": "A list of QueryError objects. Each error is an object that contains ErrorCode and Message structures. Possible values for ErrorCode are CLOUDFORMATION_STACK_INACTIVE and CLOUDFORMATION_STACK_NOT_EXISTING.",
+        "type": "Array of QueryError objects"
+      },
+      "ResourceIdentifiers": {
+        "desc": "The ARNs and resource types of resources that are members of the group that you specified.",
+        "type": "Array of ResourceIdentifier objects"
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "req": {
+      "Arn": {
+        "desc": "The ARN of the resource group to which to add tags."
+      }
+    },
+    "res": {
+      "Tags": {
+        "desc": "The tags to add to the specified resource group. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.",
+        "type": "String to string map"
+      }
+    }
+  },
+  {
+    "title": "Untag",
+    "req": {
+      "Arn": {
+        "desc": "The ARN of the resource group from which to remove tags."
+      }
+    },
+    "res": {
+      "Keys": {
+        "desc": "The keys of the tags to be removed.",
+        "type": "Array of strings"
+      }
+    }
+  },
+  {
+    "title": "UpdateGroup",
+    "req": {
+      "GroupName": {
+        "desc": "The name of the resource group for which you want to update its description."
+      }
+    },
+    "res": {
+      "Description": {
+        "desc": "The description of the resource group. Descriptions can have a maximum of 511 characters, including letters, numbers, hyphens, underscores, punctuation, and spaces.",
+        "type": "String"
+      }
+    }
+  },
+  {
+    "title": "UpdateGroupQuery",
+    "req": {
+      "GroupName": {
+        "desc": "The name of the resource group for which you want to edit the query."
+      }
+    },
+    "res": {
+      "ResourceQuery": {
+        "desc": "The resource query that determines which AWS resources are members of the resource group.",
+        "type": "ResourceQuery object"
+      }
+    }
+  }
+]

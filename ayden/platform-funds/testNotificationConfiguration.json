@@ -1,0 +1,105 @@
+{
+  "path": "/testNotificationConfiguration",
+  "method": "POST",
+  "desc": "This endpoint is used to test an existing notification subscription configuration. For each event type specified, a test notification will be generated and sent to the URL configured in the subscription specified.",
+  "req": {
+    "eventTypes": {
+      "type": "array",
+      "desc": "The event types to test.  If left blank, then all of the configured event types will be tested.\n\nPermitted values: ACCOUNT_HOLDER_CREATED, ACCOUNT_CREATED, ACCOUNT_UPDATED, ACCOUNT_HOLDER_UPDATED, ACCOUNT_HOLDER_STATUS_CHANGE, ACCOUNT_HOLDER_STORE_STATUS_CHANGE ACCOUNT_HOLDER_VERIFICATION, ACCOUNT_HOLDER_LIMIT_REACHED, ACCOUNT_HOLDER_PAYOUT, PAYMENT_FAILURE, SCHEDULED_REFUNDS, REPORT_AVAILABLE, TRANSFER_FUNDS, BENEFICIARY_SETUP, COMPENSATE_NEGATIVE_BALANCE.",
+      "required": false
+    },
+    "notificationId": {
+      "type": "integer",
+      "desc": "The ID of the notification subscription configuration to be tested.",
+      "required": true
+    }
+  },
+  "res": {
+    "errorMessages": {
+      "type": "array",
+      "desc": "Any error messages encountered.",
+      "required": false
+    },
+    "eventTypes": {
+      "type": "array",
+      "desc": "The event types that were tested.\n\nPermitted values: ACCOUNT_HOLDER_CREATED, ACCOUNT_CREATED, ACCOUNT_UPDATED, ACCOUNT_HOLDER_UPDATED, ACCOUNT_HOLDER_STATUS_CHANGE, ACCOUNT_HOLDER_STORE_STATUS_CHANGE ACCOUNT_HOLDER_VERIFICATION, ACCOUNT_HOLDER_LIMIT_REACHED, ACCOUNT_HOLDER_PAYOUT, PAYMENT_FAILURE, SCHEDULED_REFUNDS, REPORT_AVAILABLE, TRANSFER_FUNDS, BENEFICIARY_SETUP, COMPENSATE_NEGATIVE_BALANCE.",
+      "required": true
+    },
+    "exchangeMessages": {
+      "type": "array",
+      "desc": "The notification message and related response messages.",
+      "required": true,
+      "children": {
+        "messageCode": {
+          "type": "string",
+          "desc": "",
+          "required": false
+        },
+        "messageDescription": {
+          "type": "string",
+          "desc": "",
+          "required": false
+        }
+      }
+    },
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "notificationId": {
+      "type": "integer",
+      "desc": "The ID of the notification subscription configuration.",
+      "required": true
+    },
+    "okMessages": {
+      "type": "array",
+      "desc": "A list of messages describing the testing steps.",
+      "required": true
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

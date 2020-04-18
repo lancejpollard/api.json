@@ -1,0 +1,123 @@
+{
+  "type": "Class",
+  "name": "NSHelpManager",
+  "desc": "An object for displaying online help for an app.",
+  "items": [
+    {
+      "name": "shared",
+      "type": "class var",
+      "datatype": "NSHelpManager",
+      "desc": "Returns the shared NSHelpManager instance, creating it if it does not already exist."
+    },
+    {
+      "name": "find",
+      "type": "func",
+      "desc": "Performs a search for the specified string in the specified book.",
+      "params": [
+        {
+          "type": "String"
+        },
+        {
+          "name": "inBook",
+          "type": "NSHelpManager.BookName?"
+        }
+      ]
+    },
+    {
+      "name": "openHelpAnchor",
+      "type": "func",
+      "desc": "Finds and displays the text at the given anchor location in the given book.",
+      "params": [
+        {
+          "type": "NSHelpManager.AnchorName"
+        },
+        {
+          "name": "inBook",
+          "type": "NSHelpManager.BookName?"
+        }
+      ]
+    },
+    {
+      "name": "registerBooks",
+      "type": "func",
+      "desc": "Registers one or more help books in the given bundle.",
+      "params": [
+        {
+          "name": "in",
+          "type": "Bundle"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setContextHelp",
+      "type": "func",
+      "desc": "Associates help content with an object.",
+      "params": [
+        {
+          "type": "NSAttributedString"
+        },
+        {
+          "name": "for",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "name": "removeContextHelp",
+      "type": "func",
+      "desc": "Removes the association between an object and its context-sensitive help.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Any"
+        }
+      ]
+    },
+    {
+      "name": "contextHelp",
+      "type": "func",
+      "desc": "Returns context-sensitive help for an object.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Any"
+        }
+      ],
+      "returnType": "NSAttributedString?"
+    },
+    {
+      "name": "showContextHelp",
+      "type": "func",
+      "desc": "Displays the context-sensitive help for a given object at or near the point on the screen specified by a given point.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Any"
+        },
+        {
+          "name": "locationHint",
+          "type": "NSPoint"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isContextHelpModeActive",
+      "type": "class var",
+      "datatype": "Bool"
+    },
+    {
+      "name": "contextHelpModeDidActivateNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the application enters context-sensitive help mode. This typically happens when the user holds down the Help key."
+    },
+    {
+      "name": "contextHelpModeDidDeactivateNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the application exits context-sensitive help mode. This happens when the user clicks the mouse button while the cursor is anywhere on the screen after displaying a context-sensitive help topic."
+    }
+  ]
+}

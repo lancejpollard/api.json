@@ -1,0 +1,669 @@
+{
+  "type": "Class",
+  "name": "NSResponder",
+  "desc": "An abstract class that forms the basis of event and command processing in AppKit.",
+  "items": [
+    {
+      "name": "acceptsFirstResponder",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the responder accepts first responder status."
+    },
+    {
+      "name": "becomeFirstResponder",
+      "type": "func",
+      "desc": "Notifies the receiver that it’s about to become first responder in its NSWindow.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "resignFirstResponder",
+      "type": "func",
+      "desc": "Notifies the receiver that it’s been asked to relinquish its status as first responder in its window.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "validateProposedFirstResponder",
+      "type": "func",
+      "desc": "Allows controls to determine when they should become first responder.",
+      "params": [
+        {
+          "type": "NSResponder"
+        },
+        {
+          "name": "for",
+          "type": "NSEvent?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "nextResponder",
+      "type": "var",
+      "datatype": "NSResponder?",
+      "desc": "The next responder after this one, or nil if it has none."
+    },
+    {
+      "name": "mouseDown",
+      "type": "func",
+      "desc": "Informs the receiver that the user has pressed the left mouse button.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "mouseDragged",
+      "type": "func",
+      "desc": "Informs the receiver that the user has moved the mouse with the left button pressed.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "mouseUp",
+      "type": "func",
+      "desc": "Informs the receiver that the user has released the left mouse button.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "mouseMoved",
+      "type": "func",
+      "desc": "Informs the receiver that the mouse has moved.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "mouseEntered",
+      "type": "func",
+      "desc": "Informs the receiver that the cursor has entered a tracking rectangle.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "mouseExited",
+      "type": "func",
+      "desc": "Informs the receiver that the cursor has exited a tracking rectangle.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "rightMouseDown",
+      "type": "func",
+      "desc": "Informs the receiver that the user has pressed the right mouse button.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "rightMouseDragged",
+      "type": "func",
+      "desc": "Informs the receiver that the user has moved the mouse with the right button pressed.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "rightMouseUp",
+      "type": "func",
+      "desc": "Informs the receiver that the user has released the right mouse button.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "otherMouseDown",
+      "type": "func",
+      "desc": "Informs the receiver that the user has pressed a mouse button other than the left or right one.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "otherMouseDragged",
+      "type": "func",
+      "desc": "Informs the receiver that the user has moved the mouse with a button other than the left or right button pressed.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "otherMouseUp",
+      "type": "func",
+      "desc": "Informs the receiver that the user has released a mouse button other than the left or right button.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "keyDown",
+      "type": "func",
+      "desc": "Informs the receiver that the user has pressed a key.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "keyUp",
+      "type": "func",
+      "desc": "Informs the receiver that the user has released a key.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "interpretKeyEvents",
+      "type": "func",
+      "desc": "Handles a series of key events.",
+      "params": [
+        {
+          "type": "[NSEvent]"
+        }
+      ]
+    },
+    {
+      "name": "performKeyEquivalent",
+      "type": "func",
+      "desc": "Handle a key equivalent.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "flushBufferedKeyEvents",
+      "type": "func",
+      "desc": "Clears any unprocessed key events when overridden by subclasses.",
+      "params": []
+    },
+    {
+      "name": "pressureChange",
+      "type": "func",
+      "desc": "Indicates a pressure change as the result of a user input event on a system that supports pressure sensitivity.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "cursorUpdate",
+      "type": "func",
+      "desc": "Informs the receiver that the mouse cursor has moved into a cursor rectangle.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "flagsChanged",
+      "type": "func",
+      "desc": "Informs the receiver that the user has pressed or released a modifier key (Shift, Control, and so on).",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "tabletPoint",
+      "type": "func",
+      "desc": "Informs the receiver that a tablet-point event has occurred.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "tabletProximity",
+      "type": "func",
+      "desc": "Informs the receiver that a tablet-proximity event has occurred.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "helpRequested",
+      "type": "func",
+      "desc": "Displays context-sensitive help for the receiver if help has been registered.",
+      "params": [
+        {
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "scrollWheel",
+      "type": "func",
+      "desc": "Informs the receiver that the mouse’s scroll wheel has moved.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "quickLook",
+      "type": "func",
+      "desc": "Performs a Quick Look on the content at the location specified by the supplied event.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "changeMode",
+      "type": "func",
+      "desc": "Informs the responder that performed a double-tap on the side of an Apple Pencil.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "supplementalTarget",
+      "type": "func",
+      "desc": "Finds a target for an action method.",
+      "params": [
+        {
+          "name": "forAction",
+          "type": "Selector"
+        },
+        {
+          "name": "sender",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "encodeRestorableState",
+      "type": "func",
+      "desc": "Saves the interface-related state of the responder.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSCoder"
+        }
+      ]
+    },
+    {
+      "name": "restoreState",
+      "type": "func",
+      "desc": "Restores the interface-related state of the responder.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSCoder"
+        }
+      ]
+    },
+    {
+      "name": "restorableStateKeyPaths",
+      "type": "class var",
+      "datatype": "[String]",
+      "desc": "Returns an array of key paths representing the restorable attributes of the responder."
+    },
+    {
+      "name": "invalidateRestorableState",
+      "type": "func",
+      "desc": "Marks the responder’s interface-related state as dirty.",
+      "params": []
+    },
+    {
+      "name": "userActivity",
+      "type": "var",
+      "datatype": "NSUserActivity?",
+      "desc": "An object encapsulating a user activity supported by this responder."
+    },
+    {
+      "name": "updateUserActivityState",
+      "type": "func",
+      "desc": "Updates the state of the given user activity.",
+      "params": [
+        {
+          "type": "NSUserActivity"
+        }
+      ]
+    },
+    {
+      "name": "presentError",
+      "type": "func",
+      "desc": "Presents an error alert to the user as an application-modal dialog.",
+      "params": [
+        {
+          "type": "Error"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "presentError",
+      "type": "func",
+      "desc": "Presents an error alert to the user as a document-modal sheet attached to document window.",
+      "params": [
+        {
+          "type": "Error"
+        },
+        {
+          "name": "modalFor",
+          "type": "NSWindow"
+        },
+        {
+          "name": "delegate",
+          "type": "Any?"
+        },
+        {
+          "name": "didPresent",
+          "type": "Selector?"
+        },
+        {
+          "name": "contextInfo",
+          "type": "UnsafeMutableRawPointer?"
+        }
+      ]
+    },
+    {
+      "name": "willPresentError",
+      "type": "func",
+      "desc": "Returns a custom version of the supplied error object that is more suitable for presentation in alert sheets and dialogs.",
+      "params": [
+        {
+          "type": "Error"
+        }
+      ],
+      "returnType": "Error"
+    },
+    {
+      "name": "tryToPerform",
+      "type": "func",
+      "desc": "Attempts to perform the method indicated by an action with a specified argument.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "with",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "menu",
+      "type": "var",
+      "datatype": "NSMenu?",
+      "desc": "Returns the responder’s menu."
+    },
+    {
+      "name": "validRequestor",
+      "type": "func",
+      "desc": "Overridden by subclasses to determine what services are available.",
+      "params": [
+        {
+          "name": "forSendType",
+          "type": "NSPasteboard.PasteboardType?"
+        },
+        {
+          "name": "returnType",
+          "type": "NSPasteboard.PasteboardType?"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "undoManager",
+      "type": "var",
+      "datatype": "UndoManager?",
+      "desc": "The undo manager for this responder."
+    },
+    {
+      "name": "shouldBeTreatedAsInkEvent",
+      "type": "func",
+      "desc": "Indicates whether a pen-down event should be treated as an ink event.",
+      "params": [
+        {
+          "type": "NSEvent"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "noResponder",
+      "type": "func",
+      "desc": "Handles the case where an event or action message falls off the end of the responder chain.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Selector"
+        }
+      ]
+    },
+    {
+      "name": "beginGesture",
+      "type": "func",
+      "desc": "Informs the receiver that the user has begun a touch gesture.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "endGesture",
+      "type": "func",
+      "desc": "Informs the receiver that the user has ended a touch gesture.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "magnify",
+      "type": "func",
+      "desc": "Informs the receiver that the user has begun a pinch gesture.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "rotate",
+      "type": "func",
+      "desc": "Informs the receiver that the user has begun a rotation gesture.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "swipe",
+      "type": "func",
+      "desc": "Informs the receiver that the user has begun a swipe gesture.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "touchesBegan",
+      "type": "func",
+      "desc": "Informs the receiver that new set of touches has been recognized.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "touchesMoved",
+      "type": "func",
+      "desc": "Informs the receiver that one or more touches has moved.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "touchesCancelled",
+      "type": "func",
+      "desc": "Informs the receiver that tracking of touches has been cancelled for any reason.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "touchesEnded",
+      "type": "func",
+      "desc": "Returns that a set of touches have been removed.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "wantsForwardedScrollEvents",
+      "type": "func",
+      "desc": "Returns whether to forward elastic scrolling gesture events up the responder.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSEvent.GestureAxis"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "smartMagnify",
+      "type": "func",
+      "desc": "Informs the receiver that the user performed a smart zoom gesture.",
+      "params": [
+        {
+          "name": "with",
+          "type": "NSEvent"
+        }
+      ]
+    },
+    {
+      "name": "wantsScrollEventsForSwipeTracking",
+      "type": "func",
+      "desc": "Implement this method to track gesture scroll events such as a swipe.",
+      "params": [
+        {
+          "name": "on",
+          "type": "NSEvent.GestureAxis"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "m NSEvent.GestureAxis",
+      "type": "enum",
+      "desc": "The gesture tracking axis."
+    },
+    {
+      "name": "performTextFinderAction",
+      "type": "func",
+      "desc": "Performs all find oriented actions.",
+      "params": [
+        {
+          "type": "Any?"
+        }
+      ]
+    },
+    {
+      "name": "touchBar",
+      "type": "var",
+      "datatype": "NSTouchBar?",
+      "desc": "The NSTouchBar object associated with the responder."
+    },
+    {
+      "name": "makeTouchBar",
+      "type": "func",
+      "desc": "Your custom subclass of the NSResponder class should override this method to create and configure your subclass’s default NSTouchBar object.",
+      "params": [],
+      "returnType": "NSTouchBar?"
+    }
+  ]
+}

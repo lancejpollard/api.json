@@ -1,0 +1,143 @@
+{
+  "type": "Class",
+  "name": "Operation",
+  "desc": "An abstract class that represents the code and data associated with a single task.",
+  "items": [
+    {
+      "name": "start",
+      "type": "func",
+      "desc": "Begins the execution of the operation.",
+      "params": []
+    },
+    {
+      "name": "main",
+      "type": "func",
+      "desc": "Performs the receiver’s non-concurrent task.",
+      "params": []
+    },
+    {
+      "name": "completionBlock",
+      "type": "var",
+      "datatype": "(()",
+      "desc": "The block to execute after the operation’s main task is completed."
+    },
+    {
+      "name": "cancel",
+      "type": "func",
+      "desc": "Advises the operation object that it should stop executing its task.",
+      "params": []
+    },
+    {
+      "name": "isCancelled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the operation has been cancelled"
+    },
+    {
+      "name": "isExecuting",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the operation is currently executing."
+    },
+    {
+      "name": "isFinished",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the operation has finished executing its task."
+    },
+    {
+      "name": "isConcurrent",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the operation executes its task asynchronously."
+    },
+    {
+      "name": "isAsynchronous",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the operation executes its task asynchronously."
+    },
+    {
+      "name": "isReady",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the operation can be performed now."
+    },
+    {
+      "name": "name",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The name of the operation."
+    },
+    {
+      "name": "addDependency",
+      "type": "func",
+      "desc": "Makes the receiver dependent on the completion of the specified operation.",
+      "params": [
+        {
+          "type": "Operation"
+        }
+      ]
+    },
+    {
+      "name": "removeDependency",
+      "type": "func",
+      "desc": "Removes the receiver’s dependence on the specified operation.",
+      "params": [
+        {
+          "type": "Operation"
+        }
+      ]
+    },
+    {
+      "name": "dependencies",
+      "type": "var",
+      "datatype": "[Operation]",
+      "desc": "An array of the operation objects that must finish executing before the current object can begin executing."
+    },
+    {
+      "name": "qualityOfService",
+      "type": "var",
+      "datatype": "QualityOfService",
+      "desc": "The relative amount of importance for granting system resources to the operation."
+    },
+    {
+      "name": "threadPriority",
+      "type": "var",
+      "datatype": "Double",
+      "desc": "The thread priority to use when executing the operation"
+    },
+    {
+      "name": "queuePriority",
+      "type": "var",
+      "datatype": "Operation.QueuePriority",
+      "desc": "The execution priority of the operation in an operation queue."
+    },
+    {
+      "name": "waitUntilFinished",
+      "type": "func",
+      "desc": "Blocks execution of the current thread until the operation object finishes its task.",
+      "params": []
+    },
+    {
+      "name": "Operation.QueuePriority",
+      "type": "enum",
+      "desc": "These constants let you prioritize the order in which operations execute."
+    },
+    {
+      "name": "QualityOfService",
+      "type": "enum",
+      "desc": "Used to indicate the nature and importance of work to the system. Work with higher quality of service classes receive more resources than work with lower quality of service classes whenever there is resource contention."
+    },
+    {
+      "name": "s OperationQueue",
+      "type": "enum",
+      "desc": "A queue that regulates the execution of operations."
+    },
+    {
+      "name": "s BlockOperation",
+      "type": "enum",
+      "desc": "An operation that manages the concurrent execution of one or more blocks."
+    }
+  ]
+}

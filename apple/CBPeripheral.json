@@ -1,0 +1,204 @@
+{
+  "type": "Class",
+  "name": "CBPeripheral",
+  "desc": "A remote peripheral device.",
+  "items": [
+    {
+      "name": "name",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The name of the peripheral."
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "CBPeripheralDelegate?",
+      "desc": "The delegate object specified to receive peripheral events."
+    },
+    {
+      "name": "discoverServices",
+      "type": "func",
+      "desc": "Discovers the specified services of the peripheral.",
+      "params": [
+        {
+          "type": "[CBUUID]?"
+        }
+      ]
+    },
+    {
+      "name": "discoverIncludedServices",
+      "type": "func",
+      "desc": "Discovers the specified included services of a previously-discovered service.",
+      "params": [
+        {
+          "type": "[CBUUID]?"
+        },
+        {
+          "name": "for",
+          "type": "CBService"
+        }
+      ]
+    },
+    {
+      "name": "services",
+      "type": "var",
+      "datatype": "[CBService]?",
+      "desc": "A list of a peripheral’s discovered services."
+    },
+    {
+      "name": "discoverCharacteristics",
+      "type": "func",
+      "desc": "Discovers the specified characteristics of a service.",
+      "params": [
+        {
+          "type": "[CBUUID]?"
+        },
+        {
+          "name": "for",
+          "type": "CBService"
+        }
+      ]
+    },
+    {
+      "name": "discoverDescriptors",
+      "type": "func",
+      "desc": "Discovers the descriptors of a characteristic.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CBCharacteristic"
+        }
+      ]
+    },
+    {
+      "name": "readValue",
+      "type": "func",
+      "desc": "Retrieves the value of a specified characteristic.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CBCharacteristic"
+        }
+      ]
+    },
+    {
+      "name": "readValue",
+      "type": "func",
+      "desc": "Retrieves the value of a specified characteristic descriptor.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CBDescriptor"
+        }
+      ]
+    },
+    {
+      "name": "writeValue",
+      "type": "func",
+      "desc": "Writes the value of a characteristic.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "name": "for",
+          "type": "CBCharacteristic"
+        },
+        {
+          "name": "type",
+          "type": "CBCharacteristicWriteType"
+        }
+      ]
+    },
+    {
+      "name": "writeValue",
+      "type": "func",
+      "desc": "Writes the value of a characteristic descriptor.",
+      "params": [
+        {
+          "type": "Data"
+        },
+        {
+          "name": "for",
+          "type": "CBDescriptor"
+        }
+      ]
+    },
+    {
+      "name": "maximumWriteValueLength",
+      "type": "func",
+      "desc": "The maximum amount of data, in bytes, you can send to a characteristic in a single write type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "CBCharacteristicWriteType"
+        }
+      ],
+      "returnType": "Int"
+    },
+    {
+      "name": "CBCharacteristicWriteType",
+      "type": "enum",
+      "desc": "Values representing the possible write types to a characteristic’s value."
+    },
+    {
+      "name": "setNotifyValue",
+      "type": "func",
+      "desc": "Sets notifications or indications for the value of a specified characteristic.",
+      "params": [
+        {
+          "type": "Bool"
+        },
+        {
+          "name": "for",
+          "type": "CBCharacteristic"
+        }
+      ]
+    },
+    {
+      "name": "state",
+      "type": "var",
+      "datatype": "CBPeripheralState",
+      "desc": "The connection state of the peripheral."
+    },
+    {
+      "name": "CBPeripheralState",
+      "type": "enum",
+      "desc": "Values representing the connection state of a peripheral."
+    },
+    {
+      "name": "canSendWriteWithoutResponse",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the remote device can send a write without a response."
+    },
+    {
+      "name": "readRSSI",
+      "type": "func",
+      "desc": "Retrieves the current RSSI value for the peripheral while connected to the central manager.",
+      "params": []
+    },
+    {
+      "name": "rssi",
+      "type": "var",
+      "datatype": "NSNumber?",
+      "desc": "The Received Signal Strength Indicator (RSSI), in decibels, of the peripheral."
+    },
+    {
+      "name": "openL2CAPChannel",
+      "type": "func",
+      "desc": "Attempts to open an L2CAP channel to the peripheral using the supplied Protocol/Service Multiplexer (PSM).",
+      "params": [
+        {
+          "type": "CBL2CAPPSM"
+        }
+      ]
+    },
+    {
+      "name": "ancsAuthorized",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates if the remote device has authorization to receive data over ANCS protocol."
+    }
+  ]
+}

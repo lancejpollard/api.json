@@ -1,0 +1,100 @@
+{
+  "path": "/refundFundsTransfer",
+  "method": "POST",
+  "desc": "This endpoint is used to refund funds transferred from one account to another. Both accounts must be in the same marketplace, but can have different account holders.",
+  "req": {
+    "amount": {
+      "type": "string",
+      "desc": "The amount to be transferred.",
+      "required": true,
+      "children": {
+        "currency": {
+          "type": "string",
+          "desc": "The three-character ISO currency code.",
+          "required": true
+        },
+        "value": {
+          "type": "integer",
+          "desc": "The payable amount that can be charged for the transaction.\nThe transaction amount needs to be represented in minor units according to the following table.",
+          "required": true
+        }
+      }
+    },
+    "merchantReference": {
+      "type": "string",
+      "desc": "A value that can be supplied at the discretion of the executing user in order to link multiple transactions to one another.",
+      "required": false
+    },
+    "originalReference": {
+      "type": "string",
+      "desc": "A PSP reference of the original fund transfer.",
+      "required": true
+    }
+  },
+  "res": {
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "merchantReference": {
+      "type": "string",
+      "desc": "The value supplied by the executing user when initiating the transfer refund; may be used to link multiple transactions.",
+      "required": false
+    },
+    "message": {
+      "type": "string",
+      "desc": "",
+      "required": false
+    },
+    "originalReference": {
+      "type": "string",
+      "desc": "A PSP reference of the original fund transfer.",
+      "required": false
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

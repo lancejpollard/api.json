@@ -1,0 +1,262 @@
+{
+  "type": "Class",
+  "name": "NSKeyedArchiver",
+  "desc": "An encoder that stores an object’s data to an archive referenced by keys.",
+  "items": [
+    {
+      "name": "archivedData",
+      "type": "class func",
+      "desc": "Encodes an object graph with the given root object into a data representation, optionally requiring secure coding.",
+      "params": [
+        {
+          "name": "withRootObject",
+          "type": "Any"
+        },
+        {
+          "name": "requiringSecureCoding",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "finishEncoding",
+      "type": "func",
+      "desc": "Instructs the receiver to construct the final data stream.",
+      "params": []
+    },
+    {
+      "name": "encodedData",
+      "type": "var",
+      "datatype": "Data",
+      "desc": "The encoded data for the archiver."
+    },
+    {
+      "name": "outputFormat",
+      "type": "var",
+      "datatype": "PropertyListSerialization.PropertyListFormat",
+      "desc": "The format in which the receiver encodes its data."
+    },
+    {
+      "name": "requiresSecureCoding",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the archiver requires all archived classes to resist object substitution attacks."
+    },
+    {
+      "name": "archivedData",
+      "type": "class func",
+      "desc": "Returns a data object that contains the encoded form of the object graph formed by the given root object.",
+      "params": [
+        {
+          "name": "withRootObject",
+          "type": "Any"
+        }
+      ],
+      "returnType": "Data"
+    },
+    {
+      "name": "archiveRootObject",
+      "type": "class func",
+      "desc": "Archives an object graph rooted at a given object to a file at a given path.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "toFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "encodeEncodable<T>",
+      "type": "func",
+      "desc": "Encodes a given value and associates it with a key.",
+      "params": [
+        {
+          "type": "T"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given Boolean value and associates it with a key.",
+      "params": [
+        {
+          "type": "Bool"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encodeBytes",
+      "type": "func",
+      "desc": "Encodes a given number of bytes from a given C array of bytes and associates them with a key.",
+      "params": [
+        {
+          "type": "UnsafePointer<UInt8>?"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encodeConditionalObject",
+      "type": "func",
+      "desc": "Encodes a reference to a given object and associates it with a key only if it has been unconditionally encoded elsewhere in the archive.",
+      "params": [
+        {
+          "type": "Any?"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given double value and associates it with a key.",
+      "params": [
+        {
+          "type": "Double"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given float value and associates it with a key.",
+      "params": [
+        {
+          "type": "Float"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given 32-bit integer value and associates it with a key.",
+      "params": [
+        {
+          "type": "Int32"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given 64-bit integer value and associates it with a key.",
+      "params": [
+        {
+          "type": "Int64"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "encode",
+      "type": "func",
+      "desc": "Encodes a given object and associates it with a given key.",
+      "params": [
+        {
+          "type": "Any?"
+        },
+        {
+          "name": "forKey",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "NSKeyedArchiverDelegate?",
+      "desc": "The archiver’s delegate."
+    },
+    {
+      "name": "setClassName",
+      "type": "class func",
+      "desc": "Sets a global translation mapping to encode instances of a given class with the provided name, rather than their real name.",
+      "params": [
+        {
+          "type": "String?"
+        },
+        {
+          "name": "for",
+          "type": "AnyClass"
+        }
+      ]
+    },
+    {
+      "name": "className",
+      "type": "class func",
+      "desc": "Returns the class name with which the archiver class encodes instances of a given class.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AnyClass"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "setClassName",
+      "type": "func",
+      "desc": "Sets a mapping for this archiver to encode instances of a given class with the provided name, rather than their real name.",
+      "params": [
+        {
+          "type": "String?"
+        },
+        {
+          "name": "for",
+          "type": "AnyClass"
+        }
+      ]
+    },
+    {
+      "name": "className",
+      "type": "func",
+      "desc": "Returns the class name with which this archiver encodes instances of a given class.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AnyClass"
+        }
+      ],
+      "returnType": "String?"
+    }
+  ]
+}

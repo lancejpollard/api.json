@@ -1,0 +1,860 @@
+{
+  "type": "Class",
+  "name": "AVCaptureDevice",
+  "desc": "A device that provides input (such as audio or video) for capture sessions and offers controls for hardware-specific capture features.",
+  "items": [
+    {
+      "name": "default",
+      "type": "class func",
+      "desc": "Returns the default device used to capture data of a given media type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVMediaType"
+        }
+      ],
+      "returnType": "AVCaptureDevice?"
+    },
+    {
+      "name": "default",
+      "type": "class func",
+      "desc": "Returns the default device for the specified device type, media type, and position.",
+      "params": [
+        {
+          "type": "AVCaptureDevice.DeviceType"
+        },
+        {
+          "name": "for",
+          "type": "AVMediaType?"
+        },
+        {
+          "name": "position",
+          "type": "AVCaptureDevice.Position"
+        }
+      ],
+      "returnType": "AVCaptureDevice?"
+    },
+    {
+      "name": "AVCaptureDevice.Position",
+      "type": "enum",
+      "desc": "Constants to specify the position of a capture device."
+    },
+    {
+      "name": "ct AVCaptureDevice.DeviceType",
+      "type": "enum",
+      "desc": "Values identifying the capture device’s type."
+    },
+    {
+      "name": "s AVCaptureDevice.DiscoverySession",
+      "type": "enum",
+      "desc": "A query for finding and monitoring available capture devices."
+    },
+    {
+      "name": "AVCaptureDeviceWasConnected",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when a new device becomes available."
+    },
+    {
+      "name": "AVCaptureDeviceWasDisconnected",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when an existing device becomes unavailable."
+    },
+    {
+      "name": "devices",
+      "type": "class func",
+      "desc": "Returns an array of the available capture devices on the system.",
+      "params": [],
+      "returnType": "[AVCaptureDevice]"
+    },
+    {
+      "name": "devices",
+      "type": "class func",
+      "desc": "Returns an array of the devices able to capture data of a given media type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVMediaType"
+        }
+      ],
+      "returnType": "[AVCaptureDevice]"
+    },
+    {
+      "name": "authorizationStatus",
+      "type": "class func",
+      "desc": "Returns a constant indicating whether the app has permission for recording a specified media type.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVMediaType"
+        }
+      ],
+      "returnType": "AVAuthorizationStatus"
+    },
+    {
+      "name": "AVAuthorizationStatus",
+      "type": "enum",
+      "desc": "Constants that provide information regarding permission to use media capture devices."
+    },
+    {
+      "name": "lockForConfiguration",
+      "type": "func",
+      "desc": "Requests exclusive access to the device’s hardware properties.",
+      "params": []
+    },
+    {
+      "name": "unlockForConfiguration",
+      "type": "func",
+      "desc": "Relinquishes exclusive control over the device’s configuration.",
+      "params": []
+    },
+    {
+      "name": "isInUseByAnotherApplication",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device is being used exclusively by another application."
+    },
+    {
+      "name": "isSuspended",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device is suspended."
+    },
+    {
+      "name": "linkedDevices",
+      "type": "var",
+      "datatype": "[AVCaptureDevice]",
+      "desc": "An array of AVCaptureDevice objects representing the devices physically linked to the receiver."
+    },
+    {
+      "name": "transportType",
+      "type": "var",
+      "datatype": "Int32",
+      "desc": "The transport type of the receiver."
+    },
+    {
+      "name": "inputSources",
+      "type": "var",
+      "datatype": "[AVCaptureDevice.InputSource]",
+      "desc": "An array of AVCaptureDevice.InputSource objects representing the input sources supported by the device."
+    },
+    {
+      "name": "activeInputSource",
+      "type": "var",
+      "datatype": "AVCaptureDevice.InputSource?",
+      "desc": "The currently active input source."
+    },
+    {
+      "name": "uniqueID",
+      "type": "var",
+      "datatype": "String",
+      "desc": "An ID unique to the model of device corresponding to the receiver."
+    },
+    {
+      "name": "modelID",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The model ID of the device."
+    },
+    {
+      "name": "manufacturer",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A human-readable string describing the manufacturer of the device."
+    },
+    {
+      "name": "localizedName",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A localized, human-readable name for the receiver."
+    },
+    {
+      "name": "isConnected",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device is currently connected."
+    },
+    {
+      "name": "isVirtualDevice",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the device is a virtual device consisting of two or more physical devices."
+    },
+    {
+      "name": "deviceType",
+      "type": "var",
+      "datatype": "AVCaptureDevice.DeviceType",
+      "desc": "The general type of the device, such as a built-in microphone or wide-angle camera."
+    },
+    {
+      "name": "constituentDevices",
+      "type": "var",
+      "datatype": "[AVCaptureDevice]",
+      "desc": "An array of physical devices comprising a virtual device."
+    },
+    {
+      "name": "lensAperture",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The size of the lens diaphragm."
+    },
+    {
+      "name": "position",
+      "type": "var",
+      "datatype": "AVCaptureDevice.Position",
+      "desc": "Indicates the physical position of the device hardware on the system."
+    },
+    {
+      "name": "hasMediaType",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the device provides media with a given type.",
+      "params": [
+        {
+          "type": "AVMediaType"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "supportsSessionPreset",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the receiver can be used in a capture session configured with the given preset.",
+      "params": [
+        {
+          "type": "AVCaptureSession.Preset"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "formats",
+      "type": "var",
+      "datatype": "[AVCaptureDevice.Format]",
+      "desc": "The capture formats supported by the device."
+    },
+    {
+      "name": "activeFormat",
+      "type": "var",
+      "datatype": "AVCaptureDevice.Format",
+      "desc": "The currently active media data format of the capture device."
+    },
+    {
+      "name": "exposureDuration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The length of time over which exposure takes place."
+    },
+    {
+      "name": "exposureTargetOffset",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The metered exposure level's offset from the target exposure value, in EV units."
+    },
+    {
+      "name": "exposureTargetBias",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "Bias applied to the target exposure value, in EV units."
+    },
+    {
+      "name": "minExposureTargetBias",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The minimum supported exposure bias, in EV units."
+    },
+    {
+      "name": "maxExposureTargetBias",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The maximum supported exposure bias, in EV units."
+    },
+    {
+      "name": "activeMaxExposureDuration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The maximum exposure duration, in seconds, defined in the auto-exposure algorithm."
+    },
+    {
+      "name": "currentExposureTargetBias",
+      "type": "class let",
+      "datatype": "Float",
+      "desc": "A special constant representing the current exposure bias value."
+    },
+    {
+      "name": "currentExposureDuration",
+      "type": "class let",
+      "datatype": "CMTime",
+      "desc": "A special constant representing the current exposure duration setting."
+    },
+    {
+      "name": "isAdjustingExposure",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device is currently adjusting its exposure setting."
+    },
+    {
+      "name": "exposureMode",
+      "type": "var",
+      "datatype": "AVCaptureDevice.ExposureMode",
+      "desc": "The exposure mode for the device."
+    },
+    {
+      "name": "isExposureModeSupported",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the given exposure mode is supported.",
+      "params": [
+        {
+          "type": "AVCaptureDevice.ExposureMode"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "exposurePointOfInterest",
+      "type": "var",
+      "datatype": "CGPoint",
+      "desc": "The point of interest for exposure."
+    },
+    {
+      "name": "isExposurePointOfInterestSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device supports a point of interest for exposure."
+    },
+    {
+      "name": "AVCaptureDevice.ExposureMode",
+      "type": "enum",
+      "desc": "Constants to specify the exposure mode of a capture device."
+    },
+    {
+      "name": "activeDepthDataFormat",
+      "type": "var",
+      "datatype": "AVCaptureDevice.Format?",
+      "desc": "The currently active depth data format of the capture device."
+    },
+    {
+      "name": "activeDepthDataMinFrameDuration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The minimum frame duration of depth data."
+    },
+    {
+      "name": "videoZoomFactor",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "A value that controls the cropping and enlargement of images captured by the device."
+    },
+    {
+      "name": "minAvailableVideoZoomFactor",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The minimum zoom factor allowed in the current capture configuration."
+    },
+    {
+      "name": "maxAvailableVideoZoomFactor",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The maximum zoom factor allowed in the current capture configuration."
+    },
+    {
+      "name": "ramp",
+      "type": "func",
+      "desc": "Begins a smooth transition from the current zoom factor to another.",
+      "params": [
+        {
+          "name": "toVideoZoomFactor",
+          "type": "CGFloat"
+        },
+        {
+          "name": "withRate",
+          "type": "Float"
+        }
+      ]
+    },
+    {
+      "name": "isRampingVideoZoom",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether a zoom transition is in progress."
+    },
+    {
+      "name": "cancelVideoZoomRamp",
+      "type": "func",
+      "desc": "Smoothly ends a zoom transition in progress.",
+      "params": []
+    },
+    {
+      "name": "virtualDeviceSwitchOverVideoZoomFactors",
+      "type": "var",
+      "datatype": "[NSNumber]",
+      "desc": "An array of video zoom factors at or above which a virtual device, such as the dual camera, may switch to its next constituent device."
+    },
+    {
+      "name": "dualCameraSwitchOverVideoZoomFactor",
+      "type": "var",
+      "datatype": "CGFloat",
+      "desc": "The video zoom factor at which a dual camera device can automatically switch between cameras."
+    },
+    {
+      "name": "focusMode",
+      "type": "var",
+      "datatype": "AVCaptureDevice.FocusMode",
+      "desc": "The capture device’s focus mode."
+    },
+    {
+      "name": "isFocusModeSupported",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the device supports the given focus mode.",
+      "params": [
+        {
+          "type": "AVCaptureDevice.FocusMode"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "focusPointOfInterest",
+      "type": "var",
+      "datatype": "CGPoint",
+      "desc": "The point of interest for focusing."
+    },
+    {
+      "name": "isFocusPointOfInterestSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device supports a point of interest for focus."
+    },
+    {
+      "name": "isAdjustingFocus",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device is currently adjusting its focus setting."
+    },
+    {
+      "name": "isSmoothAutoFocusEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that determines whether the device has smooth autofocus enabled."
+    },
+    {
+      "name": "isSmoothAutoFocusSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the device supports smooth autofocus."
+    },
+    {
+      "name": "autoFocusRangeRestriction",
+      "type": "var",
+      "datatype": "AVCaptureDevice.AutoFocusRangeRestriction",
+      "desc": "A value controlling the allowable range for automatic focusing."
+    },
+    {
+      "name": "isAutoFocusRangeRestrictionSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the device supports focus range restrictions."
+    },
+    {
+      "name": "AVCaptureDevice.FocusMode",
+      "type": "enum",
+      "desc": "Constants to specify the focus mode of a capture device."
+    },
+    {
+      "name": "AVCaptureDevice.AutoFocusRangeRestriction",
+      "type": "enum",
+      "desc": "Constants to specify the autofocus range of a capture device."
+    },
+    {
+      "name": "hasFlash",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the capture device has a flash."
+    },
+    {
+      "name": "isFlashAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the flash is currently available for use."
+    },
+    {
+      "name": "AVCaptureDevice.FlashMode",
+      "type": "enum",
+      "desc": "Constants to specify the flash mode of a capture device."
+    },
+    {
+      "name": "flashMode",
+      "type": "var",
+      "datatype": "AVCaptureDevice.FlashMode",
+      "desc": "The device’s current flash mode."
+    },
+    {
+      "name": "isFlashModeSupported",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the device supports the given flash mode.",
+      "params": [
+        {
+          "type": "AVCaptureDevice.FlashMode"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isFlashActive",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the flash is currently active."
+    },
+    {
+      "name": "hasTorch",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies whether the capture device has a torch."
+    },
+    {
+      "name": "isTorchAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the torch is currently available for use."
+    },
+    {
+      "name": "isTorchActive",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the device’s torch is currently active."
+    },
+    {
+      "name": "torchLevel",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The current torch brightness level."
+    },
+    {
+      "name": "maxAvailableTorchLevel",
+      "type": "class let",
+      "datatype": "Float"
+    },
+    {
+      "name": "AVCaptureDevice.TorchMode",
+      "type": "enum",
+      "desc": "Constants to specify the capture device’s torch mode."
+    },
+    {
+      "name": "torchMode",
+      "type": "var",
+      "datatype": "AVCaptureDevice.TorchMode",
+      "desc": "The current torch mode."
+    },
+    {
+      "name": "isTorchModeSupported",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the device supports the specified torch mode.",
+      "params": [
+        {
+          "type": "AVCaptureDevice.TorchMode"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setTorchModeOn",
+      "type": "func",
+      "desc": "Sets the illumination level when in torch mode.",
+      "params": [
+        {
+          "name": "level",
+          "type": "Float"
+        }
+      ]
+    },
+    {
+      "name": "isLowLightBoostSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the capture device supports boosting images in low light conditions."
+    },
+    {
+      "name": "isLowLightBoostEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the capture device’s low light boost feature is enabled."
+    },
+    {
+      "name": "automaticallyEnablesLowLightBoostWhenAvailable",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the capture device should automatically switch to low light boost mode when necessary."
+    },
+    {
+      "name": "activeVideoMinFrameDuration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The currently active minimum frame duration."
+    },
+    {
+      "name": "activeVideoMaxFrameDuration",
+      "type": "var",
+      "datatype": "CMTime",
+      "desc": "The currently active maximum frame duration"
+    },
+    {
+      "name": "transportControlsSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device supports transport control commands."
+    },
+    {
+      "name": "transportControlsPlaybackMode",
+      "type": "var",
+      "datatype": "AVCaptureDevice.TransportControlsPlaybackMode",
+      "desc": "The current playback mode."
+    },
+    {
+      "name": "transportControlsSpeed",
+      "type": "var",
+      "datatype": "AVCaptureDevice.TransportControlsSpeed",
+      "desc": "The current playback speed."
+    },
+    {
+      "name": "setTransportControlsPlaybackMode",
+      "type": "func",
+      "desc": "Sets the transport control’s playback mode and speed.",
+      "params": [
+        {
+          "type": "AVCaptureDevice.TransportControlsPlaybackMode"
+        },
+        {
+          "name": "speed",
+          "type": "AVCaptureDevice.TransportControlsSpeed"
+        }
+      ]
+    },
+    {
+      "name": "AVCaptureDevice.TransportControlsPlaybackMode",
+      "type": "enum",
+      "desc": "Constants that indicate the transport control's current mode of playback, if it has one."
+    },
+    {
+      "name": "alias AVCaptureDevice.TransportControlsSpeed",
+      "type": "enum",
+      "desc": "A playback speed value."
+    },
+    {
+      "name": "isSubjectAreaChangeMonitoringEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the device should monitor the subject area for changes."
+    },
+    {
+      "name": "AVCaptureDeviceSubjectAreaDidChange",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the instance of AVCaptureDevice has detected a substantial change to the video subject area."
+    },
+    {
+      "name": "lensPosition",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "Indicates the focus position of the lens."
+    },
+    {
+      "name": "isLockingFocusWithCustomLensPositionSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the device supports locking focus to a specific lens position."
+    },
+    {
+      "name": "currentLensPosition",
+      "type": "class let",
+      "datatype": "Float",
+      "desc": "A special constant representing the current lens position."
+    },
+    {
+      "name": "isWhiteBalanceModeSupported",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the given white balance mode is supported.",
+      "params": [
+        {
+          "type": "AVCaptureDevice.WhiteBalanceMode"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "whiteBalanceMode",
+      "type": "var",
+      "datatype": "AVCaptureDevice.WhiteBalanceMode",
+      "desc": "The current white balance mode."
+    },
+    {
+      "name": "isAdjustingWhiteBalance",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "Indicates whether the devise is currently adjusting the white balance."
+    },
+    {
+      "name": "chromaticityValues",
+      "type": "func",
+      "desc": "Converts device-specific white balance RGB gain values to device-independent chromaticity values.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVCaptureDevice.WhiteBalanceGains"
+        }
+      ],
+      "returnType": "AVCaptureDevice.WhiteBalanceChromaticityValues"
+    },
+    {
+      "name": "deviceWhiteBalanceGains",
+      "type": "var",
+      "datatype": "AVCaptureDevice.WhiteBalanceGains",
+      "desc": "The current device-specific RGB white balance gain values."
+    },
+    {
+      "name": "maxWhiteBalanceGain",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The maximum supported value to which a channel in the AVCaptureWhiteBalanceGains may be set."
+    },
+    {
+      "name": "deviceWhiteBalanceGains",
+      "type": "func",
+      "desc": "Converts device-independent chromaticity values to device-specific white balance RGB gain values.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVCaptureDevice.WhiteBalanceChromaticityValues"
+        }
+      ],
+      "returnType": "AVCaptureDevice.WhiteBalanceGains"
+    },
+    {
+      "name": "deviceWhiteBalanceGains",
+      "type": "func",
+      "desc": "Converts device-independent temperature and tint values to device-specific white balance RGB gain values.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVCaptureDevice.WhiteBalanceTemperatureAndTintValues"
+        }
+      ],
+      "returnType": "AVCaptureDevice.WhiteBalanceGains"
+    },
+    {
+      "name": "grayWorldDeviceWhiteBalanceGains",
+      "type": "var",
+      "datatype": "AVCaptureDevice.WhiteBalanceGains",
+      "desc": "The current device-specific white balance values required for a neutral gray white point."
+    },
+    {
+      "name": "temperatureAndTintValues",
+      "type": "func",
+      "desc": "Converts device-specific white balance RGB gain values to device-independent temperature and tint values.",
+      "params": [
+        {
+          "name": "for",
+          "type": "AVCaptureDevice.WhiteBalanceGains"
+        }
+      ],
+      "returnType": "AVCaptureDevice.WhiteBalanceTemperatureAndTintValues"
+    },
+    {
+      "name": "isLockingWhiteBalanceWithCustomDeviceGainsSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the device supports locking white balance to specific gain values."
+    },
+    {
+      "name": "currentWhiteBalanceGains",
+      "type": "class let",
+      "datatype": "AVCaptureDevice.WhiteBalanceGains",
+      "desc": "A special constant representing the current white balance setting."
+    },
+    {
+      "name": "AVCaptureDevice.WhiteBalanceMode",
+      "type": "enum",
+      "desc": "Constants to specify the white balance mode of a capture device."
+    },
+    {
+      "name": "iso",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The current exposure ISO value."
+    },
+    {
+      "name": "currentISO",
+      "type": "class let",
+      "datatype": "Float",
+      "desc": "This value indicates that the caller does not wish to specify a value for the iso property, and that it should instead be set to its current value."
+    },
+    {
+      "name": "automaticallyAdjustsVideoHDREnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the capture device is allowed to turn high dynamic range streaming on or off."
+    },
+    {
+      "name": "isVideoHDREnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the receiver is allowed to turn high dynamic range streaming on or off."
+    },
+    {
+      "name": "activeColorSpace",
+      "type": "var",
+      "datatype": "AVCaptureColorSpace",
+      "desc": "The currently active color space for capture."
+    },
+    {
+      "name": "AVCaptureColorSpace",
+      "type": "enum",
+      "desc": "Constants to specify the color gamut and format for image and video capture, used with the activeColorSpace property."
+    },
+    {
+      "name": "isGeometricDistortionCorrectionSupported",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether this device supports geometric distortion correction."
+    },
+    {
+      "name": "isGeometricDistortionCorrectionEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether geometric distortion correction is enabled for this device."
+    },
+    {
+      "name": "extrinsicMatrix",
+      "type": "class func",
+      "desc": "The relative extrinsic matrix from one capture device to another.",
+      "params": [
+        {
+          "name": "from",
+          "type": "AVCaptureDevice"
+        },
+        {
+          "name": "to",
+          "type": "AVCaptureDevice"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "systemPressureState",
+      "type": "var",
+      "datatype": "AVCaptureDevice.SystemPressureState",
+      "desc": "The current of OS and hardware status affecting capture system performance and availability."
+    },
+    {
+      "name": "AVCaptureSessionInterruptionSystemPressureStateKey",
+      "type": "let",
+      "datatype": "String",
+      "desc": "The key for retrieving information about system pressure factors that caused a capture session interruption."
+    },
+    {
+      "name": "isGlobalToneMappingEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the device should use global tone mapping."
+    }
+  ]
+}

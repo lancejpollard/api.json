@@ -1,0 +1,73 @@
+{
+  "path": "/checkAccountHolder",
+  "method": "POST",
+  "desc": "This endpoint allows to trigger the verification of the account holder earlier than it's required by the currently processed volume.",
+  "req": {
+    "accountHolderCode": {
+      "type": "string",
+      "desc": "The code of the account holder to verify.",
+      "required": true
+    },
+    "accountStateType": {
+      "type": "string",
+      "desc": "The state required for the account holder.\n\nPermitted values: Processing, Payout.",
+      "required": true
+    },
+    "tier": {
+      "type": "integer",
+      "desc": "The tier required for the account holder.",
+      "required": true
+    }
+  },
+  "res": {
+    "invalidFields": {
+      "type": "array",
+      "desc": "Contains field validation errors that would prevent requests from being processed.",
+      "required": false,
+      "children": {
+        "errorCode": {
+          "type": "integer",
+          "desc": "The validation error code.",
+          "required": false
+        },
+        "errorDescription": {
+          "type": "string",
+          "desc": "A description of the validation error.",
+          "required": false
+        },
+        "fieldType": {
+          "type": "string",
+          "desc": "The type of error field.",
+          "required": false,
+          "children": {
+            "field": {
+              "type": "string",
+              "desc": "The full name of the property.",
+              "required": false
+            },
+            "fieldName": {
+              "type": "string",
+              "desc": "The type of the field.",
+              "required": false
+            },
+            "shareholderCode": {
+              "type": "string",
+              "desc": "The code of the shareholder that the field belongs to. If empty, the field belongs to an account holder.",
+              "required": false
+            }
+          }
+        }
+      }
+    },
+    "pspReference": {
+      "type": "string",
+      "desc": "The reference of a request.  Can be used to uniquely identify the request.",
+      "required": true
+    },
+    "resultCode": {
+      "type": "string",
+      "desc": "The result code.",
+      "required": false
+    }
+  }
+}

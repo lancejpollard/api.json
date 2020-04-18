@@ -1,0 +1,619 @@
+{
+  "type": "Protocol",
+  "name": "NSWindowDelegate",
+  "desc": "A set of optional methods that a delegate of NSWindow can implement to respond to events, such as window resizing, moving, exposing, and minimizing.",
+  "items": [
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "Tells the delegate that the window is about to show a sheet at the specified location, giving it the opportunity to return a custom location for the attachment of the sheet to the window.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "willPositionSheet",
+          "type": "NSWindow"
+        },
+        {
+          "name": "using",
+          "type": "NSRect"
+        }
+      ],
+      "returnType": "NSRect"
+    },
+    {
+      "name": "windowWillBeginSheet",
+      "type": "func",
+      "desc": "Notifies the delegate that the window is about to open a sheet.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidEndSheet",
+      "type": "func",
+      "desc": "Tells the delegate that the window has closed a sheet.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowWillResize",
+      "type": "func",
+      "desc": "Tells the delegate that the window is being resized (whether by the user or through one of the setFrame... methods other than setFrame(_:display:)).",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "to",
+          "type": "NSSize"
+        }
+      ],
+      "returnType": "NSSize"
+    },
+    {
+      "name": "windowDidResize",
+      "type": "func",
+      "desc": "Tells the delegate that the window has been resized.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowWillStartLiveResize",
+      "type": "func",
+      "desc": "Tells the delegate that the window is about to be live resized.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidEndLiveResize",
+      "type": "func",
+      "desc": "Tells the delegate that a live resize operation on the window has ended.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowWillMiniaturize",
+      "type": "func",
+      "desc": "Tells the delegate that the window is about to be minimized.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidMiniaturize",
+      "type": "func",
+      "desc": "Tells the delegate that the window has been minimized.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidDeminiaturize",
+      "type": "func",
+      "desc": "Tells the delegate that the window has been deminimized.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowWillUseStandardFrame",
+      "type": "func",
+      "desc": "Called by NSWindow’s zoom(_:) method while determining the frame a window may be zoomed to.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "defaultFrame",
+          "type": "NSRect"
+        }
+      ],
+      "returnType": "NSRect"
+    },
+    {
+      "name": "windowShouldZoom",
+      "type": "func",
+      "desc": "Asks the delegate whether the specified window should zoom to the specified frame.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "toFrame",
+          "type": "NSRect"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "Called to allow the delegate to modify the full-screen content size.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "willUseFullScreenContentSize",
+          "type": "NSSize"
+        }
+      ],
+      "returnType": "NSSize"
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "Returns the presentation options the window uses when transitioning to full-screen mode.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "willUseFullScreenPresentationOptions",
+          "type": "NSApplication.PresentationOptions"
+        }
+      ],
+      "returnType": "NSApplication.PresentationOptions"
+    },
+    {
+      "name": "windowWillEnterFullScreen",
+      "type": "func",
+      "desc": "The window is about to enter full-screen mode.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidEnterFullScreen",
+      "type": "func",
+      "desc": "The window has entered full-screen mode.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowWillExitFullScreen",
+      "type": "func",
+      "desc": "The window is about to exit full-screen mode.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidExitFullScreen",
+      "type": "func",
+      "desc": "The window has left full-screen mode.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "customWindowsToEnterFullScreen",
+      "type": "func",
+      "desc": "Called when the window is about to enter full-screen mode.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSWindow"
+        }
+      ],
+      "returnType": "[NSWindow]?"
+    },
+    {
+      "name": "customWindowsToEnterFullScreen",
+      "type": "func",
+      "desc": "Called when the window is about to enter full-screen mode.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSWindow"
+        },
+        {
+          "name": "on",
+          "type": "NSScreen"
+        }
+      ],
+      "returnType": "[NSWindow]?"
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "This method is called to start the window animation into full-screen mode, including transitioning to a new space.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "startCustomAnimationToEnterFullScreenWithDuration",
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "This method is called to start the window animation into full-screen mode, including transitioning to a new space.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "startCustomAnimationToEnterFullScreenOn",
+          "type": "NSScreen"
+        },
+        {
+          "name": "withDuration",
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "windowDidFailToEnterFullScreen",
+      "type": "func",
+      "desc": "Called if the window failed to enter full-screen mode.",
+      "params": [
+        {
+          "type": "NSWindow"
+        }
+      ]
+    },
+    {
+      "name": "customWindowsToExitFullScreen",
+      "type": "func",
+      "desc": "Called when the window is about to exit full-screen mode.",
+      "params": [
+        {
+          "name": "for",
+          "type": "NSWindow"
+        }
+      ],
+      "returnType": "[NSWindow]?"
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "This method is called to start the window animation out of full-screen mode, including transitioning back to the desktop space.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "startCustomAnimationToExitFullScreenWithDuration",
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "windowDidFailToExitFullScreen",
+      "type": "func",
+      "desc": "Called if the window failed to exit full-screen mode.",
+      "params": [
+        {
+          "type": "NSWindow"
+        }
+      ]
+    },
+    {
+      "name": "windowWillMove",
+      "type": "func",
+      "desc": "Tells the delegate that the window is about to move.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidMove",
+      "type": "func",
+      "desc": "Tells the delegate that the window has moved.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidChangeScreen",
+      "type": "func",
+      "desc": "Tells the delegate that the window has changed screens.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidChangeScreenProfile",
+      "type": "func",
+      "desc": "Tells the delegate that the window has changed screen display profiles.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidChangeBackingProperties",
+      "type": "func",
+      "desc": "Tells the delegate that the window backing properties changed.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowShouldClose",
+      "type": "func",
+      "desc": "Tells the delegate that the user has attempted to close a window or the window has received a performClose(_:) message.",
+      "params": [
+        {
+          "type": "NSWindow"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "windowWillClose",
+      "type": "func",
+      "desc": "Tells the delegate that the window is about to close.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidBecomeKey",
+      "type": "func",
+      "desc": "Tells the delegate that the window has become the key window.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidResignKey",
+      "type": "func",
+      "desc": "Tells the delegate that the window has resigned key window status.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidBecomeMain",
+      "type": "func",
+      "desc": "Tells the delegate that the window has become main.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidResignMain",
+      "type": "func",
+      "desc": "Tells the delegate that the window has resigned main window status.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowWillReturnFieldEditor",
+      "type": "func",
+      "desc": "Tells the delegate that the field editor for a text-displaying object has been requested.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "to",
+          "type": "Any?"
+        }
+      ],
+      "returnType": "Any?"
+    },
+    {
+      "name": "windowDidUpdate",
+      "type": "func",
+      "desc": "Tells the delegate that the window received an update() message.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidExpose",
+      "type": "func",
+      "desc": "Tells the delegate that the window has been exposed.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidChangeOcclusionState",
+      "type": "func",
+      "desc": "Tells the delegate that the window changed its occlusion state.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "Asks the delegate whether a user can drag the document icon from the window’s title bar.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "shouldDragDocumentWith",
+          "type": "NSEvent"
+        },
+        {
+          "name": "from",
+          "type": "NSPoint"
+        },
+        {
+          "name": "with",
+          "type": "NSPasteboard"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "windowWillReturnUndoManager",
+      "type": "func",
+      "desc": "Tells the delegate that the window’s undo manager has been requested. Returns the appropriate undo manager for the window.",
+      "params": [
+        {
+          "type": "NSWindow"
+        }
+      ],
+      "returnType": "UndoManager?"
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "Asks the delegate whether the window displays the title pop-up menu in response to a Command-click or Control-click on its title.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "shouldPopUpDocumentPathMenu",
+          "type": "NSMenu"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "Tells the delegate the window is about to add its restorable state to a given archiver.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "willEncodeRestorableState",
+          "type": "NSCoder"
+        }
+      ]
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "Tells the delegate the window is has extracted its restorable state from a given archiver.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "didDecodeRestorableState",
+          "type": "NSCoder"
+        }
+      ]
+    },
+    {
+      "name": "window",
+      "type": "func",
+      "desc": "Tells the delegate the window will resize for presentation during version browsing.",
+      "params": [
+        {
+          "type": "NSWindow"
+        },
+        {
+          "name": "willResizeForVersionBrowserWithMaxPreferredSize",
+          "type": "NSSize"
+        },
+        {
+          "name": "maxAllowedSize",
+          "type": "NSSize"
+        }
+      ],
+      "returnType": "NSSize"
+    },
+    {
+      "name": "windowWillEnterVersionBrowser",
+      "type": "func",
+      "desc": "Tells the delegate the window is about to enter version browsing.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidEnterVersionBrowser",
+      "type": "func",
+      "desc": "Tells the delegate that the window has entered version browsing.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowWillExitVersionBrowser",
+      "type": "func",
+      "desc": "Tells the delegate that the window is about to leave version browsing.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "windowDidExitVersionBrowser",
+      "type": "func",
+      "desc": "Tells the delegate that the window has left version browsing.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    }
+  ]
+}

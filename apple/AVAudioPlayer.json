@@ -1,0 +1,197 @@
+{
+  "type": "Class",
+  "name": "AVAudioPlayer",
+  "desc": "An audio player that provides playback of audio data from a file or memory.",
+  "items": [
+    {
+      "name": "play",
+      "type": "func",
+      "desc": "Plays a sound asynchronously.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "play",
+      "type": "func",
+      "desc": "Plays a sound asynchronously, starting at a specified point in the audio output device’s timeline.",
+      "params": [
+        {
+          "name": "atTime",
+          "type": "TimeInterval"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "pause",
+      "type": "func",
+      "desc": "Pauses playback; sound remains ready to resume playback from where it left off.",
+      "params": []
+    },
+    {
+      "name": "stop",
+      "type": "func",
+      "desc": "Stops playback and undoes the setup needed for playback.",
+      "params": []
+    },
+    {
+      "name": "prepareToPlay",
+      "type": "func",
+      "desc": "Prepares the audio player for playback by preloading its buffers.",
+      "params": [],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setVolume",
+      "type": "func",
+      "desc": "Fades to a new volume over a specific duration.",
+      "params": [
+        {
+          "type": "Float"
+        },
+        {
+          "name": "fadeDuration",
+          "type": "TimeInterval"
+        }
+      ]
+    },
+    {
+      "name": "isPlaying",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that indicates whether the audio player is playing (true) or not (false)."
+    },
+    {
+      "name": "volume",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The playback volume for the audio player, ranging from 0.0 through 1.0 on a linear scale."
+    },
+    {
+      "name": "pan",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The audio player’s stereo pan position."
+    },
+    {
+      "name": "rate",
+      "type": "var",
+      "datatype": "Float",
+      "desc": "The audio player’s playback rate."
+    },
+    {
+      "name": "enableRate",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies whether playback rate adjustment is enabled for an audio player."
+    },
+    {
+      "name": "numberOfLoops",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of times a sound will return to the beginning, upon reaching the end, to repeat playback."
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "AVAudioPlayerDelegate?",
+      "desc": "The delegate object for the audio player."
+    },
+    {
+      "name": "settings",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "The audio player’s settings dictionary, containing information about the sound associated with the player."
+    },
+    {
+      "name": "numberOfChannels",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of audio channels in the sound associated with the audio player."
+    },
+    {
+      "name": "channelAssignments",
+      "type": "var",
+      "datatype": "[AVAudioSessionChannelDescription]?",
+      "desc": "An array of AVAudioSessionChannelDescription objects associated with the audio player"
+    },
+    {
+      "name": "duration",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The total duration, in seconds, of the sound associated with the audio player."
+    },
+    {
+      "name": "currentTime",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The playback point, in seconds, within the timeline of the sound associated with the audio player."
+    },
+    {
+      "name": "deviceCurrentTime",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The time value, in seconds, of the audio output device."
+    },
+    {
+      "name": "url",
+      "type": "var",
+      "datatype": "URL?",
+      "desc": "The URL for the sound associated with the audio player."
+    },
+    {
+      "name": "data",
+      "type": "var",
+      "datatype": "Data?",
+      "desc": "The data object containing the sound associated with the audio player."
+    },
+    {
+      "name": "currentDevice",
+      "type": "var",
+      "datatype": "String?",
+      "desc": "The UID of the current audio player."
+    },
+    {
+      "name": "format",
+      "type": "var",
+      "datatype": "AVAudioFormat",
+      "desc": "The format of the audio in the buffer."
+    },
+    {
+      "name": "isMeteringEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value that specifies the audio-level metering on/off state for the audio player."
+    },
+    {
+      "name": "averagePower",
+      "type": "func",
+      "desc": "Returns the average power for a given channel, in decibels, for the sound being played.",
+      "params": [
+        {
+          "name": "forChannel",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Float"
+    },
+    {
+      "name": "peakPower",
+      "type": "func",
+      "desc": "Returns the peak power for a given channel, in decibels, for the sound being played.",
+      "params": [
+        {
+          "name": "forChannel",
+          "type": "Int"
+        }
+      ],
+      "returnType": "Float"
+    },
+    {
+      "name": "updateMeters",
+      "type": "func",
+      "desc": "Refreshes the average and peak power values for all channels of an audio player.",
+      "params": []
+    }
+  ]
+}

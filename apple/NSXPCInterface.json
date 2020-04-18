@@ -1,0 +1,136 @@
+{
+  "type": "Class",
+  "name": "NSXPCInterface",
+  "desc": "An interface that may be sent to an exported object or remote object proxy.",
+  "items": [
+    {
+      "name": "protocol",
+      "type": "var",
+      "datatype": "Protocol",
+      "desc": "The Objective-C protocol that this interface is based on."
+    },
+    {
+      "name": "classes",
+      "type": "func",
+      "desc": "Returns the current list of allowed classes that can appear within the specified collection object argument to the specified method.",
+      "params": [
+        {
+          "name": "for",
+          "type": "Selector"
+        },
+        {
+          "name": "argumentIndex",
+          "type": "Int"
+        },
+        {
+          "name": "ofReply",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Set<AnyHashable>"
+    },
+    {
+      "name": "forSelector",
+      "type": "func",
+      "desc": "Returns the interface previously set for the specified selector and parameter.",
+      "params": [
+        {
+          "type": "Selector"
+        },
+        {
+          "name": "argumentIndex",
+          "type": "Int"
+        },
+        {
+          "name": "ofReply",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "NSXPCInterface?"
+    },
+    {
+      "name": "setClasses",
+      "type": "func",
+      "desc": "Sets the classes that can appear within the (numerically) specified collection object argument to the specified method.",
+      "params": [
+        {
+          "type": "Set<AnyHashable>"
+        },
+        {
+          "name": "for",
+          "type": "Selector"
+        },
+        {
+          "name": "argumentIndex",
+          "type": "Int"
+        },
+        {
+          "name": "ofReply",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "setInterface",
+      "type": "func",
+      "desc": "Configures a specific parameter of a method to be sent as a proxy object instead of copied.",
+      "params": [
+        {
+          "type": "NSXPCInterface"
+        },
+        {
+          "name": "for",
+          "type": "Selector"
+        },
+        {
+          "name": "argumentIndex",
+          "type": "Int"
+        },
+        {
+          "name": "ofReply",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "setXPCType",
+      "type": "func",
+      "params": [
+        {
+          "type": "xpc_type_t"
+        },
+        {
+          "name": "for",
+          "type": "Selector"
+        },
+        {
+          "name": "argumentIndex",
+          "type": "Int"
+        },
+        {
+          "name": "ofReply",
+          "type": "Bool"
+        }
+      ]
+    },
+    {
+      "name": "xpcType",
+      "type": "func",
+      "params": [
+        {
+          "name": "for",
+          "type": "Selector"
+        },
+        {
+          "name": "argumentIndex",
+          "type": "Int"
+        },
+        {
+          "name": "ofReply",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "xpc_type_t?"
+    }
+  ]
+}

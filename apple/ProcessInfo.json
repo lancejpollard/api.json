@@ -1,0 +1,221 @@
+{
+  "type": "Class",
+  "name": "ProcessInfo",
+  "desc": "A collection of information about the current process.",
+  "items": [
+    {
+      "name": "processInfo",
+      "type": "class var",
+      "datatype": "ProcessInfo",
+      "desc": "Returns the process information agent for the process."
+    },
+    {
+      "name": "arguments",
+      "type": "var",
+      "datatype": "[String]",
+      "desc": "Array of strings with the command-line arguments for the process."
+    },
+    {
+      "name": "environment",
+      "type": "var",
+      "datatype": "[String",
+      "desc": "The variable names (keys) and their values in the environment from which the process was launched."
+    },
+    {
+      "name": "globallyUniqueString",
+      "type": "var",
+      "datatype": "String",
+      "desc": "Global unique identifier for the process."
+    },
+    {
+      "name": "isMacCatalystApp",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the process is a Mac app built with Mac Catalyst."
+    },
+    {
+      "name": "processIdentifier",
+      "type": "var",
+      "datatype": "Int32",
+      "desc": "The identifier of the process (often called process ID)."
+    },
+    {
+      "name": "processName",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The name of the process."
+    },
+    {
+      "name": "userName",
+      "type": "var",
+      "datatype": "String",
+      "desc": "Returns the account name of the current user."
+    },
+    {
+      "name": "fullUserName",
+      "type": "var",
+      "datatype": "String",
+      "desc": "Returns the full name of the current user."
+    },
+    {
+      "name": "disableSuddenTermination",
+      "type": "func",
+      "desc": "Disables the application for quickly killing using sudden termination.",
+      "params": []
+    },
+    {
+      "name": "enableSuddenTermination",
+      "type": "func",
+      "desc": "Enables the application for quick killing using sudden termination.",
+      "params": []
+    },
+    {
+      "name": "disableAutomaticTermination",
+      "type": "func",
+      "desc": "Disables automatic termination for the application.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "enableAutomaticTermination",
+      "type": "func",
+      "desc": "Enables automatic termination for the application.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "automaticTerminationSupportEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean value indicating whether the app supports automatic termination."
+    },
+    {
+      "name": "hostName",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The name of the host computer on which the process is executing."
+    },
+    {
+      "name": "operatingSystem",
+      "type": "func",
+      "desc": "Returns a constant to indicate the operating system on which the process is executing.",
+      "params": [],
+      "returnType": "Int"
+    },
+    {
+      "name": "operatingSystemName",
+      "type": "func",
+      "desc": "Returns a string containing the name of the operating system on which the process is executing.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "operatingSystemVersionString",
+      "type": "var",
+      "datatype": "String",
+      "desc": "A string containing the version of the operating system on which the process is executing."
+    },
+    {
+      "name": "operatingSystemVersion",
+      "type": "var",
+      "datatype": "OperatingSystemVersion",
+      "desc": "The version of the operating system on which the process is executing."
+    },
+    {
+      "name": "isOperatingSystemAtLeast",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the version of the operating system on which the process is executing is the same or later than the given version.",
+      "params": [
+        {
+          "type": "OperatingSystemVersion"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "processorCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of processing cores available on the computer."
+    },
+    {
+      "name": "activeProcessorCount",
+      "type": "var",
+      "datatype": "Int",
+      "desc": "The number of active processing cores available on the computer."
+    },
+    {
+      "name": "physicalMemory",
+      "type": "var",
+      "datatype": "UInt64",
+      "desc": "The amount of physical memory on the computer in bytes."
+    },
+    {
+      "name": "systemUptime",
+      "type": "var",
+      "datatype": "TimeInterval",
+      "desc": "The amount of time the system has been awake since the last time it was restarted."
+    },
+    {
+      "name": "beginActivity",
+      "type": "func",
+      "desc": "Begin an activity using the given options and reason.",
+      "params": [
+        {
+          "name": "options",
+          "type": "ProcessInfo.ActivityOptions"
+        },
+        {
+          "name": "reason",
+          "type": "String"
+        }
+      ],
+      "returnType": "NSObjectProtocol"
+    },
+    {
+      "name": "endActivity",
+      "type": "func",
+      "desc": "Ends the given activity.",
+      "params": [
+        {
+          "type": "NSObjectProtocol"
+        }
+      ]
+    },
+    {
+      "name": "thermalState",
+      "type": "var",
+      "datatype": "ProcessInfo.ThermalState",
+      "desc": "The current thermal state of the system."
+    },
+    {
+      "name": "isLowPowerModeEnabled",
+      "type": "var",
+      "datatype": "Bool",
+      "desc": "A Boolean indicating whether Low Power Mode is enabled on an iOS device."
+    },
+    {
+      "name": "ProcessInfo.ThermalState",
+      "type": "enum",
+      "desc": "Values used to indicate the system’s thermal state."
+    },
+    {
+      "name": "thermalStateDidChangeNotification",
+      "type": "class let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the thermal state of the system changes."
+    },
+    {
+      "name": "NSProcessInfoPowerStateDidChange",
+      "type": "static let",
+      "datatype": "NSNotification.Name",
+      "desc": "Posted when the power state (Low Power Mode is enabled or disabled) of an iOS device changes."
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "type": "Class",
+  "name": "CXProvider",
+  "desc": "An object that represents a telephony provider.",
+  "items": [
+    {
+      "name": "setDelegate",
+      "type": "func",
+      "desc": "Sets a provider delegate, specifying an optional queue on which to execute delegate methods.",
+      "params": [
+        {
+          "type": "CXProviderDelegate?"
+        },
+        {
+          "name": "queue",
+          "type": "DispatchQueue?"
+        }
+      ]
+    },
+    {
+      "name": "configuration",
+      "type": "var",
+      "datatype": "CXProviderConfiguration",
+      "desc": "The configuration of the provider."
+    },
+    {
+      "name": "pendingTransactions",
+      "type": "var",
+      "datatype": "[CXTransaction]",
+      "desc": "Returns all transactions that are not yet completed."
+    },
+    {
+      "name": "pendingCallActions",
+      "type": "func",
+      "desc": "Returns all call actions in any pending transactions of the specified class for the specified call identifier that are not yet completed.",
+      "params": [
+        {
+          "name": "of",
+          "type": "AnyClass"
+        },
+        {
+          "name": "withCall",
+          "type": "UUID"
+        }
+      ],
+      "returnType": "[CXCallAction]"
+    },
+    {
+      "name": "reportOutgoingCall",
+      "type": "func",
+      "desc": "Reports to the provider that an outgoing call with the specified unique identifier started connecting at a particular time.",
+      "params": [
+        {
+          "name": "with",
+          "type": "UUID"
+        },
+        {
+          "name": "startedConnectingAt",
+          "type": "Date?"
+        }
+      ]
+    },
+    {
+      "name": "reportOutgoingCall",
+      "type": "func",
+      "desc": "Reports to the provider that an outgoing call with the specified unique identifier finished connecting at a particular time.",
+      "params": [
+        {
+          "name": "with",
+          "type": "UUID"
+        },
+        {
+          "name": "connectedAt",
+          "type": "Date?"
+        }
+      ]
+    },
+    {
+      "name": "reportCall",
+      "type": "func",
+      "desc": "Reports to the provider that an active call updated its information.",
+      "params": [
+        {
+          "name": "with",
+          "type": "UUID"
+        },
+        {
+          "name": "updated",
+          "type": "CXCallUpdate"
+        }
+      ]
+    },
+    {
+      "name": "reportCall",
+      "type": "func",
+      "desc": "Reports to the provider that a call with the specified identifier ended at a given date for a particular reason.",
+      "params": [
+        {
+          "name": "with",
+          "type": "UUID"
+        },
+        {
+          "name": "endedAt",
+          "type": "Date?"
+        },
+        {
+          "name": "reason",
+          "type": "CXCallEndedReason"
+        }
+      ]
+    },
+    {
+      "name": "invalidate",
+      "type": "func",
+      "desc": "Invalidates the provider and completes all active calls with an error.",
+      "params": []
+    },
+    {
+      "name": "CXCallEndedReason",
+      "type": "enum",
+      "desc": "Reasons for a call to end, as reported by the reportCall(with:endedAt:reason:) method."
+    },
+    {
+      "name": "ct CXError",
+      "type": "enum"
+    },
+    {
+      "name": "ct CXErrorCodeIncomingCallError",
+      "type": "enum"
+    },
+    {
+      "name": "CXErrorCodeIncomingCallError.Code",
+      "type": "enum",
+      "desc": "Error codes for the CallKit Constants error domain."
+    },
+    {
+      "name": "CXErrorDomain",
+      "type": "let",
+      "datatype": "String",
+      "desc": "Domain for CallKit errrors. See CallKit Constants for possible error codes."
+    },
+    {
+      "name": "CXErrorDomainIncomingCall",
+      "type": "let",
+      "datatype": "String",
+      "desc": "Domain for errors during incoming calls. See CallKit Constants for possible error codes."
+    }
+  ]
+}

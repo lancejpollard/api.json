@@ -1,0 +1,485 @@
+{
+  "type": "Protocol",
+  "name": "NSApplicationDelegate",
+  "desc": "A set of methods that delegates of NSApplication objects can implement.",
+  "items": [
+    {
+      "name": "applicationWillFinishLaunching",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately before the application object is initialized.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationDidFinishLaunching",
+      "type": "func",
+      "desc": "Sent by the default notification center after the application has been launched and initialized but before it has received its first event.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationWillBecomeActive",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately before the application becomes active.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationDidBecomeActive",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately after the application becomes active.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationWillResignActive",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately before the application is deactivated.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationDidResignActive",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately after the application is deactivated.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationShouldTerminate",
+      "type": "func",
+      "desc": "Sent to notify the delegate that the application is about to terminate.",
+      "params": [
+        {
+          "type": "NSApplication"
+        }
+      ],
+      "returnType": "NSApplication.TerminateReply"
+    },
+    {
+      "name": "applicationShouldTerminateAfterLastWindowClosed",
+      "type": "func",
+      "desc": "Invoked when the user closes the last window the application has open.",
+      "params": [
+        {
+          "type": "NSApplication"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "applicationWillTerminate",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately before the application terminates.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "NSApplication.TerminateReply",
+      "type": "enum",
+      "desc": "Constants used by the delegate method applicationShouldTerminate(_:) to determine whether an app should terminate."
+    },
+    {
+      "name": "applicationWillHide",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately before the application is hidden.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationDidHide",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately after the application is hidden.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationWillUnhide",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately after the application is unhidden.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationDidUnhide",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately after the application is made visible.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationWillUpdate",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately before the application object updates its windows.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationDidUpdate",
+      "type": "func",
+      "desc": "Sent by the default notification center immediately after the application object updates its windows.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "applicationShouldHandleReopen",
+      "type": "func",
+      "desc": "Sent by the application to the delegate prior to default behavior to reopen (rapp) AppleEvents.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "hasVisibleWindows",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "applicationDockMenu",
+      "type": "func",
+      "desc": "Allows the delegate to supply a dock menu for the application dynamically.",
+      "params": [
+        {
+          "type": "NSApplication"
+        }
+      ],
+      "returnType": "NSMenu?"
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Sent to the delegate before the specified application presents an error message to the user.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "willPresentError",
+          "type": "Error"
+        }
+      ],
+      "returnType": "Error"
+    },
+    {
+      "name": "applicationDidChangeScreenParameters",
+      "type": "func",
+      "desc": "Sent by the default notification center when the configuration of the displays attached to the computer is changed (either programmatically or when the user changes settings in the Displays control panel).",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate the user wants to continue an activity in your app.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "willContinueUserActivityWithType",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate that the activity could not be continued.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "didFailToContinueUserActivityWithType",
+          "type": "String"
+        },
+        {
+          "name": "error",
+          "type": "Error"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate that the user activity object has been updated.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "didUpdate",
+          "type": "NSUserActivity"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Sent to the delegate when Apple Push Services successfully completes the registration process.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "didRegisterForRemoteNotificationsWithDeviceToken",
+          "type": "Data"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Sent to the delegate when Apple Push Service cannot successfully complete the registration process.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "didFailToRegisterForRemoteNotificationsWithError",
+          "type": "Error"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate that the user accepted a CloudKit sharing invitation associated with your app.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "userDidAcceptCloudKitShareWith",
+          "type": "CKShareMetadata"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "open",
+          "type": "[URL]"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate to open a single file.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "openFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate to open a file programmatically.",
+      "params": [
+        {
+          "type": "Any"
+        },
+        {
+          "name": "openFileWithoutUI",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate to open a temporary file.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "openTempFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate to open multiple files.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "openFiles",
+          "type": "[String]"
+        }
+      ]
+    },
+    {
+      "name": "applicationOpenUntitledFile",
+      "type": "func",
+      "desc": "Tells the delegate to open an untitled file.",
+      "params": [
+        {
+          "type": "NSApplication"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "applicationShouldOpenUntitledFile",
+      "type": "func",
+      "desc": "Invoked immediately before opening an untitled file.",
+      "params": [
+        {
+          "type": "NSApplication"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Sent when the user starts up the application on the command line with the -NSPrint option.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "printFile",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "NSApplication.PrintReply",
+      "type": "enum",
+      "desc": "Constants that are returned by the delegate method application(_:printFiles:withSettings:showPrintPanels:)."
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate the application has extracted its restorable state from a given archiver.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "didDecodeRestorableState",
+          "type": "NSCoder"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Tells the delegate the application will encode any application state that was preserved between application launches.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "willEncodeRestorableState",
+          "type": "NSCoder"
+        }
+      ]
+    },
+    {
+      "name": "applicationDidChangeOcclusionState",
+      "type": "func",
+      "desc": "Tells the delegate the application’s occlusion state changed.",
+      "params": [
+        {
+          "type": "Notification"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "type": "func",
+      "desc": "Returns a Boolean value indicating whether the delegate can handle operations on the specified key-value key.",
+      "params": [
+        {
+          "type": "NSApplication"
+        },
+        {
+          "name": "delegateHandlesKey",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "NSApplicationMain",
+      "type": "func",
+      "params": [
+        {
+          "type": "Int32"
+        },
+        {
+          "type": "UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>"
+        }
+      ],
+      "returnType": "Int32"
+    }
+  ]
+}

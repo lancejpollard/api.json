@@ -1,0 +1,1130 @@
+{
+  "type": "Class",
+  "name": "FileManager",
+  "desc": "A convenient interface to the contents of the file system, and the primary means of interacting with it.",
+  "items": [
+    {
+      "name": "",
+      "type": "class var",
+      "desc": "The shared file manager object for the process."
+    },
+    {
+      "name": "homeDirectoryForCurrentUser",
+      "type": "var",
+      "datatype": "URL",
+      "desc": "The home directory for the current user."
+    },
+    {
+      "name": "NSHomeDirectory",
+      "type": "func",
+      "desc": "Returns the path to either the user’s or application’s home directory, depending on the platform.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "NSUserName",
+      "type": "func",
+      "desc": "Returns the logon name of the current user.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "NSFullUserName",
+      "type": "func",
+      "desc": "Returns a string containing the full name of the current user.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "homeDirectory",
+      "type": "func",
+      "desc": "Returns the home directory for the specified user.",
+      "params": [
+        {
+          "name": "forUser",
+          "type": "String"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "NSHomeDirectoryForUser",
+      "type": "func",
+      "desc": "Returns the path to a given user’s home directory.",
+      "params": [
+        {
+          "type": "String?"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "temporaryDirectory",
+      "type": "var",
+      "datatype": "URL",
+      "desc": "The temporary directory for the current user."
+    },
+    {
+      "name": "NSTemporaryDirectory",
+      "type": "func",
+      "desc": "Returns the path of the temporary directory for the current user.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "url",
+      "type": "func",
+      "desc": "Locates and optionally creates the specified common directory in a domain.",
+      "params": [
+        {
+          "name": "for",
+          "type": "FileManager.SearchPathDirectory"
+        },
+        {
+          "name": "in",
+          "type": "FileManager.SearchPathDomainMask"
+        },
+        {
+          "name": "appropriateFor",
+          "type": "URL?"
+        },
+        {
+          "name": "create",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "URL"
+    },
+    {
+      "name": "urls",
+      "type": "func",
+      "desc": "Returns an array of URLs for the specified common directory in the requested domains.",
+      "params": [
+        {
+          "name": "for",
+          "type": "FileManager.SearchPathDirectory"
+        },
+        {
+          "name": "in",
+          "type": "FileManager.SearchPathDomainMask"
+        }
+      ],
+      "returnType": "[URL]"
+    },
+    {
+      "name": "NSSearchPathForDirectoriesInDomains",
+      "type": "func",
+      "desc": "Creates a list of directory search paths.",
+      "params": [
+        {
+          "type": "FileManager.SearchPathDirectory"
+        },
+        {
+          "type": "FileManager.SearchPathDomainMask"
+        },
+        {
+          "type": "Bool"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "NSOpenStepRootDirectory",
+      "type": "func",
+      "desc": "Returns the root directory of the user’s system.",
+      "params": [],
+      "returnType": "String"
+    },
+    {
+      "name": "containerURL",
+      "type": "func",
+      "desc": "Returns the container directory associated with the specified security application group identifier.",
+      "params": [
+        {
+          "name": "forSecurityApplicationGroupIdentifier",
+          "type": "String"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "contentsOfDirectory",
+      "type": "func",
+      "desc": "Performs a shallow search of the specified directory and returns URLs for the contained items.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "includingPropertiesForKeys",
+          "type": "[URLResourceKey]?"
+        },
+        {
+          "name": "options",
+          "type": "FileManager.DirectoryEnumerationOptions"
+        }
+      ],
+      "returnType": "[URL]"
+    },
+    {
+      "name": "contentsOfDirectory",
+      "type": "func",
+      "desc": "Performs a shallow search of the specified directory and returns the paths of any contained items.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "enumerator",
+      "type": "func",
+      "desc": "Returns a directory enumerator object that can be used to perform a deep enumeration of the directory at the specified URL.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "includingPropertiesForKeys",
+          "type": "[URLResourceKey]?"
+        },
+        {
+          "name": "options",
+          "type": "FileManager.DirectoryEnumerationOptions"
+        },
+        {
+          "name": "errorHandler",
+          "type": "((URL"
+        },
+        {
+          "type": "Error"
+        }
+      ],
+      "returnType": "Bool)?)"
+    },
+    {
+      "name": "enumerator",
+      "type": "func",
+      "desc": "Returns a directory enumerator object that can be used to perform a deep enumeration of the directory at the specified path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "FileManager.DirectoryEnumerator?"
+    },
+    {
+      "name": "mountedVolumeURLs",
+      "type": "func",
+      "desc": "Returns an array of URLs that identify the mounted volumes available on the device.",
+      "params": [
+        {
+          "name": "includingResourceValuesForKeys",
+          "type": "[URLResourceKey]?"
+        },
+        {
+          "name": "options",
+          "type": "FileManager.VolumeEnumerationOptions"
+        }
+      ],
+      "returnType": "[URL]?"
+    },
+    {
+      "name": "subpathsOfDirectory",
+      "type": "func",
+      "desc": "Performs a deep enumeration of the specified directory and returns the paths of all of the contained subdirectories.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "[String]"
+    },
+    {
+      "name": "subpaths",
+      "type": "func",
+      "desc": "Returns an array of strings identifying the paths for all items in the specified directory.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "[String]?"
+    },
+    {
+      "name": "createDirectory",
+      "type": "func",
+      "desc": "Creates a directory with the given attributes at the specified URL.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "withIntermediateDirectories",
+          "type": "Bool"
+        },
+        {
+          "name": "attributes",
+          "type": "[FileAttributeKey"
+        }
+      ]
+    },
+    {
+      "name": "createDirectory",
+      "type": "func",
+      "desc": "Creates a directory with given attributes at the specified path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "withIntermediateDirectories",
+          "type": "Bool"
+        },
+        {
+          "name": "attributes",
+          "type": "[FileAttributeKey"
+        }
+      ]
+    },
+    {
+      "name": "createFile",
+      "type": "func",
+      "desc": "Creates a file with the specified content and attributes at the given location.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "contents",
+          "type": "Data?"
+        },
+        {
+          "name": "attributes",
+          "type": "[FileAttributeKey"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "removeItem",
+      "type": "func",
+      "desc": "Removes the file or directory at the specified URL.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "removeItem",
+      "type": "func",
+      "desc": "Removes the file or directory at the specified path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "trashItem",
+      "type": "func",
+      "desc": "Moves an item to the trash.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "resultingItemURL",
+          "type": "AutoreleasingUnsafeMutablePointer<NSURL?>?"
+        }
+      ]
+    },
+    {
+      "name": "replaceItemAt",
+      "type": "func",
+      "desc": "Replaces the contents of the item at the specified URL in a manner that ensures no data loss occurs.",
+      "params": [
+        {
+          "type": "URL"
+        },
+        {
+          "name": "withItemAt",
+          "type": "URL"
+        },
+        {
+          "name": "backupItemName",
+          "type": "String?"
+        },
+        {
+          "name": "options",
+          "type": "FileManager.ItemReplacementOptions"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "replaceItem",
+      "type": "func",
+      "desc": "Replaces the contents of the item at the specified URL in a manner that ensures no data loss occurs.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "withItemAt",
+          "type": "URL"
+        },
+        {
+          "name": "backupItemName",
+          "type": "String?"
+        },
+        {
+          "name": "options",
+          "type": "FileManager.ItemReplacementOptions"
+        },
+        {
+          "name": "resultingItemURL",
+          "type": "AutoreleasingUnsafeMutablePointer<NSURL?>?"
+        }
+      ]
+    },
+    {
+      "name": "copyItem",
+      "type": "func",
+      "desc": "Copies the file at the specified URL to a new location synchronously.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "to",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "copyItem",
+      "type": "func",
+      "desc": "Copies the item at the specified path to a new location synchronously.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "toPath",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "moveItem",
+      "type": "func",
+      "desc": "Moves the file or directory at the specified URL to a new location synchronously.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "to",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "moveItem",
+      "type": "func",
+      "desc": "Moves the file or directory at the specified path to a new location synchronously.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "toPath",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "ubiquityIdentityToken",
+      "type": "var",
+      "datatype": "(NSCoding",
+      "desc": "An opaque token that represents the current user’s iCloud Drive Documents identity."
+    },
+    {
+      "name": "url",
+      "type": "func",
+      "desc": "Returns the URL for the iCloud container associated with the specified identifier and establishes access to that container.",
+      "params": [
+        {
+          "name": "forUbiquityContainerIdentifier",
+          "type": "String?"
+        }
+      ],
+      "returnType": "URL?"
+    },
+    {
+      "name": "isUbiquitousItem",
+      "type": "func",
+      "desc": "Returns a Boolean indicating whether the item is targeted for storage in iCloud.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "setUbiquitous",
+      "type": "func",
+      "desc": "Indicates whether the item at the specified URL should be stored in iCloud.",
+      "params": [
+        {
+          "type": "Bool"
+        },
+        {
+          "name": "itemAt",
+          "type": "URL"
+        },
+        {
+          "name": "destinationURL",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "startDownloadingUbiquitousItem",
+      "type": "func",
+      "desc": "Starts downloading (if necessary) the specified item to the local system.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "evictUbiquitousItem",
+      "type": "func",
+      "desc": "Removes the local copy of the specified item that’s stored in iCloud.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "url",
+      "type": "func",
+      "desc": "Returns a URL that can be emailed to users to allow them to download a copy of a flat file item from iCloud.",
+      "params": [
+        {
+          "name": "forPublishingUbiquitousItemAt",
+          "type": "URL"
+        },
+        {
+          "name": "expiration",
+          "type": "AutoreleasingUnsafeMutablePointer<NSDate?>?"
+        }
+      ],
+      "returnType": "URL"
+    },
+    {
+      "name": "getFileProviderServicesForItem",
+      "type": "func",
+      "desc": "Returns the services provided by the File Provider extension that manages the item at the given URL.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "completionHandler",
+          "type": "([NSFileProviderServiceName"
+        },
+        {
+          "type": "Error?"
+        }
+      ],
+      "returnType": "Void)"
+    },
+    {
+      "name": "createSymbolicLink",
+      "type": "func",
+      "desc": "Creates a symbolic link at the specified URL that points to an item at the given URL.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "withDestinationURL",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "createSymbolicLink",
+      "type": "func",
+      "desc": "Creates a symbolic link that points to the specified destination.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "withDestinationPath",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "linkItem",
+      "type": "func",
+      "desc": "Creates a hard link between the items at the specified URLs.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "to",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "linkItem",
+      "type": "func",
+      "desc": "Creates a hard link between the items at the specified paths.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "toPath",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "destinationOfSymbolicLink",
+      "type": "func",
+      "desc": "Returns the path of the item pointed to by a symbolic link.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "fileExists",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a file or directory exists at a specified path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "fileExists",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether a file or directory exists at a specified path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "isDirectory",
+          "type": "UnsafeMutablePointer<ObjCBool>?"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isReadableFile",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the invoking object appears able to read a specified file.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isWritableFile",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the invoking object appears able to write to a specified file.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isExecutableFile",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the operating system appears able to execute a specified file.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "isDeletableFile",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the invoking object appears able to delete a specified file.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "componentsToDisplay",
+      "type": "func",
+      "desc": "Returns an array of strings representing the user-visible components of a given path.",
+      "params": [
+        {
+          "name": "forPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "[String]?"
+    },
+    {
+      "name": "displayName",
+      "type": "func",
+      "desc": "Returns the display name of the file or directory at a specified path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "attributesOfItem",
+      "type": "func",
+      "desc": "Returns the attributes of the item at a given path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "[FileAttributeKey"
+    },
+    {
+      "name": "attributesOfFileSystem",
+      "type": "func",
+      "desc": "Returns a dictionary that describes the attributes of the mounted file system on which a given path resides.",
+      "params": [
+        {
+          "name": "forPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "[FileAttributeKey"
+    },
+    {
+      "name": "setAttributes",
+      "type": "func",
+      "desc": "Sets the attributes of the specified file or directory.",
+      "params": [
+        {
+          "name": "[FileAttributeKey",
+          "type": "Any]"
+        },
+        {
+          "name": "ofItemAtPath",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "contents",
+      "type": "func",
+      "desc": "Returns the contents of the file at the specified path.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Data?"
+    },
+    {
+      "name": "contentsEqual",
+      "type": "func",
+      "desc": "Returns a Boolean value that indicates whether the files or directories in specified paths have the same contents.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "andPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "getRelationship",
+      "type": "func",
+      "desc": "Determines the type of relationship that exists between a directory and an item.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<FileManager.URLRelationship>"
+        },
+        {
+          "name": "ofDirectoryAt",
+          "type": "URL"
+        },
+        {
+          "name": "toItemAt",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "getRelationship",
+      "type": "func",
+      "desc": "Determines the type of relationship that exists between a system directory and the specified item.",
+      "params": [
+        {
+          "type": "UnsafeMutablePointer<FileManager.URLRelationship>"
+        },
+        {
+          "name": "of",
+          "type": "FileManager.SearchPathDirectory"
+        },
+        {
+          "name": "in",
+          "type": "FileManager.SearchPathDomainMask"
+        },
+        {
+          "name": "toItemAt",
+          "type": "URL"
+        }
+      ]
+    },
+    {
+      "name": "m FileManager.URLRelationship",
+      "type": "enum",
+      "desc": "Constants indicating the relationship between a directory and an item."
+    },
+    {
+      "name": "fileSystemRepresentation",
+      "type": "func",
+      "desc": "Returns a C-string representation of a given path that properly encodes Unicode strings for use by the file system.",
+      "params": [
+        {
+          "name": "withPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "UnsafePointer<Int8>"
+    },
+    {
+      "name": "string",
+      "type": "func",
+      "desc": "Returns an NSString object whose contents are derived from the specified C-string path.",
+      "params": [
+        {
+          "name": "withFileSystemRepresentation",
+          "type": "UnsafePointer<Int8>"
+        },
+        {
+          "name": "length",
+          "type": "Int"
+        }
+      ],
+      "returnType": "String"
+    },
+    {
+      "name": "delegate",
+      "type": "var",
+      "datatype": "FileManagerDelegate?",
+      "desc": "The delegate of the file manager object."
+    },
+    {
+      "name": "changeCurrentDirectoryPath",
+      "type": "func",
+      "desc": "Changes the path of the current working directory to the specified path.",
+      "params": [
+        {
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "currentDirectoryPath",
+      "type": "var",
+      "datatype": "String",
+      "desc": "The path to the program’s current directory."
+    },
+    {
+      "name": "unmountVolume",
+      "type": "func",
+      "desc": "Starts the process of unmounting the specified volume.",
+      "params": [
+        {
+          "name": "at",
+          "type": "URL"
+        },
+        {
+          "name": "options",
+          "type": "FileManager.UnmountOptions"
+        },
+        {
+          "name": "completionHandler",
+          "type": "(Error?"
+        }
+      ],
+      "returnType": "Void)"
+    },
+    {
+      "name": "NSFileManagerUnmountDissentingProcessIdentifierErrorKey",
+      "type": "let",
+      "datatype": "String",
+      "desc": "The process identifier of the process that prevented a volume from unmounting."
+    },
+    {
+      "name": "NSFileTypeForHFSTypeCode",
+      "type": "func",
+      "desc": "Returns a string encoding a file type code.",
+      "params": [
+        {
+          "type": "OSType"
+        }
+      ],
+      "returnType": "String!"
+    },
+    {
+      "name": "NSHFSTypeCodeFromFileType",
+      "type": "func",
+      "desc": "Returns a file type code.",
+      "params": [
+        {
+          "type": "String!"
+        }
+      ],
+      "returnType": "OSType"
+    },
+    {
+      "name": "NSHFSTypeOfFile",
+      "type": "func",
+      "desc": "Returns a string encoding a file type.",
+      "params": [
+        {
+          "type": "String!"
+        }
+      ],
+      "returnType": "String!"
+    },
+    {
+      "name": "NSFoundationVersionWithFileManagerResourceForkSupport",
+      "type": "var",
+      "datatype": "Int32",
+      "desc": "The version of the Foundation framework in which NSFileManager first supported resource forks."
+    },
+    {
+      "name": "m FileManager.SearchPathDirectory",
+      "type": "enum",
+      "desc": "The location of significant directories."
+    },
+    {
+      "name": "changeFileAttributes",
+      "type": "func",
+      "desc": "Changes the attributes of a given file or directory.",
+      "params": [
+        {
+          "name": "[AnyHashable",
+          "type": "Any]"
+        },
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "fileAttributes",
+      "type": "func",
+      "desc": "Returns a dictionary that describes the POSIX attributes of the file specified at a given.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "traverseLink",
+          "type": "Bool"
+        }
+      ],
+      "returnType": "[AnyHashable"
+    },
+    {
+      "name": "fileSystemAttributes",
+      "type": "func",
+      "desc": "Returns a dictionary that describes the attributes of the mounted file system on which a given path resides.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "[AnyHashable"
+    },
+    {
+      "name": "directoryContents",
+      "type": "func",
+      "desc": "Returns the directories and files (including symbolic links) contained in a given directory.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "[Any]?"
+    },
+    {
+      "name": "createDirectory",
+      "type": "func",
+      "desc": "Creates a directory (without contents) at a given path with given attributes.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "attributes",
+          "type": "[AnyHashable"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "createSymbolicLink",
+      "type": "func",
+      "desc": "Creates a symbolic link identified by a given path that refers to a given location.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        },
+        {
+          "name": "pathContent",
+          "type": "String"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "pathContentOfSymbolicLink",
+      "type": "func",
+      "desc": "Returns the path of the directory or file that a symbolic link at a given path refers to.",
+      "params": [
+        {
+          "name": "atPath",
+          "type": "String"
+        }
+      ],
+      "returnType": "String?"
+    },
+    {
+      "name": "fileManager",
+      "type": "func",
+      "desc": "An NSFileManager object sends this message to its handler for each error it encounters when copying, moving, removing, or linking files or directories.",
+      "params": [
+        {
+          "type": "FileManager"
+        },
+        {
+          "name": "shouldProceedAfterError",
+          "type": "[AnyHashable"
+        }
+      ],
+      "returnType": "Bool"
+    },
+    {
+      "name": "fileManager",
+      "type": "func",
+      "desc": "An NSFileManager object sends this message to a handler immediately before attempting to move, copy, rename, or delete, or before attempting to link to a given path.",
+      "params": [
+        {
+          "type": "FileManager"
+        },
+        {
+          "name": "willProcessPath",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "replaceItemAtURL",
+      "type": "func",
+      "desc": "Replaces the contents of the item at the specified URL in a manner that ensures no data loss occurs.",
+      "params": [
+        {
+          "name": "originalItemURL",
+          "type": "NSURL"
+        },
+        {
+          "name": "withItemAtURL",
+          "type": "NSURL"
+        },
+        {
+          "name": "backupItemName",
+          "type": "String?"
+        },
+        {
+          "name": "options",
+          "type": "FileManager.ItemReplacementOptions"
+        }
+      ],
+      "returnType": "NSURL?"
+    }
+  ]
+}
