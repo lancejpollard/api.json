@@ -1,0 +1,3301 @@
+[
+  {
+    "name": "ELF 32–Bit Data Types",
+    "rows": [
+      {
+        "Name": "Elf32_Addr",
+        "Size": "4",
+        "Alignment": "4",
+        "Purpose": "Unsigned program address"
+      },
+      {
+        "Name": "Elf32_Half",
+        "Size": "2",
+        "Alignment": "2",
+        "Purpose": "Unsigned medium\ninteger"
+      },
+      {
+        "Name": "Elf32_Off",
+        "Size": "4",
+        "Alignment": "4",
+        "Purpose": "Unsigned file offset"
+      },
+      {
+        "Name": "Elf32_Sword",
+        "Size": "4",
+        "Alignment": "4",
+        "Purpose": "Signed integer"
+      },
+      {
+        "Name": "Elf32_Word",
+        "Size": "4",
+        "Alignment": "4",
+        "Purpose": "Unsigned integer"
+      },
+      {
+        "Name": "unsigned char",
+        "Size": "1",
+        "Alignment": "1",
+        "Purpose": "Unsigned small integer"
+      }
+    ]
+  },
+  {
+    "name": "ELF 64–Bit Data Types",
+    "rows": [
+      {
+        "Name": "Elf64_Addr",
+        "Size": "8",
+        "Alignment": "8",
+        "Purpose": "Unsigned program address"
+      },
+      {
+        "Name": "Elf64_Half",
+        "Size": "2",
+        "Alignment": "2",
+        "Purpose": "Unsigned medium integer"
+      },
+      {
+        "Name": "Elf64_Off",
+        "Size": "8",
+        "Alignment": "8",
+        "Purpose": "Unsigned file\noffset"
+      },
+      {
+        "Name": "Elf64_Sword",
+        "Size": "4",
+        "Alignment": "4",
+        "Purpose": "Signed integer"
+      },
+      {
+        "Name": "Elf64_Word",
+        "Size": "4",
+        "Alignment": "4",
+        "Purpose": "Unsigned integer"
+      },
+      {
+        "Name": "Elf64_Xword",
+        "Size": "8",
+        "Alignment": "8",
+        "Purpose": "Unsigned long integer"
+      },
+      {
+        "Name": "Elf64_Sxword",
+        "Size": "8",
+        "Alignment": "8",
+        "Purpose": "Signed long integer"
+      },
+      {
+        "Name": "unsigned char",
+        "Size": "1",
+        "Alignment": "1",
+        "Purpose": "Unsigned small integer"
+      }
+    ]
+  },
+  {
+    "name": "e_type",
+    "rows": [
+      {
+        "Name": "ET_NONE",
+        "Value": "0",
+        "Meaning": "No file type"
+      },
+      {
+        "Name": "ET_REL",
+        "Value": "1",
+        "Meaning": "Relocatable file"
+      },
+      {
+        "Name": "ET_EXEC",
+        "Value": "2",
+        "Meaning": "Executable file"
+      },
+      {
+        "Name": "ET_DYN",
+        "Value": "3",
+        "Meaning": "Shared object file"
+      },
+      {
+        "Name": "ET_CORE",
+        "Value": "4",
+        "Meaning": "Core file"
+      },
+      {
+        "Name": "ET_LOPROC",
+        "Value": "0xff00",
+        "Meaning": "Processor-specific"
+      },
+      {
+        "Name": "ET_HIPROC",
+        "Value": "0xffff",
+        "Meaning": "Processor-specific"
+      }
+    ]
+  },
+  {
+    "name": "e_machine",
+    "rows": [
+      {
+        "Name": "EM_NONE",
+        "Value": "0",
+        "Meaning": "No machine"
+      },
+      {
+        "Name": "EM_SPARC",
+        "Value": "2",
+        "Meaning": "SPARC"
+      },
+      {
+        "Name": "EM_386",
+        "Value": "3",
+        "Meaning": "Intel 80386"
+      },
+      {
+        "Name": "EM_SPARC32PLUS",
+        "Value": "18",
+        "Meaning": "Sun SPARC 32+"
+      },
+      {
+        "Name": "EM_SPARCV9",
+        "Value": "43",
+        "Meaning": "SPARC V9"
+      },
+      {
+        "Name": "EM_AMD64",
+        "Value": "62",
+        "Meaning": "AMD 64"
+      }
+    ]
+  },
+  {
+    "name": "e_version",
+    "rows": [
+      {
+        "Name": "EV_NONE",
+        "Value": "0",
+        "Meaning": "Invalid version"
+      },
+      {
+        "Name": "EV_CURRENT",
+        "Value": ">=1",
+        "Meaning": "Current version"
+      }
+    ]
+  },
+  {
+    "name": "e_flags",
+    "rows": [
+      {
+        "Name": "EF_SPARC_EXT_MASK",
+        "Value": "0xffff00",
+        "Meaning": "Vendor Extension mask"
+      },
+      {
+        "Name": "EF_SPARC_32PLUS",
+        "Value": "0x000100",
+        "Meaning": "Generic V8+ features"
+      },
+      {
+        "Name": "EF_SPARC_SUN_US1",
+        "Value": "0x000200",
+        "Meaning": "Sun UltraSPARC 1 Extensions"
+      },
+      {
+        "Name": "EF_SPARC_HAL_R1",
+        "Value": "0x000400",
+        "Meaning": "HAL R1 Extensions"
+      },
+      {
+        "Name": "EF_SPARC_SUN_US3",
+        "Value": "0x000800",
+        "Meaning": "Sun UltraSPARC 3 Extensions"
+      },
+      {
+        "Name": "EF_SPARCV9_MM",
+        "Value": "0x3",
+        "Meaning": "Mask for Memory Model"
+      },
+      {
+        "Name": "EF_SPARCV9_TSO",
+        "Value": "0x0",
+        "Meaning": "Total Store Ordering"
+      },
+      {
+        "Name": "EF_SPARCV9_PSO",
+        "Value": "0x1",
+        "Meaning": "Partial Store Ordering"
+      },
+      {
+        "Name": "EF_SPARCV9_RMO",
+        "Value": "0x2",
+        "Meaning": "Relaxed Memory Ordering"
+      }
+    ]
+  },
+  {
+    "name": "ELF Identification Index",
+    "rows": [
+      {
+        "Name": "EI_MAG0",
+        "Value": "0",
+        "Purpose": "File identification"
+      },
+      {
+        "Name": "EI_MAG1",
+        "Value": "1",
+        "Purpose": "File identification"
+      },
+      {
+        "Name": "EI_MAG2",
+        "Value": "2",
+        "Purpose": "File identification"
+      },
+      {
+        "Name": "EI_MAG3",
+        "Value": "3",
+        "Purpose": "File identification"
+      },
+      {
+        "Name": "EI_CLASS",
+        "Value": "4",
+        "Purpose": "File class"
+      },
+      {
+        "Name": "EI_DATA",
+        "Value": "5",
+        "Purpose": "Data encoding"
+      },
+      {
+        "Name": "EI_VERSION",
+        "Value": "6",
+        "Purpose": "File version"
+      },
+      {
+        "Name": "EI_OSABI",
+        "Value": "7",
+        "Purpose": "Operating system/ABI\nidentification"
+      },
+      {
+        "Name": "EI_ABIVERSION",
+        "Value": "8",
+        "Purpose": "ABI version"
+      },
+      {
+        "Name": "EI_PAD",
+        "Value": "9",
+        "Purpose": "Start of padding bytes"
+      },
+      {
+        "Name": "EI_NIDENT",
+        "Value": "16",
+        "Purpose": "Size of e_ident[]"
+      }
+    ]
+  },
+  {
+    "name": "magic",
+    "rows": [
+      {
+        "Name": "ELFMAG0",
+        "Value": "0x7f",
+        "Position": "e_ident[EI_MAG0]"
+      },
+      {
+        "Name": "ELFMAG1",
+        "Value": "'E'",
+        "Position": "e_ident[EI_MAG1]"
+      },
+      {
+        "Name": "ELFMAG2",
+        "Value": "'L'",
+        "Position": "e_ident[EI_MAG2]"
+      },
+      {
+        "Name": "ELFMAG3",
+        "Value": "'F'",
+        "Position": "e_ident[EI_MAG3]"
+      }
+    ]
+  },
+  {
+    "name": "EI_CLASS",
+    "rows": [
+      {
+        "Name": "ELFCLASSNONE",
+        "Value": "0",
+        "Meaning": "Invalid class"
+      },
+      {
+        "Name": "ELFCLASS32",
+        "Value": "1",
+        "Meaning": "32–bit objects"
+      },
+      {
+        "Name": "ELFCLASS64",
+        "Value": "2",
+        "Meaning": "64–bit objects"
+      }
+    ]
+  },
+  {
+    "name": "EI_DATA",
+    "rows": [
+      {
+        "Name": "ELFDATANONE",
+        "Value": "0",
+        "Meaning": "Invalid data encoding"
+      },
+      {
+        "Name": "ELFDATA2LSB",
+        "Value": "1",
+        "Meaning": "See Figure 12-2."
+      },
+      {
+        "Name": "ELFDATA2MSB",
+        "Value": "2",
+        "Meaning": "See Figure 12-3."
+      }
+    ]
+  },
+  {
+    "name": "ELF Special Section Indexes",
+    "rows": [
+      {
+        "Name": "SHN_UNDEF",
+        "Value": "0"
+      },
+      {
+        "Name": "SHN_LORESERVE",
+        "Value": "0xff00"
+      },
+      {
+        "Name": "SHN_LOPROC",
+        "Value": "0xff00"
+      },
+      {
+        "Name": "SHN_BEFORE",
+        "Value": "0xff00"
+      },
+      {
+        "Name": "SHN_AFTER",
+        "Value": "0xff01"
+      },
+      {
+        "Name": "SHN_AMD64_LCOMMON",
+        "Value": "0xff02"
+      },
+      {
+        "Name": "SHN_HIPROC",
+        "Value": "0xff1f"
+      },
+      {
+        "Name": "SHN_LOOS",
+        "Value": "0xff20"
+      },
+      {
+        "Name": "SHN_LOSUNW",
+        "Value": "0xff3f"
+      },
+      {
+        "Name": "SHN_SUNW_IGNORE",
+        "Value": "0xff3f"
+      },
+      {
+        "Name": "SHN_HISUNW",
+        "Value": "0xff3f"
+      },
+      {
+        "Name": "SHN_HIOS",
+        "Value": "0xff3f"
+      },
+      {
+        "Name": "SHN_ABS",
+        "Value": "0xfff1"
+      },
+      {
+        "Name": "SHN_COMMON",
+        "Value": "0xfff2"
+      },
+      {
+        "Name": "SHN_XINDEX",
+        "Value": "0xffff"
+      },
+      {
+        "Name": "SHN_HIRESERVE",
+        "Value": "0xffff"
+      }
+    ]
+  },
+  {
+    "name": "ELF Section Types, <var>sh_type</var>",
+    "rows": [
+      {
+        "Name": "SHT_NULL",
+        "Value": "0"
+      },
+      {
+        "Name": "SHT_PROGBITS",
+        "Value": "1"
+      },
+      {
+        "Name": "SHT_SYMTAB",
+        "Value": "2"
+      },
+      {
+        "Name": "SHT_STRTAB",
+        "Value": "3"
+      },
+      {
+        "Name": "SHT_RELA",
+        "Value": "4"
+      },
+      {
+        "Name": "SHT_HASH",
+        "Value": "5"
+      },
+      {
+        "Name": "SHT_DYNAMIC",
+        "Value": "6"
+      },
+      {
+        "Name": "SHT_NOTE",
+        "Value": "7"
+      },
+      {
+        "Name": "SHT_NOBITS",
+        "Value": "8"
+      },
+      {
+        "Name": "SHT_REL",
+        "Value": "9"
+      },
+      {
+        "Name": "SHT_SHLIB",
+        "Value": "10"
+      },
+      {
+        "Name": "SHT_DYNSYM",
+        "Value": "11"
+      },
+      {
+        "Name": "SHT_INIT_ARRAY",
+        "Value": "14"
+      },
+      {
+        "Name": "SHT_FINI_ARRAY",
+        "Value": "15"
+      },
+      {
+        "Name": "SHT_PREINIT_ARRAY",
+        "Value": "16"
+      },
+      {
+        "Name": "SHT_GROUP",
+        "Value": "17"
+      },
+      {
+        "Name": "SHT_SYMTAB_SHNDX",
+        "Value": "18"
+      },
+      {
+        "Name": "SHT_LOOS",
+        "Value": "0x60000000"
+      },
+      {
+        "Name": "SHT_LOSUNW",
+        "Value": "0x6fffffef"
+      },
+      {
+        "Name": "SHT_SUNW_capchain",
+        "Value": "0x6fffffef"
+      },
+      {
+        "Name": "SHT_SUNW_capinfo",
+        "Value": "0x6ffffff0"
+      },
+      {
+        "Name": "SHT_SUNW_symsort",
+        "Value": "0x6ffffff1"
+      },
+      {
+        "Name": "SHT_SUNW_tlssort",
+        "Value": "0x6ffffff2"
+      },
+      {
+        "Name": "SHT_SUNW_LDYNSYM",
+        "Value": "0x6ffffff3"
+      },
+      {
+        "Name": "SHT_SUNW_dof",
+        "Value": "0x6ffffff4"
+      },
+      {
+        "Name": "SHT_SUNW_cap",
+        "Value": "0x6ffffff5"
+      },
+      {
+        "Name": "SHT_SUNW_SIGNATURE",
+        "Value": "0x6ffffff6"
+      },
+      {
+        "Name": "SHT_SUNW_ANNOTATE",
+        "Value": "0x6ffffff7"
+      },
+      {
+        "Name": "SHT_SUNW_DEBUGSTR",
+        "Value": "0x6ffffff8"
+      },
+      {
+        "Name": "SHT_SUNW_DEBUG",
+        "Value": "0x6ffffff9"
+      },
+      {
+        "Name": "SHT_SUNW_move",
+        "Value": "0x6ffffffa"
+      },
+      {
+        "Name": "SHT_SUNW_COMDAT",
+        "Value": "0x6ffffffb"
+      },
+      {
+        "Name": "SHT_SUNW_syminfo",
+        "Value": "0x6ffffffc"
+      },
+      {
+        "Name": "SHT_SUNW_verdef",
+        "Value": "0x6ffffffd"
+      },
+      {
+        "Name": "SHT_SUNW_verneed",
+        "Value": "0x6ffffffe"
+      },
+      {
+        "Name": "SHT_SUNW_versym",
+        "Value": "0x6fffffff"
+      },
+      {
+        "Name": "SHT_HISUNW",
+        "Value": "0x6fffffff"
+      },
+      {
+        "Name": "SHT_HIOS",
+        "Value": "0x6fffffff"
+      },
+      {
+        "Name": "SHT_LOPROC",
+        "Value": "0x70000000"
+      },
+      {
+        "Name": "SHT_SPARC_GOTDATA",
+        "Value": "0x70000000"
+      },
+      {
+        "Name": "SHT_AMD64_UNWIND",
+        "Value": "0x70000001"
+      },
+      {
+        "Name": "SHT_HIPROC",
+        "Value": "0x7fffffff"
+      },
+      {
+        "Name": "SHT_LOUSER",
+        "Value": "0x80000000"
+      },
+      {
+        "Name": "SHT_HIUSER",
+        "Value": "0xffffffff"
+      }
+    ]
+  },
+  {
+    "name": "ELF Section Header Table Entry: Index <tt>0</tt>",
+    "rows": [
+      {
+        "Name": "sh_name",
+        "Value": "0",
+        "Note": "No name"
+      },
+      {
+        "Name": "sh_type",
+        "Value": "SHT_NULL",
+        "Note": "Inactive"
+      },
+      {
+        "Name": "sh_flags",
+        "Value": "0",
+        "Note": "No flags"
+      },
+      {
+        "Name": "sh_addr",
+        "Value": "0",
+        "Note": "No address"
+      },
+      {
+        "Name": "sh_offset",
+        "Value": "0",
+        "Note": "No file offset"
+      },
+      {
+        "Name": "sh_size",
+        "Value": "0",
+        "Note": "No size"
+      },
+      {
+        "Name": "sh_link",
+        "Value": "SHN_UNDEF",
+        "Note": "No link\ninformation"
+      },
+      {
+        "Name": "sh_info",
+        "Value": "0",
+        "Note": "No auxiliary information"
+      },
+      {
+        "Name": "sh_addralign",
+        "Value": "0",
+        "Note": "No alignment"
+      },
+      {
+        "Name": "sh_entsize",
+        "Value": "0",
+        "Note": "No entries"
+      }
+    ]
+  },
+  {
+    "name": "ELF Extended Section Header Table Entry: Index <tt>0</tt>",
+    "rows": [
+      {
+        "Name": "sh_name",
+        "Value": "0",
+        "Note": "No name"
+      },
+      {
+        "Name": "sh_type",
+        "Value": "SHT_NULL",
+        "Note": "Inactive"
+      },
+      {
+        "Name": "sh_flags",
+        "Value": "0",
+        "Note": "No flags"
+      },
+      {
+        "Name": "sh_addr",
+        "Value": "0",
+        "Note": "No address"
+      },
+      {
+        "Name": "sh_offset",
+        "Value": "0",
+        "Note": "No file\noffset"
+      },
+      {
+        "Name": "sh_size",
+        "Value": "e_shnum",
+        "Note": "The number of entries in the section header table"
+      },
+      {
+        "Name": "sh_link",
+        "Value": "e_shstrndx",
+        "Note": "The section header index\nof the entry that is associated with the section name string table"
+      },
+      {
+        "Name": "sh_info",
+        "Value": "e_phnum",
+        "Note": "The\nnumber of entries in the program header table"
+      },
+      {
+        "Name": "sh_addralign",
+        "Value": "0",
+        "Note": "No alignment"
+      },
+      {
+        "Name": "sh_entsize",
+        "Value": "0",
+        "Note": "No entries"
+      }
+    ]
+  },
+  {
+    "name": "ELF Section Attribute Flags",
+    "rows": [
+      {
+        "Name": "SHF_WRITE",
+        "Value": "0x1"
+      },
+      {
+        "Name": "SHF_ALLOC",
+        "Value": "0x2"
+      },
+      {
+        "Name": "SHF_EXECINSTR",
+        "Value": "0x4"
+      },
+      {
+        "Name": "SHF_MERGE",
+        "Value": "0x10"
+      },
+      {
+        "Name": "SHF_STRINGS",
+        "Value": "0x20"
+      },
+      {
+        "Name": "SHF_INFO_LINK",
+        "Value": "0x40"
+      },
+      {
+        "Name": "SHF_LINK_ORDER",
+        "Value": "0x80"
+      },
+      {
+        "Name": "SHF_OS_NONCONFORMING",
+        "Value": "0x100"
+      },
+      {
+        "Name": "SHF_GROUP",
+        "Value": "0x200"
+      },
+      {
+        "Name": "SHF_TLS",
+        "Value": "0x400"
+      },
+      {
+        "Name": "SHF_MASKOS",
+        "Value": "0x0ff00000"
+      },
+      {
+        "Name": "SHF_AMD64_LARGE",
+        "Value": "0x10000000"
+      },
+      {
+        "Name": "SHF_ORDERED",
+        "Value": "0x40000000"
+      },
+      {
+        "Name": "SHF_EXCLUDE",
+        "Value": "0x80000000"
+      },
+      {
+        "Name": "SHF_MASKPROC",
+        "Value": "0xf0000000"
+      }
+    ]
+  },
+  {
+    "name": "ELF <tt>sh_link</tt> and <tt>sh_info</tt> Interpretation",
+    "rows": [
+      {
+        "sh_type": "SHT_DYNAMIC",
+        "sh_link": "The section header index of the associated string table.",
+        "sh_info": "0"
+      },
+      {
+        "sh_type": "SHT_HASH",
+        "sh_link": "The\nsection header index of the associated symbol table.",
+        "sh_info": "0"
+      },
+      {
+        "sh_type": "SHT_RELSHT_RELA",
+        "sh_link": "The section header index of\nthe associated symbol table.",
+        "sh_info": "If the sh_flags member contains the SHF_INFO_LINK flag, the\nsection header index of the section to which the relocation applies, otherwise\n0. See also Table 12-10 and Relocation Sections."
+      },
+      {
+        "sh_type": "SHT_SYMTABSHT_DYNSYM",
+        "sh_link": "The section header index of the associated\nstring table.",
+        "sh_info": "One greater than the symbol table index of the last local\nsymbol, STB_LOCAL."
+      },
+      {
+        "sh_type": "SHT_GROUP",
+        "sh_link": "The section header index of the associated symbol table.",
+        "sh_info": "The symbol table\nindex of an entry in the associated symbol table. The name of\nthe specified symbol table entry provides a signature for the section group."
+      },
+      {
+        "sh_type": "SHT_SYMTAB_SHNDX",
+        "sh_link": "The\nsection header index of the associated symbol table.",
+        "sh_info": "0"
+      },
+      {
+        "sh_type": "SHT_SUNW_cap",
+        "sh_link": "If symbol capabilities exist, the\nsection header index of the associated SHT_SUNW_capinfo table, otherwise 0.",
+        "sh_info": "If any capabilities\nrefer to named strings, the section header index of the associated string\ntable, otherwise 0."
+      },
+      {
+        "sh_type": "SHT_SUNW_capinfo",
+        "sh_link": "The section header index of the associated symbol table.",
+        "sh_info": "For a\ndynamic object, the section header index of the associated SHT_SUNW_capchain table, otherwise\n0."
+      },
+      {
+        "sh_type": "SHT_SUNW_symsort",
+        "sh_link": "The section header index of the associated symbol table.",
+        "sh_info": "0"
+      },
+      {
+        "sh_type": "SHT_SUNW_tlssort",
+        "sh_link": "The section header index\nof the associated symbol table.",
+        "sh_info": "0"
+      },
+      {
+        "sh_type": "SHT_SUNW_LDYNSYM",
+        "sh_link": "The section header index of the associated string\ntable. This index is the same string table used by the SHT_DYNSYM\nsection.",
+        "sh_info": "One greater than the symbol table index of the last local symbol,\nSTB_LOCAL. Since SHT_SUNW_LDYNSYM only contains local symbols, sh_info is equivalent to the number\nof symbols in the table."
+      },
+      {
+        "sh_type": "SHT_SUNW_move",
+        "sh_link": "The section header index of the associated symbol\ntable.",
+        "sh_info": "0"
+      },
+      {
+        "sh_type": "SHT_SUNW_COMDAT",
+        "sh_link": "0",
+        "sh_info": "0"
+      },
+      {
+        "sh_type": "SHT_SUNW_syminfo",
+        "sh_link": "The section header index of the associated symbol table.",
+        "sh_info": "The section header index\nof the associated .dynamic section."
+      },
+      {
+        "sh_type": "SHT_SUNW_verdef",
+        "sh_link": "The section header index of the associated string\ntable.",
+        "sh_info": "The number of version definitions within the section."
+      },
+      {
+        "sh_type": "SHT_SUNW_verneed",
+        "sh_link": "The section header index of\nthe associated string table.",
+        "sh_info": "The number of version dependencies within the section."
+      },
+      {
+        "sh_type": "SHT_SUNW_versym",
+        "sh_link": "The section\nheader index of the associated symbol table.",
+        "sh_info": "0"
+      }
+    ]
+  },
+  {
+    "name": "ELF Special Sections",
+    "rows": [
+      {
+        "Name": ".bss",
+        "Type": "SHT_NOBITS",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".comment",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "None"
+      },
+      {
+        "Name": ".data,\n.data1",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".dynamic",
+        "Type": "SHT_DYNAMIC",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".dynstr",
+        "Type": "SHT_STRTAB",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".dynsym",
+        "Type": "SHT_DYNSYM",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".eh_frame_hdr",
+        "Type": "SHT_AMD64_UNWIND",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".eh_frame",
+        "Type": "SHT_AMD64_UNWIND",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".fini",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC + SHF_EXECINSTR"
+      },
+      {
+        "Name": ".fini_array",
+        "Type": "SHT_FINI_ARRAY",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".got",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "See Global Offset Table (Processor-Specific)"
+      },
+      {
+        "Name": ".hash",
+        "Type": "SHT_HASH",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".init",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC + SHF_EXECINSTR"
+      },
+      {
+        "Name": ".init_array",
+        "Type": "SHT_INIT_ARRAY",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".interp",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "See Program Interpreter"
+      },
+      {
+        "Name": ".note",
+        "Type": "SHT_NOTE",
+        "Attribute": "None"
+      },
+      {
+        "Name": ".lbss",
+        "Type": "SHT_NOBITS",
+        "Attribute": "SHF_ALLOC + SHF_WRITE + SHF_AMD64_LARGE"
+      },
+      {
+        "Name": ".ldata, .ldata1",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC + SHF_WRITE + SHF_AMD64_LARGE"
+      },
+      {
+        "Name": ".lrodata, .lrodata1",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC + SHF_AMD64_LARGE"
+      },
+      {
+        "Name": ".plt",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "See Procedure Linkage Table (Processor-Specific)"
+      },
+      {
+        "Name": ".preinit_array",
+        "Type": "SHT_PREINIT_ARRAY",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".rela",
+        "Type": "SHT_RELA",
+        "Attribute": "None"
+      },
+      {
+        "Name": ".relname",
+        "Type": "SHT_REL",
+        "Attribute": "See Relocation Sections"
+      },
+      {
+        "Name": ".relaname",
+        "Type": "SHT_RELA",
+        "Attribute": "See Relocation Sections"
+      },
+      {
+        "Name": ".rodata, .rodata1",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".shstrtab",
+        "Type": "SHT_STRTAB",
+        "Attribute": "None"
+      },
+      {
+        "Name": ".strtab",
+        "Type": "SHT_STRTAB",
+        "Attribute": "Refer to the explanation\nfollowing this table."
+      },
+      {
+        "Name": ".symtab",
+        "Type": "SHT_SYMTAB",
+        "Attribute": "See Symbol Table Section"
+      },
+      {
+        "Name": ".symtab_shndx",
+        "Type": "SHT_SYMTAB_SHNDX",
+        "Attribute": "See Symbol Table Section"
+      },
+      {
+        "Name": ".tbss",
+        "Type": "SHT_NOBITS",
+        "Attribute": "SHF_ALLOC + SHF_WRITE + SHF_TLS"
+      },
+      {
+        "Name": ".tdata, .tdata1",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC + SHF_WRITE + SHF_TLS"
+      },
+      {
+        "Name": ".text",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC + SHF_EXECINSTR"
+      },
+      {
+        "Name": ".SUNW_bss",
+        "Type": "SHT_NOBITS",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".SUNW_cap",
+        "Type": "SHT_SUNW_cap",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_capchain",
+        "Type": "SHT_SUNW_capchain",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_capinfo",
+        "Type": "SHT_SUNW_capinfo",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_heap",
+        "Type": "SHT_PROGBITS",
+        "Attribute": "SHF_ALLOC + SHF_WRITE"
+      },
+      {
+        "Name": ".SUNW_ldynsym",
+        "Type": "SHT_SUNW_LDYNSYM",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_dynsymsort",
+        "Type": "SHT_SUNW_symsort",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_dymtlssort",
+        "Type": "SHT_SUNW_tlssort",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_move",
+        "Type": "SHT_SUNW_move",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_reloc",
+        "Type": "SHT_RELSHT_RELA",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_syminfo",
+        "Type": "SHT_SUNW_syminfo",
+        "Attribute": "SHF_ALLOC"
+      },
+      {
+        "Name": ".SUNW_version",
+        "Type": "SHT_SUNW_verdefSHT_SUNW_verneedSHT_SUNW_versym",
+        "Attribute": "SHF_ALLOC"
+      }
+    ]
+  },
+  {
+    "name": "ELF Group Section Flag",
+    "rows": [
+      {
+        "Name": "GRP_COMDAT",
+        "Value": "0x1"
+      }
+    ]
+  },
+  {
+    "name": "ELF Capability Array Tags",
+    "rows": [
+      {
+        "Name": "CA_SUNW_NULL",
+        "Value": "0",
+        "c_un": "Ignored"
+      },
+      {
+        "Name": "CA_SUNW_HW_1",
+        "Value": "1",
+        "c_un": "c_val"
+      },
+      {
+        "Name": "CA_SUNW_SF_1",
+        "Value": "2",
+        "c_un": "c_val"
+      },
+      {
+        "Name": "CA_SUNW_HW_2",
+        "Value": "3",
+        "c_un": "c_val"
+      },
+      {
+        "Name": "CA_SUNW_PLAT",
+        "Value": "4",
+        "c_un": "c_ptr"
+      },
+      {
+        "Name": "CA_SUNW_MACH",
+        "Value": "5",
+        "c_un": "c_ptr"
+      },
+      {
+        "Name": "CA_SUNW_ID",
+        "Value": "6",
+        "c_un": "c_ptr"
+      }
+    ]
+  },
+  {
+    "name": "SHT_SUNW_capinfo",
+    "rows": [
+      {
+        "undefined": "Identifies a default symbol.\nThis symbol is not associated with any specific capabilities, but leads a\nsymbol capabilities family."
+      }
+    ]
+  },
+
+  {
+    "name": "SPARC: ELF Relocation Types",
+    "rows": [
+      {
+        "Name": "R_SPARC_NONE",
+        "Value": "0",
+        "Field": "None",
+        "Calculation": "None"
+      },
+      {
+        "Name": "R_SPARC_8",
+        "Value": "1",
+        "Field": "V-byte8",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_16",
+        "Value": "2",
+        "Field": "V-half16",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_32",
+        "Value": "3",
+        "Field": "V-word32",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_DISP8",
+        "Value": "4",
+        "Field": "V-byte8",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_SPARC_DISP16",
+        "Value": "5",
+        "Field": "V-half16",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_SPARC_DISP32",
+        "Value": "6",
+        "Field": "V-disp32",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_SPARC_WDISP30",
+        "Value": "7",
+        "Field": "V-disp30",
+        "Calculation": "(S + A - P) >> 2"
+      },
+      {
+        "Name": "R_SPARC_WDISP22",
+        "Value": "8",
+        "Field": "V-disp22",
+        "Calculation": "(S + A - P) >> 2"
+      },
+      {
+        "Name": "R_SPARC_HI22",
+        "Value": "9",
+        "Field": "T-imm22",
+        "Calculation": "(S + A) >> 10"
+      },
+      {
+        "Name": "R_SPARC_22",
+        "Value": "10",
+        "Field": "V-imm22",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_13",
+        "Value": "11",
+        "Field": "V-simm13",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_LO10",
+        "Value": "12",
+        "Field": "T-simm13",
+        "Calculation": "(S + A) & 0x3ff"
+      },
+      {
+        "Name": "R_SPARC_GOT10",
+        "Value": "13",
+        "Field": "T-simm13",
+        "Calculation": "G & 0x3ff"
+      },
+      {
+        "Name": "R_SPARC_GOT13",
+        "Value": "14",
+        "Field": "V-simm13",
+        "Calculation": "G"
+      },
+      {
+        "Name": "R_SPARC_GOT22",
+        "Value": "15",
+        "Field": "T-simm22",
+        "Calculation": "G >> 10"
+      },
+      {
+        "Name": "R_SPARC_PC10",
+        "Value": "16",
+        "Field": "T-simm13",
+        "Calculation": "(S + A - P) & 0x3ff"
+      },
+      {
+        "Name": "R_SPARC_PC22",
+        "Value": "17",
+        "Field": "V-disp22",
+        "Calculation": "(S + A - P) >> 10"
+      },
+      {
+        "Name": "R_SPARC_WPLT30",
+        "Value": "18",
+        "Field": "V-disp30",
+        "Calculation": "(L + A - P) >> 2"
+      },
+      {
+        "Name": "R_SPARC_COPY",
+        "Value": "19",
+        "Field": "None",
+        "Calculation": "Refer to the explanation\nfollowing this table."
+      },
+      {
+        "Name": "R_SPARC_GLOB_DAT",
+        "Value": "20",
+        "Field": "V-word32",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_JMP_SLOT",
+        "Value": "21",
+        "Field": "None",
+        "Calculation": "Refer to the explanation following this table."
+      },
+      {
+        "Name": "R_SPARC_RELATIVE",
+        "Value": "22",
+        "Field": "V-word32",
+        "Calculation": "B + A"
+      },
+      {
+        "Name": "R_SPARC_UA32",
+        "Value": "23",
+        "Field": "V-word32",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_PLT32",
+        "Value": "24",
+        "Field": "V-word32",
+        "Calculation": "L + A"
+      },
+      {
+        "Name": "R_SPARC_HIPLT22",
+        "Value": "25",
+        "Field": "T-imm22",
+        "Calculation": "(L + A) >> 10"
+      },
+      {
+        "Name": "R_SPARC_LOPLT10",
+        "Value": "26",
+        "Field": "T-simm13",
+        "Calculation": "(L + A) & 0x3ff"
+      },
+      {
+        "Name": "R_SPARC_PCPLT32",
+        "Value": "27",
+        "Field": "V-word32",
+        "Calculation": "L + A - P"
+      },
+      {
+        "Name": "R_SPARC_PCPLT22",
+        "Value": "28",
+        "Field": "V-disp22",
+        "Calculation": "(L + A - P) >> 10"
+      },
+      {
+        "Name": "R_SPARC_PCPLT10",
+        "Value": "29",
+        "Field": "V-simm13",
+        "Calculation": "(L + A - P) & 0x3ff"
+      },
+      {
+        "Name": "R_SPARC_10",
+        "Value": "30",
+        "Field": "V-simm10",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_11",
+        "Value": "31",
+        "Field": "V-simm11",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_HH22",
+        "Value": "34",
+        "Field": "V-imm22",
+        "Calculation": "(S + A) >> 42"
+      },
+      {
+        "Name": "R_SPARC_HM10",
+        "Value": "35",
+        "Field": "T-simm13",
+        "Calculation": "((S + A) >> 32) & 0x3ff"
+      },
+      {
+        "Name": "R_SPARC_LM22",
+        "Value": "36",
+        "Field": "T-imm22",
+        "Calculation": "(S + A) >> 10"
+      },
+      {
+        "Name": "R_SPARC_PC_HH22",
+        "Value": "37",
+        "Field": "V-imm22",
+        "Calculation": "(S + A - P) >> 42"
+      },
+      {
+        "Name": "R_SPARC_PC_HM10",
+        "Value": "38",
+        "Field": "T-simm13",
+        "Calculation": "((S + A - P) >> 32) & 0x3ff"
+      },
+      {
+        "Name": "R_SPARC_PC_LM22",
+        "Value": "39",
+        "Field": "T-imm22",
+        "Calculation": "(S + A - P) >> 10"
+      },
+      {
+        "Name": "R_SPARC_WDISP16",
+        "Value": "40",
+        "Field": "V-d2/disp14",
+        "Calculation": "(S + A - P) >> 2"
+      },
+      {
+        "Name": "R_SPARC_WDISP19",
+        "Value": "41",
+        "Field": "V-disp19",
+        "Calculation": "(S + A - P) >> 2"
+      },
+      {
+        "Name": "R_SPARC_7",
+        "Value": "43",
+        "Field": "V-imm7",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_5",
+        "Value": "44",
+        "Field": "V-imm5",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_6",
+        "Value": "45",
+        "Field": "V-imm6",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_HIX22",
+        "Value": "48",
+        "Field": "V-imm22",
+        "Calculation": "((S + A) ^ 0xffffffffffffffff) >> 10"
+      },
+      {
+        "Name": "R_SPARC_LOX10",
+        "Value": "49",
+        "Field": "T-simm13",
+        "Calculation": "((S + A) & 0x3ff) | 0x1c00"
+      },
+      {
+        "Name": "R_SPARC_H44",
+        "Value": "50",
+        "Field": "V-imm22",
+        "Calculation": "(S + A) >> 22"
+      },
+      {
+        "Name": "R_SPARC_M44",
+        "Value": "51",
+        "Field": "T-imm10",
+        "Calculation": "((S + A) >> 12) & 0x3ff"
+      },
+      {
+        "Name": "R_SPARC_L44",
+        "Value": "52",
+        "Field": "T-imm13",
+        "Calculation": "(S + A) & 0xfff"
+      },
+      {
+        "Name": "R_SPARC_REGISTER",
+        "Value": "53",
+        "Field": "V-word32",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_UA16",
+        "Value": "55",
+        "Field": "V-half16",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_GOTDATA_HIX22",
+        "Value": "80",
+        "Field": "V-imm22",
+        "Calculation": "((S + A - GOT) >> 10) ^ ((S + A - GOT) >> 31)"
+      },
+      {
+        "Name": "R_SPARC_GOTDATA_LOX10",
+        "Value": "81",
+        "Field": "T-imm13",
+        "Calculation": "((S + A - GOT) & 0x3ff) | (((S + A - GOT) >> 31) & 0x1c00)"
+      },
+      {
+        "Name": "R_SPARC_GOTDATA_OP_HIX22",
+        "Value": "82",
+        "Field": "T-imm22",
+        "Calculation": "(G >> 10) ^ (G >> 31)"
+      },
+      {
+        "Name": "R_SPARC_GOTDATA_OP_LOX10",
+        "Value": "83",
+        "Field": "T-imm13",
+        "Calculation": "(G & 0x3ff) | ((G >> 31) & 0x1c00)"
+      },
+      {
+        "Name": "R_SPARC_GOTDATA_OP",
+        "Value": "84",
+        "Field": "Word32",
+        "Calculation": "Refer to the explanation\nfollowing this table."
+      },
+      {
+        "Name": "R_SPARC_SIZE32",
+        "Value": "86",
+        "Field": "V-word32",
+        "Calculation": "Z + A"
+      },
+      {
+        "Name": "R_SPARC_WDISP10",
+        "Value": "88",
+        "Field": "V-d2/disp8",
+        "Calculation": "(S + A - P) >> 2"
+      }
+    ]
+  },
+  {
+    "name": "64-bit SPARC: ELF Relocation Types",
+    "rows": [
+      {
+        "Name": "R_SPARC_HI22",
+        "Value": "9",
+        "Field": "V-imm22",
+        "Calculation": "(S + A) >> 10"
+      },
+      {
+        "Name": "R_SPARC_GLOB_DAT",
+        "Value": "20",
+        "Field": "V-xword64",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_RELATIVE",
+        "Value": "22",
+        "Field": "V-xword64",
+        "Calculation": "B + A"
+      },
+      {
+        "Name": "R_SPARC_64",
+        "Value": "32",
+        "Field": "V-xword64",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_OLO10",
+        "Value": "33",
+        "Field": "V-simm13",
+        "Calculation": "((S + A) & 0x3ff) + O"
+      },
+      {
+        "Name": "R_SPARC_DISP64",
+        "Value": "46",
+        "Field": "V-xword64",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_SPARC_PLT64",
+        "Value": "47",
+        "Field": "V-xword64",
+        "Calculation": "L + A"
+      },
+      {
+        "Name": "R_SPARC_REGISTER",
+        "Value": "53",
+        "Field": "V-xword64",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_UA64",
+        "Value": "54",
+        "Field": "V-xword64",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_SPARC_H34",
+        "Value": "85",
+        "Field": "V-imm22",
+        "Calculation": "(S + A) >> 12"
+      },
+      {
+        "Name": "R_SPARC_SIZE64",
+        "Value": "87",
+        "Field": "V-xword64",
+        "Calculation": "Z + A"
+      }
+    ]
+  },
+  {
+    "name": "32-bit x86: ELF Relocation Types",
+    "rows": [
+      {
+        "Name": "R_386_NONE",
+        "Value": "0",
+        "Field": "None",
+        "Calculation": "None"
+      },
+      {
+        "Name": "R_386_32",
+        "Value": "1",
+        "Field": "word32",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_386_PC32",
+        "Value": "2",
+        "Field": "word32",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_386_GOT32",
+        "Value": "3",
+        "Field": "word32",
+        "Calculation": "G + A"
+      },
+      {
+        "Name": "R_386_PLT32",
+        "Value": "4",
+        "Field": "word32",
+        "Calculation": "L + A - P"
+      },
+      {
+        "Name": "R_386_COPY",
+        "Value": "5",
+        "Field": "None",
+        "Calculation": "Refer to the explanation following this table."
+      },
+      {
+        "Name": "R_386_GLOB_DAT",
+        "Value": "6",
+        "Field": "word32",
+        "Calculation": "S"
+      },
+      {
+        "Name": "R_386_JMP_SLOT",
+        "Value": "7",
+        "Field": "word32",
+        "Calculation": "S"
+      },
+      {
+        "Name": "R_386_RELATIVE",
+        "Value": "8",
+        "Field": "word32",
+        "Calculation": "B + A"
+      },
+      {
+        "Name": "R_386_GOTOFF",
+        "Value": "9",
+        "Field": "word32",
+        "Calculation": "S + A - GOT"
+      },
+      {
+        "Name": "R_386_GOTPC",
+        "Value": "10",
+        "Field": "word32",
+        "Calculation": "GOT + A - P"
+      },
+      {
+        "Name": "R_386_32PLT",
+        "Value": "11",
+        "Field": "word32",
+        "Calculation": "L + A"
+      },
+      {
+        "Name": "R_386_16",
+        "Value": "20",
+        "Field": "word16",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_386_PC16",
+        "Value": "21",
+        "Field": "word16",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_386_8",
+        "Value": "22",
+        "Field": "word8",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_386_PC8",
+        "Value": "23",
+        "Field": "word8",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_386_SIZE32",
+        "Value": "38",
+        "Field": "word32",
+        "Calculation": "Z + A"
+      }
+    ]
+  },
+  {
+    "name": "x64: ELF Relocation Types",
+    "rows": [
+      {
+        "Name": "R_AMD64_NONE",
+        "Value": "0",
+        "Field": "None",
+        "Calculation": "None"
+      },
+      {
+        "Name": "R_AMD64_64",
+        "Value": "1",
+        "Field": "word64",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_AMD64_PC32",
+        "Value": "2",
+        "Field": "word32",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_AMD64_GOT32",
+        "Value": "3",
+        "Field": "word32",
+        "Calculation": "G + A"
+      },
+      {
+        "Name": "R_AMD64_PLT32",
+        "Value": "4",
+        "Field": "word32",
+        "Calculation": "L + A - P"
+      },
+      {
+        "Name": "R_AMD64_COPY",
+        "Value": "5",
+        "Field": "None",
+        "Calculation": "Refer to the explanation following this table."
+      },
+      {
+        "Name": "R_AMD64_GLOB_DAT",
+        "Value": "6",
+        "Field": "word64",
+        "Calculation": "S"
+      },
+      {
+        "Name": "R_AMD64_JUMP_SLOT",
+        "Value": "7",
+        "Field": "word64",
+        "Calculation": "S"
+      },
+      {
+        "Name": "R_AMD64_RELATIVE",
+        "Value": "8",
+        "Field": "word64",
+        "Calculation": "B + A"
+      },
+      {
+        "Name": "R_AMD64_GOTPCREL",
+        "Value": "9",
+        "Field": "word32",
+        "Calculation": "G + GOT + A - P"
+      },
+      {
+        "Name": "R_AMD64_32",
+        "Value": "10",
+        "Field": "word32",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_AMD64_32S",
+        "Value": "11",
+        "Field": "word32",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_AMD64_16",
+        "Value": "12",
+        "Field": "word16",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_AMD64_PC16",
+        "Value": "13",
+        "Field": "word16",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_AMD64_8",
+        "Value": "14",
+        "Field": "word8",
+        "Calculation": "S + A"
+      },
+      {
+        "Name": "R_AMD64_PC8",
+        "Value": "15",
+        "Field": "word8",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_AMD64_PC64",
+        "Value": "24",
+        "Field": "word64",
+        "Calculation": "S + A - P"
+      },
+      {
+        "Name": "R_AMD64_GOTOFF64",
+        "Value": "25",
+        "Field": "word64",
+        "Calculation": "S + A - GOT"
+      },
+      {
+        "Name": "R_AMD64_GOTPC32",
+        "Value": "26",
+        "Field": "word32",
+        "Calculation": "GOT + A + P"
+      },
+      {
+        "Name": "R_AMD64_SIZE32",
+        "Value": "32",
+        "Field": "word32",
+        "Calculation": "Z + A"
+      },
+      {
+        "Name": "R_AMD64_SIZE64",
+        "Value": "33",
+        "Field": "word64",
+        "Calculation": "Z + A"
+      }
+    ]
+  },
+  {
+    "name": "ELF String Table Indexes",
+    "rows": [
+      {
+        "Index": "0",
+        "String": "None"
+      },
+      {
+        "Index": "1",
+        "String": "name"
+      },
+      {
+        "Index": "7",
+        "String": "Variable"
+      },
+      {
+        "Index": "11",
+        "String": "able"
+      },
+      {
+        "Index": "16",
+        "String": "able"
+      },
+      {
+        "Index": "24",
+        "String": "null string"
+      }
+    ]
+  },
+  {
+    "name": "ELF Symbol Binding, <tt>ELF32_ST_BIND</tt> and <tt>ELF64_ST_BIND</tt>",
+    "rows": [
+      {
+        "Name": "STB_LOCAL",
+        "Value": "0"
+      },
+      {
+        "Name": "STB_GLOBAL",
+        "Value": "1"
+      },
+      {
+        "Name": "STB_WEAK",
+        "Value": "2"
+      },
+      {
+        "Name": "STB_LOOS",
+        "Value": "10"
+      },
+      {
+        "Name": "STB_HIOS",
+        "Value": "12"
+      },
+      {
+        "Name": "STB_LOPROC",
+        "Value": "13"
+      },
+      {
+        "Name": "STB_HIPROC",
+        "Value": "15"
+      }
+    ]
+  },
+  {
+    "name": "ELF Symbol Types, <tt>ELF32_ST_TYPE</tt> and <tt>ELF64_ST_TYPE</tt>",
+    "rows": [
+      {
+        "Name": "STT_NOTYPE",
+        "Value": "0"
+      },
+      {
+        "Name": "STT_OBJECT",
+        "Value": "1"
+      },
+      {
+        "Name": "STT_FUNC",
+        "Value": "2"
+      },
+      {
+        "Name": "STT_SECTION",
+        "Value": "3"
+      },
+      {
+        "Name": "STT_FILE",
+        "Value": "4"
+      },
+      {
+        "Name": "STT_COMMON",
+        "Value": "5"
+      },
+      {
+        "Name": "STT_TLS",
+        "Value": "6"
+      },
+      {
+        "Name": "STT_LOOS",
+        "Value": "10"
+      },
+      {
+        "Name": "STT_HIOS",
+        "Value": "12"
+      },
+      {
+        "Name": "STT_LOPROC",
+        "Value": "13"
+      },
+      {
+        "Name": "STT_SPARC_REGISTER",
+        "Value": "13"
+      },
+      {
+        "Name": "STT_HIPROC",
+        "Value": "15"
+      }
+    ]
+  },
+  {
+    "name": "ELF Symbol Visibility",
+    "rows": [
+      {
+        "Name": "STV_DEFAULT",
+        "Value": "0"
+      },
+      {
+        "Name": "STV_INTERNAL",
+        "Value": "1"
+      },
+      {
+        "Name": "STV_HIDDEN",
+        "Value": "2"
+      },
+      {
+        "Name": "STV_PROTECTED",
+        "Value": "3"
+      },
+      {
+        "Name": "STV_EXPORTED",
+        "Value": "4"
+      },
+      {
+        "Name": "STV_SINGLETON",
+        "Value": "5"
+      },
+      {
+        "Name": "STV_ELIMINATE",
+        "Value": "6"
+      }
+    ]
+  },
+  {
+    "name": "ELF Symbol Table Entry: Index <tt>0</tt>",
+    "rows": [
+      {
+        "Name": "st_name",
+        "Value": "0",
+        "Note": "No name"
+      },
+      {
+        "Name": "st_value",
+        "Value": "0",
+        "Note": "Zero\nvalue"
+      },
+      {
+        "Name": "st_size",
+        "Value": "0",
+        "Note": "No size"
+      },
+      {
+        "Name": "st_info",
+        "Value": "0",
+        "Note": "No type, local binding"
+      },
+      {
+        "Name": "st_other",
+        "Value": "0",
+        "Note": ""
+      },
+      {
+        "Name": "st_shndx",
+        "Value": "SHN_UNDEF",
+        "Note": "No section"
+      }
+    ]
+  },
+  {
+    "name": "SPARC: ELF Symbol Table Entry: Register Symbol",
+    "rows": [
+      {
+        "Field": "st_name",
+        "Meaning": "Index into the string table for\nthe name of the symbol, or the value 0 for a scratch\nregister."
+      },
+      {
+        "Field": "st_value",
+        "Meaning": "Register number. See the ABI manual for integer register assignments."
+      },
+      {
+        "Field": "st_size",
+        "Meaning": "Unused (0)."
+      },
+      {
+        "Field": "st_info",
+        "Meaning": "Bind is\ntypically STB_GLOBAL, type must be STT_SPARC_REGISTER."
+      },
+      {
+        "Field": "st_other",
+        "Meaning": "Unused (0)."
+      },
+      {
+        "Field": "st_shndx",
+        "Meaning": "SHN_ABS if this object initializes this\nregister symbol,SHN_UNDEF otherwise."
+      }
+    ]
+  },
+  {
+    "name": "SPARC: ELF Register Numbers",
+    "rows": [
+      {
+        "Name": "STO_SPARC_REGISTER_G2",
+        "Value": "0x2",
+        "Meaning": "%g2"
+      },
+      {
+        "Name": "STO_SPARC_REGISTER_G3",
+        "Value": "0x3",
+        "Meaning": "%g3"
+      }
+    ]
+  },
+  {
+    "name": "si_boundto",
+    "rows": [
+      {
+        "Name": "SYMINFO_BT_SELF",
+        "Value": "0xffff",
+        "Meaning": "Symbol bound to self."
+      },
+      {
+        "Name": "SYMINFO_BT_PARENT",
+        "Value": "0xfffe",
+        "Meaning": "Symbol bound to parent. The parent is the first object to cause this dynamic object to be loaded."
+      },
+      {
+        "Name": "SYMINFO_BT_NONE",
+        "Value": "0xfffd",
+        "Meaning": "Symbol has no special symbol binding."
+      },
+      {
+        "Name": "SYMINFO_BT_EXTERN",
+        "Value": "0xfffc",
+        "Meaning": "Symbol definition is external."
+      }
+    ]
+  },
+  {
+    "name": "si_flags",
+    "rows": [
+      {
+        "Name": "SYMINFO_FLG_DIRECT",
+        "Value": "0x01",
+        "Meaning": "Symbol reference has a direct association to the object containing the definition."
+      },
+      {
+        "Name": "SYMINFO_FLG_FILTER",
+        "Value": "0x02",
+        "Meaning": "Symbol definition acts as a standard filter."
+      },
+      {
+        "Name": "SYMINFO_FLG_COPY",
+        "Value": "0x04",
+        "Meaning": "Symbol definition is the result of a copy-relocation."
+      },
+      {
+        "Name": "SYMINFO_FLG_LAZYLOAD",
+        "Value": "0x08",
+        "Meaning": "Symbol reference is to an object that should be lazily loaded."
+      },
+      {
+        "Name": "SYMINFO_FLG_DIRECTBIND",
+        "Value": "0x10",
+        "Meaning": "Symbol reference should be bound directly to the definition."
+      },
+      {
+        "Name": "SYMINFO_FLG_NOEXTDIRECT",
+        "Value": "0x20",
+        "Meaning": "Do not allow an external reference to directly bind to this symbol definition."
+      },
+      {
+        "Name": "SYMINFO_FLG_AUXILIARY",
+        "Value": "0x40",
+        "Meaning": "Symbol definition acts as an auxiliary filter."
+      },
+      {
+        "Name": "SYMINFO_FLG_INTERPOSE",
+        "Value": "0x80",
+        "Meaning": "Symbol definition acts as an interposer. This attribute is only applicable for dynamic executables."
+      },
+      {
+        "Name": "SYMINFO_FLG_CAP",
+        "Value": "0x100",
+        "Meaning": "Symbol is associated with capabilities."
+      },
+      {
+        "Name": "SYMINFO_FLG_DEFERRED",
+        "Value": "0x200",
+        "Meaning": "Symbol should not be included in BIND_NOW relocations."
+      }
+    ]
+  },
+  {
+    "name": "vd_version",
+    "rows": [
+      {
+        "Name": "VER_DEF_NONE",
+        "Value": "0",
+        "Meaning": "Invalid version."
+      },
+      {
+        "Name": "VER_DEF_CURRENT",
+        "Value": ">=1",
+        "Meaning": "Current version."
+      }
+    ]
+  },
+  {
+    "name": "vd_flags",
+    "rows": [
+      {
+        "Name": "VER_FLG_BASE",
+        "Value": "0x1",
+        "Meaning": "Version definition of the file."
+      },
+      {
+        "Name": "VER_FLG_WEAK",
+        "Value": "0x2",
+        "Meaning": "Weak version identifier."
+      }
+    ]
+  },
+  {
+    "name": "vn_version",
+    "rows": [
+      {
+        "Name": "VER_NEED_NONE",
+        "Value": "0",
+        "Meaning": "Invalid version."
+      },
+      {
+        "Name": "VER_NEED_CURRENT",
+        "Value": ">=1",
+        "Meaning": "Current version."
+      }
+    ]
+  },
+  {
+    "name": "vna_flags",
+    "rows": [
+      {
+        "Name": "VER_FLG_WEAK",
+        "Value": "0x2",
+        "Meaning": "Weak version identifier."
+      },
+      {
+        "Name": "VER_FLG_INFO",
+        "Value": "0x4",
+        "Meaning": "SHT_SUNW_versym reference exists for informational purposes, and need not be validated at runtime."
+      }
+    ]
+  },
+  {
+    "name": "ELF Version Dependency Indexes",
+    "rows": [
+      {
+        "Name": "VER_NDX_LOCAL",
+        "Value": "0",
+        "Meaning": "Symbol has local scope."
+      },
+      {
+        "Name": "VER_NDX_GLOBAL",
+        "Value": "1",
+        "Meaning": "Symbol has global scope and is assigned to\nthe base version definition."
+      },
+      {
+        "Name": "",
+        "Value": ">1",
+        "Meaning": "Symbol has global scope and is assigned to a\nuser-defined version definition, SHT_SUNW_verdef, or a version dependency, SHT_SUNW_verneed."
+      }
+    ]
+  },
+  {
+    "name": "ELF Segment Types",
+    "rows": [
+      {
+        "Name": "PT_NULL",
+        "Value": "0"
+      },
+      {
+        "Name": "PT_LOAD",
+        "Value": "1"
+      },
+      {
+        "Name": "PT_DYNAMIC",
+        "Value": "2"
+      },
+      {
+        "Name": "PT_INTERP",
+        "Value": "3"
+      },
+      {
+        "Name": "PT_NOTE",
+        "Value": "4"
+      },
+      {
+        "Name": "PT_SHLIB",
+        "Value": "5"
+      },
+      {
+        "Name": "PT_PHDR",
+        "Value": "6"
+      },
+      {
+        "Name": "PT_TLS",
+        "Value": "7"
+      },
+      {
+        "Name": "PT_LOOS",
+        "Value": "0x60000000"
+      },
+      {
+        "Name": "PT_SUNW_UNWIND",
+        "Value": "0x6464e550"
+      },
+      {
+        "Name": "PT_SUNW_EH_FRAME",
+        "Value": "0x6474e550"
+      },
+      {
+        "Name": "PT_LOSUNW",
+        "Value": "0x6ffffffa"
+      },
+      {
+        "Name": "PT_SUNWBSS",
+        "Value": "0x6ffffffa"
+      },
+      {
+        "Name": "PT_SUNWSTACK",
+        "Value": "0x6ffffffb"
+      },
+      {
+        "Name": "PT_SUNWDTRACE",
+        "Value": "0x6ffffffc"
+      },
+      {
+        "Name": "PT_SUNWCAP",
+        "Value": "0x6ffffffd"
+      },
+      {
+        "Name": "PT_HISUNW",
+        "Value": "0x6fffffff"
+      },
+      {
+        "Name": "PT_HIOS",
+        "Value": "0x6fffffff"
+      },
+      {
+        "Name": "PT_LOPROC",
+        "Value": "0x70000000"
+      },
+      {
+        "Name": "PT_HIPROC",
+        "Value": "0x7fffffff"
+      }
+    ]
+  },
+  {
+    "name": "ELF Segment Flags",
+    "rows": [
+      {
+        "Name": "PF_X",
+        "Value": "0x1",
+        "Meaning": "Execute"
+      },
+      {
+        "Name": "PF_W",
+        "Value": "0x2",
+        "Meaning": "Write"
+      },
+      {
+        "Name": "PF_R",
+        "Value": "0x4",
+        "Meaning": "Read"
+      },
+      {
+        "Name": "PF_MASKPROC",
+        "Value": "0xf0000000",
+        "Meaning": "Unspecified"
+      }
+    ]
+  },
+  {
+    "name": "ELF Segment Permissions",
+    "rows": [
+      {
+        "Flags": "None",
+        "Value": "0",
+        "Exact": "All access denied",
+        "Allowable": "All access denied"
+      },
+      {
+        "Flags": "PF_X",
+        "Value": "1",
+        "Exact": "Execute only",
+        "Allowable": "Read, execute"
+      },
+      {
+        "Flags": "PF_W",
+        "Value": "2",
+        "Exact": "Write only",
+        "Allowable": "Read,\nwrite, execute"
+      },
+      {
+        "Flags": "PF_W + PF_X",
+        "Value": "3",
+        "Exact": "Write, execute",
+        "Allowable": "Read, write, execute"
+      },
+      {
+        "Flags": "PF_R",
+        "Value": "4",
+        "Exact": "Read only",
+        "Allowable": "Read, execute"
+      },
+      {
+        "Flags": "PF_R + PF_X",
+        "Value": "5",
+        "Exact": "Read, execute",
+        "Allowable": "Read, execute"
+      },
+      {
+        "Flags": "PF_R + PF_W",
+        "Value": "6",
+        "Exact": "Read, write",
+        "Allowable": "Read, write, execute"
+      },
+      {
+        "Flags": "PF_R + PF_W + PF_X",
+        "Value": "7",
+        "Exact": "Read,\nwrite, execute",
+        "Allowable": "Read, write, execute"
+      }
+    ]
+  },
+  {
+    "name": "SPARC: ELF Program Header Segments (64K alignment)",
+    "rows": [
+      {
+        "Member": "p_type",
+        "Text": "PT_LOAD",
+        "Data": "PT_LOAD"
+      },
+      {
+        "Member": "p_offset",
+        "Text": "0x0",
+        "Data": "0x4000"
+      },
+      {
+        "Member": "p_vaddr",
+        "Text": "0x10000",
+        "Data": "0x24000"
+      },
+      {
+        "Member": "p_paddr",
+        "Text": "Unspecified",
+        "Data": "Unspecified"
+      },
+      {
+        "Member": "p_filesize",
+        "Text": "0x3a82",
+        "Data": "0x4f5"
+      },
+      {
+        "Member": "p_memsz",
+        "Text": "0x3a82",
+        "Data": "0x10a4"
+      },
+      {
+        "Member": "p_flags",
+        "Text": "PF_R + PF_X",
+        "Data": "PF_R + PF_W + PF_X"
+      },
+      {
+        "Member": "p_align",
+        "Text": "0x10000",
+        "Data": "0x10000"
+      }
+    ]
+  },
+  {
+    "name": "32-bit x86: ELF Program Header Segments (64K alignment)",
+    "rows": [
+      {
+        "Member": "p_type",
+        "Text": "PT_LOAD",
+        "Data": "PT_LOAD"
+      },
+      {
+        "Member": "p_offset",
+        "Text": "0x0",
+        "Data": "0x4000"
+      },
+      {
+        "Member": "p_vaddr",
+        "Text": "0x8050000",
+        "Data": "0x8064000"
+      },
+      {
+        "Member": "p_paddr",
+        "Text": "Unspecified",
+        "Data": "Unspecified"
+      },
+      {
+        "Member": "p_filesize",
+        "Text": "0x32fd",
+        "Data": "0x3a0"
+      },
+      {
+        "Member": "p_memsz",
+        "Text": "0x32fd",
+        "Data": "0xdc4"
+      },
+      {
+        "Member": "p_flags",
+        "Text": "PF_R + PF_X",
+        "Data": "PF_R + PF_W + PF_X"
+      },
+      {
+        "Member": "p_align",
+        "Text": "0x10000",
+        "Data": "0x10000"
+      }
+    ]
+  },
+  {
+    "name": "32-bit SPARC: ELF Example Shared Object Segment Addresses",
+    "rows": [
+      {
+        "Source": "File",
+        "Text": "0x0",
+        "Data": "0x4000",
+        "Base Address": "0x0"
+      },
+      {
+        "Source": "Process\n1",
+        "Text": "0xc0000000",
+        "Data": "0xc0024000",
+        "Base Address": "0xc0000000"
+      },
+      {
+        "Source": "Process 2",
+        "Text": "0xc0010000",
+        "Data": "0xc0034000",
+        "Base Address": "0xc0010000"
+      },
+      {
+        "Source": "Process 3",
+        "Text": "0xd0020000",
+        "Data": "0xd0024000",
+        "Base Address": "0xd0020000"
+      },
+      {
+        "Source": "Process 4",
+        "Text": "0xd0030000",
+        "Data": "0xd0034000",
+        "Base Address": "0xd0030000"
+      }
+    ]
+  },
+  {
+    "name": "32-bit x86: ELF Example Shared Object Segment Addresses",
+    "rows": [
+      {
+        "Source": "File",
+        "Text": "0x0",
+        "Data": "0x4000",
+        "Base Address": "0x0"
+      },
+      {
+        "Source": "Process 1",
+        "Text": "0x8000000",
+        "Data": "0x8004000",
+        "Base Address": "0x80000000"
+      },
+      {
+        "Source": "Process 2",
+        "Text": "0x80081000",
+        "Data": "0x80085000",
+        "Base Address": "0x80081000"
+      },
+      {
+        "Source": "Process 3",
+        "Text": "0x900c0000",
+        "Data": "0x900c4000",
+        "Base Address": "0x900c0000"
+      },
+      {
+        "Source": "Process 4",
+        "Text": "0x900c6000",
+        "Data": "0x900ca000",
+        "Base Address": "0x900c6000"
+      }
+    ]
+  },
+
+  {
+    "name": "ELF Dynamic Array Tags",
+    "rows": [
+      {
+        "Name": "DT_NULL",
+        "Value": "0",
+        "d_un": "Ignored",
+        "Executable": "Mandatory",
+        "Shared Object": "Mandatory"
+      },
+      {
+        "Name": "DT_NEEDED",
+        "Value": "1",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_PLTRELSZ",
+        "Value": "2",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_PLTGOT",
+        "Value": "3",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_HASH",
+        "Value": "4",
+        "d_un": "d_ptr",
+        "Executable": "Mandatory",
+        "Shared Object": "Mandatory"
+      },
+      {
+        "Name": "DT_STRTAB",
+        "Value": "5",
+        "d_un": "d_ptr",
+        "Executable": "Mandatory",
+        "Shared Object": "Mandatory"
+      },
+      {
+        "Name": "DT_SYMTAB",
+        "Value": "6",
+        "d_un": "d_ptr",
+        "Executable": "Mandatory",
+        "Shared Object": "Mandatory"
+      },
+      {
+        "Name": "DT_RELA",
+        "Value": "7",
+        "d_un": "d_ptr",
+        "Executable": "Mandatory",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_RELASZ",
+        "Value": "8",
+        "d_un": "d_val",
+        "Executable": "Mandatory",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_RELAENT",
+        "Value": "9",
+        "d_un": "d_val",
+        "Executable": "Mandatory",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_STRSZ",
+        "Value": "10",
+        "d_un": "d_val",
+        "Executable": "Mandatory",
+        "Shared Object": "Mandatory"
+      },
+      {
+        "Name": "DT_SYMENT",
+        "Value": "11",
+        "d_un": "d_val",
+        "Executable": "Mandatory",
+        "Shared Object": "Mandatory"
+      },
+      {
+        "Name": "DT_INIT",
+        "Value": "12",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_FINI",
+        "Value": "13",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SONAME",
+        "Value": "14",
+        "d_un": "d_val",
+        "Executable": "Ignored",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_RPATH",
+        "Value": "15",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SYMBOLIC",
+        "Value": "16",
+        "d_un": "Ignored",
+        "Executable": "Ignored",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_REL",
+        "Value": "17",
+        "d_un": "d_ptr",
+        "Executable": "Mandatory",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_RELSZ",
+        "Value": "18",
+        "d_un": "d_val",
+        "Executable": "Mandatory",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_RELENT",
+        "Value": "19",
+        "d_un": "d_val",
+        "Executable": "Mandatory",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_PLTREL",
+        "Value": "20",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_DEBUG",
+        "Value": "21",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Ignored"
+      },
+      {
+        "Name": "DT_TEXTREL",
+        "Value": "22",
+        "d_un": "Ignored",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_JMPREL",
+        "Value": "23",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_BIND_NOW",
+        "Value": "24",
+        "d_un": "Ignored",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_INIT_ARRAY",
+        "Value": "25",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_FINI_ARRAY",
+        "Value": "26",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_INIT_ARRAYSZ",
+        "Value": "27",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_FINI_ARRAYSZ",
+        "Value": "28",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_RUNPATH",
+        "Value": "29",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_FLAGS",
+        "Value": "30",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_ENCODING",
+        "Value": "32",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_PREINIT_ARRAY",
+        "Value": "32",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Ignored"
+      },
+      {
+        "Name": "DT_PREINIT_ARRAYSZ",
+        "Value": "33",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Ignored"
+      },
+      {
+        "Name": "DT_MAXPOSTAGS",
+        "Value": "34",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_LOOS",
+        "Value": "0x6000000d",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_SUNW_AUXILIARY",
+        "Value": "0x6000000d",
+        "d_un": "d_ptr",
+        "Executable": "Unspecified",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_RTLDINF",
+        "Value": "0x6000000e",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_FILTER",
+        "Value": "0x6000000e",
+        "d_un": "d_ptr",
+        "Executable": "Unspecified",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_CAP",
+        "Value": "0x60000010",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_SYMTAB",
+        "Value": "0x60000011",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_SYMSZ",
+        "Value": "0x60000012",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_ENCODING",
+        "Value": "0x60000013",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_SUNW_SORTENT",
+        "Value": "0x60000013",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_SYMSORT",
+        "Value": "0x60000014",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_SYMSORTSZ",
+        "Value": "0x60000015",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_TLSSORT",
+        "Value": "0x60000016",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_TLSSORTSZ",
+        "Value": "0x60000017",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_CAPINFO",
+        "Value": "0x60000018",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_STRPAD",
+        "Value": "0x60000019",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_CAPCHAIN",
+        "Value": "0x6000001a",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_LDMACH",
+        "Value": "0x6000001b",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_CAPCHAINENT",
+        "Value": "0x6000001d",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SUNW_CAPCHAINSZ",
+        "Value": "0x6000001f",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_HIOS",
+        "Value": "0x6ffff000",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_VALRNGLO",
+        "Value": "0x6ffffd00",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_CHECKSUM",
+        "Value": "0x6ffffdf8",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_PLTPADSZ",
+        "Value": "0x6ffffdf9",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_MOVEENT",
+        "Value": "0x6ffffdfa",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_MOVESZ",
+        "Value": "0x6ffffdfb",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_POSFLAG_1",
+        "Value": "0x6ffffdfd",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SYMINSZ",
+        "Value": "0x6ffffdfe",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SYMINENT",
+        "Value": "0x6ffffdff",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_VALRNGHI",
+        "Value": "0x6ffffdff",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_ADDRRNGLO",
+        "Value": "0x6ffffe00",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_CONFIG",
+        "Value": "0x6ffffefa",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_DEPAUDIT",
+        "Value": "0x6ffffefb",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_AUDIT",
+        "Value": "0x6ffffefc",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_PLTPAD",
+        "Value": "0x6ffffefd",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_MOVETAB",
+        "Value": "0x6ffffefe",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_SYMINFO",
+        "Value": "0x6ffffeff",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_ADDRRNGHI",
+        "Value": "0x6ffffeff",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_RELACOUNT",
+        "Value": "0x6ffffff9",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_RELCOUNT",
+        "Value": "0x6ffffffa",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_FLAGS_1",
+        "Value": "0x6ffffffb",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_VERDEF",
+        "Value": "0x6ffffffc",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_VERDEFNUM",
+        "Value": "0x6ffffffd",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_VERNEED",
+        "Value": "0x6ffffffe",
+        "d_un": "d_ptr",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_VERNEEDNUM",
+        "Value": "0x6fffffff",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_LOPROC",
+        "Value": "0x70000000",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      },
+      {
+        "Name": "DT_SPARC_REGISTER",
+        "Value": "0x70000001",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_AUXILIARY",
+        "Value": "0x7ffffffd",
+        "d_un": "d_val",
+        "Executable": "Unspecified",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_USED",
+        "Value": "0x7ffffffe",
+        "d_un": "d_val",
+        "Executable": "Optional",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_FILTER",
+        "Value": "0x7fffffff",
+        "d_un": "d_val",
+        "Executable": "Unspecified",
+        "Shared Object": "Optional"
+      },
+      {
+        "Name": "DT_HIPROC",
+        "Value": "0x7fffffff",
+        "d_un": "Unspecified",
+        "Executable": "Unspecified",
+        "Shared Object": "Unspecified"
+      }
+    ]
+  },
+  {
+    "name": "ELF Dynamic Flags, <tt>DT_FLAGS</tt>",
+    "rows": [
+      {
+        "Name": "DF_ORIGIN",
+        "Value": "0x1",
+        "Meaning": "$ORIGIN processing required"
+      },
+      {
+        "Name": "DF_SYMBOLIC",
+        "Value": "0x2",
+        "Meaning": "Symbolic\nsymbol resolution required"
+      },
+      {
+        "Name": "DF_TEXTREL",
+        "Value": "0x4",
+        "Meaning": "Text relocations exist"
+      },
+      {
+        "Name": "DF_BIND_NOW",
+        "Value": "0x8",
+        "Meaning": "Non-lazy binding required"
+      },
+      {
+        "Name": "DF_STATIC_TLS",
+        "Value": "0x10",
+        "Meaning": "Object uses static thread-local storage scheme"
+      }
+    ]
+  },
+  {
+    "name": "ELF Dynamic Flags, <tt>DT_FLAGS_1</tt>",
+    "rows": [
+      {
+        "Name": "DF_1_NOW",
+        "Value": "0x1",
+        "Meaning": "Perform complete relocation processing."
+      },
+      {
+        "Name": "DF_1_GLOBAL",
+        "Value": "0x2",
+        "Meaning": "Unused."
+      },
+      {
+        "Name": "DF_1_GROUP",
+        "Value": "0x4",
+        "Meaning": "Indicate object is a member of a group."
+      },
+      {
+        "Name": "DF_1_NODELETE",
+        "Value": "0x8",
+        "Meaning": "Object cannot\nbe deleted from a process."
+      },
+      {
+        "Name": "DF_1_LOADFLTR",
+        "Value": "0x10",
+        "Meaning": "Ensure immediate loading of filtees."
+      },
+      {
+        "Name": "DF_1_INITFIRST",
+        "Value": "0x20",
+        "Meaning": "Objects' initialization occurs first."
+      },
+      {
+        "Name": "DF_1_NOOPEN",
+        "Value": "0x40",
+        "Meaning": "Object\ncan not be used with dlopen(3C)."
+      },
+      {
+        "Name": "DF_1_ORIGIN",
+        "Value": "0x80",
+        "Meaning": "$ORIGIN processing required."
+      },
+      {
+        "Name": "DF_1_DIRECT",
+        "Value": "0x100",
+        "Meaning": "Direct bindings enabled."
+      },
+      {
+        "Name": "DF_1_INTERPOSE",
+        "Value": "0x400",
+        "Meaning": "Object is an\ninterposer."
+      },
+      {
+        "Name": "DF_1_NODEFLIB",
+        "Value": "0x800",
+        "Meaning": "Ignore the default library search path."
+      },
+      {
+        "Name": "DF_1_NODUMP",
+        "Value": "0x1000",
+        "Meaning": "Object cannot be dumped with dldump(3C)."
+      },
+      {
+        "Name": "DF_1_CONFALT",
+        "Value": "0x2000",
+        "Meaning": "Object is\na configuration alternative."
+      },
+      {
+        "Name": "DF_1_ENDFILTEE",
+        "Value": "0x4000",
+        "Meaning": "Filtee terminates filter's search."
+      },
+      {
+        "Name": "DF_1_DISPRELDNE",
+        "Value": "0x8000",
+        "Meaning": "Displacement relocation has been carried out."
+      },
+      {
+        "Name": "DF_1_DISPRELPND",
+        "Value": "0x10000",
+        "Meaning": "Displacement relocation\npending."
+      },
+      {
+        "Name": "DF_1_NODIRECT",
+        "Value": "0x20000",
+        "Meaning": "Object contains non-direct bindings."
+      },
+      {
+        "Name": "DF_1_IGNMULDEF",
+        "Value": "0x40000",
+        "Meaning": "Internal use."
+      },
+      {
+        "Name": "DF_1_NOKSYMS",
+        "Value": "0x80000",
+        "Meaning": "Internal use."
+      },
+      {
+        "Name": "DF_1_NOHDR",
+        "Value": "0x100000",
+        "Meaning": "Internal use."
+      },
+      {
+        "Name": "DF_1_EDITED",
+        "Value": "0x200000",
+        "Meaning": "Object has been modified since originally\nbuilt."
+      },
+      {
+        "Name": "DF_1_NORELOC",
+        "Value": "0x400000",
+        "Meaning": "Internal use."
+      },
+      {
+        "Name": "DF_1_SYMINTPOSE",
+        "Value": "0x800000",
+        "Meaning": "Individual symbol interposers exist."
+      },
+      {
+        "Name": "DF_1_GLOBAUDIT",
+        "Value": "0x1000000",
+        "Meaning": "Establish global auditing."
+      },
+      {
+        "Name": "DF_1_SINGLETON",
+        "Value": "0x2000000",
+        "Meaning": "Singleton symbols exist."
+      }
+    ]
+  },
+  {
+    "name": "ELF Dynamic Position Flags, <tt>DT_POSFLAG_1</tt>",
+    "rows": [
+      {
+        "Name": "DF_P1_LAZYLOAD",
+        "Value": "0x1",
+        "Meaning": "Identify lazy loaded dependency."
+      },
+      {
+        "Name": "DF_P1_GROUPPERM",
+        "Value": "0x2",
+        "Meaning": "Identify group dependency."
+      }
+    ]
+  }
+]
