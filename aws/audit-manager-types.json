@@ -1,0 +1,1752 @@
+[
+  {
+    "title": "Assessment",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:auditmanager:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the assessment."
+      },
+      "awsAccount": {
+        "type": "AWSAccount object",
+        "required": "No",
+        "desc": "The AWS account associated with the assessment."
+      },
+      "framework": {
+        "type": "AssessmentFramework object",
+        "required": "No",
+        "desc": "The framework from which the assessment was created."
+      },
+      "metadata": {
+        "type": "AssessmentMetadata object",
+        "required": "No",
+        "desc": "The metadata for the specified assessment."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags associated with the assessment."
+      }
+    }
+  },
+  {
+    "title": "AssessmentControl",
+    "attrs": {
+      "assessmentReportEvidenceCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The amount of evidence in the assessment report."
+      },
+      "comments": {
+        "type": "Array of ControlComment objects",
+        "required": "No",
+        "desc": "The list of comments attached to the specified control."
+      },
+      "description": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the specified control."
+      },
+      "evidenceCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The amount of evidence generated for the control."
+      },
+      "evidenceSources": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The list of data sources for the specified evidence."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified control."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the specified control."
+      },
+      "response": {
+        "type": "String",
+        "required": "No",
+        "desc": "The response of the specified control."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the specified control."
+      }
+    }
+  },
+  {
+    "title": "AssessmentControlSet",
+    "attrs": {
+      "controls": {
+        "type": "Array of AssessmentControl objects",
+        "required": "No",
+        "desc": "The list of controls contained with the control set."
+      },
+      "delegations": {
+        "type": "Array of Delegation objects",
+        "required": "No",
+        "desc": "The delegations associated with the control set."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The description for the control set."
+      },
+      "id": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The identifier of the control set in the assessment. This is the control set name in a plain string format."
+      },
+      "manualEvidenceCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The total number of evidence objects uploaded manually to the control set."
+      },
+      "roles": {
+        "type": "Array of Role objects",
+        "required": "No",
+        "desc": "The roles associated with the control set."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies the current status of the control set."
+      },
+      "systemEvidenceCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The total number of evidence objects retrieved automatically for the control set."
+      }
+    }
+  },
+  {
+    "title": "AssessmentEvidenceFolder",
+    "attrs": {
+      "assessmentId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified assessment."
+      },
+      "assessmentReportSelectionCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The total count of evidence included in the assessment report."
+      },
+      "author": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The name of the user who created the evidence folder."
+      },
+      "controlId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the specified control."
+      },
+      "controlName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the control."
+      },
+      "controlSetId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The identifier for the control set."
+      },
+      "dataSource": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The AWS service from which the evidence was collected."
+      },
+      "date": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date when the first evidence was added to the evidence folder."
+      },
+      "evidenceAwsServiceSourceCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The total number of AWS resources assessed to generate the evidence."
+      },
+      "evidenceByTypeComplianceCheckCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of evidence that falls under the compliance check category. This evidence is collected from AWS Config or AWS Security Hub."
+      },
+      "evidenceByTypeComplianceCheckIssuesCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The total number of issues that were reported directly from AWS Security Hub, AWS Config, or both."
+      },
+      "evidenceByTypeConfigurationDataCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of evidence that falls under the configuration data category. This evidence is collected from configuration snapshots of other AWS services such as Amazon EC2, Amazon S3, or IAM."
+      },
+      "evidenceByTypeManualCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of evidence that falls under the manual category. This evidence is imported manually."
+      },
+      "evidenceByTypeUserActivityCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of evidence that falls under the user activity category. This evidence is collected from AWS CloudTrail logs."
+      },
+      "evidenceResourcesIncludedCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The amount of evidence included in the evidence folder."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the folder in which evidence is stored."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the specified evidence folder."
+      },
+      "totalEvidence": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The total amount of evidence in the evidence folder."
+      }
+    }
+  },
+  {
+    "title": "AssessmentFramework",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:auditmanager:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the specified framework."
+      },
+      "controlSets": {
+        "type": "Array of AssessmentControlSet objects",
+        "required": "No",
+        "desc": "The control sets associated with the framework."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the framework."
+      },
+      "metadata": {
+        "type": "FrameworkMetadata object",
+        "required": "No",
+        "desc": "The metadata of a framework, such as the name, ID, description, and so on."
+      }
+    }
+  },
+  {
+    "title": "AssessmentFrameworkMetadata",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:auditmanager:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the framework."
+      },
+      "complianceType": {
+        "type": "String",
+        "length": "Maximum length of 100.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The compliance type that the new custom framework supports, such as CIS or HIPAA."
+      },
+      "controlsCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of controls associated with the specified framework."
+      },
+      "controlSetsCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of control sets associated with the specified framework."
+      },
+      "createdAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the framework was created."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the specified framework."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identified for the specified framework."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the framework was most recently updated."
+      },
+      "logo": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^[\\w,\\s-]+\\.[A-Za-z]+$",
+        "required": "No",
+        "desc": "The logo associated with the framework."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the specified framework."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The framework type, such as standard or custom."
+      }
+    }
+  },
+  {
+    "title": "AssessmentMetadata",
+    "attrs": {
+      "assessmentReportsDestination": {
+        "type": "AssessmentReportsDestination object",
+        "required": "No",
+        "desc": "The destination in which evidence reports are stored for the specified assessment."
+      },
+      "complianceType": {
+        "type": "String",
+        "length": "Maximum length of 100.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of a compliance standard related to the assessment, such as PCI-DSS."
+      },
+      "creationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the assessment was created."
+      },
+      "delegations": {
+        "type": "Array of Delegation objects",
+        "required": "No",
+        "desc": "The delegations associated with the assessment."
+      },
+      "description": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the assessment."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the assessment."
+      },
+      "lastUpdated": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time of the most recent update."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the assessment."
+      },
+      "roles": {
+        "type": "Array of Role objects",
+        "required": "No",
+        "desc": "The roles associated with the assessment."
+      },
+      "scope": {
+        "type": "Scope object",
+        "required": "No",
+        "desc": "The wrapper of AWS accounts and services in scope for the assessment."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The overall status of the assessment."
+      }
+    }
+  },
+  {
+    "title": "AssessmentMetadataItem",
+    "attrs": {
+      "complianceType": {
+        "type": "String",
+        "length": "Maximum length of 100.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the compliance standard related to the assessment, such as PCI-DSS."
+      },
+      "creationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the assessment was created."
+      },
+      "delegations": {
+        "type": "Array of Delegation objects",
+        "required": "No",
+        "desc": "The delegations associated with the assessment."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the assessment."
+      },
+      "lastUpdated": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time of the most recent update."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the assessment."
+      },
+      "roles": {
+        "type": "Array of Role objects",
+        "required": "No",
+        "desc": "The roles associated with the assessment."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current status of the assessment."
+      }
+    }
+  },
+  {
+    "title": "AssessmentReport",
+    "attrs": {
+      "assessmentId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified assessment."
+      },
+      "assessmentName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the associated assessment."
+      },
+      "author": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-_()\\s\\+=,.@]+$",
+        "required": "No",
+        "desc": "The name of the user who created the assessment report."
+      },
+      "awsAccountId": {
+        "type": "String",
+        "length": "Fixed length of 12.",
+        "pattern": "^[0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified AWS account."
+      },
+      "creationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the assessment report was created."
+      },
+      "description": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the specified assessment report."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the specified assessment report."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[a-zA-Z0-9-_\\.]+$",
+        "required": "No",
+        "desc": "The name given to the assessment report."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current status of the specified assessment report."
+      }
+    }
+  },
+  {
+    "title": "AssessmentReportEvidenceError",
+    "attrs": {
+      "errorCode": {
+        "type": "String",
+        "length": "Fixed length of 3.",
+        "pattern": "[0-9]{3}",
+        "required": "No",
+        "desc": "The error code returned by the AssessmentReportEvidence API."
+      },
+      "errorMessage": {
+        "type": "String",
+        "length": "Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The error message returned by the AssessmentReportEvidence API."
+      },
+      "evidenceId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the evidence."
+      }
+    }
+  },
+  {
+    "title": "AssessmentReportMetadata",
+    "attrs": {
+      "assessmentId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the associated assessment."
+      },
+      "assessmentName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the associated assessment."
+      },
+      "author": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-_()\\s\\+=,.@]+$",
+        "required": "No",
+        "desc": "The name of the user who created the assessment report."
+      },
+      "creationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the assessment report was created."
+      },
+      "description": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the specified assessment report."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the assessment report."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[a-zA-Z0-9-_\\.]+$",
+        "required": "No",
+        "desc": "The name of the assessment report."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current status of the assessment report."
+      }
+    }
+  },
+  {
+    "title": "AssessmentReportsDestination",
+    "attrs": {
+      "destination": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^(S|s)3:\\/\\/[a-zA-Z0-9-_\\/.]+$",
+        "required": "No",
+        "desc": "The destination of the assessment report."
+      },
+      "destinationType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The destination type, such as Amazon S3."
+      }
+    }
+  },
+  {
+    "title": "AWSAccount",
+    "attrs": {
+      "emailAddress": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 320.",
+        "pattern": "^.*@.*$",
+        "required": "No",
+        "desc": "The email address associated with the specified AWS account."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 12.",
+        "pattern": "^[0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified AWS account."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 50.",
+        "pattern": "^[\\u0020-\\u007E]+$",
+        "required": "No",
+        "desc": "The name of the specified AWS account."
+      }
+    }
+  },
+  {
+    "title": "AWSService",
+    "attrs": {
+      "serviceName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 40.",
+        "pattern": "^[a-zA-Z0-9-\\s().]+$",
+        "required": "No",
+        "desc": "The name of the AWS service."
+      }
+    }
+  },
+  {
+    "title": "BatchCreateDelegationByAssessmentError",
+    "attrs": {
+      "createDelegationRequest": {
+        "type": "CreateDelegationRequest object",
+        "required": "No",
+        "desc": "The API request to batch create delegations in AWS Audit Manager."
+      },
+      "errorCode": {
+        "type": "String",
+        "length": "Fixed length of 3.",
+        "pattern": "[0-9]{3}",
+        "required": "No",
+        "desc": "The error code returned by the BatchCreateDelegationByAssessment API."
+      },
+      "errorMessage": {
+        "type": "String",
+        "length": "Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The error message returned by the BatchCreateDelegationByAssessment API."
+      }
+    }
+  },
+  {
+    "title": "BatchDeleteDelegationByAssessmentError",
+    "attrs": {
+      "delegationId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified delegation."
+      },
+      "errorCode": {
+        "type": "String",
+        "length": "Fixed length of 3.",
+        "pattern": "[0-9]{3}",
+        "required": "No",
+        "desc": "The error code returned by the BatchDeleteDelegationByAssessment API."
+      },
+      "errorMessage": {
+        "type": "String",
+        "length": "Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The error message returned by the BatchDeleteDelegationByAssessment API."
+      }
+    }
+  },
+  {
+    "title": "BatchImportEvidenceToAssessmentControlError",
+    "attrs": {
+      "errorCode": {
+        "type": "String",
+        "length": "Fixed length of 3.",
+        "pattern": "[0-9]{3}",
+        "required": "No",
+        "desc": "The error code returned by the BatchImportEvidenceToAssessmentControl API."
+      },
+      "errorMessage": {
+        "type": "String",
+        "length": "Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The error message returned by the BatchImportEvidenceToAssessmentControl API."
+      },
+      "manualEvidence": {
+        "type": "ManualEvidence object",
+        "required": "No",
+        "desc": "Manual evidence that cannot be collected automatically by AWS Audit Manager."
+      }
+    }
+  },
+  {
+    "title": "ChangeLog",
+    "attrs": {
+      "action": {
+        "type": "String",
+        "required": "No",
+        "desc": "The action performed."
+      },
+      "createdAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time of creation for the changelog object."
+      },
+      "createdBy": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:iam:.*",
+        "required": "No",
+        "desc": "The IAM user or role that performed the action."
+      },
+      "objectName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The name of the changelog object."
+      },
+      "objectType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The changelog object type, such as an assessment, control, or control set."
+      }
+    }
+  },
+  {
+    "title": "Control",
+    "attrs": {
+      "actionPlanInstructions": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The recommended actions to carry out if the control is not fulfilled."
+      },
+      "actionPlanTitle": {
+        "type": "String",
+        "length": "Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The title of the action plan for remediating the control."
+      },
+      "arn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:auditmanager:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the specified control."
+      },
+      "controlMappingSources": {
+        "type": "Array of ControlMappingSource objects",
+        "required": "No",
+        "desc": "The data mapping sources for the specified control."
+      },
+      "controlSources": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z_0-9-\\s.,]+$",
+        "required": "No",
+        "desc": "The data source that determines from where AWS Audit Manager collects evidence for the control."
+      },
+      "createdAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the control was created."
+      },
+      "createdBy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z0-9\\s-_()\\[\\]]+$",
+        "required": "No",
+        "desc": "The IAM user or role that created the control."
+      },
+      "description": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the specified control."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the control."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the control was most recently updated."
+      },
+      "lastUpdatedBy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z0-9\\s-_()\\[\\]]+$",
+        "required": "No",
+        "desc": "The IAM user or role that most recently updated the control."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the specified control."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags associated with the control."
+      },
+      "testingInformation": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The steps to follow to determine if the control has been satisfied."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of control, such as custom or standard."
+      }
+    }
+  },
+  {
+    "title": "ControlComment",
+    "attrs": {
+      "authorName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-_()\\s\\+=,.@]+$",
+        "required": "No",
+        "desc": "The name of the user who authored the comment."
+      },
+      "commentBody": {
+        "type": "String",
+        "length": "Maximum length of 500.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The body text of a control comment."
+      },
+      "postedDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the comment was posted."
+      }
+    }
+  },
+  {
+    "title": "ControlMappingSource",
+    "attrs": {
+      "sourceDescription": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the specified source."
+      },
+      "sourceFrequency": {
+        "type": "String",
+        "required": "No",
+        "desc": "The frequency of evidence collection for the specified control mapping source."
+      },
+      "sourceId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the specified source."
+      },
+      "sourceKeyword": {
+        "type": "SourceKeyword object",
+        "required": "No",
+        "desc": "The keyword to search for in AWS CloudTrail logs."
+      },
+      "sourceName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The name of the specified source."
+      },
+      "sourceSetUpOption": {
+        "type": "String",
+        "required": "No",
+        "desc": "The setup option for the data source, which reflects if the evidence collection is automated or manual."
+      },
+      "sourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies one of the five types of data sources for evidence collection."
+      },
+      "troubleshootingText": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The instructions for troubleshooting the specified control."
+      }
+    }
+  },
+  {
+    "title": "ControlMetadata",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:auditmanager:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the specified control."
+      },
+      "controlSources": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z_0-9-\\s.,]+$",
+        "required": "No",
+        "desc": "The data source that determines from where AWS Audit Manager collects evidence for the control."
+      },
+      "createdAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the control was created."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the specified control."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the control was most recently updated."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the specified control."
+      }
+    }
+  },
+  {
+    "title": "ControlSet",
+    "attrs": {
+      "controls": {
+        "type": "Array of Control objects",
+        "required": "No",
+        "desc": "The list of controls within the control set."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier of the control set in the assessment. This is the control set name in a plain string format."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[^\\_]*$",
+        "required": "No",
+        "desc": "The name of the control set."
+      }
+    }
+  },
+  {
+    "title": "CreateAssessmentFrameworkControl",
+    "attrs": {
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier of the control."
+      }
+    }
+  },
+  {
+    "title": "CreateAssessmentFrameworkControlSet",
+    "attrs": {
+      "controls": {
+        "type": "Array of CreateAssessmentFrameworkControl objects",
+        "required": "No",
+        "desc": "The list of controls within the control set. This does not contain the control set ID."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[^\\_]*$",
+        "required": "No",
+        "desc": "The name of the specified control set."
+      }
+    }
+  },
+  {
+    "title": "CreateControlMappingSource",
+    "attrs": {
+      "sourceDescription": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the data source that determines from where AWS Audit Manager collects evidence for the control."
+      },
+      "sourceFrequency": {
+        "type": "String",
+        "required": "No",
+        "desc": "The frequency of evidence collection for the specified control mapping source."
+      },
+      "sourceKeyword": {
+        "type": "SourceKeyword object",
+        "required": "No",
+        "desc": "The keyword to search for in AWS CloudTrail logs."
+      },
+      "sourceName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The name of the control mapping data source."
+      },
+      "sourceSetUpOption": {
+        "type": "String",
+        "required": "No",
+        "desc": "The setup option for the data source, which reflects if the evidence collection is automated or manual."
+      },
+      "sourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies one of the five types of data sources for evidence collection."
+      },
+      "troubleshootingText": {
+        "type": "String",
+        "length": "Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The instructions for troubleshooting the specified control."
+      }
+    }
+  },
+  {
+    "title": "CreateDelegationRequest",
+    "attrs": {
+      "comment": {
+        "type": "String",
+        "length": "Maximum length of 350.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "A comment related to the delegation request."
+      },
+      "controlSetId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The unique identifier for the control set."
+      },
+      "roleArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:iam:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the IAM role."
+      },
+      "roleType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of customer persona."
+      }
+    }
+  },
+  {
+    "title": "Delegation",
+    "attrs": {
+      "assessmentId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the associated assessment."
+      },
+      "assessmentName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the associated assessment."
+      },
+      "comment": {
+        "type": "String",
+        "length": "Maximum length of 350.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The comment related to the delegation."
+      },
+      "controlSetId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The identifier for the associated control set."
+      },
+      "createdBy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z0-9\\s-_()\\[\\]]+$",
+        "required": "No",
+        "desc": "The IAM user or role that created the delegation."
+      },
+      "creationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the delegation was created."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the delegation."
+      },
+      "lastUpdated": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the delegation was last updated."
+      },
+      "roleArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:iam:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the IAM role."
+      },
+      "roleType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of customer persona."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the delegation."
+      }
+    }
+  },
+  {
+    "title": "DelegationMetadata",
+    "attrs": {
+      "assessmentId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the specified assessment."
+      },
+      "assessmentName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the associated assessment."
+      },
+      "controlSetName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "Specifies the name of the control set delegated for review."
+      },
+      "creationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the delegation was created."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the delegation."
+      },
+      "roleArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:iam:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the IAM role."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current status of the delgation."
+      }
+    }
+  },
+  {
+    "title": "Evidence",
+    "attrs": {
+      "assessmentReportSelection": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "Specifies whether the evidence is inclded in the assessment report."
+      },
+      "attributes": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The names and values used by the evidence event, including an attribute name (such as allowUsersToChangePassword) and value (such as true or false)."
+      },
+      "awsAccountId": {
+        "type": "String",
+        "length": "Fixed length of 12.",
+        "pattern": "^[0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified AWS account."
+      },
+      "awsOrganization": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The AWS account from which the evidence is collected, and its AWS organization path."
+      },
+      "complianceCheck": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The evaluation status for evidence that falls under the compliance check category. For evidence collected from AWS Security Hub, a Pass or Fail result is shown. For evidence collected from AWS Config, a Compliant or Noncompliant result is shown."
+      },
+      "dataSource": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The data source from which the specified evidence was collected."
+      },
+      "eventName": {
+        "type": "String",
+        "length": "Maximum length of 100.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the specified evidence event."
+      },
+      "eventSource": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 40.",
+        "pattern": "^[a-zA-Z0-9-\\s().]+$",
+        "required": "No",
+        "desc": "The AWS service from which the evidence is collected."
+      },
+      "evidenceAwsAccountId": {
+        "type": "String",
+        "length": "Fixed length of 12.",
+        "pattern": "^[0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified AWS account."
+      },
+      "evidenceByType": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The type of automated evidence."
+      },
+      "evidenceFolderId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the folder in which the evidence is stored."
+      },
+      "iamId": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:iam:.*",
+        "required": "No",
+        "desc": "The unique identifier for the IAM user or role associated with the evidence."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the evidence."
+      },
+      "resourcesIncluded": {
+        "type": "Array of Resource objects",
+        "required": "No",
+        "desc": "The list of resources assessed to generate the evidence."
+      },
+      "time": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp that represents when the evidence was collected."
+      }
+    }
+  },
+  {
+    "title": "Framework",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:auditmanager:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the specified framework."
+      },
+      "complianceType": {
+        "type": "String",
+        "length": "Maximum length of 100.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The compliance type that the new custom framework supports, such as CIS or HIPAA."
+      },
+      "controlSets": {
+        "type": "Array of ControlSet objects",
+        "required": "No",
+        "desc": "The control sets associated with the framework."
+      },
+      "controlSources": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z_0-9-\\s.,]+$",
+        "required": "No",
+        "desc": "The sources from which AWS Audit Manager collects evidence for the control."
+      },
+      "createdAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the framework was created."
+      },
+      "createdBy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z0-9\\s-_()\\[\\]]+$",
+        "required": "No",
+        "desc": "The IAM user or role that created the framework."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1000.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the specified framework."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the specified framework."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Specifies when the framework was most recently updated."
+      },
+      "lastUpdatedBy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z0-9\\s-_()\\[\\]]+$",
+        "required": "No",
+        "desc": "The IAM user or role that most recently updated the framework."
+      },
+      "logo": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^[\\w,\\s-]+\\.[A-Za-z]+$",
+        "required": "No",
+        "desc": "The logo associated with the framework."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the specified framework."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags associated with the framework."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The framework type, such as custom or standard."
+      }
+    }
+  },
+  {
+    "title": "FrameworkMetadata",
+    "attrs": {
+      "complianceType": {
+        "type": "String",
+        "length": "Maximum length of 100.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The compliance standard associated with the framework, such as PCI-DSS or HIPAA."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 200.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The description of the framework."
+      },
+      "logo": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^[\\w,\\s-]+\\.[A-Za-z]+$",
+        "required": "No",
+        "desc": "The logo associated with the framework."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the framework."
+      }
+    }
+  },
+  {
+    "title": "ManualEvidence",
+    "attrs": {
+      "s3ResourcePath": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^(S|s)3:\\/\\/[a-zA-Z0-9-_\\/.]+$",
+        "required": "No",
+        "desc": "The Amazon S3 URL that points to a manual evidence object."
+      }
+    }
+  },
+  {
+    "title": "Notification",
+    "attrs": {
+      "assessmentId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The identifier for the specified assessment."
+      },
+      "assessmentName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name of the related assessment."
+      },
+      "controlSetId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The identifier for the specified control set."
+      },
+      "controlSetName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "Specifies the name of the control set that the notification is about."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The description of the notification."
+      },
+      "eventTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the notification was sent."
+      },
+      "id": {
+        "type": "String",
+        "length": "Minimum length of 47. Maximum length of 50.",
+        "pattern": "^[0-9]{10,13}_[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the notification."
+      },
+      "source": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The sender of the notification."
+      }
+    }
+  },
+  {
+    "title": "Resource",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) for the specified resource."
+      },
+      "value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The value of the specified resource."
+      }
+    }
+  },
+  {
+    "title": "Role",
+    "attrs": {
+      "roleArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:.*:iam:.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the IAM role."
+      },
+      "roleType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of customer persona."
+      }
+    }
+  },
+  {
+    "title": "Scope",
+    "attrs": {
+      "awsAccounts": {
+        "type": "Array of AWSAccount objects",
+        "required": "No",
+        "desc": "The AWS accounts included in the scope of the assessment."
+      },
+      "awsServices": {
+        "type": "Array of AWSService objects",
+        "required": "No",
+        "desc": "The AWS services included in the scope of the assessment."
+      }
+    }
+  },
+  {
+    "title": "ServiceMetadata",
+    "attrs": {
+      "category": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The category in which the AWS service belongs, such as compute, storage, database, and so on."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The description of the specified AWS service."
+      },
+      "displayName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The display name of the AWS service."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 40.",
+        "pattern": "^[a-zA-Z0-9-\\s().]+$",
+        "required": "No",
+        "desc": "The name of the AWS service."
+      }
+    }
+  },
+  {
+    "title": "Settings",
+    "attrs": {
+      "defaultAssessmentReportsDestination": {
+        "type": "AssessmentReportsDestination object",
+        "required": "No",
+        "desc": "The default storage destination for assessment reports."
+      },
+      "defaultProcessOwners": {
+        "type": "Array of Role objects",
+        "required": "No",
+        "desc": "The designated default audit owners."
+      },
+      "isAwsOrgEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether AWS Organizations is enabled."
+      },
+      "kmsKey": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 2048.",
+        "pattern": "^arn:.*:kms:.*|DEFAULT",
+        "required": "No",
+        "desc": "The AWS KMS key details."
+      },
+      "snsTopic": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^[a-zA-Z0-9-_\\(\\)\\[\\]]+$",
+        "required": "No",
+        "desc": "The designated Amazon Simple Notification Service (Amazon SNS) topic."
+      }
+    }
+  },
+  {
+    "title": "SourceKeyword",
+    "attrs": {
+      "keywordInputType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The method of input for the specified keyword."
+      },
+      "keywordValue": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[a-zA-Z_0-9-\\s().]+$",
+        "required": "No",
+        "desc": "The value of the keyword used to search AWS CloudTrail logs when mapping a control data source."
+      }
+    }
+  },
+  {
+    "title": "UpdateAssessmentFrameworkControlSet",
+    "attrs": {
+      "controls": {
+        "type": "Array of CreateAssessmentFrameworkControl objects",
+        "required": "No",
+        "desc": "The list of controls contained within the control set."
+      },
+      "id": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "required": "No",
+        "desc": "The unique identifier for the control set."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "^[^\\_]*$",
+        "required": "No",
+        "desc": "The name of the control set."
+      }
+    }
+  },
+  {
+    "title": "URL",
+    "attrs": {
+      "hyperlinkName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 200.",
+        "pattern": "^[\\w\\W\\s\\S]*$",
+        "required": "No",
+        "desc": "The name or word used as a hyperlink to the URL."
+      },
+      "link": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 8192.",
+        "pattern": "^(https?:\\/\\/)?(www\\.)?[a-zA-Z0-9-_]+([\\.]+[a-zA-Z]+)+[\\/\\w]*$",
+        "required": "No",
+        "desc": "The unique identifier for the internet resource."
+      }
+    }
+  },
+  {
+    "title": "ValidationExceptionField",
+    "attrs": {
+      "message": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "Yes",
+        "desc": "The body of the error message."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2048.",
+        "pattern": ".*",
+        "required": "Yes",
+        "desc": "The name of the validation error."
+      }
+    }
+  }
+]

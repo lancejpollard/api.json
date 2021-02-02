@@ -1,0 +1,2967 @@
+[
+  {
+    "title": "Anomaly",
+    "attrs": {
+      "AnomalyEndDate": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "No",
+        "desc": "The last day the anomaly is detected."
+      },
+      "AnomalyId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "Yes",
+        "desc": "The unique identifier for the anomaly."
+      },
+      "AnomalyScore": {
+        "type": "AnomalyScore object",
+        "required": "Yes",
+        "desc": "The latest and maximum score for the anomaly."
+      },
+      "AnomalyStartDate": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "No",
+        "desc": "The first day the anomaly is detected."
+      },
+      "DimensionValue": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The dimension for the anomaly. For example, an AWS service in a service monitor."
+      },
+      "Feedback": {
+        "type": "String",
+        "required": "No",
+        "desc": "The feedback value."
+      },
+      "Impact": {
+        "type": "Impact object",
+        "required": "Yes",
+        "desc": "The dollar impact for the anomaly."
+      },
+      "MonitorArn": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) for the cost monitor that generated this anomaly."
+      },
+      "RootCauses": {
+        "type": "Array of RootCause objects",
+        "required": "No",
+        "desc": "The list of identified root causes for the anomaly."
+      }
+    }
+  },
+  {
+    "title": "AnomalyDateInterval",
+    "attrs": {
+      "EndDate": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "No",
+        "desc": "The last date an anomaly was observed."
+      },
+      "StartDate": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "Yes",
+        "desc": "The first date an anomaly was observed."
+      }
+    }
+  },
+  {
+    "title": "AnomalyMonitor",
+    "attrs": {
+      "CreationDate": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "No",
+        "desc": "The date when the monitor was created."
+      },
+      "DimensionalValueCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The value for evaluated dimensions."
+      },
+      "LastEvaluatedDate": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "No",
+        "desc": "The date when the monitor last evaluated for anomalies."
+      },
+      "LastUpdatedDate": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "No",
+        "desc": "The date when the monitor was last updated."
+      },
+      "MonitorArn": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) value."
+      },
+      "MonitorDimension": {
+        "type": "String",
+        "required": "No",
+        "desc": "The dimensions to evaluate."
+      },
+      "MonitorName": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "Yes",
+        "desc": "The name of the monitor."
+      },
+      "MonitorSpecification": {
+        "type": "Expression object",
+        "required": "No",
+        "desc": "Use Expression to filter by cost or by usage. There are two patterns:"
+      },
+      "MonitorType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The possible type values."
+      }
+    }
+  },
+  {
+    "title": "AnomalyScore",
+    "attrs": {
+      "CurrentScore": {
+        "type": "Double",
+        "required": "Yes",
+        "desc": "The last observed score."
+      },
+      "MaxScore": {
+        "type": "Double",
+        "required": "Yes",
+        "desc": "The maximum score observed during the AnomalyDateInterval."
+      }
+    }
+  },
+  {
+    "title": "AnomalySubscription",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Your unique account identifier."
+      },
+      "Frequency": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The frequency at which anomaly reports are sent over email."
+      },
+      "MonitorArnList": {
+        "type": "Array of strings",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "arn:aws[-a-z0-9]*:[a-z0-9]+:[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+",
+        "required": "Yes",
+        "desc": "A list of cost anomaly monitors."
+      },
+      "Subscribers": {
+        "type": "Array of Subscriber objects",
+        "required": "Yes",
+        "desc": "A list of subscribers to notify."
+      },
+      "SubscriptionArn": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AnomalySubscription Amazon Resource Name (ARN)."
+      },
+      "SubscriptionName": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "Yes",
+        "desc": "The name for the subscription."
+      },
+      "Threshold": {
+        "type": "Double",
+        "required": "Yes",
+        "desc": "The dollar value that triggers a notification if the threshold is exceeded."
+      }
+    }
+  },
+  {
+    "title": "CostCategory",
+    "attrs": {
+      "CostCategoryArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "arn:aws[-a-z0-9]*:[a-z0-9]+:[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+",
+        "required": "Yes",
+        "desc": "The unique identifier for your Cost Category."
+      },
+      "EffectiveEnd": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 25.",
+        "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d(([+-]\\d\\d:\\d\\d)|Z)$",
+        "required": "No",
+        "desc": "The Cost Category's effective end date."
+      },
+      "EffectiveStart": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 25.",
+        "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d(([+-]\\d\\d:\\d\\d)|Z)$",
+        "required": "Yes",
+        "desc": "The Cost Category's effective start date."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?! )[\\p{L}\\p{N}\\p{Z}-_]*(?<! )$",
+        "required": "Yes",
+        "desc": "The unique name of the Cost Category."
+      },
+      "ProcessingStatus": {
+        "type": "Array of CostCategoryProcessingStatus objects",
+        "required": "No",
+        "desc": "The list of processing statuses for Cost Management products for a specific cost category."
+      },
+      "Rules": {
+        "type": "Array of CostCategoryRule objects",
+        "required": "Yes",
+        "desc": "Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value."
+      },
+      "RuleVersion": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The rule schema version in this particular Cost Category."
+      }
+    }
+  },
+  {
+    "title": "CostCategoryProcessingStatus",
+    "attrs": {
+      "Component": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Cost Management product name of the applied status."
+      },
+      "Status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The process status for a specific cost category."
+      }
+    }
+  },
+  {
+    "title": "CostCategoryReference",
+    "attrs": {
+      "CostCategoryArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "arn:aws[-a-z0-9]*:[a-z0-9]+:[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+",
+        "required": "No",
+        "desc": "The unique identifier for your Cost Category."
+      },
+      "EffectiveEnd": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 25.",
+        "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d(([+-]\\d\\d:\\d\\d)|Z)$",
+        "required": "No",
+        "desc": "The Cost Category's effective end date."
+      },
+      "EffectiveStart": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 25.",
+        "pattern": "^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d(([+-]\\d\\d:\\d\\d)|Z)$",
+        "required": "No",
+        "desc": "The Cost Category's effective start date."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?! )[\\p{L}\\p{N}\\p{Z}-_]*(?<! )$",
+        "required": "No",
+        "desc": "The unique name of the Cost Category."
+      },
+      "NumberOfRules": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of rules associated with a specific Cost Category."
+      },
+      "ProcessingStatus": {
+        "type": "Array of CostCategoryProcessingStatus objects",
+        "required": "No",
+        "desc": "The list of processing statuses for Cost Management products for a specific cost category."
+      },
+      "Values": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?! )[\\p{L}\\p{N}\\p{Z}-_]*(?<! )$",
+        "required": "No",
+        "desc": "A list of unique cost category values in a specific cost category."
+      }
+    }
+  },
+  {
+    "title": "CostCategoryRule",
+    "attrs": {
+      "Rule": {
+        "type": "Expression object",
+        "required": "Yes",
+        "desc": "An Expression object used to categorize costs. This supports dimensions, tags, and nested expressions. Currently the only dimensions supported are LINKED_ACCOUNT, SERVICE_CODE, RECORD_TYPE, and LINKED_ACCOUNT_NAME. Root level OR is not supported. We recommend that you create a separate rule instead. RECORD_TYPE is a dimension used for Cost Explorer APIs, and is also supported for Cost Category expressions. This dimension uses different terms, depending on whether you're using the console or API/JSON editor. For a detailed comparison, see Term Comparisons in the AWS Billing and Cost Management User Guide."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?! )[\\p{L}\\p{N}\\p{Z}-_]*(?<! )$",
+        "required": "Yes",
+        "desc": "The value a line item will be categorized as, if it matches the rule."
+      }
+    }
+  },
+  {
+    "title": "CostCategoryValues",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?! )[\\p{L}\\p{N}\\p{Z}-_]*(?<! )$",
+        "required": "No",
+        "desc": "The unique name of the Cost Category."
+      },
+      "MatchOptions": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is EQUALS and CASE_SENSITIVE."
+      },
+      "Values": {
+        "type": "Array of strings",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The specific value of the Cost Category."
+      }
+    }
+  },
+  {
+    "title": "Coverage",
+    "attrs": {
+      "CoverageCost": {
+        "type": "CoverageCost object",
+        "required": "No",
+        "desc": "The amount of cost that the reservation covered."
+      },
+      "CoverageHours": {
+        "type": "CoverageHours object",
+        "required": "No",
+        "desc": "The amount of instance usage that the reservation covered, in hours."
+      },
+      "CoverageNormalizedUnits": {
+        "type": "CoverageNormalizedUnits object",
+        "required": "No",
+        "desc": "The amount of instance usage that the reservation covered, in normalized units."
+      }
+    }
+  },
+  {
+    "title": "CoverageByTime",
+    "attrs": {
+      "Groups": {
+        "type": "Array of ReservationCoverageGroup objects",
+        "required": "No",
+        "desc": "The groups of instances that the reservation covered."
+      },
+      "TimePeriod": {
+        "type": "DateInterval object",
+        "required": "No",
+        "desc": "The period that this coverage was used over."
+      },
+      "Total": {
+        "type": "Coverage object",
+        "required": "No",
+        "desc": "The total reservation coverage, in hours."
+      }
+    }
+  },
+  {
+    "title": "CoverageCost",
+    "attrs": {
+      "OnDemandCost": {
+        "type": "String",
+        "required": "No",
+        "desc": "How much an On-Demand Instance costs."
+      }
+    }
+  },
+  {
+    "title": "CoverageHours",
+    "attrs": {
+      "CoverageHoursPercentage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The percentage of instance hours that a reservation covered."
+      },
+      "OnDemandHours": {
+        "type": "String",
+        "required": "No",
+        "desc": "The number of instance running hours that On-Demand Instances covered."
+      },
+      "ReservedHours": {
+        "type": "String",
+        "required": "No",
+        "desc": "The number of instance running hours that reservations covered."
+      },
+      "TotalRunningHours": {
+        "type": "String",
+        "required": "No",
+        "desc": "The total instance usage, in hours."
+      }
+    }
+  },
+  {
+    "title": "CoverageNormalizedUnits",
+    "attrs": {
+      "CoverageNormalizedUnitsPercentage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The percentage of your used instance normalized units that a reservation covers."
+      },
+      "OnDemandNormalizedUnits": {
+        "type": "String",
+        "required": "No",
+        "desc": "The number of normalized units that are covered by On-Demand Instances instead of a reservation."
+      },
+      "ReservedNormalizedUnits": {
+        "type": "String",
+        "required": "No",
+        "desc": "The number of normalized units that a reservation covers."
+      },
+      "TotalRunningNormalizedUnits": {
+        "type": "String",
+        "required": "No",
+        "desc": "The total number of normalized units that you used."
+      }
+    }
+  },
+  {
+    "title": "CurrentInstance",
+    "attrs": {
+      "CurrencyCode": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The currency code that AWS used to calculate the costs for this instance."
+      },
+      "InstanceName": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The name you've given an instance. This field will show as blank if you haven't given the instance a name."
+      },
+      "MonthlyCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Current On-Demand cost of operating this instance on a monthly basis."
+      },
+      "OnDemandHoursInLookbackPeriod": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Number of hours during the lookback period billed at On-Demand rates."
+      },
+      "ReservationCoveredHoursInLookbackPeriod": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Number of hours during the lookback period covered by reservations."
+      },
+      "ResourceDetails": {
+        "type": "ResourceDetails object",
+        "required": "No",
+        "desc": "Details about the resource and utilization."
+      },
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Resource ID of the current instance."
+      },
+      "ResourceUtilization": {
+        "type": "ResourceUtilization object",
+        "required": "No",
+        "desc": "Utilization information of the current instance during the lookback period."
+      },
+      "SavingsPlansCoveredHoursInLookbackPeriod": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Number of hours during the lookback period covered by Savings Plans."
+      },
+      "Tags": {
+        "type": "Array of TagValues objects",
+        "required": "No",
+        "desc": "Cost allocation resource tags applied to the instance."
+      },
+      "TotalRunningHoursInLookbackPeriod": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The total number of hours the instance ran during the lookback period."
+      }
+    }
+  },
+  {
+    "title": "DateInterval",
+    "attrs": {
+      "End": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "Yes",
+        "desc": "The end of the time period. The end date is exclusive. For example, if end is 2017-05-01, AWS retrieves cost and usage data from the start date up to, but not including, 2017-05-01."
+      },
+      "Start": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 40.",
+        "pattern": "(\\d{4}-\\d{2}-\\d{2})(T\\d{2}:\\d{2}:\\d{2}Z)?",
+        "required": "Yes",
+        "desc": "The beginning of the time period. The start date is inclusive. For example, if start is 2017-01-01, AWS retrieves cost and usage data starting at 2017-01-01 up to the end date. The start date must be equal to or no later than the current date to avoid a validation error."
+      }
+    }
+  },
+  {
+    "title": "DimensionValues",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "required": "No",
+        "desc": "The names of the metadata types that you can use to filter and group your results. For example, AZ returns a list of Availability Zones."
+      },
+      "MatchOptions": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The match options that you can use to filter your results. MatchOptions is only applicable for actions related to Cost Category. The default values for MatchOptions are EQUALS and CASE_SENSITIVE."
+      },
+      "Values": {
+        "type": "Array of strings",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The metadata values that you can use to filter and group your results. You can use GetDimensionValues to find specific values."
+      }
+    }
+  },
+  {
+    "title": "DimensionValuesWithAttributes",
+    "attrs": {
+      "Attributes": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The attribute that applies to a specific Dimension."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The value of a dimension with a specific attribute."
+      }
+    }
+  },
+  {
+    "title": "EBSResourceUtilization",
+    "attrs": {
+      "EbsReadBytesPerSecond": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The maximum size of read operations per second"
+      },
+      "EbsReadOpsPerSecond": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The maximum number of read operations per second."
+      },
+      "EbsWriteBytesPerSecond": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The maximum size of write operations per second."
+      },
+      "EbsWriteOpsPerSecond": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The maximum number of write operations per second."
+      }
+    }
+  },
+  {
+    "title": "EC2InstanceDetails",
+    "attrs": {
+      "AvailabilityZone": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The Availability Zone of the recommended reservation."
+      },
+      "CurrentGeneration": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommendation is for a current-generation instance."
+      },
+      "Family": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The instance family of the recommended reservation."
+      },
+      "InstanceType": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The type of instance that AWS recommends."
+      },
+      "Platform": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The platform of the recommended reservation. The platform is the specific combination of operating system, license model, and software on an instance."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AWS Region of the recommended reservation."
+      },
+      "SizeFlexEligible": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommended reservation is size flexible."
+      },
+      "Tenancy": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Whether the recommended reservation is dedicated or shared."
+      }
+    }
+  },
+  {
+    "title": "EC2ResourceDetails",
+    "attrs": {
+      "HourlyOnDemandRate": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Hourly public On-Demand rate for the instance type."
+      },
+      "InstanceType": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The type of AWS instance."
+      },
+      "Memory": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Memory capacity of the AWS instance."
+      },
+      "NetworkPerformance": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Network performance capacity of the AWS instance."
+      },
+      "Platform": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The platform of the AWS instance. The platform is the specific combination of operating system, license model, and software on an instance."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AWS Region of the instance."
+      },
+      "Sku": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The SKU of the product."
+      },
+      "Storage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The disk storage of the AWS instance (not EBS storage)."
+      },
+      "Vcpu": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Number of VCPU cores in the AWS instance type."
+      }
+    }
+  },
+  {
+    "title": "EC2ResourceUtilization",
+    "attrs": {
+      "EBSResourceUtilization": {
+        "type": "EBSResourceUtilization object",
+        "required": "No",
+        "desc": "The EBS field that contains a list of EBS metrics associated with the current instance."
+      },
+      "MaxCpuUtilizationPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Maximum observed or expected CPU utilization of the instance."
+      },
+      "MaxMemoryUtilizationPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Maximum observed or expected memory utilization of the instance."
+      },
+      "MaxStorageUtilizationPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Maximum observed or expected storage utilization of the instance (does not measure EBS storage)."
+      }
+    }
+  },
+  {
+    "title": "EC2Specification",
+    "attrs": {
+      "OfferingClass": {
+        "type": "String",
+        "required": "No",
+        "desc": "Whether you want a recommendation for standard or convertible reservations."
+      }
+    }
+  },
+  {
+    "title": "ElastiCacheInstanceDetails",
+    "attrs": {
+      "CurrentGeneration": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommendation is for a current generation instance."
+      },
+      "Family": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The instance family of the recommended reservation."
+      },
+      "NodeType": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The type of node that AWS recommends."
+      },
+      "ProductDescription": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The description of the recommended reservation."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AWS Region of the recommended reservation."
+      },
+      "SizeFlexEligible": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommended reservation is size flexible."
+      }
+    }
+  },
+  {
+    "title": "ESInstanceDetails",
+    "attrs": {
+      "CurrentGeneration": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommendation is for a current-generation instance."
+      },
+      "InstanceClass": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The class of instance that AWS recommends."
+      },
+      "InstanceSize": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The size of instance that AWS recommends."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AWS Region of the recommended reservation."
+      },
+      "SizeFlexEligible": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommended reservation is size flexible."
+      }
+    }
+  },
+  {
+    "title": "Expression",
+    "attrs": {
+      "And": {
+        "type": "Array of Expression objects",
+        "required": "No",
+        "desc": "Return results that match both Dimension objects."
+      },
+      "CostCategories": {
+        "type": "CostCategoryValues object",
+        "required": "No",
+        "desc": "The filter based on CostCategory values."
+      },
+      "Dimensions": {
+        "type": "DimensionValues object",
+        "required": "No",
+        "desc": "The specific Dimension to use for Expression."
+      },
+      "Not": {
+        "type": "Expression object",
+        "required": "No",
+        "desc": "Return results that don't match a Dimension object."
+      },
+      "Or": {
+        "type": "Array of Expression objects",
+        "required": "No",
+        "desc": "Return results that match either Dimension object."
+      },
+      "Tags": {
+        "type": "TagValues object",
+        "required": "No",
+        "desc": "The specific Tag to use for Expression."
+      }
+    }
+  },
+  {
+    "title": "ForecastResult",
+    "attrs": {
+      "MeanValue": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The mean value of the forecast."
+      },
+      "PredictionIntervalLowerBound": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The lower limit for the prediction interval."
+      },
+      "PredictionIntervalUpperBound": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The upper limit for the prediction interval."
+      },
+      "TimePeriod": {
+        "type": "DateInterval object",
+        "required": "No",
+        "desc": "The period of time that the forecast covers."
+      }
+    }
+  },
+  {
+    "title": "Group",
+    "attrs": {
+      "Keys": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The keys that are included in this group."
+      },
+      "Metrics": {
+        "type": "String to MetricValue object map",
+        "required": "No",
+        "desc": "The metrics that are included in this group."
+      }
+    }
+  },
+  {
+    "title": "GroupDefinition",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The string that represents a key for a specified group."
+      },
+      "Type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The string that represents the type of group."
+      }
+    }
+  },
+  {
+    "title": "Impact",
+    "attrs": {
+      "MaxImpact": {
+        "type": "Double",
+        "required": "Yes",
+        "desc": "The maximum dollar value observed for an anomaly."
+      },
+      "TotalImpact": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The cumulative dollar value observed for an anomaly."
+      }
+    }
+  },
+  {
+    "title": "InstanceDetails",
+    "attrs": {
+      "EC2InstanceDetails": {
+        "type": "EC2InstanceDetails object",
+        "required": "No",
+        "desc": "The Amazon EC2 instances that AWS recommends that you purchase."
+      },
+      "ElastiCacheInstanceDetails": {
+        "type": "ElastiCacheInstanceDetails object",
+        "required": "No",
+        "desc": "The ElastiCache instances that AWS recommends that you purchase."
+      },
+      "ESInstanceDetails": {
+        "type": "ESInstanceDetails object",
+        "required": "No",
+        "desc": "The Amazon ES instances that AWS recommends that you purchase."
+      },
+      "RDSInstanceDetails": {
+        "type": "RDSInstanceDetails object",
+        "required": "No",
+        "desc": "The Amazon RDS instances that AWS recommends that you purchase."
+      },
+      "RedshiftInstanceDetails": {
+        "type": "RedshiftInstanceDetails object",
+        "required": "No",
+        "desc": "The Amazon Redshift instances that AWS recommends that you purchase."
+      }
+    }
+  },
+  {
+    "title": "MetricValue",
+    "attrs": {
+      "Amount": {
+        "type": "String",
+        "required": "No",
+        "desc": "The actual number that represents the metric."
+      },
+      "Unit": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unit that the metric is given in."
+      }
+    }
+  },
+  {
+    "title": "ModifyRecommendationDetail",
+    "attrs": {
+      "TargetInstances": {
+        "type": "Array of TargetInstance objects",
+        "required": "No",
+        "desc": "Identifies whether this instance type is the AWS default recommendation."
+      }
+    }
+  },
+  {
+    "title": "RDSInstanceDetails",
+    "attrs": {
+      "CurrentGeneration": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommendation is for a current-generation instance."
+      },
+      "DatabaseEdition": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The database edition that the recommended reservation supports."
+      },
+      "DatabaseEngine": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The database engine that the recommended reservation supports."
+      },
+      "DeploymentOption": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Whether the recommendation is for a reservation in a single Availability Zone or a reservation with a backup in a second Availability Zone."
+      },
+      "Family": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The instance family of the recommended reservation."
+      },
+      "InstanceType": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The type of instance that AWS recommends."
+      },
+      "LicenseModel": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The license model that the recommended reservation supports."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AWS Region of the recommended reservation."
+      },
+      "SizeFlexEligible": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommended reservation is size flexible."
+      }
+    }
+  },
+  {
+    "title": "RedshiftInstanceDetails",
+    "attrs": {
+      "CurrentGeneration": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommendation is for a current-generation instance."
+      },
+      "Family": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The instance family of the recommended reservation."
+      },
+      "NodeType": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The type of node that AWS recommends."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AWS Region of the recommended reservation."
+      },
+      "SizeFlexEligible": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the recommended reservation is size flexible."
+      }
+    }
+  },
+  {
+    "title": "ReservationAggregates",
+    "attrs": {
+      "AmortizedRecurringFee": {
+        "type": "String",
+        "required": "No",
+        "desc": "The monthly cost of your reservation, amortized over the reservation period."
+      },
+      "AmortizedUpfrontFee": {
+        "type": "String",
+        "required": "No",
+        "desc": "The upfront cost of your reservation, amortized over the reservation period."
+      },
+      "NetRISavings": {
+        "type": "String",
+        "required": "No",
+        "desc": "How much you saved due to purchasing and utilizing reservation. AWS calculates this by subtracting TotalAmortizedFee from OnDemandCostOfRIHoursUsed."
+      },
+      "OnDemandCostOfRIHoursUsed": {
+        "type": "String",
+        "required": "No",
+        "desc": "How much your reservation would cost if charged On-Demand rates."
+      },
+      "PurchasedHours": {
+        "type": "String",
+        "required": "No",
+        "desc": "How many reservation hours that you purchased."
+      },
+      "PurchasedUnits": {
+        "type": "String",
+        "required": "No",
+        "desc": "How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017."
+      },
+      "RealizedSavings": {
+        "type": "String",
+        "required": "No",
+        "desc": "The realized savings due to purchasing and using a reservation."
+      },
+      "RICostForUnusedHours": {
+        "type": "String",
+        "required": "No",
+        "desc": "The cost of unused hours for your reservation."
+      },
+      "TotalActualHours": {
+        "type": "String",
+        "required": "No",
+        "desc": "The total number of reservation hours that you used."
+      },
+      "TotalActualUnits": {
+        "type": "String",
+        "required": "No",
+        "desc": "The total number of Amazon EC2 reservation hours that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017."
+      },
+      "TotalAmortizedFee": {
+        "type": "String",
+        "required": "No",
+        "desc": "The total cost of your reservation, amortized over the reservation period."
+      },
+      "TotalPotentialRISavings": {
+        "type": "String",
+        "required": "No",
+        "desc": "How much you could save if you use your entire reservation."
+      },
+      "UnrealizedSavings": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unrealized savings due to purchasing and using a reservation."
+      },
+      "UnusedHours": {
+        "type": "String",
+        "required": "No",
+        "desc": "The number of reservation hours that you didn't use."
+      },
+      "UnusedUnits": {
+        "type": "String",
+        "required": "No",
+        "desc": "The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017."
+      },
+      "UtilizationPercentage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The percentage of reservation time that you used."
+      },
+      "UtilizationPercentageInUnits": {
+        "type": "String",
+        "required": "No",
+        "desc": "The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017."
+      }
+    }
+  },
+  {
+    "title": "ReservationCoverageGroup",
+    "attrs": {
+      "Attributes": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The attributes for this group of reservations."
+      },
+      "Coverage": {
+        "type": "Coverage object",
+        "required": "No",
+        "desc": "How much instance usage this group of reservations covered."
+      }
+    }
+  },
+  {
+    "title": "ReservationPurchaseRecommendation",
+    "attrs": {
+      "AccountScope": {
+        "type": "String",
+        "required": "No",
+        "desc": "The account scope that AWS recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in AWS Organizations."
+      },
+      "LookbackPeriodInDays": {
+        "type": "String",
+        "required": "No",
+        "desc": "How many days of previous usage that AWS considers when making this recommendation."
+      },
+      "PaymentOption": {
+        "type": "String",
+        "required": "No",
+        "desc": "The payment option for the reservation. For example, AllUpfront or NoUpfront."
+      },
+      "RecommendationDetails": {
+        "type": "Array of ReservationPurchaseRecommendationDetail objects",
+        "required": "No",
+        "desc": "Details about the recommended purchases."
+      },
+      "RecommendationSummary": {
+        "type": "ReservationPurchaseRecommendationSummary object",
+        "required": "No",
+        "desc": "A summary about the recommended purchase."
+      },
+      "ServiceSpecification": {
+        "type": "ServiceSpecification object",
+        "required": "No",
+        "desc": "Hardware specifications for the service that you want recommendations for."
+      },
+      "TermInYears": {
+        "type": "String",
+        "required": "No",
+        "desc": "The term of the reservation that you want recommendations for, in years."
+      }
+    }
+  },
+  {
+    "title": "ReservationPurchaseRecommendationDetail",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The account that this RI recommendation is for."
+      },
+      "AverageNormalizedUnitsUsedPerHour": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The average number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases."
+      },
+      "AverageNumberOfInstancesUsedPerHour": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The average number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases."
+      },
+      "AverageUtilization": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The average utilization of your instances. AWS uses this to calculate your recommended reservation purchases."
+      },
+      "CurrencyCode": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The currency code that AWS used to calculate the costs for this instance."
+      },
+      "EstimatedBreakEvenInMonths": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "How long AWS estimates that it takes for this instance to start saving you money, in months."
+      },
+      "EstimatedMonthlyOnDemandCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "How much AWS estimates that you spend on On-Demand Instances in a month."
+      },
+      "EstimatedMonthlySavingsAmount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "How much AWS estimates that this specific recommendation could save you in a month."
+      },
+      "EstimatedMonthlySavingsPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "How much AWS estimates that this specific recommendation could save you in a month, as a percentage of your overall costs."
+      },
+      "EstimatedReservationCostForLookbackPeriod": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "How much AWS estimates that you would have spent for all usage during the specified historical period if you had a reservation."
+      },
+      "InstanceDetails": {
+        "type": "InstanceDetails object",
+        "required": "No",
+        "desc": "Details about the instances that AWS recommends that you purchase."
+      },
+      "MaximumNormalizedUnitsUsedPerHour": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The maximum number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases."
+      },
+      "MaximumNumberOfInstancesUsedPerHour": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The maximum number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases."
+      },
+      "MinimumNormalizedUnitsUsedPerHour": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The minimum number of normalized units that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases."
+      },
+      "MinimumNumberOfInstancesUsedPerHour": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The minimum number of instances that you used in an hour during the historical period. AWS uses this to calculate your recommended reservation purchases."
+      },
+      "RecommendedNormalizedUnitsToPurchase": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The number of normalized units that AWS recommends that you purchase."
+      },
+      "RecommendedNumberOfInstancesToPurchase": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The number of instances that AWS recommends that you purchase."
+      },
+      "RecurringStandardMonthlyCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "How much purchasing this instance costs you on a monthly basis."
+      },
+      "UpfrontCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "How much purchasing this instance costs you upfront."
+      }
+    }
+  },
+  {
+    "title": "ReservationPurchaseRecommendationMetadata",
+    "attrs": {
+      "GenerationTimestamp": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The timestamp for when AWS made this recommendation."
+      },
+      "RecommendationId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The ID for this specific recommendation."
+      }
+    }
+  },
+  {
+    "title": "ReservationPurchaseRecommendationSummary",
+    "attrs": {
+      "CurrencyCode": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The currency code used for this recommendation."
+      },
+      "TotalEstimatedMonthlySavingsAmount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The total amount that AWS estimates that this recommendation could save you in a month."
+      },
+      "TotalEstimatedMonthlySavingsPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The total amount that AWS estimates that this recommendation could save you in a month, as a percentage of your costs."
+      }
+    }
+  },
+  {
+    "title": "ReservationUtilizationGroup",
+    "attrs": {
+      "Attributes": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The attributes for this group of reservations."
+      },
+      "Key": {
+        "type": "String",
+        "required": "No",
+        "desc": "The key for a specific reservation attribute."
+      },
+      "Utilization": {
+        "type": "ReservationAggregates object",
+        "required": "No",
+        "desc": "How much you used this group of reservations."
+      },
+      "Value": {
+        "type": "String",
+        "required": "No",
+        "desc": "The value of a specific reservation attribute."
+      }
+    }
+  },
+  {
+    "title": "ResourceDetails",
+    "attrs": {
+      "EC2ResourceDetails": {
+        "type": "EC2ResourceDetails object",
+        "required": "No",
+        "desc": "Details on the Amazon EC2 resource."
+      }
+    }
+  },
+  {
+    "title": "ResourceUtilization",
+    "attrs": {
+      "EC2ResourceUtilization": {
+        "type": "EC2ResourceUtilization object",
+        "required": "No",
+        "desc": "Utilization of current Amazon EC2 instance."
+      }
+    }
+  },
+  {
+    "title": "ResultByTime",
+    "attrs": {
+      "Estimated": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the result is estimated."
+      },
+      "Groups": {
+        "type": "Array of Group objects",
+        "required": "No",
+        "desc": "The groups that this time period includes."
+      },
+      "TimePeriod": {
+        "type": "DateInterval object",
+        "required": "No",
+        "desc": "The time period that the result covers."
+      },
+      "Total": {
+        "type": "String to MetricValue object map",
+        "required": "No",
+        "desc": "The total amount of cost or usage accrued during the time period."
+      }
+    }
+  },
+  {
+    "title": "RightsizingRecommendation",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The account that this recommendation is for."
+      },
+      "CurrentInstance": {
+        "type": "CurrentInstance object",
+        "required": "No",
+        "desc": "Context regarding the current instance."
+      },
+      "ModifyRecommendationDetail": {
+        "type": "ModifyRecommendationDetail object",
+        "required": "No",
+        "desc": "Details for modification recommendations."
+      },
+      "RightsizingType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Recommendation to either terminate or modify the resource."
+      },
+      "TerminateRecommendationDetail": {
+        "type": "TerminateRecommendationDetail object",
+        "required": "No",
+        "desc": "Details for termination recommendations."
+      }
+    }
+  },
+  {
+    "title": "RightsizingRecommendationConfiguration",
+    "attrs": {
+      "BenefitsConsidered": {
+        "type": "Boolean",
+        "required": "Yes",
+        "desc": "The option to consider RI or Savings Plans discount benefits in your savings calculation. The default value is TRUE."
+      },
+      "RecommendationTarget": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The option to see recommendations within the same instance family, or recommendations for instances across other families. The default value is SAME_INSTANCE_FAMILY."
+      }
+    }
+  },
+  {
+    "title": "RightsizingRecommendationMetadata",
+    "attrs": {
+      "AdditionalMetadata": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Additional metadata that may be applicable to the recommendation."
+      },
+      "GenerationTimestamp": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The timestamp for when AWS made this recommendation."
+      },
+      "LookbackPeriodInDays": {
+        "type": "String",
+        "required": "No",
+        "desc": "How many days of previous usage that AWS considers when making this recommendation."
+      },
+      "RecommendationId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The ID for this specific recommendation."
+      }
+    }
+  },
+  {
+    "title": "RightsizingRecommendationSummary",
+    "attrs": {
+      "EstimatedTotalMonthlySavingsAmount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Estimated total savings resulting from modifications, on a monthly basis."
+      },
+      "SavingsCurrencyCode": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The currency code that AWS used to calculate the savings."
+      },
+      "SavingsPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Savings percentage based on the recommended modifications, relative to the total On-Demand costs associated with these instances."
+      },
+      "TotalRecommendationCount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Total number of instance recommendations."
+      }
+    }
+  },
+  {
+    "title": "RootCause",
+    "attrs": {
+      "LinkedAccount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The linked account value associated with the cost anomaly."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AWS Region associated with the cost anomaly."
+      },
+      "Service": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AWS service name associated with the cost anomaly."
+      },
+      "UsageType": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The UsageType value associated with the cost anomaly."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansAmortizedCommitment",
+    "attrs": {
+      "AmortizedRecurringCommitment": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The amortized amount of your Savings Plans commitment that was purchased with either a Partial or a NoUpfront."
+      },
+      "AmortizedUpfrontCommitment": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The amortized amount of your Savings Plans commitment that was purchased with an Upfront or PartialUpfront Savings Plans."
+      },
+      "TotalAmortizedCommitment": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The total amortized amount of your Savings Plans commitment, regardless of your Savings Plans purchase method."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansCoverage",
+    "attrs": {
+      "Attributes": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The attribute that applies to a specific Dimension."
+      },
+      "Coverage": {
+        "type": "SavingsPlansCoverageData object",
+        "required": "No",
+        "desc": "The amount of Savings Plans eligible usage that the Savings Plans covered."
+      },
+      "TimePeriod": {
+        "type": "DateInterval object",
+        "required": "No",
+        "desc": "The time period of the request."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansCoverageData",
+    "attrs": {
+      "CoveragePercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The percentage of your existing Savings Plans covered usage, divided by all of your eligible Savings Plans usage in an account(or set of accounts)."
+      },
+      "OnDemandCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The cost of your AWS usage at the public On-Demand rate."
+      },
+      "SpendCoveredBySavingsPlans": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The amount of your AWS usage that is covered by a Savings Plans."
+      },
+      "TotalCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The total cost of your AWS usage, regardless of your purchase option."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansDetails",
+    "attrs": {
+      "InstanceFamily": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "A group of instance types that Savings Plans applies to."
+      },
+      "OfferingId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The unique ID used to distinguish Savings Plans from one another."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "A collection of AWS resources in a geographic area. Each AWS Region is isolated and independent of the other Regions."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansPurchaseRecommendation",
+    "attrs": {
+      "AccountScope": {
+        "type": "String",
+        "required": "No",
+        "desc": "The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to PAYER. If the value is LINKED, recommendations are calculated for individual member accounts only."
+      },
+      "LookbackPeriodInDays": {
+        "type": "String",
+        "required": "No",
+        "desc": "The lookback period in days, used to generate the recommendation."
+      },
+      "PaymentOption": {
+        "type": "String",
+        "required": "No",
+        "desc": "The payment option used to generate the recommendation."
+      },
+      "SavingsPlansPurchaseRecommendationDetails": {
+        "type": "Array of SavingsPlansPurchaseRecommendationDetail objects",
+        "required": "No",
+        "desc": "Details for the Savings Plans we recommend that you purchase to cover existing Savings Plans eligible workloads."
+      },
+      "SavingsPlansPurchaseRecommendationSummary": {
+        "type": "SavingsPlansPurchaseRecommendationSummary object",
+        "required": "No",
+        "desc": "Summary metrics for your Savings Plans Recommendations."
+      },
+      "SavingsPlansType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The requested Savings Plans recommendation type."
+      },
+      "TermInYears": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Savings Plans recommendation term in years, used to generate the recommendation."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansPurchaseRecommendationDetail",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The AccountID the recommendation is generated for."
+      },
+      "CurrencyCode": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The currency code AWS used to generate the recommendations and present potential savings."
+      },
+      "CurrentAverageHourlyOnDemandSpend": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The average value of hourly On-Demand spend over the lookback period of the applicable usage type."
+      },
+      "CurrentMaximumHourlyOnDemandSpend": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The highest value of hourly On-Demand spend over the lookback period of the applicable usage type."
+      },
+      "CurrentMinimumHourlyOnDemandSpend": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The lowest value of hourly On-Demand spend over the lookback period of the applicable usage type."
+      },
+      "EstimatedAverageUtilization": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated utilization of the recommended Savings Plans."
+      },
+      "EstimatedMonthlySavingsAmount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated monthly savings amount, based on the recommended Savings Plans."
+      },
+      "EstimatedOnDemandCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The remaining On-Demand cost estimated to not be covered by the recommended Savings Plans, over the length of the lookback period."
+      },
+      "EstimatedOnDemandCostWithCurrentCommitment": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own."
+      },
+      "EstimatedROI": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated return on investment based on the recommended Savings Plans purchased. This is calculated as estimatedSavingsAmount/ estimatedSPCost*100."
+      },
+      "EstimatedSavingsAmount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated savings amount based on the recommended Savings Plans over the length of the lookback period."
+      },
+      "EstimatedSavingsPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated savings percentage relative to the total cost of applicable On-Demand usage over the lookback period."
+      },
+      "EstimatedSPCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The cost of the recommended Savings Plans over the length of the lookback period."
+      },
+      "HourlyCommitmentToPurchase": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The recommended hourly commitment level for the Savings Plans type, and configuration based on the usage during the lookback period."
+      },
+      "SavingsPlansDetails": {
+        "type": "SavingsPlansDetails object",
+        "required": "No",
+        "desc": "Details for your recommended Savings Plans."
+      },
+      "UpfrontCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The upfront cost of the recommended Savings Plans, based on the selected payment option."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansPurchaseRecommendationMetadata",
+    "attrs": {
+      "AdditionalMetadata": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Additional metadata that may be applicable to the recommendation."
+      },
+      "GenerationTimestamp": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The timestamp showing when the recommendations were generated."
+      },
+      "RecommendationId": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The unique identifier for the recommendation set."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansPurchaseRecommendationSummary",
+    "attrs": {
+      "CurrencyCode": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The currency code AWS used to generate the recommendations and present potential savings."
+      },
+      "CurrentOnDemandSpend": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The current total on demand spend of the applicable usage types over the lookback period."
+      },
+      "DailyCommitmentToPurchase": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The recommended Savings Plans cost on a daily (24 hourly) basis."
+      },
+      "EstimatedMonthlySavingsAmount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated monthly savings amount, based on the recommended Savings Plans purchase."
+      },
+      "EstimatedOnDemandCostWithCurrentCommitment": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated On-Demand costs you would expect with no additional commitment, based on your usage of the selected time period and the Savings Plans you own."
+      },
+      "EstimatedROI": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated return on investment based on the recommended Savings Plans and estimated savings."
+      },
+      "EstimatedSavingsAmount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated total savings over the lookback period, based on the purchase of the recommended Savings Plans."
+      },
+      "EstimatedSavingsPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated savings relative to the total cost of On-Demand usage, over the lookback period. This is calculated as estimatedSavingsAmount/ CurrentOnDemandSpend*100."
+      },
+      "EstimatedTotalCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The estimated total cost of the usage after purchasing the recommended Savings Plans. This is a sum of the cost of Savings Plans during this term, and the remaining On-Demand usage."
+      },
+      "HourlyCommitmentToPurchase": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The recommended hourly commitment based on the recommendation parameters."
+      },
+      "TotalRecommendationCount": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The aggregate number of Savings Plans recommendations that exist for your account."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansSavings",
+    "attrs": {
+      "NetSavings": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The savings amount that you are accumulating for the usage that is covered by a Savings Plans, when compared to the On-Demand equivalent of the same usage."
+      },
+      "OnDemandCostEquivalent": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "How much the amount that the usage would have cost if it was accrued at the On-Demand rate."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansUtilization",
+    "attrs": {
+      "TotalCommitment": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The total amount of Savings Plans commitment that's been purchased in an account (or set of accounts)."
+      },
+      "UnusedCommitment": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The amount of your Savings Plans commitment that was not consumed from Savings Plans eligible usage in a specific period."
+      },
+      "UsedCommitment": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The amount of your Savings Plans commitment that was consumed from Savings Plans eligible usage in a specific period."
+      },
+      "UtilizationPercentage": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The amount of UsedCommitment divided by the TotalCommitment for your Savings Plans."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansUtilizationAggregates",
+    "attrs": {
+      "AmortizedCommitment": {
+        "type": "SavingsPlansAmortizedCommitment object",
+        "required": "No",
+        "desc": "The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees."
+      },
+      "Savings": {
+        "type": "SavingsPlansSavings object",
+        "required": "No",
+        "desc": "The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans, as well as the onDemandCostEquivalent of the Savings Plans when considering the utilization rate."
+      },
+      "Utilization": {
+        "type": "SavingsPlansUtilization object",
+        "required": "Yes",
+        "desc": "A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansUtilizationByTime",
+    "attrs": {
+      "AmortizedCommitment": {
+        "type": "SavingsPlansAmortizedCommitment object",
+        "required": "No",
+        "desc": "The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees."
+      },
+      "Savings": {
+        "type": "SavingsPlansSavings object",
+        "required": "No",
+        "desc": "The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans as well as the onDemandCostEquivalent of the Savings Plans when considering the utilization rate."
+      },
+      "TimePeriod": {
+        "type": "DateInterval object",
+        "required": "Yes",
+        "desc": "The time period of the request."
+      },
+      "Utilization": {
+        "type": "SavingsPlansUtilization object",
+        "required": "Yes",
+        "desc": "A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible."
+      }
+    }
+  },
+  {
+    "title": "SavingsPlansUtilizationDetail",
+    "attrs": {
+      "AmortizedCommitment": {
+        "type": "SavingsPlansAmortizedCommitment object",
+        "required": "No",
+        "desc": "The total amortized commitment for a Savings Plans. Includes the sum of the upfront and recurring Savings Plans fees."
+      },
+      "Attributes": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The attribute that applies to a specific Dimension."
+      },
+      "Savings": {
+        "type": "SavingsPlansSavings object",
+        "required": "No",
+        "desc": "The amount saved by using existing Savings Plans. Savings returns both net savings from savings plans as well as the onDemandCostEquivalent of the Savings Plans when considering the utilization rate."
+      },
+      "SavingsPlanArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique Amazon Resource Name (ARN) for a particular Savings Plan."
+      },
+      "Utilization": {
+        "type": "SavingsPlansUtilization object",
+        "required": "No",
+        "desc": "A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible."
+      }
+    }
+  },
+  {
+    "title": "ServiceSpecification",
+    "attrs": {
+      "EC2Specification": {
+        "type": "EC2Specification object",
+        "required": "No",
+        "desc": "The Amazon EC2 hardware specifications that you want AWS to provide recommendations for."
+      }
+    }
+  },
+  {
+    "title": "SortDefinition",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "Yes",
+        "desc": "The key by which to sort the data."
+      },
+      "SortOrder": {
+        "type": "String",
+        "required": "No",
+        "desc": "The order in which to sort the data."
+      }
+    }
+  },
+  {
+    "title": "Subscriber",
+    "attrs": {
+      "Address": {
+        "type": "String",
+        "length": "Minimum length of 6. Maximum length of 302.",
+        "pattern": "(^[a-zA-Z0-9.!#$%&'*+=?^_‘{|}~-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$)|(^arn:(aws[a-zA-Z-]*):sns:[a-zA-Z0-9-]+:[0-9]{12}:[a-zA-Z0-9_-]+$)",
+        "required": "No",
+        "desc": "The email address or SNS Amazon Resource Name (ARN), depending on the Type."
+      },
+      "Status": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates if the subscriber accepts the notifications."
+      },
+      "Type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The notification delivery channel."
+      }
+    }
+  },
+  {
+    "title": "TagValues",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The key for the tag."
+      },
+      "MatchOptions": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The match options that you can use to filter your results. MatchOptions is only applicable for actions related to Cost Category. The default values for MatchOptions are EQUALS and CASE_SENSITIVE."
+      },
+      "Values": {
+        "type": "Array of strings",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The specific value of the tag."
+      }
+    }
+  },
+  {
+    "title": "TargetInstance",
+    "attrs": {
+      "CurrencyCode": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The currency code that AWS used to calculate the costs for this instance."
+      },
+      "DefaultTargetInstance": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether this recommendation is the defaulted AWS recommendation."
+      },
+      "EstimatedMonthlyCost": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Expected cost to operate this instance type on a monthly basis."
+      },
+      "EstimatedMonthlySavings": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Estimated savings resulting from modification, on a monthly basis."
+      },
+      "ExpectedResourceUtilization": {
+        "type": "ResourceUtilization object",
+        "required": "No",
+        "desc": "Expected utilization metrics for target instance type."
+      },
+      "ResourceDetails": {
+        "type": "ResourceDetails object",
+        "required": "No",
+        "desc": "Details on the target instance type."
+      }
+    }
+  },
+  {
+    "title": "TerminateRecommendationDetail",
+    "attrs": {
+      "CurrencyCode": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "The currency code that AWS used to calculate the costs for this instance."
+      },
+      "EstimatedMonthlySavings": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": "[\\S\\s]*",
+        "required": "No",
+        "desc": "Estimated savings resulting from modification, on a monthly basis."
+      }
+    }
+  },
+  {
+    "title": "TotalImpactFilter",
+    "attrs": {
+      "EndValue": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The upper bound dollar value used in the filter."
+      },
+      "NumericOperator": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The comparing value used in the filter."
+      },
+      "StartValue": {
+        "type": "Double",
+        "required": "Yes",
+        "desc": "The lower bound dollar value used in the filter."
+      }
+    }
+  },
+  {
+    "title": "UtilizationByTime",
+    "attrs": {
+      "Groups": {
+        "type": "Array of ReservationUtilizationGroup objects",
+        "required": "No",
+        "desc": "The groups that this utilization result uses."
+      },
+      "TimePeriod": {
+        "type": "DateInterval object",
+        "required": "No",
+        "desc": "The period of time that this utilization was used for."
+      },
+      "Total": {
+        "type": "ReservationAggregates object",
+        "required": "No",
+        "desc": "The total number of reservation hours that were used."
+      }
+    }
+  },
+  {
+    "title": "Action",
+    "attrs": {
+      "ActionId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+        "required": "Yes",
+        "desc": "A system-generated universally unique identifier (UUID) for the action."
+      },
+      "ActionThreshold": {
+        "type": "ActionThreshold object",
+        "required": "Yes",
+        "desc": "The trigger threshold of the action."
+      },
+      "ActionType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition."
+      },
+      "ApprovalModel": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "This specifies if the action needs manual or automatic approval."
+      },
+      "BudgetName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[^:\\\\]+",
+        "required": "Yes",
+        "desc": "A string that represents the budget name. The \":\" and \"\\\" characters aren't allowed."
+      },
+      "Definition": {
+        "type": "Definition object",
+        "required": "Yes",
+        "desc": "Where you specify all of the type-specific parameters."
+      },
+      "ExecutionRoleArn": {
+        "type": "String",
+        "length": "Minimum length of 32. Maximum length of 618.",
+        "pattern": "^arn:(aws|aws-cn|aws-us-gov|us-iso-east-1|us-isob-east-1):iam::\\d{12}:role(\\u002F[\\u0021-\\u007F]+\\u002F|\\u002F)[\\w+=,.@-]+$",
+        "required": "Yes",
+        "desc": "The role passed for action execution and reversion. Roles and actions must be in the same account."
+      },
+      "NotificationType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of a notification. It must be ACTUAL or FORECASTED."
+      },
+      "Status": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The status of action."
+      },
+      "Subscribers": {
+        "type": "Array of Subscriber objects",
+        "required": "Yes",
+        "desc": "A list of subscribers."
+      }
+    }
+  },
+  {
+    "title": "ActionHistory",
+    "attrs": {
+      "ActionHistoryDetails": {
+        "type": "ActionHistoryDetails object",
+        "required": "Yes",
+        "desc": "The description of details of the event."
+      },
+      "EventType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "This distinguishes between whether the events are triggered by the user or generated by the system."
+      },
+      "Status": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The status of action at the time of the event."
+      },
+      "Timestamp": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "A generic time stamp. In Java, it is transformed to a Date object."
+      }
+    }
+  },
+  {
+    "title": "ActionHistoryDetails",
+    "attrs": {
+      "Action": {
+        "type": "Action object",
+        "required": "Yes",
+        "desc": "The budget action resource."
+      },
+      "Message": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2147483647.",
+        "pattern": ".*",
+        "required": "Yes",
+        "desc": "A generic string."
+      }
+    }
+  },
+  {
+    "title": "ActionThreshold",
+    "attrs": {
+      "ActionThresholdType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of threshold for a notification."
+      },
+      "ActionThresholdValue": {
+        "type": "Double",
+        "required": "Yes",
+        "desc": "The threshold of a notification."
+      }
+    }
+  },
+  {
+    "title": "Budget",
+    "attrs": {
+      "BudgetLimit": {
+        "type": "Spend object",
+        "required": "No",
+        "desc": "The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. BudgetLimit is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to 100, which is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use BudgetLimit with PlannedBudgetLimits for CreateBudget and UpdateBudget actions."
+      },
+      "BudgetName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[^:\\\\]+",
+        "required": "Yes",
+        "desc": "The name of a budget. The name must be unique within an account. The : and \\ characters aren't allowed in BudgetName."
+      },
+      "BudgetType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage."
+      },
+      "CalculatedSpend": {
+        "type": "CalculatedSpend object",
+        "required": "No",
+        "desc": "The actual and forecasted cost or usage that the budget tracks."
+      },
+      "CostFilters": {
+        "type": "String to array of strings map",
+        "length": "Minimum length of 0. Maximum length of 2147483647.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The cost filters, such as service or tag, that are applied to a budget. AWS Budgets supports the following services as a filter for RI budgets:"
+      },
+      "CostTypes": {
+        "type": "CostTypes object",
+        "required": "No",
+        "desc": "The types of costs that are included in this COST budget. USAGE, RI_UTILIZATION, RI_COVERAGE, SAVINGS_PLANS_UTILIZATION, and SAVINGS_PLANS_COVERAGE budgets do not have CostTypes."
+      },
+      "LastUpdatedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The last time that you updated this budget."
+      },
+      "PlannedBudgetLimits": {
+        "type": "String to Spend object map",
+        "required": "No",
+        "desc": "A map containing multiple BudgetLimit, including current or future limits. PlannedBudgetLimits is available for cost or usage budget and supports monthly and quarterly TimeUnit. For monthly budgets, provide 12 months of PlannedBudgetLimits values. This must start from the current month and include the next 11 months. The key is the start of the month, UTC in epoch seconds. For quarterly budgets, provide 4 quarters of PlannedBudgetLimits value entries in standard calendar quarter increments. This must start from the current quarter and include the next 3 quarters. The key is the start of the quarter, UTC in epoch seconds. If the planned budget expires before 12 months for monthly or 4 quarters for quarterly, provide the PlannedBudgetLimits values only for the remaining periods. If the budget begins at a date in the future, provide PlannedBudgetLimits values from the start date of the budget. After all of the BudgetLimit values in PlannedBudgetLimits are used, the budget continues to use the last limit as the BudgetLimit. At that point, the planned budget provides the same experience as a fixed budget. DescribeBudget and DescribeBudgets response along with PlannedBudgetLimits will also contain BudgetLimit representing the current month or quarter limit present in PlannedBudgetLimits. This only applies to budgets created with PlannedBudgetLimits. Budgets created without PlannedBudgetLimits will only contain BudgetLimit, and no PlannedBudgetLimits."
+      },
+      "TimePeriod": {
+        "type": "TimePeriod object",
+        "required": "No",
+        "desc": "The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before 06/15/87 00:00 UTC. If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose DAILY, and didn't set a start date, AWS set your start date to 01/24/18 00:00 UTC. If you chose MONTHLY, AWS set your start date to 01/01/18 00:00 UTC. If you didn't specify an end date, AWS set your end date to 06/15/87 00:00 UTC. The defaults are the same for the AWS Billing and Cost Management console and the API. You can change either date with the UpdateBudget operation. After the end date, AWS deletes the budget and all associated notifications and subscribers."
+      },
+      "TimeUnit": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The length of time until a budget resets the actual and forecasted spend."
+      }
+    }
+  },
+  {
+    "title": "BudgetedAndActualAmounts",
+    "attrs": {
+      "ActualAmount": {
+        "type": "Spend object",
+        "required": "No",
+        "desc": "Your actual costs or usage for a budget period."
+      },
+      "BudgetedAmount": {
+        "type": "Spend object",
+        "required": "No",
+        "desc": "The amount of cost or usage that you created the budget for."
+      },
+      "TimePeriod": {
+        "type": "TimePeriod object",
+        "required": "No",
+        "desc": "The time period covered by this budget comparison."
+      }
+    }
+  },
+  {
+    "title": "BudgetPerformanceHistory",
+    "attrs": {
+      "BudgetedAndActualAmountsList": {
+        "type": "Array of BudgetedAndActualAmounts objects",
+        "required": "No",
+        "desc": "A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage."
+      },
+      "BudgetName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[^:\\\\]+",
+        "required": "No",
+        "desc": "A string that represents the budget name. The \":\" and \"\\\" characters aren't allowed."
+      },
+      "BudgetType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of a budget. It must be one of the following types: COST, USAGE, RI_UTILIZATION, RI_COVERAGE, SAVINGS_PLANS_UTILIZATION, or SAVINGS_PLANS_COVERAGE."
+      },
+      "CostFilters": {
+        "type": "String to array of strings map",
+        "length": "Minimum length of 0. Maximum length of 2147483647.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The history of the cost filters for a budget during the specified time period."
+      },
+      "CostTypes": {
+        "type": "CostTypes object",
+        "required": "No",
+        "desc": "The history of the cost types for a budget during the specified time period."
+      },
+      "TimeUnit": {
+        "type": "String",
+        "required": "No",
+        "desc": "The time unit of the budget, such as MONTHLY or QUARTERLY."
+      }
+    }
+  },
+  {
+    "title": "CalculatedSpend",
+    "attrs": {
+      "ActualSpend": {
+        "type": "Spend object",
+        "required": "Yes",
+        "desc": "The amount of cost, usage, RI units, or Savings Plans units that you have used."
+      },
+      "ForecastedSpend": {
+        "type": "Spend object",
+        "required": "No",
+        "desc": "The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use."
+      }
+    }
+  },
+  {
+    "title": "CostTypes",
+    "attrs": {
+      "IncludeCredit": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes credits. The default value is true."
+      },
+      "IncludeDiscount": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes discounts. The default value is true."
+      },
+      "IncludeOtherSubscription": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes non-RI subscription costs. The default value is true."
+      },
+      "IncludeRecurring": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes recurring fees such as monthly RI fees. The default value is true."
+      },
+      "IncludeRefund": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes refunds. The default value is true."
+      },
+      "IncludeSubscription": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes subscriptions. The default value is true."
+      },
+      "IncludeSupport": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes support subscription fees. The default value is true."
+      },
+      "IncludeTax": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes taxes. The default value is true."
+      },
+      "IncludeUpfront": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget includes upfront RI costs. The default value is true."
+      },
+      "UseAmortized": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget uses the amortized rate. The default value is false."
+      },
+      "UseBlended": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether a budget uses a blended rate. The default value is false."
+      }
+    }
+  },
+  {
+    "title": "Definition",
+    "attrs": {
+      "IamActionDefinition": {
+        "type": "IamActionDefinition object",
+        "required": "No",
+        "desc": "The AWS Identity and Access Management (IAM) action definition details."
+      },
+      "ScpActionDefinition": {
+        "type": "ScpActionDefinition object",
+        "required": "No",
+        "desc": "The service control policies (SCPs) action definition details."
+      },
+      "SsmActionDefinition": {
+        "type": "SsmActionDefinition object",
+        "required": "No",
+        "desc": "The AWS Systems Manager (SSM) action definition details."
+      }
+    }
+  },
+  {
+    "title": "IamActionDefinition",
+    "attrs": {
+      "Groups": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 640.",
+        "pattern": "^([\\u0021-\\u007F]+\\u002F)?[\\w+=,.@-]+$",
+        "required": "No",
+        "desc": "A list of groups to be attached. There must be at least one group."
+      },
+      "PolicyArn": {
+        "type": "String",
+        "length": "Minimum length of 25. Maximum length of 684.",
+        "pattern": "^arn:(aws|aws-cn|aws-us-gov|us-iso-east-1|us-isob-east-1):iam::(\\d{12}|aws):policy(\\u002F[\\u0021-\\u007F]+\\u002F|\\u002F)[\\w+=,.@-]+$",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the policy to be attached."
+      },
+      "Roles": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 576.",
+        "pattern": "^([\\u0021-\\u007F]+\\u002F)?[\\w+=,.@-]+$",
+        "required": "No",
+        "desc": "A list of roles to be attached. There must be at least one role."
+      },
+      "Users": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 576.",
+        "pattern": "^([\\u0021-\\u007F]+\\u002F)?[\\w+=,.@-]+$",
+        "required": "No",
+        "desc": "A list of users to be attached. There must be at least one user."
+      }
+    }
+  },
+  {
+    "title": "Notification",
+    "attrs": {
+      "ComparisonOperator": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The comparison that is used for this notification."
+      },
+      "NotificationState": {
+        "type": "String",
+        "required": "No",
+        "desc": "Whether this notification is in alarm. If a budget notification is in the ALARM state, you have passed the set threshold for the budget."
+      },
+      "NotificationType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Whether the notification is for how much you have spent (ACTUAL) or for how much you're forecasted to spend (FORECASTED)."
+      },
+      "Threshold": {
+        "type": "Double",
+        "required": "Yes",
+        "desc": "The threshold that is associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount."
+      },
+      "ThresholdType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of threshold for a notification. For ABSOLUTE_VALUE thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For PERCENTAGE thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a PERCENTAGE threshold of 80%, AWS notifies you when you go over 160 dollars."
+      }
+    }
+  },
+  {
+    "title": "NotificationWithSubscribers",
+    "attrs": {
+      "Notification": {
+        "type": "Notification object",
+        "required": "Yes",
+        "desc": "The notification that is associated with a budget."
+      },
+      "Subscribers": {
+        "type": "Array of Subscriber objects",
+        "required": "Yes",
+        "desc": "A list of subscribers who are subscribed to this notification."
+      }
+    }
+  },
+  {
+    "title": "ScpActionDefinition",
+    "attrs": {
+      "PolicyId": {
+        "type": "String",
+        "length": "Minimum length of 10. Maximum length of 130.",
+        "pattern": "^p-[0-9a-zA-Z_]{8,128}$",
+        "required": "Yes",
+        "desc": "The policy ID attached."
+      },
+      "TargetIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 12. Maximum length of 68.",
+        "pattern": "^(ou-[0-9a-z]{4,32}-[a-z0-9]{8,32}$)|(\\d{12})",
+        "required": "Yes",
+        "desc": "A list of target IDs."
+      }
+    }
+  },
+  {
+    "title": "Spend",
+    "attrs": {
+      "Amount": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2147483647.",
+        "pattern": "([0-9]*\\.)?[0-9]+",
+        "required": "Yes",
+        "desc": "The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold."
+      },
+      "Unit": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2147483647.",
+        "pattern": ".*",
+        "required": "Yes",
+        "desc": "The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as USD or GB."
+      }
+    }
+  },
+  {
+    "title": "SsmActionDefinition",
+    "attrs": {
+      "ActionSubType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The action subType."
+      },
+      "InstanceIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "^i-(\\w{8}|\\w{17})$|^[a-zA-Z]([\\w-]{0,61}\\w)?$",
+        "required": "Yes",
+        "desc": "The EC2 and RDS instance IDs."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 9. Maximum length of 20.",
+        "pattern": "^\\w{2}-\\w+(-\\w+)?-\\d$",
+        "required": "Yes",
+        "desc": "The Region to run the SSM document."
+      }
+    }
+  },
+  {
+    "title": "Subscriber",
+    "attrs": {
+      "Address": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2147483647.",
+        "pattern": "(.*[\\n\\r\\t\\f\\ ]?)*",
+        "required": "Yes",
+        "desc": "The address that AWS sends budget notifications to, either an SNS topic or an email. When you create a subscriber, the value of Address can't contain line breaks."
+      },
+      "SubscriptionType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of notification that AWS sends to a subscriber."
+      }
+    }
+  },
+  {
+    "title": "TimePeriod",
+    "attrs": {
+      "End": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The end date for a budget. If you didn't specify an end date, AWS set your end date to 06/15/87 00:00 UTC. The defaults are the same for the AWS Billing and Cost Management console and the API. After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the UpdateBudget operation."
+      },
+      "Start": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose DAILY, and didn't set a start date, AWS set your start date to 01/24/18 00:00 UTC. If you chose MONTHLY, AWS set your start date to 01/01/18 00:00 UTC. The defaults are the same for the AWS Billing and Cost Management console and the API. You can change your start date with the UpdateBudget operation."
+      }
+    }
+  },
+  {
+    "title": "ReportDefinition",
+    "attrs": {
+      "AdditionalArtifacts": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "A list of manifests that you want Amazon Web Services to create for this report."
+      },
+      "AdditionalSchemaElements": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs."
+      },
+      "BillingViewArn": {
+        "type": "String",
+        "length": "Maximum length of 128.",
+        "pattern": "(arn:aws(-cn)?:billing::[0-9]{12}:billingview/)?[a-zA-Z0-9_\\+=\\.\\-@].{1,30}",
+        "required": "No",
+        "desc": "The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs."
+      },
+      "Compression": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The compression format that AWS uses for the report."
+      },
+      "Format": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The format that AWS saves the report in."
+      },
+      "RefreshClosedReports": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to previous months. These charges can include refunds, credits, or support fees."
+      },
+      "ReportName": {
+        "type": "String",
+        "length": "Maximum length of 256.",
+        "pattern": "[0-9A-Za-z!\\-_.*\\'()]+",
+        "required": "Yes",
+        "desc": "The name of the report that you want to create. The name must be unique, is case sensitive, and can't include spaces."
+      },
+      "ReportVersioning": {
+        "type": "String",
+        "required": "No",
+        "desc": "Whether you want Amazon Web Services to overwrite the previous version of each report or to deliver the report in addition to the previous versions."
+      },
+      "S3Bucket": {
+        "type": "String",
+        "length": "Maximum length of 256.",
+        "pattern": "[A-Za-z0-9_\\.\\-]+",
+        "required": "Yes",
+        "desc": "The S3 bucket where AWS delivers the report."
+      },
+      "S3Prefix": {
+        "type": "String",
+        "length": "Maximum length of 256.",
+        "pattern": "[0-9A-Za-z!\\-_.*\\'()/]*",
+        "required": "Yes",
+        "desc": "The prefix that AWS adds to the report name when AWS delivers the report. Your prefix can't include spaces."
+      },
+      "S3Region": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The region of the S3 bucket that AWS delivers the report into."
+      },
+      "TimeUnit": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The length of time covered by the report."
+      }
+    }
+  },
+  {
+    "title": "AttributeValue",
+    "attrs": {
+      "Value": {
+        "type": "String",
+        "required": "No",
+        "desc": "The specific value of an attributeName."
+      }
+    }
+  },
+  {
+    "title": "Filter",
+    "attrs": {
+      "Field": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The product metadata field that you want to filter on. You can filter by just the service code to see all products for a specific service, filter by just the attribute name to see a specific attribute for multiple services, or use both a service code and an attribute name to retrieve only products that match both fields. Valid values include: ServiceCode, and all attribute names For example, you can filter by the AmazonEC2 service code and the volumeType attribute name to get the prices for only Amazon EC2 volumes."
+      },
+      "Type": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of filter that you want to use. Valid values are: TERM_MATCH. TERM_MATCH returns only products that match both the given filter field and the given value."
+      },
+      "Value": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The service code or attribute value that you want to filter by. If you are filtering by service code this is the actual service code, such as AmazonEC2. If you are filtering by attribute name, this is the attribute value that you want the returned products to match, such as a Provisioned IOPS volume."
+      }
+    }
+  },
+  {
+    "title": "Service",
+    "attrs": {
+      "AttributeNames": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The attributes that are available for this service."
+      },
+      "ServiceCode": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The code for the AWS service."
+      }
+    }
+  }
+]

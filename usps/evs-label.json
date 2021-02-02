@@ -1,0 +1,1462 @@
+[
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=eVS",
+      "XML": "&XML=(see below)"
+    },
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=eVSCertify",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "eVSRequest",
+      "Occurs": "Required",
+      "Description": "API=eVS",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ Option",
+      "Occurs": "Optional",
+      "Description": "For future use.",
+      "Type": "Empty",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ Revision",
+      "Occurs": "Optional",
+      "Description": "Use value of “1” for new abbreviated addresses logic.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ ImageParameters",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "(group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ ImageParameters/ ImageParameter",
+      "Occurs": "Optional",
+      "Description": "Returns alternate label image. · BARCODE ONLY- label option returns a barcode and Package ID Code (PIC) number without the return and delivery name and address. No label image is returned. · CROP - reduces the image size to half-sheet (approximately), instructions sheet will be returned, and label image will return as a landscape orientation · 4X6LABELL- Label image will return as a Landscape – True size 4 inches vertical by 6 inches horizontal (image rotated 90 degrees from “4X6LABELP” orientation, not returned on an 8.5 x 11 background page) · 6X4Label – Label image will be returned as traditional landscape orientation with the horizontal dimension longer than the vertical dimension (6 inches horizontal by 4 inches vertical) · 4X6LABEL – Label image will be returned as a Portrait orientation with the vertical dimension longer than the horizontal dimension (4 inches horizontal by 6 inches vertical) · 4X6LABELP – Label image with be returned as a Portrait – True size 4 inches horizontal orientation by 6 inches vertical (not returned on an 8.5 x 11 background page) · 4X6ZPL203DPI - (ZPL - Zebra Programming Language) format. When using this enumeration, <ImageType> is required - this tag cannot be left blank. Integrators should use either “TIF” or “PDF” for ZPL – neither value will impact the label image itself, but it must be included in the request to return a successful response. · 4X6ZPL300DPI – Prints a label formatted for ZPL printers in 300 dpi. When using this enumeration, <ImageType> is required - this tag cannot be left blank. Integrators should use either “TIF” or “PDF” for ZPL – neither value will impact the label image itself, but it must be included in the request to return a successful response. · SEPARATECONTINUEPAGE – will force the continuation page (if the item count causes the need for a continuation page) onto a separate page. This allows for two images to return, one label image and one continuation page For example: <ImageParameter>4X6LABEL</ImageParameter>",
+      "Type": "String",
+      "Validation": "Default=4X6LABEL Enumerations= · BARCODE ONLY · CROP · 4X6LABEL · 4X6LABELL · 6X4LABEL · 4X6LABELP · 4X6LABELP PAGE · 4X6ZPL203DPI · 4X6ZPL300DPI · SEPARATECONTINUEPAGE"
+    },
+    {
+      "Tag Name": "eVSRequest/ ImageParameters/ XCoordinate",
+      "Occurs": "Optional",
+      "Description": "Value of the horizontal coordinate where the upper left corner of the label is placed. Combination of X and Y Coordinates will be validated to fit on the page. For example:< XCoordinate>200</ XCoordinate>",
+      "Type": "Integer",
+      "Validation": "minValue=0 maxValue=900 default=500 (centered)"
+    },
+    {
+      "Tag Name": "eVSRequest/ ImageParameters/ YCoordinate",
+      "Occurs": "Optional",
+      "Description": "Value of the vertical coordinate where the upper left corner of the label is placed. Combination of X and Y Coordinates will be validated to fit on the page. For example:< YCoordinate>250</ YCoordinate>",
+      "Type": "Integer",
+      "Validation": "minValue=0 maxValue=1000 default=450 (centered)"
+    },
+    {
+      "Tag Name": "eVSRequest / ImageParameters/ LabelSequence",
+      "Occurs": "Optional",
+      "Description": "To be used in the case of multiple packages. Not Required only one package.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "eVSRequest / ImageParameters/ LabelSequence / PackageNumber",
+      "Occurs": "Required",
+      "Description": "Required if <LabelSequence> is selected",
+      "Type": "Integer",
+      "Validation": "minInclusive value = \"1\" maxInclusive value = \"999\""
+    },
+    {
+      "Tag Name": "eVSRequest / ImageParameters / LabelSequence/ TotalPackages",
+      "Occurs": "Required",
+      "Description": "Required if <LabelSequence> is selected",
+      "Type": "Integer",
+      "Validation": "minInclusive value = \"1\" maxInclusive value = \"999\""
+    },
+    {
+      "Tag Name": "eVSRequest/ FromName",
+      "Occurs": "Required",
+      "Description": "Values for either First and Last Name of Sender or Firm must be sent. For example: <FromName>MT</FromName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=100"
+    },
+    {
+      "Tag Name": "eVSRequest/ FromFirm",
+      "Occurs": "Required",
+      "Description": "Values for either First and Last Name of Sender or Firm must be sent. For example: <FromFirm>USPS</FromFirm>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ FromAddress1",
+      "Occurs": "Optional",
+      "Description": "From address line 1. Use this field for secondary address information such as an apartment or suite number if applicable. For example: <ToAddress1> Suite 4D </ToAddress1> Note: When populating the address fields, do not include additional information such as building name or company.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ FromAddress2",
+      "Occurs": "Required",
+      "Description": "From address line 2. Use this field for a primary street address. For example: <ToAddress2>1234 MAIN ST</ ToAddress2> Note: When populating the address fields, do not include additional information such as building name or company.",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ FromCity",
+      "Occurs": "Required",
+      "Description": "From city. For example: <FromCity>BETHESDA</ FromCity>",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=28"
+    },
+    {
+      "Tag Name": "eVSRequest/ FromState",
+      "Occurs": "Required",
+      "Description": "From state. For example: <FromState>MD</FromState>",
+      "Type": "String",
+      "Validation": "minLength=2 maxLength=2"
+    },
+    {
+      "Tag Name": "eVSRequest/ FromZip5",
+      "Occurs": "Required",
+      "Description": "From ZIP code. For example: <FromZip5>20212</FromZip5>",
+      "Type": "String",
+      "Validation": "pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "eVSRequest/ FromZip4",
+      "Occurs": "Optional",
+      "Description": "From ZIP+4 extension. For example: <FromZip4>2402</FromZip4>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\d{4}"
+    },
+    {
+      "Tag Name": "eVSRequest/ FromPhone",
+      "Occurs": "Optional",
+      "Description": "From Phone #. 10 digits required (including area code), with no punctuation. For example: <FromPhone>2125551234</ FromPhone>",
+      "Type": "String",
+      "Validation": "pattern=\\d{10}"
+    },
+    {
+      "Tag Name": "eVSRequest/ POZipCode",
+      "Occurs": "Optional",
+      "Description": "ZIP Code of Post Office or collection box where item is mailed. May be different than FromZip5. This tag will take precedence over FromZip5 when provided. For example: <POZipCode>20770</ POZipCode>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=5"
+    },
+    {
+      "Tag Name": "eVSRequest/ AllowNonCleansedOriginAddr",
+      "Occurs": "Optional",
+      "Description": "Allows Non-Validated Origin Street Address. Enter “true” to bypass street address validation failures/errors or “false” if only validated addresses should be allowed. For example: <AllowNonCleansedOriginAddr>True </ AllowNonCleansedOriginAddr> Note: Integrators are recommended to always use “false” to ensure no delivery issues. In the event USPS cannot validate the street address, this tag will “bypass” address validation error when “true” is indicated to allow label creation which could impact delivery. The <AllowNonCleansedOriginAddr> excludes City, State, and ZIP Code which must be valid for a successful response. Reference https://pe.usps.com/text/pub28/28c2_001.htm.",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToName",
+      "Occurs": "Required",
+      "Description": "Values for either First and Last Name of Recipient or Firm must be sent. For example: <ToName>Smith</ ToName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=100"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToFirm",
+      "Occurs": "Required",
+      "Description": "Values for either First and Last Name of Recipient or Firm must be sent. For example: <ToFirm>ABC CORPORATION</ ToFirm>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToAddress1",
+      "Occurs": "Optional",
+      "Description": "Recipient address line 1. Use this field for secondary address information such as an apartment or suite number if applicable. For example: <ToAddress1> Suite 4D </ToAddress1> Note: When populating the address fields, do not include additional information such as building name or company.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToAddress2",
+      "Occurs": "Required",
+      "Description": "Recipient address line 2. Use this field for a primary street address. For example: <ToAddress2>1234 MAIN ST</ ToAddress2> Note: When populating the address fields, do not include additional information such as building name or company.",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToCity",
+      "Occurs": "Required",
+      "Description": "Recipient city. For example: <ToCity>ANYTOWN</ ToCity>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=28"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToState",
+      "Occurs": "Required",
+      "Description": "Recipient state. For example: <ToState>MN</ ToState>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\w{2}"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToZip5",
+      "Occurs": "Required",
+      "Description": "Recipient ZIP code. For example: <ToZip5>12345</ ToZip5>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToZip4",
+      "Occurs": "Optional",
+      "Description": "Recipient ZIP+4 extension. For example: <ToZip4>1844</ToZip4>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\d{4}"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToPhone",
+      "Occurs": "Optional",
+      "Description": "Recipient Phone #. If value is entered, 10 digits required (including area code), with no punctuation. For example: <ToPhone>2125551234</ ToPhone>",
+      "Type": "String",
+      "Validation": "pattern=\\d{10}"
+    },
+    {
+      "Tag Name": "eVSRequest/ POBox",
+      "Occurs": "Optional",
+      "Description": "Indicates if destination address is a PO Box. For example: <POBox>True</ POBox>",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToContactPreference",
+      "Occurs": "Optional",
+      "Description": "This indicates how the recipient will be notified that the package is available for pickup. Specify WAIVED if notification is not desired and use tag. For example: <ToContactPreference>EMAIL</ ToContactPreference>",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse Enumerations= · EMAIL · EMAILSMS · SMS · WAIVED"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToContactMessaging",
+      "Occurs": "Optional",
+      "Description": "This contains the text messaging address or is blank depending on the ToContactPreference tag. If the EMAILSMS or SMS enumeration is used in ToContactPreference, this value must be a syntactically valid e-mail address. If EMAIL or WAIVED is used, this value must be blank. For example: <ToContactMessaging>user@anydomain.gov</ ToContactMessaging>",
+      "Type": "String",
+      "Validation": "maxLength=64 whiteSpace=collapse pattern=\\w{0} pattern=([\\w_\\-\\.]+)@(([\\w-]+\\.)+)[a-zA-Z]{2,4}"
+    },
+    {
+      "Tag Name": "eVSRequest/ ToContactEmail",
+      "Occurs": "Optional",
+      "Description": "This contains E-mail address or is blank depending on the ToContactPreference tag. If the EMAILSMS or EMAIL enumeration is used in ToContactPreference, this value must be a syntactically valid e-mail address. If SMS or WAIVED is used, this value must be blank. Note: No e-mail is returned when generating a Sample Label request. For example: <ToContactEMail>John.Smith@abc.com</ ToContactEMail>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=([\\w\\-\\.]+)@(([\\w-]+\\.)+)[a-zA-Z]{2,4}"
+    },
+    {
+      "Tag Name": "eVSRequest/ AllowNonCleansedDestAddr",
+      "Occurs": "Optional",
+      "Description": "Allows Non-Validated Destination Street Address. Enter “true” to bypass street address validation failures/errors or “false” if only validated addresses should be allowed. For example: <AllowNonCleansedDestAddr>true</AllowNonCleansedDestAddr> Note: Integrators are recommended to always use “false” to ensure no delivery issues. In the event USPS cannot validate the street address, this tag will “bypass” address validation error when “true” is indicated to allow label creation which could impact delivery. The <AllowNonCleansedDestAddr> excludes City, State, and ZIP Code which must be valid for a successful response. Reference https://pe.usps.com/text/pub28/28c2_001.htm.",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ WeightInOunces",
+      "Occurs": "Required",
+      "Description": "Package weight. Items must weigh 70 pounds (1120 ounces) or less. For example: <WeightInOunces>80</ WeightInOunces>",
+      "Type": "String",
+      "Validation": "pattern=\\d{0,4}"
+    },
+    {
+      "Tag Name": "eVSRequest/ ServiceType",
+      "Occurs": "Required",
+      "Description": "Mail service type desired. For example: <ServiceType>PRIORITY</ ServiceType> Note: For Priority Mail Cubic, the following is required: · Additional permissions. See section 2.1 Overview · <ServiceType> must equal “PRIORITY MAIL CUBIC” · <Container> must equal “CUBIC PARCELS” or “CUBIC SOFT PACK” · <PriceOptions> must equal “Commercial Plus”",
+      "Type": "String",
+      "Validation": "Enumerations= · PRIORITY EXPRESS · PRIORITY · PRIORITY MAIL CUBIC · FIRST CLASS · PARCEL SELECT GROUND · LIBRARY · MEDIA · BPM"
+    },
+    {
+      "Tag Name": "eVSRequest/ Container",
+      "Occurs": "Optional",
+      "Description": "Use to specify USPS containers/packaging or container attributes that may affect postage. If null value is supplied, then default container will be “VARIABLE”. For example: <Container>FLAT RATE ENVELOPE</Container> Note: “CUBIC PARCELS” OR “CUBIC SOFT PACK” required when <ServiceType>= “PRIORITY MAIL CUBIC”. Note: When <Container> = “CUBIC PARCELS”, the dimensions Length, Width, and Height are required. Note: When <Container> = “CUBIC SOFT PACK”, the dimensions Length and Height are required. The Length and Height combined may not exceed 36 inches. If a Width dimension is present, then price will automatically be calculated as “CUBIC PARCELS”.",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse Default=VARIABLE Enumerations= · VARIABLE · FLAT RATE ENVELOPE · LEGAL FLAT RATE ENVELOPE · PADDED FLAT RATE ENVELOPE · GIFT CARD FLAT RATE ENVELOPE · SM FLAT RATE ENVELOPE · WINDOW FLAT RATE ENVELOPE · SM FLAT RATE BOX · MD FLAT RATE BOX · LG FLAT RATE BOX · REGIONALRATEBOXA · REGIONALRATEBOXB · PACKAGE SERVICE · CUBIC PARCELS · CUBIC SOFT PACK"
+    },
+    {
+      "Tag Name": "eVSRequest/ Width",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. For example: <Width>5.5</ Width> Required when <ServiceType> = “PRIORITY”, “PARCEL SELECT NPS”, “LIBRARY”, “MEDIA”, “BPM”.",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "eVSRequest/ Length",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. For example: <Length>11</ Length> Required when <ServiceType> = “PRIORITY”, “PARCEL SELECT NPS”, “LIBRARY”, “MEDIA”, “BPM”.",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "eVSRequest/ Height",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. For example: <Height>11</ Height> Required when <ServiceType> = “PRIORITY”, “PARCEL SELECT NPS”, “LIBRARY”, “MEDIA”, “BPM”.",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "eVSRequest/ Machinable",
+      "Occurs": "Optional",
+      "Description": "Value designates if shipment is Machinable (True), NonMachinable (False) or Irregular. Irregular only applicable to <ServiceTypes> BPM, Media & Library For example: <Machinable>True</ Machinable> Note: The default value is dependent on the <ServiceType> requested. Note: The First Class service type in conjunction with a <PriceOption> of ‘Commercial Plus’ will result in a ‘True’ default Machinable value. For all other scenarios, the <PriceOption> field will not impact the default Machinable value. <ServiceType> Default Value FIRST CLASS False FIRST CLASS and when <PriceOptions> = “Commercial Plus” True PRIORITY True PRIORITY EXPRESS True PRIORITY MAIL CUBIC True MEDIA True LIBRARY True BPM True PARCEL SELECT GROUND Value is True if <WeightinOunces> is over 560 or a calculated value is over 108. Otherwise, value is False.",
+      "Type": "String",
+      "Validation": "Enumerations= · True · False · Irregular"
+    },
+    {
+      "Tag Name": "eVSRequest/ PriceOptions",
+      "Occurs": "Optional",
+      "Description": "Indicates pricing that should be returned. For example: <PriceOptions>Commercial Base</ PriceOptions> Required when <ServiceType>= “PRIORITY MAIL CUBIC” <PriceOptions> must equal “Commercial Plus”.",
+      "Type": "String",
+      "Validation": "Default=Commercial Base Enumerations= · Commercial Plus · Commercial Base"
+    },
+    {
+      "Tag Name": "eVSRequest/ InsuredAmount",
+      "Occurs": "Optional",
+      "Description": "Use this tag for entering an insurance amount, if applicable. For example: <InsuredAmount>100.00</ InsuredAmount>",
+      "Type": "Decimal",
+      "Validation": "Default=0 minInclusive=0 maxInclusive=9999.99 totalDigits=8 whiteSpace=collapse"
+    },
+    {
+      "Tag Name": "eVSRequest/ AddressServiceRequested",
+      "Occurs": "Optional",
+      "Description": "You can request the USPS to alert you when a customer changes their address. This feature is especially useful to ensure correct billing. The words “Address Service Requested” will appear on the shipping label immediately below the return address. By using this tag, you will receive the following service with Priority Mail: For 12 months after an address change, the mail piece is forwarded at no charge. However, a separate notice of the new address is returned to you and an address correction fee is charged. For months 13-18 after an address change, the mail piece is returned with the new address attached at no charge. After 18 months, or if undeliverable, the mail piece is returned with the reason for nondelivery attached at no charge. For fees for this service with Package Services, refer to the Domestic Mail Manual. For example: <AddressServiceRequested>True</AddressServiceRequested>",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ ExpressMailOptions",
+      "Occurs": "Optional",
+      "Description": "Groups Express Mail Delivery and Signature options. Valid when <ServiceType>=“PRIORITY EXPRESS”",
+      "Type": "(group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ ExpressMailOptions/ DeliveryOption",
+      "Occurs": "Optional",
+      "Description": "Indicates desired delivery option: Service Option ServiceID Normal Delivery (default) 1 No Weekend Delivery 2 No Holiday Delivery 3 No Weekend or Holiday Delivery 4 No Saturday Delivery 5 No Sunday Delivery 6 Sunday Delivery 7 Holiday Delivery 8 No Sunday or Holiday Delivery 9 Scheduled End of Day E Scheduled End of Day No Sun/ Hol Delivery F Scheduled End of Day No Weekend/ Hol Delivery G For example: <DeliveryOption>4</ DeliveryOption>",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse Default=1 Enumerations= · 1 · 2 · 3 · 4 · 5 · 6 · 7 · 8 · 9 · E · F · G"
+    },
+    {
+      "Tag Name": "eVSRequest/ ExpressMailOptions/ WaiverOfSignature",
+      "Occurs": "Optional",
+      "Description": "No Signature Required for Delivery. Enter \"True\" if you do not want a signature for receipt of the package or \"False\" if you do. For example: <WaiverOfSignature>False</WaiverOfSignature>",
+      "Type": "Boolean",
+      "Validation": "Default=True Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ ExpressMailOptions/eSOFAllowed",
+      "Occurs": "Optional",
+      "Description": "Electronic Signature On File Allowed. This value is used to allow retailers to request that Electronic Signature On File (eSOF) be overridden such that a physical or “wet” signature is required. This field should be populated with “False” to request that the use of eSOF be disallowed for the shipment. For example: <eSOFAllowed>False</eSOFAllowed>",
+      "Type": "Boolean",
+      "Validation": "Default=True Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ ShipDate",
+      "Occurs": "Optional",
+      "Description": "Date Package Will Be Mailed. Ship date may be today plus 0 to 7 days in advance. Enter the date in either format: dd-mmm-yyyy, such as 14-Feb-2011, or mm/ dd/ yyyy, such as 02/14/ 2011. Should \"ShipDate\" value not be provided, the service shall use the current date as a basis for delivery date calculations. For example: <ShipDate>02/14/2011</ShipDate>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\d{1,2}/ \\d{1,2}/ \\d\\d(\\d\\d)?"
+    },
+    {
+      "Tag Name": "eVSRequest/ CustomerRefNo",
+      "Occurs": "Optional",
+      "Description": "User-assigned Number for Internal Use. Up to 30 characters accepted but only 18 will be shown on the shipping label image. For example: <CustomerRefNo>XYZ 123</ CustomerRefNo> Note: The <PrintCustomerRefNo> must be set to “true” to be printed on the label. Located in position #21 in the Detail 1 record of the Shipping Services File v2.0.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag Name": "eVSRequest/ CustomerRefNo2",
+      "Occurs": "Optional",
+      "Description": "User-assigned Number for Internal Use. Up to 30 characters accepted but only 18 will be shown on the shipping label image. Will be positioned below eVSRequest/ CustomerRefNo tag on the label image. Required when <ePostageMailerReporting>=”1” For example: <CustomerRefNo2>XYZ 123</ CustomerRefNo2> Note: The <PrintCustomerRefNo2> must be set to “true” to be printed on the label. Located in position #76 in the Detail 1 record of the Shipping Services File v2.0. Required when <ePostageMailerReporting>= “1”",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag Name": "eVSRequest/ ExtraServices",
+      "Occurs": "Optional",
+      "Description": "Groups extra services elements",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ ExtraServices/ ExtraService",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Use to specify extra services. Service Name Service ID Insurance 100 Insurance (PME) 101 Return Receipt 102 Certified Mail 105 Return Receipt Electronic 110 Return Receipt Express Mail 118 Adult Signature 119 Adult Signature Restricted Delivery 120 Insurance (PM) 125 USPS Tracking Electronic 155 Signature Confirmation Electronic 156 10:30 AM Delivery (PME) 161 Certified Mail Restricted Delivery 170 Certified Mail Adult Signature Required 171 Certified Mail Adult Signature Restricted Delivery 172 Signature Confirmation Electronic Restricted Delivery 174 Insurance Restricted Delivery 177 Insurance Restricted Delivery (PME) 178 Insurance Restricted Delivery (PM) 179 Scan Retention 181 Scan + Signature Retention 182 Special Handling - Fragile 190",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse Enumerations= · 100 · 101 · 102 · 105 · 110 · 118 · 119 · 120 · 125 · 155 · 156 · 161 · 170 · 171 · 172 · 174 · 177 · 178 · 179 · 181 · 182 · 190"
+    },
+    {
+      "Tag Name": "eVSRequest/ HoldForPickup",
+      "Occurs": "Optional",
+      "Description": "For future use.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ OpenDistribute",
+      "Occurs": "Optional",
+      "Description": "For future use.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ PermitNumber",
+      "Occurs": "Optional",
+      "Description": "For future use.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ PermitZIPCode",
+      "Occurs": "Optional",
+      "Description": "For future use.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ PermitHolderName",
+      "Occurs": "Optional",
+      "Description": "For future use.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ CRID",
+      "Occurs": "Optional",
+      "Description": "Customer Registration ID, Represents Mail Owner CRID. Located in position #20 in the Detail 1 record of the Shipping Services File v2.0. For example: <CRID>544762</CRID>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=15"
+    },
+    {
+      "Tag Name": "eVSRequest/ MID",
+      "Occurs": "Optional",
+      "Description": "Mailer ID (MID), Represents Mail Owner MID. Located in position #13 in the Detail 1 record of the Shipping Services File v2.0. For example: <MID>847654321</MID>",
+      "Type": "String",
+      "Validation": "Length=6 or 9 positions if populated"
+    },
+    {
+      "Tag Name": "eVSRequest/ LogisticsManagerMID",
+      "Occurs": "Optional",
+      "Description": "The MID of the company that manages the mailing. For example: <LogisticsManagerMID>489001</ LogisticsManagerMID> Note: If <LogisticsManagerMID> is populated, either CRID or MID must also be populated. Located in position #12 in the Detail 1 record of the Shipping Services File v2.0.",
+      "Type": "String",
+      "Validation": "Length=6 or 9 positions if populated"
+    },
+    {
+      "Tag Name": "eVSRequest/ VendorCode",
+      "Occurs": "Optional",
+      "Description": "Code from vendor software to identify the developer of the shipping system. Located in position #15 in the Detail 1 record of the Shipping Services File v2.0. For example: <VendorCode>1234<VendorCode>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=4 default=8300"
+    },
+    {
+      "Tag Name": "eVSRequest/ VendorProductVersionNumber",
+      "Occurs": "Optional",
+      "Description": "Shipping software’s product version number. Located in position #16 in the Detail 1 record of the Shipping Services File v2.0. For example: <VendorProductVersionNumber>5.02.1B</VendorProductVersionNumber>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=8"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderName",
+      "Occurs": "Optional",
+      "Description": "The name of the person or company sending the USPS tracking email notification. Note: No email is returned when generating a Sample (i.e. API=eVSCertify) request.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderEMail",
+      "Occurs": "Optional",
+      "Description": "Email address of sender used for USPS tracking email notification. Valid email addresses must be used. Note: <RecipientEMail> must be populated to generate USPS tracking email notification. If <SenderEMail> provided without <RecipientEMail>, USPS tracking email notification will not be generated. Note: No email is returned when generating a Sample (i.e. API=eVSCertify) request.",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=([\\w\\-\\.]+)@(([\\w-]+\\.)+)[a-zA-Z]{2,4}"
+    },
+    {
+      "Tag Name": "eVSRequest/ RecipientName",
+      "Occurs": "Optional",
+      "Description": "The name of the person or company receiving the USPS tracking email notification. If recipient name not provided, email will be addressed to <RecipientEMail> value provided. Note: No email is returned when generating a Sample (i.e. API=eVSCertify) request.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ RecipientEMail",
+      "Occurs": "Optional",
+      "Description": "Email address of recipient receiving the USPS tracking email notification. This field is required to generate tracking email. Valid email addresses must be used. Note: No email is returned when generating a Sample (i.e. API=eVSCertify) request.",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=([\\w\\-\\.]+)@(([\\w-]+\\.)+)[a-zA-Z]{2,4}"
+    },
+    {
+      "Tag Name": "eVSRequest/ ReceiptOption",
+      "Occurs": "Optional",
+      "Description": "Label & Receipt print layout options. Enter \"SEPARATE PAGE\" if you want the shipping label and online customer record printed on two separate pages, \"SAME PAGE\" if you want them printed on the same single page, or “NONE” if no receipt is requested. For example: <ReceiptOption>SAME PAGE</ReceiptOption>",
+      "Type": "String",
+      "Validation": "Default=SAME PAGE Enumerations= · SEPARATE PAGE · SAME PAGE · NONE"
+    },
+    {
+      "Tag Name": "eVSRequest/ ImageType",
+      "Occurs": "Required",
+      "Description": "Label Image Type. For example: <ImageType>PDF</ ImageType> Note: All <ImageType> values are ignored when <ImageParameter>= “4X6ZPL203DPI” or “4X6ZPL300DPI”.",
+      "Type": "String",
+      "Validation": "Enumerations= · PDF · TIF · NONE"
+    },
+    {
+      "Tag Name": "eVSRequest/ HoldForManifest",
+      "Occurs": "Optional",
+      "Description": "Restricted use. Holds manifest record for possible inclusion in SCAN request.",
+      "Type": "String",
+      "Validation": "Default=N Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "eVSRequest/ NineDigitRoutingZip",
+      "Occurs": "Optional",
+      "Description": "Indicates if nine-digit routing zip code is included in the barcode. For example: <NineDigitRoutingZip>False</ NineDigitRoutingZip>",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ ShipInfo",
+      "Occurs": "Optional",
+      "Description": "Indicates if revenue protection information is printed on the label. For example: <ShipInfo>False</ShipInfo>",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ CarrierRelease",
+      "Occurs": "Optional",
+      "Description": "Indicates if the ‘CARRIER – LEAVE IF NO RESPONSE’ is to be printed on the label. This endorsement cannot be applied to Express Mail or items requiring a signature at delivery (e.g. Signature Confirmation, Insurance > $500). For example: <CarrierRelease>False</CarrierRelease>",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ DropOffTime",
+      "Occurs": "Optional",
+      "Description": "Indicates the time the package will be dropped off. Time is specified in military time. For example: <DropOffTime>13:00</DropOffTime>",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ ReturnCommitments",
+      "Occurs": "Optional",
+      "Description": "Indicates that the CommitmentName and Scheduled DeliveryDate will be returned in the response. For example: <ReturnCommitments>False</ ReturnCommitments>",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ PrintCustomerRefNo",
+      "Occurs": "Optional",
+      "Description": "Print <CustomerRefNo> in the additional information section. Note: For the <CustomerRefNo> value to print on the label you must also indicate “True” for the <PrintCustomerRefNo> tag.",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ PrintCustomerRefNo2",
+      "Occurs": "Optional",
+      "Description": "Print <CustomerRefNo2> in the additional information section. Note: For the <CustomerRefNo2> value to print on the label you must also indicate “True” for the <PrintCustomerRefNo2> tag.",
+      "Type": "Boolean",
+      "Validation": "Default=False Enumerations= · True · False"
+    },
+    {
+      "Tag Name": "eVSRequest/ Content",
+      "Occurs": "Optional",
+      "Description": "Groups Content",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ Content/ ContentType",
+      "Occurs": "Required",
+      "Description": "Use to specify ContentType. Currently available types are: ContentType HAZMAT CrematedRemains Lives Perishable Pharmaceuticals MedicalSupplies For example: <ContentType>Lives</ContentType >",
+      "Type": "String",
+      "Validation": "Enumerations= · HAZMAT · CrematedRemains · Lives · Perishable · Pharmaceuticals · MedicalSupplies"
+    },
+    {
+      "Tag Name": "eVSRequest/ Content/ ContentDescription",
+      "Occurs": "Optional – max one occurrence",
+      "Description": "Use to specify Content Description. Required when <ContentType>Lives</ ContentType> is supplied. Valid Values ContentDescription Bees DayOldPoultry AdultBirds Other For example:<ContentDescription>DayOldPoultry</ContentDescription>",
+      "Type": "String",
+      "Validation": "Enumerations= · Bees · DayOldPoultry · AdultBirds · Other"
+    },
+    {
+      "Tag Name": "eVSRequest/ActionCode",
+      "Occurs": "Optional",
+      "Description": "Used to specify the action code. Value is included in the Shipping Partner Event file for customers who have chosen to have a Shipping Partner Event file submitted to USPS on their behalf. M0 – Mailer Owner S0 – Service Provider For example: <ActionCode>M0</ActionCode>",
+      "Type": "String",
+      "Validation": "Default =M0 Enumerations= · M0 · S0"
+    },
+    {
+      "Tag Name": "eVSRequest/ OptOutOfSPE",
+      "Occurs": "Optional",
+      "Description": "Used to specify if a SPE file will be created. For example: <OptOutOfSPE> false </OptOutOfSPE> Note: This request tag is case sensitive.",
+      "Type": "Boolean",
+      "Validation": "Default=true Enumerations= · true · false"
+    },
+    {
+      "Tag Name": "eVSRequest/ SortationLevel",
+      "Occurs": "Optional",
+      "Description": "For future enhancements.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ DestinationEntryFacilityType",
+      "Occurs": "Optional",
+      "Description": "For future enhancements.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents",
+      "Occurs": "Required or optional",
+      "Description": "Required only if a customs form is required based on Customs Content Type and Weight.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents / ItemDetail",
+      "Occurs": "Required repeating up to 30 times or optional",
+      "Description": "Required repeating up to 30 times if generating an Integrated Customs Form, otherwise not required",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents / ItemDetail /Description",
+      "Occurs": "Optional/Required",
+      "Description": "Description of the item. Required only if a customs form is required based on Customs Content Type and Weight. For example: <Description>Policy guidelines document</Description>",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=30"
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents / ItemDetail /Quantity",
+      "Occurs": "Optional/Required",
+      "Description": "Quantity of the item. Integer value required. Required only if a customs form is required based on Customs Content Type and Weight. For example: <Quantity>1</Quantity>",
+      "Type": "Integer",
+      "Validation": "whitespace=collapse maxInclusive value=9999"
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents / ItemDetail / Value",
+      "Occurs": "Optional/Required",
+      "Description": "The data entered with this tag provides the value of the set of items. If the item is 2 boxes of 50 pens and the value of each box is $10.00, \"20.00\" (2 boxes x $10.00) should be entered. If the value of each pen is .25 then \"25.00\" (100 pens x .25) should be entered. Required only if a customs form is required based on Customs Content Type and Weight. For example: <Value>55.00</Value>",
+      "Type": "Decimal",
+      "Validation": "minExclusive value=0 totalDigits value=8 maxInclusive value=99999.99"
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents / ItemDetail / NetPounds",
+      "Occurs": "Optional/Required",
+      "Description": "Provide the pounds OR ounces component of the weight of the individual item listed with <Description> when a customs form is required based on Customs Content Type and Weight. For example: <NetPounds>1</NetPounds>",
+      "Type": "Integer",
+      "Validation": "totalDigits value=2 minInclusive value=0 maxInclusive value=70"
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents / ItemDetail / NetOunces",
+      "Occurs": "Optional/Required",
+      "Description": "Provide the ounces OR pounds component of the weight of the individual item listed with <Description> when a customs form is required based on Customs Content Type and Weight. For example: <NetOunces>5</NetOunces>",
+      "Type": "Decimal",
+      "Validation": "totalDigits value=5 minInclusive value=0 maxInclusive value=1120"
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents / ItemDetail / HSTariffNumber",
+      "Occurs": "Optional",
+      "Description": "For commercial items only. If known, the HS tariff number must be based on the Harmonized Commodity Description and Coding System developed by the World Customs Organization. For example: <HSTariffNumber>490110</HSTariffNumber>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=12"
+    },
+    {
+      "Tag Name": "eVSRequest / ShippingContents / ItemDetail / CountryofOrigin",
+      "Occurs": "Optional",
+      "Description": "Country of Origin means the country where the goods originated, e.g. were produced, manufactured, or assembled. It is recommended you supply this information and attach an invoice to the outside to accelerate customs clearance in processing the items. The country name entered must match an entry from the USPS-approved International Index of Countries (see http://pe.usps.com/text/imm/immctry.htm) and Localities or be \"United States\". For example: <CountryOfOrigin>United States</CountryOfOrigin>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=100"
+    },
+    {
+      "Tag Name": "eVSRequest / CustomsContentType",
+      "Occurs": "Required",
+      "Description": "Specifies the content of the package or envelope. For example: <CustomsContentType>DOCUMENTS</CustomsContentType> When sending TO or FROM an APO/FPO/DPO or PTFAS, additional Customs information is required. This requirement is triggered when · The “eVSRequest/ ToState” is an APO/FPO/DPO or PTFAS · The “eVSRequest/POZipCode” is specified and is an APO/FPO/DPO or PTFAS · The “eVSRequest/POZipCode” is NOT specified and the “eVSRequest/ FromState” is an APO/FPO/DPO or PTFAS When one of the above conditions occurs, The Customs Content Type tag is required. If the Content Type is “DOCUMENTS” and the “WeightInOunces” is specified and is less than 16 oz. no additional Customs tags are required from this section (2.1.3). More information can be found in the DMM at:http://pe.usps.com/text/dmm300/608.htm#1255642",
+      "Type": "String",
+      "Validation": "minOccurs=0 Enumerations= · MERCHANDISE · GIFT · DOCUMENTS · SAMPLE · RETURN · OTHER · HUMANITARIAN · DANGEROUSGOODS"
+    },
+    {
+      "Tag Name": "eVSRequest / ContentComments",
+      "Occurs": "Optional",
+      "Description": "Required tag if <CustomsContentType>=Other Enter any comments. For example: <ContentComments>Parts</ContentComments>",
+      "Type": "String",
+      "Validation": "minOccurs=0 maxLength=25"
+    },
+    {
+      "Tag Name": "eVSRequest / RestrictionType",
+      "Occurs": "Optional",
+      "Description": "Restriction Types",
+      "Type": "String",
+      "Validation": "minOccurs=0 Enumerations= · Quarantine · Sanitary Inspection · Phytosanitary Inspection · Other"
+    },
+    {
+      "Tag Name": "eVSRequest / RestrictionComments",
+      "Occurs": "Optional",
+      "Description": "Restriction Comments. Required when <RestrictionType>=\"Other”",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / AESITN",
+      "Occurs": "Optional",
+      "Description": "AES/ITN Exemption is a code that indicates the reason why you did not need to file electronic export information",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / ImportersReference",
+      "Occurs": "Optional",
+      "Description": "Importers Reference. The Importer’s Reference might be a tax code, importer code, or VAT number used for sales tax",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / ImportersContact",
+      "Occurs": "Optional",
+      "Description": "Importers Contact. Enter, if known, the Importer’s telephone number, fax number, or email address, as such information might facilitate customs clearance or delivery.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / ExportersReference",
+      "Occurs": "Optional",
+      "Description": "Exporters Reference. The Exporter’s Reference might be a tax code, importer code, or VAT number used for sales tax",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / ExportersContact",
+      "Occurs": "Optional",
+      "Description": "Exporters Contact. Enter, if known, the Exporter’s telephone number, fax number, or email address, as such information might facilitate customs clearance or delivery.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / InvoiceNumber",
+      "Occurs": "Optional",
+      "Description": "Invoice Number",
+      "Type": "String",
+      "Validation": "minOccurs=0 maxOccurs=15"
+    },
+    {
+      "Tag Name": "eVSRequest / LicenseNumber",
+      "Occurs": "Optional",
+      "Description": "License Number",
+      "Type": "String",
+      "Validation": "minOccurs=0 maxOccurs=16"
+    },
+    {
+      "Tag Name": "eVSRequest / CertificateNumber",
+      "Occurs": "Optional",
+      "Description": "Certificate Number",
+      "Type": "String",
+      "Validation": "minOccurs=0 maxOccurs=12"
+    },
+    {
+      "Tag Name": "eVSRequest / NonDeliveryOption",
+      "Occurs": "Optional",
+      "Description": "In case package is undeliverable, enter one of the following: \"RETURN\" for package to be returned to <FromAddress> above. \"REDIRECT\" to return package to address specified in the below tags. \"ABANDON\" to dispose of undeliverable package. For example: <NonDeliveryOption>RETURN</NonDeliveryOption>",
+      "Type": "String",
+      "Validation": "Enumerations= · RETURN · REDIRECT · ABANDON"
+    },
+    {
+      "Tag Name": "eVSRequest / AltReturnAddress1",
+      "Occurs": "Optional",
+      "Description": "Required <NonDeliveryOption>=”REDIRECT”. Suggested use of this tag is for an apartment or suite number. For example: <AltReturnAddress1>Apt 1</AltReturnAddress1> Note: Six AltReturn Address lines are provided but only one line is required. Use as many as needed for complete address.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / AltReturnAddress2",
+      "Occurs": "Optional",
+      "Description": "Required <NonDeliveryOption>=”REDIRECT”. Suggested use of this tag is the Recipient address line 2. Must be a valid address. For example: <AltReturnAddress2>123 Main Ave </ AltReturnAddress2> Note: Six AltReturn Address lines are provided but only one line is required. Use as many as needed for complete address.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / AltReturnAddress3",
+      "Occurs": "Optional",
+      "Description": "Required <NonDeliveryOption>=”REDIRECT”. Suggested use of this tag is the Recipient city. Note: Six AltReturn Address lines are provided but only one line is required. Use as many as needed for complete address.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / AltReturnAddress4",
+      "Occurs": "Optional",
+      "Description": "Required <NonDeliveryOption>=”REDIRECT”. Suggested use of this tag is the Recipient state. Use 2-letter USPS abbreviation. Note: Six AltReturn Address lines are provided but only one line is required. Use as many as needed for complete address.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / AltReturnAddress5",
+      "Occurs": "Optional",
+      "Description": "Required <NonDeliveryOption>=”REDIRECT”. Suggested use of this tag is the recipient ZIP code. Note: Six AltReturn Address lines are provided but only one line is required. Use as many as needed for complete address.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / AltReturnAddress6",
+      "Occurs": "Optional",
+      "Description": "Required <NonDeliveryOption>=”REDIRECT”. Suggested use of this tag is the recipient ZIP+4 extension Note: Six AltReturn Address lines are provided but only one line is required. Use as many as needed for complete address.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest / AltReturnCountry",
+      "Occurs": "Optional",
+      "Description": "Required <NonDeliveryOption>=”REDIRECT”. Country. Tag must equal United States for this API.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest/ LabelImportType",
+      "Occurs": "Optional",
+      "Description": "This tag is used by USPS meter label solution (MLS) for tracking purposes. For example: <LabelImportType>CSV</LabelImportType>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSRequest/ ePostageMailerReporting",
+      "Occurs": "Optional",
+      "Description": "Used to identify ePostage sender/mailer and include Sender information in SSF. · 1 (ePostage sender info in SSF) · 2 (ePostage sender info through DES) · 3 (ePostage sender info using child MID) Verifies Sender informationsender fields are provided and must match From information when <ePostageMailerReporting>=1 ePostageMailerReporting value used in SSF for “PostageType”",
+      "Type": "String",
+      "Validation": "Enumerations= · 1 · 2 · 3"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderFirstName",
+      "Occurs": "Optional",
+      "Description": "First Name of Sender. For example: <SenderFirstName>Adam </ SenderFirstName> Required when <ePostageMailerReporting>=1",
+      "Type": "String",
+      "Validation": "minLength=0, maxLength=49"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderLastName",
+      "Occurs": "Optional",
+      "Description": "Last Name of Sender. For example: <SenderLastName>Smith </ SenderLastName> Required when <ePostageMailerReporting>=1",
+      "Type": "String",
+      "Validation": "minLength=0, maxLength=75"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderBusinessName",
+      "Occurs": "Optional",
+      "Description": "Values for Sender Business Name must be sent. For example: <SenderBusinessName>USPS</ SenderBusinessName>",
+      "Type": "String",
+      "Validation": "minLength=0, maxLength=100"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderAddress1",
+      "Occurs": "Optional",
+      "Description": "Sender address. Use this tag for complete sender address For example: <SenderAddress1>123 Main St STE 150</ SenderAddress1> Required when <ePostageMailerReporting>=1",
+      "Type": "String",
+      "Validation": "minLength=0, maxLength=148"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderCity",
+      "Occurs": "Optional",
+      "Description": "Sender city. For example: <SenderCity>BETHESDA</ SenderCity> Required when <ePostageMailerReporting>=1",
+      "Type": "String",
+      "Validation": "minLength=0, maxLength=50"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderState",
+      "Occurs": "Optional",
+      "Description": "Sender state. For example: <SenderState>MD</ SenderState> Required when <ePostageMailerReporting>=1",
+      "Type": "String",
+      "Validation": "minLength=0, maxLength=2"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderZip5",
+      "Occurs": "Optional",
+      "Description": "Sender ZIP code. For example: <SenderZip5>20212</SenderZip5> Required when <ePostageMailerReporting>=1",
+      "Type": "String",
+      "Validation": "minLength=0, pattern=d[5]"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderPhone",
+      "Occurs": "Optional",
+      "Description": "Sender Phone #. 10 digits required (including area code), with no punctuation. For example: <SenderPhone>2125551234</ SenderPhone> Required when <ePostageMailerReporting>=1",
+      "Type": "String",
+      "Validation": "minLength=0, pattern=d[10]"
+    },
+    {
+      "Tag Name": "eVSRequest/ SenderEMail",
+      "Occurs": "Optional",
+      "Description": "E-mail Address of Sender. Valid e-mail addresses must be used. For example: <SenderEMail>cpapple@email.com</ SenderEMail> Required when <ePostageMailerReporting>=1",
+      "Type": "String",
+      "Validation": "minLength=0, pattern=([\\w\\-\\.]+)@(([\\w-]+\\.)+)[a-zA-Z]{2,4}"
+    },
+    {
+      "Tag Name": "eVSRequest / ChargebackCode",
+      "Occurs": "Optional",
+      "Description": "Used in Shipping Services File v2.0 for G-10 labels. Contact your Technical Integration Specialist for details.",
+      "Type": "String",
+      "Validation": "123456 (alphanumeric)"
+    },
+    {
+      "Tag Name": "eVSRequest / TrackingRetentionPeriod",
+      "Occurs": "Optional",
+      "Description": "Used to determine period of Retention for tracking data. Required when <ExtraService>= “181” or “182”.",
+      "Type": "String",
+      "Validation": "minOccurs=0"
+    },
+    {
+      "Tag Name": "eVSRequest Request",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "<ServiceType>": "FIRST CLASS",
+      "Default Value": "False"
+    },
+    {
+      "<ServiceType>": "FIRST CLASS and when <PriceOptions> = “Commercial Plus”",
+      "Default Value": "True"
+    },
+    {
+      "<ServiceType>": "PRIORITY",
+      "Default Value": "True"
+    },
+    {
+      "<ServiceType>": "PRIORITY EXPRESS",
+      "Default Value": "True"
+    },
+    {
+      "<ServiceType>": "PRIORITY MAIL CUBIC",
+      "Default Value": "True"
+    },
+    {
+      "<ServiceType>": "MEDIA",
+      "Default Value": "True"
+    },
+    {
+      "<ServiceType>": "LIBRARY",
+      "Default Value": "True"
+    },
+    {
+      "<ServiceType>": "BPM",
+      "Default Value": "True"
+    },
+    {
+      "<ServiceType>": "PARCEL SELECT GROUND",
+      "Default Value": "Value is True if <WeightinOunces> is over 560 or a calculated value is over 108. Otherwise, value is False."
+    }
+  ],
+  [
+    {
+      "Service\n    Option": "Normal Delivery (default)",
+      "ServiceID": "1"
+    },
+    {
+      "Service\n    Option": "No Weekend Delivery",
+      "ServiceID": "2"
+    },
+    {
+      "Service\n    Option": "No Holiday Delivery",
+      "ServiceID": "3"
+    },
+    {
+      "Service\n    Option": "No Weekend or Holiday Delivery",
+      "ServiceID": "4"
+    },
+    {
+      "Service\n    Option": "No Saturday Delivery",
+      "ServiceID": "5"
+    },
+    {
+      "Service\n    Option": "No Sunday Delivery",
+      "ServiceID": "6"
+    },
+    {
+      "Service\n    Option": "Sunday Delivery",
+      "ServiceID": "7"
+    },
+    {
+      "Service\n    Option": "Holiday Delivery",
+      "ServiceID": "8"
+    },
+    {
+      "Service\n    Option": "No Sunday or Holiday Delivery",
+      "ServiceID": "9"
+    },
+    {
+      "Service\n    Option": "Scheduled End of Day",
+      "ServiceID": "E"
+    },
+    {
+      "Service\n    Option": "Scheduled End of Day No Sun/ Hol Delivery",
+      "ServiceID": "F"
+    },
+    {
+      "Service\n    Option": "Scheduled End of Day No Weekend/ Hol Delivery",
+      "ServiceID": "G"
+    }
+  ],
+  [
+    {
+      "Service Name": "Insurance",
+      "Service\n    ID": "100"
+    },
+    {
+      "Service Name": "Insurance (PME)",
+      "Service\n    ID": "101"
+    },
+    {
+      "Service Name": "Return Receipt",
+      "Service\n    ID": "102"
+    },
+    {
+      "Service Name": "Certified Mail",
+      "Service\n    ID": "105"
+    },
+    {
+      "Service Name": "Return Receipt Electronic",
+      "Service\n    ID": "110"
+    },
+    {
+      "Service Name": "Return Receipt Express Mail",
+      "Service\n    ID": "118"
+    },
+    {
+      "Service Name": "Adult Signature",
+      "Service\n    ID": "119"
+    },
+    {
+      "Service Name": "Adult Signature Restricted Delivery",
+      "Service\n    ID": "120"
+    },
+    {
+      "Service Name": "Insurance (PM)",
+      "Service\n    ID": "125"
+    },
+    {
+      "Service Name": "USPS Tracking Electronic",
+      "Service\n    ID": "155"
+    },
+    {
+      "Service Name": "Signature Confirmation Electronic",
+      "Service\n    ID": "156"
+    },
+    {
+      "Service Name": "10:30 AM Delivery (PME)",
+      "Service\n    ID": "161"
+    },
+    {
+      "Service Name": "Certified Mail Restricted Delivery",
+      "Service\n    ID": "170"
+    },
+    {
+      "Service Name": "Certified Mail Adult Signature Required",
+      "Service\n    ID": "171"
+    },
+    {
+      "Service Name": "Certified Mail Adult Signature Restricted Delivery",
+      "Service\n    ID": "172"
+    },
+    {
+      "Service Name": "Signature Confirmation Electronic Restricted Delivery",
+      "Service\n    ID": "174"
+    },
+    {
+      "Service Name": "Insurance Restricted Delivery",
+      "Service\n    ID": "177"
+    },
+    {
+      "Service Name": "Insurance Restricted Delivery (PME)",
+      "Service\n    ID": "178"
+    },
+    {
+      "Service Name": "Insurance Restricted Delivery (PM)",
+      "Service\n    ID": "179"
+    },
+    {
+      "Service Name": "Scan Retention",
+      "Service\n    ID": "181"
+    },
+    {
+      "Service Name": "Scan + Signature Retention",
+      "Service\n    ID": "182"
+    },
+    {
+      "Service Name": "Special Handling - Fragile",
+      "Service\n    ID": "190"
+    }
+  ],
+  [
+    {
+      "ContentType": "HAZMAT"
+    },
+    {
+      "ContentType": "CrematedRemains"
+    },
+    {
+      "ContentType": "Lives"
+    },
+    {
+      "ContentType": "Perishable"
+    },
+    {
+      "ContentType": "Pharmaceuticals"
+    },
+    {
+      "ContentType": "MedicalSupplies"
+    }
+  ],
+  [
+    {
+      "ContentDescription": "Bees"
+    },
+    {
+      "ContentDescription": "DayOldPoultry"
+    },
+    {
+      "ContentDescription": "AdultBirds"
+    },
+    {
+      "ContentDescription": "Other"
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "eVSResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / BarcodeNumber",
+      "Occurs": "Required",
+      "Description": "Tracking Number",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / LabelImage",
+      "Occurs": "Optional",
+      "Description": "Label image, if requested (where <ImageType> tag not \"None\")",
+      "Type": "base64Binary",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ReceiptImage",
+      "Occurs": "Optional",
+      "Description": "Separate Receipt image, if requested using <ReceiptOptions> tag",
+      "Type": "base64Binary",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToName",
+      "Occurs": "Required",
+      "Description": "Name of Recipient",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToFirm",
+      "Occurs": "Required",
+      "Description": "Company Name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToAddress1",
+      "Occurs": "Required",
+      "Description": "To Address Line 1",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToAddress2",
+      "Occurs": "Required",
+      "Description": "To Address Line 2",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToAddress2Abbreviation",
+      "Occurs": "Optional",
+      "Description": "USPS abbreviated address line 2 available when <Revision> = “1”",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToCity",
+      "Occurs": "Required",
+      "Description": "To City",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToCityAbbreviation",
+      "Occurs": "Optional",
+      "Description": "USPS abbreviated city available when <Revision> = “1”",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToState",
+      "Occurs": "Required",
+      "Description": "To State",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToZip5",
+      "Occurs": "Required",
+      "Description": "To ZIP Code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ToZip4",
+      "Occurs": "Required",
+      "Description": "To ZIP Code+4",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / Postnet",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / RDC",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / Postage",
+      "Occurs": "Required",
+      "Description": "Amount of Postage Required, does not include insurance or other extra service fees.",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ExtraServices",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "(group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ExtraServices / ExtraService",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups extra service information",
+      "Type": "(group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ExtraServices / ExtraService / ServiceID",
+      "Occurs": "Required",
+      "Description": "Extra Service ID echoed from request",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ExtraServices / ExtraService / ServiceName",
+      "Occurs": "Required",
+      "Description": "Extra Service name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / ExtraServices / ExtraService / Price",
+      "Occurs": "Required",
+      "Description": "Extra Service fee",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / HoldForPickup",
+      "Occurs": "Optional",
+      "Description": "For future use.",
+      "Type": "",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / Zone",
+      "Occurs": "Required",
+      "Description": "Postal Zone. Indicates the number of postal rate zones between the origin and destination ZIP codes.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / DimensionalWeight",
+      "Occurs": "Optional",
+      "Description": "Dimensional Weight of package, if greater than specified in <WeightInOunces>.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / CarrierRoute",
+      "Occurs": "Required",
+      "Description": "Carrier Route",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / PermitHolderName",
+      "Occurs": "Required",
+      "Description": "Permit Holder Name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse/ InductionType",
+      "Occurs": "Required",
+      "Description": "Permit Holder Induction Type",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / LogMessage",
+      "Occurs": "Required",
+      "Description": "A text message for integrators of this API. It may contain additional information about this particular request/response, or general information about the API or Web Tools. In typical implementations, whenever this tag is encountered, the message is written to the console log file for later analysis.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / Commitment",
+      "Occurs": "Optional",
+      "Description": "Returned when <ReturnCommitments> = “true” in the request.",
+      "Type": "",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / Commitment / CommitmentName",
+      "Occurs": "Required",
+      "Description": "Commitment name. Example “1-Day”.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse / Commitment / ScheduledDeliveryDate",
+      "Occurs": "Required",
+      "Description": "Date of delivery. Format “YYYY-MM-DD”. Example “2015-06-03”.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=eVSCancel",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "eVSCancelRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSCancelRequest/ USERID",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSCancelRequest / BarcodeNumber",
+      "Occurs": "Required",
+      "Description": "Barcode Number of original label.",
+      "Type": "Length of 22, 30 or 34 numbers.",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSCancelRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "eVSCancelResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSCancelResponse/ USERID",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSCancelResponse / BarcodeNumber",
+      "Occurs": "Required",
+      "Description": "Returned in the eVS Label Request",
+      "Type": "Length of 22, 30 or 34 numbers.",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSCancelResponse / Status",
+      "Occurs": "Required",
+      "Description": "Success or Failure Indicator Cancelled Not Cancelled",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSCancelResponse / Reason",
+      "Occurs": "Required",
+      "Description": "Order Cancelled Successfully Order Already Cancelled Order Not Found",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "eVSCancelResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Response: Order\n  Cancelled Successfully \n  <eVSCancelResponse>\n  <BarcodeNumber>420902109411202901089817001111</BarcodeNumber>\n  <Status>Cancelled</Status>\n  <Reason>Order\n  Cancelled Successfully</Reason>\n  </eVSCancelResponse>": "Response: Order Already Cancelled <eVSCancelResponse> <BarcodeNumber>420902109411202901089817001111</BarcodeNumber> <Status>Not Cancelled</Status> <Reason>Order Already Cancelled</Reason> </eVSCancelResponse>"
+    },
+    {
+      "Response: Order\n  Cancelled Successfully \n  <eVSCancelResponse>\n  <BarcodeNumber>420902109411202901089817001111</BarcodeNumber>\n  <Status>Cancelled</Status>\n  <Reason>Order\n  Cancelled Successfully</Reason>\n  </eVSCancelResponse>": "Response: Order Not Found <eVSCancelResponse> <BarcodeNumber>420902109411202901089817001111</BarcodeNumber> <Status>Not Cancelled</Status> <Reason>Order Not Found</Reason> </eVSCancelResponse>"
+    }
+  ]
+]

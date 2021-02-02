@@ -1,0 +1,341 @@
+[
+  {
+    "title": "CertificateDetail",
+    "attrs": {
+      "CertificateArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=,.@-]+)*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see Amazon Resource Names (ARNs) in the AWS General Reference."
+      },
+      "CertificateAuthorityArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=,.@-]+)*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the ACM PCA private certificate authority (CA) that issued the certificate. This has the following format: arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012"
+      },
+      "CreatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time at which the certificate was requested."
+      },
+      "DomainName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 253.",
+        "pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+        "required": "No",
+        "desc": "The fully qualified domain name for the certificate, such as www.example.com or example.com."
+      },
+      "DomainValidationOptions": {
+        "type": "Array of DomainValidation objects",
+        "required": "No",
+        "desc": "Contains information about the initial validation of each domain name that occurs as a result of the RequestCertificate request. This field exists only when the certificate type is AMAZON_ISSUED."
+      },
+      "ExtendedKeyUsages": {
+        "type": "Array of ExtendedKeyUsage objects",
+        "required": "No",
+        "desc": "Contains a list of Extended Key Usage X.509 v3 extension objects. Each object specifies a purpose for which the certificate public key can be used and consists of a name and an object identifier (OID)."
+      },
+      "FailureReason": {
+        "type": "String",
+        "required": "No",
+        "desc": "The reason the certificate request failed. This value exists only when the certificate status is FAILED. For more information, see Certificate Request Failed in the AWS Certificate Manager User Guide."
+      },
+      "ImportedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time at which the certificate was imported. This value exists only when the certificate type is IMPORTED."
+      },
+      "InUseBy": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "A list of ARNs for the AWS resources that are using the certificate. A certificate can be used by multiple AWS resources."
+      },
+      "IssuedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time at which the certificate was issued. This value exists only when the certificate type is AMAZON_ISSUED."
+      },
+      "Issuer": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the certificate authority that issued and signed the certificate."
+      },
+      "KeyAlgorithm": {
+        "type": "String",
+        "required": "No",
+        "desc": "The algorithm that was used to generate the public-private key pair."
+      },
+      "KeyUsages": {
+        "type": "Array of KeyUsage objects",
+        "required": "No",
+        "desc": "A list of Key Usage X.509 v3 extension objects. Each object is a string value that identifies the purpose of the public key contained in the certificate. Possible extension values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more."
+      },
+      "NotAfter": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time after which the certificate is not valid."
+      },
+      "NotBefore": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time before which the certificate is not valid."
+      },
+      "Options": {
+        "type": "CertificateOptions object",
+        "required": "No",
+        "desc": "Value that specifies whether to add the certificate to a transparency log. Certificate transparency makes it possible to detect SSL certificates that have been mistakenly or maliciously issued. A browser might respond to certificate that has not been logged by showing an error message. The logs are cryptographically secure."
+      },
+      "RenewalEligibility": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies whether the certificate is eligible for renewal. At this time, only exported private certificates can be renewed with the RenewCertificate command."
+      },
+      "RenewalSummary": {
+        "type": "RenewalSummary object",
+        "required": "No",
+        "desc": "Contains information about the status of ACM's managed renewal for the certificate. This field exists only when the certificate type is AMAZON_ISSUED."
+      },
+      "RevocationReason": {
+        "type": "String",
+        "required": "No",
+        "desc": "The reason the certificate was revoked. This value exists only when the certificate status is REVOKED."
+      },
+      "RevokedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time at which the certificate was revoked. This value exists only when the certificate status is REVOKED."
+      },
+      "Serial": {
+        "type": "String",
+        "required": "No",
+        "desc": "The serial number of the certificate."
+      },
+      "SignatureAlgorithm": {
+        "type": "String",
+        "required": "No",
+        "desc": "The algorithm that was used to sign the certificate."
+      },
+      "Status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the certificate."
+      },
+      "Subject": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the entity that is associated with the public key contained in the certificate."
+      },
+      "SubjectAlternativeNames": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 253.",
+        "pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+        "required": "No",
+        "desc": "One or more domain names (subject alternative names) included in the certificate. This list contains the domain names that are bound to the public key that is contained in the certificate. The subject alternative names include the canonical domain name (CN) of the certificate and additional domain names that can be used to connect to the website."
+      },
+      "Type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The source of the certificate. For certificates provided by ACM, this value is AMAZON_ISSUED. For certificates that you imported with ImportCertificate, this value is IMPORTED. ACM does not provide managed renewal for imported certificates. For more information about the differences between certificates that you import and those that ACM provides, see Importing Certificates in the AWS Certificate Manager User Guide."
+      }
+    }
+  },
+  {
+    "title": "CertificateOptions",
+    "attrs": {
+      "CertificateTransparencyLoggingPreference": {
+        "type": "String",
+        "required": "No",
+        "desc": "You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED."
+      }
+    }
+  },
+  {
+    "title": "CertificateSummary",
+    "attrs": {
+      "CertificateArn": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]+:[\\w+=,.@-]+(/[\\w+=,.@-]+)*",
+        "required": "No",
+        "desc": "Amazon Resource Name (ARN) of the certificate. This is of the form: arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012 For more information about ARNs, see Amazon Resource Names (ARNs)."
+      },
+      "DomainName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 253.",
+        "pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+        "required": "No",
+        "desc": "Fully qualified domain name (FQDN), such as www.example.com or example.com, for the certificate."
+      }
+    }
+  },
+  {
+    "title": "DomainValidation",
+    "attrs": {
+      "DomainName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 253.",
+        "pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+        "required": "Yes",
+        "desc": "A fully qualified domain name (FQDN) in the certificate. For example, www.example.com or example.com."
+      },
+      "ResourceRecord": {
+        "type": "ResourceRecord object",
+        "required": "No",
+        "desc": "Contains the CNAME record that you add to your DNS database for domain validation. For more information, see Use DNS to Validate Domain Ownership. Note: The CNAME information that you need does not include the name of your domain. If you include your domain name in the DNS database CNAME record, validation fails. For example, if the name is \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used."
+      },
+      "ValidationDomain": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 253.",
+        "pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+        "required": "No",
+        "desc": "The domain name that ACM used to send domain validation emails."
+      },
+      "ValidationEmails": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "A list of email addresses that ACM used to send domain validation emails."
+      },
+      "ValidationMethod": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies the domain validation method."
+      },
+      "ValidationStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The validation status of the domain name. This can be one of the following values:"
+      }
+    }
+  },
+  {
+    "title": "DomainValidationOption",
+    "attrs": {
+      "DomainName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 253.",
+        "pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+        "required": "Yes",
+        "desc": "A fully qualified domain name (FQDN) in the certificate request."
+      },
+      "ValidationDomain": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 253.",
+        "pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+        "required": "Yes",
+        "desc": "The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the DomainName value or a superdomain of the DomainName value. For example, if you request a certificate for testing.example.com, you can specify example.com for this value. In that case, ACM sends domain validation emails to the following five addresses:"
+      }
+    }
+  },
+  {
+    "title": "ExtendedKeyUsage",
+    "attrs": {
+      "Name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of an Extended Key Usage value."
+      },
+      "OID": {
+        "type": "String",
+        "required": "No",
+        "desc": "An object identifier (OID) for the extension value. OIDs are strings of numbers separated by periods. The following OIDs are defined in RFC 3280 and RFC 5280."
+      }
+    }
+  },
+  {
+    "title": "Filters",
+    "attrs": {
+      "extendedKeyUsage": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "Specify one or more ExtendedKeyUsage extension values."
+      },
+      "keyTypes": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "Specify one or more algorithms that can be used to generate key pairs. Default filtering returns only RSA_2048 certificates. To return other certificate types, provide the desired type signatures in a comma-separated list. For example, \"keyTypes\": [\"RSA_2048,RSA_4096\"] returns both RSA_2048 and RSA_4096 certificates."
+      },
+      "keyUsage": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "Specify one or more KeyUsage extension values."
+      }
+    }
+  },
+  {
+    "title": "KeyUsage",
+    "attrs": {
+      "Name": {
+        "type": "String",
+        "required": "No",
+        "desc": "A string value that contains a Key Usage extension name."
+      }
+    }
+  },
+  {
+    "title": "RenewalSummary",
+    "attrs": {
+      "DomainValidationOptions": {
+        "type": "Array of DomainValidation objects",
+        "required": "Yes",
+        "desc": "Contains information about the validation of each domain name in the certificate, as it pertains to ACM's managed renewal. This is different from the initial validation that occurs as a result of the RequestCertificate request. This field exists only when the certificate type is AMAZON_ISSUED."
+      },
+      "RenewalStatus": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The status of ACM's managed renewal of the certificate."
+      },
+      "UpdatedAt": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The time at which the renewal summary was last updated."
+      },
+      "RenewalStatusReason": {
+        "type": "String",
+        "required": "No",
+        "desc": "The reason that a renewal request was unsuccessful."
+      }
+    }
+  },
+  {
+    "title": "ResourceRecord",
+    "attrs": {
+      "Name": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The name of the DNS record to create in your domain. This is supplied by ACM."
+      },
+      "Type": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of DNS record. Currently this can be CNAME."
+      },
+      "Value": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The value of the CNAME record to add to your DNS database. This is supplied by ACM."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]*",
+        "required": "Yes",
+        "desc": "The key of the tag."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@]*",
+        "required": "No",
+        "desc": "The value of the tag."
+      }
+    }
+  }
+]

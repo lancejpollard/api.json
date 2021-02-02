@@ -1,0 +1,1712 @@
+[
+  [
+    {
+      "": "",
+      "undefined": ""
+    }
+  ],
+  [
+    {
+      "Package\n  Pickup": "Free, regardless of the number of packages.",
+      "Pickup On Demand": "Per pickup fee, regardless of the number of packages."
+    },
+    {
+      "Package\n  Pickup": "Your carrier picks up the next USPS delivery day when your mail is delivered.",
+      "Pickup On Demand": "Packages are picked up in a specified timeframe."
+    },
+    {
+      "Package\n  Pickup": "Available with domestic Priority Mail Express, Priority Mail, ExpressMail, First Class Package Service Commercial, international delivery services, or for merchandise returns.",
+      "Pickup On Demand": "Available for Express Mail, Priority Mail, single piece paid Standard Post, Global Express Guaranteed®, Express Mail International, Priority Mail International."
+    },
+    {
+      "Package\n  Pickup": "Requests must be received by 2:00 AM CT. You can edit or cancel a scheduled pickup request until 2:00 AM CT on the day of the pickup.",
+      "Pickup On Demand": "Allow a two-hour timeframe for pickups. Pickup must be cancelled before 5:00 am local time the day of the pickup."
+    },
+    {
+      "Package\n  Pickup": "Individual items cannot exceed 70 pounds.",
+      "Pickup On Demand": "Individual items cannot exceed 70 pounds."
+    },
+    {
+      "Package\n  Pickup": "Postage must be prepaid and attached to package(s).",
+      "Pickup On Demand": "Apply postage to each package."
+    },
+    {
+      "Package\n  Pickup": "Packages must be properly sealed and ready for shipment.",
+      "Pickup On Demand": "Have your packages ready for pickup at the time and day specified."
+    },
+    {
+      "Package\n  Pickup": "Packages requiring insurance services need to be taken to a post office.",
+      "Pickup On Demand": ""
+    }
+  ],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=CarrierPickupAvailability",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developer's Guide for information on obtaining your USERID.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ FirmName",
+      "Occurs": "Optional",
+      "Description": "Use this tag for a firm or company name. FirmName is Optional except if needed to uniquely identify an address. Some firms/companies that have their own ZIP codes require the use of firm name to properly identify their address. Example: <FirmName>ABC Company</FirmName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Use this tag for an apartment or suite number. SuiteOrApt is Optional except if needed to uniquely identify an address at a multiple dwelling address, for example, an apartment building. For example: <SuiteOrApt>Suite 777</SuiteOrApt>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ Address2",
+      "Occurs": "Required",
+      "Description": "Use this tag for a street address. For example: <Address2>1390 Market Street</Address2>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ Urbanization",
+      "Occurs": "Required",
+      "Description": "Use this tag for Urbanization (for Puerto Rico only). ZIP Code prefixes 006 to 009, if area is so designated.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=28"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ City",
+      "Occurs": "Required",
+      "Description": "Use this tag for a city. Either ZIP5 or City and State are Required. For example: <City>Houston</City>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ State",
+      "Occurs": "Required",
+      "Description": "Use this tag for a state abbreviation. Either ZIP5 or City and State are Required. For example: <State>TX</State>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=2"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ ZIP5",
+      "Occurs": "Required",
+      "Description": "Use this tag for a 5 digit ZIP Code. Either ZIP5 or City and State are Required. For example: <ZIP5>77058</ZIP5>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=5"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ ZIP4",
+      "Occurs": "Required",
+      "Description": "Maximum characters allowed: 4. For example: <ZIP4>1234</ZIP4>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=4"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest/ Date",
+      "Occurs": "Optional",
+      "Description": "Use this tag to request a pickup date/time. For example: 2006-05-04T18:13:51.0Z",
+      "Type": "String",
+      "Validation": "minOccurs=0 maxOccurs=1"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "<FirmName>ABC Corp.</FirmName>"
+    },
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "<SuiteOrApt>Suite 777</SuiteOrApt>"
+    },
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "<Address2>1390 Market Street</Address2>"
+    },
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "<Urbanization></Urbanization>"
+    },
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "<City>Houston</City>"
+    },
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "<State>TX</State>"
+    },
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "<ZIP5>77058</ZIP5>"
+    },
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "<ZIP4>1234</ZIP4>"
+    },
+    {
+      "<CarrierPickupAvailabilityRequest USERID=\"XXXXXXXXXXXXX\">": "</CarrierPickupAvailabilityRequest>"
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ FirmName",
+      "Occurs": "Optional",
+      "Description": "Firm name sending request",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Suite or apartment (only returned in response if needed to uniquely identify the address, for example, at a multiple dwelling address)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ Address2",
+      "Occurs": "Required",
+      "Description": "Pickup address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ Urbanization",
+      "Occurs": "Required",
+      "Description": "Urbanization",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ City",
+      "Occurs": "Required",
+      "Description": "Pickup city",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ State",
+      "Occurs": "Required",
+      "Description": "Pickup state",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ ZIP5",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ ZIP4",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code+4",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ DayOfWeek",
+      "Occurs": "Required",
+      "Description": "Day of week for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ Date",
+      "Occurs": "Required",
+      "Description": "Scheduled date for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse/ CarrierRoute",
+      "Occurs": "Optional",
+      "Description": "Carrier Route (can be C for City, H for Highway, R for Rural)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupAvailabilityResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "<CarrierPickupAvailabilityResponse>": "<FirmName>ABC Corp.</FirmName>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<SuiteOrApt>Suite 777</SuiteOrApt>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<Address2>1390 Market Street</Address2>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<Urbanization></Urbanization>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<City>Houston</City>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<State>TX</State>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<ZIP5>77058</ZIP5>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<ZIP4>1234</ZIP4>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<DayOfWeek>Monday</DayOfWeek>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<Date>4/01/2004</Date>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "<CarrierRoute>C</CarrierRoute>"
+    },
+    {
+      "<CarrierPickupAvailabilityResponse>": "</CarrierPickupAvailabilityResponse>"
+    }
+  ],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=CarrierPickupSchedule",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "CarrierPickupScheduleRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developer's Guide for information on obtaining your USERID.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / FirstName",
+      "Occurs": "Required",
+      "Description": "Only alpha characters, apostrophes, spaces, periods, and hyphens \"-\" may be used. For example: <FirstName>John</FirstName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / LastName",
+      "Occurs": "Required",
+      "Description": "Only alpha characters, apostrophes, spaces, periods and hyphens \"-\" may be used. For example: <LastName>Doe</LastName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / FirmName",
+      "Occurs": "Optional",
+      "Description": "Only alpha and numeric characters, apostrophes, spaces, hyphens \"-\" and ampersands \"&\" may be used. Use this tag for a firm or company name. Some firms/companies that have their own ZIP codes require the use of firm name to properly identify their address. Note: FirmName is Optional except if the First Name and Last Name tags are null. For example: <FirmName>ABC Company</FirmName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Apartment or suite number. Optional except if needed to uniquely identify an address at a multiple dwelling address, for example, an apartment building. For example: <SuiteOrApt>Suite 777</SuiteOrApt>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / Address2",
+      "Occurs": "Required",
+      "Description": "Street address. For example: <Address2>1390 Market Street</Address2>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / Urbanization",
+      "Occurs": "Required",
+      "Description": "Use this tag for Urbanization (for Puerto Rico only). ZIP Code prefixes 006 to 009, if area is so designated.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=28"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / City",
+      "Occurs": "Required",
+      "Description": "City name. Either ZIP5 or City and State are required. For example: <City>Houston</City>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / State",
+      "Occurs": "Required",
+      "Description": "State abbreviation. Either ZIP5 or City and State are required. For example: <State>TX</State>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=2"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / ZIP5",
+      "Occurs": "Required",
+      "Description": "5-digit ZIP Code. Either ZIP5 or City and State are required. For example: <ZIP5>77058</ZIP5>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=5"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / ZIP4",
+      "Occurs": "Required",
+      "Description": "Use this tag for a 4 digit ZIP Code. For example: <ZIP4>1234</ZIP4>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=4"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / Phone",
+      "Occurs": "Required",
+      "Description": "Two formats are allowed: (###) 123-4567 or ###-123-4567. For example: <Phone>5555551234</Phone> or <Phone>555-555-1234</Phone>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=14"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / Extension",
+      "Occurs": "Optional",
+      "Description": "Optional value for Phone Extension. For example: <Extension>201</Extension>",
+      "Type": "String",
+      "Validation": "minOccurs=0 minLength=0 maxLength=4"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / Package",
+      "Occurs": "Required",
+      "Description": "No values entered with this tag. <ServiceType> and <Count> tags are embedded under this. Refer to the XML request example section, below, to see how these embedded tags are formatted. If the <Count> for a service type is zero, you do not need to encode a <Package> but you must have at least one <Package> with embedded <ServiceType> and <Count> tags.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / Package/ ServiceType",
+      "Occurs": "Required",
+      "Description": "This tag is embedded under the <Package> tag. If your pickup contains more than one Service Type, use additional <Package> tags for each service type with the accompanying <ServiceType> and <Count> tags. Refer to the XML Request Example below to see how these embedded tags are formatted. For example: <ServiceType>PriorityMailExpress</ServiceType>",
+      "Type": "String",
+      "Validation": "minLength=\"0\" Enumeration= · PriorityMailExpress · PriorityMail · ExpressMail · FirstClass · Returns · International"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / Package/ Count",
+      "Occurs": "Required",
+      "Description": "This tag is embedded under the <Package> tag. Enter the number of packages for the accompanying <ServiceType> tag. Maximum characters allowed: 3 or 999 packages. If your pickup contains more than one Service Type, use additional <Package> tags for each service type with the accompanying <ServiceType> and <Count> tags. Refer to the XML request example section, below, to see how these embedded tags are formatted. For example: <Count>2</Count>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=3 minInclusive=1 maxInclusive=999"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / EstimatedWeight",
+      "Occurs": "Required",
+      "Description": "Enter the estimated aggregate weight (in pounds) of all packages being picked up. For example: <EstimatedWeight>14</EstimatedWeight>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=5"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / PackageLocation",
+      "Occurs": "Required",
+      "Description": "Enter one of the following values: Note: \"Other\" requires information in the value for the <SpecialInstructions> tag. For example: <PackageLocation>Front Door</PackageLocation>",
+      "Type": "String",
+      "Validation": "Enumeration= · Front Door · Back Door · Side Door · Knock on Door/Ring Bell · Mail Room · Office · Reception · In/At Mailbox · Other"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / SpecialInstructions",
+      "Occurs": "Optional / Required",
+      "Description": "Value Required when PackageLocation is “Other”. Only alpha, numeric, commas, periods, apostrophes, _, &, -, ( ), ?, #, / +, @ and space characters may be used. For example: <SpecialInstructions>Packages are behind the screen door.</SpecialInstructions>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=255"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest / EmailAddress",
+      "Occurs": "Optional",
+      "Description": "If provided, email notifications will be sent confirming package pickup, or request changes and cancellations. Maximum characters allowed: 50. For example: <EmailAddress>cpapple@email.com</EmailAddress>",
+      "Type": "String",
+      "Validation": "minOccurs=0 minLength=0 maxLength=255"
+    },
+    {
+      "Tag Name": "CarrierPickupScheduleRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / FirstName",
+      "Occurs": "Required",
+      "Description": "First name of person sending request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / LastName",
+      "Occurs": "Required",
+      "Description": "Last name of person sending request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / FirmName",
+      "Occurs": "Optional",
+      "Description": "Firm name sending request (if supplied in request).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Suite or apartment (only returned in response if needed to uniquely identify the address, for example, at a multiple dwelling address).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / Address2",
+      "Occurs": "Required",
+      "Description": "Pickup address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / Urbanization",
+      "Occurs": "Required",
+      "Description": "Urbanization (if supplied in request).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / City",
+      "Occurs": "Required",
+      "Description": "Pickup city.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / State",
+      "Occurs": "Required",
+      "Description": "Pickup state.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / ZIP5",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / ZIP4",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code+4.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / Phone",
+      "Occurs": "Required",
+      "Description": "Phone number of the sender.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / Extension",
+      "Occurs": "Required",
+      "Description": "Phone extension of sender (if supplied in request).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / Package",
+      "Occurs": "Required",
+      "Description": "Packages to be picked up. Can be multiple <Packages> with accompanying <ServiceType> and <Count> tags.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / Package/ ServiceType",
+      "Occurs": "Required",
+      "Description": "Types of package services requested.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / Package/ Count",
+      "Occurs": "Required",
+      "Description": "Number of packages for each service type requested.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / EstimatedWeight",
+      "Occurs": "Required",
+      "Description": "Total estimated weight of all packages to be picked up.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / PackageLocation",
+      "Occurs": "Required",
+      "Description": "Location of pickup.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / SpecialInstructions",
+      "Occurs": "Required",
+      "Description": "Special instructions for pickup.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / ConfirmationNumber",
+      "Occurs": "Required",
+      "Description": "Confirmation number for pickup.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / DayOfWeek",
+      "Occurs": "Required",
+      "Description": "Day of week for pickup.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / Date",
+      "Occurs": "Required",
+      "Description": "Scheduled date for pickup.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / CarrierRoute",
+      "Occurs": "Optional",
+      "Description": "Carrier Route (can be C for City, H for Highway, R for Rural).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse / EmailAddress",
+      "Occurs": "Optional",
+      "Description": "Email Address (if supplied in request).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupScheduleResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll",
+      "API": "?API=CarrierPickupCancel",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ USERID",
+      "Occurs": "Required",
+      "Description": "Web Tools User ID. See the Developer's Guide for information on obtaining your USERID.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ FirmName",
+      "Occurs": "Optional",
+      "Description": "Maximum characters allowed: 50. Only alpha and numeric characters, apostrophes, spaces, hyphens \"-\" and ampersands \"&\" may be used. Firm or company name is optional except if needed to uniquely identify an address. Some firms/companies that have their own ZIP codes require the use of firm name to properly identify their address. For example: <FirmName>ABC Company</FirmName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Apartment or suite number. Optional except if needed to uniquely identify an address at a multiple dwelling address, for example, an apartment building. For example: <SuiteOrApt>Suite 777</SuiteOrApt>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ Address2",
+      "Occurs": "Required",
+      "Description": "Street address. For example: <Address2>1390 Market Street</Address2>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ Urbanization",
+      "Occurs": "Required",
+      "Description": "Urbanization (for Puerto Rico only). ZIP Code prefixes 006 to 009, if area is so designated.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=28"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ City",
+      "Occurs": "Required",
+      "Description": "City name. Either ZIP5 or City and State are Required For example: <City>Houston</City>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ State",
+      "Occurs": "Required",
+      "Description": "State abbreviation. Either ZIP5 or City and State are Required. For example: <State>TX</State>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=2"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ ZIP5",
+      "Occurs": "Required",
+      "Description": "5 digit ZIP Code. Either ZIP5 or City and State are Required. For example: <ZIP5>77058</ZIP5>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=5"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ ZIP4",
+      "Occurs": "Required",
+      "Description": "4 digit ZIP Code. For example: <ZIP4>1234</ZIP4>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=4"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest/ ConfirmationNumber",
+      "Occurs": "Required",
+      "Description": "Enter exact Confirmation Number returned with Package Pickup Schedule request. For example: <ConfirmationNumber>ABC12345</ConfirmationNumber>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ FirmName",
+      "Occurs": "Required",
+      "Description": "Firm name sending request (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Suite or apartment (only returned in response if needed to uniquely identify the address, for example, at a multiple dwelling address)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ Address2",
+      "Occurs": "Required",
+      "Description": "Pickup address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ Urbanization",
+      "Occurs": "Required",
+      "Description": "Urbanization (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ City",
+      "Occurs": "Required",
+      "Description": "Pickup city",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ State",
+      "Occurs": "Required",
+      "Description": "Pickup state",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ ZIP5",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ ZIP4",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code+4 (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ ConfirmationNumber",
+      "Occurs": "Required",
+      "Description": "Confirmation number for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse/ Status",
+      "Occurs": "Required",
+      "Description": "Status of request to cancel",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupCancelResponse",
+      "Occurs": "Required",
+      "Description": "Type of Response",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=CarrierPickupChange",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ USERID",
+      "Occurs": "Required",
+      "Description": "Web Tools user ID. See the Developer's Guide for information on obtaining your USERID.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ FirstName",
+      "Occurs": "Required",
+      "Description": "Only alpha characters, apostrophes, spaces, periods and hyphens \"-\" may be used. For example: <FirstName>John</FirstName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ LastName",
+      "Occurs": "Required",
+      "Description": "Only alpha characters, apostrophes, spaces, periods and hyphens \"-\" may be used. For example: <LastName>Doe</LastName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ FirmName",
+      "Occurs": "Optional",
+      "Description": "Only alpha and numeric characters, apostrophes, spaces, hyphens \"-\" and ampersands \"&\" may be used. Use this tag for a firm or company name. FirmName is Optional except if First Name and Last Name tags are null. Some firms/companies that have their own ZIP codes require the use of firm name to properly identify their address. For example: <FirmName>ABC Company</FirmName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ SuiteOrApt",
+      "Occurs": "Optional",
+      "Description": "Apartment or suite number. Optional except if needed to uniquely identify an address at a multiple dwelling address, for example, an apartment building. For example: <SuiteOrApt>Suite 777</SuiteOrApt>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ Address2",
+      "Occurs": "Required",
+      "Description": "Use this tag for a street address. For example: <Address2>1390 Market Street</Address2>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ Urbanization",
+      "Occurs": "Required",
+      "Description": "Use this tag for Urbanization (for Puerto Rico only). ZIP Code prefixes 006 to 009, if area is so designated.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=28"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ City",
+      "Occurs": "Required",
+      "Description": "Use this tag for a city. Either ZIP5 or City and State are Required. For example: <City>Houston</City>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ State",
+      "Occurs": "Required",
+      "Description": "Use this tag for a state abbreviation. Either ZIP5 or City and State are Required. For example: <State>TX</State>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=2"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ ZIP5",
+      "Occurs": "Required",
+      "Description": "Use this tag for a 5 digit ZIP Code. Either ZIP5 or City and State are Required. For example: <ZIP5>77058</ZIP5>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=5"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ ZIP4",
+      "Occurs": "Required",
+      "Description": "Use this tag for a 4 digit ZIP Code. For example: <ZIP4>1234</ZIP4>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=4"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ Phone",
+      "Occurs": "Required",
+      "Description": "Two formats are allowed: (###) 123-4567 or ###-123-4567. For example: <Phone>(555) 555-1234</Phone> or <Phone>555-555-1234</Phone>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=14"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ Extension",
+      "Occurs": "Required",
+      "Description": "Extension related to the Phone Number For example: <Extension>201</Extension>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=4"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ Package",
+      "Occurs": "Required",
+      "Description": "No values entered with this tag. <ServiceType> and <Count> tags are embedded under this. Refer to the XML request example section, below, to see how these embedded tags are formatted. If the <Count> for a service type is zero, you do not need to encode a <Package> but you must have at least one <Package> with embedded <ServiceType> and <Count> tags.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ Package/ ServiceType",
+      "Occurs": "Required",
+      "Description": "This tag is embedded under the <Package> tag. If your pickup contains more than one Service Type, use additional <Package> tags for each service type with the accompanying <ServiceType> and <Count> tags. Refer to the Live XML Request Example section, below, to see how these embedded tags are formatted. For example: <ServiceType>PriorityMailExpress</ServiceType>",
+      "Type": "String",
+      "Validation": "Enumerations: · PriorityMailExpress · PriorityMail · ExpressMail · FirstClass · Returns · International"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ Package/ Count",
+      "Occurs": "Required",
+      "Description": "This tag is embedded under the <Package> tag. Enter the number of packages for the accompanying <ServiceType> tag. Maximum characters allowed: 3 or 999 packages There must be at least one Priority Mail Express Package or one Priority Mail package or one returned merchandise package to make this a valid request. If your pickup contains more than one Service Type, use additional <Package> tags for each service type with the accompanying <ServiceType> and <Count> tags. Refer to the Live XML Request Example section, below, to see how these embedded tags are formatted. For example: <Count>2</Count>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=3 minInclusive=1 maxInclusive=999"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ EstimatedWeight",
+      "Occurs": "Required",
+      "Description": "Enter the estimated aggregate weight (in pounds) of all packages being picked up. For example: <EstimatedWeight>14</EstimatedWeight>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=5"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ PackageLocation",
+      "Occurs": "Required",
+      "Description": "Note: \"Other\" requires information in the value for the <SpecialInstructions> tag. For example: <PackageLocation>Front Door</PackageLocation>",
+      "Type": "String",
+      "Validation": "Enumeration: · Front Door · Back Door · Side Door · Knock on Door/Ring Bell · Mail Room · Office · Reception · In/At Mailbox · Other"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ SpecialInstructions",
+      "Occurs": "Optional / Required",
+      "Description": "Only alpha, numeric, commas, periods, apostrophes, _, &, -, ( ), ?, #, / +, @ and space characters may be used. Required when Package Location tag is “Other” For example: <SpecialInstructions>Packages are behind the screen door.</SpecialInstructions>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=255"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ ConfirmationNumber",
+      "Occurs": "Required",
+      "Description": "Enter exact Confirmation Number returned with Package Pickup Schedule request. For example: ConfirmationNumber>ABC12345</ConfirmationNumber>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest/ EmailAddress",
+      "Occurs": "Optional",
+      "Description": "If provided, email notifications will be sent confirming package pickup, or request changes and cancellations. Maximum characters allowed: 50. For example: <EmailAddress>cpapple@email.com</EmailAddress>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<FirstName>John</FirstName>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<LastName>Doe</LastName>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<FirmName>ABC Corp.</FirmName>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<SuiteOrApt>Suite 777</SuiteOrApt>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Address2>1390 Market Street</Address2>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Urbanization></Urbanization>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<City>Houston</City>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<State>TX</State>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<ZIP5>77058</ZIP5>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<ZIP4>1234</ZIP4>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Phone>(555) 555-1234</Phone>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Extension>201</Extension>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Package>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<ServiceType>PriorityMailExpress</ServiceType>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Count>2</Count>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "</Package>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Package>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<ServiceType>PriorityMail</ServiceType>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Count>1</Count>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "</Package>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<EstimatedWeight>14</EstimatedWeight>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<PackageLocation>Front Door</PackageLocation>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<SpecialInstructions> Packages are behind the screen door.</SpecialInstructions>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "<ConfirmationNumber>ABC12345</ConfirmationNumber>"
+    },
+    {
+      "<CarrierPickupChangeRequest\n  USERID=\"XXXXXXXXXXXX\">": "</CarrierPickupChangeRequest>"
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ FirstName",
+      "Occurs": "Required",
+      "Description": "First name of person sending request",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ LastName",
+      "Occurs": "Required",
+      "Description": "Last name of person sending request",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ FirmName",
+      "Occurs": "Optional",
+      "Description": "Firm name sending request (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Suite or apartment (only returned in response if needed to uniquely identify the address, for example, at a multiple dwelling address)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Address2",
+      "Occurs": "Required",
+      "Description": "Pickup address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Urbanization",
+      "Occurs": "Required",
+      "Description": "Urbanization (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ City",
+      "Occurs": "Required",
+      "Description": "Pickup city",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ State",
+      "Occurs": "Required",
+      "Description": "Pickup state",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ ZIP5",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ ZIP4",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code+4",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Phone",
+      "Occurs": "Required",
+      "Description": "Phone number of sender",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Extension",
+      "Occurs": "Required",
+      "Description": "Phone extension of sender (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Package",
+      "Occurs": "Required",
+      "Description": "Packages to be picked up (multiple <Package> tags can be returned with accompanying <ServiceType> and <Count> tags.",
+      "Type": "(group)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Package/ ServiceType",
+      "Occurs": "Required",
+      "Description": "Types of package services requested",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Package/ Count",
+      "Occurs": "Required",
+      "Description": "Number of packages for each service type requested",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ EstimatedWeight",
+      "Occurs": "Required",
+      "Description": "Total estimated weight of all packages to be picked up",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ PackageLocation",
+      "Occurs": "Required",
+      "Description": "Location of pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ SpecialInstructions",
+      "Occurs": "Optional",
+      "Description": "Special instructions for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ ConfirmationNumber",
+      "Occurs": "Required",
+      "Description": "Confirmation number for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ DayOfWeek",
+      "Occurs": "Required",
+      "Description": "Day of week for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Date",
+      "Occurs": "Required",
+      "Description": "Scheduled date for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ Status",
+      "Occurs": "Optional",
+      "Description": "Status of request to change",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse/ EmailAddress",
+      "Occurs": "Optional",
+      "Description": "Email Address (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupChangeResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "<CarrierPickupChangeResponse>": "<FirstName>John</FirstName>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<LastName>Doe</LastName>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<FirmName>ABC Corp.</FirmName>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<SuiteOrApt>Suite 777</SuiteOrApt>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Address2>1390 Market Street</Address2>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Urbanization></Urbanization>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<City>Houston</City>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<State>TX</State>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<ZIP5>77058</ZIP5>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<ZIP4>1234</ZIP4>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Phone>(555) 555-1234</Phone>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Extension>201</Extension>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Package>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<ServiceType>PriorityMailExpress</ServiceType>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Count>2</Count>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "</Package>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Package>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<ServiceType>PriorityMail</ServiceType>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Count>1</Count>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "</Package>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<EstimatedWeight>14</EstimatedWeight>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<PackageLocation>Front Door</PackageLocation>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<SpecialInstructions>Packages are behind the screen door.</SpecialInstructions>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<ConfirmationNumber>ABC12345</ConfirmationNumber>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<DayOfWeek>Monday</DayOfWeek>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Date>04/01/2004</Date>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "<Status>Update successful</Status>"
+    },
+    {
+      "<CarrierPickupChangeResponse>": "</CarrierPickupChangeResponse>"
+    }
+  ],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=CarrierPickupInquiry",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / USERID",
+      "Occurs": "Required",
+      "Description": "Web Tools User ID. See the Developer's Guide for information on obtaining your USERID",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / FirmName",
+      "Occurs": "Optional",
+      "Description": "Only alpha and numeric characters, apostrophes, spaces, hyphens \"-\" and ampersands \"&\" may be used. Firm or company name is optional except if needed to uniquely identify an address. Some firms/companies that have their own ZIP codes require the use of firm name to properly identify their address. For example: <FirmName>ABC Company</FirmName>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Apartment or suite number is optional except if needed to uniquely identify an address at a multiple dwelling address, for example, an apartment building. For example: <SuiteOrApt>Suite 777</SuiteOrApt>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / Address2",
+      "Occurs": "Required",
+      "Description": "Use this tag for a street address. For example: <Address2>1390 Market Street</Address2>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / Urbanization",
+      "Occurs": "Required",
+      "Description": "Use this tag for an Urbanization (for Puerto Rico only). ZIP Code prefixes 006 to 009, if area is so designated.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=28"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / City",
+      "Occurs": "Required",
+      "Description": "Use this tag for a city. Either ZIP5 or City and State are Required For example: <City>Houston</City>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=30"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / State",
+      "Occurs": "Required",
+      "Description": "Use this tag for a state abbreviation. Either ZIP5 or City and State are Required. For example: <State>TX</State>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=2"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / ZIP5",
+      "Occurs": "Required",
+      "Description": "Use this tag for a 5 digit ZIP Code. Maximum characters allowed: 5. Either ZIP5 or City and State are Required. For example: <ZIP5>77058</ZIP5>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=5"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / ZIP4",
+      "Occurs": "Required",
+      "Description": "Maximum characters allowed: 4. For example: <ZIP4>1234</ZIP4>",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=4"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest / ConfirmationNumber",
+      "Occurs": "Required",
+      "Description": "Enter exact Confirmation Number returned with Package Pickup Schedule request. For example: <ConfirmationNumber>ABC12345</ConfirmationNumber>",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=30"
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<FirmName>ABC Corp.</FirmName>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<SuiteOrApt>Suite 777</SuiteOrApt>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Address2>1390 Market Street</Address2>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<Urbanization></Urbanization>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<City>Houston</City>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<State>TX</State>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<ZIP5>77058</ZIP5>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<ZIP4>1234</ZIP4>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "<ConfirmationNumber>ABC12345</ConfirmationNumber>"
+    },
+    {
+      "<CarrierPickupInquiryRequest\n  USERID=\"XXXXXXXXXXXX\">": "</CarrierPickupInquiryRequest>"
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ FirstName",
+      "Occurs": "Required",
+      "Description": "First name of person sending request",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ LastName",
+      "Occurs": "Required",
+      "Description": "Last name of person sending request",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ FirmName",
+      "Occurs": "Required",
+      "Description": "Firm name sending request (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ SuiteOrApt",
+      "Occurs": "Required",
+      "Description": "Suite or apartment (only returned in response if needed to uniquely identify the address, for example, at a multiple dwelling address)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ Address2",
+      "Occurs": "Required",
+      "Description": "Pickup address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ Urbanization",
+      "Occurs": "Required",
+      "Description": "Urbanization (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ City",
+      "Occurs": "Required",
+      "Description": "Pickup city",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ State",
+      "Occurs": "Required",
+      "Description": "Pickup state",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ ZIP5",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ ZIP4",
+      "Occurs": "Required",
+      "Description": "Pickup ZIP Code+4",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ Phone",
+      "Occurs": "Required",
+      "Description": "Phone number of the sender.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ Extension",
+      "Occurs": "Required",
+      "Description": "Phone extension of sender (if supplied in request)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ Package",
+      "Occurs": "Required",
+      "Description": "Packages to be picked up (multiple <Package> tags can be returned with accompanying <ServiceType> and <Count> tags.",
+      "Type": "(group)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ Package/ ServiceType",
+      "Occurs": "Required",
+      "Description": "Types of package services requested",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ Package/ Count",
+      "Occurs": "Required",
+      "Description": "Number of packages for each service type requested",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ EstimatedWeight",
+      "Occurs": "Required",
+      "Description": "Total estimated weight of all packages to be picked up",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ PackageLocation",
+      "Occurs": "Required",
+      "Description": "Location of pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ SpecialInstructions",
+      "Occurs": "Required",
+      "Description": "Special instructions for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ ConfirmationNumber",
+      "Occurs": "Required",
+      "Description": "Confirmation number for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ DayOfWeek",
+      "Occurs": "Required",
+      "Description": "Day of week for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ Date",
+      "Occurs": "Required",
+      "Description": "Scheduled date for pickup",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/ EmailAddress",
+      "Occurs": "Optional",
+      "Description": "Email Address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "CarrierPickupInquiryResponse/",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "<CarrierPickupInquiryResponse>": "<FirstName>John</FirstName>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<LastName>Doe</LastName>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<FirmName>ABC Corp.</FirmName>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<SuiteOrApt>Suite 777</SuiteOrApt>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Address2>1390 Market Street</Address2>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Urbanization></Urbanization>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<City>Houston</City>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<State>TX</State>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<ZIP5>77058</ZIP5>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<ZIP4>1234</ZIP4>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Phone>5555551234</Phone>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Extension>201</Extension>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Package>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<ServiceType>PriorityMailExpress</ServiceType>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Count>2</Count>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "</Package>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Package>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<ServiceType>PriorityMail</ServiceType>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Count>1</Count>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "</Package>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<EstimatedWeight>14</EstimatedWeight>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<PackageLocation>Front Door</PackageLocation>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<SpecialInstructions> Packages are behind the screen door.</SpecialInstructions>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<ConfirmationNumber>ABC12345</ConfirmationNumber>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<DayOfWeek>Monday</DayOfWeek>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "<Date>04/01/2004</Date>"
+    },
+    {
+      "<CarrierPickupInquiryResponse>": "</CarrierPickupInquiryResponse>"
+    }
+  ]
+]

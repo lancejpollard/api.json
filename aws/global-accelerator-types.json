@@ -1,0 +1,615 @@
+[
+  {
+    "title": "Accelerator",
+    "attrs": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator."
+      },
+      "CreatedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time that the accelerator was created."
+      },
+      "DnsName": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. The naming convention for the DNS name is the following: A lowercase letter a, followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example: a1234567890abcdef.awsglobalaccelerator.com. For more information about the default DNS name, see Support for DNS Addressing in Global Accelerator in the AWS Global Accelerator Developer Guide."
+      },
+      "Enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether the accelerator is enabled. The value is true or false. The default value is true. If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted."
+      },
+      "IpAddressType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The value for the address type must be IPv4."
+      },
+      "IpSets": {
+        "type": "Array of IpSet objects",
+        "required": "No",
+        "desc": "The static IP addresses that Global Accelerator associates with the accelerator."
+      },
+      "LastModifiedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time that the accelerator was last modified."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the accelerator. The name must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+      },
+      "Status": {
+        "type": "String",
+        "required": "No",
+        "desc": "Describes the deployment status of the accelerator."
+      }
+    }
+  },
+  {
+    "title": "AcceleratorAttributes",
+    "attrs": {
+      "FlowLogsEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether flow logs are enabled. The default value is false. If the value is true, FlowLogsS3Bucket and FlowLogsS3Prefix must be specified. For more information, see Flow Logs in the AWS Global Accelerator Developer Guide."
+      },
+      "FlowLogsS3Bucket": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket."
+      },
+      "FlowLogsS3Prefix": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true. If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following: s3-bucket_name//AWSLogs/aws_account_id"
+      }
+    }
+  },
+  {
+    "title": "ByoipCidr",
+    "attrs": {
+      "Cidr": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The address range, in CIDR notation."
+      },
+      "Events": {
+        "type": "Array of ByoipCidrEvent objects",
+        "required": "No",
+        "desc": "A history of status changes for an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP)."
+      },
+      "State": {
+        "type": "String",
+        "required": "No",
+        "desc": "The state of the address pool."
+      }
+    }
+  },
+  {
+    "title": "ByoipCidrEvent",
+    "attrs": {
+      "Message": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "A string that contains an Event message describing changes that you make in the status of an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP)."
+      },
+      "Timestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp when you make a status change for an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP)."
+      }
+    }
+  },
+  {
+    "title": "CidrAuthorizationContext",
+    "attrs": {
+      "Message": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The plain-text authorization message for the prefix and account."
+      },
+      "Signature": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The signed authorization message for the prefix and account."
+      }
+    }
+  },
+  {
+    "title": "CustomRoutingAccelerator",
+    "attrs": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the custom routing accelerator."
+      },
+      "CreatedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time that the accelerator was created."
+      },
+      "DnsName": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. The naming convention for the DNS name is the following: A lowercase letter a, followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example: a1234567890abcdef.awsglobalaccelerator.com. For more information about the default DNS name, see Support for DNS Addressing in Global Accelerator in the AWS Global Accelerator Developer Guide."
+      },
+      "Enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether the accelerator is enabled. The value is true or false. The default value is true. If the value is set to true, the accelerator cannot be deleted. If set to false, accelerator can be deleted."
+      },
+      "IpAddressType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The value for the address type must be IPv4."
+      },
+      "IpSets": {
+        "type": "Array of IpSet objects",
+        "required": "No",
+        "desc": "The static IP addresses that Global Accelerator associates with the accelerator."
+      },
+      "LastModifiedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time that the accelerator was last modified."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the accelerator. The name must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+      },
+      "Status": {
+        "type": "String",
+        "required": "No",
+        "desc": "Describes the deployment status of the accelerator."
+      }
+    }
+  },
+  {
+    "title": "CustomRoutingAcceleratorAttributes",
+    "attrs": {
+      "FlowLogsEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether flow logs are enabled. The default value is false. If the value is true, FlowLogsS3Bucket and FlowLogsS3Prefix must be specified. For more information, see Flow Logs in the AWS Global Accelerator Developer Guide."
+      },
+      "FlowLogsS3Bucket": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket."
+      },
+      "FlowLogsS3Prefix": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true. If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following: DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id"
+      }
+    }
+  },
+  {
+    "title": "CustomRoutingDestinationConfiguration",
+    "attrs": {
+      "FromPort": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator."
+      },
+      "Protocols": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP."
+      },
+      "ToPort": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator."
+      }
+    }
+  },
+  {
+    "title": "CustomRoutingDestinationDescription",
+    "attrs": {
+      "FromPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator."
+      },
+      "Protocols": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP."
+      },
+      "ToPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator."
+      }
+    }
+  },
+  {
+    "title": "CustomRoutingEndpointConfiguration",
+    "attrs": {
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID."
+      }
+    }
+  },
+  {
+    "title": "CustomRoutingEndpointDescription",
+    "attrs": {
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID."
+      }
+    }
+  },
+  {
+    "title": "CustomRoutingEndpointGroup",
+    "attrs": {
+      "DestinationDescriptions": {
+        "type": "Array of CustomRoutingDestinationDescription objects",
+        "required": "No",
+        "desc": "For a custom routing accelerator, describes the port range and protocol for all endpoints (virtual private cloud subnets) in an endpoint group to accept client traffic on."
+      },
+      "EndpointDescriptions": {
+        "type": "Array of CustomRoutingEndpointDescription objects",
+        "required": "No",
+        "desc": "For a custom routing accelerator, describes the endpoints (virtual private cloud subnets) in an endpoint group to accept client traffic on."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group."
+      },
+      "EndpointGroupRegion": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The AWS Region where the endpoint group is located."
+      }
+    }
+  },
+  {
+    "title": "CustomRoutingListener",
+    "attrs": {
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the listener."
+      },
+      "PortRanges": {
+        "type": "Array of PortRange objects",
+        "required": "No",
+        "desc": "The port range to support for connections from clients to your accelerator. Separately, you set port ranges for endpoints. For more information, see About endpoints for custom routing accelerators."
+      }
+    }
+  },
+  {
+    "title": "DestinationPortMapping",
+    "attrs": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the custom routing accelerator that you have port mappings for."
+      },
+      "AcceleratorSocketAddresses": {
+        "type": "Array of SocketAddress objects",
+        "required": "No",
+        "desc": "The IP address/port combinations (sockets) that map to a given destination socket address."
+      },
+      "DestinationSocketAddress": {
+        "type": "SocketAddress object",
+        "required": "No",
+        "desc": "The endpoint IP address/port combination for traffic received on the accelerator socket address."
+      },
+      "DestinationTrafficState": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group."
+      },
+      "EndpointGroupRegion": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The AWS Region for the endpoint group."
+      },
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The ID for the virtual private cloud (VPC) subnet."
+      },
+      "IpAddressType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The IP address type, which must be IPv4."
+      }
+    }
+  },
+  {
+    "title": "EndpointConfiguration",
+    "attrs": {
+      "ClientIPPreservationEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. The value is true or false. The default value is true for new accelerators. If the value is set to true, the client's IP address is preserved in the X-Forwarded-For request header as traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator. For more information, see Preserve Client IP Addresses in AWS Global Accelerator in the AWS Global Accelerator Developer Guide."
+      },
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. A resource must be valid and active when you add it as an endpoint. An Application Load Balancer can be either internal or internet-facing."
+      },
+      "Weight": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second and third endpoints, and 6/20 is routed to the last endpoint. For more information, see Endpoint Weights in the AWS Global Accelerator Developer Guide."
+      }
+    }
+  },
+  {
+    "title": "EndpointDescription",
+    "attrs": {
+      "ClientIPPreservationEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. The value is true or false. The default value is true for new accelerators. If the value is set to true, the client's IP address is preserved in the X-Forwarded-For request header as traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator. For more information, see Viewing Client IP Addresses in AWS Global Accelerator in the AWS Global Accelerator Developer Guide."
+      },
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID. For Amazon EC2 instances, this is the EC2 instance ID. An Application Load Balancer can be either internal or internet-facing."
+      },
+      "HealthReason": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "Returns a null result."
+      },
+      "HealthState": {
+        "type": "String",
+        "required": "No",
+        "desc": "The health status of the endpoint."
+      },
+      "Weight": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second and third endpoints, and 6/20 is routed to the last endpoint. For more information, see Endpoint Weights in the AWS Global Accelerator Developer Guide."
+      }
+    }
+  },
+  {
+    "title": "EndpointGroup",
+    "attrs": {
+      "EndpointDescriptions": {
+        "type": "Array of EndpointDescription objects",
+        "required": "No",
+        "desc": "The list of endpoint objects."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group."
+      },
+      "EndpointGroupRegion": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The AWS Region where the endpoint group is located."
+      },
+      "HealthCheckIntervalSeconds": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The time—10 seconds or 30 seconds—between health checks for each endpoint. The default value is 30."
+      },
+      "HealthCheckPath": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "pattern": "^/[-a-zA-Z0-9@:%_\\\\+.~#?&/=]*$",
+        "required": "No",
+        "desc": "If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/)."
+      },
+      "HealthCheckPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default port is the port for the listener that this endpoint group is associated with. If the listener port is a list, Global Accelerator uses the first specified port in the list of ports."
+      },
+      "HealthCheckProtocol": {
+        "type": "String",
+        "required": "No",
+        "desc": "The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default value is TCP."
+      },
+      "PortOverrides": {
+        "type": "Array of PortOverride objects",
+        "required": "No",
+        "desc": "Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you to map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on."
+      },
+      "ThresholdCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3."
+      },
+      "TrafficDialPercentage": {
+        "type": "Float",
+        "required": "No",
+        "desc": "The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing. The default value is 100."
+      }
+    }
+  },
+  {
+    "title": "IpSet",
+    "attrs": {
+      "IpAddresses": {
+        "type": "Array of strings",
+        "length": "Maximum length of 45.",
+        "required": "No",
+        "desc": "The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses."
+      },
+      "IpFamily": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The types of IP addresses included in this IP set."
+      }
+    }
+  },
+  {
+    "title": "Listener",
+    "attrs": {
+      "ClientAffinity": {
+        "type": "String",
+        "required": "No",
+        "desc": "Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint. AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is NONE, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. If you want a given client to always be routed to the same endpoint, set client affinity to SOURCE_IP instead. When you use the SOURCE_IP setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value. The default value is NONE."
+      },
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the listener."
+      },
+      "PortRanges": {
+        "type": "Array of PortRange objects",
+        "required": "No",
+        "desc": "The list of port ranges for the connections from clients to the accelerator."
+      },
+      "Protocol": {
+        "type": "String",
+        "required": "No",
+        "desc": "The protocol for the connections from clients to the accelerator."
+      }
+    }
+  },
+  {
+    "title": "PortMapping",
+    "attrs": {
+      "AcceleratorPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The accelerator port."
+      },
+      "DestinationSocketAddress": {
+        "type": "SocketAddress object",
+        "required": "No",
+        "desc": "The EC2 instance IP address and port number in the virtual private cloud (VPC) subnet."
+      },
+      "DestinationTrafficState": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group."
+      },
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The IP address of the VPC subnet (the subnet ID)."
+      },
+      "Protocols": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The protocols supported by the endpoint group."
+      }
+    }
+  },
+  {
+    "title": "PortOverride",
+    "attrs": {
+      "EndpointPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance."
+      },
+      "ListenerPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on."
+      }
+    }
+  },
+  {
+    "title": "PortRange",
+    "attrs": {
+      "FromPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The first port in the range of ports, inclusive."
+      },
+      "ToPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The last port in the range of ports, inclusive."
+      }
+    }
+  },
+  {
+    "title": "SocketAddress",
+    "attrs": {
+      "IpAddress": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The IP address for the socket address."
+      },
+      "Port": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The port for the socket address."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "required": "Yes",
+        "desc": "A string that contains a Tag key."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "A string that contains a Tag value."
+      }
+    }
+  }
+]

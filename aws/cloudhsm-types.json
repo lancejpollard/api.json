@@ -1,0 +1,310 @@
+[
+  {
+    "title": "Backup",
+    "attrs": {
+      "BackupId": {
+        "type": "String",
+        "pattern": "backup-[2-7a-zA-Z]{11,16}",
+        "required": "Yes",
+        "desc": "The identifier (ID) of the backup."
+      },
+      "BackupState": {
+        "type": "String",
+        "required": "No",
+        "desc": "The state of the backup."
+      },
+      "ClusterId": {
+        "type": "String",
+        "pattern": "cluster-[2-7a-zA-Z]{11,16}",
+        "required": "No",
+        "desc": "The identifier (ID) of the cluster that was backed up."
+      },
+      "CopyTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the backup was copied from a source backup."
+      },
+      "CreateTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the backup was created."
+      },
+      "DeleteTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the backup will be permanently deleted."
+      },
+      "NeverExpires": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether the service should exempt a backup from the retention policy for the cluster. True exempts a backup from the retention policy. False means the service applies the backup retention policy defined at the cluster."
+      },
+      "SourceBackup": {
+        "type": "String",
+        "pattern": "backup-[2-7a-zA-Z]{11,16}",
+        "required": "No",
+        "desc": "The identifier (ID) of the source backup from which the new backup was copied."
+      },
+      "SourceCluster": {
+        "type": "String",
+        "pattern": "cluster-[2-7a-zA-Z]{11,16}",
+        "required": "No",
+        "desc": "The identifier (ID) of the cluster containing the source backup from which the new backup was copied."
+      },
+      "SourceRegion": {
+        "type": "String",
+        "pattern": "[a-z]{2}(-(gov))?-(east|west|north|south|central){1,2}-\\d",
+        "required": "No",
+        "desc": "The AWS Region that contains the source backup from which the new backup was copied."
+      },
+      "TagList": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The list of tags for the backup."
+      }
+    }
+  },
+  {
+    "title": "BackupRetentionPolicy",
+    "attrs": {
+      "Type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of backup retention policy. For the DAYS type, the value is the number of days to retain backups."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 3.",
+        "pattern": "[0-9]+",
+        "required": "No",
+        "desc": "Use a value between 7 - 379."
+      }
+    }
+  },
+  {
+    "title": "Certificates",
+    "attrs": {
+      "AwsHardwareCertificate": {
+        "type": "String",
+        "length": "Maximum length of 5000.",
+        "pattern": "[a-zA-Z0-9+-/=\\s]*",
+        "required": "No",
+        "desc": "The HSM hardware certificate issued (signed) by AWS CloudHSM."
+      },
+      "ClusterCertificate": {
+        "type": "String",
+        "length": "Maximum length of 5000.",
+        "pattern": "[a-zA-Z0-9+-/=\\s]*",
+        "required": "No",
+        "desc": "The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner."
+      },
+      "ClusterCsr": {
+        "type": "String",
+        "length": "Maximum length of 5000.",
+        "pattern": "[a-zA-Z0-9+-/=\\s]*",
+        "required": "No",
+        "desc": "The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is UNINITIALIZED."
+      },
+      "HsmCertificate": {
+        "type": "String",
+        "length": "Maximum length of 5000.",
+        "pattern": "[a-zA-Z0-9+-/=\\s]*",
+        "required": "No",
+        "desc": "The HSM certificate issued (signed) by the HSM hardware."
+      },
+      "ManufacturerHardwareCertificate": {
+        "type": "String",
+        "length": "Maximum length of 5000.",
+        "pattern": "[a-zA-Z0-9+-/=\\s]*",
+        "required": "No",
+        "desc": "The HSM hardware certificate issued (signed) by the hardware manufacturer."
+      }
+    }
+  },
+  {
+    "title": "Cluster",
+    "attrs": {
+      "BackupPolicy": {
+        "type": "String",
+        "required": "No",
+        "desc": "The cluster's backup policy."
+      },
+      "BackupRetentionPolicy": {
+        "type": "BackupRetentionPolicy object",
+        "required": "No",
+        "desc": "A policy that defines how the service retains backups."
+      },
+      "Certificates": {
+        "type": "Certificates object",
+        "required": "No",
+        "desc": "Contains one or more certificates or a certificate signing request (CSR)."
+      },
+      "ClusterId": {
+        "type": "String",
+        "pattern": "cluster-[2-7a-zA-Z]{11,16}",
+        "required": "No",
+        "desc": "The cluster's identifier (ID)."
+      },
+      "CreateTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the cluster was created."
+      },
+      "Hsms": {
+        "type": "Array of Hsm objects",
+        "required": "No",
+        "desc": "Contains information about the HSMs in the cluster."
+      },
+      "HsmType": {
+        "type": "String",
+        "pattern": "(hsm1\\.medium)",
+        "required": "No",
+        "desc": "The type of HSM that the cluster contains."
+      },
+      "PreCoPassword": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 32.",
+        "required": "No",
+        "desc": "The default password for the cluster's Pre-Crypto Officer (PRECO) user."
+      },
+      "SecurityGroup": {
+        "type": "String",
+        "pattern": "sg-[0-9a-fA-F]{8,17}",
+        "required": "No",
+        "desc": "The identifier (ID) of the cluster's security group."
+      },
+      "SourceBackupId": {
+        "type": "String",
+        "pattern": "backup-[2-7a-zA-Z]{11,16}",
+        "required": "No",
+        "desc": "The identifier (ID) of the backup used to create the cluster. This value exists only when the cluster was created from a backup."
+      },
+      "State": {
+        "type": "String",
+        "required": "No",
+        "desc": "The cluster's state."
+      },
+      "StateMessage": {
+        "type": "String",
+        "length": "Maximum length of 300.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "A description of the cluster's state."
+      },
+      "SubnetMapping": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "A map from availability zone to the cluster’s subnet in that availability zone."
+      },
+      "TagList": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The list of tags for the cluster."
+      },
+      "VpcId": {
+        "type": "String",
+        "pattern": "vpc-[0-9a-fA-F]",
+        "required": "No",
+        "desc": "The identifier (ID) of the virtual private cloud (VPC) that contains the cluster."
+      }
+    }
+  },
+  {
+    "title": "DestinationBackup",
+    "attrs": {
+      "CreateTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when both the source backup was created."
+      },
+      "SourceBackup": {
+        "type": "String",
+        "pattern": "backup-[2-7a-zA-Z]{11,16}",
+        "required": "No",
+        "desc": "The identifier (ID) of the source backup from which the new backup was copied."
+      },
+      "SourceCluster": {
+        "type": "String",
+        "pattern": "cluster-[2-7a-zA-Z]{11,16}",
+        "required": "No",
+        "desc": "The identifier (ID) of the cluster containing the source backup from which the new backup was copied."
+      },
+      "SourceRegion": {
+        "type": "String",
+        "pattern": "[a-z]{2}(-(gov))?-(east|west|north|south|central){1,2}-\\d",
+        "required": "No",
+        "desc": "The AWS region that contains the source backup from which the new backup was copied."
+      }
+    }
+  },
+  {
+    "title": "Hsm",
+    "attrs": {
+      "AvailabilityZone": {
+        "type": "String",
+        "pattern": "[a-z]{2}(-(gov))?-(east|west|north|south|central){1,2}-\\d[a-z]",
+        "required": "No",
+        "desc": "The Availability Zone that contains the HSM."
+      },
+      "ClusterId": {
+        "type": "String",
+        "pattern": "cluster-[2-7a-zA-Z]{11,16}",
+        "required": "No",
+        "desc": "The identifier (ID) of the cluster that contains the HSM."
+      },
+      "EniId": {
+        "type": "String",
+        "pattern": "eni-[0-9a-fA-F]{8,17}",
+        "required": "No",
+        "desc": "The identifier (ID) of the HSM's elastic network interface (ENI)."
+      },
+      "EniIp": {
+        "type": "String",
+        "pattern": "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}",
+        "required": "No",
+        "desc": "The IP address of the HSM's elastic network interface (ENI)."
+      },
+      "HsmId": {
+        "type": "String",
+        "pattern": "hsm-[2-7a-zA-Z]{11,16}",
+        "required": "Yes",
+        "desc": "The HSM's identifier (ID)."
+      },
+      "State": {
+        "type": "String",
+        "required": "No",
+        "desc": "The HSM's state."
+      },
+      "StateMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "A description of the HSM's state."
+      },
+      "SubnetId": {
+        "type": "String",
+        "pattern": "subnet-[0-9a-fA-F]{8,17}",
+        "required": "No",
+        "desc": "The subnet that contains the HSM's elastic network interface (ENI)."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The key of the tag."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The value of the tag."
+      }
+    }
+  }
+]

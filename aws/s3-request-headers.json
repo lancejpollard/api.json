@@ -1,0 +1,44 @@
+[
+  [
+    {
+      "Header Name": "Authorization",
+      "Description": "The information required for request authentication. For more information, go to The Authentication Header in the Amazon Simple Storage Service Developer Guide. For anonymous requests this header is not required."
+    },
+    {
+      "Header Name": "Content-Length",
+      "Description": "Length of the message (without the headers) according to RFC 2616. This header is required for PUTs and operations that load XML, such as logging and ACLs."
+    },
+    {
+      "Header Name": "Content-Type",
+      "Description": "The content type of the resource in case the request content in the body. Example: text/plain"
+    },
+    {
+      "Header Name": "Content-MD5",
+      "Description": "The base64 encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, go to REST Authentication in the Amazon Simple Storage Service Developer Guide."
+    },
+    {
+      "Header Name": "Date",
+      "Description": "The date that can be used to create the signature contained in the Authorization header. If the Date header is to be used for signing it must be specified in the ISO 8601 basic format. In this case, the x-amz-date header is not needed. Note that when x-amz-date is present, it always overrides the value of the Date header. If the Date header is not used for signing, it can be one of the full date formats specified by RFC 2616, section 3.3. For example, the date/time Wed, 01 Mar 2006 12:00:00 GMT is a valid date/time header for use with Amazon S3. If you are using the Date header for signing, then it must be in the ISO 8601 basic YYYYMMDD'T'HHMMSS'Z' format. If Date is specified but is not in ISO 8601 basic format, then you must also include the x-amz-date header. If Date is specified in ISO 8601 basic format, then this is sufficient for signing requests and you do not need the x-amz-date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services Glossary."
+    },
+    {
+      "Header Name": "Expect",
+      "Description": "When your application uses 100-continue, it does not send the request body until it receives an acknowledgment. If the message is rejected based on the headers, the body of the message is not sent. This header can be used only if you are sending a body. Valid Values: 100-continue"
+    },
+    {
+      "Header Name": "Host",
+      "Description": "For path-style requests, the value is s3.amazonaws.com. For virtual-style requests, the value is BucketName.s3.amazonaws.com. For more information, go to Virtual Hosting in the Amazon Simple Storage Service Developer Guide. This header is required for HTTP 1.1 (most toolkits add this header automatically); optional for HTTP/1.0 requests."
+    },
+    {
+      "Header Name": "x-amz-content-sha256",
+      "Description": "When using signature version 4 to authenticate request, this header provides a hash of the request payload. For more information see Signature Calculations for the Authorization Header: Transferring Payload in a Single Chunk (AWS Signature Version 4). When uploading object in chunks, you set the value to STREAMING-AWS4-HMAC-SHA256-PAYLOAD to indicate that the signature covers only headers and that there is no payload. For more information, see Signature Calculations for the Authorization Header: Transferring Payload in Multiple Chunks (Chunked Upload) (AWS Signature Version 4)."
+    },
+    {
+      "Header Name": "x-amz-date",
+      "Description": "The date used to create the signature in the Authorization header. The format must be ISO 8601 basic in the YYYYMMDD'T'HHMMSS'Z' format. For example, the date/time 20170210T120000Z is a valid x-amz-date for use with Amazon S3. x-amz-date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, then x-amz-date is not needed. When x-amz-date is present, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services Glossary."
+    },
+    {
+      "Header Name": "x-amz-security-token",
+      "Description": "This header can be used in the following scenarios: Provide security tokens for Amazon DevPay operations - Each request that uses Amazon DevPay requires two x-amz-security-token headers: one for the product token and one for the user token. When Amazon S3 receives an authenticated request, it compares the computed signature with the provided signature. Improperly formatted multi-value headers used to calculate a signature can cause authentication issues. Provide security token when using temporary security credentials - When making requests using temporary security credentials you obtained from IAM you must provide a security token using this header. To learn more about temporary security credentials, go to Making Requests. This header is required for requests that use Amazon DevPay and requests that are signed using temporary security credentials."
+    }
+  ]
+]

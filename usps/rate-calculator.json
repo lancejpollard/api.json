@@ -1,0 +1,1760 @@
+[
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=RateV4",
+      "XML": "&XML=(see Tag Descriptions below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "RateV4Request",
+      "Occurs": "Required",
+      "Description": "API=RateV4 This API returns the current USPS postage corresponding to the parameters given.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Request / USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Request / Revision",
+      "Occurs": "Optional",
+      "Description": "Set this value to “2” to return all currently documented response fields. For example: <Revision>2</Revsion>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Request / Package",
+      "Occurs": "Required repeating up to 25 times",
+      "Description": "See the RateV4 Service Request chart for valid combinations of the following tags.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Service",
+      "Occurs": "Required",
+      "Description": "Web Tools validates the entry to one of the service types. For example: <Service>PRIORITY MAIL EXPRESS</Service> Please see Appendix A for detailed business rules regarding combinations of Service, Container, dimensions and other request values. Note: Mailable matter not required to be mailed as First-Class Mail is permitted with Retail Ground to Zones 5-9. Zones 1-4 items are limited to mailable hazardous materials, live animals, and other “surface-only” items. Retail Ground can only be used for Zones 5-9 unless the shipment is oversized or contains classes of materials. (e.g. certain HAZMAT) For more details, see: http://pe.usps.com/businessmail101/classes/packageServices.htm. Note: The use of <Service> = “BPM” is restricted. If access to this service is needed, please reach out to the following email address: webtools@usps.gov.",
+      "Type": "String",
+      "Validation": "whiteSpace=collape Enumerations= · First Class Commercial · First Class · First Class Commercial · First Class HFP Commercial · Parcel Select Ground · Priority · Priority Commercial · Priority Cpp · Priority HFP Commercial · Priority HFP CPP · Priority Mail Express · Priority Mail Express Commercial · Priority Mail Express CPP · Priority Mail Express Sh · Priority Mail Express Sh Commercial · Priority Mail Express HFP · Priority Mail Express HFP Commercial · Priority Mail Express HFP CPP · Priority Mail Cubic · Retail Ground · Media · Library · All · Online · Plus · BPM"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / FirstClassMailType",
+      "Occurs": "Optional",
+      "Description": "Required when: RateV4Request[Service='FIRST CLASS'] or RateV4Request[Service='FIRST CLASS COMMERCIAL’], or RateV4Request[Service='FIRST CLASS HFP COMMERCIAL’] Example: <FirstClassMailType>LETTER</FirstClassMailType> Note: The <FirstClassMailType> tag is returned only if the <ServiceType> submitted is “First Class”. If any other <ServiceType> is returned (Including “First Class Commercial”) the <Container> tag is used. Note: Flats are also known as Large Envelopes",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse Enumerations= · LETTER · FLAT · PACKAGE SERVICE RETAIL · POSTCARD · PACKAGE SERVICE"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / ZipOrigination",
+      "Occurs": "Required",
+      "Description": "ZIP code must be valid. For example: <ZipOrigination>20770</ZipOrigination>",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse length=5 pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / ZipDestination",
+      "Occurs": "Required",
+      "Description": "ZIP code must be valid. For example: <ZipDestination>54324</ZipDestination>",
+      "Type": "String",
+      "Validation": "length=5 whiteSpace=collapse pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Pounds",
+      "Occurs": "Required",
+      "Description": "Value must be numeric. Package weight cannot exceed 70 pounds. For example: <Pounds>2</Pounds> <Pounds>2.12345678</Pounds>",
+      "Type": "String",
+      "Validation": "maxInclusive=70 minInclusive=0"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Ounces",
+      "Occurs": "Required",
+      "Description": "Value must be numeric. Package weight cannot exceed 70 pounds (1120 ounces). For example: <Ounces>0</Ounces> <Ounces>0.12345678</Ounces>",
+      "Type": "String",
+      "Validation": "maxInclusive=1120.0 minInclusive=0.0"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Container",
+      "Occurs": "Required",
+      "Description": "Use to specify container attributes that may affect postage; otherwise, leave blank. Note: The <FirstClassMailType> tag is used instead of the <Container> tag only if the <ServiceType> submitted is “First Class”. Note: “Cubic Soft Pack” and “Cubic Parcels” are only valid containers for service “Priority Mail Cubic”. Dimensions Length and Height are required when requesting Cubic Soft Pack. Dimensions Length, Height, and Width are required when requesting Cubic Parcels. Note: “VARIABLE” is used to denote that a customer is using packaging other than a USPS-produced Flat Rate Box/Envelope or Regional Rate Box”.",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse Enumerations= · VARIABLE · FLAT RATE ENVELOPE · PADDED FLAT RATE ENVELOPE · LEGAL FLAT RATE ENVELOPE · SM FLAT RATE ENVELOPE · WINDOW FLAT RATE ENVELOPE · GIFT CARD FLAT RATE ENVELOPE · SM FLAT RATE BOX · MD FLAT RATE BOX · LG FLAT RATE BOX · REGIONALRATEBOXA · REGIONALRATEBOXB · CUBIC PARCELS · CUBIC SOFT PACK"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Size",
+      "Occurs": "Deprecated",
+      "Description": "Note: This tag has been deprecated. <Size> tag and any values within the <Size> tag will not result in an error response and will not impact rates that are returned.",
+      "Type": "String",
+      "Validation": "minOccurs=0 maxOccurs=1"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Width",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For more details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Length",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For more details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Height",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For more details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Girth",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For more details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Value",
+      "Occurs": "Optional",
+      "Description": "Available when RateV4Request [Revision='2']. Package value. Used to determine availability and cost of extra services. For example: <Value>150.00</Value>",
+      "Type": "String",
+      "Validation": "minOccurs=0 maxOccurs=1"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / AmountToCollect",
+      "Occurs": "Optional",
+      "Description": "Available when RateV4Request [Revision='2']. Collect on delivery amount. Used to determine availability and cost of extra services. For example: <AmountToCollect>150.00</AmountToCollect>",
+      "Type": "String",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / SpecialServices",
+      "Occurs": "Optional",
+      "Description": "Available when RateV4Request [Revision='2']. Groups the SpecialServices elements. Special Services prices and availability will not be returned when Service = “ALL”, “ONLINE”, or “PLUS”",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Request / Package / SpecialServices / SpecialService",
+      "Occurs": "Optional, repeating up to 10 times",
+      "Description": "Available when RateV4Request [Revision='2']. Defines extra services in order to determine price and availability of additional services. An initial call without the SpecialService tag specified is recommended to determine base availability of special services for each mail class (<Service>). The extra service definitions are as follows: Special Service Name ServiceID Insurance 100 Insurance – Priority Mail Express 101 Return Receipt 102 Collect on Delivery 103 Certificate of Mailing (Form 3665) 104 Certified Mail 105 USPS Tracking 106 Signature Confirmation 108 Registered Mail 109 Return Receipt Electronic 110 Registered mail COD collection Charge 112 Return Receipt – Priority Mail Express 118 Adult Signature Required 119 Adult Signature Restricted Delivery 120 Insurance – Priority Mail 125 USPS Tracking Electronic 155 Signature Confirmation Electronic 156 Certificate of Mailing (Form 3817) 160 Priority Mail Express 1030 AM Delivery 161 Certified Mail Restricted Delivery 170 Certified Mail Adult Signature Required 171 Certified Mail Adult Signature Restricted Delivery 172 Signature Confirm. Restrict. Delivery 173 Signature Confirmation Electronic Restricted Delivery 174 Collect on Delivery Restricted Delivery 175 Registered Mail Restricted Delivery 176 Insurance Restricted Delivery 177 Insurance Restrict. Delivery – Priority Mail 179 Insurance Restrict. Delivery – Priority Mail Express 178 Insurance Restrict. Delivery (Bulk Only) 180 Scan Retention 181 Scan + Signature Retention 182 Special Handling - Fragile 190 For example: <SpecialServices> <SpecialService>100<SpecialService> <SpecialService>108<SpecialService> </SpecialServices>",
+      "Type": "String",
+      "Validation": "Enumerations= · 100 · 101 · 102 · 103 · 104 · 105 · 106 · 108 · 109 · 110 · 112 · 118 · 119 · 120 · 125 · 155 · 156 · 160 · 161 · 170 · 171 · 172 · 173 · 174 · 175 · 176 · 177 · 178 · 179 · 180 · 181 · 182 · 190"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Content",
+      "Occurs": "Optional",
+      "Description": "Available when RateV4Request[Revision='2']. Groups the ContentType and ContentDescription elements.",
+      "Type": "Group",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Content / ContentType",
+      "Occurs": "Optional",
+      "Description": "Available when RateV4Request [Revision=’2’]. Defines the type of content of the package.",
+      "Type": "String",
+      "Validation": "Enumerations= · HAZMAT · CREMATEDREMAINS · FRAGILE · PERISHABLE · PHARMACEUTICALS · MEDICAL SUPPLIES · LIVES"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Content / ContentDescription",
+      "Occurs": "Optional",
+      "Description": "Available when RateV4Request[Revision=’2’]. Describes the content of the package. Optional but required for ContentType ‘LIVES’.",
+      "Type": "String",
+      "Validation": "Enumerations= · BEES · DAYOLDPOULTRY · ADULTBIRDS · OTHER"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / GroundOnly",
+      "Occurs": "Optional",
+      "Description": "Available when RateV4Request [Revision=’2’]. RateV4Request [Service=’ Retail Ground’] Use “true” when shipment contains mailable hazardous materials, live animals and other “surface-only” items.",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · true · false"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / SortBy",
+      "Occurs": "Optional",
+      "Description": "Available when RateV4Request [Revision='2']. Returns all mailing services available based on item shape. When specified, value in <Container> is ignored. Available when: RateV4Request[Service='ALL'] RateV4Request[Service='ONLINE'] For example: <SortBy>PACKAGE</SortBy>",
+      "Type": "String",
+      "Validation": "Enumerations= · LETTER · LARGEENVELOPE · PACKAGE · FLATRATE"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / Machinable",
+      "Occurs": "Optional",
+      "Description": "RateV4Request/Machinable is required when: RateV4Request[Service='FIRST CLASS' and (FirstClassMailType='LETTER' or FirstClassMailType='FLAT')] RateV4Request[Service='Retail Ground’] RateV4Request[Service='ALL'] RateV4Request[Service='ONLINE'] If false, First Class Mail Letters and Flats will not be returned. For example: <Machinable>true</Machinable>",
+      "Type": "Boolean",
+      "Validation": "whiteSpace=collapse Enumerations= · true · false"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / ReturnLocations",
+      "Occurs": "Optional",
+      "Description": "Include Dropoff Locations in Response if available. Requires \"ShipDate\" tag.",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · true · false"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / ReturnServiceInfo",
+      "Occurs": "Optional",
+      "Description": "If a value of “True” is indicated in the request then the response will include the <ServiceInformation> tag containing mail service specific information",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · true · false"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / DropOffTime",
+      "Occurs": "Optional",
+      "Description": "Time Package Will Be Mailed. Enter drop off time in format: HH:mm, such as 13:45. Inclusion of Drop Off Time will result increased accuracy of <CommitmentName> and <CommitmentDate> in the response for Priority Mail and Priority Mail Express variants. For example: <DropOffTime>13:45</DropOffTime>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Request / Package / ShipDate",
+      "Occurs": "Optional",
+      "Description": "Date Package Will Be Mailed. Ship date may be today plus 0 to 3 days in advance. Enter the date in format: yyyy-mm-dd, such as 2013-07-28. Inclusion of Ship Date will result in <CommitmentName> and <CommitmentDate> in the response for Priority Mail and Priority Mail Express variants For example: <ShipDate Option=\"HFP\">2013-07-28</ShipDate>",
+      "Type": "String",
+      "Validation": "pattern=\\d{2}-[a-zA-z]{3}-\\d{4}"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / ShipDate / Option",
+      "Occurs": "Optional",
+      "Description": "The value of this attribute specifies how the RateV4Response will structure the Priority Express Mail Commitment data elements.",
+      "Type": "String",
+      "Validation": "Enumerations= · PEMSH · HFP"
+    },
+    {
+      "Tag Name": "RateV4Request / Package / ReturnDimensionalWeight",
+      "Occurs": "Optional",
+      "Description": "This tag must be explicitly set to “true” for dimensional weight to be returned in the xml response.",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · true · false"
+    },
+    {
+      "Tag Name": "RateV4Request / Package /TrackingRetentionPeriod",
+      "Occurs": "Optional",
+      "Description": "Used to determine period of Retention for tracking data",
+      "Type": "String",
+      "Validation": "minOccurs=0 maxOccurs=1"
+    },
+    {
+      "Tag Name": "RateV4Request",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Special Service Name": "Insurance",
+      "ServiceID": "100"
+    },
+    {
+      "Special Service Name": "Insurance – Priority Mail Express",
+      "ServiceID": "101"
+    },
+    {
+      "Special Service Name": "Return Receipt",
+      "ServiceID": "102"
+    },
+    {
+      "Special Service Name": "Collect on Delivery",
+      "ServiceID": "103"
+    },
+    {
+      "Special Service Name": "Certificate of Mailing (Form 3665)",
+      "ServiceID": "104"
+    },
+    {
+      "Special Service Name": "Certified Mail",
+      "ServiceID": "105"
+    },
+    {
+      "Special Service Name": "USPS Tracking",
+      "ServiceID": "106"
+    },
+    {
+      "Special Service Name": "Signature Confirmation",
+      "ServiceID": "108"
+    },
+    {
+      "Special Service Name": "Registered Mail",
+      "ServiceID": "109"
+    },
+    {
+      "Special Service Name": "Return Receipt Electronic",
+      "ServiceID": "110"
+    },
+    {
+      "Special Service Name": "Registered mail COD collection Charge",
+      "ServiceID": "112"
+    },
+    {
+      "Special Service Name": "Return Receipt – Priority Mail Express",
+      "ServiceID": "118"
+    },
+    {
+      "Special Service Name": "Adult Signature Required",
+      "ServiceID": "119"
+    },
+    {
+      "Special Service Name": "Adult Signature Restricted Delivery",
+      "ServiceID": "120"
+    },
+    {
+      "Special Service Name": "Insurance – Priority Mail",
+      "ServiceID": "125"
+    },
+    {
+      "Special Service Name": "USPS Tracking Electronic",
+      "ServiceID": "155"
+    },
+    {
+      "Special Service Name": "Signature Confirmation Electronic",
+      "ServiceID": "156"
+    },
+    {
+      "Special Service Name": "Certificate of Mailing (Form 3817)",
+      "ServiceID": "160"
+    },
+    {
+      "Special Service Name": "Priority Mail Express 1030 AM Delivery",
+      "ServiceID": "161"
+    },
+    {
+      "Special Service Name": "Certified Mail Restricted Delivery",
+      "ServiceID": "170"
+    },
+    {
+      "Special Service Name": "Certified Mail Adult Signature Required",
+      "ServiceID": "171"
+    },
+    {
+      "Special Service Name": "Certified Mail Adult Signature Restricted Delivery",
+      "ServiceID": "172"
+    },
+    {
+      "Special Service Name": "Signature Confirm. Restrict. Delivery",
+      "ServiceID": "173"
+    },
+    {
+      "Special Service Name": "Signature Confirmation Electronic Restricted Delivery",
+      "ServiceID": "174"
+    },
+    {
+      "Special Service Name": "Collect on Delivery Restricted Delivery",
+      "ServiceID": "175"
+    },
+    {
+      "Special Service Name": "Registered Mail Restricted Delivery",
+      "ServiceID": "176"
+    },
+    {
+      "Special Service Name": "Insurance Restricted Delivery",
+      "ServiceID": "177"
+    },
+    {
+      "Special Service Name": "Insurance Restrict. Delivery – Priority Mail",
+      "ServiceID": "179"
+    },
+    {
+      "Special Service Name": "Insurance Restrict. Delivery – Priority Mail Express",
+      "ServiceID": "178"
+    },
+    {
+      "Special Service Name": "Insurance Restrict. Delivery (Bulk Only)",
+      "ServiceID": "180"
+    },
+    {
+      "Special Service Name": "Scan Retention",
+      "ServiceID": "181"
+    },
+    {
+      "Special Service Name": "Scan + Signature Retention",
+      "ServiceID": "182"
+    },
+    {
+      "Special Service Name": "Special Handling - Fragile",
+      "ServiceID": "190"
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "RateV4Response",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package",
+      "Occurs": "Required repeating up to 25 times",
+      "Description": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / ZipOrigination",
+      "Occurs": "Required",
+      "Description": "Origination ZIP Code from request",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse length=5 pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "RateV4Response / Package / ZipDestination",
+      "Occurs": "Required",
+      "Description": "Destination ZIP Code from request",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse length=5 pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Pounds",
+      "Occurs": "Required",
+      "Description": "Package Weight (Pounds) from request",
+      "Type": "Integer",
+      "Validation": "maxInclusive=70 minInclusive=0"
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Ounces",
+      "Occurs": "Required",
+      "Description": "Package Weight (Ounces) from request",
+      "Type": "Decimal",
+      "Validation": "maxInclusive=1120.0 minInclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "RateV4Response / Package / FirstClassMailType",
+      "Occurs": "Optional",
+      "Description": "Appears when RateV4Request [Service='FIRST CLASS']. For example: <FirstClassMailType>LETTER</FirstClassMailType>",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse"
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Container",
+      "Occurs": "Optional",
+      "Description": "Shipping Container (appears where applicable: RateV4Request[Service='ALL' or Service='PRIORITY EXPRESS*' or Service='PRIORITY*'])",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse"
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Machinable",
+      "Occurs": "Optional",
+      "Description": "Machinable (appears where applicable: RateV4Request[Service='ALL' or Service='FIRST CLASS' or Service=’ Retail Ground’])",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Zone",
+      "Occurs": "Optional",
+      "Description": "USPS defined distance codes assigned to each origin and destination ZIP Code pairing for every ZIP Code number in the nation. These distance codes, referred to as zones, are designated as “1 through 9\"",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage",
+      "Occurs": "Required repeating up to unbounded times",
+      "Description": "Postage tag contains a nested postal rate and service description.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / CLASSID",
+      "Occurs": "Required",
+      "Description": "A mail class identifier for the postage returned. Not necessarily unique within a <Package/>. Refer to Appendix A for all domestic and international CLASSID values.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / MailService",
+      "Occurs": "Required",
+      "Description": "Service Type name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / Rate",
+      "Occurs": "Required",
+      "Description": "Retail Rate",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / CommercialRate",
+      "Occurs": "Optional",
+      "Description": "Commercial Rate. Appears only where applicable and only when requested via RateV4Request[Service='ONLINE' or Service='FIRST CLASS COMMERCIAL' Service='FIRST CLASS HFP COMMERCIAL' Service='PRIORITY COMMERCIAL' or Service='PRIORITY HFP COMMERCIAL' or Service='PRIORITY MAIL EXPRESS COMMERCIAL' or Service='PRIORITY MAIL EXPRESS SH COMMERCIAL' or Service='PRIORITY MAIL EXPRESS HFP COMMERCIAL'].",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / CommercialPlusRate",
+      "Occurs": "Optional",
+      "Description": "Commercial Rate. Appears only where applicable and only when requested via RateV4Request[Service=’PLUS’ or Service='PRIORITY CPP’ or Service='PRIORITY HFP CPP’ or Service='PRIORITY MAIL EXPRESS CPP’ or Service='PRIORITY MAIL EXPRESS HFP CPP’].",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / MaxDimensions",
+      "Occurs": "Optional",
+      "Description": "Maximum dimensions for a USPS produced product. Appears where applicable: RateV4Request[SortBy<>’CONTAINER’]",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / ServiceInformation",
+      "Occurs": "Optional",
+      "Description": "Mail Service Information. Appears where applicable: RateV4Request[ReturnServiceInfo=’true’]",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice)",
+      "Occurs": "Optional",
+      "Description": "This choice depends on the RateV4Request / ShipDate / Option attribute. If the attribute is missing or has the enumeration value of PEMSH then the original Express Mail Sunday/Holiday structure is used. Otherwise, if the attribute has the enumeration value of HFP, then the Hold For Pickup structure is used. If RateV4Request / ShipDate is not present, then neither choice is returned.",
+      "Type": "(Choice)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence)",
+      "Occurs": "if used: Required",
+      "Description": "This sequence consisting of CommitmentDate and Location nodes is mutually exclusive with RateV4Response / Package / Postage / Commitment.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence) / CommitmentDate",
+      "Occurs": "Required",
+      "Description": "Calculated Date Package Will Be Delivered: yyyy-mm-dd, such as 2013-07-28. Only returned for Priority Mail Express Mail variants when \"ShipDate\" tag is present in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / CommitmentName",
+      "Occurs": "Optional",
+      "Description": "Inclusion of Ship Date will result in <CommitmentName> and <CommitmentDate> in the response for Priority Mail and Priority Mail Express variants",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence) / Location",
+      "Occurs": "Optional repeating up to 200 times",
+      "Description": "Collection of Dropoff Locations with Cutoff times. Only returned with Express Mail variants, when \"ShipDate\" tag is present in the request, and the \"ReturnLocations\" tag is not false. For example: <Location> <CutOff>8:00 PM</CutOff> <Facility>EXPRESS MAIL COLLECTION BOX</Facility> <Street>9201 EDGEWORTH DR</Street> <City>CAPITOL HEIGHTS</City> <State>MD</State> <Zip>20790</Zip> </Location>",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence) / Location / CutOff",
+      "Occurs": "Required",
+      "Description": "Local cutoff time for drop-off",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence) / Location / Facility",
+      "Occurs": "Required",
+      "Description": "Facility Name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence) / Location / Street",
+      "Occurs": "Required",
+      "Description": "Facility Address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence) / Location / City",
+      "Occurs": "Required",
+      "Description": "Facility City",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence) / Location / State",
+      "Occurs": "Required",
+      "Description": "Facility State",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / (sequence) / Location / Zip",
+      "Occurs": "Required",
+      "Description": "Facility Zip",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment",
+      "Occurs": "if used: Required repeating up to 5 times",
+      "Description": "This node is mutually exclusive with RateV4Response / Package / Postage / CommitmentDate and RateV4Response / Package / Postage / Location.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / CommitmentDate",
+      "Occurs": "Required",
+      "Description": "Calculated Date Package Will Be Delivered: yyyy-mm-dd, such as 2013-07-28. Only returned for Priority Mail Express Mail variants when \"ShipDate\" tag is present in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / CommitmentTime",
+      "Occurs": "Required",
+      "Description": "Commitment time of day. Only returned for Priority Mail Express Mail variants when \"ShipDate\" tag is present in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / Location",
+      "Occurs": "Optional repeating up to 200 times",
+      "Description": "Collection of Dropoff Locations with Cutoff times. Only returned with Priority Mail Express Mail variants, when \"ShipDate\" tag is present in the request, and the \"ReturnLocations\" tag is not false. For example: <Location> <CutOff>8:00 PM</CutOff> <Facility>EXPRESS MAIL COLLECTION BOX</Facility> <Street>9201 EDGEWORTH DR</Street> <City>CAPITOL HEIGHTS</City> <State>MD</State> <Zip>20790</Zip> </Location>",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / Location / CutOff",
+      "Occurs": "Required",
+      "Description": "Local cutoff time for drop-off",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / Location / Facility",
+      "Occurs": "Required",
+      "Description": "Facility Name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / Location / Street",
+      "Occurs": "Required",
+      "Description": "Facility Address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / Location / City",
+      "Occurs": "Required",
+      "Description": "Facility City",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / Location / State",
+      "Occurs": "Required",
+      "Description": "Facility State",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / (Choice) / Commitment / Location / Zip",
+      "Occurs": "Required",
+      "Description": "Facility Zip",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices",
+      "Occurs": "Optional",
+      "Description": "Returned when RateV4Request[Revision='2']. Groups the Special Service elements.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService",
+      "Occurs": "Required, repeating up to unbounded times",
+      "Description": "Returned when RateV4Request[Revision='2']. “SpecialService” contains nested service name, availability, and pricing.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / ServiceID",
+      "Occurs": "Required",
+      "Description": "Returned when RateV4Request[Revision='2']. Special service ID",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / ServiceName",
+      "Occurs": "Required",
+      "Description": "Returned when RateV4Request[Revision='2']. Special service name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / Available",
+      "Occurs": "Required",
+      "Description": "Returned when RateV4Request[Revision='2']. Availability of special service. Availability may change depending on special services passed (selected) in request.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / AvailableOnline",
+      "Occurs": "Required",
+      "Description": "Returned when RateV4Request[Revision='2']. Availability of special service for online only rates. Not all special services have online rates.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / AvailableCPP",
+      "Occurs": "Required",
+      "Description": "Returned when RateV4Request[Revision='2']. Availability of special service for Commercial Plus Price only. Not all special services have Commercial Plus Prices.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / Price",
+      "Occurs": "Required",
+      "Description": "Returned when RateV4Request[Revision='2']. Special service pricing. Pricing may change depending on special services passed (selected) in request.",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / PriceOnline",
+      "Occurs": "Required",
+      "Description": "Returned when RateV4Request[Revision='2']. Special service pricing. Pricing may change depending on special services passed (selected) in request. Not all special services have online rates.",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / PriceCPP",
+      "Occurs": "Required",
+      "Description": "Returned when RateV4Request[Revision='2']. Special service Commercial Plus Pricing. Commercial Plus Pricing may change depending on special services passed (selected) in request. Not all special services have Commercial Plus Pricing.",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / DeclaredValueRequired",
+      "Occurs": "Optional",
+      "Description": "Returned if applicable when RateV4Request[Revision='2']. Indicates if special service requires a declared package value (specified in RateV4Request[Value])to determine correct pricing.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / SpecialServices / SpecialService / DueSenderRequired",
+      "Occurs": "Optional",
+      "Description": "Returned if applicable when RateV4Request[Revision='2']. Indicates if special service requires a due sender amount (specified in RateV4Request[AmountToCollect]) to determine correct pricing.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / DimensionalWeightRate",
+      "Occurs": "Optional",
+      "Description": "Dimensional weight retail rate",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / DimensionalWeightCommercialRate",
+      "Occurs": "Optional",
+      "Description": "Dimensional weight commercial base rate",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Postage / DimensionalWeightCommercialPlusRate",
+      "Occurs": "Optional",
+      "Description": "Dimensional weight commercial plus rate",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Restriction / Restrictions",
+      "Occurs": "Required",
+      "Description": "APO/FPO Restrictions provided if the Destination ZIP Code is an APO/FPO ZIP Code.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "RateV4Response / Package / Error",
+      "Occurs": "if used: Required",
+      "Description": "Error document (indicates request could not be completed).",
+      "Type": "",
+      "Validation": "See the Error Responses section below."
+    },
+    {
+      "Tag Name": "RateV4Response",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=IntlRateV2",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "IntlRateV2Request",
+      "Occurs": "Required",
+      "Description": "API=IntlRateV2 This API returns the current international USPS postage corresponding to the parameters given.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developer's Guide for information on obtaining your USERID.",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Revision",
+      "Occurs": "Optional",
+      "Description": "Set this value to “2” to return all currently documented response fields. For example: <Revision>2</Revsion>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package",
+      "Occurs": "Required repeating up to 25 times",
+      "Description": "Opening Package tag.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / ID",
+      "Occurs": "Required",
+      "Description": "No restriction on number or type of characters provided valid XML syntax and unique to request. For example: <Package ID=\"0\">...</Package>",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Pounds",
+      "Occurs": "Required",
+      "Description": "Value must be numeric. Package weight generally cannot exceed 70 pounds. Maximum Decimal places are 8. Refer to the International Mail Manual (IMM) for weight requirements per country and mail service. The IMM can be found at the Postal Explorer web site. For example: <Pounds>2</Pounds> <Pounds>2.12345678</Pounds>",
+      "Type": "Integer",
+      "Validation": "minInclusive=0"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Ounces",
+      "Occurs": "Required",
+      "Description": "Value must be numeric. Package weight generally cannot exceed 70 pounds. Maximum Decimal places are 8. Refer to the International Mail Manual (IMM) for weight requirements per country and mail service. The IMM can be found at the Postal Explorer web site. For example: <Ounces>4</Ounces> <Ounces>4.12345678</Ounces>",
+      "Type": "Decimal",
+      "Validation": "minInclusive=0.0"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Machinable",
+      "Occurs": "Optional",
+      "Description": "Indicates whether or not the item is machinable. A surcharge is applied to a First-Class Mail International item if it has one or more non-machinable characteristics. See International Mail Manual (IMM) Section 241.217 for more information. For example: <Machinable>True</Machinable>",
+      "Type": "Boolean",
+      "Validation": "default=true"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / MailType",
+      "Occurs": "Required",
+      "Description": "Package type being shipped. For example: <MailType>Package</MailType>",
+      "Type": "String",
+      "Validation": "Default = NONE Enumerations= · ALL · PACKAGE · POSTCARDS · ENVELOPE · LETTER · LARGEENVELOPE · FLATRATE"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / GXG",
+      "Occurs": "Optional",
+      "Description": "If GXG rate is desired, then this group must be specified. Note that if this data precludes delivery, due to size or availability of service at the destination, then GXG rates simply will not be returned (not an error condition.)",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / GXG / POBoxFlag",
+      "Occurs": "Required",
+      "Description": "Specify as \"Y\" if the destination is a post office box. For example: <POBoxFlag>Y</POBoxFlag>",
+      "Type": "String",
+      "Validation": "Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / GXG / GiftFlag",
+      "Occurs": "Required",
+      "Description": "Specify as \"Y\" if the package contains a gift. For example: <GiftFlag>Y</GiftFlag>",
+      "Type": "String",
+      "Validation": "Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / ValueOfContents",
+      "Occurs": "Required",
+      "Description": "If specified, used to compute Insurance fee (if insurance is available for service and destination). For example: <ValueOfContents>103.00</ValueOfContents>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Country",
+      "Occurs": "Required",
+      "Description": "Entries must be from the USPS list of valid countries from the International Country Listings. To access the International Country Listings, go to the Index of Countries and Localities. For example: <Country>Albania</Country>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Container",
+      "Occurs": "Deprecated",
+      "Description": "Note: This tag has been deprecated. <Container> tag and any values within the <Container> tag will not result in an error response and will not impact rates that are returned.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Size",
+      "Occurs": "Deprecated",
+      "Description": "Note: This tag has been deprecated <Size> tag and any values within the <Size> tag will not result in an error response and will not impact rates that are returned.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Width",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For more details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Integer",
+      "Validation": "minExclusive=0"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Length",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For more details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Integer",
+      "Validation": "minExclusive=0"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Height",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For more details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Integer",
+      "Validation": "minExclusive=0"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / Girth",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For more details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Integer",
+      "Validation": "minExclusive=0"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / OriginZip",
+      "Occurs": "Optional",
+      "Description": "Available when IntlRateV2Request [Revision='2']. Origin ZIP Code is required to determine Priority Mail International price to Canadian destinations and is used to determine mail-ability of Global Express Guaranteed. When provided, the response will return a list of Post Office locations where GXG is accepted. The Origin ZIP Code must be valid. For example: <OriginZip>20770</OriginZip>",
+      "Type": "String",
+      "Validation": "length=5 pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / CommercialFlag",
+      "Occurs": "Optional",
+      "Description": "Returns commercial base postage. For example: <CommercialFlag>Y<CommercialFlag>",
+      "Type": "String",
+      "Validation": "Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / CommercialPlusFlag",
+      "Occurs": "Optional",
+      "Description": "Returns commercial plus postage. For example: <CommercialPlusFlag>Y<CommercialPlusFlag>",
+      "Type": "String",
+      "Validation": "Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / ExtraServices",
+      "Occurs": "Optional",
+      "Description": "Available when IntlRateV2Request[Revision='2']. Groups the ExtraService elements.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request / Package / ExtraServices / ExtraService",
+      "Occurs": "Required, repeating up to 6 times",
+      "Description": "Available when IntlRateV2Request[Revision='2'].Defines extra services in order to determine price and availability of additional services. An initial rate call without the ExtraService tag specified is recommended to determine base availability of extra services for each mail service. The extra service definitions are as follows: Extra Service Name ServiceID Registered Mail 103 Insurance – Global Express Guaranteed 106 Insurance – Priority Mail International 108 Return Receipt 105 Certificate of Mailing 100 Electronic USPS Delivery Confirmation International 109",
+      "Type": "Integer",
+      "Validation": "Enumerations= · 103 · 106 · 108 · 105 · 100 · 109"
+    },
+    {
+      "Tag Name": "IntlRateV2Request/Package/ AcceptanceDateTime",
+      "Occurs": "Optional",
+      "Description": "Available when IntlRateV2Request[Revision='2']. Date and Time the package is accepted by USPS. The AcceptanceDateTime tag along with the DestinationPostalCode and OriginZip is used to calculate the GuaranteeAvailability and also GuaranteeAvailability response tag for PMEI services in Kahala countries. ISO 8601 formatted date. YYYY-MM-DDThh:mm:ss+/-hh:mm For example, 2014-01-22T14:30:51-06:00",
+      "Type": "DateTime",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request/Package/ DestinationPostalCode",
+      "Occurs": "Optional",
+      "Description": "Available when IntlRateV2Request[Revision='2']. Destination Postal Code The AcceptanceDateTime tag along with the DestinationPostalCode and OriginZip is used to calculate the GuaranteeAvailability and also GuaranteeAvailability response tag for PMEI services in Kahala countries.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request/Package/ Content",
+      "Occurs": "Optional",
+      "Description": "Used to describe the contents of the package.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request/Package/ Content/ContentType",
+      "Occurs": "Required if Content supplied.",
+      "Description": "Contains the enumerated description of the items in the package. “NonnegotiableDocument” and “Documents” both signify mailable non-negotiable documents and are insured automatically for up to $100, though Insurance will not be returned as an extra service. Additional Insurance cannot be purchased. Any non-document ContentType values are insured automatically for up to $200 and Insurance will be returned as an explicit extra service in the response. Additional Insurance can be purchased for values $200 and greater.",
+      "Type": "String",
+      "Validation": "Enumerations= · CrematedRemains · NonnegotiableDocum · Pharmaceuticals · MedicalSupplies · Documents"
+    },
+    {
+      "Tag Name": "IntlRateV2Request/Package/ Content/ContentDescription",
+      "Occurs": "Optional",
+      "Description": "For future use",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Request",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Extra Service Name": "Registered Mail",
+      "ServiceID": "103"
+    },
+    {
+      "Extra Service Name": "Insurance – Global Express Guaranteed",
+      "ServiceID": "106"
+    },
+    {
+      "Extra Service Name": "Insurance – Priority Mail International",
+      "ServiceID": "108"
+    },
+    {
+      "Extra Service Name": "Return Receipt",
+      "ServiceID": "105"
+    },
+    {
+      "Extra Service Name": "Certificate of Mailing",
+      "ServiceID": "100"
+    },
+    {
+      "Extra Service Name": "Electronic USPS Delivery Confirmation International",
+      "ServiceID": "109"
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "Tag Name": "IntlRateV2Response",
+      "Occurs": "Required",
+      "Description": "Opening document tag.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package",
+      "Occurs": "Required repeating up to 25 times",
+      "Description": "Corresponds to each \"Package\" node in the request. Each \"Package\" node will contain either an \"Error\" node or the rate results.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / ID",
+      "Occurs": "required",
+      "Description": "Package Identification Number (matches IntlRateV2Request/Package/ID)",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Prohibitions",
+      "Occurs": "Required",
+      "Description": "Prohibitions",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Restrictions",
+      "Occurs": "Required",
+      "Description": "Restrictions",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Observations",
+      "Occurs": "Required",
+      "Description": "Observations",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / CustomsForms",
+      "Occurs": "Required",
+      "Description": "Customs Forms",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / ExpressMail",
+      "Occurs": "Required",
+      "Description": "Express Mail",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / AreasServed",
+      "Occurs": "Required",
+      "Description": "Areas Served",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / AdditionalRestrictions",
+      "Occurs": "Required",
+      "Description": "Additional restrictions on items being shipped to destination country.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Content",
+      "Occurs": "Optional",
+      "Description": "Echoes the Content from the request. If the Content request is not populated on the request, this tag will not be returned.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Content / ContentType",
+      "Occurs": "Optional",
+      "Description": "Echoes the ContentType from the request. If the Content request is not populated on the request, this tag will not be returned.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Content / ContentDescription",
+      "Occurs": "Optional",
+      "Description": "Echoes the ContentDescription from the request. If the Content request is not populated on the request, this tag will not be returned.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service",
+      "Occurs": "Required repeating up to unbounded times",
+      "Description": "\"Service\" tag contains a nested rate and service name.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ID",
+      "Occurs": "required",
+      "Description": "An Integer reflective of the <SvcDescription/>.",
+      "Type": "Integer",
+      "Validation": "minInclusive=0"
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Pounds",
+      "Occurs": "Required",
+      "Description": "Weight of package (pounds)",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Ounces",
+      "Occurs": "Required",
+      "Description": "Weight of package (ounces)",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Machinable",
+      "Occurs": "Optional",
+      "Description": "If specified in request this is echoed back if relevant to computed postage.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / MailType",
+      "Occurs": "Required",
+      "Description": "If specified in request this is echoed back if relevant to computed postage.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXG",
+      "Occurs": "Optional",
+      "Description": "If specified in request this is echoed back if relevant to computed postage.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXG / POBoxFlag",
+      "Occurs": "Required",
+      "Description": "If specified in request this is echoed back if relevant to computed postage.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXG / GiftFlag",
+      "Occurs": "Required",
+      "Description": "If specified in request this is echoed back if relevant to computed postage.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Container",
+      "Occurs": "Required",
+      "Description": "If specified in request this is echoed back if relevant to computed postage.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Width",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Length",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Height",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Girth",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Country",
+      "Occurs": "Required",
+      "Description": "Destination Country",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / Postage",
+      "Occurs": "Required",
+      "Description": "Postage Rate Charged",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / CommercialPostage",
+      "Occurs": "Optional",
+      "Description": "Commercial Base Rate. Returned if specified in request.",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / CommercialPlusPostage",
+      "Occurs": "Optional",
+      "Description": "Commercial Plus Rate. Returned if specified in request.",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices",
+      "Occurs": "Required",
+      "Description": "Groups the Extra Service elements.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices / ExtraService",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "“ExtraService” contains nested service name, availability, and pricing. When IntlRateV2Request[Revision<'2'], the only service returned is Insurance.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices / ExtraService / ServiceID",
+      "Occurs": "Required",
+      "Description": "Extra service ID",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices / ExtraService / ServiceName",
+      "Occurs": "Required",
+      "Description": "Extra service name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices / ExtraService / Available",
+      "Occurs": "Required",
+      "Description": "Availability of extra service. Availability may change depending on extra services passed (selected) in request.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices / ExtraService / OnlineAvailable",
+      "Occurs": "Optional",
+      "Description": "Availability of online pricing for extra service. Availability may change depending on extra services passed (selected) in request. Returns when IntlRateV2Request[Revision='2'] and IntlRateV2Request[CommercialPrice=’Y'].",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices / ExtraService / Price",
+      "Occurs": "Required",
+      "Description": "Extra service pricing. Pricing may change depending on extra services passed in request. When IntlRateV2Request[Revision<'2'], the insurance fee is fully calculated.",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices / ExtraService OnlinePrice",
+      "Occurs": "Optional",
+      "Description": "Online extra service pricing. Pricing may change depending on extra services passed in request. Returns when IntlRateV2Request[Revision='2'] and IntlRateV2Request[CommercialPrice=’Y'].",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ExtraServices / ExtraService DeclaredValueRequired",
+      "Occurs": "Optional",
+      "Description": "Indicates if package value is required to calculate extra service rate. Returns when IntlRateV2Request[Revision='2'].",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ValueOfContents",
+      "Occurs": "Optional",
+      "Description": "This echoes back the value provided in the request. This value is used to calculate the insurance fee (ServiceID=1 under Extra Services) or the Insurance Comment explaining why Insurance Fee is not given.",
+      "Type": "Decimal",
+      "Validation": "pattern=\\d+\\.\\d\\d"
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / InsComment",
+      "Occurs": "Optional",
+      "Description": "Returned when IntlRateV2Request[Revision<'2'] only. Explains why no insurance fee is returned, one of three reasons: SERVICE means insurance is not available for this service; DESTINATION means that insurance is not available to the given country via this service; INSURED VALUE means insurance is available for the country and service, but not for the given value.",
+      "Type": "String",
+      "Validation": "Enumerations= · INSURED VALUE · SERVICE · DESTINATION"
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / ParcelIndemnityCoverage",
+      "Occurs": "Optional",
+      "Description": "Deprecated. Tag will no longer be returned. Automatic indemnity coverage has been replaced by the baked-in Insurance amounts of $200 or $100.",
+      "Type": "Decimal",
+      "Validation": "pattern=\\d+\\.\\d\\d"
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / SvcCommitments",
+      "Occurs": "Required",
+      "Description": "Service Commitments",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / SvcDescription",
+      "Occurs": "Required",
+      "Description": "Service Description",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / MaxDimensions",
+      "Occurs": "Required",
+      "Description": "Maximum Dimensions of Package Allowed",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / MaxWeight",
+      "Occurs": "Required",
+      "Description": "Maximum Weight of Package Allowed",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GuaranteeAvailability",
+      "Occurs": "Optional once",
+      "Description": "If the Revision tag >= 2 in the request, the service type is one of the following: Priority Express Mail International, PMEI Flat Rate Envelope, PMEI Legal Flat Rate Envelope, and PMEI Padded Flat Rate Envelope, and the country is a Kahala country, the GuaranteeAvailability tag will display the estimated scheduled delivery date. If not, the tag will contain the estimated scheduled delivery days. The AcceptanceDateTime tag along with the DestinationPostalCode and OriginZip is used to calculate the GuaranteeAvailability and also GuaranteeAvailability response tag for PMEI services in Kahala countries. If an estimated scheduled delivery date is available, the format will be MM/DD/YYYY e.g., 01/29/2014. If an estimated scheduled delivery date is not available, the format will be a String. e.g., 3 - 5 business days to many major markets",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations",
+      "Occurs": "Optional",
+      "Description": "Mailing locations for GXG packages. Based on OriginZip sent in request.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations / PostOffice",
+      "Occurs": "Optional",
+      "Description": "Individual Post Office information for mailing GXG packages.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations / PostOffice / Name",
+      "Occurs": "Required",
+      "Description": "Name of Post Office.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations / PostOffice / Address",
+      "Occurs": "Required",
+      "Description": "Street Address of Post Office.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations / PostOffice / City",
+      "Occurs": "Required",
+      "Description": "City in which Post Office is located.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations / PostOffice / State",
+      "Occurs": "Required",
+      "Description": "State in which Post Office is located.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations / PostOffice / ZipCode",
+      "Occurs": "Required",
+      "Description": "Zip Code of Post Office.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations / PostOffice / RetailGXGCutOffTime",
+      "Occurs": "Required",
+      "Description": "Retail/GXG cut off time at location.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response / Package / Service / GXGLocations / PostOffice / SaturdayCutOffTime",
+      "Occurs": "Required",
+      "Description": "Saturday cut off time at location.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "IntlRateV2Response",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "CLASSID": "0",
+      "Mail Services": "First-Class Mail; Large Envelope"
+    },
+    {
+      "CLASSID": "0",
+      "Mail Services": "First-Class Mail&lt; Letter"
+    },
+    {
+      "CLASSID": "0",
+      "Mail Services": "First-Class Mail&lt; Parcel"
+    },
+    {
+      "CLASSID": "0",
+      "Mail Services": "First-Class Mail; Postcards"
+    },
+    {
+      "CLASSID": "1",
+      "Mail Services": "Priority Mail"
+    },
+    {
+      "CLASSID": "2",
+      "Mail Services": "Priority Mail Express; Hold For Pickup"
+    },
+    {
+      "CLASSID": "3",
+      "Mail Services": "Priority Mail Express"
+    },
+    {
+      "CLASSID": "4",
+      "Mail Services": "Standard Post"
+    },
+    {
+      "CLASSID": "6",
+      "Mail Services": "Media Mail"
+    },
+    {
+      "CLASSID": "7",
+      "Mail Services": "Library Mail"
+    },
+    {
+      "CLASSID": "13",
+      "Mail Services": "Priority Mail Express; Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "15",
+      "Mail Services": "First-Class Mail; Large Postcards"
+    },
+    {
+      "CLASSID": "16",
+      "Mail Services": "Priority Mail; Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "17",
+      "Mail Services": "Priority Mail; Medium Flat Rate Box"
+    },
+    {
+      "CLASSID": "22",
+      "Mail Services": "Priority Mail; Large Flat Rate Box"
+    },
+    {
+      "CLASSID": "23",
+      "Mail Services": "Priority Mail Express; Sunday/Holiday Delivery"
+    },
+    {
+      "CLASSID": "25",
+      "Mail Services": "Priority Mail Express; Sunday/Holiday Delivery Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "27",
+      "Mail Services": "Priority Mail Express; Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "28",
+      "Mail Services": "Priority Mail; Small Flat Rate Box"
+    },
+    {
+      "CLASSID": "29",
+      "Mail Services": "Priority Mail; Padded Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "30",
+      "Mail Services": "Priority Mail Express; Legal Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "31",
+      "Mail Services": "Priority Mail Express; Legal Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "32",
+      "Mail Services": "Priority Mail Express; Sunday/Holiday Delivery Legal Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "33",
+      "Mail Services": "Priority Mail; Hold For Pickup"
+    },
+    {
+      "CLASSID": "34",
+      "Mail Services": "Priority Mail; Large Flat Rate Box Hold For Pickup"
+    },
+    {
+      "CLASSID": "35",
+      "Mail Services": "Priority Mail; Medium Flat Rate Box Hold For Pickup"
+    },
+    {
+      "CLASSID": "36",
+      "Mail Services": "Priority Mail; Small Flat Rate Box Hold For Pickup"
+    },
+    {
+      "CLASSID": "37",
+      "Mail Services": "Priority Mail; Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "38",
+      "Mail Services": "Priority Mail; Gift Card Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "39",
+      "Mail Services": "Priority Mail; Gift Card Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "40",
+      "Mail Services": "Priority Mail; Window Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "41",
+      "Mail Services": "Priority Mail; Window Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "42",
+      "Mail Services": "Priority Mail; Small Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "43",
+      "Mail Services": "Priority Mail; Small Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "44",
+      "Mail Services": "Priority Mail; Legal Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "45",
+      "Mail Services": "Priority Mail; Legal Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "46",
+      "Mail Services": "Priority Mail; Padded Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "47",
+      "Mail Services": "Priority Mail; Regional Rate Box A"
+    },
+    {
+      "CLASSID": "48",
+      "Mail Services": "Priority Mail; Regional Rate Box A Hold For Pickup"
+    },
+    {
+      "CLASSID": "49",
+      "Mail Services": "Priority Mail; Regional Rate Box B"
+    },
+    {
+      "CLASSID": "50",
+      "Mail Services": "Priority Mail; Regional Rate Box B Hold For Pickup"
+    },
+    {
+      "CLASSID": "53",
+      "Mail Services": "First-Class; Package Service Hold For Pickup"
+    },
+    {
+      "CLASSID": "55",
+      "Mail Services": "Priority Mail Express; Flat Rate Boxes"
+    },
+    {
+      "CLASSID": "56",
+      "Mail Services": "Priority Mail Express; Flat Rate Boxes Hold For Pickup"
+    },
+    {
+      "CLASSID": "57",
+      "Mail Services": "Priority Mail Express; Sunday/Holiday Delivery Flat Rate Boxes"
+    },
+    {
+      "CLASSID": "58",
+      "Mail Services": "Priority Mail; Regional Rate Box C"
+    },
+    {
+      "CLASSID": "59",
+      "Mail Services": "Priority Mail; Regional Rate Box C Hold For Pickup"
+    },
+    {
+      "CLASSID": "61",
+      "Mail Services": "First-Class; Package Service"
+    },
+    {
+      "CLASSID": "62",
+      "Mail Services": "Priority Mail Express; Padded Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "63",
+      "Mail Services": "Priority Mail Express; Padded Flat Rate Envelope Hold For Pickup"
+    },
+    {
+      "CLASSID": "64",
+      "Mail Services": "Priority Mail Express; Sunday/Holiday Delivery Padded Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "1",
+      "Mail Services": "Priority Mail Express International"
+    },
+    {
+      "CLASSID": "2",
+      "Mail Services": "Priority Mail International"
+    },
+    {
+      "CLASSID": "4",
+      "Mail Services": "Global Express Guaranteed; (GXG)**"
+    },
+    {
+      "CLASSID": "5",
+      "Mail Services": "Global Express Guaranteed; Document"
+    },
+    {
+      "CLASSID": "6",
+      "Mail Services": "Global Express Guarantee; Non-Document Rectangular"
+    },
+    {
+      "CLASSID": "7",
+      "Mail Services": "Global Express Guaranteed; Non-Document Non-Rectangular"
+    },
+    {
+      "CLASSID": "8",
+      "Mail Services": "Priority Mail International; Flat Rate Envelope**"
+    },
+    {
+      "CLASSID": "9",
+      "Mail Services": "Priority Mail International; Medium Flat Rate Box"
+    },
+    {
+      "CLASSID": "10",
+      "Mail Services": "Priority Mail Express International; Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "11",
+      "Mail Services": "Priority Mail International; Large Flat Rate Box"
+    },
+    {
+      "CLASSID": "12",
+      "Mail Services": "USPS GXG; Envelopes**"
+    },
+    {
+      "CLASSID": "13",
+      "Mail Services": "First-Class Mail; International Letter**"
+    },
+    {
+      "CLASSID": "14",
+      "Mail Services": "First-Class Mail; International Large Envelope**"
+    },
+    {
+      "CLASSID": "15",
+      "Mail Services": "First-Class Package International Service**"
+    },
+    {
+      "CLASSID": "16",
+      "Mail Services": "Priority Mail International; Small Flat Rate Box**"
+    },
+    {
+      "CLASSID": "17",
+      "Mail Services": "Priority Mail Express International; Legal Flat Rate Envelope"
+    },
+    {
+      "CLASSID": "18",
+      "Mail Services": "Priority Mail International; Gift Card Flat Rate Envelope**"
+    },
+    {
+      "CLASSID": "19",
+      "Mail Services": "Priority Mail International; Window Flat Rate Envelope**"
+    },
+    {
+      "CLASSID": "20",
+      "Mail Services": "Priority Mail International; Small Flat Rate Envelope**"
+    },
+    {
+      "CLASSID": "21",
+      "Mail Services": "First-Class Mail; International Postcard"
+    },
+    {
+      "CLASSID": "22",
+      "Mail Services": "Priority Mail International; Legal Flat Rate Envelope**"
+    },
+    {
+      "CLASSID": "23",
+      "Mail Services": "Priority Mail International; Padded Flat Rate Envelope**"
+    },
+    {
+      "CLASSID": "24",
+      "Mail Services": "Priority Mail International; DVD Flat Rate priced box**"
+    },
+    {
+      "CLASSID": "25",
+      "Mail Services": "Priority Mail International; Large Video Flat Rate priced box**"
+    },
+    {
+      "CLASSID": "27",
+      "Mail Services": "Priority Mail Express International; Padded Flat Rate Envelope"
+    }
+  ]
+]

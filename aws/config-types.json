@@ -1,0 +1,2330 @@
+[
+  {
+    "title": "AccountAggregationSource",
+    "attrs": {
+      "AccountIds": {
+        "type": "Array of strings",
+        "pattern": "\\d{12}",
+        "required": "Yes",
+        "desc": "The 12-digit account ID of the account being aggregated."
+      },
+      "AllAwsRegions": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "If true, aggregate existing AWS Config regions and future regions."
+      },
+      "AwsRegions": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The source regions being aggregated."
+      }
+    }
+  },
+  {
+    "title": "AggregateComplianceByConfigRule",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit account ID of the source account."
+      },
+      "AwsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The source region from where the data is aggregated."
+      },
+      "Compliance": {
+        "type": "Compliance object",
+        "required": "No",
+        "desc": "Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance."
+      },
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The name of the AWS Config rule."
+      }
+    }
+  },
+  {
+    "title": "AggregateComplianceCount",
+    "attrs": {
+      "ComplianceSummary": {
+        "type": "ComplianceSummary object",
+        "required": "No",
+        "desc": "The number of compliant and noncompliant AWS Config rules."
+      },
+      "GroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The 12-digit account ID or region based on the GroupByKey value."
+      }
+    }
+  },
+  {
+    "title": "AggregatedSourceStatus",
+    "attrs": {
+      "AwsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The region authorized to collect aggregated data."
+      },
+      "LastErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error code that AWS Config returned when the source account aggregation last failed."
+      },
+      "LastErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The message indicating that the source account aggregation failed due to an error."
+      },
+      "LastUpdateStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "Filters the last updated status type."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time of the last update."
+      },
+      "SourceId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The source account ID or an organization."
+      },
+      "SourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The source account or an organization."
+      }
+    }
+  },
+  {
+    "title": "AggregateEvaluationResult",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit account ID of the source account."
+      },
+      "Annotation": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "Supplementary information about how the agrregate evaluation determined the compliance."
+      },
+      "AwsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The source region from where the data is aggregated."
+      },
+      "ComplianceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The resource compliance status. For the AggregationEvaluationResult data type, AWS Config supports only the COMPLIANT and NON_COMPLIANT. AWS Config does not support the NOT_APPLICABLE and INSUFFICIENT_DATA value."
+      },
+      "ConfigRuleInvokedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the AWS Config rule evaluated the AWS resource."
+      },
+      "EvaluationResultIdentifier": {
+        "type": "EvaluationResultIdentifier object",
+        "required": "No",
+        "desc": "Uniquely identifies the evaluation result."
+      },
+      "ResultRecordedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when AWS Config recorded the aggregate evaluation result."
+      }
+    }
+  },
+  {
+    "title": "AggregateResourceIdentifier",
+    "attrs": {
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "Yes",
+        "desc": "The ID of the AWS resource."
+      },
+      "ResourceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the AWS resource."
+      },
+      "ResourceType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of the AWS resource."
+      },
+      "SourceAccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "Yes",
+        "desc": "The 12-digit account ID of the source account."
+      },
+      "SourceRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "Yes",
+        "desc": "The source region where data is aggregated."
+      }
+    }
+  },
+  {
+    "title": "AggregationAuthorization",
+    "attrs": {
+      "AggregationAuthorizationArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the aggregation object."
+      },
+      "AuthorizedAccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit account ID of the account authorized to aggregate data."
+      },
+      "AuthorizedAwsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The region authorized to collect aggregated data."
+      },
+      "CreationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time stamp when the aggregation authorization was created."
+      }
+    }
+  },
+  {
+    "title": "BaseConfigurationItem",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit AWS account ID associated with the resource."
+      },
+      "arn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the resource."
+      },
+      "availabilityZone": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Availability Zone associated with the resource."
+      },
+      "awsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The region where the resource resides."
+      },
+      "configuration": {
+        "type": "String",
+        "required": "No",
+        "desc": "The description of the resource configuration."
+      },
+      "configurationItemCaptureTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the configuration recording was initiated."
+      },
+      "configurationItemStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The configuration item status. The valid values are:"
+      },
+      "configurationStateId": {
+        "type": "String",
+        "required": "No",
+        "desc": "An identifier that indicates the ordering of the configuration items of a resource."
+      },
+      "resourceCreationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time stamp when the resource was created."
+      },
+      "resourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the resource (for example., sg-xxxxxx)."
+      },
+      "resourceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The custom name of the resource, if available."
+      },
+      "resourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of AWS resource."
+      },
+      "supplementaryConfiguration": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter."
+      },
+      "version": {
+        "type": "String",
+        "required": "No",
+        "desc": "The version number of the resource configuration."
+      }
+    }
+  },
+  {
+    "title": "Compliance",
+    "attrs": {
+      "ComplianceContributorCount": {
+        "type": "ComplianceContributorCount object",
+        "required": "No",
+        "desc": "The number of AWS resources or AWS Config rules that cause a result of NON_COMPLIANT, up to a maximum number."
+      },
+      "ComplianceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates whether an AWS resource or AWS Config rule is compliant. A resource is compliant if it complies with all of the AWS Config rules that evaluate it. A resource is noncompliant if it does not comply with one or more of these rules. A rule is compliant if all of the resources that the rule evaluates comply with it. A rule is noncompliant if any of these resources do not comply. AWS Config returns the INSUFFICIENT_DATA value when no evaluation results are available for the AWS resource or AWS Config rule. For the Compliance data type, AWS Config supports only COMPLIANT, NON_COMPLIANT, and INSUFFICIENT_DATA values. AWS Config does not support the NOT_APPLICABLE value for the Compliance data type."
+      }
+    }
+  },
+  {
+    "title": "ComplianceByConfigRule",
+    "attrs": {
+      "Compliance": {
+        "type": "Compliance object",
+        "required": "No",
+        "desc": "Indicates whether the AWS Config rule is compliant."
+      },
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The name of the AWS Config rule."
+      }
+    }
+  },
+  {
+    "title": "ComplianceByResource",
+    "attrs": {
+      "Compliance": {
+        "type": "Compliance object",
+        "required": "No",
+        "desc": "Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it."
+      },
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the AWS resource that was evaluated."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The type of the AWS resource that was evaluated."
+      }
+    }
+  },
+  {
+    "title": "ComplianceContributorCount",
+    "attrs": {
+      "CapExceeded": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether the maximum count is reached."
+      },
+      "CappedCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of AWS resources or AWS Config rules responsible for the current compliance of the item."
+      }
+    }
+  },
+  {
+    "title": "ComplianceSummary",
+    "attrs": {
+      "ComplianceSummaryTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that AWS Config created the compliance summary."
+      },
+      "CompliantResourceCount": {
+        "type": "ComplianceContributorCount object",
+        "required": "No",
+        "desc": "The number of AWS Config rules or AWS resources that are compliant, up to a maximum of 25 for rules and 100 for resources."
+      },
+      "NonCompliantResourceCount": {
+        "type": "ComplianceContributorCount object",
+        "required": "No",
+        "desc": "The number of AWS Config rules or AWS resources that are noncompliant, up to a maximum of 25 for rules and 100 for resources."
+      }
+    }
+  },
+  {
+    "title": "ComplianceSummaryByResourceType",
+    "attrs": {
+      "ComplianceSummary": {
+        "type": "ComplianceSummary object",
+        "required": "No",
+        "desc": "The number of AWS resources that are compliant or noncompliant, up to a maximum of 100 for each."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The type of AWS resource."
+      }
+    }
+  },
+  {
+    "title": "ConfigExportDeliveryInfo",
+    "attrs": {
+      "lastAttemptTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time of the last attempted delivery."
+      },
+      "lastErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error code from the last attempted delivery."
+      },
+      "lastErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error message from the last attempted delivery."
+      },
+      "lastStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "Status of the last attempted delivery."
+      },
+      "lastSuccessfulTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time of the last successful delivery."
+      },
+      "nextDeliveryTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that the next delivery occurs."
+      }
+    }
+  },
+  {
+    "title": "ConfigRule",
+    "attrs": {
+      "ConfigRuleArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the AWS Config rule."
+      },
+      "ConfigRuleId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The ID of the AWS Config rule."
+      },
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The name that you assign to the AWS Config rule. The name is required if you are adding a new rule."
+      },
+      "ConfigRuleState": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates whether the AWS Config rule is active or is currently being deleted by AWS Config. It can also indicate the evaluation status for the AWS Config rule. AWS Config sets the state of the rule to EVALUATING temporarily after you use the StartConfigRulesEvaluation request to evaluate your resources against the AWS Config rule. AWS Config sets the state of the rule to DELETING_RESULTS temporarily after you use the DeleteEvaluationResults request to delete the current evaluation results for the AWS Config rule. AWS Config temporarily sets the state of a rule to DELETING after you use the DeleteConfigRule request to delete the rule. After AWS Config deletes the rule, the rule and all of its evaluations are erased and are no longer available."
+      },
+      "CreatedBy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "Service principal name of the service that created the rule."
+      },
+      "Description": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "required": "No",
+        "desc": "The description that you provide for the AWS Config rule."
+      },
+      "InputParameters": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "A string, in JSON format, that is passed to the AWS Config rule Lambda function."
+      },
+      "MaximumExecutionFrequency": {
+        "type": "String",
+        "required": "No",
+        "desc": "The maximum frequency with which AWS Config runs evaluations for a rule. You can specify a value for MaximumExecutionFrequency when:"
+      },
+      "Scope": {
+        "type": "Scope object",
+        "required": "No",
+        "desc": "Defines which resources can trigger an evaluation for the rule. The scope can include one or more resource types, a combination of one resource type and one resource ID, or a combination of a tag key and value. Specify a scope to constrain the resources that can trigger an evaluation for the rule. If you do not specify a scope, evaluations are triggered when any resource in the recording group changes."
+      },
+      "Source": {
+        "type": "Source object",
+        "required": "Yes",
+        "desc": "Provides the rule owner (AWS or customer), the rule identifier, and the notifications that cause the function to evaluate your AWS resources."
+      }
+    }
+  },
+  {
+    "title": "ConfigRuleComplianceFilters",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit account ID of the source account."
+      },
+      "AwsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The source region where the data is aggregated."
+      },
+      "ComplianceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The rule compliance status. For the ConfigRuleComplianceFilters data type, AWS Config supports only COMPLIANT and NON_COMPLIANT. AWS Config does not support the NOT_APPLICABLE and the INSUFFICIENT_DATA values."
+      },
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The name of the AWS Config rule."
+      }
+    }
+  },
+  {
+    "title": "ConfigRuleComplianceSummaryFilters",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit account ID of the source account."
+      },
+      "AwsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The source region where the data is aggregated."
+      }
+    }
+  },
+  {
+    "title": "ConfigRuleEvaluationStatus",
+    "attrs": {
+      "ConfigRuleArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the AWS Config rule."
+      },
+      "ConfigRuleId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ID of the AWS Config rule."
+      },
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The name of the AWS Config rule."
+      },
+      "FirstActivatedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that you first activated the AWS Config rule."
+      },
+      "FirstEvaluationStarted": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether AWS Config has evaluated your resources against the rule at least once."
+      },
+      "LastDeactivatedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that you last turned off the AWS Config rule."
+      },
+      "LastErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error code that AWS Config returned when the rule last failed."
+      },
+      "LastErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error message that AWS Config returned when the rule last failed."
+      },
+      "LastFailedEvaluationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that AWS Config last failed to evaluate your AWS resources against the rule."
+      },
+      "LastFailedInvocationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that AWS Config last failed to invoke the AWS Config rule to evaluate your AWS resources."
+      },
+      "LastSuccessfulEvaluationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that AWS Config last successfully evaluated your AWS resources against the rule."
+      },
+      "LastSuccessfulInvocationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that AWS Config last successfully invoked the AWS Config rule to evaluate your AWS resources."
+      }
+    }
+  },
+  {
+    "title": "ConfigSnapshotDeliveryProperties",
+    "attrs": {
+      "deliveryFrequency": {
+        "type": "String",
+        "required": "No",
+        "desc": "The frequency with which AWS Config delivers configuration snapshots."
+      }
+    }
+  },
+  {
+    "title": "ConfigStreamDeliveryInfo",
+    "attrs": {
+      "lastErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error code from the last attempted delivery."
+      },
+      "lastErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error message from the last attempted delivery."
+      },
+      "lastStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "Status of the last attempted delivery. Note Providing an SNS topic on a DeliveryChannel for AWS Config is optional. If the SNS delivery is turned off, the last status will be Not_Applicable."
+      },
+      "lastStatusChangeTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time from the last status change."
+      }
+    }
+  },
+  {
+    "title": "ConfigurationAggregator",
+    "attrs": {
+      "AccountAggregationSources": {
+        "type": "Array of AccountAggregationSource objects",
+        "required": "No",
+        "desc": "Provides a list of source accounts and regions to be aggregated."
+      },
+      "ConfigurationAggregatorArn": {
+        "type": "String",
+        "pattern": "arn:aws[a-z\\-]*:config:[a-z\\-\\d]+:\\d+:config-aggregator/config-aggregator-[a-z\\d]+",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the aggregator."
+      },
+      "ConfigurationAggregatorName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "[\\w\\-]+",
+        "required": "No",
+        "desc": "The name of the aggregator."
+      },
+      "CreatedBy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "AWS service that created the configuration aggregator."
+      },
+      "CreationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time stamp when the configuration aggregator was created."
+      },
+      "LastUpdatedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time of the last update."
+      },
+      "OrganizationAggregationSource": {
+        "type": "OrganizationAggregationSource object",
+        "required": "No",
+        "desc": "Provides an organization and list of regions to be aggregated."
+      }
+    }
+  },
+  {
+    "title": "ConfigurationItem",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit AWS account ID associated with the resource."
+      },
+      "arn": {
+        "type": "String",
+        "required": "No",
+        "desc": "Amazon Resource Name (ARN) associated with the resource."
+      },
+      "availabilityZone": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Availability Zone associated with the resource."
+      },
+      "awsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The region where the resource resides."
+      },
+      "configuration": {
+        "type": "String",
+        "required": "No",
+        "desc": "The description of the resource configuration."
+      },
+      "configurationItemCaptureTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the configuration recording was initiated."
+      },
+      "configurationItemMD5Hash": {
+        "type": "String",
+        "required": "No",
+        "desc": "Unique MD5 hash that represents the configuration item's state. You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource."
+      },
+      "configurationItemStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The configuration item status. The valid values are:"
+      },
+      "configurationStateId": {
+        "type": "String",
+        "required": "No",
+        "desc": "An identifier that indicates the ordering of the configuration items of a resource."
+      },
+      "relatedEvents": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "A list of CloudTrail event IDs. A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see What Is AWS CloudTrail. An empty field indicates that the current configuration was not initiated by any event. As of Version 1.3, the relatedEvents field is empty. You can access the LookupEvents API in the AWS CloudTrail API Reference to retrieve the events for the resource."
+      },
+      "relationships": {
+        "type": "Array of Relationship objects",
+        "required": "No",
+        "desc": "A list of related AWS resources."
+      },
+      "resourceCreationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time stamp when the resource was created."
+      },
+      "resourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the resource (for example, sg-xxxxxx)."
+      },
+      "resourceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The custom name of the resource, if available."
+      },
+      "resourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of AWS resource."
+      },
+      "supplementaryConfiguration": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the configuration parameter."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "A mapping of key value tags associated with the resource."
+      },
+      "version": {
+        "type": "String",
+        "required": "No",
+        "desc": "The version number of the resource configuration."
+      }
+    }
+  },
+  {
+    "title": "ConfigurationRecorder",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name."
+      },
+      "recordingGroup": {
+        "type": "RecordingGroup object",
+        "required": "No",
+        "desc": "Specifies the types of AWS resources for which AWS Config records configuration changes."
+      },
+      "roleARN": {
+        "type": "String",
+        "required": "No",
+        "desc": "Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated with the account."
+      }
+    }
+  },
+  {
+    "title": "ConfigurationRecorderStatus",
+    "attrs": {
+      "lastErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error code indicating that the recording failed."
+      },
+      "lastErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The message indicating that the recording failed due to an error."
+      },
+      "lastStartTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time the recorder was last started."
+      },
+      "lastStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The last (previous) status of the recorder."
+      },
+      "lastStatusChangeTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the status was last changed."
+      },
+      "lastStopTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time the recorder was last stopped."
+      },
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the configuration recorder."
+      },
+      "recording": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether or not the recorder is currently recording."
+      }
+    }
+  },
+  {
+    "title": "ConformancePackComplianceFilters",
+    "attrs": {
+      "ComplianceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Filters the results by compliance. The allowed values are COMPLIANT and NON_COMPLIANT."
+      },
+      "ConfigRuleNames": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "Filters the results by AWS Config rule names."
+      }
+    }
+  },
+  {
+    "title": "ConformancePackComplianceSummary",
+    "attrs": {
+      "ConformancePackComplianceStatus": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The status of the conformance pack. The allowed values are COMPLIANT and NON_COMPLIANT."
+      },
+      "ConformancePackName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
+        "required": "Yes",
+        "desc": "The name of the conformance pack name."
+      }
+    }
+  },
+  {
+    "title": "ConformancePackDetail",
+    "attrs": {
+      "ConformancePackArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "Yes",
+        "desc": "Amazon Resource Name (ARN) of the conformance pack."
+      },
+      "ConformancePackId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "Yes",
+        "desc": "ID of the conformance pack."
+      },
+      "ConformancePackInputParameters": {
+        "type": "Array of ConformancePackInputParameter objects",
+        "required": "No",
+        "desc": "A list of ConformancePackInputParameter objects."
+      },
+      "ConformancePackName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
+        "required": "Yes",
+        "desc": "Name of the conformance pack."
+      },
+      "CreatedBy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "AWS service that created the conformance pack."
+      },
+      "DeliveryS3Bucket": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 63.",
+        "required": "No",
+        "desc": "Amazon S3 bucket where AWS Config stores conformance pack templates."
+      },
+      "DeliveryS3KeyPrefix": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The prefix for the Amazon S3 bucket."
+      },
+      "LastUpdateRequestedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Last time when conformation pack update was requested."
+      }
+    }
+  },
+  {
+    "title": "ConformancePackEvaluationFilters",
+    "attrs": {
+      "ComplianceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Filters the results by compliance. The allowed values are COMPLIANT and NON_COMPLIANT."
+      },
+      "ConfigRuleNames": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "Filters the results by AWS Config rule names."
+      },
+      "ResourceIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "Filters the results by resource IDs."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "Filters the results by the resource type (for example, \"AWS::EC2::Instance\")."
+      }
+    }
+  },
+  {
+    "title": "ConformancePackEvaluationResult",
+    "attrs": {
+      "Annotation": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "required": "No",
+        "desc": "Supplementary information about how the evaluation determined the compliance."
+      },
+      "ComplianceType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The compliance type. The allowed values are COMPLIANT and NON_COMPLIANT."
+      },
+      "ConfigRuleInvokedTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The time when AWS Config rule evaluated AWS resource."
+      },
+      "EvaluationResultIdentifier": {
+        "type": "EvaluationResultIdentifier object",
+        "required": "Yes",
+        "desc": "Uniquely identifies an evaluation result."
+      },
+      "ResultRecordedTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The time when AWS Config recorded the evaluation result."
+      }
+    }
+  },
+  {
+    "title": "ConformancePackInputParameter",
+    "attrs": {
+      "ParameterName": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 255.",
+        "required": "Yes",
+        "desc": "One part of a key-value pair."
+      },
+      "ParameterValue": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 4096.",
+        "required": "Yes",
+        "desc": "Another part of the key-value pair."
+      }
+    }
+  },
+  {
+    "title": "ConformancePackRuleCompliance",
+    "attrs": {
+      "ComplianceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Compliance of the AWS Config rule The allowed values are COMPLIANT and NON_COMPLIANT."
+      },
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "Name of the config rule."
+      }
+    }
+  },
+  {
+    "title": "ConformancePackStatusDetail",
+    "attrs": {
+      "ConformancePackArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "Yes",
+        "desc": "Amazon Resource Name (ARN) of comformance pack."
+      },
+      "ConformancePackId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "Yes",
+        "desc": "ID of the conformance pack."
+      },
+      "ConformancePackName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
+        "required": "Yes",
+        "desc": "Name of the conformance pack."
+      },
+      "ConformancePackState": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Indicates deployment status of conformance pack. AWS Config sets the state of the conformance pack to:"
+      },
+      "ConformancePackStatusReason": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 2000.",
+        "required": "No",
+        "desc": "The reason of conformance pack creation failure."
+      },
+      "LastUpdateCompletedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Last time when conformation pack creation and update was successful."
+      },
+      "LastUpdateRequestedTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "Last time when conformation pack creation and update was requested."
+      },
+      "StackArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "Yes",
+        "desc": "Amazon Resource Name (ARN) of AWS CloudFormation stack."
+      }
+    }
+  },
+  {
+    "title": "DeliveryChannel",
+    "attrs": {
+      "configSnapshotDeliveryProperties": {
+        "type": "ConfigSnapshotDeliveryProperties object",
+        "required": "No",
+        "desc": "The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name."
+      },
+      "s3BucketName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files. If you specify a bucket that belongs to another AWS account, that bucket must have policies that grant access permissions to AWS Config. For more information, see Permissions for the Amazon S3 Bucket in the AWS Config Developer Guide."
+      },
+      "s3KeyPrefix": {
+        "type": "String",
+        "required": "No",
+        "desc": "The prefix for the specified Amazon S3 bucket."
+      },
+      "snsTopicARN": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes. If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config. For more information, see Permissions for the Amazon SNS Topic in the AWS Config Developer Guide."
+      }
+    }
+  },
+  {
+    "title": "DeliveryChannelStatus",
+    "attrs": {
+      "configHistoryDeliveryInfo": {
+        "type": "ConfigExportDeliveryInfo object",
+        "required": "No",
+        "desc": "A list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket."
+      },
+      "configSnapshotDeliveryInfo": {
+        "type": "ConfigExportDeliveryInfo object",
+        "required": "No",
+        "desc": "A list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket."
+      },
+      "configStreamDeliveryInfo": {
+        "type": "ConfigStreamDeliveryInfo object",
+        "required": "No",
+        "desc": "A list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic."
+      },
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the delivery channel."
+      }
+    }
+  },
+  {
+    "title": "Evaluation",
+    "attrs": {
+      "Annotation": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "Supplementary information about how the evaluation determined the compliance."
+      },
+      "ComplianceResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "Yes",
+        "desc": "The ID of the AWS resource that was evaluated."
+      },
+      "ComplianceResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "The type of AWS resource that was evaluated."
+      },
+      "ComplianceType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Indicates whether the AWS resource complies with the AWS Config rule that it was evaluated against. For the Evaluation data type, AWS Config supports only the COMPLIANT, NON_COMPLIANT, and NOT_APPLICABLE values. AWS Config does not support the INSUFFICIENT_DATA value for this data type. Similarly, AWS Config does not accept INSUFFICIENT_DATA as the value for ComplianceType from a PutEvaluations request. For example, an AWS Lambda function for a custom AWS Config rule cannot pass an INSUFFICIENT_DATA value to AWS Config."
+      },
+      "OrderingTimestamp": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The time of the event in AWS Config that triggered the evaluation. For event-based evaluations, the time indicates when AWS Config created the configuration item that triggered the evaluation. For periodic evaluations, the time indicates when AWS Config triggered the evaluation at the frequency that you specified (for example, every 24 hours)."
+      }
+    }
+  },
+  {
+    "title": "EvaluationResult",
+    "attrs": {
+      "Annotation": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "Supplementary information about how the evaluation determined the compliance."
+      },
+      "ComplianceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates whether the AWS resource complies with the AWS Config rule that evaluated it. For the EvaluationResult data type, AWS Config supports only the COMPLIANT, NON_COMPLIANT, and NOT_APPLICABLE values. AWS Config does not support the INSUFFICIENT_DATA value for the EvaluationResult data type."
+      },
+      "ConfigRuleInvokedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the AWS Config rule evaluated the AWS resource."
+      },
+      "EvaluationResultIdentifier": {
+        "type": "EvaluationResultIdentifier object",
+        "required": "No",
+        "desc": "Uniquely identifies the evaluation result."
+      },
+      "ResultRecordedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when AWS Config recorded the evaluation result."
+      },
+      "ResultToken": {
+        "type": "String",
+        "required": "No",
+        "desc": "An encrypted token that associates an evaluation with an AWS Config rule. The token identifies the rule, the AWS resource being evaluated, and the event that triggered the evaluation."
+      }
+    }
+  },
+  {
+    "title": "EvaluationResultIdentifier",
+    "attrs": {
+      "EvaluationResultQualifier": {
+        "type": "EvaluationResultQualifier object",
+        "required": "No",
+        "desc": "Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource."
+      },
+      "OrderingTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time of the event that triggered the evaluation of your AWS resources. The time can indicate when AWS Config delivered a configuration item change notification, or it can indicate when AWS Config delivered the configuration snapshot, depending on which event triggered the evaluation."
+      }
+    }
+  },
+  {
+    "title": "EvaluationResultQualifier",
+    "attrs": {
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*\\S.*",
+        "required": "No",
+        "desc": "The name of the AWS Config rule that was used in the evaluation."
+      },
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the evaluated AWS resource."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The type of AWS resource that was evaluated."
+      }
+    }
+  },
+  {
+    "title": "ExecutionControls",
+    "attrs": {
+      "SsmControls": {
+        "type": "SsmControls object",
+        "required": "No",
+        "desc": "A SsmControls object."
+      }
+    }
+  },
+  {
+    "title": "ExternalEvaluation",
+    "attrs": {
+      "Annotation": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "Supplementary information about the reason of compliance. For example, this task was completed on a specific date."
+      },
+      "ComplianceResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "Yes",
+        "desc": "The evaluated compliance resource ID. AWS Config accepts only AWS account ID."
+      },
+      "ComplianceResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "The evaluated compliance resource type. AWS Config accepts AWS::::Account resource type."
+      },
+      "ComplianceType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The compliance of the AWS resource. The valid values are COMPLIANT, NON_COMPLIANT, and NOT_APPLICABLE."
+      },
+      "OrderingTimestamp": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The time when the compliance was recorded."
+      }
+    }
+  },
+  {
+    "title": "FailedDeleteRemediationExceptionsBatch",
+    "attrs": {
+      "FailedItems": {
+        "type": "Array of RemediationExceptionResourceKey objects",
+        "required": "No",
+        "desc": "Returns remediation exception resource key object of the failed items."
+      },
+      "FailureMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "Returns a failure message for delete remediation exception. For example, AWS Config creates an exception due to an internal error."
+      }
+    }
+  },
+  {
+    "title": "FailedRemediationBatch",
+    "attrs": {
+      "FailedItems": {
+        "type": "Array of RemediationConfiguration objects",
+        "required": "No",
+        "desc": "Returns remediation configurations of the failed items."
+      },
+      "FailureMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "Returns a failure message. For example, the resource is already compliant."
+      }
+    }
+  },
+  {
+    "title": "FailedRemediationExceptionBatch",
+    "attrs": {
+      "FailedItems": {
+        "type": "Array of RemediationException objects",
+        "required": "No",
+        "desc": "Returns remediation exception resource key object of the failed items."
+      },
+      "FailureMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "Returns a failure message. For example, the auto-remediation has failed."
+      }
+    }
+  },
+  {
+    "title": "FieldInfo",
+    "attrs": {
+      "Name": {
+        "type": "String",
+        "required": "No",
+        "desc": "Name of the field."
+      }
+    }
+  },
+  {
+    "title": "GroupedResourceCount",
+    "attrs": {
+      "GroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as GroupByKey."
+      },
+      "ResourceCount": {
+        "type": "Long",
+        "required": "Yes",
+        "desc": "The number of resources in the group."
+      }
+    }
+  },
+  {
+    "title": "MemberAccountStatus",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "Yes",
+        "desc": "The 12-digit account ID of a member account."
+      },
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "Yes",
+        "desc": "The name of config rule deployed in the member account."
+      },
+      "ErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error code that is returned when config rule creation or deletion failed in the member account."
+      },
+      "ErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error message indicating that config rule account creation or deletion has failed due to an error in the member account."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp of the last status update."
+      },
+      "MemberAccountRuleStatus": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Indicates deployment status for config rule in the member account. When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in the member account. When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes OrganizationConfigRule and disables service access for config-multiaccountsetup.amazonaws.com. AWS Config sets the state of the rule to:"
+      }
+    }
+  },
+  {
+    "title": "OrganizationAggregationSource",
+    "attrs": {
+      "AllAwsRegions": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "If true, aggregate existing AWS Config regions and future regions."
+      },
+      "AwsRegions": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The source regions being aggregated."
+      },
+      "RoleArn": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account."
+      }
+    }
+  },
+  {
+    "title": "OrganizationConfigRule",
+    "attrs": {
+      "ExcludedAccounts": {
+        "type": "Array of strings",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "A comma-separated list of accounts excluded from organization config rule."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp of the last update."
+      },
+      "OrganizationConfigRuleArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "Amazon Resource Name (ARN) of organization config rule."
+      },
+      "OrganizationConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "pattern": ".*\\S.*",
+        "required": "Yes",
+        "desc": "The name that you assign to organization config rule."
+      },
+      "OrganizationCustomRuleMetadata": {
+        "type": "OrganizationCustomRuleMetadata object",
+        "required": "No",
+        "desc": "An OrganizationCustomRuleMetadata object."
+      },
+      "OrganizationManagedRuleMetadata": {
+        "type": "OrganizationManagedRuleMetadata object",
+        "required": "No",
+        "desc": "An OrganizationManagedRuleMetadata object."
+      }
+    }
+  },
+  {
+    "title": "OrganizationConfigRuleStatus",
+    "attrs": {
+      "ErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error code that is returned when organization config rule creation or deletion has failed."
+      },
+      "ErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error message indicating that organization config rule creation or deletion failed due to an error."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp of the last update."
+      },
+      "OrganizationConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "pattern": ".*\\S.*",
+        "required": "Yes",
+        "desc": "The name that you assign to organization config rule."
+      },
+      "OrganizationRuleStatus": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Indicates deployment status of an organization config rule. When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in all the member accounts. When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in all the member accounts. Additionally, config rule status is updated when one or more member accounts join or leave an organization. Config rule status is deleted when the master account deletes OrganizationConfigRule in all the member accounts and disables service access for config-multiaccountsetup.amazonaws.com. AWS Config sets the state of the rule to:"
+      }
+    }
+  },
+  {
+    "title": "OrganizationConformancePack",
+    "attrs": {
+      "ConformancePackInputParameters": {
+        "type": "Array of ConformancePackInputParameter objects",
+        "required": "No",
+        "desc": "A list of ConformancePackInputParameter objects."
+      },
+      "DeliveryS3Bucket": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 63.",
+        "required": "No",
+        "desc": "Amazon S3 bucket where AWS Config stores conformance pack templates."
+      },
+      "DeliveryS3KeyPrefix": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Any folder structure you want to add to an Amazon S3 bucket."
+      },
+      "ExcludedAccounts": {
+        "type": "Array of strings",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "A comma-separated list of accounts excluded from organization conformance pack."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "Last time when organization conformation pack was updated."
+      },
+      "OrganizationConformancePackArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "Amazon Resource Name (ARN) of organization conformance pack."
+      },
+      "OrganizationConformancePackName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
+        "required": "Yes",
+        "desc": "The name you assign to an organization conformance pack."
+      }
+    }
+  },
+  {
+    "title": "OrganizationConformancePackDetailedStatus",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "Yes",
+        "desc": "The 12-digit account ID of a member account."
+      },
+      "ConformancePackName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "The name of conformance pack deployed in the member account."
+      },
+      "ErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error code that is returned when conformance pack creation or deletion failed in the member account."
+      },
+      "ErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error message indicating that conformance pack account creation or deletion has failed due to an error in the member account."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp of the last status update."
+      },
+      "Status": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Indicates deployment status for conformance pack in a member account. When master account calls PutOrganizationConformancePack action for the first time, conformance pack status is created in the member account. When master account calls PutOrganizationConformancePack action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes OrganizationConformancePack and disables service access for config-multiaccountsetup.amazonaws.com. AWS Config sets the state of the conformance pack to:"
+      }
+    }
+  },
+  {
+    "title": "OrganizationConformancePackStatus",
+    "attrs": {
+      "ErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error code that is returned when organization conformance pack creation or deletion has failed in a member account."
+      },
+      "ErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error message indicating that organization conformance pack creation or deletion failed due to an error."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp of the last update."
+      },
+      "OrganizationConformancePackName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[a-zA-Z][-a-zA-Z0-9]*",
+        "required": "Yes",
+        "desc": "The name that you assign to organization conformance pack."
+      },
+      "Status": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Indicates deployment status of an organization conformance pack. When master account calls PutOrganizationConformancePack for the first time, conformance pack status is created in all the member accounts. When master account calls PutOrganizationConformancePack for the second time, conformance pack status is updated in all the member accounts. Additionally, conformance pack status is updated when one or more member accounts join or leave an organization. Conformance pack status is deleted when the master account deletes OrganizationConformancePack in all the member accounts and disables service access for config-multiaccountsetup.amazonaws.com. AWS Config sets the state of the conformance pack to:"
+      }
+    }
+  },
+  {
+    "title": "OrganizationCustomRuleMetadata",
+    "attrs": {
+      "Description": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "required": "No",
+        "desc": "The description that you provide for organization config rule."
+      },
+      "InputParameters": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "A string, in JSON format, that is passed to organization config rule Lambda function."
+      },
+      "LambdaFunctionArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "The lambda function ARN."
+      },
+      "MaximumExecutionFrequency": {
+        "type": "String",
+        "required": "No",
+        "desc": "The maximum frequency with which AWS Config runs evaluations for a rule. Your custom rule is triggered when AWS Config delivers the configuration snapshot. For more information, see ConfigSnapshotDeliveryProperties."
+      },
+      "OrganizationConfigRuleTriggerTypes": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:"
+      },
+      "ResourceIdScope": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the AWS resource that was evaluated."
+      },
+      "ResourceTypesScope": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The type of the AWS resource that was evaluated."
+      },
+      "TagKeyScope": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "required": "No",
+        "desc": "One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values."
+      },
+      "TagValueScope": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key)."
+      }
+    }
+  },
+  {
+    "title": "OrganizationManagedRuleMetadata",
+    "attrs": {
+      "Description": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "required": "No",
+        "desc": "The description that you provide for organization config rule."
+      },
+      "InputParameters": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "A string, in JSON format, that is passed to organization config rule Lambda function."
+      },
+      "MaximumExecutionFrequency": {
+        "type": "String",
+        "required": "No",
+        "desc": "The maximum frequency with which AWS Config runs evaluations for a rule. You are using an AWS managed rule that is triggered at a periodic frequency."
+      },
+      "ResourceIdScope": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the AWS resource that was evaluated."
+      },
+      "ResourceTypesScope": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The type of the AWS resource that was evaluated."
+      },
+      "RuleIdentifier": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "For organization config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using AWS Managed Config Rules."
+      },
+      "TagKeyScope": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "required": "No",
+        "desc": "One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values."
+      },
+      "TagValueScope": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key)."
+      }
+    }
+  },
+  {
+    "title": "OrganizationResourceDetailedStatusFilters",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit account ID of the member account within an organization."
+      },
+      "Status": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates deployment status for conformance pack in a member account. When master account calls PutOrganizationConformancePack action for the first time, conformance pack status is created in the member account. When master account calls PutOrganizationConformancePack action for the second time, conformance pack status is updated in the member account. Conformance pack status is deleted when the master account deletes OrganizationConformancePack and disables service access for config-multiaccountsetup.amazonaws.com. AWS Config sets the state of the conformance pack to:"
+      }
+    }
+  },
+  {
+    "title": "PendingAggregationRequest",
+    "attrs": {
+      "RequesterAccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit account ID of the account requesting to aggregate data."
+      },
+      "RequesterAwsRegion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The region requesting to aggregate data."
+      }
+    }
+  },
+  {
+    "title": "QueryInfo",
+    "attrs": {
+      "SelectFields": {
+        "type": "Array of FieldInfo objects",
+        "required": "No",
+        "desc": "Returns a FieldInfo object."
+      }
+    }
+  },
+  {
+    "title": "RecordingGroup",
+    "attrs": {
+      "allSupported": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether AWS Config records configuration changes for every supported type of regional resource. If you set this option to true, when AWS Config adds support for a new type of regional resource, it starts recording resources of that type automatically. If you set this option to true, you cannot enumerate a list of resourceTypes."
+      },
+      "includeGlobalResourceTypes": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether AWS Config includes all supported types of global resources (for example, IAM resources) with the resources that it records. Before you can set this option to true, you must set the allSupported option to true. If you set this option to true, when AWS Config adds support for a new type of global resource, it starts recording resources of that type automatically. The configuration details for any global resource are the same in all regions. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources."
+      },
+      "resourceTypes": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, AWS::EC2::Instance or AWS::CloudTrail::Trail). Before you can set this option to true, you must set the allSupported option to false. If you set this option to true, when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group. For a list of valid resourceTypes values, see the resourceType Value column in Supported AWS Resource Types."
+      }
+    }
+  },
+  {
+    "title": "Relationship",
+    "attrs": {
+      "relationshipName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of relationship with the related resource."
+      },
+      "resourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the related resource (for example, sg-xxxxxx)."
+      },
+      "resourceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The custom name of the related resource, if available."
+      },
+      "resourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The resource type of the related resource."
+      }
+    }
+  },
+  {
+    "title": "RemediationConfiguration",
+    "attrs": {
+      "Arn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Amazon Resource Name (ARN) of remediation configuration."
+      },
+      "Automatic": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "The remediation is triggered automatically."
+      },
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*\\S.*",
+        "required": "Yes",
+        "desc": "The name of the AWS Config rule."
+      },
+      "CreatedByService": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Name of the service that owns the service linked rule, if applicable."
+      },
+      "ExecutionControls": {
+        "type": "ExecutionControls object",
+        "required": "No",
+        "desc": "An ExecutionControls object."
+      },
+      "MaximumAutomaticAttempts": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5. For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds."
+      },
+      "Parameters": {
+        "type": "String to RemediationParameterValue object map",
+        "required": "No",
+        "desc": "An object of the RemediationParameterValue."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The type of a resource."
+      },
+      "RetryAttemptSeconds": {
+        "type": "Long",
+        "required": "No",
+        "desc": "Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds. For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5 times within 50 seconds before throwing an exception."
+      },
+      "TargetId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "Target ID is the name of the public document."
+      },
+      "TargetType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of the target. Target executes remediation. For example, SSM document."
+      },
+      "TargetVersion": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "Version of the target. For example, version of the SSM document."
+      }
+    }
+  },
+  {
+    "title": "RemediationException",
+    "attrs": {
+      "ConfigRuleName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*\\S.*",
+        "required": "Yes",
+        "desc": "The name of the AWS Config rule."
+      },
+      "ExpirationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the remediation exception will be deleted."
+      },
+      "Message": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "An explanation of an remediation exception."
+      },
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "Yes",
+        "desc": "The ID of the resource (for example., sg-xxxxxx)."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "The type of a resource."
+      }
+    }
+  },
+  {
+    "title": "RemediationExceptionResourceKey",
+    "attrs": {
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The ID of the resource (for example., sg-xxxxxx)."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The type of a resource."
+      }
+    }
+  },
+  {
+    "title": "RemediationExecutionStatus",
+    "attrs": {
+      "InvocationTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Start time when the remediation was executed."
+      },
+      "LastUpdatedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the remediation execution was last updated."
+      },
+      "ResourceKey": {
+        "type": "ResourceKey object",
+        "required": "No",
+        "desc": "The details that identify a resource within AWS Config, including the resource type and resource ID."
+      },
+      "State": {
+        "type": "String",
+        "required": "No",
+        "desc": "ENUM of the values."
+      },
+      "StepDetails": {
+        "type": "Array of RemediationExecutionStep objects",
+        "required": "No",
+        "desc": "Details of every step."
+      }
+    }
+  },
+  {
+    "title": "RemediationExecutionStep",
+    "attrs": {
+      "ErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "An error message if the step was interrupted during execution."
+      },
+      "Name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The details of the step."
+      },
+      "StartTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the step started."
+      },
+      "State": {
+        "type": "String",
+        "required": "No",
+        "desc": "The valid status of the step."
+      },
+      "StopTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the step stopped."
+      }
+    }
+  },
+  {
+    "title": "RemediationParameterValue",
+    "attrs": {
+      "ResourceValue": {
+        "type": "ResourceValue object",
+        "required": "No",
+        "desc": "The value is dynamic and changes at run-time."
+      },
+      "StaticValue": {
+        "type": "StaticValue object",
+        "required": "No",
+        "desc": "The value is static and does not change at run-time."
+      }
+    }
+  },
+  {
+    "title": "ResourceCount",
+    "attrs": {
+      "count": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of resources."
+      },
+      "resourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The resource type (for example, \"AWS::EC2::Instance\")."
+      }
+    }
+  },
+  {
+    "title": "ResourceCountFilters",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit ID of the account."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The region where the account is located."
+      },
+      "ResourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of the AWS resource."
+      }
+    }
+  },
+  {
+    "title": "ResourceFilters",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit source account ID."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "The source region."
+      },
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the resource."
+      },
+      "ResourceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the resource."
+      }
+    }
+  },
+  {
+    "title": "ResourceIdentifier",
+    "attrs": {
+      "resourceDeletionTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that the resource was deleted."
+      },
+      "resourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the resource (for example, sg-xxxxxx)."
+      },
+      "resourceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The custom name of the resource (if available)."
+      },
+      "resourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of resource."
+      }
+    }
+  },
+  {
+    "title": "ResourceKey",
+    "attrs": {
+      "resourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "Yes",
+        "desc": "The ID of the resource (for example., sg-xxxxxx)."
+      },
+      "resourceType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The resource type."
+      }
+    }
+  },
+  {
+    "title": "ResourceValue",
+    "attrs": {
+      "Value": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The value is a resource ID."
+      }
+    }
+  },
+  {
+    "title": "RetentionConfiguration",
+    "attrs": {
+      "Name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "[\\w\\-]+",
+        "required": "Yes",
+        "desc": "The name of the retention configuration object."
+      },
+      "RetentionPeriodInDays": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "Number of days AWS Config stores your historical information."
+      }
+    }
+  },
+  {
+    "title": "Scope",
+    "attrs": {
+      "ComplianceResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 768.",
+        "required": "No",
+        "desc": "The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for ComplianceResourceTypes."
+      },
+      "ComplianceResourceTypes": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for ComplianceResourceId."
+      },
+      "TagKey": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "required": "No",
+        "desc": "The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule."
+      },
+      "TagValue": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "No",
+        "desc": "The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for TagValue, you must also specify a value for TagKey."
+      }
+    }
+  },
+  {
+    "title": "Source",
+    "attrs": {
+      "Owner": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Indicates whether AWS or the customer owns and manages the AWS Config rule."
+      },
+      "SourceDetails": {
+        "type": "Array of SourceDetail objects",
+        "required": "No",
+        "desc": "Provides the source and type of the event that causes AWS Config to evaluate your AWS resources."
+      },
+      "SourceIdentifier": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "For AWS Config managed rules, a predefined identifier from a list. For example, IAM_PASSWORD_POLICY is a managed rule. To reference a managed rule, see Using AWS Managed Config Rules. For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS Lambda function, such as arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name."
+      }
+    }
+  },
+  {
+    "title": "SourceDetail",
+    "attrs": {
+      "EventSource": {
+        "type": "String",
+        "required": "No",
+        "desc": "The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources."
+      },
+      "MaximumExecutionFrequency": {
+        "type": "String",
+        "required": "No",
+        "desc": "The frequency at which you want AWS Config to run evaluations for a custom rule with a periodic trigger. If you specify a value for MaximumExecutionFrequency, then MessageType must use the ScheduledNotification value."
+      },
+      "MessageType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types: If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ConfigurationItemChangeNotification and one for OversizedConfigurationItemChangeNotification."
+      }
+    }
+  },
+  {
+    "title": "SsmControls",
+    "attrs": {
+      "ConcurrentExecutionRatePercentage": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10."
+      },
+      "ErrorPercentage": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. You can specify a percentage of errors, for example 10%. If you do not specifiy a percentage, the default is 50%. For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received."
+      }
+    }
+  },
+  {
+    "title": "StaticValue",
+    "attrs": {
+      "Values": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "A list of values. For example, the ARN of the assumed role."
+      }
+    }
+  },
+  {
+    "title": "StatusDetailFilters",
+    "attrs": {
+      "AccountId": {
+        "type": "String",
+        "pattern": "\\d{12}",
+        "required": "No",
+        "desc": "The 12-digit account ID of the member account within an organization."
+      },
+      "MemberAccountRuleStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates deployment status for config rule in the member account. When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in the member account. When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in the member account. Config rule status is deleted when the master account deletes OrganizationConfigRule and disables service access for config-multiaccountsetup.amazonaws.com. AWS Config sets the state of the rule to:"
+      }
+    }
+  },
+  {
+    "title": "StoredQuery",
+    "attrs": {
+      "Description": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "A unique description for the query."
+      },
+      "Expression": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 4096.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "The expression of the query. For example, SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'."
+      },
+      "QueryArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 500.",
+        "pattern": "^arn:aws[a-z\\-]*:config:[a-z\\-\\d]+:\\d+:stored-query/[a-zA-Z0-9-_]+/query-[a-zA-Z\\d-_/]+$",
+        "required": "No",
+        "desc": "Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id."
+      },
+      "QueryId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 36.",
+        "pattern": "^\\S+$",
+        "required": "No",
+        "desc": "The ID of the query."
+      },
+      "QueryName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "pattern": "^[a-zA-Z0-9-_]+$",
+        "required": "Yes",
+        "desc": "The name of the query."
+      }
+    }
+  },
+  {
+    "title": "StoredQueryMetadata",
+    "attrs": {
+      "Description": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "A unique description for the query."
+      },
+      "QueryArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 500.",
+        "pattern": "^arn:aws[a-z\\-]*:config:[a-z\\-\\d]+:\\d+:stored-query/[a-zA-Z0-9-_]+/query-[a-zA-Z\\d-_/]+$",
+        "required": "Yes",
+        "desc": "Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id."
+      },
+      "QueryId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 36.",
+        "pattern": "^\\S+$",
+        "required": "Yes",
+        "desc": "The ID of the query."
+      },
+      "QueryName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "pattern": "^[a-zA-Z0-9-_]+$",
+        "required": "Yes",
+        "desc": "The name of the query."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "required": "No",
+        "desc": "One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "required": "No",
+        "desc": "The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key)."
+      }
+    }
+  }
+]

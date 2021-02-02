@@ -1,0 +1,1472 @@
+[
+  {
+    "title": "Activity",
+    "attrs": {
+      "ActivityId": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The ID of the activity."
+      },
+      "AutoScalingGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The name of the Auto Scaling group."
+      },
+      "Cause": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1023.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The reason the activity began."
+      },
+      "Description": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "A friendly, more verbose description of the activity."
+      },
+      "Details": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The details about the activity."
+      },
+      "EndTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The end time of the activity."
+      },
+      "Progress": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "A value between 0 and 100 that indicates the progress of the activity."
+      },
+      "StartTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The start time of the activity."
+      },
+      "StatusCode": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The current status of the activity."
+      },
+      "StatusMessage": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "A friendly, more verbose description of the activity status."
+      }
+    }
+  },
+  {
+    "title": "AdjustmentType",
+    "attrs": {
+      "AdjustmentType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The policy adjustment type. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity."
+      }
+    }
+  },
+  {
+    "title": "Alarm",
+    "attrs": {
+      "AlarmARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the alarm."
+      },
+      "AlarmName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the alarm."
+      }
+    }
+  },
+  {
+    "title": "AutoScalingGroup",
+    "attrs": {
+      "AutoScalingGroupARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the Auto Scaling group."
+      },
+      "AutoScalingGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The name of the Auto Scaling group."
+      },
+      "AvailabilityZones.member.N": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "One or more Availability Zones for the group."
+      },
+      "CapacityRebalance": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether Capacity Rebalancing is enabled."
+      },
+      "CreatedTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The date and time the group was created."
+      },
+      "DefaultCooldown": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The duration of the default cooldown period, in seconds."
+      },
+      "DesiredCapacity": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The desired size of the group."
+      },
+      "EnabledMetrics.member.N": {
+        "type": "Array of EnabledMetric objects",
+        "required": "No",
+        "desc": "The metrics enabled for the group."
+      },
+      "HealthCheckGracePeriod": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service."
+      },
+      "HealthCheckType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 32.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The service to use for the health checks. The valid values are EC2 and ELB. If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks."
+      },
+      "Instances.member.N": {
+        "type": "Array of Instance objects",
+        "required": "No",
+        "desc": "The EC2 instances associated with the group."
+      },
+      "LaunchConfigurationName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the associated launch configuration."
+      },
+      "LaunchTemplate": {
+        "type": "LaunchTemplateSpecification object",
+        "required": "No",
+        "desc": "The launch template for the group."
+      },
+      "LoadBalancerNames.member.N": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "One or more load balancers associated with the group."
+      },
+      "MaxInstanceLifetime": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum amount of time, in seconds, that an instance can be in service. Valid Range: Minimum value of 0."
+      },
+      "MaxSize": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The maximum size of the group."
+      },
+      "MinSize": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The minimum size of the group."
+      },
+      "MixedInstancesPolicy": {
+        "type": "MixedInstancesPolicy object",
+        "required": "No",
+        "desc": "The mixed instances policy for the group."
+      },
+      "NewInstancesProtectedFromScaleIn": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in."
+      },
+      "PlacementGroup": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the placement group into which to launch your instances, if any."
+      },
+      "ServiceLinkedRoleARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf."
+      },
+      "Status": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The current state of the group when the DeleteAutoScalingGroup operation is in progress."
+      },
+      "SuspendedProcesses.member.N": {
+        "type": "Array of SuspendedProcess objects",
+        "required": "No",
+        "desc": "The suspended processes associated with the group."
+      },
+      "Tags.member.N": {
+        "type": "Array of TagDescription objects",
+        "required": "No",
+        "desc": "The tags for the group."
+      },
+      "TargetGroupARNs.member.N": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 511.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Names (ARN) of the target groups for your load balancer."
+      },
+      "TerminationPolicies.member.N": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The termination policies for the group."
+      },
+      "VPCZoneIdentifier": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2047.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "One or more subnet IDs, if applicable, separated by commas."
+      }
+    }
+  },
+  {
+    "title": "AutoScalingInstanceDetails",
+    "attrs": {
+      "AutoScalingGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The name of the Auto Scaling group for the instance."
+      },
+      "AvailabilityZone": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The Availability Zone for the instance."
+      },
+      "HealthStatus": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 32.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The last reported health status of this instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and Amazon EC2 Auto Scaling should terminate and replace it."
+      },
+      "InstanceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 19.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The ID of the instance."
+      },
+      "InstanceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The instance type of the EC2 instance."
+      },
+      "LaunchConfigurationName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group."
+      },
+      "LaunchTemplate": {
+        "type": "LaunchTemplateSpecification object",
+        "required": "No",
+        "desc": "The launch template for the instance."
+      },
+      "LifecycleState": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 32.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The lifecycle state for the instance. The Quarantined state is not used. For information about lifecycle states, see Instance lifecycle in the Amazon EC2 Auto Scaling User Guide. Valid Values: Pending | Pending:Wait | Pending:Proceed | Quarantined | InService | Terminating | Terminating:Wait | Terminating:Proceed | Terminated | Detaching | Detached | EnteringStandby | Standby"
+      },
+      "ProtectedFromScaleIn": {
+        "type": "Boolean",
+        "required": "Yes",
+        "desc": "Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in."
+      },
+      "WeightedCapacity": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 3.",
+        "pattern": "^[\\u0031-\\u0039][\\u0030-\\u0039]{0,2}$",
+        "required": "No",
+        "desc": "The number of capacity units contributed by the instance based on its instance type. Valid Range: Minimum value of 1. Maximum value of 999."
+      }
+    }
+  },
+  {
+    "title": "BlockDeviceMapping",
+    "attrs": {
+      "DeviceName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The device name exposed to the EC2 instance (for example, /dev/sdh or xvdh). For more information, see Device Naming on Linux Instances in the Amazon EC2 User Guide for Linux Instances."
+      },
+      "Ebs": {
+        "type": "Ebs object",
+        "required": "No",
+        "desc": "Parameters used to automatically set up EBS volumes when an instance is launched. You can specify either VirtualName or Ebs, but not both."
+      },
+      "NoDevice": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Setting this value to true suppresses the specified device included in the block device mapping of the AMI. If NoDevice is true for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances. If you specify NoDevice, you cannot specify Ebs."
+      },
+      "VirtualName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the virtual device (for example, ephemeral0). You can specify either VirtualName or Ebs, but not both."
+      }
+    }
+  },
+  {
+    "title": "CustomizedMetricSpecification",
+    "attrs": {
+      "Dimensions.member.N": {
+        "type": "Array of MetricDimension objects",
+        "required": "No",
+        "desc": "The dimensions of the metric. Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy."
+      },
+      "MetricName": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The name of the metric."
+      },
+      "Namespace": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The namespace of the metric."
+      },
+      "Statistic": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The statistic of the metric."
+      },
+      "Unit": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unit of the metric."
+      }
+    }
+  },
+  {
+    "title": "Ebs",
+    "attrs": {
+      "DeleteOnTermination": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether the volume is deleted on instance termination. For Amazon EC2 Auto Scaling, the default value is true."
+      },
+      "Encrypted": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether the volume should be encrypted. Encrypted EBS volumes can only be attached to instances that support Amazon EBS encryption. For more information, see Supported Instance Types. If your AMI uses encrypted volumes, you can also only launch it on supported instance types. For more information, see Using Encryption with EBS-Backed AMIs in the Amazon EC2 User Guide for Linux Instances and Required CMK key policy for use with encrypted volumes in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "Iops": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of I/O operations per second (IOPS) to provision for the volume. The maximum ratio of IOPS to volume size (in GiB) is 50:1. For more information, see Amazon EBS Volume Types in the Amazon EC2 User Guide for Linux Instances. Required when the volume type is io1. (Not used with standard, gp2, st1, or sc1 volumes.)"
+      },
+      "SnapshotId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The snapshot ID of the volume to use. You must specify either a VolumeSize or a SnapshotId."
+      },
+      "VolumeSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The volume size, in Gibibytes (GiB). This can be a number from 1-1,024 for standard, 4-16,384 for io1, 1-16,384 for gp2, and 500-16,384 for st1 and sc1. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you create a volume from a snapshot and you don't specify a volume size, the default is the snapshot size. You must specify either a VolumeSize or a SnapshotId. If you specify both SnapshotId and VolumeSize, the volume size must be equal or greater than the size of the snapshot."
+      },
+      "VolumeType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "required": "No",
+        "desc": "The volume type, which can be standard for Magnetic, io1 for Provisioned IOPS SSD, gp2 for General Purpose SSD, st1 for Throughput Optimized HDD, or sc1 for Cold HDD. For more information, see Amazon EBS Volume Types in the Amazon EC2 User Guide for Linux Instances. Valid Values: standard | io1 | gp2 | st1 | sc1"
+      }
+    }
+  },
+  {
+    "title": "EnabledMetric",
+    "attrs": {
+      "Granularity": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The granularity of the metric. The only valid value is 1Minute."
+      },
+      "Metric": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "One of the following metrics:"
+      }
+    }
+  },
+  {
+    "title": "FailedScheduledUpdateGroupActionRequest",
+    "attrs": {
+      "ErrorCode": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The error code."
+      },
+      "ErrorMessage": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The error message accompanying the error code."
+      },
+      "ScheduledActionName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The name of the scheduled action."
+      }
+    }
+  },
+  {
+    "title": "Filter",
+    "attrs": {
+      "Name": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the filter. The valid values are: auto-scaling-group, key, value, and propagate-at-launch."
+      },
+      "Values.member.N": {
+        "type": "Array of strings",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "One or more filter values. Filter values are case-sensitive."
+      }
+    }
+  },
+  {
+    "title": "Instance",
+    "attrs": {
+      "AvailabilityZone": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The Availability Zone in which the instance is running."
+      },
+      "HealthStatus": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 32.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The last reported health status of the instance. \"Healthy\" means that the instance is healthy and should remain in service. \"Unhealthy\" means that the instance is unhealthy and that Amazon EC2 Auto Scaling should terminate and replace it."
+      },
+      "InstanceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 19.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The ID of the instance."
+      },
+      "InstanceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The instance type of the EC2 instance."
+      },
+      "LaunchConfigurationName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The launch configuration associated with the instance."
+      },
+      "LaunchTemplate": {
+        "type": "LaunchTemplateSpecification object",
+        "required": "No",
+        "desc": "The launch template for the instance."
+      },
+      "LifecycleState": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "A description of the current lifecycle state. The Quarantined state is not used. For information about lifecycle states, see Instance lifecycle in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "ProtectedFromScaleIn": {
+        "type": "Boolean",
+        "required": "Yes",
+        "desc": "Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in."
+      },
+      "WeightedCapacity": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 3.",
+        "pattern": "^[\\u0031-\\u0039][\\u0030-\\u0039]{0,2}$",
+        "required": "No",
+        "desc": "The number of capacity units contributed by the instance based on its instance type. Valid Range: Minimum value of 1. Maximum value of 999."
+      }
+    }
+  },
+  {
+    "title": "InstanceMetadataOptions",
+    "attrs": {
+      "HttpEndpoint": {
+        "type": "String",
+        "required": "No",
+        "desc": "This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled."
+      },
+      "HttpPutResponseHopLimit": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Default: 1"
+      },
+      "HttpTokens": {
+        "type": "String",
+        "required": "No",
+        "desc": "The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is optional. If the state is optional, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned. If the state is required, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available."
+      }
+    }
+  },
+  {
+    "title": "InstanceMonitoring",
+    "attrs": {
+      "Enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "If true, detailed monitoring is enabled. Otherwise, basic monitoring is enabled."
+      }
+    }
+  },
+  {
+    "title": "InstanceRefresh",
+    "attrs": {
+      "AutoScalingGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the Auto Scaling group."
+      },
+      "EndTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time at which the instance refresh ended."
+      },
+      "InstanceRefreshId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The instance refresh ID."
+      },
+      "InstancesToUpdate": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of instances remaining to update before the instance refresh is complete."
+      },
+      "PercentageComplete": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and added to the percentage complete."
+      },
+      "StartTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time at which the instance refresh began."
+      },
+      "Status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current status for the instance refresh operation:"
+      },
+      "StatusReason": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1023.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "Provides more details about the current status of the instance refresh."
+      }
+    }
+  },
+  {
+    "title": "InstancesDistribution",
+    "attrs": {
+      "OnDemandAllocationStrategy": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "Indicates how to allocate instance types to fulfill On-Demand capacity. The only valid value is prioritized, which is also the default value. This strategy uses the order of instance types in the overrides to define the launch priority of each instance type. The first instance type in the array is prioritized higher than the last. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then the Auto Scaling groups launches the remaining capacity using the second priority instance type, and so on."
+      },
+      "OnDemandBaseCapacity": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand Instances. This base portion is provisioned first as your group scales. Defaults to 0 if not specified. If you specify weights for the instance types in the overrides, set the value of OnDemandBaseCapacity in terms of the number of capacity units, and not the number of instances."
+      },
+      "OnDemandPercentageAboveBaseCapacity": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Controls the percentages of On-Demand Instances and Spot Instances for your additional capacity beyond OnDemandBaseCapacity. Expressed as a number (for example, 20 specifies 20% On-Demand Instances, 80% Spot Instances). Defaults to 100 if not specified. If set to 100, only On-Demand Instances are provisioned."
+      },
+      "SpotAllocationStrategy": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "Indicates how to allocate instances across Spot Instance pools. If the allocation strategy is capacity-optimized (recommended), the Auto Scaling group launches instances using Spot pools that are optimally chosen based on the available Spot capacity. If the allocation strategy is lowest-price, the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify. Defaults to lowest-price if not specified. Valid values: lowest-price | capacity-optimized"
+      },
+      "SpotInstancePools": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of Spot Instance pools across which to allocate your Spot Instances. The Spot pools are determined from the different instance types in the overrides. Valid only when the Spot allocation strategy is lowest-price. Value must be in the range of 1 to 20. Defaults to 2 if not specified."
+      },
+      "SpotMaxPrice": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 255.",
+        "required": "No",
+        "desc": "The maximum price per unit hour that you are willing to pay for a Spot Instance. If you leave the value at its default (empty), Amazon EC2 Auto Scaling uses the On-Demand price as the maximum Spot price. To remove a value that you previously set, include the property but specify an empty string (\"\") for the value."
+      }
+    }
+  },
+  {
+    "title": "LaunchConfiguration",
+    "attrs": {
+      "AssociatePublicIpAddress": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "For Auto Scaling groups that are running in a VPC, specifies whether to assign a public IP address to the group's instances. For more information, see Launching Auto Scaling instances in a VPC in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "BlockDeviceMappings.member.N": {
+        "type": "Array of BlockDeviceMapping objects",
+        "required": "No",
+        "desc": "A block device mapping, which specifies the block devices for the instance. For more information, see Block Device Mapping in the Amazon EC2 User Guide for Linux Instances."
+      },
+      "ClassicLinkVPCId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more information, see ClassicLink in the Amazon EC2 User Guide for Linux Instances and Linking EC2-Classic instances to a VPC in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "ClassicLinkVPCSecurityGroups.member.N": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The IDs of one or more security groups for the VPC specified in ClassicLinkVPCId. For more information, see ClassicLink in the Amazon EC2 User Guide for Linux Instances and Linking EC2-Classic instances to a VPC in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "CreatedTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The creation date and time for the launch configuration."
+      },
+      "EbsOptimized": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Specifies whether the launch configuration is optimized for EBS I/O (true) or not (false). For more information, see Amazon EBS-Optimized Instances in the Amazon EC2 User Guide for Linux Instances."
+      },
+      "IamInstanceProfile": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. For more information, see IAM role for applications that run on Amazon EC2 instances in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "ImageId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more information, see Finding an AMI in the Amazon EC2 User Guide for Linux Instances."
+      },
+      "InstanceMonitoring": {
+        "type": "InstanceMonitoring object",
+        "required": "No",
+        "desc": "Controls whether instances in this group are launched with detailed (true) or basic (false) monitoring. For more information, see Configure Monitoring for Auto Scaling Instances in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "InstanceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The instance type for the instances. For information about available instance types, see Available Instance Types in the Amazon EC2 User Guide for Linux Instances."
+      },
+      "KernelId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The ID of the kernel associated with the AMI."
+      },
+      "KeyName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the key pair. For more information, see Amazon EC2 Key Pairs in the Amazon EC2 User Guide for Linux Instances."
+      },
+      "LaunchConfigurationARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the launch configuration."
+      },
+      "LaunchConfigurationName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The name of the launch configuration."
+      },
+      "MetadataOptions": {
+        "type": "InstanceMetadataOptions object",
+        "required": "No",
+        "desc": "The metadata options for the instances. For more information, see Configuring the Instance Metadata Options in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "PlacementTenancy": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The tenancy of the instance, either default or dedicated. An instance with dedicated tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC. For more information, see Configuring instance tenancy with Amazon EC2 Auto Scaling in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "RamdiskId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The ID of the RAM disk associated with the AMI."
+      },
+      "SecurityGroups.member.N": {
+        "type": "Array of strings",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "A list that contains the security groups to assign to the instances in the Auto Scaling group. For more information, see Security Groups for Your VPC in the Amazon Virtual Private Cloud User Guide."
+      },
+      "SpotPrice": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "required": "No",
+        "desc": "The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot price. For more information, see Requesting Spot Instances in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "UserData": {
+        "type": "String",
+        "length": "Maximum length of 21847.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The user data to make available to the launched EC2 instances. For more information, see Instance metadata and user data (Linux) and Instance metadata and user data (Windows). If you are using a command line tool, base64-encoding is performed for you, and you can load the text from a file. Otherwise, you must provide base64-encoded text. User data is limited to 16 KB."
+      }
+    }
+  },
+  {
+    "title": "LaunchTemplate",
+    "attrs": {
+      "LaunchTemplateSpecification": {
+        "type": "LaunchTemplateSpecification object",
+        "required": "No",
+        "desc": "The launch template to use."
+      },
+      "Overrides.member.N": {
+        "type": "Array of LaunchTemplateOverrides objects",
+        "required": "No",
+        "desc": "Any parameters that you specify override the same parameters in the launch template. If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when it launches an instance."
+      }
+    }
+  },
+  {
+    "title": "LaunchTemplateOverrides",
+    "attrs": {
+      "InstanceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The instance type, such as m3.xlarge. You must use an instance type that is supported in your requested Region and Availability Zones. For more information, see Instance types in the Amazon Elastic Compute Cloud User Guide."
+      },
+      "LaunchTemplateSpecification": {
+        "type": "LaunchTemplateSpecification object",
+        "required": "No",
+        "desc": "Provides the launch template to be used when launching the instance type. For example, some instance types might require a launch template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's defined for your mixed instances policy. For more information, see Specifying a different launch template for an instance type in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "WeightedCapacity": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 3.",
+        "pattern": "^[\\u0031-\\u0039][\\u0030-\\u0039]{0,2}$",
+        "required": "No",
+        "desc": "The number of capacity units provided by the specified instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic. When a Spot or On-Demand Instance is provisioned, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling provisions instances until the desired capacity is totally fulfilled, even if this results in an overage. For example, if there are 2 units remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only provision an instance with a WeightedCapacity of 5 units, the instance is provisioned, and the desired capacity is exceeded by 3 units. For more information, see Instance weighting for Amazon EC2 Auto Scaling in the Amazon EC2 Auto Scaling User Guide. Value must be in the range of 1 to 999."
+      }
+    }
+  },
+  {
+    "title": "LaunchTemplateSpecification",
+    "attrs": {
+      "LaunchTemplateId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The ID of the launch template. To get the template ID, use the Amazon EC2 DescribeLaunchTemplates API operation. New launch templates can be created using the Amazon EC2 CreateLaunchTemplate API. Conditional: You must specify either a LaunchTemplateId or a LaunchTemplateName."
+      },
+      "LaunchTemplateName": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 128.",
+        "pattern": "[a-zA-Z0-9\\(\\)\\.\\-/_]+",
+        "required": "No",
+        "desc": "The name of the launch template. To get the template name, use the Amazon EC2 DescribeLaunchTemplates API operation. New launch templates can be created using the Amazon EC2 CreateLaunchTemplate API. Conditional: You must specify either a LaunchTemplateId or a LaunchTemplateName."
+      },
+      "Version": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The version number, $Latest, or $Default. To get the version number, use the Amazon EC2 DescribeLaunchTemplateVersions API operation. New launch template versions can be created using the Amazon EC2 CreateLaunchTemplateVersion API. If the value is $Latest, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is $Default, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is $Default."
+      }
+    }
+  },
+  {
+    "title": "LifecycleHook",
+    "attrs": {
+      "AutoScalingGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the Auto Scaling group for the lifecycle hook."
+      },
+      "DefaultResult": {
+        "type": "String",
+        "required": "No",
+        "desc": "Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The possible values are CONTINUE and ABANDON."
+      },
+      "GlobalTimeout": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum time, in seconds, that an instance can remain in a Pending:Wait or Terminating:Wait state. The maximum is 172800 seconds (48 hours) or 100 times HeartbeatTimeout, whichever is smaller."
+      },
+      "HeartbeatTimeout": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult parameter."
+      },
+      "LifecycleHookName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[A-Za-z0-9\\-_\\/]+",
+        "required": "No",
+        "desc": "The name of the lifecycle hook."
+      },
+      "LifecycleTransition": {
+        "type": "String",
+        "required": "No",
+        "desc": "The state of the EC2 instance to which to attach the lifecycle hook. The following are possible values:"
+      },
+      "NotificationMetadata": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1023.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target."
+      },
+      "NotificationTargetARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic."
+      },
+      "RoleARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target."
+      }
+    }
+  },
+  {
+    "title": "LifecycleHookSpecification",
+    "attrs": {
+      "DefaultResult": {
+        "type": "String",
+        "required": "No",
+        "desc": "Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON. The default value is ABANDON."
+      },
+      "HeartbeatTimeout": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum time, in seconds, that can elapse before the lifecycle hook times out. If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult parameter. You can prevent the lifecycle hook from timing out by calling RecordLifecycleActionHeartbeat."
+      },
+      "LifecycleHookName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[A-Za-z0-9\\-_\\/]+",
+        "required": "Yes",
+        "desc": "The name of the lifecycle hook."
+      },
+      "LifecycleTransition": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The state of the EC2 instance to which you want to attach the lifecycle hook. The valid values are:"
+      },
+      "NotificationMetadata": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1023.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target."
+      },
+      "NotificationTargetARN": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic."
+      },
+      "RoleARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue."
+      }
+    }
+  },
+  {
+    "title": "LoadBalancerState",
+    "attrs": {
+      "LoadBalancerName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the load balancer."
+      },
+      "State": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "One of the following load balancer states:"
+      }
+    }
+  },
+  {
+    "title": "LoadBalancerTargetGroupState",
+    "attrs": {
+      "LoadBalancerTargetGroupARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 511.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the target group."
+      },
+      "State": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The state of the target group."
+      }
+    }
+  },
+  {
+    "title": "MetricCollectionType",
+    "attrs": {
+      "Metric": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "One of the following metrics:"
+      }
+    }
+  },
+  {
+    "title": "MetricDimension",
+    "attrs": {
+      "Name": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The name of the dimension."
+      },
+      "Value": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The value of the dimension."
+      }
+    }
+  },
+  {
+    "title": "MetricGranularityType",
+    "attrs": {
+      "Granularity": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The granularity. The only valid value is 1Minute."
+      }
+    }
+  },
+  {
+    "title": "MixedInstancesPolicy",
+    "attrs": {
+      "InstancesDistribution": {
+        "type": "InstancesDistribution object",
+        "required": "No",
+        "desc": "Specifies the instances distribution. If not provided, the value for each parameter in InstancesDistribution uses a default value."
+      },
+      "LaunchTemplate": {
+        "type": "LaunchTemplate object",
+        "required": "No",
+        "desc": "Specifies the launch template to use and optionally the instance types (overrides) that are used to provision EC2 instances to fulfill On-Demand and Spot capacities. Required when creating a mixed instances policy."
+      }
+    }
+  },
+  {
+    "title": "NotificationConfiguration",
+    "attrs": {
+      "AutoScalingGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the Auto Scaling group."
+      },
+      "NotificationType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "One of the following event notification types:"
+      },
+      "TopicARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic."
+      }
+    }
+  },
+  {
+    "title": "PredefinedMetricSpecification",
+    "attrs": {
+      "PredefinedMetricType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The metric type. The following predefined metrics are available:"
+      },
+      "ResourceLabel": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1023.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where: This is an example: app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d. To find the ARN for an Application Load Balancer, use the DescribeLoadBalancers API operation. To find the ARN for the target group, use the DescribeTargetGroups API operation."
+      }
+    }
+  },
+  {
+    "title": "ProcessType",
+    "attrs": {
+      "ProcessName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "One of the following processes:"
+      }
+    }
+  },
+  {
+    "title": "RefreshPreferences",
+    "attrs": {
+      "InstanceWarmup": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of seconds until a newly launched instance is configured and ready to use. During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The default is to use the value for the health check grace period defined for the group."
+      },
+      "MinHealthyPercentage": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group (rounded up to the nearest integer). The default is 90."
+      }
+    }
+  },
+  {
+    "title": "ScalingPolicy",
+    "attrs": {
+      "AdjustmentType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity."
+      },
+      "Alarms.member.N": {
+        "type": "Array of Alarm objects",
+        "required": "No",
+        "desc": "The CloudWatch alarms related to the policy."
+      },
+      "AutoScalingGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the Auto Scaling group."
+      },
+      "Cooldown": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The duration of the policy's cooldown period, in seconds."
+      },
+      "Enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether the policy is enabled (true) or disabled (false)."
+      },
+      "EstimatedInstanceWarmup": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics."
+      },
+      "MetricAggregationType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 32.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average."
+      },
+      "MinAdjustmentMagnitude": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The minimum value to scale by when the adjustment type is PercentChangeInCapacity."
+      },
+      "MinAdjustmentStep": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "This member has been deprecated. Available for backward compatibility. Use MinAdjustmentMagnitude instead."
+      },
+      "PolicyARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the policy."
+      },
+      "PolicyName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the scaling policy."
+      },
+      "PolicyType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "One of the following policy types: For more information, see Target tracking scaling policies and Step and simple scaling policies in the Amazon EC2 Auto Scaling User Guide."
+      },
+      "ScalingAdjustment": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity."
+      },
+      "StepAdjustments.member.N": {
+        "type": "Array of StepAdjustment objects",
+        "required": "No",
+        "desc": "A set of adjustments that enable you to scale based on the size of the alarm breach."
+      },
+      "TargetTrackingConfiguration": {
+        "type": "TargetTrackingConfiguration object",
+        "required": "No",
+        "desc": "A target tracking scaling policy."
+      }
+    }
+  },
+  {
+    "title": "ScheduledUpdateGroupAction",
+    "attrs": {
+      "AutoScalingGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the Auto Scaling group."
+      },
+      "DesiredCapacity": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain."
+      },
+      "EndTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time in UTC for the recurring schedule to end. For example, \"2019-06-01T00:00:00Z\"."
+      },
+      "MaxSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum size of the Auto Scaling group."
+      },
+      "MinSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The minimum size of the Auto Scaling group."
+      },
+      "Recurrence": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence, they form the boundaries of when the recurring action starts and stops."
+      },
+      "ScheduledActionARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1600.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the scheduled action."
+      },
+      "ScheduledActionName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the scheduled action."
+      },
+      "StartTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time in UTC for this action to start. For example, \"2019-06-01T00:00:00Z\"."
+      },
+      "Time": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "This parameter is no longer used."
+      }
+    }
+  },
+  {
+    "title": "ScheduledUpdateGroupActionRequest",
+    "attrs": {
+      "DesiredCapacity": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain."
+      },
+      "EndTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the action after this time."
+      },
+      "MaxSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum size of the Auto Scaling group."
+      },
+      "MinSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The minimum size of the Auto Scaling group."
+      },
+      "Recurrence": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The recurring schedule for the action, in Unix cron syntax format. This format consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, \"30 0 1 1,6,12 *\"). For more information about this format, see Crontab. When StartTime and EndTime are specified with Recurrence, they form the boundaries of when the recurring action starts and stops."
+      },
+      "ScheduledActionName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The name of the scaling action."
+      },
+      "StartTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only and in quotes (for example, \"2019-06-01T00:00:00Z\"). If you specify Recurrence and StartTime, Amazon EC2 Auto Scaling performs the action at this time, and then performs the action based on the specified recurrence. If you try to schedule the action in the past, Amazon EC2 Auto Scaling returns an error message."
+      }
+    }
+  },
+  {
+    "title": "StepAdjustment",
+    "attrs": {
+      "MetricIntervalLowerBound": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity."
+      },
+      "MetricIntervalUpperBound": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity. The upper bound must be greater than the lower bound."
+      },
+      "ScalingAdjustment": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity."
+      }
+    }
+  },
+  {
+    "title": "SuspendedProcess",
+    "attrs": {
+      "ProcessName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the suspended process."
+      },
+      "SuspensionReason": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The reason that the process was suspended."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "Yes",
+        "desc": "The tag key."
+      },
+      "PropagateAtLaunch": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Determines whether the tag is added to new instances as they are launched in the group."
+      },
+      "ResourceId": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the group."
+      },
+      "ResourceType": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The type of resource. The only supported value is auto-scaling-group."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The tag value."
+      }
+    }
+  },
+  {
+    "title": "TagDescription",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The tag key."
+      },
+      "PropagateAtLaunch": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Determines whether the tag is added to new instances as they are launched in the group."
+      },
+      "ResourceId": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The name of the group."
+      },
+      "ResourceType": {
+        "type": "String",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The type of resource. The only supported value is auto-scaling-group."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+        "required": "No",
+        "desc": "The tag value."
+      }
+    }
+  },
+  {
+    "title": "TargetTrackingConfiguration",
+    "attrs": {
+      "CustomizedMetricSpecification": {
+        "type": "CustomizedMetricSpecification object",
+        "required": "No",
+        "desc": "A customized metric. You must specify either a predefined metric or a customized metric."
+      },
+      "DisableScaleIn": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is false."
+      },
+      "PredefinedMetricSpecification": {
+        "type": "PredefinedMetricSpecification object",
+        "required": "No",
+        "desc": "A predefined metric. You must specify either a predefined metric or a customized metric."
+      },
+      "TargetValue": {
+        "type": "Double",
+        "required": "Yes",
+        "desc": "The target value for the metric."
+      }
+    }
+  }
+]

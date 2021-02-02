@@ -1,0 +1,1368 @@
+[
+  {
+    "title": "Ami",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The account ID of the owner of the AMI."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the EC2 AMI. Minimum and maximum length are in characters."
+      },
+      "image": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The AMI ID of the EC2 AMI."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The name of the EC2 AMI."
+      },
+      "region": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The AWS Region of the EC2 AMI."
+      },
+      "state": {
+        "type": "ImageState object",
+        "required": "No",
+        "desc": "Image state shows the image status and the reason for that status."
+      }
+    }
+  },
+  {
+    "title": "AmiDistributionConfiguration",
+    "attrs": {
+      "amiTags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags to apply to AMIs distributed to this Region."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the distribution configuration. Minimum and maximum length are in characters."
+      },
+      "kmsKeyId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The KMS key identifier used to encrypt the distributed image."
+      },
+      "launchPermission": {
+        "type": "LaunchPermissionConfiguration object",
+        "required": "No",
+        "desc": "Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 127.",
+        "pattern": "^[-_A-Za-z0-9{][-_A-Za-z0-9\\s:{}\\.]+[-_A-Za-z0-9}]$",
+        "required": "No",
+        "desc": "The name of the distribution configuration."
+      },
+      "targetAccountIds": {
+        "type": "Array of strings",
+        "pattern": "^\\d{12}$",
+        "required": "No",
+        "desc": "The ID of an account to which you want to distribute an image."
+      }
+    }
+  },
+  {
+    "title": "Component",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the component."
+      },
+      "changeDescription": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The change description of the component."
+      },
+      "data": {
+        "type": "String",
+        "required": "No",
+        "desc": "The data of the component."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date that the component was created."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the component."
+      },
+      "encrypted": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "The encryption status of the component."
+      },
+      "kmsKeyId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The KMS key identifier used to encrypt the component."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the component."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the component."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the component."
+      },
+      "supportedOsVersions": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1.",
+        "required": "No",
+        "desc": "The operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the parent image OS version during image recipe creation."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags associated with the component."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of the component denotes whether the component is used to build the image or only to test it."
+      },
+      "version": {
+        "type": "String",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "required": "No",
+        "desc": "The version of the component."
+      }
+    }
+  },
+  {
+    "title": "ComponentConfiguration",
+    "attrs": {
+      "componentArn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):component/[a-z0-9-_]+/(?:(?:(\\d+|x)\\.(\\d+|x)\\.(\\d+|x))|(?:\\d+\\.\\d+\\.\\d+/\\d+))$",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the component."
+      }
+    }
+  },
+  {
+    "title": "ComponentSummary",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the component."
+      },
+      "changeDescription": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The change description of the component."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date that the component was created."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the component."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the component."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the component."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the component."
+      },
+      "supportedOsVersions": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1.",
+        "required": "No",
+        "desc": "The operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the parent image OS version during image recipe creation."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags associated with the component."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of the component denotes whether the component is used to build the image or only to test it."
+      },
+      "version": {
+        "type": "String",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "required": "No",
+        "desc": "The version of the component."
+      }
+    }
+  },
+  {
+    "title": "ComponentVersion",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the component."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date that the component was created."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the component."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the component."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the component."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the component."
+      },
+      "supportedOsVersions": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1.",
+        "required": "No",
+        "desc": "The operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the parent image OS version during image recipe creation."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of the component denotes whether the component is used to build the image or only to test it."
+      },
+      "version": {
+        "type": "String",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "required": "No",
+        "desc": "The semantic version of the component."
+      }
+    }
+  },
+  {
+    "title": "Container",
+    "attrs": {
+      "imageUris": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "A list of URIs for containers created in the context Region."
+      },
+      "region": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Containers and container images are Region-specific. This is the Region context for the container."
+      }
+    }
+  },
+  {
+    "title": "ContainerDistributionConfiguration",
+    "attrs": {
+      "containerTags": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Tags that are attached to the container distribution configuration."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the container distribution configuration."
+      },
+      "targetRepository": {
+        "type": "TargetContainerRepository object",
+        "required": "Yes",
+        "desc": "The destination repository for the container distribution configuration."
+      }
+    }
+  },
+  {
+    "title": "ContainerRecipe",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the container recipe."
+      },
+      "components": {
+        "type": "Array of ComponentConfiguration objects",
+        "required": "No",
+        "desc": "Components for build and test that are included in the container recipe."
+      },
+      "containerType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies the type of container, such as Docker."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date when this container recipe was created."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the container recipe."
+      },
+      "dockerfileTemplateData": {
+        "type": "String",
+        "required": "No",
+        "desc": "Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe."
+      },
+      "encrypted": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A flag that indicates if the target container is encrypted."
+      },
+      "kmsKeyId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Identifies which KMS key is used to encrypt the container image for distribution to the target Region."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the container recipe."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the container recipe."
+      },
+      "parentImage": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The source image for the container recipe."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The system platform for the container, such as Windows or Linux."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Tags that are attached to the container recipe."
+      },
+      "targetRepository": {
+        "type": "TargetContainerRepository object",
+        "required": "No",
+        "desc": "The destination repository for the container image."
+      },
+      "version": {
+        "type": "String",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "required": "No",
+        "desc": "The semantic version of the container recipe (<major>.<minor>.<patch>)."
+      },
+      "workingDirectory": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The working directory for use during build and test workflows."
+      }
+    }
+  },
+  {
+    "title": "ContainerRecipeSummary",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the container recipe."
+      },
+      "containerType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies the type of container, such as \"Docker\"."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date when this container recipe was created."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the container recipe."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the container recipe."
+      },
+      "parentImage": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The source image for the container recipe."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The system platform for the container, such as Windows or Linux."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Tags that are attached to the container recipe."
+      }
+    }
+  },
+  {
+    "title": "Distribution",
+    "attrs": {
+      "amiDistributionConfiguration": {
+        "type": "AmiDistributionConfiguration object",
+        "required": "No",
+        "desc": "The specific AMI settings (for example, launch permissions, AMI tags)."
+      },
+      "containerDistributionConfiguration": {
+        "type": "ContainerDistributionConfiguration object",
+        "required": "No",
+        "desc": "Container distribution settings for encryption, licensing, and sharing in a specific Region."
+      },
+      "licenseConfigurationArns": {
+        "type": "Array of strings",
+        "pattern": "^arn:aws[^:]*:license-manager:[^:]+:\\d{12}:license-configuration:lic-[a-z0-9-_]{32}$",
+        "required": "No",
+        "desc": "The License Manager Configuration to associate with the AMI in the specified Region."
+      },
+      "region": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "Yes",
+        "desc": "The target Region."
+      }
+    }
+  },
+  {
+    "title": "DistributionConfiguration",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the distribution configuration."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this distribution configuration was created."
+      },
+      "dateUpdated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this distribution configuration was last updated."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the distribution configuration."
+      },
+      "distributions": {
+        "type": "Array of Distribution objects",
+        "required": "No",
+        "desc": "The distributions of the distribution configuration."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the distribution configuration."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags of the distribution configuration."
+      },
+      "timeoutMinutes": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The maximum duration in minutes for this distribution configuration."
+      }
+    }
+  },
+  {
+    "title": "DistributionConfigurationSummary",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the distribution configuration."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which the distribution configuration was created."
+      },
+      "dateUpdated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which the distribution configuration was updated."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the distribution configuration."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the distribution configuration."
+      },
+      "regions": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "A list of Regions where the container image is distributed to."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags associated with the distribution configuration."
+      }
+    }
+  },
+  {
+    "title": "EbsInstanceBlockDeviceSpecification",
+    "attrs": {
+      "deleteOnTermination": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Use to configure delete on termination of the associated device."
+      },
+      "encrypted": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Use to configure device encryption."
+      },
+      "iops": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Use to configure device IOPS."
+      },
+      "kmsKeyId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Use to configure the KMS key to use when encrypting the device."
+      },
+      "snapshotId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The snapshot that defines the device contents."
+      },
+      "volumeSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Use to override the device's volume size."
+      },
+      "volumeType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Use to override the device's volume type."
+      }
+    }
+  },
+  {
+    "title": "Filter",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "pattern": "^[a-zA-Z]{1,1024}$",
+        "required": "No",
+        "desc": "The name of the filter. Filter names are case-sensitive."
+      },
+      "values": {
+        "type": "Array of strings",
+        "pattern": "^[0-9a-zA-Z./_ :-]{1,1024}$",
+        "required": "No",
+        "desc": "The filter values. Filter values are case-sensitive."
+      }
+    }
+  },
+  {
+    "title": "Image",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the image."
+      },
+      "containerRecipe": {
+        "type": "ContainerRecipe object",
+        "required": "No",
+        "desc": "The container recipe used to create the container image type."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this image was created."
+      },
+      "distributionConfiguration": {
+        "type": "DistributionConfiguration object",
+        "required": "No",
+        "desc": "The distribution configuration used when creating this image."
+      },
+      "enhancedImageMetadataEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default."
+      },
+      "imageRecipe": {
+        "type": "ImageRecipe object",
+        "required": "No",
+        "desc": "The image recipe used when creating the image."
+      },
+      "imageTestsConfiguration": {
+        "type": "ImageTestsConfiguration object",
+        "required": "No",
+        "desc": "The image tests configuration used when creating this image."
+      },
+      "infrastructureConfiguration": {
+        "type": "InfrastructureConfiguration object",
+        "required": "No",
+        "desc": "The infrastructure used when creating this image."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the image."
+      },
+      "osVersion": {
+        "type": "String",
+        "length": "Minimum length of 1.",
+        "required": "No",
+        "desc": "The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019."
+      },
+      "outputResources": {
+        "type": "OutputResources object",
+        "required": "No",
+        "desc": "The output resources produced when creating this image."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the image."
+      },
+      "sourcePipelineArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the image pipeline that created this image."
+      },
+      "sourcePipelineName": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the image pipeline that created this image."
+      },
+      "state": {
+        "type": "ImageState object",
+        "required": "No",
+        "desc": "The state of the image."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags of the image."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies whether this is an AMI or container image."
+      },
+      "version": {
+        "type": "String",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "required": "No",
+        "desc": "The semantic version of the image."
+      }
+    }
+  },
+  {
+    "title": "ImagePipeline",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the image pipeline."
+      },
+      "containerRecipeArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the container recipe that is used for this pipeline."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this image pipeline was created."
+      },
+      "dateLastRun": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this image pipeline was last run."
+      },
+      "dateNextRun": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this image pipeline will next be run."
+      },
+      "dateUpdated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this image pipeline was last updated."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the image pipeline."
+      },
+      "distributionConfigurationArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline."
+      },
+      "enhancedImageMetadataEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Collects additional information about the image being created, including the operating system (OS) version and package list. This information is used to enhance the overall experience of using EC2 Image Builder. Enabled by default."
+      },
+      "imageRecipeArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline."
+      },
+      "imageTestsConfiguration": {
+        "type": "ImageTestsConfiguration object",
+        "required": "No",
+        "desc": "The image tests configuration of the image pipeline."
+      },
+      "infrastructureConfigurationArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the image pipeline."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the image pipeline."
+      },
+      "schedule": {
+        "type": "Schedule object",
+        "required": "No",
+        "desc": "The schedule of the image pipeline."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the image pipeline."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags of this image pipeline."
+      }
+    }
+  },
+  {
+    "title": "ImageRecipe",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the image recipe."
+      },
+      "blockDeviceMappings": {
+        "type": "Array of InstanceBlockDeviceMapping objects",
+        "required": "No",
+        "desc": "The block device mappings to apply when creating images from this recipe."
+      },
+      "components": {
+        "type": "Array of ComponentConfiguration objects",
+        "required": "No",
+        "desc": "The components of the image recipe."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this image recipe was created."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the image recipe."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the image recipe."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the image recipe."
+      },
+      "parentImage": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The parent image of the image recipe."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the image recipe."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags of the image recipe."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies which type of image is created by the recipe - an AMI or a container image."
+      },
+      "version": {
+        "type": "String",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "required": "No",
+        "desc": "The version of the image recipe."
+      },
+      "workingDirectory": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The working directory to be used during build and test workflows."
+      }
+    }
+  },
+  {
+    "title": "ImageRecipeSummary",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the image recipe."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this image recipe was created."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the image recipe."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the image recipe."
+      },
+      "parentImage": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The parent image of the image recipe."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the image recipe."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags of the image recipe."
+      }
+    }
+  },
+  {
+    "title": "ImageState",
+    "attrs": {
+      "reason": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The reason for the image's status."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the image."
+      }
+    }
+  },
+  {
+    "title": "ImageSummary",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the image."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which this image was created."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the image."
+      },
+      "osVersion": {
+        "type": "String",
+        "length": "Minimum length of 1.",
+        "required": "No",
+        "desc": "The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019."
+      },
+      "outputResources": {
+        "type": "OutputResources object",
+        "required": "No",
+        "desc": "The output resources produced when creating this image."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the image."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the image."
+      },
+      "state": {
+        "type": "ImageState object",
+        "required": "No",
+        "desc": "The state of the image."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags of the image."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies whether this is an AMI or container image."
+      },
+      "version": {
+        "type": "String",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "required": "No",
+        "desc": "The version of the image."
+      }
+    }
+  },
+  {
+    "title": "ImageTestsConfiguration",
+    "attrs": {
+      "imageTestsEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Defines if tests should be executed when building this image."
+      },
+      "timeoutMinutes": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum time in minutes that tests are permitted to run."
+      }
+    }
+  },
+  {
+    "title": "ImageVersion",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the image semantic version."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date at which this image semantic version was created."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the image semantic version."
+      },
+      "osVersion": {
+        "type": "String",
+        "length": "Minimum length of 1.",
+        "required": "No",
+        "desc": "The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or Microsoft Windows Server 2019."
+      },
+      "owner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The owner of the image semantic version."
+      },
+      "platform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The platform of the image semantic version."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies whether this is an AMI or container image."
+      },
+      "version": {
+        "type": "String",
+        "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+        "required": "No",
+        "desc": "The semantic version of the image semantic version."
+      }
+    }
+  },
+  {
+    "title": "InfrastructureConfiguration",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the infrastructure configuration."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which the infrastructure configuration was created."
+      },
+      "dateUpdated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which the infrastructure configuration was last updated."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the infrastructure configuration."
+      },
+      "instanceProfileName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The instance profile of the infrastructure configuration."
+      },
+      "instanceTypes": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The instance types of the infrastructure configuration."
+      },
+      "keyPair": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The EC2 key pair of the infrastructure configuration."
+      },
+      "logging": {
+        "type": "Logging object",
+        "required": "No",
+        "desc": "The logging configuration of the infrastructure configuration."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the infrastructure configuration."
+      },
+      "resourceTags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags attached to the resource created by Image Builder."
+      },
+      "securityGroupIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The security group IDs of the infrastructure configuration."
+      },
+      "snsTopicArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The SNS topic Amazon Resource Name (ARN) of the infrastructure configuration."
+      },
+      "subnetId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The subnet ID of the infrastructure configuration."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags of the infrastructure configuration."
+      },
+      "terminateInstanceOnFailure": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "The terminate instance on failure configuration of the infrastructure configuration."
+      }
+    }
+  },
+  {
+    "title": "InfrastructureConfigurationSummary",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "pattern": "^arn:aws[^:]*:imagebuilder:[^:]+:(?:\\d{12}|aws):(?:image-recipe|container-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\\d+)\\.(?:x|\\d+)\\.(?:x|\\d+))(?:/\\d+)?)?$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the infrastructure configuration."
+      },
+      "dateCreated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which the infrastructure configuration was created."
+      },
+      "dateUpdated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The date on which the infrastructure configuration was last updated."
+      },
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The description of the infrastructure configuration."
+      },
+      "name": {
+        "type": "String",
+        "pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
+        "required": "No",
+        "desc": "The name of the infrastructure configuration."
+      },
+      "resourceTags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags attached to the image created by Image Builder."
+      },
+      "tags": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The tags of the infrastructure configuration."
+      }
+    }
+  },
+  {
+    "title": "InstanceBlockDeviceMapping",
+    "attrs": {
+      "deviceName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The device to which these mappings apply."
+      },
+      "ebs": {
+        "type": "EbsInstanceBlockDeviceSpecification object",
+        "required": "No",
+        "desc": "Use to manage Amazon EBS-specific configuration for this mapping."
+      },
+      "noDevice": {
+        "type": "String",
+        "length": "Fixed length of 0.",
+        "required": "No",
+        "desc": "Use to remove a mapping from the parent image."
+      },
+      "virtualName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Use to manage instance ephemeral devices."
+      }
+    }
+  },
+  {
+    "title": "LaunchPermissionConfiguration",
+    "attrs": {
+      "userGroups": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The name of the group."
+      },
+      "userIds": {
+        "type": "Array of strings",
+        "pattern": "^\\d{12}$",
+        "required": "No",
+        "desc": "The AWS account ID."
+      }
+    }
+  },
+  {
+    "title": "Logging",
+    "attrs": {
+      "s3Logs": {
+        "type": "S3Logs object",
+        "required": "No",
+        "desc": "The Amazon S3 logging configuration."
+      }
+    }
+  },
+  {
+    "title": "OutputResources",
+    "attrs": {
+      "amis": {
+        "type": "Array of Ami objects",
+        "required": "No",
+        "desc": "The EC2 AMIs created by this image."
+      },
+      "containers": {
+        "type": "Array of Container objects",
+        "required": "No",
+        "desc": "Container images that the pipeline has generated and stored in the output repository."
+      }
+    }
+  },
+  {
+    "title": "S3Logs",
+    "attrs": {
+      "s3BucketName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The Amazon S3 bucket in which to store the logs."
+      },
+      "s3KeyPrefix": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The Amazon S3 path in which to store the logs."
+      }
+    }
+  },
+  {
+    "title": "Schedule",
+    "attrs": {
+      "pipelineExecutionStartCondition": {
+        "type": "String",
+        "required": "No",
+        "desc": "The condition configures when the pipeline should trigger a new image build. When the pipelineExecutionStartCondition is set to EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE, and you use semantic version filters on the source image or components in your image recipe, EC2 Image Builder will build a new image only when there are new versions of the image or components in your recipe that match the semantic version filter. When it is set to EXPRESSION_MATCH_ONLY, it will build a new image every time the CRON expression matches the current time. For semantic version syntax, see CreateComponent in the EC2 Image Builder API Reference."
+      },
+      "scheduleExpression": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The cron expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition. For information on how to format a cron expression in Image Builder, see Use cron expressions in EC2 Image Builder."
+      }
+    }
+  },
+  {
+    "title": "TargetContainerRepository",
+    "attrs": {
+      "repositoryName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "required": "Yes",
+        "desc": "The name of the container repository where the output container image is stored. This name is prefixed by the repository location."
+      },
+      "service": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Specifies the service in which this image was registered."
+      }
+    }
+  }
+]

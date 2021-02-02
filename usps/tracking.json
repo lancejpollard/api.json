@@ -1,0 +1,1733 @@
+[
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=TrackV2",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "Tag Name": "TrackResponse",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / RequestSeqNumber",
+      "Occurs": "Required",
+      "Descriptions": "A unique identification number for a request. The same number will show in the response for this request.",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "TrackResults / ID",
+      "Occurs": "Required",
+      "Descriptions": "Tracking ID",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo",
+      "Occurs": "",
+      "Descriptions": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / DeliveryNotificationDate",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / ExpectedDeliveryDate",
+      "Occurs": "Optional",
+      "Descriptions": "Expected delivery date",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / ExpectedDeliveryTime",
+      "Occurs": "Optional",
+      "Descriptions": "Expected Delivery Time",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / GuaranteedDeliveryDate",
+      "Occurs": "Optional",
+      "Descriptions": "Guaranteed Delivery Date – Global Express Mail only: certain countries provide a guarantee delivery For Example: April 15, 2020 Or 3 Business Days",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary",
+      "Occurs": "Optional",
+      "Descriptions": "Summary of the status of the shipment, ie In-Transit, Delivered, etc. For example: February 5 7:28 pm ENROUTE 33699",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail",
+      "Occurs": "Optional",
+      "Descriptions": "Scan statuses from points in transit.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackResponse",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=TrackV2",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "TrackFieldRequest",
+      "Occurs": "Required",
+      "Descriptions": "API=TrackV2",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackFieldRequest / USERID",
+      "Occurs": "Required",
+      "Descriptions": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackFieldRequest / Revision",
+      "Occurs": "Required",
+      "Descriptions": "This is for versioning of the API's and for triggering response tags for future versions. In this API use a value of 1 to return all available response tags and trigger new functionality. For example: <Revision>1</Revision>",
+      "Type": "Integer",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackFieldRequest / ClientIp",
+      "Occurs": "Optional",
+      "Descriptions": "User IP address. Required when TrackFieldRequest[Revision='1']. For example: <ClientIp>137.0.0.1</ClientIp>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackFieldRequest / SourceId",
+      "Occurs": "Required",
+      "Descriptions": "External integrators should pass company name. For example: <SourceId>XYZ Corp</SourceId>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" Pattern=\"[0-9]{5}\""
+    },
+    {
+      "Tag Name": "TrackFieldRequest / TrackID",
+      "Occurs": "Required",
+      "Descriptions": "Package Tracking ID. Must be alphanumeric characters. For example: <TrackID ID=\"EJ123456780US\"></TrackID>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "TrackFieldRequest / TrackID / DestinationZipCode",
+      "Occurs": "Optional",
+      "Descriptions": "5 digit destination zip code. For example: <DestinationZipCode>12345</DestinationZipCode>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackFieldRequest / TrackID / MailingDate",
+      "Occurs": "Optional",
+      "Descriptions": "Mailing date of package. Format: YYYY-MM-DD For example: <MailingDate>2010-01-01</MailingDate>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "TrackFieldRequest",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "TrackResponse",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / ID",
+      "Occurs": "Required",
+      "Descriptions": "Package Tracking ID number.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / Guaranteed Delivery Date",
+      "Occurs": "Optional",
+      "Descriptions": "Guaranteed Delivery Date – Global Express Mail only: certain countries provide a guarantee delivery.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / eSOFEligible",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if the mail piece is eSOF eligible.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary",
+      "Occurs": "Required once",
+      "Descriptions": "Tracking Summary Information.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / EventTime",
+      "Occurs": "Required",
+      "Descriptions": "The time of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / EventDate",
+      "Occurs": "Required",
+      "Descriptions": "The date of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / Event",
+      "Occurs": "Required",
+      "Descriptions": "The event type (e.g., Enroute).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / EventCity",
+      "Occurs": "Required",
+      "Descriptions": "City where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / EventState",
+      "Occurs": "Required",
+      "Descriptions": "State where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / EventZIPCode",
+      "Occurs": "Required",
+      "Descriptions": "ZIP Code of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / EventCountry",
+      "Occurs": "Optional",
+      "Descriptions": "Country where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / FirmName",
+      "Occurs": "Optional",
+      "Descriptions": "Company name if delivered to a company.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / Name",
+      "Occurs": "Optional",
+      "Descriptions": "Name of the persons signing for delivery (if available).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / EventCode",
+      "Occurs": "Optional",
+      "Descriptions": "The event code.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / ActionCode",
+      "Occurs": "Optional",
+      "Descriptions": "The action code.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackSummary / ReasonCode",
+      "Occurs": "Optional",
+      "Descriptions": "The reason code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail",
+      "Occurs": "Required once",
+      "Descriptions": "Tracking Detail Information. This group is repeatable.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / EventTime",
+      "Occurs": "Required",
+      "Descriptions": "The time of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / EventDate",
+      "Occurs": "Required",
+      "Descriptions": "The date of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / Event",
+      "Occurs": "Required",
+      "Descriptions": "The event type (e.g., Enroute).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / EventCity",
+      "Occurs": "Required",
+      "Descriptions": "The city where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / EventState",
+      "Occurs": "Required",
+      "Descriptions": "The state where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / EventZIPCode",
+      "Occurs": "Required",
+      "Descriptions": "The ZIP Code of the event",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / EventCountry",
+      "Occurs": "Optional",
+      "Descriptions": "The country where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / FirmName",
+      "Occurs": "Optional",
+      "Descriptions": "The company name if delivered to a company.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / Name",
+      "Occurs": "Optional",
+      "Descriptions": "The name of the persons signing for delivery (if available).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / AuthorizedAgent",
+      "Occurs": "Optional",
+      "Descriptions": "True/False field indicating the person signing as an Authorized Agent.",
+      "Type": "String",
+      "Validation": "Enumeration= · True · False"
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / EventCode",
+      "Occurs": "Optional",
+      "Descriptions": "The event code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / ActionCode",
+      "Occurs": "Optional",
+      "Descriptions": "The action code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse / TrackInfo / TrackDetail / ReasonCode",
+      "Occurs": "Optional",
+      "Descriptions": "The reason code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "TrackResponse",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Tag\n   Name": "TrackResults/ RequestSeqNumber",
+      "Occurs": "Required max 1",
+      "Descriptions": "A unique identification number for a request. The same number that was provided in the request. For example: 122",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo ID",
+      "Occurs": "Required max 10",
+      "Descriptions": "The tracking number ID submitted through the request For example: EA123456795US 12887393000019",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / AdditionalInfo",
+      "Occurs": "Optional",
+      "Descriptions": "Additional package information",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ADPScripting",
+      "Occurs": "Optional",
+      "Descriptions": "Additional ADP scripting specific to the ADP Type code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ArchiveRestoreInfo",
+      "Occurs": "Optional",
+      "Descriptions": "Information regarding availability of Restore service function For example Yes",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / AssociatedLabel",
+      "Occurs": "Optional",
+      "Descriptions": "Additional Label on the mail piece For example: EA123456785US This is not currently populated.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / CarrierRelease",
+      "Occurs": "Optional",
+      "Descriptions": "True/False field indicating the item qualifies for the customer to electronically authorize shipment release.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / Class",
+      "Occurs": "Optional",
+      "Descriptions": "Mail Class of the mail piece (human readable). This will also include the service standard message if it exists. No Default of False.",
+      "Type": "String",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ClassofMailCode",
+      "Occurs": "Optional",
+      "Descriptions": "Mail Class of the mail piece (code). For example:EX, PM, CP, IP",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / DestinationCity",
+      "Occurs": "Optional",
+      "Descriptions": "The destination city. For example: Rochester",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / DestinationCountryCode",
+      "Occurs": "Optional",
+      "Descriptions": "The destination country code. For example:MX, CA",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / DestinationState",
+      "Occurs": "Optional",
+      "Descriptions": "The destination State. For example: NY",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / DestinationZip",
+      "Occurs": "Optional",
+      "Descriptions": "The destination ZIP code. For example:20024",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / EditedLabelID",
+      "Occurs": "Optional",
+      "Descriptions": "Edited Label ID or Full Label ID. Used only when Source ID is IVR For example:EA123456795US",
+      "Type": "String",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / EmailEnabled",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if USPS Tracking by Email service is enabled.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / EndOfDay",
+      "Occurs": "Optional, used only when end of day condition is met",
+      "Descriptions": "Populated with the end of day time provided by TRP when TRP API indicates the window is “End of Day” or when the piece is eligible for the PTR default end of day. For example: by 5:00pm Note: an end of day scenario occurs when the TRP API response indicates a 0 length window.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / eSOFEligible",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if the mailpiece is eSOF eligibile.",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ExpectedDeliveryDate",
+      "Occurs": "Optional",
+      "Descriptions": "Expected delivery date. For example:December 31, 2013",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ExpectedDeliveryTime",
+      "Occurs": "Optional",
+      "Descriptions": "Expected Delivery Time. For example: 3:00 PM",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ExpectedDeliveryType",
+      "Occurs": "Optional",
+      "Descriptions": "Populates “Expected Delivery by” if there is an EDD. For example: Expected Delivery by",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / GuaranteedDeliveryDate",
+      "Occurs": "Optional",
+      "Descriptions": "Guaranteed Delivery Date – Global Express Mail only: certain countries provide a guarantee delivery. For example: April 15, 2011 or 3 Business Days",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / GuaranteedDeliveryTime",
+      "Occurs": "Optional",
+      "Descriptions": "Guaranteed Delivery Time provided for Priority Mail Express. For example: 3:00 PM",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / GuaranteedDeliveryType",
+      "Occurs": "Optional",
+      "Descriptions": "Populates “Scheduled Delivery by” if there is a GDD. For example: Scheduled Delivery by",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / GuaranteedDetails",
+      "Occurs": "Optional",
+      "Descriptions": "Special messaging related to the guarantee. For example: “Loss Only Guarantee”",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ItemShape",
+      "Occurs": "Optional",
+      "Descriptions": "Indicates the shape of the item.",
+      "Type": "String",
+      "Validation": "Enumerations= · Letter · Flat · Parcel · Unknown"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / KahalaIndicator",
+      "Occurs": "Optional",
+      "Descriptions": "",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / MailTypeCode",
+      "Occurs": "Optional",
+      "Descriptions": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / MPDATE",
+      "Occurs": "Optional",
+      "Descriptions": "Internal date stamp.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / MPSUFFIX",
+      "Occurs": "Optional",
+      "Descriptions": "Internal suffix. 2010-03-30 19:30:48.224343",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / OnTime",
+      "Occurs": "Optional",
+      "Descriptions": "Field indicating if the item will be delivered on time as specified in the Expected or Guaranteed delivery date.",
+      "Type": "String",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / OriginCity",
+      "Occurs": "Optional",
+      "Descriptions": "The origin city.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / OriginCountryCode",
+      "Occurs": "Optional",
+      "Descriptions": "The origin country code.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / OriginState",
+      "Occurs": "Optional",
+      "Descriptions": "The origin state.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / OriginZip",
+      "Occurs": "Optional",
+      "Descriptions": "The origin ZIP code.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / PodEnabled",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if Proof of Delivery service is enabled.",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / PredictedDeliveryDate",
+      "Occurs": "Optional",
+      "Descriptions": "Predicted delivery date. December 30, 2013",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / PredictedDeliveryTime",
+      "Occurs": "Optional",
+      "Descriptions": "Predicted Delivery Time 3:00 PM or blank.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / PredictedDeliveryType",
+      "Occurs": "Optional",
+      "Descriptions": "Populates “Expected Delivery ‘by or on’”, if the source of the PDD is TRP API. Populates “Expected Delivery on” if the source of the PDD is a PTR calculated date. For example: Expected Delivery by or Expected Delivery on",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfoPredictedDeliverySource",
+      "Occurs": "Optional",
+      "Descriptions": "States which system provided the Predicted Delivery prediction. TRP, AA",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / PDWStart",
+      "Occurs": "Optional",
+      "Descriptions": "Predicted Delivery Window start time in am/pm format. In an EndOfDay scenario, the PDWStart tag is null. 11:00am For example: (null)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / PDWEnd",
+      "Occurs": "Optional",
+      "Descriptions": "Predicted Delivery Window end time in am/pm format. In an EndOfDay scenario, the PDWEnd tag is null. 1:00pm For example: (null)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / PurgeByDate",
+      "Occurs": "Optional",
+      "Descriptions": "Contains the Purge By Date of the mail piece. Example: December 31, 2024",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / RelatedRRID",
+      "Occurs": "Optional",
+      "Descriptions": "The related label ID between a tracking barcode, the core product, and a PS3811, Green Card Return Reciept. This field can contain either the core product label ID or the Green Card label ID. There is only a one to one relationship. Core Product ID: EA123456795US Or Green Card ID; 9590940112345671234567",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / RedeliveryEnabled",
+      "Occurs": "Optional",
+      "Descriptions": "Field indicating if the item qualifies for redelivery.",
+      "Type": "String",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / RestoreEnabled",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if Restore tracking information service is enabled Values:",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ReturnDateNotice",
+      "Occurs": "Optional",
+      "Descriptions": "Field indicating the date the item will be Returned to Sender.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / PodEnabled",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if Proof of Delivery service is enabled",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TpodEnabled",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if Tracking Proof of Delivery service is enabled",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / RRAMenabled",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if RRAM service is enabled",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / RreEnabled",
+      "Occurs": "Optional",
+      "Descriptions": "Signifies if Return Receipt Electronic service is enabled",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / Service",
+      "Occurs": "Optional unbounded",
+      "Descriptions": "Additional services purchased",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ServiceTypeCode",
+      "Occurs": "Optional max 1",
+      "Descriptions": "Service Type Code of the mail piece M, AD, VI, 03, 70, 716",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / Status",
+      "Occurs": "Optional",
+      "Descriptions": "For example: Delivered",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / StatusCategory",
+      "Occurs": "Optional",
+      "Descriptions": "For example: In Transit",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / StatusSummary",
+      "Occurs": "Optional",
+      "Descriptions": "Status summary For example: Your item was delivered at 12:55 pm on April 05, 2010 in FALMOUTH, MA 02540",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TABLECODE",
+      "Occurs": "Optional",
+      "Descriptions": "Internal description of mail piece as it relates to PTR (live, history, or archived piece) T, H, A (CMC830 V3 – T is the only value defined)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / ValueofArticle <placeholder>",
+      "Occurs": "Optional",
+      "Descriptions": "Value of Article for when the Source ID is PIN",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary",
+      "Occurs": "Optional max 1",
+      "Descriptions": "Tracking Summary Information.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / EventTime",
+      "Occurs": "Optional",
+      "Descriptions": "The time of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / EventDate",
+      "Occurs": "Optional",
+      "Descriptions": "The date of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / Event",
+      "Occurs": "Optional",
+      "Descriptions": "The event type",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / EventCity",
+      "Occurs": "Optional",
+      "Descriptions": "The city where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / EventState",
+      "Occurs": "Optional",
+      "Descriptions": "The state where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / EventZIPCode",
+      "Occurs": "Optional",
+      "Descriptions": "The ZIP Code of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / EventCountry",
+      "Occurs": "Optional",
+      "Descriptions": "The country where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / FirmName",
+      "Occurs": "Optional",
+      "Descriptions": "The company name if delivered to a company.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / Name",
+      "Occurs": "Optional",
+      "Descriptions": "The first initial and last name of the person signing for delivery (if available).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / EventCode",
+      "Occurs": "Optional",
+      "Descriptions": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / ActionCode",
+      "Occurs": "Optional max 1",
+      "Descriptions": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / ReasonCode",
+      "Occurs": "Optional",
+      "Descriptions": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackSummary / GeoCertified",
+      "Occurs": "Optional",
+      "Descriptions": "Only eligible to display with delivery (01) events.",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail",
+      "Occurs": "Optional max 99",
+      "Descriptions": "Tracking Detail Information. This group is repeatable.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / DeliveryAttributeCode",
+      "Occurs": "Optional",
+      "Descriptions": "Used to provide additional information regarding an event posted to a mail piece.",
+      "Type": "String",
+      "Validation": "Enumerations= · 32"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventTime",
+      "Occurs": "Optional",
+      "Descriptions": "The time of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventDate",
+      "Occurs": "Optional",
+      "Descriptions": "The date of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / Event",
+      "Occurs": "Optional",
+      "Descriptions": "The event type.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventCity",
+      "Occurs": "Optional",
+      "Descriptions": "The city where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventState",
+      "Occurs": "Optional",
+      "Descriptions": "The state where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventStatusCategory",
+      "Occurs": "Optional",
+      "Descriptions": "The status of a posted event on a mail piece.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventPartner",
+      "Occurs": "Optional",
+      "Descriptions": "Stores the name of the shipping partner associated to a posted shipping partner event (80,81,82).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventZIPCode",
+      "Occurs": "Optional",
+      "Descriptions": "The ZIP Code of the event.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventCountry",
+      "Occurs": "Optional",
+      "Descriptions": "The country where the event occurred.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / FirmName",
+      "Occurs": "Optional",
+      "Descriptions": "The company name if delivered to a company.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackDetail / Name",
+      "Occurs": "Optional",
+      "Descriptions": "The name of the persons signing for delivery (if available).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / AuthorizedAgent",
+      "Occurs": "Optional",
+      "Descriptions": "True/False field indicating the person signing as an Authorized Agent.",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / EventCode",
+      "Occurs": "Optional",
+      "Descriptions": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / ActionCode",
+      "Occurs": "Optional max 1",
+      "Descriptions": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / ReasonCode",
+      "Occurs": "Optional",
+      "Descriptions": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / TrackDetail / GeoCertified",
+      "Occurs": "Optional",
+      "Descriptions": "Only eligible to display with delivery (01) events.",
+      "Type": "Boolean",
+      "Validation": "Enumerations= · True · False"
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / Error",
+      "Occurs": "Optional",
+      "Descriptions": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResults / TrackInfo / Error / ErrorDescription",
+      "Occurs": "Optional",
+      "Descriptions": "Descriptions of error message. Duplicate or 4 items were also tied to your 3849 ID but exceeded the maximum number of tracking number inquiries supported on this site. This 3849 ID was used on a large volume shipment and cannot be used for tracking on this site.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag\n   Name": "TrackResponse",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=PTSEmail",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "PTSEmailRequest",
+      "Occurs": "Required",
+      "Descriptions": "API=PTSEmail.",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / USERID",
+      "Occurs": "Required",
+      "Descriptions": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / TrackId",
+      "Occurs": "Required",
+      "Descriptions": "Must be alphanumeric characters. For example: <TrackId>EJ123456780US</TrackId>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / ClientIp",
+      "Occurs": "Optional",
+      "Descriptions": "User IP address. For example: <ClientIp>127.0.0.0</ClientIp>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / SourceId",
+      "Occurs": "Optional",
+      "Descriptions": "Internal User Identification. For example: <SourceId>XYZ Corp</SourceId>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / MpSuffix",
+      "Occurs": "Required",
+      "Descriptions": "MPSUFFIX value located in Track/Confirm Fields API response data. Unique to each TrackID. For example: <MpSuffix>9402</MpSuffix>",
+      "Type": "Integer",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / MpDate",
+      "Occurs": "Required",
+      "Descriptions": "MPDATE value located in Track/Confirm Fields API response data. Unique to each TrackId. For example: <MpDate>2009-07-02 00:42:23.35744</MpDate>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / RequestType",
+      "Occurs": "Required once,repeating up to 5 times",
+      "Descriptions": "Enter a notification request type from the choices available. Request Type Descriptions “AL” E-Mail Alert “FD” E-Mail Future Delivery “ED” E-Mail Delivery/Non Delivery activity “TD” E-Mail Today Delivery “UP” E-Mail Available for Pickup “FS” Package addressed to me/myusps only “OA” Other Activity For example: <RequestType>ED</RequestType>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs =”5” Enumerations= · AL · FD · ED · TD · UP · FS · OA"
+    },
+    {
+      "Tag Name": "PTSEmailRequest / FirstName",
+      "Occurs": "Optional",
+      "Descriptions": "Recipient First Name. For example: <FirstName>John</FirstName>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / LastName",
+      "Occurs": "Optional",
+      "Descriptions": "Recipient Last Name. For example: <LastName>Doe</LastName>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / Email1",
+      "Occurs": "Required",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used. For example: <Email1>cpapple@email.com</Email1>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / Email2",
+      "Occurs": "Optional",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / Email3",
+      "Occurs": "Optional",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSEmailRequest",
+      "Occurs": "Required once",
+      "Descriptions": "API=PTSEmail",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Request Type": "“AL”",
+      "Descriptions": "E-Mail Alert"
+    },
+    {
+      "Request Type": "“FD”",
+      "Descriptions": "E-Mail Future Delivery"
+    },
+    {
+      "Request Type": "“ED”",
+      "Descriptions": "E-Mail Delivery/Non Delivery activity"
+    },
+    {
+      "Request Type": "“TD”",
+      "Descriptions": "E-Mail Today Delivery"
+    },
+    {
+      "Request Type": "“UP”",
+      "Descriptions": "E-Mail Available for Pickup"
+    },
+    {
+      "Request Type": "“FS”",
+      "Descriptions": "Package addressed to me/myusps only"
+    },
+    {
+      "Request Type": "“OA”",
+      "Descriptions": "Other Activity"
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "PTSEmailResponse",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSEmailResponse / ResultText",
+      "Occurs": "Required",
+      "Descriptions": "Status message.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSEmailRequest / ReturnCode",
+      "Occurs": "Required",
+      "Descriptions": "Return code.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSEmailResponse",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=PTSPod",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "PTSPodRequest",
+      "Occurs": "Required once",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSPodRequest / USERID",
+      "Occurs": "Required",
+      "Descriptions": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / TrackId",
+      "Occurs": "Required",
+      "Descriptions": "Must be alphanumeric characters. For example: <TrackId>EJ123456780US</TrackId>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / ClientIp",
+      "Occurs": "Optional",
+      "Descriptions": "User IP address. For example: <ClientIp>127.0.0.1</ClientIp>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / SourceId",
+      "Occurs": "Optional",
+      "Descriptions": "Internal User Identification. For example: <SourceId>XYZ Corp</SourceId>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / MpSuffix",
+      "Occurs": "Required",
+      "Descriptions": "MPSUFFIX value located in Track/Confirm Fields API response data. Unique to each TrackId. For example: <MpSuffix>9402</MpSuffix>",
+      "Type": "integer",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / MpDate",
+      "Occurs": "Required",
+      "Descriptions": "MPDATE value located in Track/Confirm Fields API response data. Unique to each TrackID. For example: <MpDate>2009-07-02 00:42:23.35744</MpDate>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / RequestType",
+      "Occurs": "Required",
+      "Descriptions": "Enter a notification request type from the choices available. For example: <RequestType>Email</RequestType>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / FirstName",
+      "Occurs": "Required",
+      "Descriptions": "Recipient First Name. For example: <FirstName>John</FirstName>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / LastName",
+      "Occurs": "Required",
+      "Descriptions": "Recipient Last Name. For example: <LastName>Doe</LastName>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / Email1",
+      "Occurs": "Optional",
+      "Descriptions": "Required when PTSPodRequest[RequestType=’Email’]. Complete valid e-mail address is Required if tag is used. For example: <Email1>cpapple@email.com</Email1>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / Email2",
+      "Occurs": "Optional",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / Email3",
+      "Occurs": "Optional",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / FaxNumber",
+      "Occurs": "Optional",
+      "Descriptions": "Fax Number.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / AddressLine1",
+      "Occurs": "Optional",
+      "Descriptions": "Address Line 1.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / AddressLine2",
+      "Occurs": "Optional",
+      "Descriptions": "Address Line 2.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / City",
+      "Occurs": "Optional",
+      "Descriptions": "City",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / State",
+      "Occurs": "Optional",
+      "Descriptions": "State",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / Zip",
+      "Occurs": "Optional",
+      "Descriptions": "Zip",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / VerifyAddress",
+      "Occurs": "Optional",
+      "Descriptions": "Indicates whether or not address should be validated.",
+      "Type": "Boolean",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / TableCode",
+      "Occurs": "Required",
+      "Descriptions": "TableCode value located in Track/Confirm Fields API response data. Unique to each TrackID. For example: <TableCode>T</TableCode>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSPodRequest / CustRegID",
+      "Occurs": "Optional",
+      "Descriptions": "Unique 10-byte numeric value that’s associated to each user.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSPodRequest",
+      "Occurs": "Required once",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "PTSPODResult",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSPODResponse / ResultText",
+      "Occurs": "Required",
+      "Descriptions": "Status message.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSPODRequest / ReturnCode",
+      "Occurs": "Required",
+      "Descriptions": "Return code.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSPODResult",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=PTSRre",
+      "XML": "&XML=(see below)"
+    },
+    {
+      "Scheme": "",
+      "Host": "",
+      "Path": "",
+      "API": "",
+      "XML": "",
+      "undefined": ""
+    }
+  ],
+  [
+    {
+      "Tag Name": "PTSRreRequest",
+      "Occurs": "Required",
+      "Descriptions": "API=PTSRre",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSRreRequest / USERID",
+      "Occurs": "Required",
+      "Descriptions": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSRreRequest / TrackId",
+      "Occurs": "Required",
+      "Descriptions": "Must be alphanumeric characters. For example: <TrackId>EJ123456780US</TrackId>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / ClientIp",
+      "Occurs": "Optional",
+      "Descriptions": "User IP address. For example: <ClientIp>127.0.0.1</ClientIp>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / SourceId",
+      "Occurs": "Optional",
+      "Descriptions": "Internal User Identification. For example: <SourceId>XYZ Corp</SourceId>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / MpSuffix",
+      "Occurs": "Required",
+      "Descriptions": "MPSUFFIX value located in Track/Confirm Fields API response data. Unique to each TrackId. For example: <MpSuffix>9402</MpSuffix>",
+      "Type": "integer",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / MpDate",
+      "Occurs": "Required",
+      "Descriptions": "MPDATE value located in Track/Confirm Fields API response data. Unique to each TrackID. For example: <MpDate>2009-07-02 00:42:23.35744</MpDate>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / FirstName",
+      "Occurs": "Required",
+      "Descriptions": "Recipient First Name. For example: <FirstName>John</FirstName>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / LastName",
+      "Occurs": "Required",
+      "Descriptions": "Recipient Last Name. For example: <LastName>Doe</LastName>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / Email1",
+      "Occurs": "Required",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used. For example: <Email1>cgpapple@email.com</Email1>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / Email2",
+      "Occurs": "Optional",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / Email3",
+      "Occurs": "Optional",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / TableCode",
+      "Occurs": "Required",
+      "Descriptions": "TableCode value located in Track/Confirm Fields API response data. Unique to each TrackID. For example: <TableCode>T</TableCode>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSRreRequest / CustRegID",
+      "Occurs": "Optional",
+      "Descriptions": "Unique 10-byte numeric value that’s associated to each user.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSRreRequest",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "PTSRreResult",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSRreResponse / ResultText",
+      "Occurs": "Required",
+      "Descriptions": "Status message.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSRreRequest / ReturnCode",
+      "Occurs": "Required",
+      "Descriptions": "Return code.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSRreResult",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=PTSTPod",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "PTSTPodRequest",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / USERID",
+      "Occurs": "Required",
+      "Descriptions": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / TrackId",
+      "Occurs": "Required",
+      "Descriptions": "Must be alphanumeric characters. For example: <TrackId>EJ123456780US</TrackId>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / MpSuffix",
+      "Occurs": "Required",
+      "Descriptions": "MPSUFFIX value located in Track/Confirm Fields API response data. Unique to each TrackId. For example: <MpSuffix>9402</MpSuffix>",
+      "Type": "integer",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / MpDate",
+      "Occurs": "Required",
+      "Descriptions": "MPDATE value located in Track/Confirm Fields API response data. Unique to each TrackID. For example: <MpDate>2009-07-02 00:42:23.35744</MpDate>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / RequestType",
+      "Occurs": "Required",
+      "Descriptions": "Enter a notification request type from the choices available. For example: <RequestType>Email</RequestType>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / FirstName",
+      "Occurs": "Required",
+      "Descriptions": "Recipient First Name. For example: <FirstName>John</FirstName>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / LastName",
+      "Occurs": "Required",
+      "Descriptions": "Recipient Last Name. For example: <LastName>Doe</LastName>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / Email1",
+      "Occurs": "Optional",
+      "Descriptions": "Required when PTSTPodRequest[RequestType=’Email’]. Complete valid e-mail address is Required if tag is used. For example: <Email1>cpapplee@email.com</Email1>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / Email2",
+      "Occurs": "Optional",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / Email3",
+      "Occurs": "Optional",
+      "Descriptions": "Complete valid e-mail address is Required if tag is used.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / CustRegID",
+      "Occurs": "Required",
+      "Descriptions": "Unique 10-byte numeric value that’s associated to each user.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / TableCode",
+      "Occurs": "Required",
+      "Descriptions": "TableCode value located in Track/Confirm Fields API response data. Unique to each TrackID. For example: <TableCode>T</TableCode>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / ClientIp",
+      "Occurs": "Optional",
+      "Descriptions": "User IP address. For example: <ClientIp>133.2.1.1</ClientIp>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest / SourceId",
+      "Occurs": "Optional",
+      "Descriptions": "Internal User Identification. Required when TrackFieldRequest[Revision=’1’]. For example: <SourceID>XYZ Corp</SourceID>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\""
+    },
+    {
+      "Tag Name": "PTSTPodRequest",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "PTSTPODResult",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSTPODResponse / ResultText",
+      "Occurs": "Required",
+      "Descriptions": "Status message.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSTPODRequest / ReturnCode",
+      "Occurs": "Required",
+      "Descriptions": "Return code.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PTSTPODResult",
+      "Occurs": "Required",
+      "Descriptions": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  []
+]

@@ -1,0 +1,255 @@
+[
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=SCAN",
+      "XML": "&XML (see below)"
+    },
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=SCANCertify",
+      "XML": "&XML (see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "SCANRequest",
+      "Occurs": "Required",
+      "Description": "API=SCAN",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / UserID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Option",
+      "Occurs": "Optional",
+      "Description": "Groups form information",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Option / Form",
+      "Occurs": "Optional",
+      "Description": "Designates desired label option selected by customer. Enter one of the valid entries: ‘3152’ generates PS Form 3152. ‘5630’ generates PS Form 5630. For example: <Form>3152</Form>",
+      "Type": "String",
+      "Validation": "Enumeration= · 3152 · 5630"
+    },
+    {
+      "Tag Name": "SCANRequest / FromName",
+      "Occurs": "Required",
+      "Description": "Name of sender. Example: <FromName>Joe Smith</FromName>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / FromFirm",
+      "Occurs": "Optional",
+      "Description": "Company name. Example: <FromFirm>ABC Corp.</FromFirm>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / FromAddress1",
+      "Occurs": "Optional",
+      "Description": "From address line 1. Denote apartment or suite number. Example: <FromAddress1>Apt. 3C</FromAddress1>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / FromAddress2",
+      "Occurs": "Required",
+      "Description": "From address line 2. Denote street/structure number. Example: <FromAddress2>475 L’Enfant Plaza SW</FromAddress2>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / FromCity",
+      "Occurs": "Required",
+      "Description": "From city. Example: <FromCity>Greenbelt</FromCity>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / FromState",
+      "Occurs": "Required",
+      "Description": "From state. Example: <FromState>MD</FromState>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / FromZip5",
+      "Occurs": "Required",
+      "Description": "From ZIP Code. Must be a valid ZIP5 Code. Example: <FromZip5>20770</FromZip5>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / FromZip4",
+      "Occurs": "Optional",
+      "Description": "From ZIP Code+4. Example: <FromZip4>1234</FromZip4>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Shipment",
+      "Occurs": "Required once, repeating up to unbounded times",
+      "Description": "Groups shipment information",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Shipment / PackageDetail",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups package detail information",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Shipment / PackageDetail / PkgBarcode",
+      "Occurs": "Required",
+      "Description": "Individual package barcodes. Example: <PkgBarcode>42020260910180521390702413570 </PkgBarcode> Note: The SCAN API can contain no more than 1,000 package barcodes in a single request. If exceeded, 'Total PackageDetail items exceeded 1000.’ error will return”",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Shipment / PackageDetail / SpecialService",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "FOR FUTURE USE. Groups extra service information.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Shipment / PackageDetail / SpecialService / SpcServCode",
+      "Occurs": "Required",
+      "Description": "FOR FUTURE USE. If present, must be <SpcServFee>. From Extra Service Code table. Example: <SpcServCode>01</SpcServCode>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Shipment / PackageDetail /SpecialService/ SpcServFee",
+      "Occurs": "Required",
+      "Description": "FOR FUTURE USE. Fee for Extra Service. Example: <SpcServFee>00275</SpcServFee>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / Shipment / PackageDetail / EMail",
+      "Occurs": "Optional",
+      "Description": "FOR FUTURE USE. Email address of acceptance scan event recipient. Example: <EMail>john.smith@abc.com</EMail>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / CloseManifest",
+      "Occurs": "Optional, mutually exclusive with the <Shipment> tag",
+      "Description": "Used to include all labels for the submitted UserID. There are two values: “ALL” will close all labels for the submitted USERID. “SHIPDATE” will close all the labels for the submitted USERID that have the <Shipdate> tag matching the value in the <MailDate> tag. Note: When <CloseManifest> is indicated in the request, the following two response fields are eligible to return if conditions are met: · <MaxPackagesExceeded> · <MaxLabelsExceeded>",
+      "Type": "Boolean",
+      "Validation": "Enumeration= · ALL · SHIPDATE"
+    },
+    {
+      "Tag Name": "SCANRequest / MailDate",
+      "Occurs": "Required",
+      "Description": "Date of mailing/Carrier Pickup. This denotes date mail to be tendered to Postal Service. YYYYMMDD format. Example: <MailDate>20060103</MailDate>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / MailTime",
+      "Occurs": "Required",
+      "Description": "Time of mailing/Carrier Pickup. This is an approximation. This denotes time of mail to be tendered to Postal Service. HHMMSS (24 hour) format. Example: <MailTime>143000</MailTime>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / EntryFacility",
+      "Occurs": "Required",
+      "Description": "ZIP Code of Postal Service facility. Populate/required only if different from <FromZip5>. Example: <EntryFacility>07067</EntryFacility>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / ImageType",
+      "Occurs": "Required",
+      "Description": "The form image format desired. Enter one of the valid entries: Example: <ImageType>TIF</ImageType>",
+      "Type": "String",
+      "Validation": "Enumeration= · TIF · PDF · NONE"
+    },
+    {
+      "Tag Name": "SCANRequest / CustomerRefNo",
+      "Occurs": "Optional",
+      "Description": "Arbitrary number for customers own tracking or inventory systems, does not print to form or manifest with Product Tracking. May be any combination of alpha and numeric characters, up to a maximum of 30. Example: <CustomerRefNo>123456</CustomerRefNo>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANRequest / CarrierPickup",
+      "Occurs": "Optional",
+      "Description": "FOR FUTURE USE.",
+      "Type": "Boolean",
+      "Validation": "Default=false"
+    },
+    {
+      "Tag Name": "SCANRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "SCANResponse",
+      "Occurs": "Required once",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANResponse / SCANFormNumber",
+      "Occurs": "Required once",
+      "Description": "Electronic File Number.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANResponse / SCANFormImage",
+      "Occurs": "Required once",
+      "Description": "Encoded image of PS Form 3152 or PS Form 5630.",
+      "Type": "Base64Binary",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SCANResponse / MaxPackagesExceeded",
+      "Occurs": "Optional",
+      "Description": "This field indicates that over 1,000 barcodes were submitted for the given user ID. When the number of barcodes submitted is greater than 1,000, then the <MaxPackagesExceeded> tag will return with a value of “true”. If these conditions are not met, the tag will not return in the response. Users who do receive this tag in the response, should submit another request for the given user ID to ensure all outstanding records being held are closed. This field is only eligible to return when <CloseManifest> option is included in the request with either an “ALL” or “SHIPDATE” enumeration indicated. For example: <MaxPackagesExceeded>true </MaxPackagesExceeded>",
+      "Type": "Boolean",
+      "Validation": "Enumeration= · true"
+    },
+    {
+      "Tag Name": "SCANResponse / MaxLabelsExceeded",
+      "Occurs": "Optional",
+      "Description": "This field indicates that over 10 SCAN forms were returned in the response due to multiple entry zip codes and/or ship dates requested by the given user ID. If these conditions are not met, the tag will not return in the response. Users who do receive this tag in the response, should submit another request for the given user ID to ensure all outstanding records being held are closed. This field is only eligible to return when the <CloseManifest> option is included in the request with either an “ALL” or “SHIPDATE” enumeration indicated. For example: <MaxLabelsExceeded>true<MaxLabelsExceeded>",
+      "Type": "Boolean",
+      "Validation": "Enumeration= · true"
+    },
+    {
+      "Tag Name": "SCANResponse",
+      "Occurs": "",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  []
+]

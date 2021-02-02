@@ -1,0 +1,767 @@
+[
+  {
+    "title": "ActionDefinition",
+    "attrs": {
+      "PublishMetricAction": {
+        "type": "PublishMetricAction object",
+        "required": "No",
+        "desc": "Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published. You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it."
+      }
+    }
+  },
+  {
+    "title": "Address",
+    "attrs": {
+      "AddressDefinition": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^([a-fA-F\\d:\\.]+/\\d{1,3})$",
+        "required": "Yes",
+        "desc": "Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. Examples: For more information about CIDR notation, see the Wikipedia entry Classless Inter-Domain Routing."
+      }
+    }
+  },
+  {
+    "title": "Attachment",
+    "attrs": {
+      "EndpointId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The identifier of the firewall endpoint that Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint."
+      },
+      "Status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current status of the firewall endpoint in the subnet. This value reflects both the instantiation of the endpoint in the VPC subnet and the sync states that are reported in the Config settings. When this value is READY, the endpoint is available and configured properly to handle network traffic. When the endpoint isn't available for traffic, this value will reflect its state, for example CREATING, DELETING, or FAILED."
+      },
+      "SubnetId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^subnet-[0-9a-f]+$",
+        "required": "No",
+        "desc": "The unique identifier of the subnet that you've specified to be used for a firewall endpoint."
+      }
+    }
+  },
+  {
+    "title": "CustomAction",
+    "attrs": {
+      "ActionDefinition": {
+        "type": "ActionDefinition object",
+        "required": "Yes",
+        "desc": "The custom action associated with the action name."
+      },
+      "ActionName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9]+$",
+        "required": "Yes",
+        "desc": "The descriptive name of the custom action. You can't change the name of a custom action after you create it."
+      }
+    }
+  },
+  {
+    "title": "Dimension",
+    "attrs": {
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-_ ]+$",
+        "required": "Yes",
+        "desc": "The value to use in the custom metric dimension."
+      }
+    }
+  },
+  {
+    "title": "Firewall",
+    "attrs": {
+      "DeleteProtection": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A flag indicating whether it is possible to delete the firewall. A setting of TRUE indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to TRUE."
+      },
+      "Description": {
+        "type": "String",
+        "length": "Maximum length of 512.",
+        "pattern": "^.*$",
+        "required": "No",
+        "desc": "A description of the firewall."
+      },
+      "FirewallArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the firewall."
+      },
+      "FirewallId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^([0-9a-f]{8})-([0-9a-f]{4}-){3}([0-9a-f]{12})$",
+        "required": "Yes",
+        "desc": "The unique identifier for the firewall."
+      },
+      "FirewallName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "required": "No",
+        "desc": "The descriptive name of the firewall. You can't change the name of a firewall after you create it."
+      },
+      "FirewallPolicyArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the firewall policy. The relationship of firewall to firewall policy is many to one. Each firewall requires one firewall policy association, and you can use the same firewall policy for multiple firewalls."
+      },
+      "FirewallPolicyChangeProtection": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE."
+      },
+      "SubnetChangeProtection": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to TRUE."
+      },
+      "SubnetMappings": {
+        "type": "Array of SubnetMapping objects",
+        "required": "Yes",
+        "desc": "The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": ""
+      },
+      "VpcId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^vpc-[0-9a-f]+$",
+        "required": "Yes",
+        "desc": "The unique identifier of the VPC where the firewall is in use."
+      }
+    }
+  },
+  {
+    "title": "FirewallMetadata",
+    "attrs": {
+      "FirewallArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the firewall."
+      },
+      "FirewallName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "required": "No",
+        "desc": "The descriptive name of the firewall. You can't change the name of a firewall after you create it."
+      }
+    }
+  },
+  {
+    "title": "FirewallPolicy",
+    "attrs": {
+      "StatefulRuleGroupReferences": {
+        "type": "Array of StatefulRuleGroupReference objects",
+        "required": "No",
+        "desc": "References to the stateless rule groups that are used in the policy. These define the inspection criteria in stateful rules."
+      },
+      "StatelessCustomActions": {
+        "type": "Array of CustomAction objects",
+        "required": "No",
+        "desc": "The custom action definitions that are available for use in the firewall policy's StatelessDefaultActions setting. You name each custom action that you define, and then you can use it by name in your default actions specifications."
+      },
+      "StatelessDefaultActions": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "The actions to take on a packet if it doesn't match any of the stateless rules in the policy. If you want non-matching packets to be forwarded for stateful inspection, specify aws:forward_to_sfe. You must specify one of the standard actions: aws:pass, aws:drop, or aws:forward_to_sfe. In addition, you can specify custom actions that are compatible with your standard section choice. For example, you could specify [\"aws:pass\"] or you could specify [\"aws:pass\", “customActionName”]. For information about compatibility, see the custom action descriptions under CustomAction."
+      },
+      "StatelessFragmentDefaultActions": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "The actions to take on a fragmented packet if it doesn't match any of the stateless rules in the policy. If you want non-matching fragmented packets to be forwarded for stateful inspection, specify aws:forward_to_sfe. You must specify one of the standard actions: aws:pass, aws:drop, or aws:forward_to_sfe. In addition, you can specify custom actions that are compatible with your standard section choice. For example, you could specify [\"aws:pass\"] or you could specify [\"aws:pass\", “customActionName”]. For information about compatibility, see the custom action descriptions under CustomAction."
+      },
+      "StatelessRuleGroupReferences": {
+        "type": "Array of StatelessRuleGroupReference objects",
+        "required": "No",
+        "desc": "References to the stateless rule groups that are used in the policy. These define the matching criteria in stateless rules."
+      }
+    }
+  },
+  {
+    "title": "FirewallPolicyMetadata",
+    "attrs": {
+      "Arn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the firewall policy."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "required": "No",
+        "desc": "The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it."
+      }
+    }
+  },
+  {
+    "title": "FirewallPolicyResponse",
+    "attrs": {
+      "Description": {
+        "type": "String",
+        "length": "Maximum length of 512.",
+        "pattern": "^.*$",
+        "required": "No",
+        "desc": "A description of the firewall policy."
+      },
+      "FirewallPolicyArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the firewall policy."
+      },
+      "FirewallPolicyId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^([0-9a-f]{8})-([0-9a-f]{4}-){3}([0-9a-f]{12})$",
+        "required": "Yes",
+        "desc": "The unique identifier for the firewall policy."
+      },
+      "FirewallPolicyName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "required": "Yes",
+        "desc": "The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it."
+      },
+      "FirewallPolicyStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current status of the firewall policy. You can retrieve this for a firewall policy by calling DescribeFirewallPolicy and providing the firewall policy's name or ARN."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The key:value pairs to associate with the resource."
+      }
+    }
+  },
+  {
+    "title": "FirewallStatus",
+    "attrs": {
+      "ConfigurationSyncStateSummary": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The configuration sync state for the firewall. This summarizes the sync states reported in the Config settings for all of the Availability Zones where you have configured the firewall. When you create a firewall or update its configuration, for example by adding a rule group to its firewall policy, Network Firewall distributes the configuration changes to all zones where the firewall is in use. This summary indicates whether the configuration changes have been applied everywhere. This status must be IN_SYNC for the firewall to be ready for use, but it doesn't indicate that the firewall is ready. The Status setting indicates firewall readiness."
+      },
+      "Status": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The readiness of the configured firewall to handle network traffic across all of the Availability Zones where you've configured it. This setting is READY only when the ConfigurationSyncStateSummary value is IN_SYNC and the Attachment Status values for all of the configured subnets are READY."
+      },
+      "SyncStates": {
+        "type": "String to SyncState object map",
+        "required": "No",
+        "desc": "The subnets that you've configured for use by the Network Firewall firewall. This contains one array element per Availability Zone where you've configured a subnet. These objects provide details of the information that is summarized in the ConfigurationSyncStateSummary and Status, broken down by zone and configuration object."
+      }
+    }
+  },
+  {
+    "title": "Header",
+    "attrs": {
+      "Destination": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^.*$",
+        "required": "Yes",
+        "desc": "The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify ANY. Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. Examples: For more information about CIDR notation, see the Wikipedia entry Classless Inter-Domain Routing."
+      },
+      "DestinationPort": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^.*$",
+        "required": "Yes",
+        "desc": "The destination port to inspect for. You can specify an individual port, for example 1994 and you can specify a port range, for example 1990-1994. To match with any port, specify ANY."
+      },
+      "Direction": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The direction of traffic flow to inspect. If set to ANY, the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to FORWARD, the inspection only matches traffic going from the source to the destination."
+      },
+      "Protocol": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The protocol to inspect for. To match with any protocol, specify ANY."
+      },
+      "Source": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^.*$",
+        "required": "Yes",
+        "desc": "The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify ANY. Specify an IP address or a block of IP addresses in Classless Inter-Domain Routing (CIDR) notation. Network Firewall supports all address ranges for IPv4. Examples: For more information about CIDR notation, see the Wikipedia entry Classless Inter-Domain Routing."
+      },
+      "SourcePort": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^.*$",
+        "required": "Yes",
+        "desc": "The source port to inspect for. You can specify an individual port, for example 1994 and you can specify a port range, for example 1990-1994. To match with any port, specify ANY."
+      }
+    }
+  },
+  {
+    "title": "IPSet",
+    "attrs": {
+      "Definition": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1.",
+        "pattern": "^.*$",
+        "required": "Yes",
+        "desc": "The list of IP addresses and address ranges, in CIDR notation."
+      }
+    }
+  },
+  {
+    "title": "LogDestinationConfig",
+    "attrs": {
+      "LogDestination": {
+        "type": "String to string map",
+        "required": "Yes",
+        "desc": "The named location for the logs, provided in a key:value mapping that is specific to the chosen destination type."
+      },
+      "LogDestinationType": {
+        "type": "String",
+        "length": "Minimum length of 2. Maximum length of 30.",
+        "pattern": "[0-9A-Za-z]+",
+        "required": "Yes",
+        "desc": "The type of storage destination to send these logs to. You can send logs to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream."
+      },
+      "LogType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of log to send. Alert logs report traffic that matches a StatefulRule with an action setting that sends an alert log message. Flow logs are standard network traffic flow logs."
+      }
+    }
+  },
+  {
+    "title": "LoggingConfiguration",
+    "attrs": {
+      "LogDestinationConfigs": {
+        "type": "Array of LogDestinationConfig objects",
+        "required": "Yes",
+        "desc": "Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups."
+      }
+    }
+  },
+  {
+    "title": "MatchAttributes",
+    "attrs": {
+      "DestinationPorts": {
+        "type": "Array of PortRange objects",
+        "required": "No",
+        "desc": "The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP). You can specify individual ports, for example 1994 and you can specify port ranges, for example 1990-1994."
+      },
+      "Destinations": {
+        "type": "Array of Address objects",
+        "required": "No",
+        "desc": "The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address."
+      },
+      "Protocols": {
+        "type": "Array of integers",
+        "required": "No",
+        "desc": "The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol."
+      },
+      "SourcePorts": {
+        "type": "Array of PortRange objects",
+        "required": "No",
+        "desc": "The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP). You can specify individual ports, for example 1994 and you can specify port ranges, for example 1990-1994."
+      },
+      "Sources": {
+        "type": "Array of Address objects",
+        "required": "No",
+        "desc": "The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address."
+      },
+      "TCPFlags": {
+        "type": "Array of TCPFlagField objects",
+        "required": "No",
+        "desc": "The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP)."
+      }
+    }
+  },
+  {
+    "title": "PerObjectStatus",
+    "attrs": {
+      "SyncStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": ""
+      }
+    }
+  },
+  {
+    "title": "PortRange",
+    "attrs": {
+      "FromPort": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The lower limit of the port range. This must be less than or equal to the ToPort specification."
+      },
+      "ToPort": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The upper limit of the port range. This must be greater than or equal to the FromPort specification."
+      }
+    }
+  },
+  {
+    "title": "PortSet",
+    "attrs": {
+      "Definition": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1.",
+        "pattern": "^.*$",
+        "required": "No",
+        "desc": "The set of port ranges."
+      }
+    }
+  },
+  {
+    "title": "PublishMetricAction",
+    "attrs": {
+      "Dimensions": {
+        "type": "Array of Dimension objects",
+        "required": "Yes",
+        "desc": ""
+      }
+    }
+  },
+  {
+    "title": "RuleDefinition",
+    "attrs": {
+      "Actions": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action and you can add custom actions. For every rule, you must specify exactly one of the following standard actions. Additionally, you can specify a custom action. To do this, you define a custom action by name and type, then provide the name you've assigned to the action in this Actions setting. For information about the options, see CustomAction. To provide more than one action in this setting, separate the settings with a comma. For example, if you have a custom PublishMetrics action that you've named MyMetricsAction, then you could specify the standard action aws:pass and the custom action with [“aws:pass”, “MyMetricsAction”]."
+      },
+      "MatchAttributes": {
+        "type": "MatchAttributes object",
+        "required": "Yes",
+        "desc": "Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags."
+      }
+    }
+  },
+  {
+    "title": "RuleGroup",
+    "attrs": {
+      "RulesSource": {
+        "type": "RulesSource object",
+        "required": "Yes",
+        "desc": "The stateful rules or stateless rules for the rule group."
+      },
+      "RuleVariables": {
+        "type": "RuleVariables object",
+        "required": "No",
+        "desc": "Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups."
+      }
+    }
+  },
+  {
+    "title": "RuleGroupMetadata",
+    "attrs": {
+      "Arn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the rule group."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "required": "No",
+        "desc": "The descriptive name of the rule group. You can't change the name of a rule group after you create it."
+      }
+    }
+  },
+  {
+    "title": "RuleGroupResponse",
+    "attrs": {
+      "Capacity": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum operating resources that this rule group can use. Rule group capacity is fixed at creation. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group. You can retrieve the capacity that would be required for a rule group before you create the rule group by calling CreateRuleGroup with DryRun set to TRUE."
+      },
+      "Description": {
+        "type": "String",
+        "length": "Maximum length of 512.",
+        "pattern": "^.*$",
+        "required": "No",
+        "desc": "A description of the rule group."
+      },
+      "RuleGroupArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the rule group."
+      },
+      "RuleGroupId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^([0-9a-f]{8})-([0-9a-f]{4}-){3}([0-9a-f]{12})$",
+        "required": "Yes",
+        "desc": "The unique identifier for the rule group."
+      },
+      "RuleGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "required": "Yes",
+        "desc": "The descriptive name of the rule group. You can't change the name of a rule group after you create it."
+      },
+      "RuleGroupStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "Detailed information about the current status of a rule group."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The key:value pairs to associate with the resource."
+      },
+      "Type": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains stateless rules. If it is stateful, it contains stateful rules."
+      }
+    }
+  },
+  {
+    "title": "RuleOption",
+    "attrs": {
+      "Keyword": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": ".*",
+        "required": "Yes",
+        "desc": ""
+      },
+      "Settings": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 8192.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": ""
+      }
+    }
+  },
+  {
+    "title": "RulesSource",
+    "attrs": {
+      "RulesSourceList": {
+        "type": "RulesSourceList object",
+        "required": "No",
+        "desc": "Stateful inspection criteria for a domain list rule group."
+      },
+      "RulesString": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1000000.",
+        "required": "No",
+        "desc": "Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules. Suricata is an open-source network IPS that includes a standard rule-based language for network traffic inspection. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting."
+      },
+      "StatefulRules": {
+        "type": "Array of StatefulRule objects",
+        "required": "No",
+        "desc": "The 5-tuple stateful inspection criteria. This contains an array of individual 5-tuple stateful rules to be used together in a stateful rule group."
+      },
+      "StatelessRulesAndCustomActions": {
+        "type": "StatelessRulesAndCustomActions object",
+        "required": "No",
+        "desc": "Stateless inspection criteria to be used in a stateless rule group."
+      }
+    }
+  },
+  {
+    "title": "RulesSourceList",
+    "attrs": {
+      "GeneratedRulesType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Whether you want to allow or deny access to the domains in your target list."
+      },
+      "Targets": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "The domains that you want to inspect for in your traffic flows. To provide multiple domains, separate them with commas. Valid domain specifications are the following:"
+      },
+      "TargetTypes": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "The protocols you want to inspect. Specify TLS_SNI for HTTPS. Specity HTTP_HOST for HTTP. You can specify either or both."
+      }
+    }
+  },
+  {
+    "title": "RuleVariables",
+    "attrs": {
+      "IPSets": {
+        "type": "String to IPSet object map",
+        "required": "No",
+        "desc": "A list of IP addresses and address ranges, in CIDR notation."
+      },
+      "PortSets": {
+        "type": "String to PortSet object map",
+        "required": "No",
+        "desc": "A list of port ranges."
+      }
+    }
+  },
+  {
+    "title": "StatefulRule",
+    "attrs": {
+      "Action": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. The actions for a stateful rule are defined as follows:"
+      },
+      "Header": {
+        "type": "Header object",
+        "required": "Yes",
+        "desc": "The stateful 5-tuple inspection criteria for this rule, used to inspect traffic flows."
+      },
+      "RuleOptions": {
+        "type": "Array of RuleOption objects",
+        "required": "Yes",
+        "desc": ""
+      }
+    }
+  },
+  {
+    "title": "StatefulRuleGroupReference",
+    "attrs": {
+      "ResourceArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the stateful rule group."
+      }
+    }
+  },
+  {
+    "title": "StatelessRule",
+    "attrs": {
+      "Priority": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. Network Firewall evaluates the rules in a rule group starting with the lowest priority setting. You must ensure that the priority settings are unique for the rule group. Each stateless rule group uses exactly one StatelessRulesAndCustomActions object, and each StatelessRulesAndCustomActions contains exactly one StatelessRules object. To ensure unique priority settings for your rule groups, set unique priorities for the stateless rules that you define inside any single StatelessRules object. You can change the priority settings of your rules at any time. To make it easier to insert rules later, number them so there's a wide range in between, for example use 100, 200, and so on."
+      },
+      "RuleDefinition": {
+        "type": "RuleDefinition object",
+        "required": "Yes",
+        "desc": "Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria."
+      }
+    }
+  },
+  {
+    "title": "StatelessRuleGroupReference",
+    "attrs": {
+      "Priority": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "An integer setting that indicates the order in which to run the stateless rule groups in a single FirewallPolicy. Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy."
+      },
+      "ResourceArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "^arn:aws.*",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the stateless rule group."
+      }
+    }
+  },
+  {
+    "title": "StatelessRulesAndCustomActions",
+    "attrs": {
+      "CustomActions": {
+        "type": "Array of CustomAction objects",
+        "required": "No",
+        "desc": "Defines an array of individual custom action definitions that are available for use by the stateless rules in this StatelessRulesAndCustomActions specification. You name each custom action that you define, and then you can use it by name in your StatelessRule RuleDefinition Actions specification."
+      },
+      "StatelessRules": {
+        "type": "Array of StatelessRule objects",
+        "required": "Yes",
+        "desc": "Defines the set of stateless rules for use in a stateless rule group."
+      }
+    }
+  },
+  {
+    "title": "SubnetMapping",
+    "attrs": {
+      "SubnetId": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The unique identifier for the subnet."
+      }
+    }
+  },
+  {
+    "title": "SyncState",
+    "attrs": {
+      "Attachment": {
+        "type": "Attachment object",
+        "required": "No",
+        "desc": "The attachment status of the firewall's association with a single VPC subnet. For each configured subnet, Network Firewall creates the attachment by instantiating the firewall endpoint in the subnet so that it's ready to take traffic. This is part of the FirewallStatus."
+      },
+      "Config": {
+        "type": "String to PerObjectStatus object map",
+        "required": "No",
+        "desc": "The configuration status of the firewall endpoint in a single VPC subnet. Network Firewall provides each endpoint with the rules that are configured in the firewall policy. Each time you add a subnet or modify the associated firewall policy, Network Firewall synchronizes the rules in the endpoint, so it can properly filter network traffic. This is part of the FirewallStatus."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^.*$",
+        "required": "Yes",
+        "desc": "The part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are case-sensitive."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "^.*$",
+        "required": "Yes",
+        "desc": "The part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as \"companyA\" or \"companyB.\" Tag values are case-sensitive."
+      }
+    }
+  },
+  {
+    "title": "TCPFlagField",
+    "attrs": {
+      "Flags": {
+        "type": "Array of strings",
+        "required": "Yes",
+        "desc": "Used in conjunction with the Masks setting to define the flags that must be set and flags that must not be set in order for the packet to match. This setting can only specify values that are also specified in the Masks setting. For the flags that are specified in the masks setting, the following must be true for the packet to match:"
+      },
+      "Masks": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting."
+      }
+    }
+  }
+]

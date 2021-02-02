@@ -1,0 +1,649 @@
+[
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=Verify",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "AddressValidateRequest",
+      "Occurs": "Required",
+      "Description": "API = AddressValidateRequest",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateRequest / UserID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Revision",
+      "Occurs": "Required",
+      "Description": "Integer value used to return of all available response fields. Set this value to 1 to return all currently documented response fields. Example: Revision>1</Revision>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\d{1} pattern="
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address /",
+      "Occurs": "Required",
+      "Description": "Up to 5 address verifications can be included per transaction.",
+      "Type": "(group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address / FirmName",
+      "Occurs": "Optional",
+      "Description": "Firm Name Example:<FirmName>XYZ Corp.</FirmName>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address / Address1",
+      "Occurs": "Optional",
+      "Description": "Delivery Address in the destination address. May contain secondary unit designator, such as APT or SUITE, for Accountable mail.)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address / Address2",
+      "Occurs": "Required",
+      "Description": "Delivery Address in the destination address. Required for all mail and packages, however 11-digit Destination Delivery Point ZIP+4 Code can be provided as an alternative in the Detail 1 Record.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address / City",
+      "Occurs": "Optional",
+      "Description": "City name of the destination address.",
+      "Type": "String",
+      "Validation": "maxLength=15"
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address / State",
+      "Occurs": "Optional",
+      "Description": "Two-character state code of the destination address.",
+      "Type": "String",
+      "Validation": "maxLength=2"
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address / Urbanization",
+      "Occurs": "Optional",
+      "Description": "Urbanization. For Puerto Rico addresses only.",
+      "Type": "String",
+      "Validation": "maxLength=28."
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address / Zip5",
+      "Occurs": "Optional",
+      "Description": "Destination 5-digit ZIP Code. Numeric values (0-9) only. If International, all zeroes.",
+      "Type": "String",
+      "Validation": "Must be 5-digits."
+    },
+    {
+      "Tag Name": "AddressValidateRequest / Address / Zip4",
+      "Occurs": "Optional",
+      "Description": "Destination ZIP+4 Numeric values (0-9) only. If International, all zeroes. Default to spaces if not available.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "AddressValidateResponse / Address",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / FirmName",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Address1",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Address2",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Address2Abbreviation",
+      "Occurs": "Optional",
+      "Description": "Address line 2 abbreviation. To return abbreviations you must set <Revision>=1",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / City",
+      "Occurs": "Optional",
+      "Description": "City name of the destination address.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / CityAbbreviation",
+      "Occurs": "Optional",
+      "Description": "Abbreviated city name of the destination address. To return abbreviations you must set <Revision>=1",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / State",
+      "Occurs": "Optional",
+      "Description": "Two-character state code of the destination address.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Urbanization",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Zip5",
+      "Occurs": "Optional",
+      "Description": "Destination 5-digit ZIP Code.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Zip4",
+      "Occurs": "Optional",
+      "Description": "Destination ZIP+4",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / DeliveryPoint",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / CarrierRoute",
+      "Occurs": "Optional",
+      "Description": "Carrier Route code.",
+      "Type": "String",
+      "Validation": "Default is spaces. Alphanumeric(5)"
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Footnotes",
+      "Occurs": "Optional",
+      "Description": "Enumeration Definition A Zip Code Corrected B City / State Spelling Corrected C Invalid City / State / Zip D NO ZIP+4 Assigned E Zip Code Assigned for Multiple Response F Address could not be found in the National Directory File Database G Information in Firm Line used for matching H Missing Secondary Number I Insufficient / Incorrect Address Data J Dual Address K Multiple Response due to Cardinal Rule L Address component changed LI Match has been converted via LACS M Street Name changed N Address Standardized O Lowest +4 Tie-Breaker P Better address exists Q Unique Zip Code match R No match due to EWS S Incorrect Secondary Address T Multiple response due to Magnet Street Syndrome U Unofficial Post Office name V Unverifiable City / State W Invalid Delivery Address X No match due to out of range alias Y Military match Z Match made using the ZIPMOVE product data",
+      "Type": "",
+      "Validation": "Enumerations= · A · B · C · D · E · F · G · H · I · J · K · L · LI · M · N · O · P · Q · R · S · T · U · V · W · X · Y · Z"
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / DPVConfirmation",
+      "Occurs": "Optional",
+      "Description": "The DPV Confirmation Indicator is the primary method used by the USPS to determine whether an address was considered deliverable or undeliverable. Enumeration Definition Y Address was DPV confirmed for both primary and (if present) secondary numbers. D Address was DPV confirmed for the primary number only, and the secondary number information was missing. S Address was DPV confirmed for the primary number only, and the secondary number information was present by not confirmed. N Both primary and (if present) secondary number information failed to DPV confirm. Blank Address not presented to the hash table.",
+      "Type": "String",
+      "Validation": "Enumerations= · Y · D · S · N"
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / DPVCMRA",
+      "Occurs": "Optional",
+      "Description": "CMRA Indicates a private business that acts as a mail-receiving agent for specific clients. “Y” Address was found in the CMRA table. “N” Address was not found in the CMRA table. Blank Address not presented to the hash table.",
+      "Type": "String",
+      "Validation": "Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / DPVFootnotes",
+      "Occurs": "Optional",
+      "Description": "DPV® Standardized Footnotes - EZ24x7Plus and Mail*STAR are required to express DPV results using USPS standard two character footnotes. Example: AABB Footnotes Reporting CASS™ ZIP+4™ Certification AA – Input address matched to the ZIP+4 file. A1 – Input address not matched to the ZIP+4 file. Footnotes Reporting DPV Validation Observations BB - Matched to DPV (all components). CC - Secondary number not matched (present but invalid). N1 - High-rise address missing secondary number. M1 - Primary number missing. M3 - Primary number invalid. P1 - Input Address RR or HC Box number Missing. P3 - Input Address PO, RR, or HC Box number Invalid. F1 - Input Address Matched to a Military Address. G1 - Input Address Matched to a General Delivery Address. U1- Input Address Matched to a Unique ZIP Code™.",
+      "Type": "String",
+      "Validation": "Enumerations= · AA · A1 · BB · CC · N1 · M1 · P1 · P3 · F1 · G1 · U1"
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Business",
+      "Occurs": "Optional",
+      "Description": "Indicates whether address is a business or not",
+      "Type": "String",
+      "Validation": "Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / CentralDeliveryPoint",
+      "Occurs": "Optional",
+      "Description": "Central Delivery is for all business office buildings, office complexes, and/or industrial/professional parks. This may include call windows, horizontal locked mail receptacles, cluster box units.",
+      "Type": "String",
+      "Validation": "Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "AddressValidateResponse / Address / Vacant",
+      "Occurs": "Optional",
+      "Description": "Is the location not occupied.",
+      "Type": "string",
+      "Validation": "Enumerations= · Y · N"
+    },
+    {
+      "Tag Name": "AddressValidateResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Enumeration": "A",
+      "Definition": "Zip Code Corrected"
+    },
+    {
+      "Enumeration": "B",
+      "Definition": "City / State Spelling Corrected"
+    },
+    {
+      "Enumeration": "C",
+      "Definition": "Invalid City / State / Zip"
+    },
+    {
+      "Enumeration": "D",
+      "Definition": "NO ZIP+4 Assigned"
+    },
+    {
+      "Enumeration": "E",
+      "Definition": "Zip Code Assigned for Multiple Response"
+    },
+    {
+      "Enumeration": "F",
+      "Definition": "Address could not be found in the National Directory File Database"
+    },
+    {
+      "Enumeration": "G",
+      "Definition": "Information in Firm Line used for matching"
+    },
+    {
+      "Enumeration": "H",
+      "Definition": "Missing Secondary Number"
+    },
+    {
+      "Enumeration": "I",
+      "Definition": "Insufficient / Incorrect Address Data"
+    },
+    {
+      "Enumeration": "J",
+      "Definition": "Dual Address"
+    },
+    {
+      "Enumeration": "K",
+      "Definition": "Multiple Response due to Cardinal Rule"
+    },
+    {
+      "Enumeration": "L",
+      "Definition": "Address component changed"
+    },
+    {
+      "Enumeration": "LI",
+      "Definition": "Match has been converted via LACS"
+    },
+    {
+      "Enumeration": "M",
+      "Definition": "Street Name changed"
+    },
+    {
+      "Enumeration": "N",
+      "Definition": "Address Standardized"
+    },
+    {
+      "Enumeration": "O",
+      "Definition": "Lowest +4 Tie-Breaker"
+    },
+    {
+      "Enumeration": "P",
+      "Definition": "Better address exists"
+    },
+    {
+      "Enumeration": "Q",
+      "Definition": "Unique Zip Code match"
+    },
+    {
+      "Enumeration": "R",
+      "Definition": "No match due to EWS"
+    },
+    {
+      "Enumeration": "S",
+      "Definition": "Incorrect Secondary Address"
+    },
+    {
+      "Enumeration": "T",
+      "Definition": "Multiple response due to Magnet Street Syndrome"
+    },
+    {
+      "Enumeration": "U",
+      "Definition": "Unofficial Post Office name"
+    },
+    {
+      "Enumeration": "V",
+      "Definition": "Unverifiable City / State"
+    },
+    {
+      "Enumeration": "W",
+      "Definition": "Invalid Delivery Address"
+    },
+    {
+      "Enumeration": "X",
+      "Definition": "No match due to out of range alias"
+    },
+    {
+      "Enumeration": "Y",
+      "Definition": "Military match"
+    },
+    {
+      "Enumeration": "Z",
+      "Definition": "Match made using the ZIPMOVE product data"
+    }
+  ],
+  [
+    {
+      "Enumeration": "Y",
+      "Definition": "Address was DPV confirmed for both primary and (if present) secondary numbers."
+    },
+    {
+      "Enumeration": "D",
+      "Definition": "Address was DPV confirmed for the primary number only, and the secondary number information was missing."
+    },
+    {
+      "Enumeration": "S",
+      "Definition": "Address was DPV confirmed for the primary number only, and the secondary number information was present by not confirmed."
+    },
+    {
+      "Enumeration": "N",
+      "Definition": "Both primary and (if present) secondary number information failed to DPV confirm."
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API= ZipCodeLookup",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "ZipCodeLookupRequest",
+      "Occurs": "Required",
+      "Description": "API = ZipCodeLookupRequest",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / UserID",
+      "Occurs": "Required Once",
+      "Description": "",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / Address",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / Address / FirmName",
+      "Occurs": "Optional",
+      "Description": "Up to 5 address verifications can be included per transaction.",
+      "Type": "String",
+      "Validation": "Default is spaces."
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / Address / Address1",
+      "Occurs": "Optional",
+      "Description": "Delivery Address in the destination address. May contain secondary unit designator, such as APT or SUITE, for Accountable mail.)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / Address / Address2",
+      "Occurs": "Required",
+      "Description": "Delivery Address in the destination address. Required for all mail and packages, however 11-digit Destination Delivery Point ZIP+4 Code can be provided as an alternative in the Detail 1 Record.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / Address / City",
+      "Occurs": "Optional",
+      "Description": "City name of the destination address. Field is required, unless a verified 11-digit DPV is provided for the mail piece.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / Address / State",
+      "Occurs": "Optional",
+      "Description": "Two-character state code of the destination address.",
+      "Type": "String",
+      "Validation": "Default is spaces for International mail."
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / Address / Zip5",
+      "Occurs": "Optional",
+      "Description": "Destination 5-digit ZIP Code. Must be 5-digits. Numeric values (0-9) only. If International, all zeroes.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest / Address / Zip4",
+      "Occurs": "Optional",
+      "Description": "Destination ZIP+4. Numeric values (0-9) only. If International, all zeroes. Default to spaces if not available.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Tag Name": "ZipCodeLookupResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address / FirmName",
+      "Occurs": "Optional",
+      "Description": "Firm name provided in request",
+      "Type": "String",
+      "Validation": "Default is spaces."
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address / Address1",
+      "Occurs": "Optional",
+      "Description": "Delivery Address in the destination address. May contain secondary unit designator, such as APT or SUITE, for Accountable mail.)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address / Address2",
+      "Occurs": "Required",
+      "Description": "Delivery Address in the destination address. Required for all mail and packages, however 11-digit Destination Delivery Point ZIP+4 Code can be provided as an alternative in",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address / City",
+      "Occurs": "Optional",
+      "Description": "City name of the destination address. Field is required, unless a verified 11 digit DPV is provided for the mailpiece.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address / State",
+      "Occurs": "Optional",
+      "Description": "Two-character state code of the destination address.",
+      "Type": "String",
+      "Validation": "Default is spaces for International mail."
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address / Urbanization",
+      "Occurs": "Optional",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address / Zip5",
+      "Occurs": "Optional",
+      "Description": "Destination 5-digit ZIP Code. Must be 5-digits. Numeric values (0-9) only. If international, all zeroes.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ZipCodeLookupResponse / Address / Zip4",
+      "Occurs": "Optional",
+      "Description": "Destination ZIP+4. Numeric values (0-9) only. If International, all zeroes.",
+      "Type": "Integer",
+      "Validation": "Default to spaces if not available."
+    }
+  ],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API= CityStateLookup",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "CityStateLookupRequest",
+      "Occurs": "Required",
+      "Description": "API= CityStateLookupRequest",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupRequest / UserID",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupRequest / ZipCode",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupRequest / ZipCode / Zip5",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupRequest / ZipCode",
+      "Occurs": "Required",
+      "Description": "Max 5 Zips",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "CityStateLookupResponse",
+      "Occurs": "Required",
+      "Description": "API = CityStateLookupResponse",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupResponse / ZipCode",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupResponse / Zip5",
+      "Occurs": "Required",
+      "Description": "Zip code provided in the request.",
+      "Type": "Integer",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupResponse / City",
+      "Occurs": "Required",
+      "Description": "City returned for the given zip code.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupResponse / State",
+      "Occurs": "Required",
+      "Description": "State returned for the given zip code. A two letter enumeration will return for the given state. Example: <State>MD</State>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupResponse / ZipCode",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "CityStateLookupResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  []
+]

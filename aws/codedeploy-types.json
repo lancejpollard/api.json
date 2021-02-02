@@ -1,0 +1,1391 @@
+[
+  {
+    "title": "Alarm",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms."
+      }
+    }
+  },
+  {
+    "title": "AlarmConfiguration",
+    "attrs": {
+      "alarms": {
+        "type": "Array of Alarm objects",
+        "required": "No",
+        "desc": "A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group."
+      },
+      "enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether the alarm configuration is enabled."
+      },
+      "ignorePollAlarmFailure": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false."
+      }
+    }
+  },
+  {
+    "title": "ApplicationInfo",
+    "attrs": {
+      "applicationId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The application ID."
+      },
+      "applicationName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The application name."
+      },
+      "computePlatform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The destination platform type for deployment of the application (Lambda or Server)."
+      },
+      "createTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time at which the application was created."
+      },
+      "gitHubAccountName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name for a connection to a GitHub account."
+      },
+      "linkedToGitHub": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "True if the user has authenticated with GitHub for the specified application. Otherwise, false."
+      }
+    }
+  },
+  {
+    "title": "AppSpecContent",
+    "attrs": {
+      "content": {
+        "type": "String",
+        "required": "No",
+        "desc": "The YAML-formatted or JSON-formatted revision string. For an AWS Lambda deployment, the content includes a Lambda function name, the alias for its original version, and the alias for its replacement version. The deployment shifts traffic from the original version of the Lambda function to the replacement version. For an Amazon ECS deployment, the content includes the task name, information about the load balancer that serves traffic to the container, and more. For both types of deployments, the content can specify Lambda functions that run at specified hooks, such as BeforeInstall, during a deployment."
+      },
+      "sha256": {
+        "type": "String",
+        "required": "No",
+        "desc": "The SHA256 hash value of the revision content."
+      }
+    }
+  },
+  {
+    "title": "AutoRollbackConfiguration",
+    "attrs": {
+      "enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether a defined automatic rollback configuration is currently enabled."
+      },
+      "events": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The event type or types that trigger a rollback."
+      }
+    }
+  },
+  {
+    "title": "AutoScalingGroup",
+    "attrs": {
+      "hook": {
+        "type": "String",
+        "required": "No",
+        "desc": "An Auto Scaling lifecycle event hook name."
+      },
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Auto Scaling group name."
+      }
+    }
+  },
+  {
+    "title": "BlueGreenDeploymentConfiguration",
+    "attrs": {
+      "deploymentReadyOption": {
+        "type": "DeploymentReadyOption object",
+        "required": "No",
+        "desc": "Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment."
+      },
+      "greenFleetProvisioningOption": {
+        "type": "GreenFleetProvisioningOption object",
+        "required": "No",
+        "desc": "Information about how instances are provisioned for a replacement environment in a blue/green deployment."
+      },
+      "terminateBlueInstancesOnDeploymentSuccess": {
+        "type": "BlueInstanceTerminationOption object",
+        "required": "No",
+        "desc": "Information about whether to terminate instances in the original fleet during a blue/green deployment."
+      }
+    }
+  },
+  {
+    "title": "BlueInstanceTerminationOption",
+    "attrs": {
+      "action": {
+        "type": "String",
+        "required": "No",
+        "desc": "The action to take on instances in the original environment after a successful blue/green deployment."
+      },
+      "terminationWaitTimeInMinutes": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment. For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set. The maximum setting is 2880 minutes (2 days)."
+      }
+    }
+  },
+  {
+    "title": "CloudFormationTarget",
+    "attrs": {
+      "deploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of an AWS CloudFormation blue/green deployment."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the target application was updated by an AWS CloudFormation blue/green deployment."
+      },
+      "lifecycleEvents": {
+        "type": "Array of LifecycleEvent objects",
+        "required": "No",
+        "desc": "The lifecycle events of the AWS CloudFormation blue/green deployment to this target application."
+      },
+      "resourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The resource type for the AWS CloudFormation blue/green deployment."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of an AWS CloudFormation blue/green deployment's target application."
+      },
+      "targetId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment target that has a type of CloudFormationTarget."
+      },
+      "targetVersionWeight": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The percentage of production traffic that the target version of an AWS CloudFormation blue/green deployment receives."
+      }
+    }
+  },
+  {
+    "title": "DeploymentConfigInfo",
+    "attrs": {
+      "computePlatform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The destination platform type for the deployment (Lambda, Server, or ECS)."
+      },
+      "createTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time at which the deployment configuration was created."
+      },
+      "deploymentConfigId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The deployment configuration ID."
+      },
+      "deploymentConfigName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The deployment configuration name."
+      },
+      "minimumHealthyHosts": {
+        "type": "MinimumHealthyHosts object",
+        "required": "No",
+        "desc": "Information about the number or percentage of minimum healthy instance."
+      },
+      "trafficRoutingConfig": {
+        "type": "TrafficRoutingConfig object",
+        "required": "No",
+        "desc": "The configuration that specifies how the deployment traffic is routed. Used for deployments with a Lambda or ECS compute platform only."
+      }
+    }
+  },
+  {
+    "title": "DeploymentGroupInfo",
+    "attrs": {
+      "alarmConfiguration": {
+        "type": "AlarmConfiguration object",
+        "required": "No",
+        "desc": "A list of alarms associated with the deployment group."
+      },
+      "applicationName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The application name."
+      },
+      "autoRollbackConfiguration": {
+        "type": "AutoRollbackConfiguration object",
+        "required": "No",
+        "desc": "Information about the automatic rollback configuration associated with the deployment group."
+      },
+      "autoScalingGroups": {
+        "type": "Array of AutoScalingGroup objects",
+        "required": "No",
+        "desc": "A list of associated Auto Scaling groups."
+      },
+      "blueGreenDeploymentConfiguration": {
+        "type": "BlueGreenDeploymentConfiguration object",
+        "required": "No",
+        "desc": "Information about blue/green deployment options for a deployment group."
+      },
+      "computePlatform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The destination platform type for the deployment (Lambda, Server, or ECS)."
+      },
+      "deploymentConfigName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The deployment configuration name."
+      },
+      "deploymentGroupId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The deployment group ID."
+      },
+      "deploymentGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The deployment group name."
+      },
+      "deploymentStyle": {
+        "type": "DeploymentStyle object",
+        "required": "No",
+        "desc": "Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
+      },
+      "ec2TagFilters": {
+        "type": "Array of EC2TagFilter objects",
+        "required": "No",
+        "desc": "The Amazon EC2 tags on which to filter. The deployment group includes EC2 instances with any of the specified tags."
+      },
+      "ec2TagSet": {
+        "type": "EC2TagSet object",
+        "required": "No",
+        "desc": "Information about groups of tags applied to an EC2 instance. The deployment group includes only EC2 instances identified by all of the tag groups. Cannot be used in the same call as ec2TagFilters."
+      },
+      "ecsServices": {
+        "type": "Array of ECSService objects",
+        "required": "No",
+        "desc": "The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format <clustername>:<servicename>."
+      },
+      "lastAttemptedDeployment": {
+        "type": "LastDeploymentInfo object",
+        "required": "No",
+        "desc": "Information about the most recent attempted deployment to the deployment group."
+      },
+      "lastSuccessfulDeployment": {
+        "type": "LastDeploymentInfo object",
+        "required": "No",
+        "desc": "Information about the most recent successful deployment to the deployment group."
+      },
+      "loadBalancerInfo": {
+        "type": "LoadBalancerInfo object",
+        "required": "No",
+        "desc": "Information about the load balancer to use in a deployment."
+      },
+      "onPremisesInstanceTagFilters": {
+        "type": "Array of TagFilter objects",
+        "required": "No",
+        "desc": "The on-premises instance tags on which to filter. The deployment group includes on-premises instances with any of the specified tags."
+      },
+      "onPremisesTagSet": {
+        "type": "OnPremisesTagSet object",
+        "required": "No",
+        "desc": "Information about groups of tags applied to an on-premises instance. The deployment group includes only on-premises instances identified by all the tag groups. Cannot be used in the same call as onPremisesInstanceTagFilters."
+      },
+      "serviceRoleArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see Create a Service Role for AWS CodeDeploy in the AWS CodeDeploy User Guide."
+      },
+      "targetRevision": {
+        "type": "RevisionLocation object",
+        "required": "No",
+        "desc": "Information about the deployment group's target revision, including type and location."
+      },
+      "triggerConfigurations": {
+        "type": "Array of TriggerConfig objects",
+        "required": "No",
+        "desc": "Information about triggers associated with the deployment group."
+      }
+    }
+  },
+  {
+    "title": "DeploymentInfo",
+    "attrs": {
+      "additionalDeploymentStatusInfo": {
+        "type": "String",
+        "required": "No",
+        "desc": "This member has been deprecated. Provides information about the results of a deployment, such as whether instances in the original environment in a blue/green deployment were not terminated."
+      },
+      "applicationName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The application name."
+      },
+      "autoRollbackConfiguration": {
+        "type": "AutoRollbackConfiguration object",
+        "required": "No",
+        "desc": "Information about the automatic rollback configuration associated with the deployment."
+      },
+      "blueGreenDeploymentConfiguration": {
+        "type": "BlueGreenDeploymentConfiguration object",
+        "required": "No",
+        "desc": "Information about blue/green deployment options for this deployment."
+      },
+      "completeTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the deployment was complete."
+      },
+      "computePlatform": {
+        "type": "String",
+        "required": "No",
+        "desc": "The destination platform type for the deployment (Lambda, Server, or ECS)."
+      },
+      "createTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the deployment was created."
+      },
+      "creator": {
+        "type": "String",
+        "required": "No",
+        "desc": "The means by which the deployment was created:"
+      },
+      "deploymentConfigName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The deployment configuration name."
+      },
+      "deploymentGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The deployment group name."
+      },
+      "deploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment."
+      },
+      "deploymentOverview": {
+        "type": "DeploymentOverview object",
+        "required": "No",
+        "desc": "A summary of the deployment status of the instances in the deployment."
+      },
+      "deploymentStatusMessages": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "Messages that contain information about the status of a deployment."
+      },
+      "deploymentStyle": {
+        "type": "DeploymentStyle object",
+        "required": "No",
+        "desc": "Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
+      },
+      "description": {
+        "type": "String",
+        "required": "No",
+        "desc": "A comment about the deployment."
+      },
+      "errorInformation": {
+        "type": "ErrorInformation object",
+        "required": "No",
+        "desc": "Information about any error associated with this deployment."
+      },
+      "externalId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID for an external resource (for example, a CloudFormation stack ID) that is linked to this deployment."
+      },
+      "fileExistsBehavior": {
+        "type": "String",
+        "required": "No",
+        "desc": "Information about how AWS CodeDeploy handles files that already exist in a deployment target location but weren't part of the previous successful deployment."
+      },
+      "ignoreApplicationStopFailures": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. For example, if ApplicationStop fails, the deployment continues with DownloadBundle. If BeforeBlockTraffic fails, the deployment continues with BlockTraffic. If AfterBlockTraffic fails, the deployment continues with ApplicationStop. If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted. During a deployment, the AWS CodeDeploy agent runs the scripts specified for ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful deployment. (All other scripts are run from the AppSpec file in the current deployment.) If one of these scripts contains an error and does not run successfully, the deployment can fail. If the cause of the failure is a script from the last successful deployment that will never run successfully, create a new deployment and use ignoreApplicationStopFailures to specify that the ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic failures should be ignored."
+      },
+      "instanceTerminationWaitTimeStarted": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether the wait period set for the termination of instances in the original environment has started. Status is 'false' if the KEEP_ALIVE option is specified. Otherwise, 'true' as soon as the termination wait period starts."
+      },
+      "loadBalancerInfo": {
+        "type": "LoadBalancerInfo object",
+        "required": "No",
+        "desc": "Information about the load balancer used in the deployment."
+      },
+      "previousRevision": {
+        "type": "RevisionLocation object",
+        "required": "No",
+        "desc": "Information about the application revision that was deployed to the deployment group before the most recent successful deployment."
+      },
+      "revision": {
+        "type": "RevisionLocation object",
+        "required": "No",
+        "desc": "Information about the location of stored application artifacts and the service from which to retrieve them."
+      },
+      "rollbackInfo": {
+        "type": "RollbackInfo object",
+        "required": "No",
+        "desc": "Information about a deployment rollback."
+      },
+      "startTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the deployment was deployed to the deployment group. In some cases, the reported value of the start time might be later than the complete time. This is due to differences in the clock settings of backend servers that participate in the deployment process."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current state of the deployment as a whole."
+      },
+      "targetInstances": {
+        "type": "TargetInstances object",
+        "required": "No",
+        "desc": "Information about the instances that belong to the replacement environment in a blue/green deployment."
+      },
+      "updateOutdatedInstancesOnly": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether only instances that are not running the latest application revision are to be deployed to."
+      }
+    }
+  },
+  {
+    "title": "DeploymentOverview",
+    "attrs": {
+      "Failed": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of instances in the deployment in a failed state."
+      },
+      "InProgress": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of instances in which the deployment is in progress."
+      },
+      "Pending": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of instances in the deployment in a pending state."
+      },
+      "Ready": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of instances in a replacement environment ready to receive traffic in a blue/green deployment."
+      },
+      "Skipped": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of instances in the deployment in a skipped state."
+      },
+      "Succeeded": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of instances in the deployment to which revisions have been successfully deployed."
+      }
+    }
+  },
+  {
+    "title": "DeploymentReadyOption",
+    "attrs": {
+      "actionOnTimeout": {
+        "type": "String",
+        "required": "No",
+        "desc": "Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment."
+      },
+      "waitTimeInMinutes": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout."
+      }
+    }
+  },
+  {
+    "title": "DeploymentStyle",
+    "attrs": {
+      "deploymentOption": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates whether to route deployment traffic behind a load balancer."
+      },
+      "deploymentType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Indicates whether to run an in-place deployment or a blue/green deployment."
+      }
+    }
+  },
+  {
+    "title": "DeploymentTarget",
+    "attrs": {
+      "cloudFormationTarget": {
+        "type": "CloudFormationTarget object",
+        "required": "No",
+        "desc": "Information about the target to be updated by an AWS CloudFormation blue/green deployment. This target type is used for all deployments initiated by a CloudFormation stack update."
+      },
+      "deploymentTargetType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The deployment type that is specific to the deployment's compute platform or deployments initiated by a CloudFormation stack update."
+      },
+      "ecsTarget": {
+        "type": "ECSTarget object",
+        "required": "No",
+        "desc": "Information about the target for a deployment that uses the Amazon ECS compute platform."
+      },
+      "instanceTarget": {
+        "type": "InstanceTarget object",
+        "required": "No",
+        "desc": "Information about the target for a deployment that uses the EC2/On-premises compute platform."
+      },
+      "lambdaTarget": {
+        "type": "LambdaTarget object",
+        "required": "No",
+        "desc": "Information about the target for a deployment that uses the AWS Lambda compute platform."
+      }
+    }
+  },
+  {
+    "title": "Diagnostics",
+    "attrs": {
+      "errorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The associated error code:"
+      },
+      "logTail": {
+        "type": "String",
+        "required": "No",
+        "desc": "The last portion of the diagnostic log. If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log."
+      },
+      "message": {
+        "type": "String",
+        "required": "No",
+        "desc": "The message associated with the error."
+      },
+      "scriptName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the script."
+      }
+    }
+  },
+  {
+    "title": "EC2TagFilter",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "required": "No",
+        "desc": "The tag filter key."
+      },
+      "Type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The tag filter type:"
+      },
+      "Value": {
+        "type": "String",
+        "required": "No",
+        "desc": "The tag filter value."
+      }
+    }
+  },
+  {
+    "title": "EC2TagSet",
+    "attrs": {
+      "ec2TagSetList": {
+        "type": "Array of arrays of EC2TagFilter objects",
+        "required": "No",
+        "desc": "A list that contains other lists of EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list."
+      }
+    }
+  },
+  {
+    "title": "ECSService",
+    "attrs": {
+      "clusterName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the cluster that the Amazon ECS service is associated with."
+      },
+      "serviceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the target Amazon ECS service."
+      }
+    }
+  },
+  {
+    "title": "ECSTarget",
+    "attrs": {
+      "deploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the target Amazon ECS application was updated by a deployment."
+      },
+      "lifecycleEvents": {
+        "type": "Array of LifecycleEvent objects",
+        "required": "No",
+        "desc": "The lifecycle events of the deployment to this target Amazon ECS application."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status an Amazon ECS deployment's target ECS application."
+      },
+      "targetArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the target."
+      },
+      "targetId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment target that has a type of ecsTarget."
+      },
+      "taskSetsInfo": {
+        "type": "Array of ECSTaskSet objects",
+        "required": "No",
+        "desc": "The ECSTaskSet objects associated with the ECS target."
+      }
+    }
+  },
+  {
+    "title": "ECSTaskSet",
+    "attrs": {
+      "desiredCount": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of tasks in a task set. During a deployment that uses the Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new task set and uses this value to determine how many tasks to create. After the updated task set is created, CodeDeploy shifts traffic to the new task set."
+      },
+      "identifer": {
+        "type": "String",
+        "required": "No",
+        "desc": "A unique ID of an ECSTaskSet."
+      },
+      "pendingCount": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of tasks in the task set that are in the PENDING status during an Amazon ECS deployment. A task in the PENDING state is preparing to enter the RUNNING state. A task set enters the PENDING status when it launches for the first time, or when it is restarted after being in the STOPPED state."
+      },
+      "runningCount": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of tasks in the task set that are in the RUNNING status during an Amazon ECS deployment. A task in the RUNNING state is running and ready for use."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the task set. There are three valid task set statuses:"
+      },
+      "targetGroup": {
+        "type": "TargetGroupInfo object",
+        "required": "No",
+        "desc": "The target group associated with the task set. The target group is used by AWS CodeDeploy to manage traffic to a task set."
+      },
+      "taskSetLabel": {
+        "type": "String",
+        "required": "No",
+        "desc": "A label that identifies whether the ECS task set is an original target (BLUE) or a replacement target (GREEN)."
+      },
+      "trafficWeight": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The percentage of traffic served by this task set."
+      }
+    }
+  },
+  {
+    "title": "ELBInfo",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete."
+      }
+    }
+  },
+  {
+    "title": "ErrorInformation",
+    "attrs": {
+      "code": {
+        "type": "String",
+        "required": "No",
+        "desc": "For more information, see Error Codes for AWS CodeDeploy in the AWS CodeDeploy User Guide. The error code:"
+      },
+      "message": {
+        "type": "String",
+        "required": "No",
+        "desc": "An accompanying error message."
+      }
+    }
+  },
+  {
+    "title": "GenericRevisionInfo",
+    "attrs": {
+      "deploymentGroups": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The deployment groups for which this is the current target revision."
+      },
+      "description": {
+        "type": "String",
+        "required": "No",
+        "desc": "A comment about the revision."
+      },
+      "firstUsedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "When the revision was first used by AWS CodeDeploy."
+      },
+      "lastUsedTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "When the revision was last used by AWS CodeDeploy."
+      },
+      "registerTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "When the revision was registered with AWS CodeDeploy."
+      }
+    }
+  },
+  {
+    "title": "GitHubLocation",
+    "attrs": {
+      "commitId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision."
+      },
+      "repository": {
+        "type": "String",
+        "required": "No",
+        "desc": "The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision. Specified as account/repository."
+      }
+    }
+  },
+  {
+    "title": "GreenFleetProvisioningOption",
+    "attrs": {
+      "action": {
+        "type": "String",
+        "required": "No",
+        "desc": "The method used to add instances to a replacement environment."
+      }
+    }
+  },
+  {
+    "title": "InstanceInfo",
+    "attrs": {
+      "deregisterTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered."
+      },
+      "iamSessionArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ARN of the IAM session associated with the on-premises instance."
+      },
+      "iamUserArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The IAM user ARN associated with the on-premises instance."
+      },
+      "instanceArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ARN of the on-premises instance."
+      },
+      "instanceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the on-premises instance."
+      },
+      "registerTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time at which the on-premises instance was registered."
+      },
+      "tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The tags currently associated with the on-premises instance."
+      }
+    }
+  },
+  {
+    "title": "InstanceSummary",
+    "attrs": {
+      "deploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment."
+      },
+      "instanceId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The instance ID."
+      },
+      "instanceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Information about which environment an instance belongs to in a blue/green deployment."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the instance information was last updated."
+      },
+      "lifecycleEvents": {
+        "type": "Array of LifecycleEvent objects",
+        "required": "No",
+        "desc": "A list of lifecycle events for this instance."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "This member has been deprecated. The deployment status for this instance:"
+      }
+    }
+  },
+  {
+    "title": "InstanceTarget",
+    "attrs": {
+      "deploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment."
+      },
+      "instanceLabel": {
+        "type": "String",
+        "required": "No",
+        "desc": "A label that identifies whether the instance is an original target (BLUE) or a replacement target (GREEN)."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the target instance was updated by a deployment."
+      },
+      "lifecycleEvents": {
+        "type": "Array of LifecycleEvent objects",
+        "required": "No",
+        "desc": "The lifecycle events of the deployment to this target instance."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status an EC2/On-premises deployment's target instance."
+      },
+      "targetArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the target."
+      },
+      "targetId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment target that has a type of instanceTarget."
+      }
+    }
+  },
+  {
+    "title": "LambdaFunctionInfo",
+    "attrs": {
+      "currentVersion": {
+        "type": "String",
+        "required": "No",
+        "desc": "The version of a Lambda function that production traffic points to."
+      },
+      "functionAlias": {
+        "type": "String",
+        "required": "No",
+        "desc": "The alias of a Lambda function. For more information, see AWS Lambda Function Aliases in the AWS Lambda Developer Guide."
+      },
+      "functionName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of a Lambda function."
+      },
+      "targetVersion": {
+        "type": "String",
+        "required": "No",
+        "desc": "The version of a Lambda function that production traffic points to after the Lambda function is deployed."
+      },
+      "targetVersionWeight": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The percentage of production traffic that the target version of a Lambda function receives."
+      }
+    }
+  },
+  {
+    "title": "LambdaTarget",
+    "attrs": {
+      "deploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment."
+      },
+      "lambdaFunctionInfo": {
+        "type": "LambdaFunctionInfo object",
+        "required": "No",
+        "desc": "A LambdaFunctionInfo object that describes a target Lambda function."
+      },
+      "lastUpdatedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the target Lambda function was updated by a deployment."
+      },
+      "lifecycleEvents": {
+        "type": "Array of LifecycleEvent objects",
+        "required": "No",
+        "desc": "The lifecycle events of the deployment to this target Lambda function."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status an AWS Lambda deployment's target Lambda function."
+      },
+      "targetArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the target."
+      },
+      "targetId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment target that has a type of lambdaTarget."
+      }
+    }
+  },
+  {
+    "title": "LastDeploymentInfo",
+    "attrs": {
+      "createTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the most recent deployment to the deployment group started."
+      },
+      "deploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The unique ID of a deployment."
+      },
+      "endTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the most recent deployment to the deployment group was complete."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the most recent deployment."
+      }
+    }
+  },
+  {
+    "title": "LifecycleEvent",
+    "attrs": {
+      "diagnostics": {
+        "type": "Diagnostics object",
+        "required": "No",
+        "desc": "Diagnostic information about the deployment lifecycle event."
+      },
+      "endTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the deployment lifecycle event ended."
+      },
+      "lifecycleEventName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The deployment lifecycle event name, such as ApplicationStop, BeforeInstall, AfterInstall, ApplicationStart, or ValidateService."
+      },
+      "startTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the deployment lifecycle event started."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The deployment lifecycle event status:"
+      }
+    }
+  },
+  {
+    "title": "LoadBalancerInfo",
+    "attrs": {
+      "elbInfoList": {
+        "type": "Array of ELBInfo objects",
+        "required": "No",
+        "desc": "An array that contains information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers."
+      },
+      "targetGroupInfoList": {
+        "type": "Array of TargetGroupInfo objects",
+        "required": "No",
+        "desc": "An array that contains information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers."
+      },
+      "targetGroupPairInfoList": {
+        "type": "Array of TargetGroupPairInfo objects",
+        "required": "No",
+        "desc": "The target group pair information. This is an array of TargeGroupPairInfo objects with a maximum size of one."
+      }
+    }
+  },
+  {
+    "title": "MinimumHealthyHosts",
+    "attrs": {
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The minimum healthy instance type: In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instances at a time. The deployment is successful if four or more instances are deployed to successfully. Otherwise, the deployment fails. For more information, see AWS CodeDeploy Instance Health in the AWS CodeDeploy User Guide."
+      },
+      "value": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The minimum healthy instance value."
+      }
+    }
+  },
+  {
+    "title": "OnPremisesTagSet",
+    "attrs": {
+      "onPremisesTagSetList": {
+        "type": "Array of arrays of TagFilter objects",
+        "required": "No",
+        "desc": "A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list."
+      }
+    }
+  },
+  {
+    "title": "RawString",
+    "attrs": {
+      "content": {
+        "type": "String",
+        "required": "No",
+        "desc": "The YAML-formatted or JSON-formatted revision string. It includes information about which Lambda function to update and optional Lambda functions that validate deployment lifecycle events."
+      },
+      "sha256": {
+        "type": "String",
+        "required": "No",
+        "desc": "The SHA256 hash value of the revision content."
+      }
+    }
+  },
+  {
+    "title": "RevisionInfo",
+    "attrs": {
+      "genericRevisionInfo": {
+        "type": "GenericRevisionInfo object",
+        "required": "No",
+        "desc": "Information about an application revision, including usage details and associated deployment groups."
+      },
+      "revisionLocation": {
+        "type": "RevisionLocation object",
+        "required": "No",
+        "desc": "Information about the location and type of an application revision."
+      }
+    }
+  },
+  {
+    "title": "RevisionLocation",
+    "attrs": {
+      "appSpecContent": {
+        "type": "AppSpecContent object",
+        "required": "No",
+        "desc": "The content of an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted as JSON or YAML and stored as a RawString."
+      },
+      "gitHubLocation": {
+        "type": "GitHubLocation object",
+        "required": "No",
+        "desc": "Information about the location of application artifacts stored in GitHub."
+      },
+      "revisionType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of application revision:"
+      },
+      "s3Location": {
+        "type": "S3Location object",
+        "required": "No",
+        "desc": "Information about the location of a revision stored in Amazon S3."
+      },
+      "string": {
+        "type": "RawString object",
+        "required": "No",
+        "desc": "This member has been deprecated. Information about the location of an AWS Lambda deployment revision stored as a RawString."
+      }
+    }
+  },
+  {
+    "title": "RollbackInfo",
+    "attrs": {
+      "rollbackDeploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ID of the deployment rollback."
+      },
+      "rollbackMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "Information that describes the status of a deployment rollback (for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded)."
+      },
+      "rollbackTriggeringDeploymentId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped."
+      }
+    }
+  },
+  {
+    "title": "S3Location",
+    "attrs": {
+      "bucket": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the Amazon S3 bucket where the application revision is stored."
+      },
+      "bundleType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The file type of the application revision. Must be one of the following:"
+      },
+      "eTag": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object is skipped."
+      },
+      "key": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the Amazon S3 object that represents the bundled artifacts for the application revision."
+      },
+      "version": {
+        "type": "String",
+        "required": "No",
+        "desc": "A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system uses the most recent version by default."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "required": "No",
+        "desc": "The tag's key."
+      },
+      "Value": {
+        "type": "String",
+        "required": "No",
+        "desc": "The tag's value."
+      }
+    }
+  },
+  {
+    "title": "TagFilter",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "required": "No",
+        "desc": "The on-premises instance tag filter key."
+      },
+      "Type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The on-premises instance tag filter type:"
+      },
+      "Value": {
+        "type": "String",
+        "required": "No",
+        "desc": "The on-premises instance tag filter value."
+      }
+    }
+  },
+  {
+    "title": "TargetGroupInfo",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment are registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete."
+      }
+    }
+  },
+  {
+    "title": "TargetGroupPairInfo",
+    "attrs": {
+      "prodTrafficRoute": {
+        "type": "TrafficRoute object",
+        "required": "No",
+        "desc": "The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete."
+      },
+      "targetGroups": {
+        "type": "Array of TargetGroupInfo objects",
+        "required": "No",
+        "desc": "One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete."
+      },
+      "testTrafficRoute": {
+        "type": "TrafficRoute object",
+        "required": "No",
+        "desc": "An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment."
+      }
+    }
+  },
+  {
+    "title": "TargetInstances",
+    "attrs": {
+      "autoScalingGroups": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment."
+      },
+      "ec2TagSet": {
+        "type": "EC2TagSet object",
+        "required": "No",
+        "desc": "Information about the groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment. Cannot be used in the same call as tagFilters."
+      },
+      "tagFilters": {
+        "type": "Array of EC2TagFilter objects",
+        "required": "No",
+        "desc": "The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment. Cannot be used in the same call as ec2TagSet."
+      }
+    }
+  },
+  {
+    "title": "TimeBasedCanary",
+    "attrs": {
+      "canaryInterval": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of minutes between the first and second traffic shifts of a TimeBasedCanary deployment."
+      },
+      "canaryPercentage": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The percentage of traffic to shift in the first increment of a TimeBasedCanary deployment."
+      }
+    }
+  },
+  {
+    "title": "TimeBasedLinear",
+    "attrs": {
+      "linearInterval": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of minutes between each incremental traffic shift of a TimeBasedLinear deployment."
+      },
+      "linearPercentage": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The percentage of traffic that is shifted at the start of each increment of a TimeBasedLinear deployment."
+      }
+    }
+  },
+  {
+    "title": "TimeRange",
+    "attrs": {
+      "end": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The end time of the time range."
+      },
+      "start": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The start time of the time range."
+      }
+    }
+  },
+  {
+    "title": "TrafficRoute",
+    "attrs": {
+      "listenerArns": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one."
+      }
+    }
+  },
+  {
+    "title": "TrafficRoutingConfig",
+    "attrs": {
+      "timeBasedCanary": {
+        "type": "TimeBasedCanary object",
+        "required": "No",
+        "desc": "A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file."
+      },
+      "timeBasedLinear": {
+        "type": "TimeBasedLinear object",
+        "required": "No",
+        "desc": "A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of traffic shifting (TimeBasedCanary or TimeBasedLinear) used by a deployment configuration."
+      }
+    }
+  },
+  {
+    "title": "TriggerConfig",
+    "attrs": {
+      "triggerEvents": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The event type or types for which notifications are triggered."
+      },
+      "triggerName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the notification trigger."
+      },
+      "triggerTargetArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent."
+      }
+    }
+  }
+]

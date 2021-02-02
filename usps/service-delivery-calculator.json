@@ -1,0 +1,841 @@
+[
+  [
+    {
+      "": "",
+      "undefined": ""
+    }
+  ],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/shippingapi.dll?",
+      "API": "API=SDCGetLocations",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "SDCGetLocationsRequest",
+      "Occurs": "Required",
+      "Description": "API=SDCGetLocations",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your WebTools ID. See the Developers Guide for information on obtaining your USERID. For example: <USERID>=”XXXXXXXXXXX”",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / MailClass",
+      "Occurs": "Required",
+      "Description": "Defines mail class for commitment data. Valid Values: “0” = All Mail Classes “1” = Priority Mail Express “2” = Priority Mail “3” = First Class Mail “4” = Marketing Mail “5” = Periodicals “6” = Package Services For example: <MailClass>0<MailClass>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\" Enumeration · 0 · 1 · 2 · 3 · 4 · 5 · 6"
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / OriginZIP",
+      "Occurs": "Required",
+      "Description": "ZIP code must be valid. May be 3, 5, or 9 characters. For example: <OriginZIP>20770</OriginZIP>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / DestinationZIP",
+      "Occurs": "Required",
+      "Description": "ZIP code must be a valid 5-character zip code. For example: <DestinationZIP>54324</DestinationZIP>",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / AcceptDate",
+      "Occurs": "Optional",
+      "Description": "Date Package will be mailed. Acceptance date may be up to 30 days in advance. Defaults to system date. Enter the date in format: dd-mmm-yyyy. For example: <AcceptDate>29-Sep-2014</AcceptDate>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / AcceptTime",
+      "Occurs": "Optional",
+      "Description": "Time package will be accepted at a postal facility. Defaults to system time. Default value returned when no value is included in the request will be current time CT. Enter the time in format: HHMM For example: <AcceptTime>1600</AcceptTIme>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / NonEMDetail",
+      "Occurs": "Optional",
+      "Description": "Returns additional detail for Non-Expedited mail classes when ‘True.’ Default=’False’ For example: <NonEMDetail>True</NonEMDetail>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / NonEMOriginType",
+      "Occurs": "Optional",
+      "Description": "Origin type indicator for non-Expedited shipments: Valid Values: “1” = Local Mail “2” = Destination Entered Mail For example: <NonEMOriginType>1</NonEMOriginType>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration · 1 · 2"
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / NonEMDestType",
+      "Occurs": "Optional",
+      "Description": "Destination type indicator for non-Expedited shipments: Valid Values: “1” = PO-Addressee - Street “2” = PO-Addressee – PO Box “3” = Hold for pickup For example: <NonEMDestType>1</NonEMDestType>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration · 1 · 2 · 3"
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest / Weight",
+      "Occurs": "Optional",
+      "Description": "Item weight. For future use.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsRequest",
+      "Occurs": "Required once",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "Tag Name": "SDCGetLocationsResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Release",
+      "Occurs": "Required",
+      "Description": "Release version",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / CallerID",
+      "Occurs": "Required",
+      "Description": "Caller ID",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / MailClass",
+      "Occurs": "Required",
+      "Description": "MailClass from request",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / OriginZIP",
+      "Occurs": "Required",
+      "Description": "OriginZIP from request",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / OriginCity",
+      "Occurs": "Required",
+      "Description": "Origin City",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / OriginState",
+      "Occurs": "Required",
+      "Description": "Origin State",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / DestZIP",
+      "Occurs": "Required",
+      "Description": "DestinationZIP from request",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / DestCity",
+      "Occurs": "Required",
+      "Description": "Destination City",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / DestState",
+      "Occurs": "Required",
+      "Description": "Destination State",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / AcceptDate",
+      "Occurs": "Required",
+      "Description": "Acceptance date at postal facility",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / AcceptTime",
+      "Occurs": "Required",
+      "Description": "Acceptance time at postal facility",
+      "Type": "String",
+      "Validation": "minOccurs=\"1\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Weight",
+      "Occurs": "Optional",
+      "Description": "Weight from request",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited",
+      "Occurs": "Optional",
+      "Description": "Groups Priority Mail Express Mail and Priority Mail Commitments and Scheduled Delivery Dates. Appears where applicable: SDCGetLocationsRequest [MailClass='0' or MailClass=’1’]",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / EAD",
+      "Occurs": "Optional",
+      "Description": "Effective Acceptance Date",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Commitment",
+      "Occurs": "Optional",
+      "Description": "Groups Priority Mail Express information.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / MailClass",
+      "Occurs": "Optional",
+      "Description": "Mail Class indicator for Priority Mail Express. Value = “1”",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups Priority Mail Express commitment information",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / CommitmentName",
+      "Occurs": "Optional",
+      "Description": "Commitment Name Valid Values: 1-Day 2-Day 3-Day DPO Military Note: If a scenario exceeds a 3-day commitment then no value will be returned in the response field",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration · 1-Day · 2-Day · 3-Day · DPO · Military"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / CommitmentTime",
+      "Occurs": "Optional",
+      "Description": "Commitment Time. Value will only be returned for Priority Mail Express. Valid Values: 1030 1200 1500",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration · 1030 · 1200 · 1500"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / CommitmentSeq",
+      "Occurs": "Optional",
+      "Description": "Commitment Sequence Valid Values: Seq # Service Standard A0110 1-Day at 10:30 AM B0110 1-Day at 10:30 AM HFPU A0112 1-Day at 12:00 PM A0115 1-Day at 3:00 PM B0115 1-Day at 3:00 PM HFPU A0210 2-Day at 10:30 AM A0212 2-Day at 12:00 PM A0215 2-Day at 3:00 PM B0210 2-Day at 10:30 AM HFPU B0215 2-Day at 3:00 PM HFPU",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups drop off location information",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / SDD",
+      "Occurs": "Optional",
+      "Description": "Scheduled Delivery Date",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / COT",
+      "Occurs": "Optional",
+      "Description": "Cut-off Time",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / FacType",
+      "Occurs": "Optional",
+      "Description": "Facility Type",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration · POST OFFICE · PRIORITY MAIL EXPRESS COLLECTION BOX · AIR MAIL FACILITY"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / Street",
+      "Occurs": "Optional",
+      "Description": "Facility Street",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / City",
+      "Occurs": "Optional",
+      "Description": "Facility City",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / State",
+      "Occurs": "Optional",
+      "Description": "Facility State",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / ZIP",
+      "Occurs": "Optional",
+      "Description": "Facility Zip Code",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / IsGuaranteed",
+      "Occurs": "Optional",
+      "Description": "Indicates if Guarantee is offered for Priority Mail Express. Valid Values “1” = Guaranteed “2” = No Guarantee “3” = Temporary No Guarantee",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited /",
+      "Occurs": "Optional",
+      "Description": "Groups Priority Mail Guarantee information.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited /MailClass",
+      "Occurs": "Optional",
+      "Description": "Mail Class indicator for Priority Mail. Value = “2”",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups Priority Mail commitment information",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / CommitmentName",
+      "Occurs": "Optional",
+      "Description": "Commitment Name",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / CommitmentTime",
+      "Occurs": "Optional",
+      "Description": "Commitment Time",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / CommitmentSeq",
+      "Occurs": "Optional",
+      "Description": "Commitment Sequence Valid Values: Seq # Service Standard C0100 1-Day Street C0200 2-Day Street C0300 3-Day Street D0100 1-Day PO Box D0200 2-Day PO Box D0300 3-Day PO Box E0100 1-Day HFPU E0200 2-Day HFPU E0300 3-Day HFPU",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups drop off location information",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / SDD",
+      "Occurs": "Optional",
+      "Description": "Scheduled Delivery Date",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / COT",
+      "Occurs": "Optional",
+      "Description": "Cut-off Time",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / FacType",
+      "Occurs": "Optional",
+      "Description": "Facility Type. Valid Values: “POST OFFICE” “PRIORITY MAIL EXPRESS COLLECTION BOX” “AIR MAIL FACILITY”",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / Street",
+      "Occurs": "Optional",
+      "Description": "Facility Street",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / City",
+      "Occurs": "Optional",
+      "Description": "Facility City",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / State",
+      "Occurs": "Optional",
+      "Description": "Facility State",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / ZIP",
+      "Occurs": "Optional",
+      "Description": "Facility Zip Code",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / Commitment / Location / IsGuaranteed",
+      "Occurs": "Optional",
+      "Description": "Indicates if Guarantee is offered. Valid Values “1” = Guaranteed “2” = No Guarantee “3” = Temporary No Guarantee",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration 1 2 · 3"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / ExpeditedMessage",
+      "Occurs": "Optional",
+      "Description": "Holds a message code value for the customer explaining their delivery date when certain conditions are met: Valid Message Codes “1” = Over 200 Results “1001” = Destination Type not valid for APO/FPO/DPO Zip",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration 1 1001"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / ExpeditedTransMsg",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups Priority Mail Express transportation messaging",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / ExpeditedTransMsg / MsgCode",
+      "Occurs": "Optional",
+      "Description": "Priority Mail Express transportation messaging code Valid Message Codes “TM100” = This is a Military/Embassy specific ZIP Code for an APO/FPO/DPO(Air/Army Post Office, Fleet Post Office or Diplomatic Post Office) “TM103” = Your shipment may be delayed due to transportation issues.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration · TM100 · TM103"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / Expedited / ExpeditedTransMsg /Msg",
+      "Occurs": "Optional",
+      "Description": "Priority Mail Express transportation messaging text. For example:<Msg>Your shipment may be delayed due to transportation issues.</Msg>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited",
+      "Occurs": "Optional",
+      "Description": "Groups Non-Expedited Mail Class elements (appears where applicable: SDCGetLocationsRequest[MailClass=0]) *Note: If this is a Hold for Pickup section then all elements from SDCGetLocationsResponse/NonExpedited/EAD through SDCGetLocationsResponse/NonExpedited/NonExpeditedExceptions/ NonExpeditedWTMsg will not be returned.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / MailClass",
+      "Occurs": "Optional",
+      "Description": "Mail Class.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / NonExpeditedDestType",
+      "Occurs": "Optional",
+      "Description": "Destination Type. Valid Values “1” PO-Addressee - Street “2” PO-Addressee - PO Box “3” HFPU",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\" Enumeration · 1 · 2 · 3"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / EAD",
+      "Occurs": "Optional",
+      "Description": "Effective Acceptance Date.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / SvcStdDays",
+      "Occurs": "Optional",
+      "Description": "Service Standard Days.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / SchedDlvryDate",
+      "Occurs": "Optional",
+      "Description": "Scheduled Delivery Date.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU",
+      "Occurs": "Optional, repeating up to one time",
+      "Description": "Groups Hold for Pickup information. If not present, then a HFPU Service Standard is not available.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / EAD",
+      "Occurs": "Optional",
+      "Description": "Effective Acceptance Date.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / COT",
+      "Occurs": "Optional",
+      "Description": "Cut-off Time.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard",
+      "Occurs": "Optional, repeating up to one time",
+      "Description": "Groups Hold for Pickup Service Standard Elements.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"2\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / SvcStdMsg",
+      "Occurs": "Optional",
+      "Description": "Service Standard Message.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / SvcStdDays",
+      "Occurs": "Optional",
+      "Description": "Service Standard Days.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location",
+      "Occurs": "Optional, repeating up to 40 times",
+      "Description": "Groups Hold for Pickup Location information.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"40\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / SchedDlvryDate",
+      "Occurs": "Optional",
+      "Description": "Scheduled Delivery Date.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / NonDeliveryDays",
+      "Occurs": "Optional",
+      "Description": "Non-Delivery Days.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"40\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / RAUName",
+      "Occurs": "Optional",
+      "Description": "RAU Name.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / Street",
+      "Occurs": "Optional",
+      "Description": "RAU Street Address.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / ZIP",
+      "Occurs": "Optional",
+      "Description": "Facility Zip Code.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes",
+      "Occurs": "Optional",
+      "Description": "Groups Close times by day of the week for Hold for Pickup location.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes / M",
+      "Occurs": "Optional",
+      "Description": "Close Time for Monday.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes / Tu",
+      "Occurs": "Optional",
+      "Description": "Close Time for Tuesday.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes / W",
+      "Occurs": "Optional",
+      "Description": "Close Time for Wednesday.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes / Th",
+      "Occurs": "Optional",
+      "Description": "Close Time for Thursday.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes / F",
+      "Occurs": "Optional",
+      "Description": "Close Time for Friday.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes / Sa",
+      "Occurs": "Optional",
+      "Description": "Close Time for Saturday.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes / Su",
+      "Occurs": "Optional",
+      "Description": "Close Time for Sunday.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / CloseTimes / H",
+      "Occurs": "Optional",
+      "Description": "Close Time for Holiday.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / NonExpeditedExceptions",
+      "Occurs": "Optional",
+      "Description": "Groups Hold for Pickup Location Exception Elements.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / NonExpeditedExceptions / NonExpeditedMsg",
+      "Occurs": "Optional",
+      "Description": "Additional exception messaging. Valid Message Codes “00133” = SDD Cannot be Calculated.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\" Enumeration · 00133"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / City",
+      "Occurs": "Optional",
+      "Description": "RAU City.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / ServiceStandard / Location / State",
+      "Occurs": "Optional",
+      "Description": "RAU State.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / HFPUGlobalExcept",
+      "Occurs": "Optional",
+      "Description": "Groups Hold for Pickup Exception Elements.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / HFPUGlobalExcept / PostCOT",
+      "Occurs": "Optional",
+      "Description": "Indicates if the mailpiece arrived after the Cut-Off Time.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / HFPUGlobalExcept / OverMaxResults",
+      "Occurs": "Optional",
+      "Description": "Indicates if more than the number of returned Hold for Pickup locations was found.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / HFPUGlobalExcept / NoHFPULocInd",
+      "Occurs": "Optional",
+      "Description": "Indicates if there were no locations found in the RAU that support Hold for Pickup",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPU / HFPUGlobalExcept / NonExpeditedWTMsg",
+      "Occurs": "Optional",
+      "Description": "Additional exception messaging. Valid Message Codes 00133 SDD Cannot be Calculated 00135 SSD lists OD Pair but is missing the Service Standard",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\" Enumeration · 00133 · 00135 ·"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPUGlobalExcept / NonExpeditedTransMsg",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups Non-Expedited Mail transportation messaging.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPUGlobalExcept / NonExpeditedTransMsg / MsgCode",
+      "Occurs": "Optional",
+      "Description": "Non-Expedited Mail transportation messaging code.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / HFPUGlobalExcept / NonExpeditedTransMsg /",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Non-Expedited transportation messaging text.",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"unbounded\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / NonExpeditedExceptions / NonExpeditedTransMsg/ MsgCode",
+      "Occurs": "Optional",
+      "Description": "Groups Non-Expedited transportation messaging. Valid Message Code “TM103” = Your shipment may be delayed due to transportation issues.",
+      "Type": "(Group)",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1” Enumeration · TM103"
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse / NonExpedited / NonExpeditedExceptions / NonExpeditedTransMsg / Msg",
+      "Occurs": "Optional",
+      "Description": "Non-Expedited transportation messaging code. For example:<Msg>Your shipment may be delayed due to transportation issues.</Msg>",
+      "Type": "String",
+      "Validation": "minOccurs=\"0\" maxOccurs=\"1\""
+    },
+    {
+      "Tag Name": "SDCGetLocationsResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Seq #": "A0110",
+      "Service\n    Standard": "1-Day at 10:30 AM"
+    },
+    {
+      "Seq #": "B0110",
+      "Service\n    Standard": "1-Day at 10:30 AM HFPU"
+    },
+    {
+      "Seq #": "A0112",
+      "Service\n    Standard": "1-Day at 12:00 PM"
+    },
+    {
+      "Seq #": "A0115",
+      "Service\n    Standard": "1-Day at 3:00 PM"
+    },
+    {
+      "Seq #": "B0115",
+      "Service\n    Standard": "1-Day at 3:00 PM HFPU"
+    },
+    {
+      "Seq #": "A0210",
+      "Service\n    Standard": "2-Day at 10:30 AM"
+    },
+    {
+      "Seq #": "A0212",
+      "Service\n    Standard": "2-Day at 12:00 PM"
+    },
+    {
+      "Seq #": "A0215",
+      "Service\n    Standard": "2-Day at 3:00 PM"
+    },
+    {
+      "Seq #": "B0210",
+      "Service\n    Standard": "2-Day at 10:30 AM HFPU"
+    },
+    {
+      "Seq #": "B0215",
+      "Service\n    Standard": "2-Day at 3:00 PM HFPU"
+    }
+  ],
+  [
+    {
+      "Seq #": "C0100",
+      "Service\n    Standard": "1-Day Street"
+    },
+    {
+      "Seq #": "C0200",
+      "Service\n    Standard": "2-Day Street"
+    },
+    {
+      "Seq #": "C0300",
+      "Service\n    Standard": "3-Day Street"
+    },
+    {
+      "Seq #": "D0100",
+      "Service\n    Standard": "1-Day PO Box"
+    },
+    {
+      "Seq #": "D0200",
+      "Service\n    Standard": "2-Day PO Box"
+    },
+    {
+      "Seq #": "D0300",
+      "Service\n    Standard": "3-Day PO Box"
+    },
+    {
+      "Seq #": "E0100",
+      "Service\n    Standard": "1-Day HFPU"
+    },
+    {
+      "Seq #": "E0200",
+      "Service\n    Standard": "2-Day HFPU"
+    },
+    {
+      "Seq #": "E0300",
+      "Service\n    Standard": "3-Day HFPU"
+    }
+  ],
+  [
+    {
+      "“1”": "“2”",
+      "PO-Addressee - Street": "PO-Addressee - PO Box"
+    },
+    {
+      "“1”": "“3”",
+      "PO-Addressee - Street": "HFPU"
+    }
+  ],
+  [
+    {
+      "00133": "00135",
+      "SDD Cannot be\n    Calculated": "SSD lists OD Pair but is missing the Service Standard"
+    }
+  ],
+  []
+]

@@ -1,0 +1,192 @@
+[
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=HFPFacilityInfo",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "HFPFacilityInfoRequest",
+      "Occurs": "Required",
+      "Description": "API=HFPFacilityInfo",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoRequest / USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoRequest / PickupCity",
+      "Occurs": "Required",
+      "Description": "Either City/State or ZIP code must be specified. When only city and state are provided, all pickup facilities with addresses within that city and state will be returned. For example: <PickupCity>Boston</PickupCity>",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=28 whiteSpace=collapse"
+    },
+    {
+      "Tag Name": "HFPFacilityInfoRequest / PickupState",
+      "Occurs": "Required",
+      "Description": "Either City/State or ZIP code must be specified. For example: <PickupState>MA</PickupState>",
+      "Type": "String",
+      "Validation": "minLength=2 maxLength=2 pattern=\\w{2} pattern="
+    },
+    {
+      "Tag Name": "HFPFacilityInfoRequest / PickupZIP",
+      "Occurs": "Required",
+      "Description": "Either City/State or ZIP code must be specified. When PickupZIP provided without PickupZIP4, all pickup facilities that service that ZIP code are returned. For example: <PickupZIP>02111</PickupZIP>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\d{5} pattern="
+    },
+    {
+      "Tag Name": "HFPFacilityInfoRequest / PickupZIP4",
+      "Occurs": "Required",
+      "Description": "If PickupZIP is specified, then PickupZIP4 may also be specified. This will match to a single pickup facility with the given nine-digit ZIP code. For example: <PickupZIP4>9998</PickupZIP4>",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\d{4} pattern="
+    },
+    {
+      "Tag Name": "HFPFacilityInfoRequest / Service",
+      "Occurs": "Optional",
+      "Description": "For future use. May be omitted.",
+      "Type": "String",
+      "Validation": "default=EXPRESS enumeration=EXPRESS"
+    },
+    {
+      "Tag Name": "HFPFacilityInfoRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "HFPFacilityInfoResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / PickupCity",
+      "Occurs": "Required",
+      "Description": "The criteria used to obtain the facility list is echoed back here. Either City/State or ZIP code (five or nine digit).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / PickupState",
+      "Occurs": "Required",
+      "Description": "The criteria used to obtain the facility list is echoed back here. Either City/State or ZIP code (five or nine digit).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / PickupZIP",
+      "Occurs": "Required",
+      "Description": "The criteria used to obtain the facility list is echoed back here. Either City/State or ZIP code (five or nine digit).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / PickupZIP4",
+      "Occurs": "Required",
+      "Description": "The criteria used to obtain the facility list is echoed back here. Either City/State or ZIP code (five or nine digit).",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Service",
+      "Occurs": "Optional",
+      "Description": "Echoed back from request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility",
+      "Occurs": "Optional repeating up to 50 times",
+      "Description": "Facility addresses are returned in no specific order. If none are returned, then no facilities matched the criteria given in the request. If there are more than 50 facilities found, the first 50 will be returned along with a maximum-exceeded advisory in the LogMessage tag.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility / FacilityID",
+      "Occurs": "Required",
+      "Description": "ID of Pickup Facility.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility / FacilityName",
+      "Occurs": "Required",
+      "Description": "Name of Pickup Facility",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility / FacilityAddress",
+      "Occurs": "Required",
+      "Description": "Pickup Facility Address",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility / FacilityCity",
+      "Occurs": "Required",
+      "Description": "Pickup Facility City",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility / FacilityState",
+      "Occurs": "Required",
+      "Description": "Pickup Facility State",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility / FacilityZIP",
+      "Occurs": "Required",
+      "Description": "Pickup Facility ZIP Code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility / FacilityZIP4",
+      "Occurs": "Required",
+      "Description": "Pickup Facility ZIP Code+4",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / Facility / Has10amCommitment",
+      "Occurs": "Required",
+      "Description": "Indicative of facility's hold-for-pickup availability. A value of \"true\" indicates packages can be available for pickup at 10:00 am local time.",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse / LogMessage",
+      "Occurs": "Optional",
+      "Description": "A text message for integrators of this API. It may contain additional information about this particular request/response, or general information about the API. With typical implementations, whenever this tag is encountered, the message is written to the console log file for later analysis.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "HFPFacilityInfoResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  []
+]

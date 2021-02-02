@@ -1,0 +1,451 @@
+[
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=USPSReturnsLabel",
+      "XML": "&XML=(see below)"
+    },
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=USPSReturnsLabelCertify",
+      "XML": "&XML=(see below)"
+    },
+    {
+      "Scheme": "",
+      "Host": "",
+      "Path": "",
+      "API": "",
+      "XML": "",
+      "undefined": ""
+    }
+  ],
+  [
+    {
+      "Tag Name": "USPSReturnsLabelRequest",
+      "Occurs": "Required",
+      "Description": "Used with API=USPSReturnsLabel",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your WebTools user ID. See the Developers Guide for information on obtaining your USERID For example: <USERID = “XXXXXXXXXX”>",
+      "Type": "NMTOKEN",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / Option",
+      "Occurs": "Optional",
+      "Description": "For future use.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / Revision",
+      "Occurs": "Optional",
+      "Description": "For future use. Used to indicate API version.",
+      "Type": "String",
+      "Validation": "minLength=0 pattern=\\d{1} pattern="
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / ImageParameters",
+      "Occurs": "Required",
+      "Description": "Group containing all request parameters pertaining to the Label Image generation.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / ImageParameters / ImageType",
+      "Occurs": "Required",
+      "Description": "Label Image Type. For example: <ImageType>PDF</ImageType>",
+      "Type": "String",
+      "Validation": "Enumeration= · PDF · TIF · NONE"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / ImageParameters / SeparateReceiptPage",
+      "Occurs": "Optional",
+      "Description": "Flag to request a Separate Receipt Image. Enter “true” if you want receipt returned on a separate page – this will return label in <LabelImage> tag and receipt in <ReceiptImage> tag. For example: <SeparateReceiptPage>true</SeparateReceiptPage> Note: If not specified, receipt will return on same page as returns label. Response will contain a single <LabelImage> tag containing label and receipt on the same page.",
+      "Type": "Boolean",
+      "Validation": "Default=false · true · false"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerFirstName",
+      "Occurs": "Conditionally required (only if CustomerFirm not provided)",
+      "Description": "First Name of customer returning package. Printed on label and receipt. Either <CustomerFirstName> and <CustomerLastName> OR <CustomerFirm> required. Minimum of 1 character required. Note: <CustomerFirstName> and <CustomerLastName> values have a combined 32-character limit when printed on label. Combined values exceeding 32 characters will be truncated due to space limitations on the label. API request eligible to accept up to 50 characters.",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=50"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerLastName",
+      "Occurs": "Conditionally required (only if CustomerFirm not provided)",
+      "Description": "Last Name of customer returning package. Printed on label and receipt. Either <CustomerFirstName> and <CustomerLastName> OR <CustomerFirm> required. Minimum of 1 character required. Note: <CustomerFirstName> and <CustomerLastName> values have a combined 32-character limit when printed on label. Combined values exceeding 32 characters will be truncated due to space limitations on the label. API request eligible to accept up to 50 characters.",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=50"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerFirm",
+      "Occurs": "Conditionally required (only if Customer First/Last Name not provided)",
+      "Description": "Firm Name of customer returning package. Printed on label and receipt. Either <CustomerFirstName> and <CustomerLastName> OR <CustomerFirm> required. Minimum of 1 character required. Note: <CustomerFirm> has a 32-character limit when printed on label. Values exceeding 32 characters will be truncated due to space limitations on the label. API request eligible to accept up to 50 characters.",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=50"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerAddress1",
+      "Occurs": "Conditionally required (if address needs secondary info)",
+      "Description": "Secondary address unit designator and number (such as an apartment or suite number). For example: “APT 202” or “STE 100” etc. Note: This tag must be included in the request, even if the value is null, to return a successful response. For addresses that do not require secondary information, integrators should include “<CustomerAddress1/>” in the request.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerAddress2",
+      "Occurs": "Required",
+      "Description": "Address of customer returning the package. (Primary Street address). For example: <CustomerAddress2>123 Main St.</CustomerAddress2>",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=50"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerCity",
+      "Occurs": "Required",
+      "Description": "City of customer returning the package.",
+      "Type": "String",
+      "Validation": "minLength=1 maxLength=28"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerState",
+      "Occurs": "Required",
+      "Description": "State of customer returning the package. Value should be passed as two-letter state abbreviation. For example: <CustomerState>DC</CustomerState>",
+      "Type": "String",
+      "Validation": "pattern=\\w{2} pattern= minLength=2 maxLength=2"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerZip5",
+      "Occurs": "Required",
+      "Description": "ZIP Code of customer returning the package.",
+      "Type": "String",
+      "Validation": "pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / CustomerZip4",
+      "Occurs": "Optional",
+      "Description": "ZIP+4 Code of customer returning the package.",
+      "Type": "String",
+      "Validation": "pattern=\\d{4} pattern="
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / POZipCode",
+      "Occurs": "Conditionally required (if mail entry ZIP Code different than CustomerZip5)",
+      "Description": "ZIP Code of Post Office or collection box where item is mailed. May be different than CustomerZip5. This tag will take precedence over CustomerZip5 when provided. For example: <POZipCode>20770</ POZipCode>",
+      "Type": "String",
+      "Validation": "pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / AllowNonCleansedOriginAddr",
+      "Occurs": "Optional",
+      "Description": "Allows Non-Validated Origin Street Address. Enter “true” to bypass street address validation failures/errors or “false” if only validated addresses should be allowed. Note: Integrators are recommended to always use “false” to ensure no delivery issues. In the event USPS cannot validate the street address, this tag will “bypass” address validation error when “true” is indicated to allow label creation which could impact delivery. The <AllowNonCleansedOriginAddr> excludes City, State, and ZIP Code which must be valid for a successful response. Reference https://pe.usps.com/text/pub28/28c2_001.htm.",
+      "Type": "Boolean",
+      "Validation": "Default=false Enumerations= · true · false"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / WeightInOunces",
+      "Occurs": "Optional",
+      "Description": "Package weight used to calculate postage. Items must weigh 70 pounds (1120 ounces) or less. For example: <WeightInOunces>80</ WeightInOunces> Note: If weight not supplied, 4oz used.",
+      "Type": "Integer",
+      "Validation": "Default=4 minInclusive=0 maxInclusive=1120"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / ServiceType",
+      "Occurs": "Required",
+      "Description": "Enter one of the valid Mail Service entries: “PRIORITY” for Priority Mail Return Service. “FIRST CLASS” for First-Class Package Return Service. “GROUND” for Ground Return Service.",
+      "Type": "String",
+      "Validation": "Enumeration= · PRIORITY · FIRST CLASS · GROUND"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / Width",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. For example: <Width>5.5</ Width> If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / Length",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. Length should be longest dimension when compared to Width and Height values supplied. For example: <Length>11</Length> If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / Height",
+      "Occurs": "Optional",
+      "Description": "Value must be numeric. Units are inches. For example: <Height>7</Height> If partial dimensions are provided, an error response will return. Length, Width, Height are required for accurate pricing of a rectangular package when any dimension of the item exceeds 12 inches. In addition, Girth is required only for a non-rectangular package in addition to Length, Width, Height when any dimension of the package exceeds 12 inches. For rectangular packages, the Girth dimension must be left blank as this dimension is to only be used for non-rectangular packages. For details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / Girth",
+      "Occurs": "Conditionally required (if package is non-rectangular)",
+      "Description": "Note: Girth is required only for a non-rectangular package. For rectangular packages, girth must be left blank. Value must be numeric. Units are inches. Girth is distance around the thickest part of package (perpendicular to the length). For details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail https://pe.usps.com/text/dmm300/index.htm. For example: <Girth>25</Girth> Note: If partial dimensions are provided, an error response will return. (i.e. Length, Width, and Height must all be supplied with Girth).",
+      "Type": "Decimal",
+      "Validation": "minExclusive=0.0 totalDigits=10"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / Machinable",
+      "Occurs": "Optional",
+      "Description": "Indicates if packaging is Machinable. Used to calculate postage. For example: <Machinable>true</Machinable>",
+      "Type": "Boolean",
+      "Validation": "Default=false Enumerations= · true · false"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / ShipDate",
+      "Occurs": "Optional",
+      "Description": "Date Package Will Be Mailed. Ship date may be today plus 0 to 3 days in advance. Enter the date in either format: dd-mmm-yyyy, such as 14-Feb-2020, or mm/dd/ yyyy, such as 02/14/2020. If not provided, current day will be used as a basis for delivery date calculations. For example: <ShipDate>02/14/2011</ShipDate>",
+      "Type": "String",
+      "Validation": "Default=current day minLength=0 pattern=\\d{1,2}/ \\d{1,2}/ \\d\\d(\\d\\d)?"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / SenderName",
+      "Occurs": "Optional",
+      "Description": "Used for the USPS Tracking email. Indicates the name of the person or company sending the USPS tracking email notification. Note: No email is returned when generating a Sample (i.e. API=USPSReturnsLabelCertify) request.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / SenderEMail",
+      "Occurs": "Optional",
+      "Description": "Used for the USPS Tracking email. Indicates the email address of sender used for USPS tracking email notification. Valid email addresses must be used. Note: <RecipientEMail> must be populated to generate USPS tracking email notification. If <SenderEMail> provided without <RecipientEMail>, USPS tracking email notification will not be generated. Note: No email is returned when generating a Sample (i.e. API=USPSReturnsLabelCertify) request.",
+      "Type": "String",
+      "Validation": "pattern=([\\w\\-\\.]+)@(([\\w-]+\\.)+)[a-zA-Z]{2,4} pattern="
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / RecipientName",
+      "Occurs": "Optional",
+      "Description": "Used for the USPS Tracking email. Indicates the name of the person or company receiving the USPS tracking email notification. If recipient name not provided, email will be addressed to <RecipientEMail> value provided. Note: No email is returned when generating a Sample (i.e. API=USPSReturnsLabelCertify) request.",
+      "Type": "String",
+      "Validation": "minLength=0 maxLength=50"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / RecipientEMail",
+      "Occurs": "Optional",
+      "Description": "Required to generate the USPS Tracking email. Indicates email address of recipient receiving the USPS tracking email notification. Valid email addresses must be used. Note: No email is returned when generating a Sample (i.e. API=USPSReturnsLabelCertify) request.",
+      "Type": "String",
+      "Validation": "pattern=([\\w\\-\\.]+)@(([\\w-]+\\.)+)[a-zA-Z]{2,4} pattern="
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / ExtraServices",
+      "Occurs": "Optional",
+      "Description": "Groups extra services elements",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest / ExtraServices/ ExtraService",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Use to specify extra services. If no Extra Service is specified, USPS Tracking will be the default, base service. Currently available services are: Service Name Service ID Signature Confirmation Electronic 156",
+      "Type": "String",
+      "Validation": "whiteSpace=collapse Enumeration= · 156"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelRequest",
+      "Occurs": "Required",
+      "Description": "Used with API=USPSReturnsLabel",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Service Name": "Signature Confirmation Electronic",
+      "Service ID": "156"
+    }
+  ],
+  [],
+  [
+    {
+      "Tag Name": "USPSReturnsLabelResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / BarcodeNumber",
+      "Occurs": "Required",
+      "Description": "Tracking / Confirmation number for the package.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / LabelImage",
+      "Occurs": "Optional",
+      "Description": "Binary representation of the label in the form selected (PDF, TIF). Default response will contain a single <LabelImage> tag containing label and receipt on the same page. Note: Not returned when <ImageType>=“NONE” is specified in request.",
+      "Type": "base64Binary",
+      "Validation": "Default= <LabelImage> contains label and receipt on same page"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ReceiptImage",
+      "Occurs": "Optional",
+      "Description": "Binary representation of the Receipt in the form selected (PDF, TIF). Note: Only returned when <SeparateReceiptPage>= “true” is specified in request.",
+      "Type": "base64Binary",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ToFirm",
+      "Occurs": "Optional",
+      "Description": "Firm Name of Retailer receiving the return package. Configured “Delivery Destination Company” used. Future enhancements will also use <RetailerFirm>. Note: <ToFirm> value truncated after 32-characters when printed on label due to space limitations. API response eligible to return up to 50 characters.",
+      "Type": "String",
+      "Validation": "MaxLength=50"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ToAddress1",
+      "Occurs": "Optional",
+      "Description": "Address of Retailer receiving the return package. Secondary address unit designator and number (such as an apartment or suite number). For example: “APT 202” or “STE 100” etc. Configured “Delivery Destination Address2” used.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ToAddress2",
+      "Occurs": "Required",
+      "Description": "Address of Retailer receiving the return package. Configured “Delivery Destination Address” used.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ToCity",
+      "Occurs": "Required",
+      "Description": "City of Retailer receiving the return package. Configured “Delivery Destination City” used.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ToState",
+      "Occurs": "Required",
+      "Description": "State of Retailer receiving the return package. Configured “Delivery Destination State” used.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ToZip5",
+      "Occurs": "Required",
+      "Description": "Zip5 of Retailer receiving the return package. Configured “Delivery Destination Zip Code” used.",
+      "Type": "String",
+      "Validation": "pattern=\\d{5}"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ToZip4",
+      "Occurs": "Required",
+      "Description": "Zip4 of Retailer receiving the return package. Configured “Delivery Destination Zip Code” used.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / Postnet",
+      "Occurs": "Required",
+      "Description": "Customer text representation of Postnet barcode. Note: The Postnet barcode is not displayed on the label.",
+      "Type": "String",
+      "Validation": "minLength=0"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / RDC",
+      "Occurs": "Required",
+      "Description": "Retail Distribution Code printed on label for USPS processing purposes. Note: The following MCSetCodes are used for Returns API to determine RDC: Service MCSetCode Ground Return Service 006 First-Class Package Return Service 005 Priority Mail Return Service 003",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / Postage",
+      "Occurs": "Required",
+      "Description": "Postage amount for the Returns package. Note: Does not include any extra service fees or surcharges.",
+      "Type": "String",
+      "Validation": "minLength=0"
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ExtraServices",
+      "Occurs": "Optional",
+      "Description": "Groups extra service information specified in request.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ExtraServices / ExtraService",
+      "Occurs": "Optional, repeating up to unbounded times",
+      "Description": "Groups extra service information specified in request.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ExtraServices / ExtraService / ServiceID",
+      "Occurs": "Optional",
+      "Description": "Extra Service ID included in request",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ExtraServices / ExtraService / ServiceName",
+      "Occurs": "Optional",
+      "Description": "Extra Service name",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / ExtraServices / ExtraService / Price",
+      "Occurs": "Optional",
+      "Description": "Extra Service fee",
+      "Type": "Decimal",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / Zone",
+      "Occurs": "Required",
+      "Description": "Postal Zone. USPS defined distance codes assigned to each origin and destination ZIP Code pairing for every ZIP Code number in the nation. These distance codes, referred to as zones, are designated as “1 through 9.\"",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / DimensionalWeight",
+      "Occurs": "Optional",
+      "Description": "Dimensional Weight of package used to determine postage. Postage based on actual weight (specified in <WeightInOunces>) or the dimensional weight, whichever is greater. For example, <DimensionalWeight>14.0</DimensionalWeight> For details on dimensional weight pricing, please reference the Domestic Mail Manual Section 123.1.4 for Retail Mail and Section 223.1.6 for Commercial Mail. https://pe.usps.com/text/dmm300/index.htm",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / CarrierRoute",
+      "Occurs": "Required",
+      "Description": "Carrier Route",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse / LogMessage",
+      "Occurs": "Optional",
+      "Description": "Messaging for integrators of this API. It may contain additional information about this particular request / response, or general information about the API or Web Tools. In typical implementations, whenever this tag is encountered, the message is written to the console log file for later analysis.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "USPSReturnsLabelResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Service": "Ground Return Service",
+      "MCSetCode": "006"
+    },
+    {
+      "Service": "First-Class Package Return Service",
+      "MCSetCode": "005"
+    },
+    {
+      "Service": "Priority Mail Return Service",
+      "MCSetCode": "003"
+    }
+  ],
+  []
+]

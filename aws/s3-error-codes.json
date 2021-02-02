@@ -1,0 +1,1474 @@
+[
+  [
+    {
+      "Name": "Code",
+      "Description": "The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type. For more information, see List of Error Codes. Type: String Ancestor: Error"
+    },
+    {
+      "Name": "Error",
+      "Description": "Container for all error elements. Type: Container Ancestor: None"
+    },
+    {
+      "Name": "Message",
+      "Description": "The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message. Type: String Ancestor: Error"
+    },
+    {
+      "Name": "RequestId",
+      "Description": "ID of the request associated with the error. Type: String Ancestor: Error"
+    },
+    {
+      "Name": "Resource",
+      "Description": "The bucket or object that is involved in the error. Type: String Ancestor: Error"
+    }
+  ],
+  [
+    {
+      "Error Code": "AccessDenied",
+      "Description": "Access Denied",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "AccountProblem",
+      "Description": "There is a problem with your AWS account that prevents the operation from completing successfully. For further assistance, Contact Us.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "AllAccessDisabled",
+      "Description": "All access to this Amazon S3 resource has been disabled. For further assistance, Contact Us.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "AmbiguousGrantByEmailAddress",
+      "Description": "The email address you provided is associated with more than one account.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "AuthorizationHeaderMalformed",
+      "Description": "The authorization header you provided is not valid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "N/A"
+    },
+    {
+      "Error Code": "BadDigest",
+      "Description": "The Content-MD5 you specified did not match what we received.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "BucketAlreadyExists",
+      "Description": "The requested bucket name is not available. The bucket namespace is shared by all users of the system. Select a different name and try again.",
+      "HTTP Status Code": "409 Conflict",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "BucketAlreadyOwnedByYou",
+      "Description": "The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all AWS Regions except us-east-1 (N. Virginia). For legacy compatibility, if you re-create an existing bucket that you already own in us-east-1, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs). For Amazon S3 on Outposts, the bucket you tried to create already exists in your Outpost and you own it.",
+      "HTTP Status Code": "409 Conflict (in all Regions except us-east-1)",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "BucketNotEmpty",
+      "Description": "The bucket you tried to delete is not empty.",
+      "HTTP Status Code": "409 Conflict",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "CredentialsNotSupported",
+      "Description": "This request does not support credentials.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "CrossLocationLoggingProhibited",
+      "Description": "Cross-location logging not allowed. Buckets in one geographic location cannot log information to a bucket in another location.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EntityTooSmall",
+      "Description": "Your proposed upload is smaller than the minimum allowed object size.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EntityTooLarge",
+      "Description": "Your proposed upload exceeds the maximum allowed object size.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ExpiredToken",
+      "Description": "The provided token has expired.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "IllegalLocationConstraintException",
+      "Description": "Indicates that you are trying to access a bucket from a different Region than where the bucket exists. To avoid this error, use the --region option. For example: aws s3 cp awsexample.txt s3://testbucket/ --region ap-east-1.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "IllegalVersioningConfigurationException",
+      "Description": "Indicates that the versioning configuration specified in the request is invalid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "IncompleteBody",
+      "Description": "You did not provide the number of bytes specified by the Content-Length HTTP header.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "IncorrectNumberOfFilesInPostRequest",
+      "Description": "POST requires exactly one file upload per request.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InlineDataTooLarge",
+      "Description": "Inline data exceeds the maximum allowed size.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InternalError",
+      "Description": "We encountered an internal error. Please try again.",
+      "HTTP Status Code": "500 Internal Server Error",
+      "SOAP Fault Code Prefix": "Server"
+    },
+    {
+      "Error Code": "InvalidAccessKeyId",
+      "Description": "The AWS access key ID you provided does not exist in our records.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidAccessPoint",
+      "Description": "The specified access point name or account is not valid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidAddressingHeader",
+      "Description": "You must specify the Anonymous role.",
+      "HTTP Status Code": "N/A",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidArgument",
+      "Description": "This error might occur for the following reasons: The specified argument was invalid. The request was missing a required header. The specified argument was incomplete or in the wrong format. Must have length greater than or equal to 3.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidBucketName",
+      "Description": "The specified bucket is not valid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidBucketState",
+      "Description": "The request is not valid with the current state of the bucket.",
+      "HTTP Status Code": "409 Conflict",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidDigest",
+      "Description": "The Content-MD5 you specified is not valid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidEncryptionAlgorithmError",
+      "Description": "The encryption request that you specified is not valid. The valid value is AES256.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidLocationConstraint",
+      "Description": "The specified location constraint is not valid. For more information about Regions, see How to Select a Region for Your Buckets.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidObjectState",
+      "Description": "The operation is not valid for the current state of the object.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidPart",
+      "Description": "One or more of the specified parts could not be found. The part might not have been uploaded, or the specified entity tag might not have matched the part's entity tag.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidPartOrder",
+      "Description": "The list of parts was not in ascending order. Parts list must be specified in order by part number.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidPayer",
+      "Description": "All access to this object has been disabled. For further assistance, Contact Us.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidPolicyDocument",
+      "Description": "The content of the form does not meet the conditions specified in the policy document.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidRange",
+      "Description": "The requested range cannot be satisfied.",
+      "HTTP Status Code": "416 Requested Range Not Satisfiable",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidRequest",
+      "Description": "This error might occur for the following reasons: Use AWS4-HMAC-SHA256. The access point can only be created for existing bucket. The access point is not in a state where it can be deleted. The access point can only be listed for an existing bucket. The next token is invalid. At least one action needs to be specified in a lifecycle rule. At least one lifecycle rule should be specified. Number of lifecycle rules should not exceed allowed limit of 1000 rules. Invalid range for parameter MaxResults. SOAP requests must be made over an HTTPS connection. Amazon S3 Transfer Acceleration is not supported for buckets with non-DNS compliant names. Amazon S3 Transfer Acceleration is not supported for buckets with periods (.) in their names. Amazon S3 Transfer Accelerate endpoint only supports virtual style requests. Amazon S3 Transfer Accelerate is not configured on this bucket. Amazon S3 Transfer Accelerate is disabled on this bucket. Amazon S3 Transfer Acceleration is not supported on this bucket. Contact AWS Support for more information. Amazon S3 Transfer Acceleration cannot be enabled on this bucket. Contact AWS Support for more information.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidSecurity",
+      "Description": "The provided security credentials are not valid.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidSOAPRequest",
+      "Description": "The SOAP request body is invalid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidStorageClass",
+      "Description": "The storage class you specified is not valid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidTargetBucketForLogging",
+      "Description": "The target bucket for logging does not exist, is not owned by you, or does not have the appropriate grants for the log-delivery group.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidToken",
+      "Description": "The provided token is malformed or otherwise invalid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidURI",
+      "Description": "Couldn't parse the specified URI.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "KeyTooLongError",
+      "Description": "Your key is too long.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MalformedACLError",
+      "Description": "The XML you provided was not well formed or did not validate against our published schema.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MalformedPOSTRequest",
+      "Description": "The body of your POST request is not well-formed multipart/form-data.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MalformedXML",
+      "Description": "This happens when the user sends malformed XML (XML that doesn't conform to the published XSD) for the configuration. The error message is, \"The XML you provided was not well formed or did not validate against our published schema.\"",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MaxMessageLengthExceeded",
+      "Description": "Your request was too big.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MaxPostPreDataLengthExceededError",
+      "Description": "Your POST request fields preceding the upload file were too large.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MetadataTooLarge",
+      "Description": "Your metadata headers exceed the maximum allowed metadata size.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MethodNotAllowed",
+      "Description": "The specified method is not allowed against this resource.",
+      "HTTP Status Code": "405 Method Not Allowed",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MissingAttachment",
+      "Description": "A SOAP attachment was expected, but none were found.",
+      "HTTP Status Code": "N/A",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MissingContentLength",
+      "Description": "You must provide the Content-Length HTTP header.",
+      "HTTP Status Code": "411 Length Required",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MissingRequestBodyError",
+      "Description": "This happens when the user sends an empty XML document as a request. The error message is, \"Request body is empty.\"",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MissingSecurityElement",
+      "Description": "The SOAP 1.1 request is missing a security element.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MissingSecurityHeader",
+      "Description": "Your request is missing a required header.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoLoggingStatusForKey",
+      "Description": "There is no such thing as a logging status subresource for a key.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchBucket",
+      "Description": "The specified bucket does not exist.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchBucketPolicy",
+      "Description": "The specified bucket does not have a bucket policy.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchKey",
+      "Description": "The specified key does not exist.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchLifecycleConfiguration",
+      "Description": "The lifecycle configuration does not exist.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchTagSet",
+      "Description": "This error occurs when the tag specified does not exist.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchUpload",
+      "Description": "The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchVersion",
+      "Description": "Indicates that the version ID specified in the request does not match an existing version.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NotImplemented",
+      "Description": "A header you provided implies functionality that is not implemented.",
+      "HTTP Status Code": "501 Not Implemented",
+      "SOAP Fault Code Prefix": "Server"
+    },
+    {
+      "Error Code": "NotSignedUp",
+      "Description": "Your account is not signed up for the Amazon S3 service. You must sign up before you can use Amazon S3. You can sign up at the following URL: https://aws.amazon.com/s3",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "OperationAborted",
+      "Description": "A conflicting conditional operation is currently in progress against this resource. Try again.",
+      "HTTP Status Code": "409 Conflict",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "PermanentRedirect",
+      "Description": "The bucket you are attempting to access must be addressed using the specified endpoint. Send all future requests to this endpoint.",
+      "HTTP Status Code": "301 Moved Permanently",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "PreconditionFailed",
+      "Description": "At least one of the preconditions you specified did not hold.",
+      "HTTP Status Code": "412 Precondition Failed",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "Redirect",
+      "Description": "Temporary redirect.",
+      "HTTP Status Code": "307 Moved Temporarily",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "RequestHeaderSectionTooLarge",
+      "Description": "The request header and query parameters used to make the request exceeded the maximum allowed size.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "RequestIsNotMultiPartContent",
+      "Description": "Bucket POST must be of the enclosure-type multipart/form-data.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "RequestTimeout",
+      "Description": "Your socket connection to the server was not read from or written to within the timeout period.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "RequestTimeTooSkewed",
+      "Description": "The difference between the request time and the server's time is too large.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "RequestTorrentOfBucketError",
+      "Description": "Requesting the torrent file of a bucket is not permitted.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "RestoreAlreadyInProgress",
+      "Description": "Object restore is already in progress.",
+      "HTTP Status Code": "409 Conflict",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ServerSideEncryptionConfigurationNotFoundError",
+      "Description": "The server-side encryption configuration was not found.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ServiceUnavailable",
+      "Description": "Reduce your request rate.",
+      "HTTP Status Code": "503 Service Unavailable",
+      "SOAP Fault Code Prefix": "Server"
+    },
+    {
+      "Error Code": "SignatureDoesNotMatch",
+      "Description": "The request signature that we calculated does not match the signature you provided. Check your AWS secret access key and signing method. For more information, see REST Authentication and SOAP Authentication.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "SlowDown",
+      "Description": "Reduce your request rate.",
+      "HTTP Status Code": "503 Slow Down",
+      "SOAP Fault Code Prefix": "Server"
+    },
+    {
+      "Error Code": "TemporaryRedirect",
+      "Description": "You are being redirected to the bucket while DNS updates.",
+      "HTTP Status Code": "307 Moved Temporarily",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "TokenRefreshRequired",
+      "Description": "The provided token must be refreshed.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "TooManyAccessPoints",
+      "Description": "You have attempted to create more access point than allowed.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "TooManyBuckets",
+      "Description": "You have attempted to create more buckets than allowed.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnexpectedContent",
+      "Description": "This request does not support content.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnresolvableGrantByEmailAddress",
+      "Description": "The email address you provided does not match any account on record.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UserKeyMustBeSpecified",
+      "Description": "The bucket POST must contain the specified field name. If it is specified, check the order of the fields.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchAccessPoint",
+      "Description": "The specified access point does not exist",
+      "HTTP Status Code": "400 Not Found",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidTag",
+      "Description": "You have passed bad tag input - duplicate keys, key/values are too long, system tags were sent.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MalformedPolicy",
+      "Description": "You have an invalid principal in policy.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    }
+  ],
+  [
+    {
+      "Error Code": "Busy",
+      "Description": "The service is unavailable. Please retry.",
+      "HTTP Status Code": "503",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "CastFailed",
+      "Description": "Attempt to convert from one data type to another using CAST failed in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ColumnTooLong",
+      "Description": "The length of a column in the result is greater than maxCharsPerColumn of 1 MB.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "CSVEscapingRecordDelimiter",
+      "Description": "Quoted record delimiter found in the file. To allow quoted record delimiters, please set AllowQuotedRecordDelimiter to 'TRUE'.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "CSVParsingError",
+      "Description": "Encountered an error parsing the CSV file. Check the file and try again.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "CSVUnescapedQuote",
+      "Description": "Unescaped quote found while parsing the .csv file. Ensure that AllowQuotedRecordDelimiter is set to 'TRUE' if quoted record delimiters are present.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EmptyRequestBody",
+      "Description": "Request body cannot be empty.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ExpressionTooLong",
+      "Description": "The SQL expression is too long: The maximum byte-length for the SQL expression is 256 KB.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorBindingDoesNotExist",
+      "Description": "A column name or a path provided does not exist in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorInvalidArguments",
+      "Description": "Incorrect number of arguments in the function call in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorInvalidTimestampFormatPattern",
+      "Description": "Invalid timestamp format string in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorInvalidTimestampFormatPattern",
+      "Description": "Timestamp format pattern requires additional fields in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorTimestampFormatPatternDuplicateFields",
+      "Description": "Timestamp format pattern contains multiple format specifiers representing the timestamp field in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorTimestampFormatPatternHourClockAmPmMismatch",
+      "Description": "Timestamp format pattern contains a 12-hour hour of day format symbol but doesn't also contain an AM/PM field, or it contains a 24-hour hour of day format specifier and contains an AM/PM field in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorInvalidTimestampFormatPatternSymbolForParsing",
+      "Description": "Timestamp format pattern contains a valid format symbol that cannot be applied to timestamp parsing in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorUnterminatedTimestampFormatPatternToken",
+      "Description": "Timestamp format pattern contains unterminated token in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorInvalidTimestampFormatPatternToken",
+      "Description": "Timestamp format pattern contains an invalid token in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorInvalidTimestampFormatPatternSymbol",
+      "Description": "Timestamp format pattern contains an invalid symbol in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "IllegalSqlFunctionArgument",
+      "Description": "Illegal argument was used in the SQL function.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InternalError",
+      "Description": "Encountered an internal error.",
+      "HTTP Status Code": "500",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidColumnIndex",
+      "Description": "Column index in the SQL expression is invalid.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidCompressionFormat",
+      "Description": "The file is not in a supported compression format. Only GZIP and BZIP2 are supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidExpressionType",
+      "Description": "The ExpressionType is invalid. Only SQL expressions are supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidFileHeaderInfo",
+      "Description": "The FileHeaderInfo is invalid. Only NONE, USE, and IGNORE are supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidKeyPath",
+      "Description": "Key path in the SQL expression is invalid.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidJsonType",
+      "Description": "The JsonType is invalid. Only DOCUMENT and LINES are supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidQuoteFields",
+      "Description": "The QuoteFields is invalid. Only ALWAYS and ASNEEDED are supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidRequestParameter",
+      "Description": "The value of a parameter in SelectRequest element is invalid. Check the service API documentation and try again.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "OverMaxColumn",
+      "Description": "The number of columns in the result is greater than the maximum allowable number of columns.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "OverMaxRecordSize",
+      "Description": "The length of a record in the input or result is greater than maxCharsPerRecord of 1 MB.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "TruncatedInput",
+      "Description": "Object decompression failed. Check that the object is properly compressed using the format specified in the request.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnauthorizedAccess",
+      "Description": "You are not authorized to perform this operation.",
+      "HTTP Status Code": "401",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ExternalEvalException",
+      "Description": "The query cannot be evaluated. Check the file and try again.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidDataSource",
+      "Description": "Invalid data source type. Only CSV, JSON, and Parquet are supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidDataType",
+      "Description": "The SQL expression contains an invalid data type.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidTableAlias",
+      "Description": "The SQL expression contains an invalid table alias.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidTextEncoding",
+      "Description": "Invalid encoding type. Only UTF-8 encoding is supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "JSONParsingError",
+      "Description": "Encountered an error parsing the JSON file. Check the file and try again.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnrecognizedFormatException",
+      "Description": "Encountered an invalid record type.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MalformedXML",
+      "Description": "The XML provided was not well formed or did not validate against our published schema. Check the service documentation and try again.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MissingRequiredParameter",
+      "Description": "The SelectRequest entity is missing a required parameter. Check the service documentation and try again.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "MultipleDataSourcesUnsupported",
+      "Description": "Multiple data sources are not supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ObjectSerializationConflict",
+      "Description": "InputSerialization specifies more than one format (CSV, JSON, or Parquet), or OutputSerialization specifies more than one format (CSV or JSON). InputSerialization and OutputSerialization can only specify one format each.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnsupportedFunction",
+      "Description": "Encountered an unsupported SQL function.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnsupportedSqlOperation",
+      "Description": "Encountered an unsupported SQL operation.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnsupportedSqlStructure",
+      "Description": "Encountered an unsupported SQL structure. Check the SQL Reference.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnsupportedStorageClass",
+      "Description": "Encountered an invalid storage class. Only STANDARD, STANDARD_IA, and ONEZONE_IA storage classes are supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnsupportedSyntax",
+      "Description": "Encountered invalid syntax.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnsupportedRangeHeader",
+      "Description": "Range header is not supported for this operation.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "LexerInvalidChar",
+      "Description": "The SQL expression contains an invalid character.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "LexerInvalidOperator",
+      "Description": "The SQL expression contains an invalid literal.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "LexerInvalidLiteral",
+      "Description": "The SQL expression contains an invalid operator.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "LexerInvalidIONLiteral",
+      "Description": "The SQL expression contains an invalid operator.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedDatePart",
+      "Description": "Did not find the expected date part in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedKeyword",
+      "Description": "Did not find the expected keyword in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedTokenType",
+      "Description": "Did not find the expected token in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpected2TokenTypes",
+      "Description": "Did not find the expected token in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedNumber",
+      "Description": "Did not find the expected number in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedRightParenBuiltinFunctionCall",
+      "Description": "Did not find the expected right parenthesis character in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedTypeName",
+      "Description": "Did not find the expected type name in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedWhenClause",
+      "Description": "Did not find the expected WHEN clause in the SQL expression. CASE is not supported.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnsupportedToken",
+      "Description": "The SQL expression contains an unsupported token.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnsupportedLiteralsGroupBy",
+      "Description": "The SQL expression contains an unsupported use of GROUP BY.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedMember",
+      "Description": "The SQL expression contains an unsupported use of MEMBER.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnsupportedSelect",
+      "Description": "The SQL expression contains an unsupported use of SELECT.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnsupportedCase",
+      "Description": "The SQL expression contains an unsupported use of CASE.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnsupportedCaseClause",
+      "Description": "The SQL expression contains an unsupported use of CASE.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnsupportedAlias",
+      "Description": "The SQL expression contains an unsupported use of ALIAS.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnsupportedSyntax",
+      "Description": "The SQL expression contains unsupported syntax.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnknownOperator",
+      "Description": "The SQL expression contains an invalid operator.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseInvalidPathComponent",
+      "Description": "The SQL expression contains an invalid path component.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseMissingIdentAfterAt",
+      "Description": "Did not find the expected identifier after the @ symbol in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnexpectedOperator",
+      "Description": "The SQL expression contains an unexpected operator.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnexpectedTerm",
+      "Description": "The SQL expression contains an unexpected term.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnexpectedToken",
+      "Description": "The SQL expression contains an unexpected token.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnExpectedKeyword",
+      "Description": "The SQL expression contains an unexpected keyword.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedExpression",
+      "Description": "Did not find the expected SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedLeftParenAfterCast",
+      "Description": "Did not find the expected left parenthesis after CAST in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedLeftParenValueConstructor",
+      "Description": "Did not find expected the left parenthesis in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedLeftParenBuiltinFunctionCall",
+      "Description": "Did not find the expected left parenthesis in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedArgumentDelimiter",
+      "Description": "Did not find the expected argument delimiter in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseCastArity",
+      "Description": "The SQL expression CAST has incorrect arity.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseInvalidTypeParam",
+      "Description": "The SQL expression contains an invalid parameter value.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseEmptySelect",
+      "Description": "The SQL expression contains an empty SELECT.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseSelectMissingFrom",
+      "Description": "The SQL expression contains a missing FROM after SELECT list.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedIdentForGroupName",
+      "Description": "GROUP is not supported in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedIdentForAlias",
+      "Description": "Did not find the expected identifier for the alias in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseUnsupportedCallWithStar",
+      "Description": "Only COUNT with (*) as a parameter is supported in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseNonUnaryAgregateFunctionCall",
+      "Description": "Only one argument is supported for aggregate functions in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseMalformedJoin",
+      "Description": "JOIN is not supported in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseExpectedIdentForAt",
+      "Description": "Did not find the expected identifier for AT name in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseAsteriskIsNotAloneInSelectList",
+      "Description": "Other expressions are not allowed in the SELECT list when '*' is used without dot notation in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseCannotMixSqbAndWildcardInSelectList",
+      "Description": "Cannot mix [] and * in the same expression in a SELECT list in SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParseInvalidContextForWildcardInSelectList",
+      "Description": "Invalid use of * in SELECT list in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ValueParseFailure",
+      "Description": "Timestamp parse failure in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "IncorrectSqlFunctionArgumentType",
+      "Description": "Incorrect type of arguments in function call in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "AmbiguousFieldName",
+      "Description": "Field name matches to multiple fields in the file. Check the SQL expression and the file, and try again.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ValueParseFailure",
+      "Description": "Timestamp parse failure in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "IntegerOverflow",
+      "Description": "Integer overflow or underflow in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "LikeInvalidInputs",
+      "Description": "Invalid argument given to the LIKE clause in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidCast",
+      "Description": "Attempt to convert from one data type to another using CAST failed in the SQL expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParquetParsingError",
+      "Description": "Error parsing Parquet file. Please check the file and try again.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NumberFormatError",
+      "Description": "Error parsing a number. This can be caused by under/over flow of integers.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorLikePatternInvalidEscapeSequence",
+      "Description": "Invalid argument given to LIKE expression.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "EvaluatorNegativeLimit",
+      "Description": "LIMIT must not be negative.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "OverMaxParquetBlockSize",
+      "Description": "Parquet file is above the max row group size.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnsupportedParquetType",
+      "Description": "Unsupported Parquet type.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "ParquetUnsupportedCompressionCodec",
+      "Description": "Unsupported Parquet compression codec.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "UnsupportedScanRangeInput",
+      "Description": "Scan range queries are not supported on this type of object.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidScanRange",
+      "Description": "The provided scan range is invalid.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    }
+  ],
+  [
+    {
+      "Error Code": "InvalidArgument",
+      "Description": "This error might occur for the following reasons: The <Account> element is empty. It must contain a valid account ID. The AWS account specified in the <Account> element must match the destination bucket owner. ReplicationTime-Status must contain a value. ReplicationTime-ReplicationTimeValue must contain a value. Replication-ReplicationTimeValue-Minutes value must be 15. ReplicationMetrics must contain a Status. ReplicationMetrics must contain an EventThreshold. EventThreshold-ReplicationTimeValue-Minutes value must be 15. Rule ID must not contain non-ASCII characters.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidRequest",
+      "Description": "This error might occur for the following reasons: The <Owner> in <AccessControlTranslation> has a value, so the <Account> element must be specified. The <Account> element is empty. It must contain a valid account ID. Replication destination must contain both ReplicationTime and Metrics or neither. ReplicationTime and ReplicationMetrics should have the same status. S3 Replication Time Control (S3 RTC) is not supported in this AWS Region.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "NoSuchReplicationConfiguration",
+      "Description": "There is no replication configuration with that name.",
+      "HTTP Status Code": "400",
+      "SOAP Fault Code Prefix": "Client"
+    }
+  ],
+  [
+    {
+      "Error Code": "BadRequest",
+      "Description": "The bucket is in transitional state due to a previous deletion attempt; try again later.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidRequest",
+      "Description": "This error might occur for the following reasons: Amazon VPC configuration is required. Public Access is not allowed on S3 on Outposts access point.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Client"
+    },
+    {
+      "Error Code": "InvalidOutpostState",
+      "Description": "The request is not valid with the current state of the Outpost.",
+      "HTTP Status Code": "409 Conflict",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidRequest",
+      "Description": "Access Point is not in a state where it can be deleted.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "NoSuchOutpost",
+      "Description": "This error occurs when the Outpost specified does not exist.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "UnsupportedOperation",
+      "Description": "This The specified action was not supported.",
+      "HTTP Status Code": "404 Not Found",
+      "SOAP Fault Code Prefix": "Not supported"
+    }
+  ],
+  [
+    {
+      "Error Code": "AccessDenied",
+      "Description": "This region is not supported as home Region for S3 Storage Lens.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "AccountNotAuthorized",
+      "Description": "This account not authorized to use AWS Organizations. Use your management account or delegated administrator account.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "ActivityMetricsMustEnabled",
+      "Description": "Activity metrics must be enabled.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "AWSOrganizationsNotInUseException",
+      "Description": "This account is not part of your organization.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "DefaultConfigurationDeleteForbidden",
+      "Description": "The Default configuration cannot be deleted.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "EmptyExcludeContainer",
+      "Description": "This error occurs for the following reasons: Exclude container cannot be empty. Exclude container cannot have zero buckets. Exclude container cannot have zero regions.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "EmptyIncludeContainer",
+      "Description": "This error occurs for the following reasons: Include container cannot be empty. Include container cannot have zero buckets. Include container cannot have zero regions.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidAWSOrgArn",
+      "Description": "Malformed AWS Organizations ARN in configuration.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidBucketFilter",
+      "Description": "Organization-level configurations do not support bucket filter.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidConfigId",
+      "Description": "Invalid configuration id.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidDestination",
+      "Description": "Malformed S3 Bucket ARN.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidEncryptionMethod",
+      "Description": "Only one encryption method can be specified.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidFilterForDefaultConfiguration",
+      "Description": "The default configuration must not include any filters.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidIncludeExcludeContainers",
+      "Description": "Only one of Include or Exclude is allowed.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidKMSEncryptionKeyId",
+      "Description": "Invalid KMS Key Id ARN.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidMaximumPrefixDepth",
+      "Description": "MaxDepth should be within range [1,10].",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidMinimumStorageBytesPercentage",
+      "Description": "MinStorageBytesPercentage should be within range [1.00,100.00].",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidOrganizationARN",
+      "Description": "Invalid AWS Organizations ARN in configuration.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidOrganizationForDefaultConfiguration",
+      "Description": "The default configuration does not support organization-level metrics.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidRegionForDefaultConfiguration",
+      "Description": "Region not supported for default configuration.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidRegionName",
+      "Description": "The Region name is not valid.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "InvalidStorageLensArn",
+      "Description": "The S3 Storage Lens ARN is not required in input.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "MissingAccountLevelActivityMetrics",
+      "Description": "Activity metrics must be enabled at account level when activity metrics are enabled at bucket level.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "MissingBucketLevelActivityMetrics",
+      "Description": "Activity metrics must be enabled at bucket level when activity metrics are enabled at account level.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "MissingEncryptionMethod",
+      "Description": "The encryption method cannot be blank. One of SSE-KMS and SSE-S3 should be entered.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "MissingPrefixLevelStorageMetrics",
+      "Description": "Storage metrics at prefix level is mandatory when prefix level is enabled.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "OrganizationAccessDenied",
+      "Description": "Account not authorized to add AWS Organizations.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "OrgConfigurationNotSupported",
+      "Description": "The region does not support AWS Organizations in the configuration.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "ServiceNotEnabledForOrg",
+      "Description": "S3 Storage Lens service-linked role is not enabled for the organization.",
+      "HTTP Status Code": "403 Forbidden",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "StorageMetricsMustEnabled",
+      "Description": "Prefix-level storage metrics must be enabled.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "TooManyBuckets",
+      "Description": "The buckets container cannot have more than 50 buckets.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    },
+    {
+      "Error Code": "TooManyRegions",
+      "Description": "The Regions container cannot have more than 50 Regions.",
+      "HTTP Status Code": "400 Bad Request",
+      "SOAP Fault Code Prefix": "Not supported"
+    }
+  ]
+]

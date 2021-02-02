@@ -1,0 +1,2093 @@
+[
+  {
+    "title": "AddCustomRoutingEndpoints",
+    "req": {
+      "EndpointConfigurations": {
+        "type": "Array of CustomRoutingEndpointConfiguration objects",
+        "required": "Yes",
+        "desc": "The list of endpoint objects to add to a custom routing accelerator."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint."
+      }
+    },
+    "res": {
+      "EndpointDescriptions": {
+        "type": "Array of CustomRoutingEndpointDescription objects",
+        "desc": "The endpoint objects added to the custom routing accelerator."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "ConflictException": {
+        "statusCode": "400",
+        "desc": "You can't use both of those options."
+      },
+      "EndpointAlreadyExistsException": {
+        "statusCode": "400",
+        "desc": "The endpoint that you specified doesn't exist."
+      },
+      "EndpointGroupNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      }
+    }
+  },
+  {
+    "title": "AdvertiseByoipCidr",
+    "req": {
+      "Cidr": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range."
+      }
+    },
+    "res": {
+      "ByoipCidr": {
+        "type": "ByoipCidr object",
+        "desc": "Information about the address range."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "ByoipCidrNotFoundException": {
+        "statusCode": "400",
+        "desc": "The CIDR that you specified was not found or is incorrect."
+      },
+      "IncorrectCidrStateException": {
+        "statusCode": "400",
+        "desc": "The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "AllowCustomRoutingTraffic",
+    "req": {
+      "AllowAllTrafficToEndpoint": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint can receive traffic from a custom routing accelerator. The value is TRUE or FALSE. When set to TRUE, all destinations in the custom routing VPC subnet can receive traffic. Note that you cannot specify destination IP addresses and ports when the value is set to TRUE. When set to FALSE (or not specified), you must specify a list of destination IP addresses that are allowed to receive traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is the same as the ports configured for the endpoint group. The default value is FALSE."
+      },
+      "DestinationAddresses": {
+        "type": "Array of strings",
+        "length": "Maximum length of 45.",
+        "required": "No",
+        "desc": "A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to allow to receive traffic. The IP addresses must be a subset of the IP addresses that you specified for the endpoint group. DestinationAddresses is required if AllowAllTrafficToEndpoint is FALSE or is not specified."
+      },
+      "DestinationPorts": {
+        "type": "Array of integers",
+        "required": "No",
+        "desc": "A list of specific Amazon EC2 instance ports (destination ports) that you want to allow to receive traffic."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group."
+      },
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID."
+      }
+    },
+    "res": {},
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "CreateAccelerator",
+    "req": {
+      "Enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether an accelerator is enabled. The value is true or false. The default value is true. If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted."
+      },
+      "IdempotencyToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of an accelerator."
+      },
+      "IpAddresses": {
+        "type": "Array of strings",
+        "length": "Maximum length of 45.",
+        "required": "No",
+        "desc": "Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses from your own pool to use for the accelerator's static IP addresses when you create an accelerator. You can specify one or two addresses, separated by a comma. Do not include the /32 suffix. Only one IP address from each of your IP address ranges can be used for each accelerator. If you specify only one IP address from your IP address range, Global Accelerator assigns a second static IP address for the accelerator from the AWS IP address pool. Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new accelerator with the new addresses. For more information, see Bring Your Own IP Addresses (BYOIP) in the AWS Global Accelerator Developer Guide."
+      },
+      "IpAddressType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The value for the address type must be IPv4."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The name of an accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "Create tags for an accelerator. For more information, see Tagging in AWS Global Accelerator in the AWS Global Accelerator Developer Guide."
+      }
+    },
+    "res": {
+      "Accelerator": {
+        "type": "Accelerator object",
+        "desc": "The accelerator that is created by specifying a listener and the supported IP address types."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      }
+    }
+  },
+  {
+    "title": "CreateCustomRoutingAccelerator",
+    "req": {
+      "Enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether an accelerator is enabled. The value is true or false. The default value is true. If the value is set to true, an accelerator cannot be deleted. If set to false, the accelerator can be deleted."
+      },
+      "IdempotencyToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request."
+      },
+      "IpAddressType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The value for the address type must be IPv4."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The name of a custom routing accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "Create tags for an accelerator. For more information, see Tagging in AWS Global Accelerator in the AWS Global Accelerator Developer Guide."
+      }
+    },
+    "res": {
+      "Accelerator": {
+        "type": "CustomRoutingAccelerator object",
+        "desc": "The accelerator that is created."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      }
+    }
+  },
+  {
+    "title": "CreateCustomRoutingEndpointGroup",
+    "req": {
+      "DestinationConfigurations": {
+        "type": "Array of CustomRoutingDestinationConfiguration objects",
+        "required": "Yes",
+        "desc": "Sets the port range and protocol for all endpoints (virtual private cloud subnets) in a custom routing endpoint group to accept client traffic on."
+      },
+      "EndpointGroupRegion": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The AWS Region where the endpoint group is located. A listener can have only one endpoint group in a specific Region."
+      },
+      "IdempotencyToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request."
+      },
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener for a custom routing endpoint."
+      }
+    },
+    "res": {
+      "EndpointGroup": {
+        "type": "CustomRoutingEndpointGroup object",
+        "desc": "The information about the endpoint group created for a custom routing accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "EndpointGroupAlreadyExistsException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified already exists."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidPortRangeException": {
+        "statusCode": "400",
+        "desc": "The port numbers that you specified are not valid numbers or are not unique for this accelerator."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "CreateCustomRoutingListener",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator for a custom routing listener."
+      },
+      "IdempotencyToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request."
+      },
+      "PortRanges": {
+        "type": "Array of PortRange objects",
+        "required": "Yes",
+        "desc": "The port range to support for connections from clients to your accelerator. Separately, you set port ranges for endpoints. For more information, see About endpoints for custom routing accelerators."
+      }
+    },
+    "res": {
+      "Listener": {
+        "type": "CustomRoutingListener object",
+        "desc": "The listener that you've created for a custom routing accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidPortRangeException": {
+        "statusCode": "400",
+        "desc": "The port numbers that you specified are not valid numbers or are not unique for this accelerator."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      }
+    }
+  },
+  {
+    "title": "CreateEndpointGroup",
+    "req": {
+      "EndpointConfigurations": {
+        "type": "Array of EndpointConfiguration objects",
+        "required": "No",
+        "desc": "The list of endpoint objects."
+      },
+      "EndpointGroupRegion": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The AWS Region where the endpoint group is located. A listener can have only one endpoint group in a specific Region."
+      },
+      "HealthCheckIntervalSeconds": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30."
+      },
+      "HealthCheckPath": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "pattern": "^/[-a-zA-Z0-9@:%_\\\\+.~#?&/=]*$",
+        "required": "No",
+        "desc": "If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/)."
+      },
+      "HealthCheckPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list."
+      },
+      "HealthCheckProtocol": {
+        "type": "String",
+        "required": "No",
+        "desc": "The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP."
+      },
+      "IdempotencyToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request."
+      },
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener."
+      },
+      "PortOverrides": {
+        "type": "Array of PortOverride objects",
+        "required": "No",
+        "desc": "Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints. For more information, see Port overrides in the AWS Global Accelerator Developer Guide."
+      },
+      "ThresholdCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3."
+      },
+      "TrafficDialPercentage": {
+        "type": "Float",
+        "required": "No",
+        "desc": "The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing. The default value is 100."
+      }
+    },
+    "res": {
+      "EndpointGroup": {
+        "type": "EndpointGroup object",
+        "desc": "The information about the endpoint group that was created."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "EndpointGroupAlreadyExistsException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified already exists."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "CreateListener",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of your accelerator."
+      },
+      "ClientAffinity": {
+        "type": "String",
+        "required": "No",
+        "desc": "Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint. AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is NONE, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. If you want a given client to always be routed to the same endpoint, set client affinity to SOURCE_IP instead. When you use the SOURCE_IP setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value. The default value is NONE."
+      },
+      "IdempotencyToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the uniqueness—of the request."
+      },
+      "PortRanges": {
+        "type": "Array of PortRange objects",
+        "required": "Yes",
+        "desc": "The list of port ranges to support for connections from clients to your accelerator."
+      },
+      "Protocol": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The protocol for connections from clients to your accelerator."
+      }
+    },
+    "res": {
+      "Listener": {
+        "type": "Listener object",
+        "desc": "The listener that you've created."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidPortRangeException": {
+        "statusCode": "400",
+        "desc": "The port numbers that you specified are not valid numbers or are not unique for this accelerator."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      }
+    }
+  },
+  {
+    "title": "DeleteAccelerator",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of an accelerator."
+      }
+    },
+    "res": {},
+    "err": {
+      "AcceleratorNotDisabledException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified could not be disabled."
+      },
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "AssociatedListenerFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an accelerator before you can delete it."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DeleteCustomRoutingAccelerator",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the custom routing accelerator to delete."
+      }
+    },
+    "res": {},
+    "err": {
+      "AcceleratorNotDisabledException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified could not be disabled."
+      },
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "AssociatedListenerFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an accelerator before you can delete it."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DeleteCustomRoutingEndpointGroup",
+    "req": {
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group to delete."
+      }
+    },
+    "res": {},
+    "err": {
+      "EndpointGroupNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DeleteCustomRoutingListener",
+    "req": {
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener to delete."
+      }
+    },
+    "res": {},
+    "err": {
+      "AssociatedEndpointGroupFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified has an endpoint group associated with it. You must remove all dependent resources from a listener before you can delete it."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "DeleteEndpointGroup",
+    "req": {
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group to delete."
+      }
+    },
+    "res": {},
+    "err": {
+      "EndpointGroupNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DeleteListener",
+    "req": {
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener."
+      }
+    },
+    "res": {},
+    "err": {
+      "AssociatedEndpointGroupFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified has an endpoint group associated with it. You must remove all dependent resources from a listener before you can delete it."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "DenyCustomRoutingTraffic",
+    "req": {
+      "DenyAllTrafficToEndpoint": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether all destination IP addresses and ports for a specified VPC subnet endpoint cannot receive traffic from a custom routing accelerator. The value is TRUE or FALSE. When set to TRUE, no destinations in the custom routing VPC subnet can receive traffic. Note that you cannot specify destination IP addresses and ports when the value is set to TRUE. When set to FALSE (or not specified), you must specify a list of destination IP addresses that cannot receive traffic. A list of ports is optional. If you don't specify a list of ports, the ports that can accept traffic is the same as the ports configured for the endpoint group. The default value is FALSE."
+      },
+      "DestinationAddresses": {
+        "type": "Array of strings",
+        "length": "Maximum length of 45.",
+        "required": "No",
+        "desc": "A list of specific Amazon EC2 instance IP addresses (destination addresses) in a subnet that you want to prevent from receiving traffic. The IP addresses must be a subset of the IP addresses allowed for the VPC subnet associated with the endpoint group."
+      },
+      "DestinationPorts": {
+        "type": "Array of integers",
+        "required": "No",
+        "desc": "A list of specific Amazon EC2 instance ports (destination ports) in a subnet endpoint that you want to prevent from receiving traffic."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group."
+      },
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID."
+      }
+    },
+    "res": {},
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DeprovisionByoipCidr",
+    "req": {
+      "Cidr": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range."
+      }
+    },
+    "res": {
+      "ByoipCidr": {
+        "type": "ByoipCidr object",
+        "desc": "Information about the address range."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "ByoipCidrNotFoundException": {
+        "statusCode": "400",
+        "desc": "The CIDR that you specified was not found or is incorrect."
+      },
+      "IncorrectCidrStateException": {
+        "statusCode": "400",
+        "desc": "The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DescribeAccelerator",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator to describe."
+      }
+    },
+    "res": {
+      "Accelerator": {
+        "type": "Accelerator object",
+        "desc": "The description of the accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DescribeAcceleratorAttributes",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator with the attributes that you want to describe."
+      }
+    },
+    "res": {
+      "AcceleratorAttributes": {
+        "type": "AcceleratorAttributes object",
+        "desc": "The attributes of the accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DescribeCustomRoutingAccelerator",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator to describe."
+      }
+    },
+    "res": {
+      "Accelerator": {
+        "type": "CustomRoutingAccelerator object",
+        "desc": "The description of the custom routing accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DescribeCustomRoutingAcceleratorAttributes",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the custom routing accelerator to describe the attributes for."
+      }
+    },
+    "res": {
+      "AcceleratorAttributes": {
+        "type": "CustomRoutingAcceleratorAttributes object",
+        "desc": "The attributes of the custom routing accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DescribeCustomRoutingEndpointGroup",
+    "req": {
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group to describe."
+      }
+    },
+    "res": {
+      "EndpointGroup": {
+        "type": "CustomRoutingEndpointGroup object",
+        "desc": "The description of an endpoint group for a custom routing accelerator."
+      }
+    },
+    "err": {
+      "EndpointGroupNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DescribeCustomRoutingListener",
+    "req": {
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener to describe."
+      }
+    },
+    "res": {
+      "Listener": {
+        "type": "CustomRoutingListener object",
+        "desc": "The description of a listener for a custom routing accelerator."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "DescribeEndpointGroup",
+    "req": {
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group to describe."
+      }
+    },
+    "res": {
+      "EndpointGroup": {
+        "type": "EndpointGroup object",
+        "desc": "The description of an endpoint group."
+      }
+    },
+    "err": {
+      "EndpointGroupNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "DescribeListener",
+    "req": {
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener to describe."
+      }
+    },
+    "res": {
+      "Listener": {
+        "type": "Listener object",
+        "desc": "The description of a listener."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "ListAccelerators",
+    "req": {
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of Global Accelerator objects that you want to return with this call. The default value is 10."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "res": {
+      "Accelerators": {
+        "type": "Array of Accelerator objects",
+        "desc": "The list of accelerators for a customer account."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      }
+    }
+  },
+  {
+    "title": "ListByoipCidrs",
+    "req": {
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next page of results."
+      }
+    },
+    "res": {
+      "ByoipCidrs": {
+        "type": "Array of ByoipCidr objects",
+        "desc": "Information about your address ranges."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next page of results."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      }
+    }
+  },
+  {
+    "title": "ListCustomRoutingAccelerators",
+    "req": {
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of custom routing Global Accelerator objects that you want to return with this call. The default value is 10."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "res": {
+      "Accelerators": {
+        "type": "Array of CustomRoutingAccelerator objects",
+        "desc": "The list of custom routing accelerators for a customer account."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      }
+    }
+  },
+  {
+    "title": "ListCustomRoutingEndpointGroups",
+    "req": {
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener to list endpoint groups for."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of endpoint group objects that you want to return with this call. The default value is 10."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "res": {
+      "EndpointGroups": {
+        "type": "Array of CustomRoutingEndpointGroup objects",
+        "desc": "The list of the endpoint groups associated with a listener for a custom routing accelerator."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "ListCustomRoutingListeners",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator to list listeners for."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of listener objects that you want to return with this call. The default value is 10."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "res": {
+      "Listeners": {
+        "type": "Array of CustomRoutingListener objects",
+        "desc": "The list of listeners for a custom routing accelerator."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      }
+    }
+  },
+  {
+    "title": "ListCustomRoutingPortMappings",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator to list the custom routing port mappings for."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group to list the custom routing port mappings for."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of destination port mappings that you want to return with this call. The default value is 10."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "res": {
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      },
+      "PortMappings": {
+        "type": "Array of PortMapping objects",
+        "desc": "The port mappings for a custom routing accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "EndpointGroupNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      }
+    }
+  },
+  {
+    "title": "ListCustomRoutingPortMappingsByDestination",
+    "req": {
+      "DestinationAddress": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The endpoint IP address in a virtual private cloud (VPC) subnet for which you want to receive back port mappings."
+      },
+      "EndpointId": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The ID for the virtual private cloud (VPC) subnet."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of destination port mappings that you want to return with this call. The default value is 10."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "res": {
+      "DestinationPortMappings": {
+        "type": "Array of DestinationPortMapping objects",
+        "desc": "The port mappings for the endpoint IP address that you specified in the request."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "err": {
+      "EndpointNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      }
+    }
+  },
+  {
+    "title": "ListEndpointGroups",
+    "req": {
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of endpoint group objects that you want to return with this call. The default value is 10."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "res": {
+      "EndpointGroups": {
+        "type": "Array of EndpointGroup objects",
+        "desc": "The list of the endpoint groups associated with a listener."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "ListListeners",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator for which you want to list listener objects."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of listener objects that you want to return with this call. The default value is 10."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "res": {
+      "Listeners": {
+        "type": "Array of Listener objects",
+        "desc": "The list of listeners for an accelerator."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "desc": "The token for the next set of results. You receive this token from a previous call."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidNextTokenException": {
+        "statusCode": "400",
+        "desc": "There isn't another item to return."
+      }
+    }
+  },
+  {
+    "title": "ListTagsForResource",
+    "req": {
+      "ResourceArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1011.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator to list tags for. An ARN uniquely identifies an accelerator."
+      }
+    },
+    "res": {
+      "Tags": {
+        "type": "Array of Tag objects",
+        "desc": "Root level tag for the Tags parameters."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "ProvisionByoipCidr",
+    "req": {
+      "Cidr": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The public IPv4 address range, in CIDR notation. The most specific IP prefix that you can specify is /24. The address range cannot overlap with another address range that you've brought to this or another Region."
+      },
+      "CidrAuthorizationContext": {
+        "type": "CidrAuthorizationContext object",
+        "required": "Yes",
+        "desc": "A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP."
+      }
+    },
+    "res": {
+      "ByoipCidr": {
+        "type": "ByoipCidr object",
+        "desc": "Information about the address range."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "IncorrectCidrStateException": {
+        "statusCode": "400",
+        "desc": "The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      }
+    }
+  },
+  {
+    "title": "RemoveCustomRoutingEndpoints",
+    "req": {
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group to remove endpoints from."
+      },
+      "EndpointIds": {
+        "type": "Array of strings",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The IDs for the endpoints. For custom routing accelerators, endpoint IDs are the virtual private cloud (VPC) subnet IDs."
+      }
+    },
+    "res": {},
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "ConflictException": {
+        "statusCode": "400",
+        "desc": "You can't use both of those options."
+      },
+      "EndpointGroupNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified doesn't exist."
+      },
+      "EndpointNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "TagResource",
+    "req": {
+      "ResourceArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1011.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "Yes",
+        "desc": "The tags to add to a resource. A tag consists of a key and a value that you define."
+      }
+    },
+    "res": {},
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "UntagResource",
+    "req": {
+      "ResourceArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1011.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the Global Accelerator resource to remove tags from. An ARN uniquely identifies a resource."
+      },
+      "TagKeys": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "required": "Yes",
+        "desc": "The tag key pairs that you want to remove from the specified resources."
+      }
+    },
+    "res": {},
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "UpdateAccelerator",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator to update."
+      },
+      "Enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether an accelerator is enabled. The value is true or false. The default value is true. If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted."
+      },
+      "IpAddressType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The IP address type, which must be IPv4."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+      }
+    },
+    "res": {
+      "Accelerator": {
+        "type": "Accelerator object",
+        "desc": "Information about the updated accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "UpdateAcceleratorAttributes",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator that you want to update."
+      },
+      "FlowLogsEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Update whether flow logs are enabled. The default value is false. If the value is true, FlowLogsS3Bucket and FlowLogsS3Prefix must be specified. For more information, see Flow Logs in the AWS Global Accelerator Developer Guide."
+      },
+      "FlowLogsS3Bucket": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket."
+      },
+      "FlowLogsS3Prefix": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true. If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following: s3-bucket_name//AWSLogs/aws_account_id"
+      }
+    },
+    "res": {
+      "AcceleratorAttributes": {
+        "type": "AcceleratorAttributes object",
+        "desc": "Updated attributes for the accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "UpdateCustomRoutingAccelerator",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the accelerator to update."
+      },
+      "Enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether an accelerator is enabled. The value is true or false. The default value is true. If the value is set to true, the accelerator cannot be deleted. If set to false, the accelerator can be deleted."
+      },
+      "IpAddressType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The value for the address type must be IPv4."
+      },
+      "Name": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen."
+      }
+    },
+    "res": {
+      "Accelerator": {
+        "type": "CustomRoutingAccelerator object",
+        "desc": "Information about the updated custom routing accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "UpdateCustomRoutingAcceleratorAttributes",
+    "req": {
+      "AcceleratorArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the custom routing accelerator to update attributes for."
+      },
+      "FlowLogsEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Update whether flow logs are enabled. The default value is false. If the value is true, FlowLogsS3Bucket and FlowLogsS3Prefix must be specified. For more information, see Flow Logs in the AWS Global Accelerator Developer Guide."
+      },
+      "FlowLogsS3Bucket": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the bucket."
+      },
+      "FlowLogsS3Prefix": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "No",
+        "desc": "Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if FlowLogsEnabled is true. If you don’t specify a prefix, the flow logs are stored in the root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following: DOC-EXAMPLE-BUCKET//AWSLogs/aws_account_id"
+      }
+    },
+    "res": {
+      "AcceleratorAttributes": {
+        "type": "CustomRoutingAcceleratorAttributes object",
+        "desc": "Updated custom routing accelerator."
+      }
+    },
+    "err": {
+      "AcceleratorNotFoundException": {
+        "statusCode": "400",
+        "desc": "The accelerator that you specified doesn't exist."
+      },
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  },
+  {
+    "title": "UpdateCustomRoutingListener",
+    "req": {
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener to update."
+      },
+      "PortRanges": {
+        "type": "Array of PortRange objects",
+        "required": "Yes",
+        "desc": "The updated port range to support for connections from clients to your accelerator. If you remove ports that are currently being used by a subnet endpoint, the call fails. Separately, you set port ranges for endpoints. For more information, see About endpoints for custom routing accelerators."
+      }
+    },
+    "res": {
+      "Listener": {
+        "type": "CustomRoutingListener object",
+        "desc": "Information for the updated listener for a custom routing accelerator."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidPortRangeException": {
+        "statusCode": "400",
+        "desc": "The port numbers that you specified are not valid numbers or are not unique for this accelerator."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "UpdateEndpointGroup",
+    "req": {
+      "EndpointConfigurations": {
+        "type": "Array of EndpointConfiguration objects",
+        "required": "No",
+        "desc": "The list of endpoint objects. A resource must be valid and active when you add it as an endpoint."
+      },
+      "EndpointGroupArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the endpoint group."
+      },
+      "HealthCheckIntervalSeconds": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30."
+      },
+      "HealthCheckPath": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "pattern": "^/[-a-zA-Z0-9@:%_\\\\+.~#?&/=]*$",
+        "required": "No",
+        "desc": "If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (/)."
+      },
+      "HealthCheckPort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses the first port in the list."
+      },
+      "HealthCheckProtocol": {
+        "type": "String",
+        "required": "No",
+        "desc": "The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP."
+      },
+      "PortOverrides": {
+        "type": "Array of PortOverride objects",
+        "required": "No",
+        "desc": "Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints. For more information, see Port overrides in the AWS Global Accelerator Developer Guide."
+      },
+      "ThresholdCount": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3."
+      },
+      "TrafficDialPercentage": {
+        "type": "Float",
+        "required": "No",
+        "desc": "The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is applied to the traffic that would otherwise have been routed to the Region based on optimal routing. The default value is 100."
+      }
+    },
+    "res": {
+      "EndpointGroup": {
+        "type": "EndpointGroup object",
+        "desc": "The information about the endpoint group that was updated."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "EndpointGroupNotFoundException": {
+        "statusCode": "400",
+        "desc": "The endpoint group that you specified doesn't exist."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      }
+    }
+  },
+  {
+    "title": "UpdateListener",
+    "req": {
+      "ClientAffinity": {
+        "type": "String",
+        "required": "No",
+        "desc": "Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request. Client affinity gives you control over whether to always route each client to the same specific endpoint. AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client affinity is NONE, Global Accelerator uses the \"five-tuple\" (5-tuple) properties—source IP address, source port, destination IP address, destination port, and protocol—to select the hash value, and then chooses the best endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not be always routed to the same endpoint because the hash value changes. If you want a given client to always be routed to the same endpoint, set client affinity to SOURCE_IP instead. When you use the SOURCE_IP setting, Global Accelerator uses the \"two-tuple\" (2-tuple) properties— source (client) IP address and destination IP address—to select the hash value. The default value is NONE."
+      },
+      "ListenerArn": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the listener to update."
+      },
+      "PortRanges": {
+        "type": "Array of PortRange objects",
+        "required": "No",
+        "desc": "The updated list of port ranges for the connections from clients to the accelerator."
+      },
+      "Protocol": {
+        "type": "String",
+        "required": "No",
+        "desc": "The updated protocol for the connections from clients to the accelerator."
+      }
+    },
+    "res": {
+      "Listener": {
+        "type": "Listener object",
+        "desc": "Information for the updated listener."
+      }
+    },
+    "err": {
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      },
+      "InvalidPortRangeException": {
+        "statusCode": "400",
+        "desc": "The port numbers that you specified are not valid numbers or are not unique for this accelerator."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "Processing your request would cause you to exceed an AWS Global Accelerator limit."
+      },
+      "ListenerNotFoundException": {
+        "statusCode": "400",
+        "desc": "The listener that you specified doesn't exist."
+      }
+    }
+  },
+  {
+    "title": "WithdrawByoipCidr",
+    "req": {
+      "Cidr": {
+        "type": "String",
+        "length": "Maximum length of 255.",
+        "required": "Yes",
+        "desc": "The address range, in CIDR notation."
+      }
+    },
+    "res": {
+      "ByoipCidr": {
+        "type": "ByoipCidr object",
+        "desc": "Information about the address pool."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You don't have access permission."
+      },
+      "ByoipCidrNotFoundException": {
+        "statusCode": "400",
+        "desc": "The CIDR that you specified was not found or is incorrect."
+      },
+      "IncorrectCidrStateException": {
+        "statusCode": "400",
+        "desc": "The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be incorrect for this action."
+      },
+      "InternalServiceErrorException": {
+        "statusCode": "400",
+        "desc": "There was an internal error for AWS Global Accelerator."
+      },
+      "InvalidArgumentException": {
+        "statusCode": "400",
+        "desc": "An argument that you specified is invalid."
+      }
+    }
+  }
+]

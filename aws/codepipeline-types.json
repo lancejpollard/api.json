@@ -1,0 +1,1512 @@
+[
+  {
+    "title": "ActionConfiguration",
+    "attrs": {
+      "configuration": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The configuration data for the action."
+      }
+    }
+  },
+  {
+    "title": "ActionConfigurationProperty",
+    "attrs": {
+      "description": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 160.",
+        "required": "No",
+        "desc": "The description of the action configuration property that is displayed to users."
+      },
+      "key": {
+        "type": "Boolean",
+        "required": "Yes",
+        "desc": "Whether the configuration property is a key."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 50.",
+        "required": "Yes",
+        "desc": "The name of the action configuration property."
+      },
+      "queryable": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret. If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens."
+      },
+      "required": {
+        "type": "Boolean",
+        "required": "Yes",
+        "desc": "Whether the configuration property is a required value."
+      },
+      "secret": {
+        "type": "Boolean",
+        "required": "Yes",
+        "desc": "Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs. When updating a pipeline, passing * * * * * without changing any other values of the action preserves the previous value of the secret."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of the configuration property."
+      }
+    }
+  },
+  {
+    "title": "ActionContext",
+    "attrs": {
+      "actionExecutionId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The system-generated unique ID that corresponds to an action's execution."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the action in the context of a job."
+      }
+    }
+  },
+  {
+    "title": "ActionDeclaration",
+    "attrs": {
+      "actionTypeId": {
+        "type": "ActionTypeId object",
+        "required": "Yes",
+        "desc": "Specifies the action type and the provider of the action."
+      },
+      "configuration": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The action's configuration. These are key-value pairs that specify input values for an action. For more information, see Action Structure Requirements in CodePipeline. For the list of configuration properties for the AWS CloudFormation action type in CodePipeline, see Configuration Properties Reference in the AWS CloudFormation User Guide. For template snippets with examples, see Using Parameter Override Functions with CodePipeline Pipelines in the AWS CloudFormation User Guide. The values can be represented in either JSON or YAML format. For example, the JSON configuration item format is as follows: JSON: \"Configuration\" : { Key : Value },"
+      },
+      "inputArtifacts": {
+        "type": "Array of InputArtifact objects",
+        "required": "No",
+        "desc": "The name or ID of the artifact consumed by the action, such as a test or build artifact."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "Yes",
+        "desc": "The action declaration's name."
+      },
+      "namespace": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9@\\-_]+",
+        "required": "No",
+        "desc": "The variable namespace associated with the action. All variables produced as output by this action fall under this namespace."
+      },
+      "outputArtifacts": {
+        "type": "Array of OutputArtifact objects",
+        "required": "No",
+        "desc": "The name or ID of the result of the action declaration, such as a test or build artifact."
+      },
+      "region": {
+        "type": "String",
+        "length": "Minimum length of 4. Maximum length of 30.",
+        "required": "No",
+        "desc": "The action declaration's AWS Region, such as us-east-1."
+      },
+      "roleArn": {
+        "type": "String",
+        "length": "Maximum length of 1024.",
+        "pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
+        "required": "No",
+        "desc": "The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline."
+      },
+      "runOrder": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The order in which actions are run."
+      }
+    }
+  },
+  {
+    "title": "ActionExecution",
+    "attrs": {
+      "actionExecutionId": {
+        "type": "String",
+        "required": "No",
+        "desc": "ID of the workflow action execution in the current stage. Use the GetPipelineState action to retrieve the current action execution details of the current stage."
+      },
+      "errorDetails": {
+        "type": "ErrorDetails object",
+        "required": "No",
+        "desc": "The details of an error returned by a URL external to AWS."
+      },
+      "externalExecutionId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1500.",
+        "required": "No",
+        "desc": "The external ID of the run of the action."
+      },
+      "externalExecutionUrl": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The URL of a resource external to AWS that is used when running the action (for example, an external repository URL)."
+      },
+      "lastStatusChange": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The last status change of the action."
+      },
+      "lastUpdatedBy": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ARN of the user who last changed the pipeline."
+      },
+      "percentComplete": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "A percentage of completeness of the action as it runs."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the action, or for a completed action, the last status of the action."
+      },
+      "summary": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "A summary of the run of the action."
+      },
+      "token": {
+        "type": "String",
+        "required": "No",
+        "desc": "The system-generated token used to identify a unique approval request. The token for each open approval request can be obtained using the GetPipelineState command. It is used to validate that the approval request corresponding to this token is still valid."
+      }
+    }
+  },
+  {
+    "title": "ActionExecutionDetail",
+    "attrs": {
+      "actionExecutionId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The action execution ID."
+      },
+      "actionName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the action."
+      },
+      "input": {
+        "type": "ActionExecutionInput object",
+        "required": "No",
+        "desc": "Input details for the action execution, such as role ARN, Region, and input artifacts."
+      },
+      "lastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The last update time of the action execution."
+      },
+      "output": {
+        "type": "ActionExecutionOutput object",
+        "required": "No",
+        "desc": "Output details for the action execution, such as the action execution result."
+      },
+      "pipelineExecutionId": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The pipeline execution ID for the action execution."
+      },
+      "pipelineVersion": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The version of the pipeline where the action was run."
+      },
+      "stageName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the stage that contains the action."
+      },
+      "startTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The start time of the action execution."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the action execution. Status categories are InProgress, Succeeded, and Failed."
+      }
+    }
+  },
+  {
+    "title": "ActionExecutionFilter",
+    "attrs": {
+      "pipelineExecutionId": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The pipeline execution ID used to filter action execution history."
+      }
+    }
+  },
+  {
+    "title": "ActionExecutionInput",
+    "attrs": {
+      "actionTypeId": {
+        "type": "ActionTypeId object",
+        "required": "No",
+        "desc": "Represents information about an action type."
+      },
+      "configuration": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Configuration data for an action execution."
+      },
+      "inputArtifacts": {
+        "type": "Array of ArtifactDetail objects",
+        "required": "No",
+        "desc": "Details of input artifacts of the action that correspond to the action execution."
+      },
+      "namespace": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9@\\-_]+",
+        "required": "No",
+        "desc": "The variable namespace associated with the action. All variables produced as output by this action fall under this namespace."
+      },
+      "region": {
+        "type": "String",
+        "length": "Minimum length of 4. Maximum length of 30.",
+        "required": "No",
+        "desc": "The AWS Region for the action, such as us-east-1."
+      },
+      "resolvedConfiguration": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Configuration data for an action execution with all variable references replaced with their real values for the execution."
+      },
+      "roleArn": {
+        "type": "String",
+        "length": "Maximum length of 1024.",
+        "pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
+        "required": "No",
+        "desc": "The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline."
+      }
+    }
+  },
+  {
+    "title": "ActionExecutionOutput",
+    "attrs": {
+      "executionResult": {
+        "type": "ActionExecutionResult object",
+        "required": "No",
+        "desc": "Execution result information listed in the output details for an action execution."
+      },
+      "outputArtifacts": {
+        "type": "Array of ArtifactDetail objects",
+        "required": "No",
+        "desc": "Details of output artifacts of the action that correspond to the action execution."
+      },
+      "outputVariables": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "The outputVariables field shows the key-value pairs that were output as part of that execution."
+      }
+    }
+  },
+  {
+    "title": "ActionExecutionResult",
+    "attrs": {
+      "externalExecutionId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The action provider's external ID for the action execution."
+      },
+      "externalExecutionSummary": {
+        "type": "String",
+        "required": "No",
+        "desc": "The action provider's summary for the action execution."
+      },
+      "externalExecutionUrl": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The deepest external link to the external resource (for example, a repository URL or deployment endpoint) that is used when running the action."
+      }
+    }
+  },
+  {
+    "title": "ActionRevision",
+    "attrs": {
+      "created": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The date and time when the most recent version of the action was created, in timestamp format."
+      },
+      "revisionChangeId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "Yes",
+        "desc": "The unique identifier of the change that set the state to this revision (for example, a deployment ID or timestamp)."
+      },
+      "revisionId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1500.",
+        "required": "Yes",
+        "desc": "The system-generated unique ID that identifies the revision number of the action."
+      }
+    }
+  },
+  {
+    "title": "ActionState",
+    "attrs": {
+      "actionName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the action."
+      },
+      "currentRevision": {
+        "type": "ActionRevision object",
+        "required": "No",
+        "desc": "Represents information about the version (or revision) of an action."
+      },
+      "entityUrl": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "A URL link for more information about the state of the action, such as a deployment group details page."
+      },
+      "latestExecution": {
+        "type": "ActionExecution object",
+        "required": "No",
+        "desc": "Represents information about the run of an action."
+      },
+      "revisionUrl": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "A URL link for more information about the revision, such as a commit details page."
+      }
+    }
+  },
+  {
+    "title": "ActionType",
+    "attrs": {
+      "actionConfigurationProperties": {
+        "type": "Array of ActionConfigurationProperty objects",
+        "required": "No",
+        "desc": "The configuration properties for the action type."
+      },
+      "id": {
+        "type": "ActionTypeId object",
+        "required": "Yes",
+        "desc": "Represents information about an action type."
+      },
+      "inputArtifactDetails": {
+        "type": "ArtifactDetails object",
+        "required": "Yes",
+        "desc": "The details of the input artifact for the action, such as its commit ID."
+      },
+      "outputArtifactDetails": {
+        "type": "ArtifactDetails object",
+        "required": "Yes",
+        "desc": "The details of the output artifact of the action, such as its commit ID."
+      },
+      "settings": {
+        "type": "ActionTypeSettings object",
+        "required": "No",
+        "desc": "The settings for the action type."
+      }
+    }
+  },
+  {
+    "title": "ActionTypeId",
+    "attrs": {
+      "category": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the following values."
+      },
+      "owner": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The creator of the action being called. There are three valid values for the Owner field in the action category section within your pipeline structure: AWS, ThirdParty, and Custom. For more information, see Valid Action Types and Providers in CodePipeline."
+      },
+      "provider": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 25.",
+        "pattern": "[0-9A-Za-z_-]+",
+        "required": "Yes",
+        "desc": "The provider of the service being called by the action. Valid providers are determined by the action category. For example, an action in the Deploy category type might have a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For more information, see Valid Action Types and Providers in CodePipeline."
+      },
+      "version": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 9.",
+        "pattern": "[0-9A-Za-z_-]+",
+        "required": "Yes",
+        "desc": "A string that describes the action version."
+      }
+    }
+  },
+  {
+    "title": "ActionTypeSettings",
+    "attrs": {
+      "entityUrlTemplate": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline."
+      },
+      "executionUrlTemplate": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action."
+      },
+      "revisionUrlTemplate": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action."
+      },
+      "thirdPartyConfigurationUrl": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service."
+      }
+    }
+  },
+  {
+    "title": "ApprovalResult",
+    "attrs": {
+      "status": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The response submitted by a reviewer assigned to an approval action request."
+      },
+      "summary": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 512.",
+        "required": "Yes",
+        "desc": "The summary of the current status of the approval request."
+      }
+    }
+  },
+  {
+    "title": "Artifact",
+    "attrs": {
+      "location": {
+        "type": "ArtifactLocation object",
+        "required": "No",
+        "desc": "The location of an artifact."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[a-zA-Z0-9_\\-]+",
+        "required": "No",
+        "desc": "The artifact's name."
+      },
+      "revision": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1500.",
+        "required": "No",
+        "desc": "The artifact's revision ID. Depending on the type of object, this could be a commit ID (GitHub) or a revision ID (Amazon S3)."
+      }
+    }
+  },
+  {
+    "title": "ArtifactDetail",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[a-zA-Z0-9_\\-]+",
+        "required": "No",
+        "desc": "The artifact object name for the action execution."
+      },
+      "s3location": {
+        "type": "S3Location object",
+        "required": "No",
+        "desc": "The Amazon S3 artifact location for the action execution."
+      }
+    }
+  },
+  {
+    "title": "ArtifactDetails",
+    "attrs": {
+      "maximumCount": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The maximum number of artifacts allowed for the action type."
+      },
+      "minimumCount": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The minimum number of artifacts allowed for the action type."
+      }
+    }
+  },
+  {
+    "title": "ArtifactLocation",
+    "attrs": {
+      "s3Location": {
+        "type": "S3ArtifactLocation object",
+        "required": "No",
+        "desc": "The S3 bucket that contains the artifact."
+      },
+      "type": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of artifact in the location."
+      }
+    }
+  },
+  {
+    "title": "ArtifactRevision",
+    "attrs": {
+      "created": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the most recent revision of the artifact was created, in timestamp format."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[a-zA-Z0-9_\\-]+",
+        "required": "No",
+        "desc": "The name of an artifact. This name might be system-generated, such as \"MyApp\", or defined by the user when an action is created."
+      },
+      "revisionChangeIdentifier": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "An additional identifier for a revision, such as a commit date or, for artifacts stored in Amazon S3 buckets, the ETag value."
+      },
+      "revisionId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1500.",
+        "required": "No",
+        "desc": "The revision ID of the artifact."
+      },
+      "revisionSummary": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a codepipeline-artifact-revision-summary key specified in the object metadata."
+      },
+      "revisionUrl": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page."
+      }
+    }
+  },
+  {
+    "title": "ArtifactStore",
+    "attrs": {
+      "encryptionKey": {
+        "type": "EncryptionKey object",
+        "required": "No",
+        "desc": "The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used."
+      },
+      "location": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 63.",
+        "pattern": "[a-zA-Z0-9\\-\\.]+",
+        "required": "Yes",
+        "desc": "The S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts."
+      },
+      "type": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of the artifact store, such as S3."
+      }
+    }
+  },
+  {
+    "title": "AWSSessionCredentials",
+    "attrs": {
+      "accessKeyId": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The access key for the session."
+      },
+      "secretAccessKey": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The secret access key for the session."
+      },
+      "sessionToken": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The token for the session."
+      }
+    }
+  },
+  {
+    "title": "BlockerDeclaration",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "Yes",
+        "desc": "Reserved for future use."
+      },
+      "type": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Reserved for future use."
+      }
+    }
+  },
+  {
+    "title": "CurrentRevision",
+    "attrs": {
+      "changeIdentifier": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "Yes",
+        "desc": "The change identifier for the current revision."
+      },
+      "created": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the most recent revision of the artifact was created, in timestamp format."
+      },
+      "revision": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1500.",
+        "required": "Yes",
+        "desc": "The revision ID of the current version of an artifact."
+      },
+      "revisionSummary": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The summary of the most recent revision of the artifact."
+      }
+    }
+  },
+  {
+    "title": "EncryptionKey",
+    "attrs": {
+      "id": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 400.",
+        "required": "Yes",
+        "desc": "The ID used to identify the key. For an AWS KMS key, you can use the key ID, the key ARN, or the alias ARN."
+      },
+      "type": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of encryption key, such as an AWS Key Management Service (AWS KMS) key. When creating or updating a pipeline, the value must be set to 'KMS'."
+      }
+    }
+  },
+  {
+    "title": "ErrorDetails",
+    "attrs": {
+      "code": {
+        "type": "String",
+        "required": "No",
+        "desc": "The system ID or number code of the error."
+      },
+      "message": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 5000.",
+        "required": "No",
+        "desc": "The text of the error message."
+      }
+    }
+  },
+  {
+    "title": "ExecutionDetails",
+    "attrs": {
+      "externalExecutionId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1500.",
+        "required": "No",
+        "desc": "The system-generated unique ID of this action used to identify this job worker in any external systems, such as AWS CodeDeploy."
+      },
+      "percentComplete": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The percentage of work completed on the action, represented on a scale of 0 to 100 percent."
+      },
+      "summary": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The summary of the current status of the actions."
+      }
+    }
+  },
+  {
+    "title": "ExecutionTrigger",
+    "attrs": {
+      "triggerDetail": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Detail related to the event that started a pipeline execution, such as the webhook ARN of the webhook that triggered the pipeline execution or the user ARN for a user-initiated start-pipeline-execution CLI command."
+      },
+      "triggerType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of change-detection method, command, or user interaction that started a pipeline execution."
+      }
+    }
+  },
+  {
+    "title": "FailureDetails",
+    "attrs": {
+      "externalExecutionId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1500.",
+        "required": "No",
+        "desc": "The external ID of the run of the action that failed."
+      },
+      "message": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 5000.",
+        "required": "Yes",
+        "desc": "The message about the failure."
+      },
+      "type": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of the failure."
+      }
+    }
+  },
+  {
+    "title": "InputArtifact",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[a-zA-Z0-9_\\-]+",
+        "required": "Yes",
+        "desc": "The name of the artifact to be worked on (for example, \"My App\"). The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions."
+      }
+    }
+  },
+  {
+    "title": "Job",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "pattern": "[0-9]{12}",
+        "required": "No",
+        "desc": "The ID of the AWS account to use when performing the job."
+      },
+      "data": {
+        "type": "JobData object",
+        "required": "No",
+        "desc": "Other data about a job."
+      },
+      "id": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The unique system-generated ID of the job."
+      },
+      "nonce": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 50.",
+        "required": "No",
+        "desc": "A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an AcknowledgeJob request."
+      }
+    }
+  },
+  {
+    "title": "JobData",
+    "attrs": {
+      "actionConfiguration": {
+        "type": "ActionConfiguration object",
+        "required": "No",
+        "desc": "Represents information about an action configuration."
+      },
+      "actionTypeId": {
+        "type": "ActionTypeId object",
+        "required": "No",
+        "desc": "Represents information about an action type."
+      },
+      "artifactCredentials": {
+        "type": "AWSSessionCredentials object",
+        "required": "No",
+        "desc": "Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the S3 bucket used to store artifacts for the pipeline in AWS CodePipeline."
+      },
+      "continuationToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "A system-generated token, such as a AWS CodeDeploy deployment ID, required by a job to continue the job asynchronously."
+      },
+      "encryptionKey": {
+        "type": "EncryptionKey object",
+        "required": "No",
+        "desc": "Represents information about the key used to encrypt data in the artifact store, such as an AWS Key Management Service (AWS KMS) key."
+      },
+      "inputArtifacts": {
+        "type": "Array of Artifact objects",
+        "required": "No",
+        "desc": "The artifact supplied to the job."
+      },
+      "outputArtifacts": {
+        "type": "Array of Artifact objects",
+        "required": "No",
+        "desc": "The output of the job."
+      },
+      "pipelineContext": {
+        "type": "PipelineContext object",
+        "required": "No",
+        "desc": "Represents information about a pipeline to a job worker."
+      }
+    }
+  },
+  {
+    "title": "JobDetails",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "pattern": "[0-9]{12}",
+        "required": "No",
+        "desc": "The AWS account ID associated with the job."
+      },
+      "data": {
+        "type": "JobData object",
+        "required": "No",
+        "desc": "Represents other information about a job required for a job worker to complete the job."
+      },
+      "id": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The unique system-generated ID of the job."
+      }
+    }
+  },
+  {
+    "title": "ListWebhookItem",
+    "attrs": {
+      "arn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the webhook."
+      },
+      "definition": {
+        "type": "WebhookDefinition object",
+        "required": "Yes",
+        "desc": "The detail returned for each webhook, such as the webhook authentication type and filter rules."
+      },
+      "errorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The number code of the error."
+      },
+      "errorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The text of the error message about the webhook."
+      },
+      "lastTriggered": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time a webhook was last successfully triggered, in timestamp format."
+      },
+      "tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "Specifies the tags applied to the webhook."
+      },
+      "url": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1000.",
+        "required": "Yes",
+        "desc": "A unique URL generated by CodePipeline. When a POST request is made to this URL, the defined pipeline is started as long as the body of the post request satisfies the defined authentication and filtering conditions. Deleting and re-creating a webhook makes the old URL invalid and generates a new one."
+      }
+    }
+  },
+  {
+    "title": "OutputArtifact",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[a-zA-Z0-9_\\-]+",
+        "required": "Yes",
+        "desc": "The name of the output of an artifact, such as \"My App\". The input artifact of an action must exactly match the output artifact declared in a preceding action, but the input artifact does not have to be the next action in strict sequence from the action that provided the output artifact. Actions in parallel can declare different output artifacts, which are in turn consumed by different following actions. Output artifact names must be unique within a pipeline."
+      }
+    }
+  },
+  {
+    "title": "PipelineContext",
+    "attrs": {
+      "action": {
+        "type": "ActionContext object",
+        "required": "No",
+        "desc": "The context of an action to a job worker in the stage of a pipeline."
+      },
+      "pipelineArn": {
+        "type": "String",
+        "pattern": "arn:aws(-[\\w]+)*:codepipeline:.+:[0-9]{12}:.+",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the pipeline."
+      },
+      "pipelineExecutionId": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The execution ID of the pipeline."
+      },
+      "pipelineName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account."
+      },
+      "stage": {
+        "type": "StageContext object",
+        "required": "No",
+        "desc": "The stage of the pipeline."
+      }
+    }
+  },
+  {
+    "title": "PipelineDeclaration",
+    "attrs": {
+      "artifactStore": {
+        "type": "ArtifactStore object",
+        "required": "No",
+        "desc": "Represents information about the S3 bucket where artifacts are stored for the pipeline."
+      },
+      "artifactStores": {
+        "type": "String to ArtifactStore object map",
+        "required": "No",
+        "desc": "A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "Yes",
+        "desc": "The name of the pipeline."
+      },
+      "roleArn": {
+        "type": "String",
+        "length": "Maximum length of 1024.",
+        "pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) for AWS CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn."
+      },
+      "stages": {
+        "type": "Array of StageDeclaration objects",
+        "required": "Yes",
+        "desc": "The stage in which to perform the action."
+      },
+      "version": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The version number of the pipeline. A new pipeline always has a version number of 1. This number is incremented when a pipeline is updated."
+      }
+    }
+  },
+  {
+    "title": "PipelineExecution",
+    "attrs": {
+      "artifactRevisions": {
+        "type": "Array of ArtifactRevision objects",
+        "required": "No",
+        "desc": "A list of ArtifactRevision objects included in a pipeline execution."
+      },
+      "pipelineExecutionId": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The ID of the pipeline execution."
+      },
+      "pipelineName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the pipeline with the specified pipeline execution."
+      },
+      "pipelineVersion": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The version number of the pipeline with the specified pipeline execution."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the pipeline execution."
+      },
+      "statusSummary": {
+        "type": "String",
+        "required": "No",
+        "desc": "A summary that contains a description of the pipeline execution status."
+      }
+    }
+  },
+  {
+    "title": "PipelineExecutionSummary",
+    "attrs": {
+      "lastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time of the last change to the pipeline execution, in timestamp format."
+      },
+      "pipelineExecutionId": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The ID of the pipeline execution."
+      },
+      "sourceRevisions": {
+        "type": "Array of SourceRevision objects",
+        "required": "No",
+        "desc": "A list of the source artifact revisions that initiated a pipeline execution."
+      },
+      "startTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time when the pipeline execution began, in timestamp format."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the pipeline execution."
+      },
+      "stopTrigger": {
+        "type": "StopExecutionTrigger object",
+        "required": "No",
+        "desc": "The interaction that stopped a pipeline execution."
+      },
+      "trigger": {
+        "type": "ExecutionTrigger object",
+        "required": "No",
+        "desc": "The interaction or event that started a pipeline execution, such as automated change detection or a StartPipelineExecution API call."
+      }
+    }
+  },
+  {
+    "title": "PipelineMetadata",
+    "attrs": {
+      "created": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time the pipeline was created, in timestamp format."
+      },
+      "pipelineArn": {
+        "type": "String",
+        "pattern": "arn:aws(-[\\w]+)*:codepipeline:.+:[0-9]{12}:.+",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the pipeline."
+      },
+      "updated": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time the pipeline was last updated, in timestamp format."
+      }
+    }
+  },
+  {
+    "title": "PipelineSummary",
+    "attrs": {
+      "created": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time the pipeline was created, in timestamp format."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the pipeline."
+      },
+      "updated": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date and time of the last update to the pipeline, in timestamp format."
+      },
+      "version": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The version number of the pipeline."
+      }
+    }
+  },
+  {
+    "title": "S3ArtifactLocation",
+    "attrs": {
+      "bucketName": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The name of the S3 bucket."
+      },
+      "objectKey": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The key of the object in the S3 bucket, which uniquely identifies the object in the bucket."
+      }
+    }
+  },
+  {
+    "title": "S3Location",
+    "attrs": {
+      "bucket": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 63.",
+        "required": "No",
+        "desc": "The Amazon S3 artifact bucket for an action's artifacts."
+      },
+      "key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The artifact name."
+      }
+    }
+  },
+  {
+    "title": "SourceRevision",
+    "attrs": {
+      "actionName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "Yes",
+        "desc": "The name of the action that processed the revision to the source artifact."
+      },
+      "revisionId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1500.",
+        "required": "No",
+        "desc": "The system-generated unique ID that identifies the revision number of the artifact."
+      },
+      "revisionSummary": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "Summary information about the most recent revision of the artifact. For GitHub and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets or actions, the user-provided content of a codepipeline-artifact-revision-summary key specified in the object metadata."
+      },
+      "revisionUrl": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "The commit ID for the artifact revision. For artifacts stored in GitHub or AWS CodeCommit repositories, the commit ID is linked to a commit details page."
+      }
+    }
+  },
+  {
+    "title": "StageContext",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the stage."
+      }
+    }
+  },
+  {
+    "title": "StageDeclaration",
+    "attrs": {
+      "actions": {
+        "type": "Array of ActionDeclaration objects",
+        "required": "Yes",
+        "desc": "The actions included in a stage."
+      },
+      "blockers": {
+        "type": "Array of BlockerDeclaration objects",
+        "required": "No",
+        "desc": "Reserved for future use."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "Yes",
+        "desc": "The name of the stage."
+      }
+    }
+  },
+  {
+    "title": "StageExecution",
+    "attrs": {
+      "pipelineExecutionId": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "Yes",
+        "desc": "The ID of the pipeline execution associated with the stage."
+      },
+      "status": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The status of the stage, or for a completed stage, the last status of the stage."
+      }
+    }
+  },
+  {
+    "title": "StageState",
+    "attrs": {
+      "actionStates": {
+        "type": "Array of ActionState objects",
+        "required": "No",
+        "desc": "The state of the stage."
+      },
+      "inboundExecution": {
+        "type": "StageExecution object",
+        "required": "No",
+        "desc": "Represents information about the run of a stage."
+      },
+      "inboundTransitionState": {
+        "type": "TransitionState object",
+        "required": "No",
+        "desc": "The state of the inbound transition, which is either enabled or disabled."
+      },
+      "latestExecution": {
+        "type": "StageExecution object",
+        "required": "No",
+        "desc": "Information about the latest execution in the stage, including its ID and status."
+      },
+      "stageName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "No",
+        "desc": "The name of the stage."
+      }
+    }
+  },
+  {
+    "title": "StopExecutionTrigger",
+    "attrs": {
+      "reason": {
+        "type": "String",
+        "length": "Maximum length of 200.",
+        "required": "No",
+        "desc": "The user-specified reason the pipeline was stopped."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "required": "Yes",
+        "desc": "The tag's key."
+      },
+      "value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "required": "Yes",
+        "desc": "The tag's value."
+      }
+    }
+  },
+  {
+    "title": "ThirdPartyJob",
+    "attrs": {
+      "clientId": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details."
+      },
+      "jobId": {
+        "type": "String",
+        "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "required": "No",
+        "desc": "The identifier used to identify the job in AWS CodePipeline."
+      }
+    }
+  },
+  {
+    "title": "ThirdPartyJobData",
+    "attrs": {
+      "actionConfiguration": {
+        "type": "ActionConfiguration object",
+        "required": "No",
+        "desc": "Represents information about an action configuration."
+      },
+      "actionTypeId": {
+        "type": "ActionTypeId object",
+        "required": "No",
+        "desc": "Represents information about an action type."
+      },
+      "artifactCredentials": {
+        "type": "AWSSessionCredentials object",
+        "required": "No",
+        "desc": "Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the S3 bucket used to store artifact for the pipeline in AWS CodePipeline."
+      },
+      "continuationToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "required": "No",
+        "desc": "A system-generated token, such as a AWS CodeDeploy deployment ID, that a job requires to continue the job asynchronously."
+      },
+      "encryptionKey": {
+        "type": "EncryptionKey object",
+        "required": "No",
+        "desc": "The encryption key used to encrypt and decrypt data in the artifact store for the pipeline, such as an AWS Key Management Service (AWS KMS) key. This is optional and might not be present."
+      },
+      "inputArtifacts": {
+        "type": "Array of Artifact objects",
+        "required": "No",
+        "desc": "The name of the artifact that is worked on by the action, if any. This name might be system-generated, such as \"MyApp\", or it might be defined by the user when the action is created. The input artifact name must match the name of an output artifact generated by an action in an earlier action or stage of the pipeline."
+      },
+      "outputArtifacts": {
+        "type": "Array of Artifact objects",
+        "required": "No",
+        "desc": "The name of the artifact that is the result of the action, if any. This name might be system-generated, such as \"MyBuiltApp\", or it might be defined by the user when the action is created."
+      },
+      "pipelineContext": {
+        "type": "PipelineContext object",
+        "required": "No",
+        "desc": "Represents information about a pipeline to a job worker."
+      }
+    }
+  },
+  {
+    "title": "ThirdPartyJobDetails",
+    "attrs": {
+      "data": {
+        "type": "ThirdPartyJobData object",
+        "required": "No",
+        "desc": "The data to be returned by the third party job worker."
+      },
+      "id": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 512.",
+        "required": "No",
+        "desc": "The identifier used to identify the job details in AWS CodePipeline."
+      },
+      "nonce": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 50.",
+        "required": "No",
+        "desc": "A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Use this number in an AcknowledgeThirdPartyJob request."
+      }
+    }
+  },
+  {
+    "title": "TransitionState",
+    "attrs": {
+      "disabledReason": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "pattern": "[a-zA-Z0-9!@ \\(\\)\\.\\*\\?\\-]+",
+        "required": "No",
+        "desc": "The user-specified reason why the transition between two stages of a pipeline was disabled."
+      },
+      "enabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether the transition between stages is enabled (true) or disabled (false)."
+      },
+      "lastChangedAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp when the transition state was last changed."
+      },
+      "lastChangedBy": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ID of the user who last changed the transition state."
+      }
+    }
+  },
+  {
+    "title": "WebhookAuthConfiguration",
+    "attrs": {
+      "AllowedIPRange": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The property used to configure acceptance of webhooks in an IP address range. For IP, only the AllowedIPRange property must be set. This property must be set to a valid CIDR range."
+      },
+      "SecretToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken property must be set."
+      }
+    }
+  },
+  {
+    "title": "WebhookDefinition",
+    "attrs": {
+      "authentication": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED."
+      },
+      "authenticationConfiguration": {
+        "type": "WebhookAuthConfiguration object",
+        "required": "Yes",
+        "desc": "Properties that configure the authentication applied to incoming webhook trigger requests. The required properties depend on the authentication type. For GITHUB_HMAC, only the SecretToken property must be set. For IP, only the AllowedIPRange property must be set to a valid CIDR range. For UNAUTHENTICATED, no properties can be set."
+      },
+      "filters": {
+        "type": "Array of WebhookFilterRule objects",
+        "required": "Yes",
+        "desc": "A list of rules applied to the body/payload sent in the POST request to a webhook URL. All defined rules must pass for the request to be accepted and the pipeline started."
+      },
+      "name": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "Yes",
+        "desc": "The name of the webhook."
+      },
+      "targetAction": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "Yes",
+        "desc": "The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline."
+      },
+      "targetPipeline": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "[A-Za-z0-9.@\\-_]+",
+        "required": "Yes",
+        "desc": "The name of the pipeline you want to connect to the webhook."
+      }
+    }
+  },
+  {
+    "title": "WebhookFilterRule",
+    "attrs": {
+      "jsonPath": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 150.",
+        "required": "Yes",
+        "desc": "A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the MatchEquals field. Otherwise, the request is ignored. For more information, see Java JsonPath implementation in GitHub."
+      },
+      "matchEquals": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 150.",
+        "required": "No",
+        "desc": "The value selected by the JsonPath expression must match what is supplied in the MatchEquals field. Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is \"refs/heads/{Branch}\" and the target action has an action configuration property called \"Branch\" with a value of \"master\", the MatchEquals value is evaluated as \"refs/heads/master\". For a list of action configuration properties for built-in action types, see Pipeline Structure Reference Action Requirements."
+      }
+    }
+  }
+]

@@ -1,0 +1,675 @@
+[
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com",
+      "Path": "/ShippingAPI.dll?",
+      "API": "API=PriorityMail",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "PriorityMailRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailRequest / USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For Example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailRequest / OriginZip",
+      "Occurs": "Required",
+      "Description": "Origination and destination Zip Codes must be valid. Either the first 3 digits or first 5 digits of the Zip Code are entered between the open tag and close tag. For example: <OriginZip>90210</OriginZip>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailRequest / DestinationZip",
+      "Occurs": "Required",
+      "Description": "Origination and destination Zip Codes must be valid and must be 5 digits. For example: <DestinationZip>20770</DestinationZip>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailRequest / DestinationType",
+      "Occurs": "Optional",
+      "Description": "Destination Type for package. Valid Values: “1” = PO-Addressee – Street (Default Value) “2” = PO-Addressee – PO Box “3” = Hold For Pick-up For example: <DestinationType>1</DestinationType>",
+      "Type": "String",
+      "Validation": "Enumeration · 1 · 2 · 3"
+    },
+    {
+      "Tag Name": "PriorityMailRequest / PMGuarantee",
+      "Occurs": "Optional",
+      "Description": "Default “N”",
+      "Type": "Boolean",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailRequest",
+      "Occurs": "Required once",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "Tag Name": "PriorityMailResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailResponse / OriginZip",
+      "Occurs": "Required",
+      "Description": "OriginationZip sent in request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailResponse / DestinationZip",
+      "Occurs": "Required",
+      "Description": "DestinationZip sent in request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailResponse / Days",
+      "Occurs": "Optional",
+      "Description": "Numbers of days expected to deliver.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailResponse / IsGuaranteed",
+      "Occurs": "Optional",
+      "Description": "Is the delivery guaranteed.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailResponse / Message",
+      "Occurs": "Optional",
+      "Description": "Service Standards Messaging. Appears when applicable. For example:<Msg>Your shipment may be delayed due to transportation issues.</Msg>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailResponse / EffectiveAcceptanceDate",
+      "Occurs": "Optional",
+      "Description": "Effective Acceptance Date is returned when <DestinationType> is specified in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailResponse / ScheduledDeliveryDate",
+      "Occurs": "Optional",
+      "Description": "Scheduled Delivery Date is returned when <DestinationType> is specified in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "PriorityMailResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com/",
+      "Path": "shippingapi.dll?",
+      "API": "API=StandardB",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "StandardBRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBRequest USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBRequest / OriginZip",
+      "Occurs": "Required",
+      "Description": "Origination and destination Zip Codes must be valid. Either the first 3 digits or first 5 digits of the Zip Code are entered between the open tag and close tag. For example: <OriginZip>90210</OriginZip>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBRequest / DestinationZip",
+      "Occurs": "Required",
+      "Description": "Origination and destination Zip Codes must be valid and must be 5 digits. For example: <DestinationZip>20770</DestinationZip>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBRequest / DestinationType",
+      "Occurs": "Optional",
+      "Description": "Destination Type for package. Valid Values: “1” = PO-Addressee – Street (Default Value) “2” = PO-Addressee – PO Box “3” = Hold For Pick-up For example: <DestinationType>1</DestinationType>",
+      "Type": "String",
+      "Validation": "Enumeration · 1 · 2 · 3"
+    },
+    {
+      "Tag Name": "StandardBRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "Tag Name": "StandardBResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBResponse / OriginZip",
+      "Occurs": "Required",
+      "Description": "OriginationZip sent in request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBResponse / DestinationZip",
+      "Occurs": "Required",
+      "Description": "DestinationZip sent in request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBResponse / Days",
+      "Occurs": "Optional",
+      "Description": "Numbers of days expected to deliver.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBResponse / Message",
+      "Occurs": "Optional",
+      "Description": "Service Standards Messaging. Appears when applicable. For example:<Msg>Your shipment may be delayed due to transportation issues.</Msg>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBResponse / EffectiveAcceptanceDate",
+      "Occurs": "Optional",
+      "Description": "Effective Acceptance Date is returned when <DestinationType> is specified in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBResponse / ScheduledDeliveryDate",
+      "Occurs": "Optional",
+      "Description": "Scheduled Delivery Date is returned when <DestinationType> is specified in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "StandardBResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com/",
+      "Path": "shippingapi.dll?",
+      "API": "API=FirstClassMail",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "FirstClassMailRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailRequest USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailRequest / OriginZip",
+      "Occurs": "Required",
+      "Description": "Origination and destination Zip Codes must be valid. Either the first 3 digits or first 5 digits of the Zip Code are entered between the open tag and close tag. For example: <OriginZip>90210</OriginZip>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailRequest / DestinationZip",
+      "Occurs": "Required",
+      "Description": "Origination and destination Zip Codes must be valid and must be 5 digits. For example: <DestinationZip>20770</DestinationZip>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailRequest / DestinationType",
+      "Occurs": "Optional",
+      "Description": "Destination Type for package. 1 = PO-Addressee – Street (Default) 2 = PO-Addressee – PO Box 3 = Hold For Pick-up For example: <DestinationType>1</DestinationType>",
+      "Type": "String",
+      "Validation": "Enumeration · 1 · 2 · 3"
+    },
+    {
+      "Tag Name": "FirstClassMailRequest",
+      "Occurs": "Required once",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "Tag Name": "FirstClassMailResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailResponse / OriginZip",
+      "Occurs": "Required",
+      "Description": "OriginationZip sent in request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailResponse / DestinationZip",
+      "Occurs": "Required",
+      "Description": "DestinationZip sent in request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailResponse / Days",
+      "Occurs": "Optional",
+      "Description": "Numbers of days expected to deliver.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailResponse / Message",
+      "Occurs": "Optional",
+      "Description": "Service Standards Messaging. Appears when applicable. For example:<Msg>Your shipment may be delayed due to transportation issues.</Msg>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailResponse / EffectiveAcceptanceDate",
+      "Occurs": "Optional",
+      "Description": "Effective Acceptance Date is returned when <DestinationType> is specified in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailResponse / ScheduledDeliveryDate",
+      "Occurs": "Optional",
+      "Description": "Scheduled Delivery Date is returned when <DestinationType> is specified in the request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "FirstClassMailResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [
+    {
+      "Scheme": "https://",
+      "Host": "secure.shippingapis.com/",
+      "Path": "shippingapi.dll?",
+      "API": "API=ExpressMailCommitment",
+      "XML": "&XML=(see below)"
+    }
+  ],
+  [
+    {
+      "Tag Name": "ExpressMailCommitmentRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentRequest USERID",
+      "Occurs": "Required",
+      "Description": "This attribute specifies your Web Tools ID. See the Developers Guide for information on obtaining your USERID. For example: <USERID=”XXXXXXXXXXXX”>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentRequest / OriginZIP",
+      "Occurs": "Required",
+      "Description": "5 Digit Zip Code of the package destination. For example: <OriginZIP>90210</OriginZIP>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentRequest / DestinationZIP",
+      "Occurs": "Required",
+      "Description": "Origination and destination Zip Codes must be valid and must be 5 digits. For example: <DestinationZIP>20770</DestinationZIP>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentRequest / Date",
+      "Occurs": "Required",
+      "Description": "Date package is shipped. Can be left blank. Can use formats MM/DD/YYYY or DD-MMM-YYYY. For example: <Date>05-May-2014</Date>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentRequest / DropOffTime",
+      "Occurs": "Optional",
+      "Description": "Time package is shipped. This tag can be omitted or left blank. Use format HH:MM such as 13:30. For example: <DropOffTime>15:00</ DropOffTime >",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentRequest / ReturnDates",
+      "Occurs": "Optional",
+      "Description": "Indicates if Scheduled Delivery and Effective Acceptance dates should be returned. Specify ‘true’ or ‘false’. For example: <ReturnDates>true</ReturnDates>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentRequest / PMGuarantee",
+      "Occurs": "Optional",
+      "Description": "Indicator to display Guarantee information for applicable service types. “Y” = Yes, display “N” = No, do not display (Default Value)",
+      "Type": "String",
+      "Validation": "Enumeration · Y · N"
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentRequest",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "Tag Name": "ExpressMailCommitmentResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / OriginZIP",
+      "Occurs": "Required",
+      "Description": "OriginationZip sent in request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / OriginCity",
+      "Occurs": "Required",
+      "Description": "Originating City.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / OriginState",
+      "Occurs": "Required",
+      "Description": "Originating State.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / DestinationZIP",
+      "Occurs": "Required",
+      "Description": "DestinationZip sent in request.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / DestinationCity",
+      "Occurs": "Required",
+      "Description": "Destinating City.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / DestinationState",
+      "Occurs": "Required",
+      "Description": "Destinating State.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Date",
+      "Occurs": "Required",
+      "Description": "Date package shipped.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Time",
+      "Occurs": "Required",
+      "Description": "Time.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / ExpeditedTransMessage",
+      "Occurs": "Optional",
+      "Description": "Expedited Transportation Message. Returned when applicable and the request has the ReturnDates set to true.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / MsgCode",
+      "Occurs": "Optional",
+      "Description": "Message Code. Returned when applicable and the request has the ReturnDates set to true. Valid Message Code “TM103” = Your shipment may be delayed due to transportation issues.",
+      "Type": "String",
+      "Validation": "Enumeration= · TM103"
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Msg",
+      "Occurs": "Optional",
+      "Description": "Message Text. Returned when applicable and the request has the ReturnDates set to true. For example:<Msg>Your shipment may be delayed due to transportation issues.</Msg>",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / EffectiveAcceptanceDate",
+      "Occurs": "Optional",
+      "Description": "Effective Acceptance Date. Returned when the request has the ReturnDates set to true.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment",
+      "Occurs": "Optional",
+      "Description": "Holds the details of a commitment. Returned if valid.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Name",
+      "Occurs": "Optional",
+      "Description": "Commitment Name",
+      "Type": "String",
+      "Validation": "Enumeration= · 1-Day · 2-Day · 3-Day · DPO · Military"
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Time",
+      "Occurs": "Optional",
+      "Description": "Commitment Time. (eg: 3:00 PM)",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Sequence",
+      "Occurs": "Optional",
+      "Description": "Commitment Sequence Seq # Service Standard A0110 1-Day at 10:30 AM B0110 1-Day at 10:30 AM HFPU A0112 1-Day at 12:00 PM A0115 1-Day at 3:00 PM B0115 1-Day at 3:00 PM HFPU A0210 2-Day at 10:30 AM A0212 2-Day at 12:00 PM A0215 2-Day at 3:00 PM B0210 2-Day at 10:30 AM HFPU B0215 2-Day at 3:00 PM HFPU",
+      "Type": "String",
+      "Validation": "Enumeration= · A0110 · B0110 · A0112 · A0115 · B0115 · A0210 · A0212 · A0215 · B0210 · B0215"
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location",
+      "Occurs": "Optional",
+      "Description": "Groups drop off location information.",
+      "Type": "(Group)",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location / ScheduledDeliveryDate",
+      "Occurs": "Optional",
+      "Description": "Scheduled Delivery Date. Returned when the request has the ReturnDates set to true.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location / CutOff",
+      "Occurs": "Optional",
+      "Description": "Cut-Off Time.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location / Facility",
+      "Occurs": "Optional",
+      "Description": "Facility Type",
+      "Type": "String",
+      "Validation": "Enumeration= · POST OFFICE · PRIORITY MAIL EXPRESS COLLECTION BOX · AIR MAIL FACILITY"
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location / Street",
+      "Occurs": "Optional",
+      "Description": "Facility Street",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location / City",
+      "Occurs": "Optional",
+      "Description": "Facility City",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location / State",
+      "Occurs": "Optional",
+      "Description": "Facility State",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location / Zip",
+      "Occurs": "Optional",
+      "Description": "Facility Zip Code",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Commitment / Location / IsGuaranteed",
+      "Occurs": "Optional",
+      "Description": "Indicates if Guaranee is offered. Will only be returned if the PMGuarantee in the request is set to “Y”. 1 = Guaranteed 2 = No Guarantee 3 = Temporary No Guarantee",
+      "Type": "String",
+      "Validation": "Enumeration= · 1 · 2 · 3"
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse / Message",
+      "Occurs": "Optional",
+      "Description": "Message indicating over 200 location, when there are more than the 200 returned.",
+      "Type": "String",
+      "Validation": ""
+    },
+    {
+      "Tag Name": "ExpressMailCommitmentResponse",
+      "Occurs": "Required",
+      "Description": "",
+      "Type": "(Alias)",
+      "Validation": ""
+    }
+  ],
+  [
+    {
+      "Seq #": "A0110",
+      "Service\n    Standard": "1-Day at 10:30 AM"
+    },
+    {
+      "Seq #": "B0110",
+      "Service\n    Standard": "1-Day at 10:30 AM HFPU"
+    },
+    {
+      "Seq #": "A0112",
+      "Service\n    Standard": "1-Day at 12:00 PM"
+    },
+    {
+      "Seq #": "A0115",
+      "Service\n    Standard": "1-Day at 3:00 PM"
+    },
+    {
+      "Seq #": "B0115",
+      "Service\n    Standard": "1-Day at 3:00 PM HFPU"
+    },
+    {
+      "Seq #": "A0210",
+      "Service\n    Standard": "2-Day at 10:30 AM"
+    },
+    {
+      "Seq #": "A0212",
+      "Service\n    Standard": "2-Day at 12:00 PM"
+    },
+    {
+      "Seq #": "A0215",
+      "Service\n    Standard": "2-Day at 3:00 PM"
+    },
+    {
+      "Seq #": "B0210",
+      "Service\n    Standard": "2-Day at 10:30 AM HFPU"
+    },
+    {
+      "Seq #": "B0215",
+      "Service\n    Standard": "2-Day at 3:00 PM HFPU"
+    }
+  ],
+  []
+]
