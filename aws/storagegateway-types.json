@@ -1,0 +1,1222 @@
+[
+  {
+    "title": "AutomaticTapeCreationPolicyInfo",
+    "attrs": {
+      "AutomaticTapeCreationRules": {
+        "type": "Array of AutomaticTapeCreationRule objects",
+        "required": "No",
+        "desc": "An automatic tape creation policy consists of a list of automatic tape creation rules. This returns the rules that determine when and how to automatically create new tapes."
+      },
+      "GatewayARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to return a list of gateways for your account and AWS Region."
+      }
+    }
+  },
+  {
+    "title": "AutomaticTapeCreationRule",
+    "attrs": {
+      "MinimumNumTapes": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The minimum number of available virtual tapes that the gateway maintains at all times. If the number of tapes on the gateway goes below this value, the gateway creates as many new tapes as are needed to have MinimumNumTapes on the gateway. For more information about automatic tape creation, see Creating Tapes Automatically."
+      },
+      "PoolId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "Yes",
+        "desc": "The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the Amazon S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool. Valid Values: GLACIER | DEEP_ARCHIVE"
+      },
+      "TapeBarcodePrefix": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 4.",
+        "pattern": "^[A-Z]*$",
+        "required": "Yes",
+        "desc": "A prefix that you append to the barcode of the virtual tape that you are creating. This prefix makes the barcode unique."
+      },
+      "TapeSizeInBytes": {
+        "type": "Long",
+        "required": "Yes",
+        "desc": "The size, in bytes, of the virtual tape capacity."
+      },
+      "Worm": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Set to true to indicate that tapes are to be archived as write-once-read-many (WORM). Set to false when WORM is not enabled for tapes."
+      }
+    }
+  },
+  {
+    "title": "BandwidthRateLimitInterval",
+    "attrs": {
+      "AverageDownloadRateLimitInBitsPerSec": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The average download rate limit component of the bandwidth rate limit interval, in bits per second. This field does not appear in the response if the download rate limit is not set."
+      },
+      "AverageUploadRateLimitInBitsPerSec": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The average upload rate limit component of the bandwidth rate limit interval, in bits per second. This field does not appear in the response if the upload rate limit is not set."
+      },
+      "DaysOfWeek": {
+        "type": "Array of integers",
+        "required": "Yes",
+        "desc": "The days of the week component of the bandwidth rate limit interval, represented as ordinal numbers from 0 to 6, where 0 represents Sunday and 6 represents Saturday."
+      },
+      "EndHourOfDay": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The hour of the day to end the bandwidth rate limit interval."
+      },
+      "EndMinuteOfHour": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The minute of the hour to end the bandwidth rate limit interval."
+      },
+      "StartHourOfDay": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The hour of the day to start the bandwidth rate limit interval."
+      },
+      "StartMinuteOfHour": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The minute of the hour to start the bandwidth rate limit interval. The interval begins at the start of that minute. To begin an interval exactly at the start of the hour, use the value 0."
+      }
+    }
+  },
+  {
+    "title": "CacheAttributes",
+    "attrs": {
+      "CacheStaleTimeoutInSeconds": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time since the last refresh after which access to the directory would cause the file gateway to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration is in seconds. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)"
+      }
+    }
+  },
+  {
+    "title": "CachediSCSIVolume",
+    "attrs": {
+      "CreatedDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date the volume was created. Volumes created prior to March 28, 2017 don’t have this timestamp."
+      },
+      "KMSKey": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 2048.",
+        "pattern": "(^arn:(aws|aws-cn|aws-us-gov):kms:([a-zA-Z0-9-]+):([0-9]+):(key|alias)/(\\S+)$)|(^alias/(\\S+)$)",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when KMSEncrypted is true. Optional."
+      },
+      "SourceSnapshotId": {
+        "type": "String",
+        "pattern": "\\Asnap-([0-9A-Fa-f]{8}|[0-9A-Fa-f]{17})\\z",
+        "required": "No",
+        "desc": "If the cached volume was created from a snapshot, this field contains the snapshot ID used, e.g., snap-78e22663. Otherwise, this field is not included."
+      },
+      "TargetName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 200.",
+        "pattern": "^[-\\.;a-z0-9]+$",
+        "required": "No",
+        "desc": "The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying TargetName as myvolume results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes on a gateway. If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name."
+      },
+      "VolumeARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the storage volume."
+      },
+      "VolumeAttachmentStatus": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 50.",
+        "required": "No",
+        "desc": "A value that indicates whether a storage volume is attached to or detached from a gateway. For more information, see Moving your volumes to a different gateway."
+      },
+      "VolumeId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 30.",
+        "required": "No",
+        "desc": "The unique identifier of the volume, e.g., vol-AE4B946D."
+      },
+      "VolumeiSCSIAttributes": {
+        "type": "VolumeiSCSIAttributes object",
+        "required": "No",
+        "desc": "An VolumeiSCSIAttributes object that represents a collection of iSCSI attributes for one stored volume."
+      },
+      "VolumeProgress": {
+        "type": "Double",
+        "required": "No",
+        "desc": "Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the cached volume is not restoring or bootstrapping."
+      },
+      "VolumeSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size, in bytes, of the volume capacity."
+      },
+      "VolumeStatus": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 50.",
+        "required": "No",
+        "desc": "One of the VolumeStatus values that indicates the state of the storage volume."
+      },
+      "VolumeType": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 100.",
+        "required": "No",
+        "desc": "One of the VolumeType enumeration values that describes the type of the volume."
+      },
+      "VolumeUsedInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. VolumeUsedInBytes is different from the compressed size of the volume, which is the value that is used to calculate your bill."
+      }
+    }
+  },
+  {
+    "title": "ChapInfo",
+    "attrs": {
+      "InitiatorName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "[0-9a-z:.-]+",
+        "required": "No",
+        "desc": "The iSCSI initiator that connects to the target."
+      },
+      "SecretToAuthenticateInitiator": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The secret key that the initiator (for example, the Windows client) must provide to participate in mutual CHAP with the target."
+      },
+      "SecretToAuthenticateTarget": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The secret key that the target must provide to participate in mutual CHAP with the initiator (e.g., Windows client)."
+      },
+      "TargetARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 800.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the volume. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-)."
+      }
+    }
+  },
+  {
+    "title": "DeviceiSCSIAttributes",
+    "attrs": {
+      "ChapEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether mutual CHAP is enabled for the iSCSI target."
+      },
+      "NetworkInterfaceId": {
+        "type": "String",
+        "pattern": "\\A(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}\\z",
+        "required": "No",
+        "desc": "The network interface identifier of the VTL device."
+      },
+      "NetworkInterfacePort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The port used to communicate with iSCSI VTL device targets."
+      },
+      "TargetARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 800.",
+        "required": "No",
+        "desc": "Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target."
+      }
+    }
+  },
+  {
+    "title": "Disk",
+    "attrs": {
+      "DiskAllocationResource": {
+        "type": "String",
+        "required": "No",
+        "desc": "The iSCSI qualified name (IQN) that is defined for a disk. This field is not included in the response if the local disk is not defined as an iSCSI target. The format of this field is targetIqn::LUNNumber::region-volumeId."
+      },
+      "DiskAllocationType": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 100.",
+        "required": "No",
+        "desc": "One of the DiskAllocationType enumeration values that identifies how a local disk is used. Valid Values: UPLOAD_BUFFER | CACHE_STORAGE"
+      },
+      "DiskAttributeList": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "A list of values that represents attributes of a local disk."
+      },
+      "DiskId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "required": "No",
+        "desc": "The unique device ID or other distinguishing data that identifies a local disk."
+      },
+      "DiskNode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The device node of a local disk as assigned by the virtualization environment."
+      },
+      "DiskPath": {
+        "type": "String",
+        "required": "No",
+        "desc": "The path of a local disk in the gateway virtual machine (VM)."
+      },
+      "DiskSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The local disk size in bytes."
+      },
+      "DiskStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "A value that represents the status of a local disk."
+      }
+    }
+  },
+  {
+    "title": "FileShareInfo",
+    "attrs": {
+      "FileShareARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the file share."
+      },
+      "FileShareId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 30.",
+        "required": "No",
+        "desc": "The ID of the file share."
+      },
+      "FileShareStatus": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 50.",
+        "required": "No",
+        "desc": "The status of the file share. Valid Values: CREATING | UPDATING | AVAILABLE | DELETING"
+      },
+      "FileShareType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The type of the file share."
+      },
+      "GatewayARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to return a list of gateways for your account and AWS Region."
+      }
+    }
+  },
+  {
+    "title": "GatewayInfo",
+    "attrs": {
+      "Ec2InstanceId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ID of the Amazon EC2 instance that was used to launch the gateway."
+      },
+      "Ec2InstanceRegion": {
+        "type": "String",
+        "required": "No",
+        "desc": "The AWS Region where the Amazon EC2 instance is located."
+      },
+      "GatewayARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to return a list of gateways for your account and AWS Region."
+      },
+      "GatewayId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 30.",
+        "required": "No",
+        "desc": "The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations."
+      },
+      "GatewayName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the gateway."
+      },
+      "GatewayOperationalState": {
+        "type": "String",
+        "length": "Minimum length of 2. Maximum length of 25.",
+        "required": "No",
+        "desc": "The state of the gateway. Valid Values: DISABLED | ACTIVE"
+      },
+      "GatewayType": {
+        "type": "String",
+        "length": "Minimum length of 2. Maximum length of 20.",
+        "required": "No",
+        "desc": "The type of the gateway."
+      }
+    }
+  },
+  {
+    "title": "NetworkInterface",
+    "attrs": {
+      "Ipv4Address": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Internet Protocol version 4 (IPv4) address of the interface."
+      },
+      "Ipv6Address": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Internet Protocol version 6 (IPv6) address of the interface. Currently not supported."
+      },
+      "MacAddress": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Media Access Control (MAC) address of the interface."
+      }
+    }
+  },
+  {
+    "title": "NFSFileShareDefaults",
+    "attrs": {
+      "DirectoryMode": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 4.",
+        "pattern": "^[0-7]{4}$",
+        "required": "No",
+        "desc": "The Unix directory mode in the form \"nnnn\". For example, 0666 represents the default access mode for all directories inside the file share. The default value is 0777."
+      },
+      "FileMode": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 4.",
+        "pattern": "^[0-7]{4}$",
+        "required": "No",
+        "desc": "The Unix file mode in the form \"nnnn\". For example, 0666 represents the default file mode inside the file share. The default value is 0666."
+      },
+      "GroupId": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The default group ID for the file share (unless the files have another group ID specified). The default value is nfsnobody."
+      },
+      "OwnerId": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The default owner ID for files in the file share (unless the files have another owner ID specified). The default value is nfsnobody."
+      }
+    }
+  },
+  {
+    "title": "NFSFileShareInfo",
+    "attrs": {
+      "CacheAttributes": {
+        "type": "CacheAttributes object",
+        "required": "No",
+        "desc": "Refresh cache information."
+      },
+      "ClientList": {
+        "type": "Array of strings",
+        "pattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))?$",
+        "required": "No",
+        "desc": "The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks."
+      },
+      "DefaultStorageClass": {
+        "type": "String",
+        "length": "Minimum length of 5. Maximum length of 50.",
+        "required": "No",
+        "desc": "The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is S3_INTELLIGENT_TIERING. Optional. Valid Values: S3_STANDARD | S3_INTELLIGENT_TIERING | S3_STANDARD_IA | S3_ONEZONE_IA"
+      },
+      "FileShareARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the file share."
+      },
+      "FileShareId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 30.",
+        "required": "No",
+        "desc": "The ID of the file share."
+      },
+      "FileShareName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the file share. Optional."
+      },
+      "FileShareStatus": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 50.",
+        "required": "No",
+        "desc": "The status of the file share. Valid Values: CREATING | UPDATING | AVAILABLE | DELETING"
+      },
+      "GatewayARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to return a list of gateways for your account and AWS Region."
+      },
+      "GuessMIMETypeEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, otherwise set to false. The default value is true. Valid Values: true | false"
+      },
+      "KMSEncrypted": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Set to true to use Amazon S3 server-side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional. Valid Values: true | false"
+      },
+      "KMSKey": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 2048.",
+        "pattern": "(^arn:(aws|aws-cn|aws-us-gov):kms:([a-zA-Z0-9-]+):([0-9]+):(key|alias)/(\\S+)$)|(^alias/(\\S+)$)",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when KMSEncrypted is true. Optional."
+      },
+      "LocationARN": {
+        "type": "String",
+        "length": "Minimum length of 16. Maximum length of 1400.",
+        "required": "No",
+        "desc": "The ARN of the backend storage used for storing file data. A prefix name can be added to the S3 bucket name. It must end with a \"/\"."
+      },
+      "NFSFileShareDefaults": {
+        "type": "NFSFileShareDefaults object",
+        "required": "No",
+        "desc": "Describes Network File System (NFS) file share default values. Files and folders stored as Amazon S3 objects in S3 buckets don't, by default, have Unix file permissions assigned to them. Upon discovery in an S3 bucket by Storage Gateway, the S3 objects that represent files and folders are assigned these default Unix permissions. This operation is only supported for file gateways."
+      },
+      "NotificationPolicy": {
+        "type": "String",
+        "length": "Minimum length of 2. Maximum length of 100.",
+        "pattern": "^\\{[\\w\\s:\\{\\}\\[\\]\"]*}$",
+        "required": "No",
+        "desc": "The notification policy of the file share. SettlingTimeInSeconds controls the number of seconds to wait after the last point in time a client wrote to a file before generating an ObjectUploaded notification. Because clients can make many small writes to files, it's best to set this parameter for as long as possible to avoid generating multiple notifications for the same file in a small time period. The following example sets NotificationPolicy on with SettlingTimeInSeconds set to 60. {\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}} The following example sets NotificationPolicy off. {}"
+      },
+      "ObjectACL": {
+        "type": "String",
+        "required": "No",
+        "desc": "A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is private."
+      },
+      "Path": {
+        "type": "String",
+        "required": "No",
+        "desc": "The file share path used by the NFS client to identify the mount point."
+      },
+      "ReadOnly": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A value that sets the write status of a file share. Set this value to true to set the write status to read-only, otherwise set to false. Valid Values: true | false"
+      },
+      "RequesterPays": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to true, the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data. Valid Values: true | false"
+      },
+      "Role": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:(aws|aws-cn|aws-us-gov):iam::([0-9]+):role/(\\S+)$",
+        "required": "No",
+        "desc": "The ARN of the IAM role that file gateway assumes when it accesses the underlying storage."
+      },
+      "Squash": {
+        "type": "String",
+        "length": "Minimum length of 5. Maximum length of 15.",
+        "required": "No",
+        "desc": "The user mapped to anonymous user. Valid options are the following:"
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "A list of up to 50 tags assigned to the NFS file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the ListTagsForResource API operation."
+      }
+    }
+  },
+  {
+    "title": "PoolInfo",
+    "attrs": {
+      "PoolARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the custom tape pool. Use the ListTapePools operation to return a list of custom tape pools for your account and AWS Region."
+      },
+      "PoolName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "pattern": "^[ -\\.0-\\[\\]-~]*[!-\\.0-\\[\\]-~][ -\\.0-\\[\\]-~]*$",
+        "required": "No",
+        "desc": "The name of the custom tape pool. PoolName can use all ASCII characters, except '/' and '\\'."
+      },
+      "PoolStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "Status of the custom tape pool. Pool can be ACTIVE or DELETED."
+      },
+      "RetentionLockTimeInDays": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days)."
+      },
+      "RetentionLockType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Tape retention lock type, which can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account."
+      },
+      "StorageClass": {
+        "type": "String",
+        "required": "No",
+        "desc": "The storage class that is associated with the custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool."
+      }
+    }
+  },
+  {
+    "title": "SMBFileShareInfo",
+    "attrs": {
+      "AccessBasedEnumeration": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether AccessBasedEnumeration is enabled."
+      },
+      "AdminUserList": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "A list of users or groups in the Active Directory that have administrator rights to the file share. A group must be prefixed with the @ character. Acceptable formats include: DOMAIN\\User1, user1, @group1, and @DOMAIN\\group1. Can only be set if Authentication is set to ActiveDirectory."
+      },
+      "AuditDestinationARN": {
+        "type": "String",
+        "length": "Maximum length of 1024.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the storage used for the audit logs."
+      },
+      "Authentication": {
+        "type": "String",
+        "length": "Minimum length of 5. Maximum length of 15.",
+        "required": "No",
+        "desc": "The authentication method of the file share. The default is ActiveDirectory. Valid Values: ActiveDirectory | GuestAccess"
+      },
+      "CacheAttributes": {
+        "type": "CacheAttributes object",
+        "required": "No",
+        "desc": "Refresh cache information."
+      },
+      "CaseSensitivity": {
+        "type": "String",
+        "required": "No",
+        "desc": "The case of an object name in an Amazon S3 bucket. For ClientSpecified, the client determines the case sensitivity. For CaseSensitive, the gateway determines the case sensitivity. The default value is ClientSpecified."
+      },
+      "DefaultStorageClass": {
+        "type": "String",
+        "length": "Minimum length of 5. Maximum length of 50.",
+        "required": "No",
+        "desc": "The default storage class for objects put into an Amazon S3 bucket by the file gateway. The default value is S3_INTELLIGENT_TIERING. Optional. Valid Values: S3_STANDARD | S3_INTELLIGENT_TIERING | S3_STANDARD_IA | S3_ONEZONE_IA"
+      },
+      "FileShareARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the file share."
+      },
+      "FileShareId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 30.",
+        "required": "No",
+        "desc": "The ID of the file share."
+      },
+      "FileShareName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "required": "No",
+        "desc": "The name of the file share. Optional."
+      },
+      "FileShareStatus": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 50.",
+        "required": "No",
+        "desc": "The status of the file share. Valid Values: CREATING | UPDATING | AVAILABLE | DELETING"
+      },
+      "GatewayARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to return a list of gateways for your account and AWS Region."
+      },
+      "GuessMIMETypeEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A value that enables guessing of the MIME type for uploaded objects based on file extensions. Set this value to true to enable MIME type guessing, otherwise set to false. The default value is true. Valid Values: true | false"
+      },
+      "InvalidUserList": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "A list of users or groups in the Active Directory that are not allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: DOMAIN\\User1, user1, @group1, and @DOMAIN\\group1. Can only be set if Authentication is set to ActiveDirectory."
+      },
+      "KMSEncrypted": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Set to true to use Amazon S3 server-side encryption with your own AWS KMS key, or false to use a key managed by Amazon S3. Optional. Valid Values: true | false"
+      },
+      "KMSKey": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 2048.",
+        "pattern": "(^arn:(aws|aws-cn|aws-us-gov):kms:([a-zA-Z0-9-]+):([0-9]+):(key|alias)/(\\S+)$)|(^alias/(\\S+)$)",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when KMSEncrypted is true. Optional."
+      },
+      "LocationARN": {
+        "type": "String",
+        "length": "Minimum length of 16. Maximum length of 1400.",
+        "required": "No",
+        "desc": "The ARN of the backend storage used for storing file data. A prefix name can be added to the S3 bucket name. It must end with a \"/\"."
+      },
+      "NotificationPolicy": {
+        "type": "String",
+        "length": "Minimum length of 2. Maximum length of 100.",
+        "pattern": "^\\{[\\w\\s:\\{\\}\\[\\]\"]*}$",
+        "required": "No",
+        "desc": "The notification policy of the file share. SettlingTimeInSeconds controls the number of seconds to wait after the last point in time a client wrote to a file before generating an ObjectUploaded notification. Because clients can make many small writes to files, it's best to set this parameter for as long as possible to avoid generating multiple notifications for the same file in a small time period. The following example sets NotificationPolicy on with SettlingTimeInSeconds set to 60. {\\\"Upload\\\": {\\\"SettlingTimeInSeconds\\\": 60}} The following example sets NotificationPolicy off. {}"
+      },
+      "ObjectACL": {
+        "type": "String",
+        "required": "No",
+        "desc": "A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is private."
+      },
+      "Path": {
+        "type": "String",
+        "required": "No",
+        "desc": "The file share path used by the SMB client to identify the mount point."
+      },
+      "ReadOnly": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A value that sets the write status of a file share. Set this value to true to set the write status to read-only, otherwise set to false. Valid Values: true | false"
+      },
+      "RequesterPays": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "A value that sets who pays the cost of the request and the cost associated with data download from the S3 bucket. If this value is set to true, the requester pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner always pays the cost of storing data. Valid Values: true | false"
+      },
+      "Role": {
+        "type": "String",
+        "length": "Minimum length of 20. Maximum length of 2048.",
+        "pattern": "^arn:(aws|aws-cn|aws-us-gov):iam::([0-9]+):role/(\\S+)$",
+        "required": "No",
+        "desc": "The ARN of the IAM role that file gateway assumes when it accesses the underlying storage."
+      },
+      "SMBACLEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "If this value is set to true, it indicates that access control list (ACL) is enabled on the SMB file share. If it is set to false, it indicates that file and directory permissions are mapped to the POSIX permission. For more information, see Using Microsoft Windows ACLs to control access to an SMB file share in the AWS Storage Gateway User Guide."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "A list of up to 50 tags assigned to the SMB file share, sorted alphabetically by key name. Each tag is a key-value pair. For a gateway with more than 10 tags assigned, you can view all tags using the ListTagsForResource API operation."
+      },
+      "ValidUserList": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 64.",
+        "required": "No",
+        "desc": "A list of users or groups in the Active Directory that are allowed to access the file share. A group must be prefixed with the @ character. Acceptable formats include: DOMAIN\\User1, user1, @group1, and @DOMAIN\\group1. Can only be set if Authentication is set to ActiveDirectory."
+      }
+    }
+  },
+  {
+    "title": "StorageGatewayError",
+    "attrs": {
+      "errorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "Additional information about the error."
+      },
+      "errorDetails": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Human-readable text that provides detail about the error that occurred."
+      }
+    }
+  },
+  {
+    "title": "StorediSCSIVolume",
+    "attrs": {
+      "CreatedDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date the volume was created. Volumes created prior to March 28, 2017 don’t have this timestamp."
+      },
+      "KMSKey": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 2048.",
+        "pattern": "(^arn:(aws|aws-cn|aws-us-gov):kms:([a-zA-Z0-9-]+):([0-9]+):(key|alias)/(\\S+)$)|(^alias/(\\S+)$)",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when KMSEncrypted is true. Optional."
+      },
+      "PreservedExistingData": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates if when the stored volume was created, existing data on the underlying local disk was preserved. Valid Values: true | false"
+      },
+      "SourceSnapshotId": {
+        "type": "String",
+        "pattern": "\\Asnap-([0-9A-Fa-f]{8}|[0-9A-Fa-f]{17})\\z",
+        "required": "No",
+        "desc": "If the stored volume was created from a snapshot, this field contains the snapshot ID used, e.g. snap-78e22663. Otherwise, this field is not included."
+      },
+      "TargetName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 200.",
+        "pattern": "^[-\\.;a-z0-9]+$",
+        "required": "No",
+        "desc": "The name of the iSCSI target used by an initiator to connect to a volume and used as a suffix for the target ARN. For example, specifying TargetName as myvolume results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume. The target name must be unique across all volumes on a gateway. If you don't specify a value, Storage Gateway uses the value that was previously used for this volume as the new target name."
+      },
+      "VolumeARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the storage volume."
+      },
+      "VolumeAttachmentStatus": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 50.",
+        "required": "No",
+        "desc": "A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway. For more information, see Moving your volumes to a different gateway."
+      },
+      "VolumeDiskId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 300.",
+        "required": "No",
+        "desc": "The ID of the local disk that was specified in the CreateStorediSCSIVolume operation."
+      },
+      "VolumeId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 30.",
+        "required": "No",
+        "desc": "The unique identifier of the volume, e.g., vol-AE4B946D."
+      },
+      "VolumeiSCSIAttributes": {
+        "type": "VolumeiSCSIAttributes object",
+        "required": "No",
+        "desc": "An VolumeiSCSIAttributes object that represents a collection of iSCSI attributes for one stored volume."
+      },
+      "VolumeProgress": {
+        "type": "Double",
+        "required": "No",
+        "desc": "Represents the percentage complete if the volume is restoring or bootstrapping that represents the percent of data transferred. This field does not appear in the response if the stored volume is not restoring or bootstrapping."
+      },
+      "VolumeSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size of the volume in bytes."
+      },
+      "VolumeStatus": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 50.",
+        "required": "No",
+        "desc": "One of the VolumeStatus values that indicates the state of the storage volume."
+      },
+      "VolumeType": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 100.",
+        "required": "No",
+        "desc": "One of the VolumeType enumeration values describing the type of the volume."
+      },
+      "VolumeUsedInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size of the data stored on the volume in bytes. This value is calculated based on the number of blocks that are touched, instead of the actual amount of data written. This value can be useful for sequential write patterns but less accurate for random write patterns. VolumeUsedInBytes is different from the compressed size of the volume, which is the value that is used to calculate your bill."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "Tag key. The key can't start with aws:."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Maximum length of 256.",
+        "required": "Yes",
+        "desc": "Value of the tag key."
+      }
+    }
+  },
+  {
+    "title": "Tape",
+    "attrs": {
+      "KMSKey": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 2048.",
+        "pattern": "(^arn:(aws|aws-cn|aws-us-gov):kms:([a-zA-Z0-9-]+):([0-9]+):(key|alias)/(\\S+)$)|(^alias/(\\S+)$)",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when KMSEncrypted is true. Optional."
+      },
+      "PoolEntryDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date that the tape enters a custom tape pool."
+      },
+      "PoolId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The ID of the pool that contains tapes that will be archived. The tapes in this pool are archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool. Valid Values: GLACIER | DEEP_ARCHIVE"
+      },
+      "Progress": {
+        "type": "Double",
+        "required": "No",
+        "desc": "For archiving virtual tapes, indicates how much data remains to be uploaded before archiving is complete. Range: 0 (not started) to 100 (complete)."
+      },
+      "RetentionStartDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date that the tape is first archived with tape retention lock enabled."
+      },
+      "TapeARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "pattern": "^arn:(aws|aws-cn|aws-us-gov):storagegateway:[a-z\\-0-9]+:[0-9]+:tape\\/[0-9A-Z]{7,16}$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the virtual tape."
+      },
+      "TapeBarcode": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 16.",
+        "pattern": "^[A-Z0-9]*$",
+        "required": "No",
+        "desc": "The barcode that identifies a specific virtual tape."
+      },
+      "TapeCreatedDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date the virtual tape was created."
+      },
+      "TapeSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size, in bytes, of the virtual tape capacity."
+      },
+      "TapeStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current state of the virtual tape."
+      },
+      "TapeUsedInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size, in bytes, of data stored on the virtual tape."
+      },
+      "VTLDevice": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The virtual tape library (VTL) device that the virtual tape is associated with."
+      },
+      "Worm": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "If the tape is archived as write-once-read-many (WORM), this value is true."
+      }
+    }
+  },
+  {
+    "title": "TapeArchive",
+    "attrs": {
+      "CompletionTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that the archiving of the virtual tape was completed. The default timestamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format."
+      },
+      "KMSKey": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 2048.",
+        "pattern": "(^arn:(aws|aws-cn|aws-us-gov):kms:([a-zA-Z0-9-]+):([0-9]+):(key|alias)/(\\S+)$)|(^alias/(\\S+)$)",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This value can only be set when KMSEncrypted is true. Optional."
+      },
+      "PoolEntryDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that the tape entered the custom tape pool. The default timestamp format is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format."
+      },
+      "PoolId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The ID of the pool that was used to archive the tape. The tapes in this pool are archived in the S3 storage class that is associated with the pool. Valid Values: GLACIER | DEEP_ARCHIVE"
+      },
+      "RetentionStartDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "If the archived tape is subject to tape retention lock, the date that the archived tape started being retained."
+      },
+      "RetrievedTo": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the tape gateway that the virtual tape is being retrieved to. The virtual tape is retrieved from the virtual tape shelf (VTS)."
+      },
+      "TapeARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "pattern": "^arn:(aws|aws-cn|aws-us-gov):storagegateway:[a-z\\-0-9]+:[0-9]+:tape\\/[0-9A-Z]{7,16}$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of an archived virtual tape."
+      },
+      "TapeBarcode": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 16.",
+        "pattern": "^[A-Z0-9]*$",
+        "required": "No",
+        "desc": "The barcode that identifies the archived virtual tape."
+      },
+      "TapeCreatedDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date the virtual tape was created."
+      },
+      "TapeSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size, in bytes, of the archived virtual tape."
+      },
+      "TapeStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The current state of the archived virtual tape."
+      },
+      "TapeUsedInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size, in bytes, of data stored on the virtual tape."
+      },
+      "Worm": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Set to true if the archived tape is stored as write-once-read-many (WORM)."
+      }
+    }
+  },
+  {
+    "title": "TapeInfo",
+    "attrs": {
+      "GatewayARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to return a list of gateways for your account and AWS Region."
+      },
+      "PoolEntryDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date that the tape entered the custom tape pool with tape retention lock enabled."
+      },
+      "PoolId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 100.",
+        "required": "No",
+        "desc": "The ID of the pool that you want to add your tape to for archiving. The tape in this pool is archived in the S3 storage class that is associated with the pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool. Valid Values: GLACIER | DEEP_ARCHIVE"
+      },
+      "RetentionStartDate": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The date that the tape became subject to tape retention lock."
+      },
+      "TapeARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "pattern": "^arn:(aws|aws-cn|aws-us-gov):storagegateway:[a-z\\-0-9]+:[0-9]+:tape\\/[0-9A-Z]{7,16}$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of a virtual tape."
+      },
+      "TapeBarcode": {
+        "type": "String",
+        "length": "Minimum length of 7. Maximum length of 16.",
+        "pattern": "^[A-Z0-9]*$",
+        "required": "No",
+        "desc": "The barcode that identifies a specific virtual tape."
+      },
+      "TapeSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size, in bytes, of a virtual tape."
+      },
+      "TapeStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the tape."
+      }
+    }
+  },
+  {
+    "title": "TapeRecoveryPointInfo",
+    "attrs": {
+      "TapeARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "pattern": "^arn:(aws|aws-cn|aws-us-gov):storagegateway:[a-z\\-0-9]+:[0-9]+:tape\\/[0-9A-Z]{7,16}$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the virtual tape."
+      },
+      "TapeRecoveryPointTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time when the point-in-time view of the virtual tape was replicated for later recovery. The default timestamp format of the tape recovery point time is in the ISO8601 extended YYYY-MM-DD'T'HH:MM:SS'Z' format."
+      },
+      "TapeSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size, in bytes, of the virtual tapes to recover."
+      },
+      "TapeStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the virtual tapes."
+      }
+    }
+  },
+  {
+    "title": "VolumeInfo",
+    "attrs": {
+      "GatewayARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the gateway. Use the ListGateways operation to return a list of gateways for your account and AWS Region."
+      },
+      "GatewayId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 30.",
+        "required": "No",
+        "desc": "The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-)."
+      },
+      "VolumeARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN: arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-)."
+      },
+      "VolumeAttachmentStatus": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 50.",
+        "required": "No",
+        "desc": "One of the VolumeStatus values that indicates the state of the storage volume."
+      },
+      "VolumeId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 30.",
+        "required": "No",
+        "desc": "The unique identifier assigned to the volume. This ID becomes part of the volume Amazon Resource Name (ARN), which you use as input for other operations. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-)."
+      },
+      "VolumeSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size of the volume in bytes. Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-)."
+      },
+      "VolumeType": {
+        "type": "String",
+        "length": "Minimum length of 3. Maximum length of 100.",
+        "required": "No",
+        "desc": "One of the VolumeType enumeration values describing the type of the volume."
+      }
+    }
+  },
+  {
+    "title": "VolumeiSCSIAttributes",
+    "attrs": {
+      "ChapEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether mutual CHAP is enabled for the iSCSI target."
+      },
+      "LunNumber": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The logical disk number."
+      },
+      "NetworkInterfaceId": {
+        "type": "String",
+        "pattern": "\\A(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}\\z",
+        "required": "No",
+        "desc": "The network interface identifier."
+      },
+      "NetworkInterfacePort": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The port used to communicate with iSCSI targets."
+      },
+      "TargetARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 800.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the volume target."
+      }
+    }
+  },
+  {
+    "title": "VolumeRecoveryPointInfo",
+    "attrs": {
+      "VolumeARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the volume target."
+      },
+      "VolumeRecoveryPointTime": {
+        "type": "String",
+        "required": "No",
+        "desc": "The time the recovery point was taken."
+      },
+      "VolumeSizeInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size of the volume in bytes."
+      },
+      "VolumeUsageInBytes": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The size of the data stored on the volume in bytes."
+      }
+    }
+  },
+  {
+    "title": "VTLDevice",
+    "attrs": {
+      "DeviceiSCSIAttributes": {
+        "type": "DeviceiSCSIAttributes object",
+        "required": "No",
+        "desc": "A list of iSCSI information about a VTL device."
+      },
+      "VTLDeviceARN": {
+        "type": "String",
+        "length": "Minimum length of 50. Maximum length of 500.",
+        "required": "No",
+        "desc": "Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer)."
+      },
+      "VTLDeviceProductIdentifier": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies the model number of device that the VTL device emulates."
+      },
+      "VTLDeviceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies the type of device that the VTL device emulates."
+      },
+      "VTLDeviceVendor": {
+        "type": "String",
+        "required": "No",
+        "desc": "Specifies the vendor of the device that the VTL device object emulates."
+      }
+    }
+  }
+]

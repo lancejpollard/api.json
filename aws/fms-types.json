@@ -1,0 +1,939 @@
+[
+  {
+    "title": "App",
+    "attrs": {
+      "AppName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The application's name."
+      },
+      "Port": {
+        "type": "Long",
+        "required": "Yes",
+        "desc": "The application's port number, for example 80."
+      },
+      "Protocol": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 20.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers."
+      }
+    }
+  },
+  {
+    "title": "AppsListData",
+    "attrs": {
+      "AppsList": {
+        "type": "Array of App objects",
+        "required": "Yes",
+        "desc": "An array of applications in the AWS Firewall Manager applications list."
+      },
+      "CreateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that the AWS Firewall Manager applications list was created."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that the AWS Firewall Manager applications list was last updated."
+      },
+      "ListId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "No",
+        "desc": "The ID of the AWS Firewall Manager applications list."
+      },
+      "ListName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The name of the AWS Firewall Manager applications list."
+      },
+      "ListUpdateToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list."
+      },
+      "PreviousAppsList": {
+        "type": "String to array of App objects map",
+        "required": "No",
+        "desc": "A map of previous version numbers to their corresponding App object arrays."
+      }
+    }
+  },
+  {
+    "title": "AppsListDataSummary",
+    "attrs": {
+      "AppsList": {
+        "type": "Array of App objects",
+        "required": "No",
+        "desc": "An array of App objects in the AWS Firewall Manager applications list."
+      },
+      "ListArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the applications list."
+      },
+      "ListId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "No",
+        "desc": "The ID of the applications list."
+      },
+      "ListName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The name of the applications list."
+      }
+    }
+  },
+  {
+    "title": "AwsEc2InstanceViolation",
+    "attrs": {
+      "AwsEc2NetworkInterfaceViolations": {
+        "type": "Array of AwsEc2NetworkInterfaceViolation objects",
+        "required": "No",
+        "desc": "Violations for network interfaces associated with the EC2 instance."
+      },
+      "ViolationTarget": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The resource ID of the EC2 instance."
+      }
+    }
+  },
+  {
+    "title": "AwsEc2NetworkInterfaceViolation",
+    "attrs": {
+      "ViolatingSecurityGroups": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "List of security groups that violate the rules specified in the master security group of the AWS Firewall Manager policy."
+      },
+      "ViolationTarget": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The resource ID of the network interface."
+      }
+    }
+  },
+  {
+    "title": "AwsVPCSecurityGroupViolation",
+    "attrs": {
+      "PartialMatches": {
+        "type": "Array of PartialMatch objects",
+        "required": "No",
+        "desc": "List of rules specified in the security group of the AWS Firewall Manager policy that partially match the ViolationTarget rule."
+      },
+      "PossibleSecurityGroupRemediationActions": {
+        "type": "Array of SecurityGroupRemediationAction objects",
+        "required": "No",
+        "desc": "Remediation options for the rule specified in the ViolationTarget."
+      },
+      "ViolationTarget": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The security group rule that is being evaluated."
+      },
+      "ViolationTargetDescription": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "A description of the security group that violates the policy."
+      }
+    }
+  },
+  {
+    "title": "ComplianceViolator",
+    "attrs": {
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource ID."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource type. This is in the format shown in the AWS Resource Types Reference. For example: AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::CloudFront::Distribution, or AWS::NetworkFirewall::FirewallPolicy."
+      },
+      "ViolationReason": {
+        "type": "String",
+        "required": "No",
+        "desc": "The reason that the resource is not protected by the policy."
+      }
+    }
+  },
+  {
+    "title": "EvaluationResult",
+    "attrs": {
+      "ComplianceStatus": {
+        "type": "String",
+        "required": "No",
+        "desc": "Describes an AWS account's compliance with the AWS Firewall Manager policy."
+      },
+      "EvaluationLimitExceeded": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates that over 100 resources are noncompliant with the AWS Firewall Manager policy."
+      },
+      "ViolatorCount": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of resources that are noncompliant with the specified policy. For AWS WAF and Shield Advanced policies, a resource is considered noncompliant if it is not associated with the policy. For security group policies, a resource is considered noncompliant if it doesn't comply with the rules of the policy and remediation is disabled or not possible."
+      }
+    }
+  },
+  {
+    "title": "NetworkFirewallMissingExpectedRTViolation",
+    "attrs": {
+      "AvailabilityZone": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The Availability Zone of a violating subnet."
+      },
+      "CurrentRouteTable": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource ID of the current route table that's associated with the subnet, if one is available."
+      },
+      "ExpectedRouteTable": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource ID of the route table that should be associated with the subnet."
+      },
+      "ViolationTarget": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The ID of the AWS Network Firewall or VPC resource that's in violation."
+      },
+      "VPC": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource ID of the VPC associated with a violating subnet."
+      }
+    }
+  },
+  {
+    "title": "NetworkFirewallMissingFirewallViolation",
+    "attrs": {
+      "AvailabilityZone": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The Availability Zone of a violating subnet."
+      },
+      "TargetViolationReason": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "\\w+",
+        "required": "No",
+        "desc": "The reason the resource has this violation, if one is available."
+      },
+      "ViolationTarget": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The ID of the AWS Network Firewall or VPC resource that's in violation."
+      },
+      "VPC": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource ID of the VPC associated with a violating subnet."
+      }
+    }
+  },
+  {
+    "title": "NetworkFirewallMissingSubnetViolation",
+    "attrs": {
+      "AvailabilityZone": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The Availability Zone of a violating subnet."
+      },
+      "TargetViolationReason": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "\\w+",
+        "required": "No",
+        "desc": "The reason the resource has this violation, if one is available."
+      },
+      "ViolationTarget": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The ID of the AWS Network Firewall or VPC resource that's in violation."
+      },
+      "VPC": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource ID of the VPC associated with a violating subnet."
+      }
+    }
+  },
+  {
+    "title": "NetworkFirewallPolicyDescription",
+    "attrs": {
+      "StatefulRuleGroups": {
+        "type": "Array of StatefulRuleGroup objects",
+        "required": "No",
+        "desc": "The stateful rule groups that are used in the Network Firewall firewall policy."
+      },
+      "StatelessCustomActions": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9]+$",
+        "required": "No",
+        "desc": "Names of custom actions that are available for use in the stateless default actions settings."
+      },
+      "StatelessDefaultActions": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9]+$",
+        "required": "No",
+        "desc": "The actions to take on packets that don't match any of the stateless rule groups."
+      },
+      "StatelessFragmentDefaultActions": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9]+$",
+        "required": "No",
+        "desc": "The actions to take on packet fragments that don't match any of the stateless rule groups."
+      },
+      "StatelessRuleGroups": {
+        "type": "Array of StatelessRuleGroup objects",
+        "required": "No",
+        "desc": "The stateless rule groups that are used in the Network Firewall firewall policy."
+      }
+    }
+  },
+  {
+    "title": "NetworkFirewallPolicyModifiedViolation",
+    "attrs": {
+      "CurrentPolicyDescription": {
+        "type": "NetworkFirewallPolicyDescription object",
+        "required": "No",
+        "desc": "The policy that's currently in use in the individual account."
+      },
+      "ExpectedPolicyDescription": {
+        "type": "NetworkFirewallPolicyDescription object",
+        "required": "No",
+        "desc": "The policy that should be in use in the individual account in order to be compliant."
+      },
+      "ViolationTarget": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "The ID of the AWS Network Firewall or VPC resource that's in violation."
+      }
+    }
+  },
+  {
+    "title": "PartialMatch",
+    "attrs": {
+      "Reference": {
+        "type": "String",
+        "required": "No",
+        "desc": "The reference rule from the master security group of the AWS Firewall Manager policy."
+      },
+      "TargetViolationReasons": {
+        "type": "Array of strings",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "\\w+",
+        "required": "No",
+        "desc": "The violation reason."
+      }
+    }
+  },
+  {
+    "title": "Policy",
+    "attrs": {
+      "ExcludeMap": {
+        "type": "String to array of strings map",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to exclude from the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time. You can specify inclusions or exclusions, but not both. If you specify an IncludeMap, AWS Firewall Manager applies the policy to all accounts specified by the IncludeMap, and does not evaluate any ExcludeMap specifications. If you do not specify an IncludeMap, then Firewall Manager applies the policy to all accounts except for those specified by the ExcludeMap. You can specify account IDs, OUs, or a combination:"
+      },
+      "ExcludeResourceTags": {
+        "type": "Boolean",
+        "required": "Yes",
+        "desc": "If set to True, resources with the tags that are specified in the ResourceTag array are not in scope of the policy. If set to False, and the ResourceTag array is not null, only resources with the specified tags are in scope of the policy."
+      },
+      "IncludeMap": {
+        "type": "String to array of strings map",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "Specifies the AWS account IDs and AWS Organizations organizational units (OUs) to include in the policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time. You can specify inclusions or exclusions, but not both. If you specify an IncludeMap, AWS Firewall Manager applies the policy to all accounts specified by the IncludeMap, and does not evaluate any ExcludeMap specifications. If you do not specify an IncludeMap, then Firewall Manager applies the policy to all accounts except for those specified by the ExcludeMap. You can specify account IDs, OUs, or a combination:"
+      },
+      "PolicyId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "No",
+        "desc": "The ID of the AWS Firewall Manager policy."
+      },
+      "PolicyName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The name of the AWS Firewall Manager policy."
+      },
+      "PolicyUpdateToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "A unique identifier for each update to the policy. When issuing a PutPolicy request, the PolicyUpdateToken in the request must match the PolicyUpdateToken of the current policy version. To get the PolicyUpdateToken of the current policy version, use a GetPolicy request."
+      },
+      "RemediationEnabled": {
+        "type": "Boolean",
+        "required": "Yes",
+        "desc": "Indicates if the policy should be automatically applied to new resources."
+      },
+      "ResourceTags": {
+        "type": "Array of ResourceTag objects",
+        "required": "No",
+        "desc": "An array of ResourceTag objects."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The type of resource protected by or in scope of the policy. This is in the format shown in the AWS Resource Types Reference. For AWS WAF and Shield Advanced, examples include AWS::ElasticLoadBalancingV2::LoadBalancer and AWS::CloudFront::Distribution. For a security group common policy, valid values are AWS::EC2::NetworkInterface and AWS::EC2::Instance. For a security group content audit policy, valid values are AWS::EC2::SecurityGroup, AWS::EC2::NetworkInterface, and AWS::EC2::Instance. For a security group usage audit policy, the value is AWS::EC2::SecurityGroup. For an AWS Network Firewall policy, the value is AWS::EC2::VPC."
+      },
+      "ResourceTypeList": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "An array of ResourceType."
+      },
+      "SecurityServicePolicyData": {
+        "type": "SecurityServicePolicyData object",
+        "required": "Yes",
+        "desc": "Details about the security service that is being used to protect the resources."
+      }
+    }
+  },
+  {
+    "title": "PolicyComplianceDetail",
+    "attrs": {
+      "EvaluationLimitExceeded": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates if over 100 resources are noncompliant with the AWS Firewall Manager policy."
+      },
+      "ExpiredAt": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "A timestamp that indicates when the returned information should be considered out of date."
+      },
+      "IssueInfoMap": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service."
+      },
+      "MemberAccount": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^[0-9]+$",
+        "required": "No",
+        "desc": "The AWS account ID."
+      },
+      "PolicyId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "No",
+        "desc": "The ID of the AWS Firewall Manager policy."
+      },
+      "PolicyOwner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^[0-9]+$",
+        "required": "No",
+        "desc": "The AWS account that created the AWS Firewall Manager policy."
+      },
+      "Violators": {
+        "type": "Array of ComplianceViolator objects",
+        "required": "No",
+        "desc": "An array of resources that aren't protected by the AWS WAF or Shield Advanced policy or that aren't in compliance with the security group policy."
+      }
+    }
+  },
+  {
+    "title": "PolicyComplianceStatus",
+    "attrs": {
+      "EvaluationResults": {
+        "type": "Array of EvaluationResult objects",
+        "required": "No",
+        "desc": "An array of EvaluationResult objects."
+      },
+      "IssueInfoMap": {
+        "type": "String to string map",
+        "required": "No",
+        "desc": "Details about problems with dependent services, such as AWS WAF or AWS Config, that are causing a resource to be noncompliant. The details include the name of the dependent service and the error message received that indicates the problem with the service."
+      },
+      "LastUpdated": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "Timestamp of the last update to the EvaluationResult objects."
+      },
+      "MemberAccount": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^[0-9]+$",
+        "required": "No",
+        "desc": "The member account ID."
+      },
+      "PolicyId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "No",
+        "desc": "The ID of the AWS Firewall Manager policy."
+      },
+      "PolicyName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The name of the AWS Firewall Manager policy."
+      },
+      "PolicyOwner": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^[0-9]+$",
+        "required": "No",
+        "desc": "The AWS account that created the AWS Firewall Manager policy."
+      }
+    }
+  },
+  {
+    "title": "PolicySummary",
+    "attrs": {
+      "PolicyArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the specified policy."
+      },
+      "PolicyId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "No",
+        "desc": "The ID of the specified policy."
+      },
+      "PolicyName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The name of the specified policy."
+      },
+      "RemediationEnabled": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates if the policy should be automatically applied to new resources."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The type of resource protected by or in scope of the policy. This is in the format shown in the AWS Resource Types Reference. For AWS WAF and Shield Advanced, examples include AWS::ElasticLoadBalancingV2::LoadBalancer and AWS::CloudFront::Distribution. For a security group common policy, valid values are AWS::EC2::NetworkInterface and AWS::EC2::Instance. For a security group content audit policy, valid values are AWS::EC2::SecurityGroup, AWS::EC2::NetworkInterface, and AWS::EC2::Instance. For a security group usage audit policy, the value is AWS::EC2::SecurityGroup. For an AWS Network Firewall policy, the value is AWS::EC2::VPC."
+      },
+      "SecurityServiceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy."
+      }
+    }
+  },
+  {
+    "title": "ProtocolsListData",
+    "attrs": {
+      "CreateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that the AWS Firewall Manager protocols list was created."
+      },
+      "LastUpdateTime": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time that the AWS Firewall Manager protocols list was last updated."
+      },
+      "ListId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "No",
+        "desc": "The ID of the AWS Firewall Manager protocols list."
+      },
+      "ListName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The name of the AWS Firewall Manager protocols list."
+      },
+      "ListUpdateToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "A unique identifier for each update to the list. When you update the list, the update token must match the token of the current version of the application list. You can retrieve the update token by getting the list."
+      },
+      "PreviousProtocolsList": {
+        "type": "String to array of strings map",
+        "length": "Minimum length of 1. Maximum length of 20.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "A map of previous version numbers to their corresponding protocol arrays."
+      },
+      "ProtocolsList": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 20.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "An array of protocols in the AWS Firewall Manager protocols list."
+      }
+    }
+  },
+  {
+    "title": "ProtocolsListDataSummary",
+    "attrs": {
+      "ListArn": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the specified protocols list."
+      },
+      "ListId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "No",
+        "desc": "The ID of the specified protocols list."
+      },
+      "ListName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The name of the specified protocols list."
+      },
+      "ProtocolsList": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 20.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "An array of protocols in the AWS Firewall Manager protocols list."
+      }
+    }
+  },
+  {
+    "title": "ResourceTag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The resource tag key."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Maximum length of 256.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource tag value."
+      }
+    }
+  },
+  {
+    "title": "ResourceViolation",
+    "attrs": {
+      "AwsEc2InstanceViolation": {
+        "type": "AwsEc2InstanceViolation object",
+        "required": "No",
+        "desc": "Violation details for an EC2 instance."
+      },
+      "AwsEc2NetworkInterfaceViolation": {
+        "type": "AwsEc2NetworkInterfaceViolation object",
+        "required": "No",
+        "desc": "Violation details for network interface."
+      },
+      "AwsVPCSecurityGroupViolation": {
+        "type": "AwsVPCSecurityGroupViolation object",
+        "required": "No",
+        "desc": "Violation details for security groups."
+      },
+      "NetworkFirewallMissingExpectedRTViolation": {
+        "type": "NetworkFirewallMissingExpectedRTViolation object",
+        "required": "No",
+        "desc": "Violation detail for an Network Firewall policy that indicates that a subnet is not associated with the expected Firewall Manager managed route table."
+      },
+      "NetworkFirewallMissingFirewallViolation": {
+        "type": "NetworkFirewallMissingFirewallViolation object",
+        "required": "No",
+        "desc": "Violation detail for an Network Firewall policy that indicates that a subnet has no Firewall Manager managed firewall in its VPC."
+      },
+      "NetworkFirewallMissingSubnetViolation": {
+        "type": "NetworkFirewallMissingSubnetViolation object",
+        "required": "No",
+        "desc": "Violation detail for an Network Firewall policy that indicates that an Availability Zone is missing the expected Firewall Manager managed subnet."
+      },
+      "NetworkFirewallPolicyModifiedViolation": {
+        "type": "NetworkFirewallPolicyModifiedViolation object",
+        "required": "No",
+        "desc": "Violation detail for an Network Firewall policy that indicates that a firewall policy in an individual account has been modified in a way that makes it noncompliant. For example, the individual account owner might have deleted a rule group, changed the priority of a stateless rule group, or changed a policy default action."
+      }
+    }
+  },
+  {
+    "title": "SecurityGroupRemediationAction",
+    "attrs": {
+      "Description": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "Brief description of the action that will be performed."
+      },
+      "IsDefaultAction": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates if the current action is the default action."
+      },
+      "RemediationActionType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The remediation action that will be performed."
+      },
+      "RemediationResult": {
+        "type": "SecurityGroupRuleDescription object",
+        "required": "No",
+        "desc": "The final state of the rule specified in the ViolationTarget after it is remediated."
+      }
+    }
+  },
+  {
+    "title": "SecurityGroupRuleDescription",
+    "attrs": {
+      "FromPort": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The start of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types."
+      },
+      "IPV4Range": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[a-f0-9:./]+",
+        "required": "No",
+        "desc": "The IPv4 ranges for the security group rule."
+      },
+      "IPV6Range": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[a-f0-9:./]+",
+        "required": "No",
+        "desc": "The IPv6 ranges for the security group rule."
+      },
+      "PrefixListId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The ID of the prefix list for the security group rule."
+      },
+      "Protocol": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "The IP protocol name (tcp, udp, icmp, icmpv6) or number."
+      },
+      "ToPort": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The end of the port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes."
+      }
+    }
+  },
+  {
+    "title": "SecurityServicePolicyData",
+    "attrs": {
+      "ManagedServiceData": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 4096.",
+        "pattern": ".*",
+        "required": "No",
+        "desc": "Details about the service that are specific to the service type, in JSON format. For service type SHIELD_ADVANCED, this is an empty string."
+      },
+      "Type": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support."
+      }
+    }
+  },
+  {
+    "title": "StatefulRuleGroup",
+    "attrs": {
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource ID of the rule group."
+      },
+      "RuleGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "required": "No",
+        "desc": "The name of the rule group."
+      }
+    }
+  },
+  {
+    "title": "StatelessRuleGroup",
+    "attrs": {
+      "Priority": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The priority of the rule group. AWS Network Firewall evaluates the stateless rule groups in a firewall policy starting from the lowest priority setting."
+      },
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "No",
+        "desc": "The resource ID of the rule group."
+      },
+      "RuleGroupName": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "required": "No",
+        "desc": "The name of the rule group."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as \"customer.\" Tag keys are case-sensitive."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as \"companyA\" or \"companyB.\" Tag values are case-sensitive."
+      }
+    }
+  },
+  {
+    "title": "ViolationDetail",
+    "attrs": {
+      "MemberAccount": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^[0-9]+$",
+        "required": "Yes",
+        "desc": "The AWS account that the violation details were requested for."
+      },
+      "PolicyId": {
+        "type": "String",
+        "length": "Fixed length of 36.",
+        "pattern": "^[a-z0-9A-Z-]{36}$",
+        "required": "Yes",
+        "desc": "The ID of the AWS Firewall Manager policy that the violation details were requested for."
+      },
+      "ResourceDescription": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 1024.",
+        "required": "No",
+        "desc": "Brief description for the requested resource."
+      },
+      "ResourceId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1024.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The resource ID that the violation details were requested for."
+      },
+      "ResourceTags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The ResourceTag objects associated with the resource."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "The resource type that the violation details were requested for."
+      },
+      "ResourceViolations": {
+        "type": "Array of ResourceViolation objects",
+        "required": "Yes",
+        "desc": "List of violations for the requested resource."
+      }
+    }
+  }
+]

@@ -1,0 +1,147 @@
+[
+  {
+    "title": "ComplianceDetails",
+    "attrs": {
+      "ComplianceStatus": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Whether a resource is compliant with the effective tag policy."
+      },
+      "KeysWithNoncompliantValues": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "These are keys defined in the effective policy that are on the resource with either incorrect case treatment or noncompliant values."
+      },
+      "NoncompliantKeys": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "These tag keys on the resource are noncompliant with the effective tag policy."
+      }
+    }
+  },
+  {
+    "title": "FailureInfo",
+    "attrs": {
+      "ErrorCode": {
+        "type": "String",
+        "required": "No",
+        "desc": "The code of the common error. Valid values include InternalServiceException, InvalidParameterException, and any valid error code returned by the AWS service that hosts the resource that you want to tag."
+      },
+      "ErrorMessage": {
+        "type": "String",
+        "required": "No",
+        "desc": "The message of the common error."
+      },
+      "StatusCode": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The HTTP status code of the common error."
+      }
+    }
+  },
+  {
+    "title": "ResourceTagMapping",
+    "attrs": {
+      "ComplianceDetails": {
+        "type": "ComplianceDetails object",
+        "required": "No",
+        "desc": "Information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys."
+      },
+      "ResourceARN": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 1011.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "The ARN of the resource."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The tags that have been applied to one or more AWS resources."
+      }
+    }
+  },
+  {
+    "title": "Summary",
+    "attrs": {
+      "LastUpdated": {
+        "type": "String",
+        "required": "No",
+        "desc": "The timestamp that shows when this summary was generated in this Region."
+      },
+      "NonCompliantResources": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The count of noncompliant resources."
+      },
+      "Region": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 256.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "The AWS Region that the summary applies to."
+      },
+      "ResourceType": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "The AWS resource type."
+      },
+      "TargetId": {
+        "type": "String",
+        "length": "Minimum length of 6. Maximum length of 68.",
+        "pattern": "[a-zA-Z0-9-]*",
+        "required": "No",
+        "desc": "The account identifier or the root identifier of the organization. If you don't know the root ID, you can call the AWS Organizations ListRoots API."
+      },
+      "TargetIdType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Whether the target is an account, an OU, or the organization root."
+      }
+    }
+  },
+  {
+    "title": "Tag",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[\\s\\S]*",
+        "required": "Yes",
+        "desc": "One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values."
+      },
+      "Value": {
+        "type": "String",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[\\s\\S]*",
+        "required": "Yes",
+        "desc": "One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null."
+      }
+    }
+  },
+  {
+    "title": "TagFilter",
+    "attrs": {
+      "Key": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values."
+      },
+      "Values": {
+        "type": "Array of strings",
+        "length": "Minimum length of 0. Maximum length of 256.",
+        "pattern": "[\\s\\S]*",
+        "required": "No",
+        "desc": "One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null."
+      }
+    }
+  }
+]

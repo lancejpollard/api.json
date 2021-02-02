@@ -1,0 +1,717 @@
+[
+  {
+    "title": "AutoScalingGroupConfiguration",
+    "attrs": {
+      "desiredCapacity": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The desired capacity, or number of instances, for the Auto Scaling group."
+      },
+      "instanceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The instance type for the Auto Scaling group."
+      },
+      "maxSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum size, or maximum number of instances, for the Auto Scaling group."
+      },
+      "minSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The minimum size, or minimum number of instances, for the Auto Scaling group."
+      }
+    }
+  },
+  {
+    "title": "AutoScalingGroupRecommendation",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The AWS account ID of the Auto Scaling group."
+      },
+      "autoScalingGroupArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the Auto Scaling group."
+      },
+      "autoScalingGroupName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the Auto Scaling group."
+      },
+      "currentConfiguration": {
+        "type": "AutoScalingGroupConfiguration object",
+        "required": "No",
+        "desc": "An array of objects that describe the current configuration of the Auto Scaling group."
+      },
+      "finding": {
+        "type": "String",
+        "required": "No",
+        "desc": "The finding classification for the Auto Scaling group. Findings for Auto Scaling groups include:"
+      },
+      "lastRefreshTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time stamp of when the Auto Scaling group recommendation was last refreshed."
+      },
+      "lookBackPeriodInDays": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The number of days for which utilization metrics were analyzed for the Auto Scaling group."
+      },
+      "recommendationOptions": {
+        "type": "Array of AutoScalingGroupRecommendationOption objects",
+        "required": "No",
+        "desc": "An array of objects that describe the recommendation options for the Auto Scaling group."
+      },
+      "utilizationMetrics": {
+        "type": "Array of UtilizationMetric objects",
+        "required": "No",
+        "desc": "An array of objects that describe the utilization metrics of the Auto Scaling group."
+      }
+    }
+  },
+  {
+    "title": "AutoScalingGroupRecommendationOption",
+    "attrs": {
+      "configuration": {
+        "type": "AutoScalingGroupConfiguration object",
+        "required": "No",
+        "desc": "An array of objects that describe an Auto Scaling group configuration."
+      },
+      "performanceRisk": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The performance risk of the Auto Scaling group configuration recommendation. Performance risk is the likelihood of the recommended instance type not meeting the performance requirement of your workload. The lowest performance risk is categorized as 0, and the highest as 5."
+      },
+      "projectedUtilizationMetrics": {
+        "type": "Array of UtilizationMetric objects",
+        "required": "No",
+        "desc": "An array of objects that describe the projected utilization metrics of the Auto Scaling group recommendation option."
+      },
+      "rank": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The rank of the Auto Scaling group recommendation option. The top recommendation option is ranked as 1."
+      }
+    }
+  },
+  {
+    "title": "EBSFilter",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the filter. Specify Finding to return recommendations with a specific finding classification (e.g., Optimized)."
+      },
+      "values": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The value of the filter. The valid values are Optimized, or NotOptimized."
+      }
+    }
+  },
+  {
+    "title": "EBSUtilizationMetric",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the utilization metric. The following utilization metrics are available:"
+      },
+      "statistic": {
+        "type": "String",
+        "required": "No",
+        "desc": "The statistic of the utilization metric. The following statistics are available:"
+      },
+      "value": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The value of the utilization metric."
+      }
+    }
+  },
+  {
+    "title": "ExportDestination",
+    "attrs": {
+      "s3": {
+        "type": "S3Destination object",
+        "required": "No",
+        "desc": "An object that describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file."
+      }
+    }
+  },
+  {
+    "title": "Filter",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the filter. Specify Finding to return recommendations with a specific finding classification (e.g., Overprovisioned). Specify RecommendationSourceType to return recommendations of a specific resource type (e.g., AutoScalingGroup)."
+      },
+      "values": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The value of the filter. The valid values for this parameter are as follows, depending on what you specify for the name parameter and the resource type that you wish to filter results for:"
+      }
+    }
+  },
+  {
+    "title": "GetRecommendationError",
+    "attrs": {
+      "code": {
+        "type": "String",
+        "required": "No",
+        "desc": "The error code."
+      },
+      "identifier": {
+        "type": "String",
+        "required": "No",
+        "desc": "The ID of the error."
+      },
+      "message": {
+        "type": "String",
+        "required": "No",
+        "desc": "The message, or reason, for the error."
+      }
+    }
+  },
+  {
+    "title": "InstanceRecommendation",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The AWS account ID of the instance."
+      },
+      "currentInstanceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The instance type of the current instance."
+      },
+      "finding": {
+        "type": "String",
+        "required": "No",
+        "desc": "The finding classification for the instance. Findings for instances include:"
+      },
+      "instanceArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the current instance."
+      },
+      "instanceName": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the current instance."
+      },
+      "lastRefreshTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time stamp of when the instance recommendation was last refreshed."
+      },
+      "lookBackPeriodInDays": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The number of days for which utilization metrics were analyzed for the instance."
+      },
+      "recommendationOptions": {
+        "type": "Array of InstanceRecommendationOption objects",
+        "required": "No",
+        "desc": "An array of objects that describe the recommendation options for the instance."
+      },
+      "recommendationSources": {
+        "type": "Array of RecommendationSource objects",
+        "required": "No",
+        "desc": "An array of objects that describe the source resource of the recommendation."
+      },
+      "utilizationMetrics": {
+        "type": "Array of UtilizationMetric objects",
+        "required": "No",
+        "desc": "An array of objects that describe the utilization metrics of the instance."
+      }
+    }
+  },
+  {
+    "title": "InstanceRecommendationOption",
+    "attrs": {
+      "instanceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The instance type of the instance recommendation."
+      },
+      "performanceRisk": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The performance risk of the instance recommendation option. Performance risk is the likelihood of the recommended instance type not meeting the performance requirement of your workload. The lowest performance risk is categorized as 0, and the highest as 5."
+      },
+      "projectedUtilizationMetrics": {
+        "type": "Array of UtilizationMetric objects",
+        "required": "No",
+        "desc": "An array of objects that describe the projected utilization metrics of the instance recommendation option."
+      },
+      "rank": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The rank of the instance recommendation option. The top recommendation option is ranked as 1."
+      }
+    }
+  },
+  {
+    "title": "JobFilter",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the filter. Specify ResourceType to return export jobs of a specific resource type (e.g., Ec2Instance). Specify JobStatus to return export jobs with a specific status (e.g, Complete)."
+      },
+      "values": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The value of the filter. The valid values for this parameter are as follows, depending on what you specify for the name parameter:"
+      }
+    }
+  },
+  {
+    "title": "LambdaFunctionMemoryProjectedMetric",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the projected utilization metric."
+      },
+      "statistic": {
+        "type": "String",
+        "required": "No",
+        "desc": "The statistic of the projected utilization metric."
+      },
+      "value": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The values of the projected utilization metrics."
+      }
+    }
+  },
+  {
+    "title": "LambdaFunctionMemoryRecommendationOption",
+    "attrs": {
+      "memorySize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The memory size, in MB, of the function recommendation option."
+      },
+      "projectedUtilizationMetrics": {
+        "type": "Array of LambdaFunctionMemoryProjectedMetric objects",
+        "required": "No",
+        "desc": "An array of objects that describe the projected utilization metrics of the function recommendation option."
+      },
+      "rank": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The rank of the function recommendation option. The top recommendation option is ranked as 1."
+      }
+    }
+  },
+  {
+    "title": "LambdaFunctionRecommendation",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The AWS account ID of the function."
+      },
+      "currentMemorySize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The amount of memory, in MB, that's allocated to the current function."
+      },
+      "finding": {
+        "type": "String",
+        "required": "No",
+        "desc": "The finding classification for the function. Findings for functions include:"
+      },
+      "findingReasonCodes": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The reason for the finding classification of the function. Reason codes include:"
+      },
+      "functionArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the current function."
+      },
+      "functionVersion": {
+        "type": "String",
+        "required": "No",
+        "desc": "The version number of the current function."
+      },
+      "lastRefreshTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time stamp of when the function recommendation was last refreshed."
+      },
+      "lookbackPeriodInDays": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The number of days for which utilization metrics were analyzed for the function."
+      },
+      "memorySizeRecommendationOptions": {
+        "type": "Array of LambdaFunctionMemoryRecommendationOption objects",
+        "required": "No",
+        "desc": "An array of objects that describe the memory configuration recommendation options for the function."
+      },
+      "numberOfInvocations": {
+        "type": "Long",
+        "required": "No",
+        "desc": "The number of times your function code was executed during the look-back period."
+      },
+      "utilizationMetrics": {
+        "type": "Array of LambdaFunctionUtilizationMetric objects",
+        "required": "No",
+        "desc": "An array of objects that describe the utilization metrics of the function."
+      }
+    }
+  },
+  {
+    "title": "LambdaFunctionRecommendationFilter",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the filter. Specify Finding to return recommendations with a specific finding classification (e.g., NotOptimized). Specify FindingReasonCode to return recommendations with a specific finding reason code (e.g., MemoryUnderprovisioned)."
+      },
+      "values": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The value of the filter. The valid values for this parameter are as follows, depending on what you specify for the name parameter:"
+      }
+    }
+  },
+  {
+    "title": "LambdaFunctionUtilizationMetric",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the utilization metric."
+      },
+      "statistic": {
+        "type": "String",
+        "required": "No",
+        "desc": "The statistic of the utilization metric."
+      },
+      "value": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The value of the utilization metric."
+      }
+    }
+  },
+  {
+    "title": "ProjectedMetric",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the projected utilization metric. The following projected utilization metrics are returned:"
+      },
+      "timestamps": {
+        "type": "Array of timestamps",
+        "required": "No",
+        "desc": "The time stamps of the projected utilization metric."
+      },
+      "values": {
+        "type": "Array of doubles",
+        "required": "No",
+        "desc": "The values of the projected utilization metrics."
+      }
+    }
+  },
+  {
+    "title": "ReasonCodeSummary",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the finding reason code."
+      },
+      "value": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The value of the finding reason code summary."
+      }
+    }
+  },
+  {
+    "title": "RecommendationExportJob",
+    "attrs": {
+      "creationTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp of when the export job was created."
+      },
+      "destination": {
+        "type": "ExportDestination object",
+        "required": "No",
+        "desc": "An object that describes the destination of the export file."
+      },
+      "failureReason": {
+        "type": "String",
+        "required": "No",
+        "desc": "The reason for an export job failure."
+      },
+      "jobId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The identification number of the export job."
+      },
+      "lastUpdatedTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The timestamp of when the export job was last updated."
+      },
+      "resourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The resource type of the exported recommendations."
+      },
+      "status": {
+        "type": "String",
+        "required": "No",
+        "desc": "The status of the export job."
+      }
+    }
+  },
+  {
+    "title": "RecommendationSource",
+    "attrs": {
+      "recommendationSourceArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the recommendation source."
+      },
+      "recommendationSourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The resource type of the recommendation source."
+      }
+    }
+  },
+  {
+    "title": "RecommendationSummary",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The AWS account ID of the recommendation summary."
+      },
+      "recommendationResourceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The resource type of the recommendation."
+      },
+      "summaries": {
+        "type": "Array of Summary objects",
+        "required": "No",
+        "desc": "An array of objects that describe a recommendation summary."
+      }
+    }
+  },
+  {
+    "title": "RecommendedOptionProjectedMetric",
+    "attrs": {
+      "projectedMetrics": {
+        "type": "Array of ProjectedMetric objects",
+        "required": "No",
+        "desc": "An array of objects that describe a projected utilization metric."
+      },
+      "rank": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The rank of the recommendation option projected metric. The top recommendation option is ranked as 1. The projected metric rank correlates to the recommendation option rank. For example, the projected metric ranked as 1 is related to the recommendation option that is also ranked as 1 in the same response."
+      },
+      "recommendedInstanceType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The recommended instance type."
+      }
+    }
+  },
+  {
+    "title": "S3Destination",
+    "attrs": {
+      "bucket": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the Amazon S3 bucket used as the destination of an export file."
+      },
+      "key": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon S3 bucket key of an export file. The key uniquely identifies the object, or export file, in the S3 bucket."
+      },
+      "metadataKey": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon S3 bucket key of a metadata file. The key uniquely identifies the object, or metadata file, in the S3 bucket."
+      }
+    }
+  },
+  {
+    "title": "S3DestinationConfig",
+    "attrs": {
+      "bucket": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the Amazon S3 bucket to use as the destination for an export job."
+      },
+      "keyPrefix": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon S3 bucket prefix for an export job."
+      }
+    }
+  },
+  {
+    "title": "Summary",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The finding classification of the recommendation."
+      },
+      "reasonCodeSummaries": {
+        "type": "Array of ReasonCodeSummary objects",
+        "required": "No",
+        "desc": "An array of objects that summarize a finding reason code."
+      },
+      "value": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The value of the recommendation summary."
+      }
+    }
+  },
+  {
+    "title": "UtilizationMetric",
+    "attrs": {
+      "name": {
+        "type": "String",
+        "required": "No",
+        "desc": "The name of the utilization metric. The following utilization metrics are available:"
+      },
+      "statistic": {
+        "type": "String",
+        "required": "No",
+        "desc": "The statistic of the utilization metric. The following statistics are available:"
+      },
+      "value": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The value of the utilization metric."
+      }
+    }
+  },
+  {
+    "title": "VolumeConfiguration",
+    "attrs": {
+      "volumeBaselineIOPS": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The baseline IOPS of the volume."
+      },
+      "volumeBaselineThroughput": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The baseline throughput of the volume."
+      },
+      "volumeBurstIOPS": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The burst IOPS of the volume."
+      },
+      "volumeBurstThroughput": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The burst throughput of the volume."
+      },
+      "volumeSize": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The size of the volume, in GiB."
+      },
+      "volumeType": {
+        "type": "String",
+        "required": "No",
+        "desc": "The volume type. This can be gp2 for General Purpose SSD, io1 or io2 for Provisioned IOPS SSD, st1 for Throughput Optimized HDD, sc1 for Cold HDD, or standard for Magnetic volumes."
+      }
+    }
+  },
+  {
+    "title": "VolumeRecommendation",
+    "attrs": {
+      "accountId": {
+        "type": "String",
+        "required": "No",
+        "desc": "The AWS account ID of the volume."
+      },
+      "currentConfiguration": {
+        "type": "VolumeConfiguration object",
+        "required": "No",
+        "desc": "An array of objects that describe the current configuration of the volume."
+      },
+      "finding": {
+        "type": "String",
+        "required": "No",
+        "desc": "The finding classification for the volume. Findings for volumes include:"
+      },
+      "lastRefreshTimestamp": {
+        "type": "Timestamp",
+        "required": "No",
+        "desc": "The time stamp of when the volume recommendation was last refreshed."
+      },
+      "lookBackPeriodInDays": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The number of days for which utilization metrics were analyzed for the volume."
+      },
+      "utilizationMetrics": {
+        "type": "Array of EBSUtilizationMetric objects",
+        "required": "No",
+        "desc": "An array of objects that describe the utilization metrics of the volume."
+      },
+      "volumeArn": {
+        "type": "String",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the current volume."
+      },
+      "volumeRecommendationOptions": {
+        "type": "Array of VolumeRecommendationOption objects",
+        "required": "No",
+        "desc": "An array of objects that describe the recommendation options for the volume."
+      }
+    }
+  },
+  {
+    "title": "VolumeRecommendationOption",
+    "attrs": {
+      "configuration": {
+        "type": "VolumeConfiguration object",
+        "required": "No",
+        "desc": "An array of objects that describe a volume configuration."
+      },
+      "performanceRisk": {
+        "type": "Double",
+        "required": "No",
+        "desc": "The performance risk of the volume recommendation option. Performance risk is the likelihood of the recommended volume type not meeting the performance requirement of your workload. The lowest performance risk is categorized as 0, and the highest as 5."
+      },
+      "rank": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The rank of the volume recommendation option. The top recommendation option is ranked as 1."
+      }
+    }
+  }
+]

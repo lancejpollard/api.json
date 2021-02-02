@@ -1,0 +1,1863 @@
+[
+  {
+    "title": "DescribeRecommendationExportJobs",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "filters": {
+        "type": "Array of JobFilter objects",
+        "required": "No",
+        "desc": "An array of objects that describe a filter to return a more specific list of export jobs."
+      },
+      "jobIds": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The identification numbers of the export jobs to return. An export job ID is returned when you create an export using the ExportAutoScalingGroupRecommendations or ExportEC2InstanceRecommendations actions. All export jobs created in the last seven days are returned if this parameter is omitted."
+      },
+      "maxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of export jobs to return with a single request. To retrieve the remaining results, make another request with the returned NextToken value."
+      },
+      "nextToken": {
+        "type": "String",
+        "required": "No",
+        "desc": "The token to advance to the next page of export jobs."
+      }
+    },
+    "res": {
+      "nextToken": {
+        "type": "String",
+        "desc": "The token to use to advance to the next page of export jobs. This value is null when there are no more pages of export jobs to return."
+      },
+      "recommendationExportJobs": {
+        "type": "Array of RecommendationExportJob objects",
+        "desc": "An array of objects that describe recommendation export jobs."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ResourceNotFoundException": {
+        "statusCode": "400",
+        "desc": "A resource that is required for the action doesn't exist."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "ExportAutoScalingGroupRecommendations",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "accountIds": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The IDs of the AWS accounts for which to export Auto Scaling group recommendations. If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to export recommendations. This parameter cannot be specified together with the include member accounts parameter. The parameters are mutually exclusive. Recommendations for member accounts are not included in the export if this parameter, or the include member accounts parameter, is omitted. You can specify multiple account IDs per request."
+      },
+      "fieldsToExport": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The recommendations data to include in the export file. For more information about the fields that can be exported, see Exported files in the Compute Optimizer User Guide."
+      },
+      "fileFormat": {
+        "type": "String",
+        "required": "No",
+        "desc": "The format of the export file. The only export file format currently supported is Csv."
+      },
+      "filters": {
+        "type": "Array of Filter objects",
+        "required": "No",
+        "desc": "An array of objects that describe a filter to export a more specific set of Auto Scaling group recommendations."
+      },
+      "includeMemberAccounts": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization. The member accounts must also be opted in to Compute Optimizer. Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted. This parameter cannot be specified together with the account IDs parameter. The parameters are mutually exclusive. Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted."
+      },
+      "s3DestinationConfig": {
+        "type": "S3DestinationConfig object",
+        "required": "Yes",
+        "desc": "An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for the export job. You must create the destination Amazon S3 bucket for your recommendations export before you create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the export file to it. If you plan to specify an object prefix when you create the export job, you must include the object prefix in the policy that you add to the S3 bucket. For more information, see Amazon S3 Bucket Policy for Compute Optimizer in the Compute Optimizer user guide."
+      }
+    },
+    "res": {
+      "jobId": {
+        "type": "String",
+        "desc": "The identification number of the export job. Use the DescribeRecommendationExportJobs action, and specify the job ID to view the status of an export job."
+      },
+      "s3Destination": {
+        "type": "S3Destination object",
+        "desc": "An object that describes the destination Amazon S3 bucket of a recommendations export file."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "The request exceeds a limit of the service."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "ExportEC2InstanceRecommendations",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "accountIds": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The IDs of the AWS accounts for which to export instance recommendations. If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to export recommendations. This parameter cannot be specified together with the include member accounts parameter. The parameters are mutually exclusive. Recommendations for member accounts are not included in the export if this parameter, or the include member accounts parameter, is omitted. You can specify multiple account IDs per request."
+      },
+      "fieldsToExport": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The recommendations data to include in the export file. For more information about the fields that can be exported, see Exported files in the Compute Optimizer User Guide."
+      },
+      "fileFormat": {
+        "type": "String",
+        "required": "No",
+        "desc": "The format of the export file. The only export file format currently supported is Csv."
+      },
+      "filters": {
+        "type": "Array of Filter objects",
+        "required": "No",
+        "desc": "An array of objects that describe a filter to export a more specific set of instance recommendations."
+      },
+      "includeMemberAccounts": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether to include recommendations for resources in all member accounts of the organization if your account is the management account of an organization. The member accounts must also be opted in to Compute Optimizer. Recommendations for member accounts of the organization are not included in the export file if this parameter is omitted. Recommendations for member accounts are not included in the export if this parameter, or the account IDs parameter, is omitted."
+      },
+      "s3DestinationConfig": {
+        "type": "S3DestinationConfig object",
+        "required": "Yes",
+        "desc": "An object to specify the destination Amazon Simple Storage Service (Amazon S3) bucket name and key prefix for the export job. You must create the destination Amazon S3 bucket for your recommendations export before you create the export job. Compute Optimizer does not create the S3 bucket for you. After you create the S3 bucket, ensure that it has the required permission policy to allow Compute Optimizer to write the export file to it. If you plan to specify an object prefix when you create the export job, you must include the object prefix in the policy that you add to the S3 bucket. For more information, see Amazon S3 Bucket Policy for Compute Optimizer in the Compute Optimizer user guide."
+      }
+    },
+    "res": {
+      "jobId": {
+        "type": "String",
+        "desc": "The identification number of the export job. Use the DescribeRecommendationExportJobs action, and specify the job ID to view the status of an export job."
+      },
+      "s3Destination": {
+        "type": "S3Destination object",
+        "desc": "An object that describes the destination Amazon S3 bucket of a recommendations export file."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "The request exceeds a limit of the service."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "GetAutoScalingGroupRecommendations",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "accountIds": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The IDs of the AWS accounts for which to return Auto Scaling group recommendations. If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return Auto Scaling group recommendations. Only one account ID can be specified per request."
+      },
+      "autoScalingGroupArns": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the Auto Scaling groups for which to return recommendations."
+      },
+      "filters": {
+        "type": "Array of Filter objects",
+        "required": "No",
+        "desc": "An array of objects that describe a filter that returns a more specific list of Auto Scaling group recommendations."
+      },
+      "maxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of Auto Scaling group recommendations to return with a single request. To retrieve the remaining results, make another request with the returned NextToken value."
+      },
+      "nextToken": {
+        "type": "String",
+        "required": "No",
+        "desc": "The token to advance to the next page of Auto Scaling group recommendations."
+      }
+    },
+    "res": {
+      "autoScalingGroupRecommendations": {
+        "type": "Array of AutoScalingGroupRecommendation objects",
+        "desc": "An array of objects that describe Auto Scaling group recommendations."
+      },
+      "errors": {
+        "type": "Array of GetRecommendationError objects",
+        "desc": "An array of objects that describe errors of the request. For example, an error is returned if you request recommendations for an unsupported Auto Scaling group."
+      },
+      "nextToken": {
+        "type": "String",
+        "desc": "The token to use to advance to the next page of Auto Scaling group recommendations. This value is null when there are no more pages of Auto Scaling group recommendations to return."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ResourceNotFoundException": {
+        "statusCode": "400",
+        "desc": "A resource that is required for the action doesn't exist."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "GetEBSVolumeRecommendations",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "accountIds": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The IDs of the AWS accounts for which to return volume recommendations. If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return volume recommendations. Only one account ID can be specified per request."
+      },
+      "filters": {
+        "type": "Array of EBSFilter objects",
+        "required": "No",
+        "desc": "An array of objects that describe a filter that returns a more specific list of volume recommendations."
+      },
+      "maxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of volume recommendations to return with a single request. To retrieve the remaining results, make another request with the returned NextToken value."
+      },
+      "nextToken": {
+        "type": "String",
+        "required": "No",
+        "desc": "The token to advance to the next page of volume recommendations."
+      },
+      "volumeArns": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the volumes for which to return recommendations."
+      }
+    },
+    "res": {
+      "errors": {
+        "type": "Array of GetRecommendationError objects",
+        "desc": "An array of objects that describe errors of the request. For example, an error is returned if you request recommendations for an unsupported volume."
+      },
+      "nextToken": {
+        "type": "String",
+        "desc": "The token to use to advance to the next page of volume recommendations. This value is null when there are no more pages of volume recommendations to return."
+      },
+      "volumeRecommendations": {
+        "type": "Array of VolumeRecommendation objects",
+        "desc": "An array of objects that describe volume recommendations."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ResourceNotFoundException": {
+        "statusCode": "400",
+        "desc": "A resource that is required for the action doesn't exist."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "GetEC2InstanceRecommendations",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "accountIds": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The IDs of the AWS accounts for which to return instance recommendations. If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return instance recommendations. Only one account ID can be specified per request."
+      },
+      "filters": {
+        "type": "Array of Filter objects",
+        "required": "No",
+        "desc": "An array of objects that describe a filter that returns a more specific list of instance recommendations."
+      },
+      "instanceArns": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the instances for which to return recommendations."
+      },
+      "maxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of instance recommendations to return with a single request. To retrieve the remaining results, make another request with the returned NextToken value."
+      },
+      "nextToken": {
+        "type": "String",
+        "required": "No",
+        "desc": "The token to advance to the next page of instance recommendations."
+      }
+    },
+    "res": {
+      "errors": {
+        "type": "Array of GetRecommendationError objects",
+        "desc": "An array of objects that describe errors of the request. For example, an error is returned if you request recommendations for an instance of an unsupported instance family."
+      },
+      "instanceRecommendations": {
+        "type": "Array of InstanceRecommendation objects",
+        "desc": "An array of objects that describe instance recommendations."
+      },
+      "nextToken": {
+        "type": "String",
+        "desc": "The token to use to advance to the next page of instance recommendations. This value is null when there are no more pages of instance recommendations to return."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ResourceNotFoundException": {
+        "statusCode": "400",
+        "desc": "A resource that is required for the action doesn't exist."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "GetEC2RecommendationProjectedMetrics",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "endTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The time stamp of the last projected metrics data point to return."
+      },
+      "instanceArn": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the instances for which to return recommendation projected metrics."
+      },
+      "period": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "The granularity, in seconds, of the projected metrics data points."
+      },
+      "startTime": {
+        "type": "Timestamp",
+        "required": "Yes",
+        "desc": "The time stamp of the first projected metrics data point to return."
+      },
+      "stat": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The statistic of the projected metrics."
+      }
+    },
+    "res": {
+      "recommendedOptionProjectedMetrics": {
+        "type": "Array of RecommendedOptionProjectedMetric objects",
+        "desc": "An array of objects that describe a projected metrics."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ResourceNotFoundException": {
+        "statusCode": "400",
+        "desc": "A resource that is required for the action doesn't exist."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "GetEnrollmentStatus",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      }
+    },
+    "res": {
+      "memberAccountsEnrolled": {
+        "type": "Boolean",
+        "desc": "Confirms the enrollment status of member accounts within the organization, if the account is a management account of an organization."
+      },
+      "status": {
+        "type": "String",
+        "desc": "The enrollment status of the account."
+      },
+      "statusReason": {
+        "type": "String",
+        "desc": "The reason for the enrollment status of the account. For example, an account might show a status of Pending because member accounts of an organization require more time to be enrolled in the service."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "GetLambdaFunctionRecommendations",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "accountIds": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The IDs of the AWS accounts for which to return function recommendations. If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return function recommendations. Only one account ID can be specified per request."
+      },
+      "filters": {
+        "type": "Array of LambdaFunctionRecommendationFilter objects",
+        "required": "No",
+        "desc": "An array of objects that describe a filter that returns a more specific list of function recommendations."
+      },
+      "functionArns": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The Amazon Resource Name (ARN) of the functions for which to return recommendations. You can specify a qualified or unqualified ARN. If you specify an unqualified ARN without a function version suffix, Compute Optimizer will return recommendations for the latest ($LATEST) version of the function. If you specify a qualified ARN with a version suffix, Compute Optimizer will return recommendations for the specified function version. For more information about using function versions, see Using versions in the AWS Lambda Developer Guide."
+      },
+      "maxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of function recommendations to return with a single request. To retrieve the remaining results, make another request with the returned NextToken value."
+      },
+      "nextToken": {
+        "type": "String",
+        "required": "No",
+        "desc": "The token to advance to the next page of function recommendations."
+      }
+    },
+    "res": {
+      "lambdaFunctionRecommendations": {
+        "type": "Array of LambdaFunctionRecommendation objects",
+        "desc": "An array of objects that describe function recommendations."
+      },
+      "nextToken": {
+        "type": "String",
+        "desc": "The token to use to advance to the next page of function recommendations. This value is null when there are no more pages of function recommendations to return."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "LimitExceededException": {
+        "statusCode": "400",
+        "desc": "The request exceeds a limit of the service."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "GetRecommendationSummaries",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "accountIds": {
+        "type": "Array of strings",
+        "required": "No",
+        "desc": "The IDs of the AWS accounts for which to return recommendation summaries. If your account is the management account of an organization, use this parameter to specify the member accounts for which you want to return recommendation summaries. Only one account ID can be specified per request."
+      },
+      "maxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of recommendation summaries to return with a single request. To retrieve the remaining results, make another request with the returned NextToken value."
+      },
+      "nextToken": {
+        "type": "String",
+        "required": "No",
+        "desc": "The token to advance to the next page of recommendation summaries."
+      }
+    },
+    "res": {
+      "nextToken": {
+        "type": "String",
+        "desc": "The token to use to advance to the next page of recommendation summaries. This value is null when there are no more pages of recommendation summaries to return."
+      },
+      "recommendationSummaries": {
+        "type": "Array of RecommendationSummary objects",
+        "desc": "An array of objects that summarize a recommendation."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "OptInRequiredException": {
+        "statusCode": "400",
+        "desc": "The account is not opted in to AWS Compute Optimizer."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  },
+  {
+    "title": "UpdateEnrollmentStatus",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "includeMemberAccounts": {
+        "type": "Boolean",
+        "required": "No",
+        "desc": "Indicates whether to enroll member accounts of the organization if the your account is the management account of an organization."
+      },
+      "status": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The new enrollment status of the account. Accepted options are Active or Inactive. You will get an error if Pending or Failed are specified."
+      }
+    },
+    "res": {
+      "status": {
+        "type": "String",
+        "desc": "The enrollment status of the account."
+      },
+      "statusReason": {
+        "type": "String",
+        "desc": "The reason for the enrollment status of the account. For example, an account might show a status of Pending because member accounts of an organization require more time to be enrolled in the service."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "400",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "InternalServerException": {
+        "statusCode": "500",
+        "desc": "An internal error has occurred. Try your call again."
+      },
+      "InvalidParameterValueException": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "ServiceUnavailableException": {
+        "statusCode": "500",
+        "desc": "The request has failed due to a temporary failure of the server."
+      }
+    }
+  }
+]

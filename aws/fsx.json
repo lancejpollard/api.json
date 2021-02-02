@@ -1,0 +1,2952 @@
+[
+  {
+    "title": "AssociateFileSystemAliases",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "Aliases": {
+        "type": "Array of strings",
+        "length": "Minimum length of 4. Maximum length of 253.",
+        "pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{4,253}$",
+        "required": "Yes",
+        "desc": "An array of one or more DNS alias names to associate with the file system. The alias name has to comply with the following formatting requirements: For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them: as uppercase letters, lowercase letters, or the corresponding letters in escape codes."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "(Optional) An idempotency token for resource creation, in a string of up to 64 ASCII characters. This token is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK."
+      },
+      "FileSystemId": {
+        "type": "String",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "Specifies the file system with which you want to associate one or more DNS aliases."
+      }
+    },
+    "res": {
+      "Aliases": {
+        "type": "Array of Alias objects",
+        "desc": "An array of the DNS aliases that Amazon FSx is associating with the file system."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      }
+    }
+  },
+  {
+    "title": "CancelDataRepositoryTask",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "TaskId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 128.",
+        "pattern": "^(task-[0-9a-f]{17,})$",
+        "required": "Yes",
+        "desc": "Specifies the data repository task to cancel."
+      }
+    },
+    "res": {
+      "Lifecycle": {
+        "type": "String",
+        "desc": "The lifecycle status of the data repository task, as follows:"
+      },
+      "TaskId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 128.",
+        "pattern": "^(task-[0-9a-f]{17,})$",
+        "desc": "The ID of the task being canceled."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "DataRepositoryTaskEnded": {
+        "statusCode": "400",
+        "desc": "The data repository task could not be canceled because the task has already ended."
+      },
+      "DataRepositoryTaskNotFound": {
+        "statusCode": "400",
+        "desc": "The data repository task or tasks you specified could not be found."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "UnsupportedOperation": {
+        "statusCode": "400",
+        "desc": "The requested operation is not supported for this resource or API."
+      }
+    }
+  },
+  {
+    "title": "CreateBackup",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation. This string is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK."
+      },
+      "FileSystemId": {
+        "type": "String",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "The ID of the file system to back up."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "(Optional) The tags to apply to the backup at backup creation. The key value of the Name tag appears in the console as the backup name. If you have set CopyTagsToBackups to true, and you specify one or more tags using the CreateBackup action, no existing file system tags are copied from the file system to the backup."
+      }
+    },
+    "res": {
+      "Backup": {
+        "type": "Backup object",
+        "desc": "A description of the backup."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BackupInProgress": {
+        "statusCode": "400",
+        "desc": "Another backup is already under way. Wait for completion before initiating additional backups of this file system."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "IncompatibleParameterError": {
+        "statusCode": "400",
+        "desc": "The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "ServiceLimitExceeded": {
+        "statusCode": "400",
+        "desc": "An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting AWS Support."
+      },
+      "UnsupportedOperation": {
+        "statusCode": "400",
+        "desc": "The requested operation is not supported for this resource or API."
+      }
+    }
+  },
+  {
+    "title": "CreateDataRepositoryTask",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "(Optional) An idempotency token for resource creation, in a string of up to 64 ASCII characters. This token is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK."
+      },
+      "FileSystemId": {
+        "type": "String",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "The globally unique ID of the file system, assigned by Amazon FSx."
+      },
+      "Paths": {
+        "type": "Array of strings",
+        "length": "Minimum length of 0. Maximum length of 4096.",
+        "pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{0,4096}$",
+        "required": "No",
+        "desc": "(Optional) The path or paths on the Amazon FSx file system to use when the data repository task is processed. The default path is the file system root directory. The paths you provide need to be relative to the mount point of the file system. If the mount point is /mnt/fsx and /mnt/fsx/path1 is a directory or file on the file system you want to export, then the path to provide is path1. If a path that you provide isn't valid, the task fails."
+      },
+      "Report": {
+        "type": "CompletionReport object",
+        "required": "Yes",
+        "desc": "Defines whether or not Amazon FSx provides a CompletionReport once the task has completed. A CompletionReport provides a detailed report on the files that Amazon FSx processed that meet the criteria specified by the Scope parameter. For more information, see Working with Task Completion Reports."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "A list of Tag values, with a maximum of 50 elements."
+      },
+      "Type": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "Specifies the type of data repository task to create."
+      }
+    },
+    "res": {
+      "DataRepositoryTask": {
+        "type": "DataRepositoryTask object",
+        "desc": "The description of the data repository task that you just created."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "DataRepositoryTaskExecuting": {
+        "statusCode": "400",
+        "desc": "An existing data repository task is currently executing on the file system. Wait until the existing task has completed, then create the new task."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "IncompatibleParameterError": {
+        "statusCode": "400",
+        "desc": "The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "ServiceLimitExceeded": {
+        "statusCode": "400",
+        "desc": "An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting AWS Support."
+      },
+      "UnsupportedOperation": {
+        "statusCode": "400",
+        "desc": "The requested operation is not supported for this resource or API."
+      }
+    }
+  },
+  {
+    "title": "CreateFileSystem",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation. This string is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK."
+      },
+      "FileSystemType": {
+        "type": "String",
+        "required": "Yes",
+        "desc": "The type of Amazon FSx file system to create, either WINDOWS or LUSTRE."
+      },
+      "KmsKeyId": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 2048.",
+        "pattern": "^.{1,2048}$",
+        "required": "No",
+        "desc": "The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file system's data for Amazon FSx for Windows File Server file systems and Amazon FSx for Lustre PERSISTENT_1 file systems at rest. In either case, if not specified, the Amazon FSx managed key is used. The Amazon FSx for Lustre SCRATCH_1 and SCRATCH_2 file systems are always encrypted at rest using Amazon FSx managed keys. For more information, see Encrypt in the AWS Key Management Service API Reference."
+      },
+      "LustreConfiguration": {
+        "type": "CreateFileSystemLustreConfiguration object",
+        "required": "No",
+        "desc": "The Lustre configuration for the file system being created."
+      },
+      "SecurityGroupIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 11. Maximum length of 20.",
+        "pattern": "^(sg-[0-9a-f]{8,})$",
+        "required": "No",
+        "desc": "A list of IDs specifying the security groups to apply to all network interfaces created for file system access. This list isn't returned in later requests to describe the file system."
+      },
+      "StorageCapacity": {
+        "type": "Integer",
+        "required": "Yes",
+        "desc": "Sets the storage capacity of the file system that you're creating. For Lustre file systems: For Windows file systems:"
+      },
+      "StorageType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Sets the storage type for the file system you're creating. Valid values are SSD and HDD. Default value is SSD. For more information, see Storage Type Options in the Amazon FSx for Windows User Guide and Multiple Storage Options in the Amazon FSx for Lustre User Guide."
+      },
+      "SubnetIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 15. Maximum length of 24.",
+        "pattern": "^(subnet-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "Specifies the IDs of the subnets that the file system will be accessible from. For Windows MULTI_AZ_1 file system deployment types, provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the WindowsConfiguration > PreferredSubnetID property. For Windows SINGLE_AZ_1 and SINGLE_AZ_2 file system deployment types and Lustre file systems, provide exactly one subnet ID. The file server is launched in that subnet's Availability Zone."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The tags to apply to the file system being created. The key value of the Name tag appears in the console as the file system name."
+      },
+      "WindowsConfiguration": {
+        "type": "CreateFileSystemWindowsConfiguration object",
+        "required": "No",
+        "desc": "The Microsoft Windows configuration for the file system being created."
+      }
+    },
+    "res": {
+      "FileSystem": {
+        "type": "FileSystem object",
+        "desc": "The configuration of the file system that was created."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "ActiveDirectoryError": {
+        "statusCode": "400",
+        "desc": "An Active Directory error."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "IncompatibleParameterError": {
+        "statusCode": "400",
+        "desc": "The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "InvalidExportPath": {
+        "statusCode": "400",
+        "desc": "The path provided for data repository export isn't valid."
+      },
+      "InvalidImportPath": {
+        "statusCode": "400",
+        "desc": "The path provided for data repository import isn't valid."
+      },
+      "InvalidNetworkSettings": {
+        "statusCode": "400",
+        "desc": "One or more network settings specified in the request are invalid. InvalidVpcId means that the ID passed for the virtual private cloud (VPC) is invalid. InvalidSubnetIds returns the list of IDs for subnets that are either invalid or not part of the VPC specified. InvalidSecurityGroupIds returns the list of IDs for security groups that are either invalid or not part of the VPC specified."
+      },
+      "InvalidPerUnitStorageThroughput": {
+        "statusCode": "400",
+        "desc": "An invalid value for PerUnitStorageThroughput was provided. Please create your file system again, using a valid value."
+      },
+      "MissingFileSystemConfiguration": {
+        "statusCode": "400",
+        "desc": "A file system configuration is required for this operation."
+      },
+      "ServiceLimitExceeded": {
+        "statusCode": "400",
+        "desc": "An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting AWS Support."
+      }
+    }
+  },
+  {
+    "title": "CreateFileSystemFromBackup",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "BackupId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 128.",
+        "pattern": "^(backup-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "The ID of the backup. Specifies the backup to use if you're creating a file system from an existing backup."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation. This string is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK."
+      },
+      "LustreConfiguration": {
+        "type": "CreateFileSystemLustreConfiguration object",
+        "required": "No",
+        "desc": "The Lustre configuration for the file system being created."
+      },
+      "SecurityGroupIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 11. Maximum length of 20.",
+        "pattern": "^(sg-[0-9a-f]{8,})$",
+        "required": "No",
+        "desc": "A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups apply to all network interfaces. This value isn't returned in later DescribeFileSystem requests."
+      },
+      "StorageType": {
+        "type": "String",
+        "required": "No",
+        "desc": "Sets the storage type for the Windows file system you're creating from a backup. Valid values are SSD and HDD. Default value is SSD."
+      },
+      "SubnetIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 15. Maximum length of 24.",
+        "pattern": "^(subnet-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "Specifies the IDs of the subnets that the file system will be accessible from. For Windows MULTI_AZ_1 file system deployment types, provide exactly two subnet IDs, one for the preferred file server and one for the standby file server. You specify one of these subnets as the preferred subnet using the WindowsConfiguration > PreferredSubnetID property. For Windows SINGLE_AZ_1 and SINGLE_AZ_2 deployment types and Lustre file systems, provide exactly one subnet ID. The file server is launched in that subnet's Availability Zone."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "No",
+        "desc": "The tags to be applied to the file system at file system creation. The key value of the Name tag appears in the console as the file system name."
+      },
+      "WindowsConfiguration": {
+        "type": "CreateFileSystemWindowsConfiguration object",
+        "required": "No",
+        "desc": "The configuration for this Microsoft Windows file system."
+      }
+    },
+    "res": {
+      "FileSystem": {
+        "type": "FileSystem object",
+        "desc": "A description of the file system."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "ActiveDirectoryError": {
+        "statusCode": "400",
+        "desc": "An Active Directory error."
+      },
+      "BackupNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx backups were found based upon the supplied parameters."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "IncompatibleParameterError": {
+        "statusCode": "400",
+        "desc": "The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "InvalidNetworkSettings": {
+        "statusCode": "400",
+        "desc": "One or more network settings specified in the request are invalid. InvalidVpcId means that the ID passed for the virtual private cloud (VPC) is invalid. InvalidSubnetIds returns the list of IDs for subnets that are either invalid or not part of the VPC specified. InvalidSecurityGroupIds returns the list of IDs for security groups that are either invalid or not part of the VPC specified."
+      },
+      "InvalidPerUnitStorageThroughput": {
+        "statusCode": "400",
+        "desc": "An invalid value for PerUnitStorageThroughput was provided. Please create your file system again, using a valid value."
+      },
+      "MissingFileSystemConfiguration": {
+        "statusCode": "400",
+        "desc": "A file system configuration is required for this operation."
+      },
+      "ServiceLimitExceeded": {
+        "statusCode": "400",
+        "desc": "An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting AWS Support."
+      }
+    }
+  },
+  {
+    "title": "DeleteBackup",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "BackupId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 128.",
+        "pattern": "^(backup-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "The ID of the backup you want to delete."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent deletion. This is automatically filled on your behalf when using the AWS CLI or SDK."
+      }
+    },
+    "res": {
+      "BackupId": {
+        "type": "String",
+        "length": "Minimum length of 12. Maximum length of 128.",
+        "pattern": "^(backup-[0-9a-f]{8,})$",
+        "desc": "The ID of the backup deleted."
+      },
+      "Lifecycle": {
+        "type": "String",
+        "desc": "The lifecycle of the backup. Should be DELETED."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BackupInProgress": {
+        "statusCode": "400",
+        "desc": "Another backup is already under way. Wait for completion before initiating additional backups of this file system."
+      },
+      "BackupNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx backups were found based upon the supplied parameters."
+      },
+      "BackupRestoring": {
+        "statusCode": "400",
+        "desc": "You can't delete a backup while it's being used to restore a file system."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "IncompatibleParameterError": {
+        "statusCode": "400",
+        "desc": "The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      }
+    }
+  },
+  {
+    "title": "DeleteFileSystem",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent deletion. This is automatically filled on your behalf when using the AWS CLI or SDK."
+      },
+      "FileSystemId": {
+        "type": "String",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "The ID of the file system you want to delete."
+      },
+      "LustreConfiguration": {
+        "type": "DeleteFileSystemLustreConfiguration object",
+        "required": "No",
+        "desc": "The configuration object for the Amazon FSx for Lustre file system being deleted in the DeleteFileSystem operation."
+      },
+      "WindowsConfiguration": {
+        "type": "DeleteFileSystemWindowsConfiguration object",
+        "required": "No",
+        "desc": "The configuration object for the Microsoft Windows file system used in the DeleteFileSystem operation."
+      }
+    },
+    "res": {
+      "FileSystemId": {
+        "type": "String",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "desc": "The ID of the file system being deleted."
+      },
+      "Lifecycle": {
+        "type": "String",
+        "desc": "The file system lifecycle for the deletion request. Should be DELETING."
+      },
+      "LustreResponse": {
+        "type": "DeleteFileSystemLustreResponse object",
+        "desc": "The response object for the Amazon FSx for Lustre file system being deleted in the DeleteFileSystem operation."
+      },
+      "WindowsResponse": {
+        "type": "DeleteFileSystemWindowsResponse object",
+        "desc": "The response object for the Microsoft Windows file system used in the DeleteFileSystem operation."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "IncompatibleParameterError": {
+        "statusCode": "400",
+        "desc": "The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "ServiceLimitExceeded": {
+        "statusCode": "400",
+        "desc": "An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting AWS Support."
+      }
+    }
+  },
+  {
+    "title": "DescribeBackups",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "BackupIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 12. Maximum length of 128.",
+        "pattern": "^(backup-[0-9a-f]{8,})$",
+        "required": "No",
+        "desc": "IDs of the backups you want to retrieve (String). This overrides any filters. If any IDs are not found, BackupNotFound will be thrown."
+      },
+      "Filters": {
+        "type": "Array of Filter objects",
+        "required": "No",
+        "desc": "Filters structure. Supported names are file-system-id and backup-type."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Maximum number of backups to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the MaxResults parameter specified in the request and the service's internal maximum number of items per page."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "required": "No",
+        "desc": "Opaque pagination token returned from a previous DescribeBackups operation (String). If a token present, the action continues the list from where the returning call left off."
+      }
+    },
+    "res": {
+      "Backups": {
+        "type": "Array of Backup objects",
+        "desc": "Any array of backups."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "desc": "This is present if there are more backups than returned in the response (String). You can use the NextToken value in the later request to fetch the backups."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BackupNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx backups were found based upon the supplied parameters."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      }
+    }
+  },
+  {
+    "title": "DescribeDataRepositoryTasks",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "Filters": {
+        "type": "Array of DataRepositoryTaskFilter objects",
+        "required": "No",
+        "desc": "(Optional) You can use filters to narrow the DescribeDataRepositoryTasks response to include just tasks for specific file systems, or tasks in a specific lifecycle state."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "The maximum number of resources to return in the response. This value must be an integer greater than zero."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "required": "No",
+        "desc": "(Optional) Opaque pagination token returned from a previous operation (String). If present, this token indicates from what point you can continue processing the request, where the previous NextToken value left off."
+      },
+      "TaskIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 12. Maximum length of 128.",
+        "pattern": "^(task-[0-9a-f]{17,})$",
+        "required": "No",
+        "desc": "(Optional) IDs of the tasks whose descriptions you want to retrieve (String)."
+      }
+    },
+    "res": {
+      "DataRepositoryTasks": {
+        "type": "Array of DataRepositoryTask objects",
+        "desc": "The collection of data repository task descriptions returned."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "desc": "(Optional) Opaque pagination token returned from a previous operation (String). If present, this token indicates from what point you can continue processing the request, where the previous NextToken value left off."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "DataRepositoryTaskNotFound": {
+        "statusCode": "400",
+        "desc": "The data repository task or tasks you specified could not be found."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      }
+    }
+  },
+  {
+    "title": "DescribeFileSystemAliases",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "(Optional) An idempotency token for resource creation, in a string of up to 64 ASCII characters. This token is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK."
+      },
+      "FileSystemId": {
+        "type": "String",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "The ID of the file system to return the associated DNS aliases for (String)."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Maximum number of DNS aliases to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the MaxResults parameter specified in the request and the service's internal maximum number of items per page."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "required": "No",
+        "desc": "Opaque pagination token returned from a previous DescribeFileSystemAliases operation (String). If a token is included in the request, the action continues the list from where the previous returning call left off."
+      }
+    },
+    "res": {
+      "Aliases": {
+        "type": "Array of Alias objects",
+        "desc": "An array of one or more DNS aliases currently associated with the specified file system."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "desc": "Present if there are more DNS aliases than returned in the response (String). You can use the NextToken value in a later request to fetch additional descriptions."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      }
+    }
+  },
+  {
+    "title": "DescribeFileSystems",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "FileSystemIds": {
+        "type": "Array of strings",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "required": "No",
+        "desc": "IDs of the file systems whose descriptions you want to retrieve (String)."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the MaxResults parameter specified in the request and the service's internal maximum number of items per page."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "required": "No",
+        "desc": "Opaque pagination token returned from a previous DescribeFileSystems operation (String). If a token present, the action continues the list from where the returning call left off."
+      }
+    },
+    "res": {
+      "FileSystems": {
+        "type": "Array of FileSystem objects",
+        "desc": "An array of file system descriptions."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "desc": "Present if there are more file systems than returned in the response (String). You can use the NextToken value in the later request to fetch the descriptions."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      }
+    }
+  },
+  {
+    "title": "DisassociateFileSystemAliases",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "Aliases": {
+        "type": "Array of strings",
+        "length": "Minimum length of 4. Maximum length of 253.",
+        "pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{4,253}$",
+        "required": "Yes",
+        "desc": "An array of one or more DNS alias names to disassociate, or remove, from the file system."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "(Optional) An idempotency token for resource creation, in a string of up to 64 ASCII characters. This token is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK."
+      },
+      "FileSystemId": {
+        "type": "String",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "Specifies the file system from which to disassociate the DNS aliases."
+      }
+    },
+    "res": {
+      "Aliases": {
+        "type": "Array of Alias objects",
+        "desc": "An array of one or more DNS aliases that Amazon FSx is attempting to disassociate from the file system."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      }
+    }
+  },
+  {
+    "title": "ListTagsForResource",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "MaxResults": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Maximum number of tags to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon FSx returns is the minimum of the MaxResults parameter specified in the request and the service's internal maximum number of items per page."
+      },
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "required": "No",
+        "desc": "Opaque pagination token returned from a previous ListTagsForResource operation (String). If a token present, the action continues the list from where the returning call left off."
+      },
+      "ResourceARN": {
+        "type": "String",
+        "length": "Minimum length of 8. Maximum length of 512.",
+        "pattern": "^arn:(?=[^:]+:fsx:[^:]+:\\d{12}:)((|(?=[a-z0-9-.]{1,63})(?!\\d{1,3}(\\.\\d{1,3}){3})(?![^:]*-{2})(?![^:]*-\\.)(?![^:]*\\.-)[a-z0-9].*(?<!-)):){4}(?!/).{0,1024}$",
+        "required": "Yes",
+        "desc": "The ARN of the Amazon FSx resource that will have its tags listed."
+      }
+    },
+    "res": {
+      "NextToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 255.",
+        "pattern": "^(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=)?$",
+        "desc": "This is present if there are more tags than returned in the response (String). You can use the NextToken value in the later request to fetch the tags."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "desc": "A list of tags on the resource."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "NotServiceResourceError": {
+        "statusCode": "400",
+        "desc": "The resource specified for the tagging operation is not a resource type owned by Amazon FSx. Use the API of the relevant service to perform the operation."
+      },
+      "ResourceDoesNotSupportTagging": {
+        "statusCode": "400",
+        "desc": "The resource specified does not support tagging."
+      },
+      "ResourceNotFound": {
+        "statusCode": "400",
+        "desc": "The resource specified by the Amazon Resource Name (ARN) can't be found."
+      }
+    }
+  },
+  {
+    "title": "TagResource",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "ResourceARN": {
+        "type": "String",
+        "length": "Minimum length of 8. Maximum length of 512.",
+        "pattern": "^arn:(?=[^:]+:fsx:[^:]+:\\d{12}:)((|(?=[a-z0-9-.]{1,63})(?!\\d{1,3}(\\.\\d{1,3}){3})(?![^:]*-{2})(?![^:]*-\\.)(?![^:]*\\.-)[a-z0-9].*(?<!-)):){4}(?!/).{0,1024}$",
+        "required": "Yes",
+        "desc": "The Amazon Resource Name (ARN) of the Amazon FSx resource that you want to tag."
+      },
+      "Tags": {
+        "type": "Array of Tag objects",
+        "required": "Yes",
+        "desc": "A list of tags for the resource. If a tag with a given key already exists, the value is replaced by the one specified in this parameter."
+      }
+    },
+    "res": {},
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "NotServiceResourceError": {
+        "statusCode": "400",
+        "desc": "The resource specified for the tagging operation is not a resource type owned by Amazon FSx. Use the API of the relevant service to perform the operation."
+      },
+      "ResourceDoesNotSupportTagging": {
+        "statusCode": "400",
+        "desc": "The resource specified does not support tagging."
+      },
+      "ResourceNotFound": {
+        "statusCode": "400",
+        "desc": "The resource specified by the Amazon Resource Name (ARN) can't be found."
+      }
+    }
+  },
+  {
+    "title": "UntagResource",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "ResourceARN": {
+        "type": "String",
+        "length": "Minimum length of 8. Maximum length of 512.",
+        "pattern": "^arn:(?=[^:]+:fsx:[^:]+:\\d{12}:)((|(?=[a-z0-9-.]{1,63})(?!\\d{1,3}(\\.\\d{1,3}){3})(?![^:]*-{2})(?![^:]*-\\.)(?![^:]*\\.-)[a-z0-9].*(?<!-)):){4}(?!/).{0,1024}$",
+        "required": "Yes",
+        "desc": "The ARN of the Amazon FSx resource to untag."
+      },
+      "TagKeys": {
+        "type": "Array of strings",
+        "length": "Minimum length of 1. Maximum length of 128.",
+        "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+        "required": "Yes",
+        "desc": "A list of keys of tags on the resource to untag. In case the tag key doesn't exist, the call will still succeed to be idempotent."
+      }
+    },
+    "res": {},
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "NotServiceResourceError": {
+        "statusCode": "400",
+        "desc": "The resource specified for the tagging operation is not a resource type owned by Amazon FSx. Use the API of the relevant service to perform the operation."
+      },
+      "ResourceDoesNotSupportTagging": {
+        "statusCode": "400",
+        "desc": "The resource specified does not support tagging."
+      },
+      "ResourceNotFound": {
+        "statusCode": "400",
+        "desc": "The resource specified by the Amazon Resource Name (ARN) can't be found."
+      }
+    }
+  },
+  {
+    "title": "UpdateFileSystem",
+    "req": {
+      "Action": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The action to be performed."
+      },
+      "Version": {
+        "type": "string",
+        "required": "Yes",
+        "desc": "The API version that the request is written for, expressed in the format YYYY-MM-DD."
+      },
+      "X-Amz-Algorithm": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The hash algorithm that you used to create the request signature. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Credential": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The credential scope value, which is a string that includes your access key, the date, the region you are targeting, the service you are requesting, and a termination string (\"aws4_request\"). The value is expressed in the following format: access_key/YYYYMMDD/region/service/aws4_request. For more information, see Task 2: Create a String to Sign for Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-Date": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The date that is used to create the signature. The format must be ISO 8601 basic format (YYYYMMDD'T'HHMMSS'Z'). For example, the following date time is a valid X-Amz-Date value: 20120325T120000Z. Condition: X-Amz-Date is optional for all requests; it can be used to override the date used for signing requests. If the Date header is specified in the ISO 8601 basic format, X-Amz-Date is not required. When X-Amz-Date is used, it always overrides the value of the Date header. For more information, see Handling Dates in Signature Version 4 in the Amazon Web Services General Reference."
+      },
+      "X-Amz-Security-Token": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "The temporary security token that was obtained through a call to AWS Security Token Service (AWS STS). For a list of services that support temporary security credentials from AWS Security Token Service, go to AWS Services That Work with IAM in the IAM User Guide. Condition: If you're using temporary security credentials from the AWS Security Token Service, you must include the security token."
+      },
+      "X-Amz-Signature": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies the hex-encoded signature that was calculated from the string to sign and the derived signing key. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "X-Amz-SignedHeaders": {
+        "type": "string",
+        "required": "Conditional",
+        "desc": "Specifies all the HTTP headers that were included as part of the canonical request. For more information about specifying signed headers, see Task 1: Create a Canonical Request For Signature Version 4 in the Amazon Web Services General Reference. Condition: Specify this parameter when you include authentication information in a query string instead of in the HTTP authorization header."
+      },
+      "ClientRequestToken": {
+        "type": "String",
+        "length": "Minimum length of 1. Maximum length of 63.",
+        "pattern": "[A-za-z0-9_.-]{0,63}$",
+        "required": "No",
+        "desc": "A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent updates. This string is automatically filled on your behalf when you use the AWS Command Line Interface (AWS CLI) or an AWS SDK."
+      },
+      "FileSystemId": {
+        "type": "String",
+        "length": "Minimum length of 11. Maximum length of 21.",
+        "pattern": "^(fs-[0-9a-f]{8,})$",
+        "required": "Yes",
+        "desc": "Identifies the file system that you are updating."
+      },
+      "LustreConfiguration": {
+        "type": "UpdateFileSystemLustreConfiguration object",
+        "required": "No",
+        "desc": "The configuration object for Amazon FSx for Lustre file systems used in the UpdateFileSystem operation."
+      },
+      "StorageCapacity": {
+        "type": "Integer",
+        "required": "No",
+        "desc": "Use this parameter to increase the storage capacity of an Amazon FSx file system. Specifies the storage capacity target value, GiB, to increase the storage capacity for the file system that you're updating. You cannot make a storage capacity increase request if there is an existing storage capacity increase request in progress. For Windows file systems, the storage capacity target value must be at least 10 percent (%) greater than the current storage capacity value. In order to increase storage capacity, the file system must have at least 16 MB/s of throughput capacity. For Lustre file systems, the storage capacity target value can be the following: For more information, see Managing storage capacity in the Amazon FSx for Windows File Server User Guide and Managing storage and throughput capacity in the Amazon FSx for Lustre User Guide."
+      },
+      "WindowsConfiguration": {
+        "type": "UpdateFileSystemWindowsConfiguration object",
+        "required": "No",
+        "desc": "The configuration updates for an Amazon FSx for Windows File Server file system."
+      }
+    },
+    "res": {
+      "FileSystem": {
+        "type": "FileSystem object",
+        "desc": "A description of the file system that was updated."
+      }
+    },
+    "err": {
+      "AccessDeniedException": {
+        "statusCode": "400",
+        "desc": "You do not have sufficient access to perform this action."
+      },
+      "IncompleteSignature": {
+        "statusCode": "400",
+        "desc": "The request signature does not conform to AWS standards."
+      },
+      "InternalFailure": {
+        "statusCode": "500",
+        "desc": "The request processing has failed because of an unknown error, exception or failure."
+      },
+      "InvalidAction": {
+        "statusCode": "400",
+        "desc": "The action or operation requested is invalid. Verify that the action is typed correctly."
+      },
+      "InvalidClientTokenId": {
+        "statusCode": "403",
+        "desc": "The X.509 certificate or AWS access key ID provided does not exist in our records."
+      },
+      "InvalidParameterCombination": {
+        "statusCode": "400",
+        "desc": "Parameters that must not be used together were used together."
+      },
+      "InvalidParameterValue": {
+        "statusCode": "400",
+        "desc": "An invalid or out-of-range value was supplied for the input parameter."
+      },
+      "InvalidQueryParameter": {
+        "statusCode": "400",
+        "desc": "The AWS query string is malformed or does not adhere to AWS standards."
+      },
+      "MalformedQueryString": {
+        "statusCode": "404",
+        "desc": "The query string contains a syntax error."
+      },
+      "MissingAction": {
+        "statusCode": "400",
+        "desc": "The request is missing an action or a required parameter."
+      },
+      "MissingAuthenticationToken": {
+        "statusCode": "403",
+        "desc": "The request must contain either a valid (registered) AWS access key ID or X.509 certificate."
+      },
+      "MissingParameter": {
+        "statusCode": "400",
+        "desc": "A required parameter for the specified action is not supplied."
+      },
+      "NotAuthorized": {
+        "statusCode": "400",
+        "desc": "You do not have permission to perform this action."
+      },
+      "OptInRequired": {
+        "statusCode": "403",
+        "desc": "The AWS access key ID needs a subscription for the service."
+      },
+      "RequestExpired": {
+        "statusCode": "400",
+        "desc": "The request reached the service more than 15 minutes after the date stamp on the request or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or the date stamp on the request is more than 15 minutes in the future."
+      },
+      "ServiceUnavailable": {
+        "statusCode": "503",
+        "desc": "The request has failed due to a temporary failure of the server."
+      },
+      "ThrottlingException": {
+        "statusCode": "400",
+        "desc": "The request was denied due to request throttling."
+      },
+      "ValidationError": {
+        "statusCode": "400",
+        "desc": "The input fails to satisfy the constraints specified by an AWS service."
+      },
+      "BadRequest": {
+        "statusCode": "400",
+        "desc": "A generic error indicating a failure with a client request."
+      },
+      "FileSystemNotFound": {
+        "statusCode": "400",
+        "desc": "No Amazon FSx file systems were found based upon supplied parameters."
+      },
+      "IncompatibleParameterError": {
+        "statusCode": "400",
+        "desc": "The error returned when a second request is received with the same client request token but different parameters settings. A client request token should always uniquely identify a single request."
+      },
+      "InternalServerError": {
+        "statusCode": "500",
+        "desc": "A generic error indicating a server-side failure."
+      },
+      "MissingFileSystemConfiguration": {
+        "statusCode": "400",
+        "desc": "A file system configuration is required for this operation."
+      },
+      "ServiceLimitExceeded": {
+        "statusCode": "400",
+        "desc": "An error indicating that a particular service limit was exceeded. You can increase some service limits by contacting AWS Support."
+      },
+      "UnsupportedOperation": {
+        "statusCode": "400",
+        "desc": "The requested operation is not supported for this resource or API."
+      }
+    }
+  }
+]
