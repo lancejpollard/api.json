@@ -1,0 +1,247 @@
+{
+  "path": "android.graphics",
+  "name": "ColorSpace",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MAX_ID",
+      "desc": "The maximum ID value a color space can have."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MIN_ID",
+      "desc": "The minimum ID value a color space can have."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace",
+      "code": "adapt(colorSpace: ColorSpace, whitePoint: FloatArray)",
+      "desc": "Performs the chromatic adaptation of a color space from its native white point to the specified white point."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace",
+      "code": "adapt(colorSpace: ColorSpace, whitePoint: FloatArray, adaptation: ColorSpace.Adaptation)",
+      "desc": "Performs the chromatic adaptation of a color space from its native white point to the specified white point."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace.Connector",
+      "code": "connect(source: ColorSpace, destination: ColorSpace)",
+      "desc": "Connects two color spaces to allow conversion from the source color space to the destination color space."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace.Connector",
+      "code": "connect(source: ColorSpace, destination: ColorSpace, intent: ColorSpace.RenderIntent)",
+      "desc": "Connects two color spaces to allow conversion from the source color space to the destination color space."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace.Connector",
+      "code": "connect(source: ColorSpace)",
+      "desc": "Connects the specified color spaces to sRGB."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace.Connector",
+      "code": "connect(source: ColorSpace, intent: ColorSpace.RenderIntent)",
+      "desc": "Connects the specified color spaces to sRGB."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "FloatArray",
+      "code": "fromXyz(x: Float, y: Float, z: Float)",
+      "desc": "Converts tristimulus values from the CIE XYZ space to this color space's color model."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "FloatArray",
+      "code": "fromXyz(v: FloatArray)",
+      "desc": "Converts tristimulus values from the CIE XYZ space to this color space's color model."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace",
+      "code": "get(name: ColorSpace.Named)",
+      "desc": "Returns an instance of ColorSpace identified by the specified name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getComponentCount()",
+      "desc": "Returns the number of components that form a color value according to this color space's color model."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getId()",
+      "desc": "Returns the ID of this color space."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Float",
+      "code": "getMaxValue(component: Int)",
+      "desc": "Returns the maximum valid value for the specified component of this color space's color model."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Float",
+      "code": "getMinValue(component: Int)",
+      "desc": "Returns the minimum valid value for the specified component of this color space's color model."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace.Model",
+      "code": "getModel()",
+      "desc": "Return the color model of this color space."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getName()",
+      "desc": "Returns the name of this color space."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isSrgb()",
+      "desc": "Indicates whether this color space is the sRGB color space or equivalent to the sRGB color space."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isWideGamut()",
+      "desc": "Returns whether this color space is a wide-gamut color space."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ColorSpace",
+      "code": "match(toXYZD50: FloatArray, function: ColorSpace.Rgb.TransferParameters)",
+      "desc": "Returns a Named instance of ColorSpace that matches the specified RGB to CIE XYZ transform and transfer functions.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string representation of the object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "FloatArray",
+      "code": "toXyz(r: Float, g: Float, b: Float)",
+      "desc": "Converts a color value from this color space's model to tristimulus CIE XYZ values."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "FloatArray",
+      "code": "toXyz(v: FloatArray)",
+      "desc": "Converts a color value from this color space's model to tristimulus CIE XYZ values."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Adaptation",
+      "desc": "List of adaptation matrices that can be used for chromatic adaptation using the von Kries transform."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Connector",
+      "desc": "A connector transforms colors from a source color space to a destination color space."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Model",
+      "desc": "A color model is required by a ColorSpace to describe the way colors can be represented as tuples of numbers."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Named",
+      "desc": "List of common, named color spaces."
+    },
+    {
+      "type": "nested-classes",
+      "code": "RenderIntent",
+      "desc": "A render intent determines how a ColorSpace.Connector maps colors from one color space to another."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Rgb",
+      "desc": "An RGB color space is an additive color space using the Model#RGB color model (a color is therefore represented by a tuple of 3 numbers)."
+    }
+  ]
+}

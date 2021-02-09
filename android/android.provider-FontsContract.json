@@ -1,0 +1,61 @@
+{
+  "path": "android.provider",
+  "name": "FontsContract",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Typeface",
+      "code": "buildTypeface(context: Context, cancellationSignal: CancellationSignal?, fonts: Array<FontsContract.FontInfo!>)",
+      "desc": "Build a Typeface from an array of FontInfo Results that are marked as not ready will be skipped.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "FontsContract.FontFamilyResult",
+      "code": "fetchFonts(context: Context, cancellationSignal: CancellationSignal?, request: FontRequest)",
+      "desc": "Fetch fonts given a font request."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestFonts(context: Context, request: FontRequest, handler: Handler, cancellationSignal: CancellationSignal?, callback: FontsContract.FontRequestCallback)",
+      "desc": "Create a typeface object given a font request."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Columns",
+      "desc": "Defines the constants used in a response from a Font Provider."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "FontFamilyResult",
+      "desc": "Object returned from fetchFonts."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "FontInfo",
+      "desc": "Object represent a font entry in the family returned from fetchFonts."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "FontRequestCallback",
+      "desc": "Interface used to receive asynchronously fetched typefaces."
+    }
+  ]
+}

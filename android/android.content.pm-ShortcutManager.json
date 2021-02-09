@@ -1,0 +1,222 @@
+{
+  "path": "android.content.pm",
+  "name": "ShortcutManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_MATCH_CACHED",
+      "desc": "Include cached shortcuts in the result."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_MATCH_DYNAMIC",
+      "desc": "Include dynamic shortcuts in the result."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_MATCH_MANIFEST",
+      "desc": "Include manifest shortcuts in the result."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_MATCH_PINNED",
+      "desc": "Include pinned shortcuts in the result."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addDynamicShortcuts(shortcutInfoList: MutableList<ShortcutInfo!>)",
+      "desc": "Publish the list of dynamic shortcuts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "createShortcutResultIntent(shortcut: ShortcutInfo)",
+      "desc": "Returns an Intent which can be used by the default launcher to pin a shortcut containing the given ShortcutInfo.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "disableShortcuts(shortcutIds: MutableList<String!>)",
+      "desc": "Disable pinned shortcuts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "disableShortcuts(shortcutIds: MutableList<String!>, disabledMessage: CharSequence!)",
+      "desc": "Disable pinned shortcuts, showing the user a custom error message when they try to select the disabled shortcuts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "enableShortcuts(shortcutIds: MutableList<String!>)",
+      "desc": "Re-enable pinned shortcuts that were previously disabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getDynamicShortcuts()",
+      "desc": "Return all dynamic shortcuts from the caller app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getIconMaxHeight()",
+      "desc": "Return the max height for icons, in pixels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getIconMaxWidth()",
+      "desc": "Return the max width for icons, in pixels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getManifestShortcuts()",
+      "desc": "Return all static (manifest) shortcuts from the caller app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMaxShortcutCountPerActivity()",
+      "desc": "Return the maximum number of static and dynamic shortcuts that each launcher icon can have at a time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getPinnedShortcuts()",
+      "desc": "Return all pinned shortcuts from the caller app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getShortcuts(matchFlags: Int)",
+      "desc": "Returns ShortcutInfos that match matchFlags.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRateLimitingActive()",
+      "desc": "Return true when rate-limiting is active for the caller app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRequestPinShortcutSupported()",
+      "desc": "Return TRUE if the app is running on a device whose default launcher supports requestPinShortcut(android.content.pm.ShortcutInfo,android.content.IntentSender)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "pushDynamicShortcut(shortcut: ShortcutInfo)",
+      "desc": "Publish a single dynamic shortcut."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeAllDynamicShortcuts()",
+      "desc": "Delete all dynamic shortcuts from the caller app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeDynamicShortcuts(shortcutIds: MutableList<String!>)",
+      "desc": "Delete dynamic shortcuts by ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeLongLivedShortcuts(shortcutIds: MutableList<String!>)",
+      "desc": "Delete long lived shortcuts by ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reportShortcutUsed(shortcutId: String!)",
+      "desc": "Apps that publish shortcuts should call this method whenever the user selects the shortcut containing the given ID or when the user completes an action in the app that is equivalent to selecting the shortcut."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "requestPinShortcut(shortcut: ShortcutInfo, resultIntent: IntentSender?)",
+      "desc": "Request to create a pinned shortcut."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setDynamicShortcuts(shortcutInfoList: MutableList<ShortcutInfo!>)",
+      "desc": "Publish the list of shortcuts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "updateShortcuts(shortcutInfoList: MutableList<ShortcutInfo!>)",
+      "desc": "Update all existing shortcuts with the same IDs."
+    }
+  ]
+}

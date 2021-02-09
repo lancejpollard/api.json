@@ -1,0 +1,126 @@
+{
+  "path": "android.net",
+  "name": "DnsResolver",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CLASS_IN",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_PARSE",
+      "desc": "Indicates that there was an error parsing the response the query."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_SYSTEM",
+      "desc": "Indicates that there was an error sending the query."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_EMPTY",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_NO_CACHE_LOOKUP",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_NO_CACHE_STORE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_NO_RETRY",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_A",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_AAAA",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "DnsResolver",
+      "code": "getInstance()",
+      "desc": "Get instance for DnsResolver"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "query(network: Network?, domain: String, flags: Int, executor: Executor, cancellationSignal: CancellationSignal?, callback: DnsResolver.Callback<in MutableList<InetAddress!>!>)",
+      "desc": "Send a DNS query with the specified name on a network with both IPv4 and IPv6, get back a set of InetAddresses with rfc6724 sorting style asynchronously."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "query(network: Network?, domain: String, nsType: Int, flags: Int, executor: Executor, cancellationSignal: CancellationSignal?, callback: DnsResolver.Callback<in MutableList<InetAddress!>!>)",
+      "desc": "Send a DNS query with the specified name and query type, get back a set of InetAddresses with rfc6724 sorting style asynchronously."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "rawQuery(network: Network?, query: ByteArray, flags: Int, executor: Executor, cancellationSignal: CancellationSignal?, callback: DnsResolver.Callback<in ByteArray!>)",
+      "desc": "Send a raw DNS query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "rawQuery(network: Network?, domain: String, nsClass: Int, nsType: Int, flags: Int, executor: Executor, cancellationSignal: CancellationSignal?, callback: DnsResolver.Callback<in ByteArray!>)",
+      "desc": "Send a DNS query with the specified name, class and query type."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "Base interface for answer callbacks"
+    },
+    {
+      "type": "nested-classes",
+      "code": "DnsException",
+      "desc": "Class to represent DNS error"
+    }
+  ]
+}

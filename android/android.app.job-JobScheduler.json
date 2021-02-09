@@ -1,0 +1,81 @@
+{
+  "path": "android.app.job",
+  "name": "JobScheduler",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_FAILURE",
+      "desc": "Returned from schedule(android.app.job.JobInfo) if a job wasn't scheduled successfully."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_SUCCESS",
+      "desc": "Returned from schedule(android.app.job.JobInfo) if this job has been successfully scheduled."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "cancel(jobId: Int)",
+      "desc": "Cancel the specified job."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "cancelAll()",
+      "desc": "Cancel all jobs that have been scheduled by the calling application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "enqueue(job: JobInfo, work: JobWorkItem)",
+      "desc": "Similar to schedule, but allows you to enqueue work for a new or existing job."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "getAllPendingJobs()",
+      "desc": "Retrieve all jobs that have been scheduled by the calling application.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "JobInfo",
+      "code": "getPendingJob(jobId: Int)",
+      "desc": "Look up the description of a scheduled job.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "schedule(job: JobInfo)",
+      "desc": "Schedule a job to be executed."
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "path": "android.media",
+  "name": "MediaScannerConnection",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, client: MediaScannerConnection.MediaScannerConnectionClient!)\n            Constructs a new MediaScannerConnection object."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "connect()",
+      "desc": "Initiates a connection to the media scanner service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "disconnect()",
+      "desc": "Releases the connection to the media scanner service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isConnected()",
+      "desc": "Returns whether we are connected to the media scanner service"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onServiceConnected(className: ComponentName!, service: IBinder!)",
+      "desc": "Part of the ServiceConnection interface."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onServiceDisconnected(className: ComponentName!)",
+      "desc": "Part of the ServiceConnection interface."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "scanFile(path: String!, mimeType: String!)",
+      "desc": "Requests the media scanner to scan a file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "scanFile(context: Context!, paths: Array<String!>!, mimeTypes: Array<String!>!, callback: MediaScannerConnection.OnScanCompletedListener!)",
+      "desc": "Convenience for constructing a MediaScannerConnection, calling connect on it, and calling scanFile(java.lang.String,java.lang.String) with the given path and mimeType when the connection is established."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "MediaScannerConnectionClient",
+      "desc": "An interface for notifying clients of MediaScannerConnection when a connection to the MediaScanner service has been established and when the scanning of a file has completed."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnScanCompletedListener",
+      "desc": "Interface for notifying clients of the result of scanning a requested media file."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ServiceConnection"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onBindingDied(name: ComponentName!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onNullBinding(name: ComponentName!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onBind()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#unbindService(ServiceConnection)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#bindService"
+    }
+  ]
+}

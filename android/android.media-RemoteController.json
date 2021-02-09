@@ -1,0 +1,99 @@
+{
+  "path": "android.media",
+  "name": "RemoteController",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "POSITION_SYNCHRONIZATION_CHECK",
+      "desc": "The playback position synchronization mode where the RemoteControlClient instances which expose their playback position to the framework, will be regularly polled to check whether any drift has been noticed between their estimated position and the one they report."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "POSITION_SYNCHRONIZATION_NONE",
+      "desc": "Default playback position synchronization mode where the RemoteControlClient is not asked regularly for its playback position to see if it has drifted from the estimated position."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, updateListener: RemoteController.OnClientUpdateListener!)\n            Class constructor."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, updateListener: RemoteController.OnClientUpdateListener!, looper: Looper!)\n            Class constructor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "clearArtworkConfiguration()",
+      "desc": "Prevents this RemoteController from receiving artwork images."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "RemoteController.MetadataEditor",
+      "code": "editMetadata()",
+      "desc": "Creates a MetadataEditor for updating metadata values of the editable keys of the current RemoteControlClient.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getEstimatedMediaPosition()",
+      "desc": "Return the estimated playback position of the current media track or a negative value if not available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "seekTo(timeMs: Long)",
+      "desc": "Sets the new playback position."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendMediaKeyEvent(keyEvent: KeyEvent!)",
+      "desc": "Send a simulated key event for a media button to be received by the current client."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "setArtworkConfiguration(width: Int, height: Int)",
+      "desc": "Set the maximum artwork image dimensions to be received in the metadata."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "setSynchronizationMode(sync: Int)",
+      "desc": "Set the playback position synchronization mode."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "MetadataEditor",
+      "desc": "A class to read the metadata published by a RemoteControlClient, or send a RemoteControlClient new values for keys that can be edited."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnClientUpdateListener",
+      "desc": "Interface definition for the callbacks to be invoked whenever media events, metadata and playback status are available."
+    }
+  ]
+}

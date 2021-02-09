@@ -1,0 +1,114 @@
+{
+  "path": "android.printservice",
+  "name": "PrinterDiscoverySession",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Constructor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addPrinters(printers: MutableList<PrinterInfo!>)",
+      "desc": "Adds discovered printers."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getPrinters()",
+      "desc": "Gets the printers reported in this session.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getTrackedPrinters()",
+      "desc": "Gets the printers that should be tracked.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDestroyed()",
+      "desc": "Gets whether the session is destroyed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isPrinterDiscoveryStarted()",
+      "desc": "Gets whether printer discovery is started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onDestroy()",
+      "desc": "Notifies you that the session is destroyed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRequestCustomPrinterIcon(printerId: PrinterId, cancellationSignal: CancellationSignal, callback: CustomPrinterIconCallback)",
+      "desc": "Called by the system to request the custom icon for a printer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onStartPrinterDiscovery(priorityList: MutableList<PrinterId!>)",
+      "desc": "Callback asking you to start printer discovery."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onStartPrinterStateTracking(printerId: PrinterId)",
+      "desc": "Callback asking you to start tracking the state of a printer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onStopPrinterDiscovery()",
+      "desc": "Callback notifying you that you should stop printer discovery."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onStopPrinterStateTracking(printerId: PrinterId)",
+      "desc": "Callback asking you to stop tracking the state of a printer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onValidatePrinters(printerIds: MutableList<PrinterId!>)",
+      "desc": "Callback asking you to validate that the given printers are valid, that is they exist."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removePrinters(printerIds: MutableList<PrinterId!>)",
+      "desc": "Removes added printers."
+    }
+  ]
+}

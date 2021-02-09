@@ -1,0 +1,704 @@
+{
+  "path": "java.util.concurrent",
+  "name": "CountedCompleter",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addToPendingCount(delta: Int)",
+      "desc": "Adds (atomically) the given value to the pending count."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "compareAndSetPendingCount(expected: Int, count: Int)",
+      "desc": "Sets (atomically) the pending count to the given count only if it currently holds the given expected value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "complete(rawResult: T)",
+      "desc": "Regardless of pending count, invokes onCompletion(java.util.concurrent.CountedCompleter), marks this task as complete and further triggers tryComplete on this task's completer, if one exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "compute()",
+      "desc": "The main computation performed by this task."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "decrementPendingCountUnlessZero()",
+      "desc": "If the pending count is nonzero, (atomically) decrements it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CountedCompleter",
+      "code": "firstComplete()",
+      "desc": "If this task's pending count is zero, returns this task; otherwise decrements its pending count and returns null.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CountedCompleter",
+      "code": "getCompleter()",
+      "desc": "Returns the completer established in this task's constructor, or null if none.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getPendingCount()",
+      "desc": "Returns the current pending count."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "T",
+      "code": "getRawResult()",
+      "desc": "Returns the result of the computation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CountedCompleter",
+      "code": "getRoot()",
+      "desc": "Returns the root of the current computation; i.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "helpComplete(maxTasks: Int)",
+      "desc": "If this task has not completed, attempts to process at most the given number of other unprocessed tasks for which this task is on the completion path, if any are known to exist."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CountedCompleter",
+      "code": "nextComplete()",
+      "desc": "If this task does not have a completer, invokes ForkJoinTask#quietlyComplete and returns null.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCompletion(caller: CountedCompleter<*>!)",
+      "desc": "Performs an action when method tryComplete is invoked and the pending count is zero, or when the unconditional method complete is invoked."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onExceptionalCompletion(ex: Throwable!, caller: CountedCompleter<*>!)",
+      "desc": "Performs an action when method   is invoked or method   throws an exception, and this task has not already otherwise completed normally."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "propagateCompletion()",
+      "desc": "Equivalent to tryComplete but does not invoke   along the completion path: If the pending count is nonzero, decrements the count; otherwise, similarly tries to complete this task's completer, if one exists, else marks this task as complete."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "quietlyCompleteRoot()",
+      "desc": "Equivalent to getRoot().quietlyComplete()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPendingCount(count: Int)",
+      "desc": "Sets the pending count to the given value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "tryComplete()",
+      "desc": "If the pending count is nonzero, decrements the count; otherwise invokes onCompletion(java.util.concurrent.CountedCompleter) and then similarly tries to complete this task's completer, if one exists, else marks this task as complete."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Boolean",
+      "code": "exec()",
+      "desc": "Implements execution conventions for CountedCompleters."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRawResult(t: T)",
+      "desc": "A method that result-bearing CountedCompleters may optionally use to help maintain result data."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask<*>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "adapt(runnable: Runnable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "run"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Runnable"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "join"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask<T>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "adapt(runnable: Runnable!, result: T)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "run"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Runnable"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "join"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask<T>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "adapt(callable: Callable<out T>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "call"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Callable"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "join"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RuntimeException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "cancel(mayInterruptIfRunning: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "cancel"
+    },
+    {
+      "type": "inherited-methods",
+      "from": ""
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isCancelled"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "cancel"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "join"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "CancellationException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "cancel"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "completeExceptionally(java.lang.Throwable)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "compareAndSetForkJoinTaskTag(expect: Short, update: Short)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "if (task.compareAndSetForkJoinTaskTag((short)0, (short)1))"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "completeExceptionally(ex: Throwable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "join"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "super"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask<V>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "fork()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinPool#commonPool()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "inForkJoinPool"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "join"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "V"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "get()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "V"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "get(timeout: Long, unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Throwable!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getException()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "CancellationException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Short"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getForkJoinTaskTag()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinPool!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getPool()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": ""
+    },
+    {
+      "type": "inherited-methods",
+      "from": "false"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getQueuedTaskCount()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getSurplusQueuedTaskCount()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "helpQuiesce()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "inForkJoinPool()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinWorkerThread"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "V"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invoke()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RuntimeException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Error"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAll(t1: ForkJoinTask<*>!, t2: ForkJoinTask<*>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": ""
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAll(vararg tasks: ForkJoinTask<*>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getException()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MutableCollection<T>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAll(tasks: MutableCollection<T>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": ""
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isCancelled()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isCompletedAbnormally()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isCompletedNormally()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDone()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "V"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "join()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "is"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "get()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RuntimeException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Error"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ExecutionException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "InterruptedException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask<*>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "peekNextLocalTask()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask<*>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "pollNextLocalTask()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ForkJoinTask<*>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "pollTask()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "quietlyComplete()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setRawResult"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "join"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "quietlyInvoke()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "quietlyJoin()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "reinitialize()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "fork"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDone()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "false"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getException()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getRawResult"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setRawResult(null)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Short"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setForkJoinTaskTag(newValue: Short)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "tryUnfork()"
+    }
+  ]
+}

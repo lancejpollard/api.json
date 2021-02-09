@@ -1,0 +1,118 @@
+{
+  "path": "android.hardware.camera2",
+  "name": "CameraManager",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CameraCharacteristics",
+      "code": "getCameraCharacteristics(cameraId: String)",
+      "desc": "Query the capabilities of a camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getCameraIdList()",
+      "desc": "Return the list of currently connected camera devices by identifier, including cameras that may be in use by other camera API clients.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getConcurrentCameraIds()",
+      "desc": "Return the set of combinations of currently connected camera device identifiers, which support configuring camera device sessions concurrently.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isConcurrentSessionConfigurationSupported(cameraIdAndSessionConfig: MutableMap<String!, SessionConfiguration!>)",
+      "desc": "Checks whether the provided set of camera devices and their corresponding SessionConfiguration can be configured concurrently."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "openCamera(cameraId: String, callback: CameraDevice.StateCallback, handler: Handler?)",
+      "desc": "Open a connection to a camera with the given ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "openCamera(cameraId: String, executor: Executor, callback: CameraDevice.StateCallback)",
+      "desc": "Open a connection to a camera with the given ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerAvailabilityCallback(callback: CameraManager.AvailabilityCallback, handler: Handler?)",
+      "desc": "Register a callback to be notified about camera device availability."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerAvailabilityCallback(executor: Executor, callback: CameraManager.AvailabilityCallback)",
+      "desc": "Register a callback to be notified about camera device availability."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerTorchCallback(callback: CameraManager.TorchCallback, handler: Handler?)",
+      "desc": "Register a callback to be notified about torch mode status."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerTorchCallback(executor: Executor, callback: CameraManager.TorchCallback)",
+      "desc": "Register a callback to be notified about torch mode status."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setTorchMode(cameraId: String, enabled: Boolean)",
+      "desc": "Set the flash unit's torch mode of the camera of the given ID without opening the camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregisterAvailabilityCallback(callback: CameraManager.AvailabilityCallback)",
+      "desc": "Remove a previously-added callback; the callback will no longer receive connection and disconnection callbacks."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregisterTorchCallback(callback: CameraManager.TorchCallback)",
+      "desc": "Remove a previously-added callback; the callback will no longer receive torch mode status callbacks."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "AvailabilityCallback",
+      "desc": "A callback for camera devices becoming available or unavailable to open."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "TorchCallback",
+      "desc": "A callback for camera flash torch modes becoming unavailable, disabled, or enabled."
+    }
+  ]
+}

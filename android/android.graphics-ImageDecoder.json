@@ -1,0 +1,328 @@
+{
+  "path": "android.graphics",
+  "name": "ImageDecoder",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ALLOCATOR_DEFAULT",
+      "desc": "Use the default allocation for the pixel memory."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ALLOCATOR_HARDWARE",
+      "desc": "Require a Bitmap.Config#HARDWARE Bitmap."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ALLOCATOR_SHARED_MEMORY",
+      "desc": "Use shared memory for the pixel memory."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ALLOCATOR_SOFTWARE",
+      "desc": "Use a software allocation for the pixel memory."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MEMORY_POLICY_DEFAULT",
+      "desc": "Use the most natural Bitmap.Config for the internal Bitmap."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MEMORY_POLICY_LOW_RAM",
+      "desc": "Save memory if possible by using a denser Bitmap.Config at the cost of some image quality."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Closes this resource, relinquishing any underlying resources."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ImageDecoder.Source",
+      "code": "createSource(res: Resources, resId: Int)",
+      "desc": "Create a new Source from a resource."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ImageDecoder.Source",
+      "code": "createSource(cr: ContentResolver, uri: Uri)",
+      "desc": "Create a new Source from a android.net.Uri."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ImageDecoder.Source",
+      "code": "createSource(assets: AssetManager, fileName: String)",
+      "desc": "Create a new Source from a file in the \"assets\" directory."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ImageDecoder.Source",
+      "code": "createSource(buffer: ByteBuffer)",
+      "desc": "Create a new Source from a java.nio.ByteBuffer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ImageDecoder.Source",
+      "code": "createSource(file: File)",
+      "desc": "Create a new Source from a java.io.File."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ImageDecoder.Source",
+      "code": "createSource(callable: Callable<AssetFileDescriptor!>)",
+      "desc": "Create a new Source from a Callable that returns a new AssetFileDescriptor for each request."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Bitmap",
+      "code": "decodeBitmap(src: ImageDecoder.Source, listener: ImageDecoder.OnHeaderDecodedListener)",
+      "desc": "Create a Bitmap from a Source."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Bitmap",
+      "code": "decodeBitmap(src: ImageDecoder.Source)",
+      "desc": "Create a Bitmap from a Source."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Drawable",
+      "code": "decodeDrawable(src: ImageDecoder.Source, listener: ImageDecoder.OnHeaderDecodedListener)",
+      "desc": "Create a Drawable from a Source."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Drawable",
+      "code": "decodeDrawable(src: ImageDecoder.Source)",
+      "desc": "Create a Drawable from a Source."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getAllocator()",
+      "desc": "Return the allocator for the pixel memory."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Rect",
+      "code": "getCrop()",
+      "desc": "Return the cropping rectangle, if set.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getMemorySizePolicy()",
+      "desc": "Retrieve the memory policy for the decoded Bitmap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ImageDecoder.OnPartialImageListener",
+      "code": "getOnPartialImageListener()",
+      "desc": "Return the OnPartialImageListener currently set.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "PostProcessor",
+      "code": "getPostProcessor()",
+      "desc": "Return the PostProcessor currently set.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDecodeAsAlphaMaskEnabled()",
+      "desc": "Return whether to treat single channel input as alpha."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isMimeTypeSupported(mimeType: String)",
+      "desc": "Return if the given MIME type is a supported file format that can be decoded by this class."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isMutableRequired()",
+      "desc": "Return whether the decoded Bitmap will be mutable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isUnpremultipliedRequired()",
+      "desc": "Return whether the Bitmap will have unpremultiplied pixels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setAllocator(allocator: Int)",
+      "desc": "Choose the backing for the pixel memory."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCrop(subset: Rect?)",
+      "desc": "Crop the output to subset of the (possibly) scaled image."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDecodeAsAlphaMaskEnabled(enabled: Boolean)",
+      "desc": "Specify whether to potentially treat the output as an alpha mask."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setMemorySizePolicy(policy: Int)",
+      "desc": "Specify the memory policy for the decoded Bitmap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setMutableRequired(mutable: Boolean)",
+      "desc": "Specify whether the Bitmap should be mutable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnPartialImageListener(listener: ImageDecoder.OnPartialImageListener?)",
+      "desc": "Set (replace) the OnPartialImageListener on this object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPostProcessor(postProcessor: PostProcessor?)",
+      "desc": "Modify the image after decoding and scaling."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setTargetColorSpace(colorSpace: ColorSpace!)",
+      "desc": "Specify the desired ColorSpace for the output."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setTargetSampleSize(sampleSize: Int)",
+      "desc": "Set the target size with a sampleSize."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setTargetSize(width: Int, height: Int)",
+      "desc": "Specify the size of the output Drawable or Bitmap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setUnpremultipliedRequired(unpremultipliedRequired: Boolean)",
+      "desc": "Specify whether the Bitmap should have unpremultiplied pixels."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "DecodeException",
+      "desc": "Information about an interrupted decode."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ImageInfo",
+      "desc": "Information about an encoded image."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnHeaderDecodedListener",
+      "desc": "Interface for changing the default settings of a decode."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnPartialImageListener",
+      "desc": "Interface for inspecting a DecodeException and potentially preventing it from being thrown."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Source",
+      "desc": "Source of encoded image data."
+    }
+  ]
+}

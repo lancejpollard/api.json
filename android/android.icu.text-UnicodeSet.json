@@ -1,0 +1,828 @@
+{
+  "path": "android.icu.text",
+  "name": "UnicodeSet",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ADD_CASE_MAPPINGS",
+      "desc": "Bitmask for constructor, applyPattern(), and closeOver() indicating letter case."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CASE",
+      "desc": "Bitmask for constructor, applyPattern(), and closeOver() indicating letter case."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CASE_INSENSITIVE",
+      "desc": "Alias for UnicodeSet."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IGNORE_SPACE",
+      "desc": "Bitmask for constructor and applyPattern() indicating that white space should be ignored."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MAX_VALUE",
+      "desc": "Maximum value that can be stored in a UnicodeSet."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MIN_VALUE",
+      "desc": "Minimum value that can be stored in a UnicodeSet."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Constructs an empty set."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(other: UnicodeSet!)\n            Constructs a copy of an existing set."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(start: Int, end: Int)\n            Constructs a set containing the given range."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(vararg pairs: Int)\n            Quickly constructs a set from a set of ranges <s0, e0, s1, e1, s2, e2, ."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(pattern: String!)\n            Constructs a set from the given pattern."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(pattern: String!, ignoreWhitespace: Boolean)\n            Constructs a set from the given pattern."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(pattern: String!, options: Int)\n            Constructs a set from the given pattern."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(pattern: String!, pos: ParsePosition!, symbols: SymbolTable!)\n            Constructs a set from the given pattern."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(pattern: String!, pos: ParsePosition!, symbols: SymbolTable!, options: Int)\n            Constructs a set from the given pattern."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "StringBuffer",
+      "code": "_generatePattern(result: StringBuffer!, escapeUnprintable: Boolean)",
+      "desc": "Generate and append a string representation of this set to result.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "StringBuffer",
+      "code": "_generatePattern(result: StringBuffer!, escapeUnprintable: Boolean, includeStrings: Boolean)",
+      "desc": "Generate and append a string representation of this set to result.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "add(start: Int, end: Int)",
+      "desc": "Adds the specified range to this set if it is not already present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "add(c: Int)",
+      "desc": "Adds the specified character to this set if it is not already present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "add(s: CharSequence!)",
+      "desc": "Adds the specified multicharacter to this set if it is not already present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "add(source: MutableIterable<*>!)",
+      "desc": "Add the contents of the collection (as strings) into this UnicodeSet.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "addAll(start: Int, end: Int)",
+      "desc": "Adds all characters in range (uses preferred naming convention).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "addAll(s: CharSequence!)",
+      "desc": "Adds each of the characters in this string to the set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "addAll(c: UnicodeSet!)",
+      "desc": "Adds all of the elements in the specified set to this set if they're not already present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "addAll(source: MutableIterable<*>!)",
+      "desc": "Add a collection (as strings) into this UnicodeSet.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "addAll(vararg collection: T)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "T",
+      "code": "addAllTo(target: T)",
+      "desc": "Add the contents of the UnicodeSet (as strings) into a collection."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addMatchSetTo(toUnionTo: UnicodeSet!)",
+      "desc": "Implementation of UnicodeMatcher API."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "applyIntPropertyValue(prop: Int, value: Int)",
+      "desc": "Modifies this set to contain those code points which have the given value for the given binary or enumerated property, as returned by UCharacter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "applyPattern(pattern: String!)",
+      "desc": "Modifies this set to represent the set specified by the given pattern.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "applyPattern(pattern: String!, ignoreWhitespace: Boolean)",
+      "desc": "Modifies this set to represent the set specified by the given pattern, optionally ignoring whitespace.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "applyPattern(pattern: String!, options: Int)",
+      "desc": "Modifies this set to represent the set specified by the given pattern, optionally ignoring whitespace.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "applyPropertyAlias(propertyAlias: String!, valueAlias: String!)",
+      "desc": "Modifies this set to contain those code points which have the given value for the given property.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "applyPropertyAlias(propertyAlias: String!, valueAlias: String!, symbols: SymbolTable!)",
+      "desc": "Modifies this set to contain those code points which have the given value for the given property.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "charAt(index: Int)",
+      "desc": "Returns the character at the given index within this set, where the set is ordered by ascending code point."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "clear()",
+      "desc": "Removes all of the elements from this set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Any",
+      "code": "clone()",
+      "desc": "Return a new set that is equivalent to this one."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "cloneAsThawed()",
+      "desc": "Clone a thawed version of this class, according to the Freezable interface.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "closeOver(attribute: Int)",
+      "desc": "Close this set over the given attribute.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "compact()",
+      "desc": "Reallocate this objects internal structures to take up the least possible space, without changing this object's value.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "compareTo(other: UnicodeSet!)",
+      "desc": "Compares UnicodeSets, where shorter come first, and otherwise lexigraphically (according to the comparison of the first characters that differ)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "compareTo(o: UnicodeSet!, style: UnicodeSet.ComparisonStyle!)",
+      "desc": "Compares UnicodeSets, in three different ways."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "compareTo(other: MutableIterable<String!>!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "complement(start: Int, end: Int)",
+      "desc": "Complements the specified range in this set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "complement(c: Int)",
+      "desc": "Complements the specified character in this set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "complement()",
+      "desc": "This is equivalent to complement(MIN_VALUE, MAX_VALUE).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "complement(s: CharSequence!)",
+      "desc": "Complement the specified string in this set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "complementAll(s: CharSequence!)",
+      "desc": "Complement EACH of the characters in this string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "complementAll(c: UnicodeSet!)",
+      "desc": "Complements in this set all elements contained in the specified set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "contains(c: Int)",
+      "desc": "Returns true if this set contains the given character."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "contains(start: Int, end: Int)",
+      "desc": "Returns true if this set contains every character of the given range."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "contains(s: CharSequence!)",
+      "desc": "Returns true if this set contains the given multicharacter string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "containsAll(b: UnicodeSet!)",
+      "desc": "Returns true if this set contains all the characters and strings of the given set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "containsAll(s: String!)",
+      "desc": "Returns true if there is a partition of the string such that this set contains each of the partitioned strings."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "containsAll(collection: MutableIterable<T>!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "containsNone(start: Int, end: Int)",
+      "desc": "Returns true if this set contains none of the characters of the given range."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "containsNone(b: UnicodeSet!)",
+      "desc": "Returns true if none of the characters or strings in this UnicodeSet appears in the string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "containsNone(s: CharSequence!)",
+      "desc": "Returns true if this set contains none of the characters of the given string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "containsNone(collection: MutableIterable<T>!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "containsSome(start: Int, end: Int)",
+      "desc": "Returns true if this set contains one or more of the characters in the given range."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "containsSome(s: UnicodeSet!)",
+      "desc": "Returns true if this set contains one or more of the characters and strings of the given set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "containsSome(s: CharSequence!)",
+      "desc": "Returns true if this set contains one or more of the characters of the given string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "containsSome(collection: MutableIterable<T>!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": "Compares the specified object with this set for equality."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "freeze()",
+      "desc": "Freeze this class, according to the Freezable interface.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "from(s: CharSequence!)",
+      "desc": "Makes a set from a multicharacter string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "fromAll(s: CharSequence!)",
+      "desc": "Makes a set from each of the characters in the string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRangeCount()",
+      "desc": "Iteration method that returns the number of ranges contained in this set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRangeEnd(index: Int)",
+      "desc": "Iteration method that returns the last character in the specified range of this set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRangeStart(index: Int)",
+      "desc": "Iteration method that returns the first character in the specified range of this set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": "Returns the hash code value for this set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "indexOf(c: Int)",
+      "desc": "Returns the index of the given character within this set, where the set is ordered by ascending code point."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isEmpty()",
+      "desc": "Returns true if this set contains no elements."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isFrozen()",
+      "desc": "Is this frozen, according to the Freezable interface?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableIterator",
+      "code": "iterator()",
+      "desc": "Returns a string iterator.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "matches(text: Replaceable!, offset: IntArray!, limit: Int, incremental: Boolean)",
+      "desc": "Implementation of UnicodeMatcher."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "matchesIndexValue(v: Int)",
+      "desc": "Implementation of UnicodeMatcher API."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableIterable",
+      "code": "ranges()",
+      "desc": "Provide for faster iteration than by String.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "remove(start: Int, end: Int)",
+      "desc": "Removes the specified range from this set if it is present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "remove(c: Int)",
+      "desc": "Removes the specified character from this set if it is present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "remove(s: CharSequence!)",
+      "desc": "Removes the specified string from this set if it is present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "removeAll(s: CharSequence!)",
+      "desc": "Remove EACH of the characters in this string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "removeAll(c: UnicodeSet!)",
+      "desc": "Removes from this set all of its elements that are contained in the specified set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "removeAll(collection: MutableIterable<T>!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "removeAllStrings()",
+      "desc": "Remove all strings from this UnicodeSet",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "retain(start: Int, end: Int)",
+      "desc": "Retain only the elements in this set that are contained in the specified range.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "retain(c: Int)",
+      "desc": "Retain the specified character from this set if it is present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "retain(cs: CharSequence!)",
+      "desc": "Retain the specified string in this set if it is present.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UnicodeSet",
+      "code": "retainAll(s: CharSequence!)",
+      "desc": "Retains EACH of the characters in this string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "retainAll(c: UnicodeSet!)",
+      "desc": "Retains only the elements in this set that are contained in the specified set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "retainAll(collection: MutableIterable<T>!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "set(start: Int, end: Int)",
+      "desc": "Make this object represent the range start - end.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UnicodeSet",
+      "code": "set(other: UnicodeSet!)",
+      "desc": "Make this object represent the same set as other.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "size()",
+      "desc": "Returns the number of elements in this set (its cardinality) Note than the elements of a set may include both individual codepoints and strings."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "span(s: CharSequence!, spanCondition: UnicodeSet.SpanCondition!)",
+      "desc": "Span a string using this UnicodeSet."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "span(s: CharSequence!, start: Int, spanCondition: UnicodeSet.SpanCondition!)",
+      "desc": "Span a string using this UnicodeSet."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "spanBack(s: CharSequence!, spanCondition: UnicodeSet.SpanCondition!)",
+      "desc": "Span a string backwards (from the end) using this UnicodeSet."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "spanBack(s: CharSequence!, fromIndex: Int, spanCondition: UnicodeSet.SpanCondition!)",
+      "desc": "Span a string backwards (from the fromIndex) using this UnicodeSet."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableCollection",
+      "code": "strings()",
+      "desc": "For iterating through the strings in the set.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toPattern(escapeUnprintable: Boolean)",
+      "desc": "Returns a string representation of this set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Return a programmer-readable string representation of this object."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ComparisonStyle",
+      "desc": "Comparison style enums used by UnicodeSet#compareTo(UnicodeSet, ComparisonStyle)."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "EntryRange",
+      "desc": "A struct-like class used for iteration through ranges, for faster iteration than by String."
+    },
+    {
+      "type": "nested-classes",
+      "code": "SpanCondition",
+      "desc": "Argument values for whether span() and similar functions continue while the current character is contained vs."
+    }
+  ]
+}

@@ -1,0 +1,440 @@
+{
+  "path": "android.telecom",
+  "name": "Call",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "AVAILABLE_PHONE_ACCOUNTS",
+      "desc": "The key to retrieve the optional PhoneAccounts Telecom can bundle with its Call extras."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_LAST_EMERGENCY_CALLBACK_TIME_MILLIS",
+      "desc": "Extra key used to indicate the time (in milliseconds since midnight, January 1, 1970 UTC) when the last outgoing emergency call was made."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SILENT_RINGING_REQUESTED",
+      "desc": "Extra key used to indicate whether a CallScreeningService has requested to silence the ringtone for a call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SUGGESTED_PHONE_ACCOUNTS",
+      "desc": "Key for extra used to pass along a list of PhoneAccountSuggestions to the in-call UI when a call enters the STATE_SELECT_PHONE_ACCOUNT state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REJECT_REASON_DECLINED",
+      "desc": "Reject reason used with reject(int) to indicate that the user is rejecting this call because they have declined to answer it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REJECT_REASON_UNWANTED",
+      "desc": "Reject reason used with reject(int) to indicate that the user is rejecting this call because it is an unwanted call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_ACTIVE",
+      "desc": "The state of a Call when actively supporting conversation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_AUDIO_PROCESSING",
+      "desc": "The state of a call that is active with the network, but the audio from the call is being intercepted by an app on the local device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_CONNECTING",
+      "desc": "The initial state of an outgoing Call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_DIALING",
+      "desc": "The state of an outgoing Call when dialing the remote number, but not yet connected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_DISCONNECTED",
+      "desc": "The state of a Call when no further voice or other communication is being transmitted, the remote side has been or will inevitably be informed that the Call is no longer active, and the local data transport has or inevitably will release resources associated with this Call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_DISCONNECTING",
+      "desc": "The state of a Call when the user has initiated a disconnection of the call, but the call has not yet been disconnected by the underlying ConnectionService."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_HOLDING",
+      "desc": "The state of a Call when in a holding state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_NEW",
+      "desc": "The state of a Call when newly created."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_PULLING_CALL",
+      "desc": "The state of an external call which is in the process of being pulled from a remote device to the local device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_RINGING",
+      "desc": "The state of an incoming Call when ringing locally, but not yet connected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_SELECT_PHONE_ACCOUNT",
+      "desc": "The state of an outgoing Call when waiting on user to select a PhoneAccount through which to place the call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_SIMULATED_RINGING",
+      "desc": "The state of a call that is being presented to the user after being in STATE_AUDIO_PROCESSING."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "answer(videoState: Int)",
+      "desc": "Instructs this STATE_RINGING Call to answer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "conference(callToConferenceWith: Call!)",
+      "desc": "Instructs this Call to enter a conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "deflect(address: Uri!)",
+      "desc": "Instructs this STATE_RINGING Call to deflect."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "disconnect()",
+      "desc": "Instructs this Call to disconnect."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getCannedTextResponses()",
+      "desc": "Obtains a list of canned, pre-configured message responses to present to the user as ways of rejecting this Call using via a text message.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getChildren()",
+      "desc": "Obtains the children of this conference Call, if any.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getConferenceableCalls()",
+      "desc": "Returns the list of Calls with which this Call is allowed to conference.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Call.Details",
+      "code": "getDetails()",
+      "desc": "Obtains an object containing call details.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Call",
+      "code": "getGenericConferenceActiveChildCall()",
+      "desc": "Returns the child Call in a generic conference that is currently active.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Call",
+      "code": "getParent()",
+      "desc": "Obtains the parent of this Call in a conference, if any.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getRemainingPostDialSequence()",
+      "desc": "Obtains the post-dial sequence remaining to be emitted by this Call, if any.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Call.RttCall",
+      "code": "getRttCall()",
+      "desc": "Returns this call's RttCall object.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getState()",
+      "desc": "Obtains the state of this Call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "InCallService.VideoCall",
+      "code": "getVideoCall()",
+      "desc": "Obtains an object that can be used to display video from this Call.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "handoverTo(toHandle: PhoneAccountHandle!, videoState: Int, extras: Bundle!)",
+      "desc": "Initiates a handover of this Call to the ConnectionService identified by toHandle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "hold()",
+      "desc": "Instructs this Call to go on hold."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isRttActive()",
+      "desc": "Returns whether this call has an active RTT connection."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "mergeConference()",
+      "desc": "Merges the calls within this conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "phoneAccountSelected(accountHandle: PhoneAccountHandle!, setDefault: Boolean)",
+      "desc": "Notifies this Call that an account has been selected and to proceed with placing an outgoing call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "playDtmfTone(digit: Char)",
+      "desc": "Instructs this Call to play a dual-tone multi-frequency signaling (DTMF) tone."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "postDialContinue(proceed: Boolean)",
+      "desc": "Instructs this Call to continue playing a post-dial DTMF string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "pullExternalCall()",
+      "desc": "Initiates a request to the ConnectionService to pull an external call to the local device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "putExtras(extras: Bundle!)",
+      "desc": "Adds some extras to this Call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerCallback(callback: Call.Callback!)",
+      "desc": "Registers a callback to this Call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerCallback(callback: Call.Callback!, handler: Handler!)",
+      "desc": "Registers a callback to this Call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "reject(rejectWithMessage: Boolean, textMessage: String!)",
+      "desc": "Instructs this STATE_RINGING Call to reject."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "reject(rejectReason: Int)",
+      "desc": "Instructs the ConnectionService providing this STATE_RINGING call that the user has chosen to reject the call and has indicated a reason why the call is being rejected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeExtras(keys: MutableList<String!>!)",
+      "desc": "Removes extras from this Call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeExtras(vararg keys: String!)",
+      "desc": "Removes extras from this Call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "respondToRttRequest(id: Int, accept: Boolean)",
+      "desc": "Responds to an RTT request received via the Callback#onRttRequest(Call, int) )} callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "sendCallEvent(event: String!, extras: Bundle!)",
+      "desc": "Sends a Call event from this Call to the associated Connection in the ConnectionService."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "sendRttRequest()",
+      "desc": "Sends an RTT upgrade request to the remote end of the connection."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "splitFromConference()",
+      "desc": "Instructs this Call to split from any conference call with which it may be connected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stopDtmfTone()",
+      "desc": "Instructs this Call to stop any dual-tone multi-frequency signaling (DTMF) tone currently playing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stopRtt()",
+      "desc": "Terminate the RTT session on this call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "swapConference()",
+      "desc": "Swaps the calls within this conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unhold()",
+      "desc": "Instructs this STATE_HOLDING call to release from hold."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregisterCallback(callback: Call.Callback!)",
+      "desc": "Unregisters a callback from this Call."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "Defines callbacks which inform the InCallService of changes to a Call."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Details",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "code": "RttCall",
+      "desc": "A class that holds the state that describes the state of the RTT channel to the remote party, if it is active."
+    }
+  ]
+}

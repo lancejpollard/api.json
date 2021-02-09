@@ -1,0 +1,46 @@
+{
+  "path": "android.app.job",
+  "name": "JobServiceEngine",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(service: Service!)\n            Create a new engine, ready for use."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IBinder",
+      "code": "getBinder()",
+      "desc": "Retrieve the engine's IPC interface that should be returned by Service#onBind(Intent).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "jobFinished(params: JobParameters!, needsReschedule: Boolean)",
+      "desc": "Call in to engine to report that a job has finished executing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "onStartJob(params: JobParameters!)",
+      "desc": "Engine's report that a job has started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "onStopJob(params: JobParameters!)",
+      "desc": "Engine's report that a job has stopped."
+    }
+  ]
+}

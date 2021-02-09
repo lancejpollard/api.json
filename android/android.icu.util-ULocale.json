@@ -1,0 +1,841 @@
+{
+  "path": "android.icu.util",
+  "name": "ULocale",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Char",
+      "code": "PRIVATE_USE_EXTENSION",
+      "desc": "The key for the private use locale extension ('x')."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Char",
+      "code": "UNICODE_LOCALE_EXTENSION",
+      "desc": "The key for Unicode locale extension ('u')."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(localeID: String!)\n            [icu] Constructs a ULocale from a RFC 3066 locale ID."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(a: String!, b: String!)\n            Convenience overload of ULocale(String, String, String) for compatibility with java."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(a: String!, b: String!, c: String!)\n            Constructs a ULocale from a localeID constructed from the three 'fields' a, b, and c."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "acceptLanguage(acceptLanguageList: String!, availableLocales: Array<ULocale!>!, fallback: BooleanArray!)",
+      "desc": "[icu] Based on a HTTP formatted list of acceptable locales, determine an available locale for the user.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "acceptLanguage(acceptLanguageList: Array<ULocale!>!, availableLocales: Array<ULocale!>!, fallback: BooleanArray!)",
+      "desc": "[icu] Based on a list of acceptable locales, determine an available locale for the user.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "acceptLanguage(acceptLanguageList: String!, fallback: BooleanArray!)",
+      "desc": "[icu] Based on a HTTP formatted list of acceptable locales, determine an available locale for the user.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "acceptLanguage(acceptLanguageList: Array<ULocale!>!, fallback: BooleanArray!)",
+      "desc": "[icu] Based on an ordered array of acceptable locales, determine an available locale for the user.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "addLikelySubtags(loc: ULocale!)",
+      "desc": "[icu] Adds the likely subtags for a provided locale ID, per the algorithm described in the following CLDR technical report: http://www.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "canonicalize(localeID: String!)",
+      "desc": "[icu] Returns the canonical name for the specified locale ID.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Any",
+      "code": "clone()",
+      "desc": "This is for compatibility with Locale-- in actuality, since ULocale is immutable, there is no reason to clone it, so this API returns 'this'.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "compareTo(other: ULocale!)",
+      "desc": "Compares two ULocale for ordering."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "createCanonical(nonCanonicalID: String!)",
+      "desc": "[icu] Creates a ULocale from the id by first canonicalizing the id.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": "Returns true if the other object is another ULocale with the same full name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "forLanguageTag(languageTag: String!)",
+      "desc": "Returns a locale for the specified IETF BCP 47 language tag string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "forLocale(loc: Locale!)",
+      "desc": "[icu] Returns a ULocale object for a java.util.Locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Array",
+      "code": "getAvailableLocales()",
+      "desc": "[icu] Note: Unlike the Locale API, this returns an array of ULocale, not Locale.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getBaseName()",
+      "desc": "[icu] Returns the (normalized) base name for this locale, like getName(), but without keywords.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getBaseName(localeID: String!)",
+      "desc": "[icu] Returns the (normalized) base name for the specified locale, like getName(java.lang.String), but without keywords.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCharacterOrientation()",
+      "desc": "[icu] Returns this locale's layout orientation for characters.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCountry()",
+      "desc": "Returns the country/region code for this locale, which will either be the empty string or an uppercase ISO 3166 2-letter code.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getCountry(localeID: String!)",
+      "desc": "[icu] Returns the country/region code for this locale, which will either be the empty string or an uppercase ISO 3166 2-letter code.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "getDefault()",
+      "desc": "Returns the current default ULocale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "getDefault(category: ULocale.Category!)",
+      "desc": "Returns the current default ULocale for the specified category.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayCountry()",
+      "desc": "Returns this locale's country localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayCountry(displayLocale: ULocale!)",
+      "desc": "Returns this locale's country localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayCountry(localeID: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns a locale's country localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayCountry(localeID: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns a locale's country localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayKeyword(keyword: String!)",
+      "desc": "[icu] Returns a keyword localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayKeyword(keyword: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns a keyword localized for display in the specified locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayKeyword(keyword: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns a keyword localized for display in the specified locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayKeywordValue(keyword: String!)",
+      "desc": "[icu] Returns a keyword value localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayKeywordValue(keyword: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns a keyword value localized for display in the specified locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayKeywordValue(localeID: String!, keyword: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns a keyword value localized for display in the specified locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayKeywordValue(localeID: String!, keyword: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns a keyword value localized for display in the specified locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayLanguage()",
+      "desc": "Returns this locale's language localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayLanguage(displayLocale: ULocale!)",
+      "desc": "Returns this locale's language localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayLanguage(localeID: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns a locale's language localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayLanguage(localeID: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns a locale's language localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayLanguageWithDialect()",
+      "desc": "[icu] Returns this locale's language localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayLanguageWithDialect(displayLocale: ULocale!)",
+      "desc": "[icu] Returns this locale's language localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayLanguageWithDialect(localeID: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns a locale's language localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayLanguageWithDialect(localeID: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns a locale's language localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayName()",
+      "desc": "Returns this locale name localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayName(displayLocale: ULocale!)",
+      "desc": "Returns this locale name localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayName(localeID: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns the locale ID localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayName(localeID: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns the locale ID localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayNameWithDialect()",
+      "desc": "[icu] Returns this locale name localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayNameWithDialect(displayLocale: ULocale!)",
+      "desc": "[icu] Returns this locale name localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayNameWithDialect(localeID: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns the locale ID localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayNameWithDialect(localeID: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns the locale ID localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayScript()",
+      "desc": "Returns this locale's script localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayScript(displayLocale: ULocale!)",
+      "desc": "Returns this locale's script localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayScript(localeID: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns a locale's script localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayScript(localeID: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns a locale's script localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayVariant()",
+      "desc": "Returns this locale's variant localized for display in the default DISPLAY locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDisplayVariant(displayLocale: ULocale!)",
+      "desc": "Returns this locale's variant localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayVariant(localeID: String!, displayLocaleID: String!)",
+      "desc": "[icu] Returns a locale's variant localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getDisplayVariant(localeID: String!, displayLocale: ULocale!)",
+      "desc": "[icu] Returns a locale's variant localized for display in the provided locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getExtension(key: Char)",
+      "desc": "Returns the extension (or private use) value associated with the specified key, or null if there is no extension associated with the key.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getExtensionKeys()",
+      "desc": "Returns the set of extension keys associated with this locale, or the empty set if it has no extensions.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ULocale",
+      "code": "getFallback()",
+      "desc": "[icu] Returns the fallback locale for this locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getFallback(localeID: String!)",
+      "desc": "[icu] Returns the fallback locale for the specified locale, which might be the empty string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getISO3Country()",
+      "desc": "Returns a three-letter abbreviation for this locale's country/region.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getISO3Country(localeID: String!)",
+      "desc": "[icu] Returns a three-letter abbreviation for this locale's country/region.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getISO3Language()",
+      "desc": "Returns a three-letter abbreviation for this locale's language.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getISO3Language(localeID: String!)",
+      "desc": "[icu] Returns a three-letter abbreviation for this locale's language.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Array",
+      "code": "getISOCountries()",
+      "desc": "Returns a list of all 2-letter country codes defined in ISO 3166.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Array",
+      "code": "getISOLanguages()",
+      "desc": "Returns a list of all 2-letter language codes defined in ISO 639.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getKeywordValue(keywordName: String!)",
+      "desc": "[icu] Returns the value for a keyword in this locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getKeywordValue(localeID: String!, keywordName: String!)",
+      "desc": "[icu] Returns the value for a keyword in the specified locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "getKeywords()",
+      "desc": "[icu] Returns an iterator over keywords for this locale.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MutableIterator",
+      "code": "getKeywords(localeID: String!)",
+      "desc": "[icu] Returns an iterator over keywords for the specified locale.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getLanguage()",
+      "desc": "Returns the language code for this locale, which will either be the empty string or a lowercase ISO 639 code.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getLanguage(localeID: String!)",
+      "desc": "Returns the language code for the locale ID, which will either be the empty string or a lowercase ISO 639 code.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getLineOrientation()",
+      "desc": "[icu] Returns this locale's layout orientation for lines.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getName()",
+      "desc": "[icu] Returns the (normalized) full name for this locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getName(localeID: String!)",
+      "desc": "[icu] Returns the (normalized) full name for the specified locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getScript()",
+      "desc": "Returns the script code for this locale, which might be the empty string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getScript(localeID: String!)",
+      "desc": "[icu] Returns the script code for the specified locale, which might be the empty string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getUnicodeLocaleAttributes()",
+      "desc": "Returns the set of unicode locale attributes associated with this locale, or the empty set if it has no attributes.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getUnicodeLocaleKeys()",
+      "desc": "Returns the set of Unicode locale keys defined by this locale, or the empty set if this locale has none.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getUnicodeLocaleType(key: String!)",
+      "desc": "Returns the Unicode locale type associated with the specified Unicode locale key for this locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getVariant()",
+      "desc": "Returns the variant code for this locale, which might be the empty string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "getVariant(localeID: String!)",
+      "desc": "[icu] Returns the variant code for the specified locale, which might be the empty string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": "Returns the hashCode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isRightToLeft()",
+      "desc": "[icu] Returns whether this locale's script is written right-to-left."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ULocale",
+      "code": "minimizeSubtags(loc: ULocale!)",
+      "desc": "[icu] Minimizes the subtags for a provided locale ID, per the algorithm described in the following CLDR technical report: http://www.unicode.org/reports/tr35/#Likely_Subtags If the provided ULocale instance is already in the minimal form, or there is no data available for minimization, it will be returned.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ULocale",
+      "code": "setKeywordValue(keyword: String!, value: String!)",
+      "desc": "[icu] Given a keyword and a value, return a new locale with an updated keyword and value.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "setKeywordValue(localeID: String!, keyword: String!, value: String!)",
+      "desc": "Given a locale id, a keyword, and a value, return a new locale id with an updated keyword and value.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toLanguageTag()",
+      "desc": "Returns a well-formed IETF BCP 47 language tag representing this locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "toLegacyKey(keyword: String!)",
+      "desc": "[icu] Converts the specified keyword (BCP 47 Unicode locale extension key, or legacy key) to the legacy key.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "toLegacyType(keyword: String!, value: String!)",
+      "desc": "[icu] Converts the specified keyword value (BCP 47 Unicode locale extension type, or legacy type or type alias) to the canonical legacy type.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Locale",
+      "code": "toLocale()",
+      "desc": "[icu] Converts this ULocale object to a java.util.Locale.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string representation of this object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "toUnicodeLocaleKey(keyword: String!)",
+      "desc": "[icu] Converts the specified keyword (legacy key, or BCP 47 Unicode locale extension key) to the equivalent BCP 47 Unicode locale extension key.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "toUnicodeLocaleType(keyword: String!, value: String!)",
+      "desc": "[icu] Converts the specified keyword value (legacy type, or BCP 47 Unicode locale extension type) to the well-formed BCP 47 Unicode locale extension type for the specified keyword (category).",
+      "symbol": "!"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Builder",
+      "desc": "Builder is used to build instances of ULocale from values configured by the setters."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Category",
+      "desc": "Enum for locale categories."
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "path": "android.app.slice",
+  "name": "SliceManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_SLICE",
+      "desc": "Category used to resolve intents that can be rendered as slices."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SLICE_METADATA_KEY",
+      "desc": "The meta-data key that allows an activity to easily be linked directly to a slice."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Slice",
+      "code": "bindSlice(uri: Uri, supportedSpecs: MutableSet<SliceSpec!>)",
+      "desc": "Turns a slice Uri into slice content.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Slice",
+      "code": "bindSlice(intent: Intent, supportedSpecs: MutableSet<SliceSpec!>)",
+      "desc": "Turns a slice intent into slice content.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "checkSlicePermission(uri: Uri, pid: Int, uid: Int)",
+      "desc": "Determine whether a particular process and user ID has been granted permission to access a specific slice URI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getPinnedSlices()",
+      "desc": "Get the list of currently pinned slices for this app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getPinnedSpecs(uri: Uri!)",
+      "desc": "Get the current set of specs for a pinned slice.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableCollection",
+      "code": "getSliceDescendants(uri: Uri)",
+      "desc": "Obtains a list of slices that are descendants of the specified Uri.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "grantSlicePermission(toPackage: String, uri: Uri)",
+      "desc": "Grant permission to access a specific slice Uri to another package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Uri",
+      "code": "mapIntentToUri(intent: Intent)",
+      "desc": "Turns a slice intent into a slice uri.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "pinSlice(uri: Uri, specs: MutableSet<SliceSpec!>)",
+      "desc": "Ensures that a slice is in a pinned state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "revokeSlicePermission(toPackage: String, uri: Uri)",
+      "desc": "Remove permissions to access a particular content provider Uri that were previously added with grantSlicePermission for a specific target package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unpinSlice(uri: Uri)",
+      "desc": "Remove a pin for a slice."
+    }
+  ]
+}

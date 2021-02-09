@@ -1,0 +1,149 @@
+{
+  "path": "android.media",
+  "name": "MediaSync",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MEDIASYNC_ERROR_AUDIOTRACK_FAIL",
+      "desc": "Audio track failed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MEDIASYNC_ERROR_SURFACE_FAIL",
+      "desc": "The surface failed to handle video buffers."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Class constructor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Surface",
+      "code": "createInputSurface()",
+      "desc": "Requests a Surface to use as the input."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "flush()",
+      "desc": "Flushes all buffers from the sync object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "PlaybackParams",
+      "code": "getPlaybackParams()",
+      "desc": "Gets the playback rate using PlaybackParams."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "SyncParams",
+      "code": "getSyncParams()",
+      "desc": "Gets the A/V sync mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaTimestamp",
+      "code": "getTimestamp()",
+      "desc": "Get current playback position.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "queueAudio(audioData: ByteBuffer, bufferId: Int, presentationTimeUs: Long)",
+      "desc": "Queues the audio data asynchronously for playback (AudioTrack must be in streaming mode)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": "Make sure you call this when you're done to free up any opened component instance instead of relying on the garbage collector to do this for you at some point in the future."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setAudioTrack(audioTrack: AudioTrack?)",
+      "desc": "Sets the audio track for MediaSync."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCallback(cb: MediaSync.Callback?, handler: Handler?)",
+      "desc": "Sets an asynchronous callback for actionable MediaSync events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnErrorListener(listener: MediaSync.OnErrorListener?, handler: Handler?)",
+      "desc": "Sets an asynchronous callback for error events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPlaybackParams(params: PlaybackParams)",
+      "desc": "Sets playback rate using PlaybackParams."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setSurface(surface: Surface?)",
+      "desc": "Sets the output surface for MediaSync."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setSyncParams(params: SyncParams)",
+      "desc": "Sets A/V sync mode."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "MediaSync callback interface."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnErrorListener",
+      "desc": "Interface definition of a callback to be invoked when there has been an error during an asynchronous operation (other errors will throw exceptions at method call time)."
+    }
+  ]
+}

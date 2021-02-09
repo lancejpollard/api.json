@@ -1,0 +1,79 @@
+{
+  "path": "android.webkit",
+  "name": "PermissionRequest",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "RESOURCE_AUDIO_CAPTURE",
+      "desc": "Resource belongs to audio capture device, like microphone."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "RESOURCE_MIDI_SYSEX",
+      "desc": "Resource will allow sysex messages to be sent to or received from MIDI devices."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "RESOURCE_PROTECTED_MEDIA_ID",
+      "desc": "Resource belongs to protected media identifier."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "RESOURCE_VIDEO_CAPTURE",
+      "desc": "Resource belongs to video capture device, like camera."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "deny()",
+      "desc": "Call this method to deny the request."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Uri",
+      "code": "getOrigin()",
+      "desc": "Call this method to get the origin of the web page which is trying to access the restricted resources.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Array",
+      "code": "getResources()",
+      "desc": "Call this method to get the resources the web page is trying to access.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "grant(resources: Array<String!>!)",
+      "desc": "Call this method to grant origin the permission to access the given resources."
+    }
+  ]
+}

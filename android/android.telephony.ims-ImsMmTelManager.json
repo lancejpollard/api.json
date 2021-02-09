@@ -1,0 +1,159 @@
+{
+  "path": "android.telephony.ims",
+  "name": "ImsMmTelManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_MODE_CELLULAR_PREFERRED",
+      "desc": "Prefer registering for IMS over LTE if LTE signal quality is high enough."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_MODE_WIFI_ONLY",
+      "desc": "Register for IMS over IWLAN if WiFi signal quality is high enough."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_MODE_WIFI_PREFERRED",
+      "desc": "Prefer registering for IMS over IWLAN if possible if WiFi signal quality is high enough."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "getRegistrationTransportType(executor: Executor, transportTypeCallback: Consumer<Int!>)",
+      "desc": "Requires Permission:  READ_PRECISE_PHONE_STATE or that the calling app has carrier privileges (see android.telephony.TelephonyManager#hasCarrierPrivileges)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getVoWiFiModeSetting()",
+      "desc": "Returns the user's voice over WiFi Roaming mode setting associated with the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAdvancedCallingSettingEnabled()",
+      "desc": "Query the user?s setting for ?Advanced Calling? or \"Enhanced 4G LTE\", which is used to enable MmTel IMS features, depending on the carrier configuration for the current subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTtyOverVolteEnabled()",
+      "desc": "Requires android."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isVoWiFiRoamingSettingEnabled()",
+      "desc": "Returns the user's voice over WiFi roaming setting associated with the current subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isVoWiFiSettingEnabled()",
+      "desc": "Requires android."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isVtSettingEnabled()",
+      "desc": "The user's setting for whether or not they have enabled the \"Video Calling\" setting."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerImsRegistrationCallback(executor: Executor, c: RegistrationManager.RegistrationCallback)",
+      "desc": "Requires Permission:  READ_PRECISE_PHONE_STATE or that the calling app has carrier privileges (see android.telephony.TelephonyManager#hasCarrierPrivileges)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerMmTelCapabilityCallback(executor: Executor, c: ImsMmTelManager.CapabilityCallback)",
+      "desc": "Registers a CapabilityCallback with the system, which will provide MmTel service availability updates for the subscription specified in ImsManager#getImsMmTelManager(int)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterImsRegistrationCallback(c: RegistrationManager.RegistrationCallback)",
+      "desc": "Requires Permission:  READ_PRECISE_PHONE_STATE or that the calling app has carrier privileges (see android.telephony.TelephonyManager#hasCarrierPrivileges)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterMmTelCapabilityCallback(c: ImsMmTelManager.CapabilityCallback)",
+      "desc": "Removes an existing MmTel CapabilityCallback."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "RegistrationManager"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "REGISTRATION_STATE_NOT_REGISTERED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "REGISTRATION_STATE_REGISTERED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "REGISTRATION_STATE_REGISTERING"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "CapabilityCallback",
+      "desc": "Receives IMS capability status updates from the ImsService."
+    }
+  ]
+}

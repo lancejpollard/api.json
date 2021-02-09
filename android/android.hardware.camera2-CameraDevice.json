@@ -1,0 +1,197 @@
+{
+  "path": "android.hardware.camera2",
+  "name": "CameraDevice",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUDIO_RESTRICTION_NONE",
+      "desc": "No vibration or sound muting for this camera device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUDIO_RESTRICTION_VIBRATION",
+      "desc": "Mute vibration from ringtones, alarms or notifications while this camera device is in use."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUDIO_RESTRICTION_VIBRATION_SOUND",
+      "desc": "Mute vibration and sound from ringtones, alarms or notifications while this camera device is in use."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TEMPLATE_MANUAL",
+      "desc": "A basic template for direct application control of capture parameters."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TEMPLATE_PREVIEW",
+      "desc": "Create a request suitable for a camera preview window."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TEMPLATE_RECORD",
+      "desc": "Create a request suitable for video recording."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TEMPLATE_STILL_CAPTURE",
+      "desc": "Create a request suitable for still image capture."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TEMPLATE_VIDEO_SNAPSHOT",
+      "desc": "Create a request suitable for still image capture while recording video."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TEMPLATE_ZERO_SHUTTER_LAG",
+      "desc": "Create a request suitable for zero shutter lag still capture."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Close the connection to this camera device as quickly as possible."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "CaptureRequest.Builder",
+      "code": "createCaptureRequest(templateType: Int)",
+      "desc": "Create a CaptureRequest.Builder for new capture requests, initialized with template for a target use case."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CaptureRequest.Builder",
+      "code": "createCaptureRequest(templateType: Int, physicalCameraIdSet: MutableSet<String!>!)",
+      "desc": "Create a CaptureRequest.Builder for new capture requests, initialized with template for a target use case."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "createCaptureSession(outputs: MutableList<Surface!>, callback: CameraCaptureSession.StateCallback, handler: Handler?)",
+      "desc": "Create a new camera capture session by providing the target output set of Surfaces to the camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "createCaptureSession(config: SessionConfiguration!)",
+      "desc": "Create a new CameraCaptureSession using a SessionConfiguration helper object that aggregates all supported parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "createCaptureSessionByOutputConfigurations(outputConfigurations: MutableList<OutputConfiguration!>!, callback: CameraCaptureSession.StateCallback!, handler: Handler?)",
+      "desc": "Create a new camera capture session by providing the target output set of Surfaces and its corresponding surface configuration to the camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "createConstrainedHighSpeedCaptureSession(outputs: MutableList<Surface!>, callback: CameraCaptureSession.StateCallback, handler: Handler?)",
+      "desc": "Create a new constrained high speed capture session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "CaptureRequest.Builder",
+      "code": "createReprocessCaptureRequest(inputResult: TotalCaptureResult)",
+      "desc": "Create a CaptureRequest.Builder for a new reprocess CaptureRequest from a TotalCaptureResult."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "createReprocessableCaptureSession(inputConfig: InputConfiguration, outputs: MutableList<Surface!>, callback: CameraCaptureSession.StateCallback, handler: Handler?)",
+      "desc": "Create a new reprocessable camera capture session by providing the desired reprocessing input Surface configuration and the target output set of Surfaces to the camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "createReprocessableCaptureSessionByConfigurations(inputConfig: InputConfiguration, outputs: MutableList<OutputConfiguration!>, callback: CameraCaptureSession.StateCallback, handler: Handler?)",
+      "desc": "Create a new reprocessable camera capture session by providing the desired reprocessing input configuration and output OutputConfiguration to the camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getCameraAudioRestriction()",
+      "desc": "Get currently applied global camera audio restriction mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "getId()",
+      "desc": "Get the ID of this camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isSessionConfigurationSupported(sessionConfig: SessionConfiguration)",
+      "desc": "Checks whether a particular SessionConfiguration is supported by the camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCameraAudioRestriction(mode: Int)",
+      "desc": "Set audio restriction mode when this CameraDevice is being used."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "StateCallback",
+      "desc": "A callback objects for receiving updates about the state of a camera device."
+    }
+  ]
+}

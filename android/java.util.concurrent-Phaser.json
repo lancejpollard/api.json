@@ -1,0 +1,175 @@
+{
+  "path": "java.util.concurrent",
+  "name": "Phaser",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Creates a new phaser with no initially registered parties, no parent, and initial phase number 0."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(parties: Int)\n            Creates a new phaser with the given number of registered unarrived parties, no parent, and initial phase number 0."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(parent: Phaser!)\n            Equivalent to Phaser(parent, 0)."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(parent: Phaser!, parties: Int)\n            Creates a new phaser with the given parent and number of registered unarrived parties."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "arrive()",
+      "desc": "Arrives at this phaser, without waiting for others to arrive."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "arriveAndAwaitAdvance()",
+      "desc": "Arrives at this phaser and awaits others."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "arriveAndDeregister()",
+      "desc": "Arrives at this phaser and deregisters from it without waiting for others to arrive."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "awaitAdvance(phase: Int)",
+      "desc": "Awaits the phase of this phaser to advance from the given phase value, returning immediately if the current phase is not equal to the given phase value or this phaser is terminated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "awaitAdvanceInterruptibly(phase: Int)",
+      "desc": "Awaits the phase of this phaser to advance from the given phase value, throwing InterruptedException if interrupted while waiting, or returning immediately if the current phase is not equal to the given phase value or this phaser is terminated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "awaitAdvanceInterruptibly(phase: Int, timeout: Long, unit: TimeUnit!)",
+      "desc": "Awaits the phase of this phaser to advance from the given phase value or the given timeout to elapse, throwing InterruptedException if interrupted while waiting, or returning immediately if the current phase is not equal to the given phase value or this phaser is terminated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "bulkRegister(parties: Int)",
+      "desc": "Adds the given number of new unarrived parties to this phaser."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "forceTermination()",
+      "desc": "Forces this phaser to enter termination state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getArrivedParties()",
+      "desc": "Returns the number of registered parties that have arrived at the current phase of this phaser."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Phaser",
+      "code": "getParent()",
+      "desc": "Returns the parent of this phaser, or null if none.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getPhase()",
+      "desc": "Returns the current phase number."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRegisteredParties()",
+      "desc": "Returns the number of parties registered at this phaser."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Phaser",
+      "code": "getRoot()",
+      "desc": "Returns the root ancestor of this phaser, which is the same as this phaser if it has no parent.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getUnarrivedParties()",
+      "desc": "Returns the number of registered parties that have not yet arrived at the current phase of this phaser."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTerminated()",
+      "desc": "Returns true if this phaser has been terminated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "register()",
+      "desc": "Adds a new unarrived party to this phaser."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string identifying this phaser, as well as its state."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onAdvance(phase: Int, registeredParties: Int)",
+      "desc": "Overridable method to perform an action upon impending phase advance, and to control termination."
+    }
+  ]
+}

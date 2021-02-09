@@ -1,0 +1,373 @@
+{
+  "path": "android.app",
+  "name": "DownloadManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DOWNLOAD_COMPLETE",
+      "desc": "Broadcast intent action sent by the download manager when a download completes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NOTIFICATION_CLICKED",
+      "desc": "Broadcast intent action sent by the download manager when the user clicks on a running download, either from a system notification or from the downloads UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_VIEW_DOWNLOADS",
+      "desc": "Intent action to launch an activity to display all downloads."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_BYTES_DOWNLOADED_SO_FAR",
+      "desc": "Number of bytes download so far."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_DESCRIPTION",
+      "desc": "The client-supplied description of this download."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_ID",
+      "desc": "An identifier for a particular download, unique across the system."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_LAST_MODIFIED_TIMESTAMP",
+      "desc": "Timestamp when the download was last modified, in System#currentTimeMillis (wall clock time in UTC)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_LOCAL_FILENAME",
+      "desc": "Path to the downloaded file on disk."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_LOCAL_URI",
+      "desc": "Uri where downloaded file will be stored."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_MEDIAPROVIDER_URI",
+      "desc": "The URI to the corresponding entry in MediaProvider for this downloaded entry."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_MEDIA_TYPE",
+      "desc": "Internet Media Type of the downloaded file."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_REASON",
+      "desc": "Provides more detail on the status of the download."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_STATUS",
+      "desc": "Current status of the download, as one of the STATUS_* constants."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_TITLE",
+      "desc": "The client-supplied title for this download."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_TOTAL_SIZE_BYTES",
+      "desc": "Total size of the download in bytes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COLUMN_URI",
+      "desc": "URI to be downloaded."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CANNOT_RESUME",
+      "desc": "Value of COLUMN_REASON when some possibly transient error occurred but we can't resume the download."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_DEVICE_NOT_FOUND",
+      "desc": "Value of COLUMN_REASON when no external storage device was found."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_FILE_ALREADY_EXISTS",
+      "desc": "Value of COLUMN_REASON when the requested destination file already exists (the download manager will not overwrite an existing file)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_FILE_ERROR",
+      "desc": "Value of COLUMN_REASON when a storage issue arises which doesn't fit under any other error code."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_HTTP_DATA_ERROR",
+      "desc": "Value of COLUMN_REASON when an error receiving or processing data occurred at the HTTP level."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_INSUFFICIENT_SPACE",
+      "desc": "Value of COLUMN_REASON when there was insufficient storage space."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_TOO_MANY_REDIRECTS",
+      "desc": "Value of COLUMN_REASON when there were too many redirects."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_UNHANDLED_HTTP_CODE",
+      "desc": "Value of COLUMN_REASON when an HTTP code was received that download manager can't handle."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_UNKNOWN",
+      "desc": "Value of COLUMN_ERROR_CODE when the download has completed with an error that doesn't fit under any other error code."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DOWNLOAD_ID",
+      "desc": "Intent extra included with ACTION_DOWNLOAD_COMPLETE intents, indicating the ID (as a long) of the download that just completed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NOTIFICATION_CLICK_DOWNLOAD_IDS",
+      "desc": "When clicks on multiple notifications are received, the following provides an array of download ids corresponding to the download notification that was clicked."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "INTENT_EXTRAS_SORT_BY_SIZE",
+      "desc": "Intent extra included with ACTION_VIEW_DOWNLOADS to start DownloadApp in sort-by-size mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PAUSED_QUEUED_FOR_WIFI",
+      "desc": "Value of COLUMN_REASON when the download exceeds a size limit for downloads over the mobile network and the download manager is waiting for a Wi-Fi connection to proceed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PAUSED_UNKNOWN",
+      "desc": "Value of COLUMN_REASON when the download is paused for some other reason."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PAUSED_WAITING_FOR_NETWORK",
+      "desc": "Value of COLUMN_REASON when the download is waiting for network connectivity to proceed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PAUSED_WAITING_TO_RETRY",
+      "desc": "Value of COLUMN_REASON when the download is paused because some network error occurred and the download manager is waiting before retrying the request."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_FAILED",
+      "desc": "Value of COLUMN_STATUS when the download has failed (and will not be retried)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_PAUSED",
+      "desc": "Value of COLUMN_STATUS when the download is waiting to retry or resume."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_PENDING",
+      "desc": "Value of COLUMN_STATUS when the download is waiting to start."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_RUNNING",
+      "desc": "Value of COLUMN_STATUS when the download is currently running."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_SUCCESSFUL",
+      "desc": "Value of COLUMN_STATUS when the download has successfully completed."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "addCompletedDownload(title: String!, description: String!, isMediaScannerScannable: Boolean, mimeType: String!, path: String!, length: Long, showNotification: Boolean)",
+      "desc": "Adds a file to the downloads database system, so it could appear in Downloads App (and thus become eligible for management by the Downloads App)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "addCompletedDownload(title: String!, description: String!, isMediaScannerScannable: Boolean, mimeType: String!, path: String!, length: Long, showNotification: Boolean, uri: Uri!, referer: Uri!)",
+      "desc": "Adds a file to the downloads database system, so it could appear in Downloads App (and thus become eligible for management by the Downloads App)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "enqueue(request: DownloadManager.Request!)",
+      "desc": "Enqueue a new download."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getMaxBytesOverMobile(context: Context!)",
+      "desc": "Returns maximum size, in bytes, of downloads that may go over a mobile connection; or null if there's no limit",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getMimeTypeForDownloadedFile(id: Long)",
+      "desc": "Returns the media type of the given downloaded file id, if the file was downloaded successfully.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getRecommendedMaxBytesOverMobile(context: Context!)",
+      "desc": "Returns recommended maximum size, in bytes, of downloads that may go over a mobile connection; or null if there's no recommended limit.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Uri",
+      "code": "getUriForDownloadedFile(id: Long)",
+      "desc": "Returns the Uri of the given downloaded file id, if the file is downloaded successfully.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openDownloadedFile(id: Long)",
+      "desc": "Open a downloaded file for reading.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Cursor",
+      "code": "query(query: DownloadManager.Query!)",
+      "desc": "Query the download manager about downloads that have been requested.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "remove(vararg ids: Long)",
+      "desc": "Cancel downloads and remove them from the download manager."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Query",
+      "desc": "This class may be used to filter download manager queries."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Request",
+      "desc": "This class contains all the information necessary to request a new download."
+    }
+  ]
+}

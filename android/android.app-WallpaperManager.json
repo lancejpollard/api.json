@@ -1,0 +1,417 @@
+{
+  "path": "android.app",
+  "name": "WallpaperManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CHANGE_LIVE_WALLPAPER",
+      "desc": "Directly launch live wallpaper preview, allowing the user to immediately confirm to switch to a specific live wallpaper."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CROP_AND_SET_WALLPAPER",
+      "desc": "Activity Action: Show settings for choosing wallpaper."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_LIVE_WALLPAPER_CHOOSER",
+      "desc": "Launch an activity for the user to pick the current global live wallpaper."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COMMAND_DROP",
+      "desc": "Command for sendWallpaperCommand: reported by the wallpaper host when the user drops an object into an area of the host."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COMMAND_SECONDARY_TAP",
+      "desc": "Command for sendWallpaperCommand: reported by the wallpaper host when the user releases a secondary pointer on an empty area (not performing an action in the host)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "COMMAND_TAP",
+      "desc": "Command for sendWallpaperCommand: reported by the wallpaper host when the user taps on an empty area (not performing an action in the host)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_LIVE_WALLPAPER_COMPONENT",
+      "desc": "Extra in ACTION_CHANGE_LIVE_WALLPAPER that specifies the ComponentName of a live wallpaper that should be shown as a preview, for the user to confirm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_LOCK",
+      "desc": "Flag: set or retrieve the lock-screen-specific wallpaper."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_SYSTEM",
+      "desc": "Flag: set or retrieve the general system wallpaper."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "WALLPAPER_PREVIEW_META_DATA",
+      "desc": "Manifest entry for activities that respond to Intent#ACTION_SET_WALLPAPER which allows them to provide a custom large icon associated with this action."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnColorsChangedListener(listener: WallpaperManager.OnColorsChangedListener, handler: Handler)",
+      "desc": "Registers a listener to get notified when the wallpaper colors change."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clear()",
+      "desc": "Remove any currently set system wallpaper, reverting to the system's built-in wallpaper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clear(which: Int)",
+      "desc": "Remove one or more currently set wallpapers, reverting to the system default display for each one."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearWallpaper()",
+      "desc": "Reset all wallpaper to the factory default."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearWallpaperOffsets(windowToken: IBinder!)",
+      "desc": "Clear the offsets previously associated with this window through setWallpaperOffsets(android.os.IBinder,float,float)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "forgetLoadedWallpaper()",
+      "desc": "Remove all internal references to the last loaded wallpaper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "getBuiltInDrawable()",
+      "desc": "Obtain a drawable for the built-in static system wallpaper.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "getBuiltInDrawable(which: Int)",
+      "desc": "Obtain a drawable for the specified built-in static system wallpaper.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "getBuiltInDrawable(outWidth: Int, outHeight: Int, scaleToFit: Boolean, horizontalAlignment: Float, verticalAlignment: Float)",
+      "desc": "Returns a drawable for the system built-in static wallpaper.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "getBuiltInDrawable(outWidth: Int, outHeight: Int, scaleToFit: Boolean, horizontalAlignment: Float, verticalAlignment: Float, which: Int)",
+      "desc": "Returns a drawable for the built-in static wallpaper of the specified type.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "getCropAndSetWallpaperIntent(imageUri: Uri!)",
+      "desc": "Gets an Intent that will launch an activity that crops the given image and sets the device's wallpaper.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDesiredMinimumHeight()",
+      "desc": "Returns the desired minimum height for the wallpaper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDesiredMinimumWidth()",
+      "desc": "Returns the desired minimum width for the wallpaper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "getDrawable()",
+      "desc": "Retrieve the current system wallpaper; if no wallpaper is set, the system built-in static wallpaper is returned.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "getFastDrawable()",
+      "desc": "Like getDrawable(), but the returned Drawable has a number of limitations to reduce its overhead as much as possible.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "WallpaperManager",
+      "code": "getInstance(context: Context!)",
+      "desc": "Retrieve a WallpaperManager associated with the given Context.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "WallpaperColors",
+      "code": "getWallpaperColors(which: Int)",
+      "desc": "Get the primary colors of a wallpaper.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "getWallpaperFile(which: Int)",
+      "desc": "Get an open, readable file descriptor to the given wallpaper image file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getWallpaperId(which: Int)",
+      "desc": "Get the ID of the current wallpaper of the given kind."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "WallpaperInfo",
+      "code": "getWallpaperInfo()",
+      "desc": "Returns the information about the wallpaper if the current wallpaper is a live wallpaper component.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasResourceWallpaper(resid: Int)",
+      "desc": "Return whether any users are currently set to use the wallpaper with the given resource ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isSetWallpaperAllowed()",
+      "desc": "Returns whether the calling package is allowed to set the wallpaper for the calling user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isWallpaperSupported()",
+      "desc": "Returns whether wallpapers are supported for the calling user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "peekDrawable()",
+      "desc": "Retrieve the current system wallpaper; if there is no wallpaper set, a null pointer is returned.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "peekFastDrawable()",
+      "desc": "Like getFastDrawable(), but if there is no wallpaper set, a null pointer is returned.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnColorsChangedListener(callback: WallpaperManager.OnColorsChangedListener)",
+      "desc": "Stop listening to color updates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendWallpaperCommand(windowToken: IBinder!, action: String!, x: Int, y: Int, z: Int, extras: Bundle!)",
+      "desc": "Send an arbitrary command to the current active wallpaper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setBitmap(bitmap: Bitmap!)",
+      "desc": "Change the current system wallpaper to a bitmap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setBitmap(fullImage: Bitmap!, visibleCropHint: Rect!, allowBackup: Boolean)",
+      "desc": "Change the current system wallpaper to a bitmap, specifying a hint about which subrectangle of the full image is to be visible."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setBitmap(fullImage: Bitmap!, visibleCropHint: Rect!, allowBackup: Boolean, which: Int)",
+      "desc": "Version of setBitmap(android.graphics.Bitmap,android.graphics.Rect,boolean) that allows the caller to specify which of the supported wallpaper categories to set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDisplayPadding(padding: Rect!)",
+      "desc": "Specify extra padding that the wallpaper should have outside of the display."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setResource(resid: Int)",
+      "desc": "Change the current system wallpaper to the bitmap in the given resource."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setResource(resid: Int, which: Int)",
+      "desc": "Version of setResource(int) that allows the caller to specify which of the supported wallpaper categories to set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStream(bitmapData: InputStream!)",
+      "desc": "Change the current system wallpaper to a specific byte stream."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setStream(bitmapData: InputStream!, visibleCropHint: Rect!, allowBackup: Boolean)",
+      "desc": "Change the current system wallpaper to a specific byte stream, specifying a hint about which subrectangle of the full image is to be visible."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setStream(bitmapData: InputStream!, visibleCropHint: Rect!, allowBackup: Boolean, which: Int)",
+      "desc": "Version of setStream(java.io.InputStream,android.graphics.Rect,boolean) that allows the caller to specify which of the supported wallpaper categories to set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setWallpaperOffsetSteps(xStep: Float, yStep: Float)",
+      "desc": "For applications that use multiple virtual screens showing a wallpaper, specify the step size between virtual screens."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setWallpaperOffsets(windowToken: IBinder!, xOffset: Float, yOffset: Float)",
+      "desc": "Set the display position of the current wallpaper within any larger space, when that wallpaper is visible behind the given window."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "suggestDesiredDimensions(minimumWidth: Int, minimumHeight: Int)",
+      "desc": "For use only by the current home application, to specify the size of wallpaper it would like to use."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnColorsChangedListener",
+      "desc": "Interface definition for a callback to be invoked when colors change on a wallpaper."
+    }
+  ]
+}

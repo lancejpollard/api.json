@@ -1,0 +1,194 @@
+{
+  "path": "android.media.session",
+  "name": "MediaSession",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_HANDLES_MEDIA_BUTTONS",
+      "desc": "Set this flag on the session to indicate that it can handle media button events."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_HANDLES_TRANSPORT_CONTROLS",
+      "desc": "Set this flag on the session to indicate that it handles transport control commands through its Callback."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context, tag: String)\n            Creates a new session."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context, tag: String, sessionInfo: Bundle?)\n            Creates a new session."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaController",
+      "code": "getController()",
+      "desc": "Get a controller for this session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaSessionManager.RemoteUserInfo",
+      "code": "getCurrentControllerInfo()",
+      "desc": "Gets the controller information who sent the current request."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaSession.Token",
+      "code": "getSessionToken()",
+      "desc": "Retrieve a token object that can be used by apps to create a MediaController for interacting with this session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isActive()",
+      "desc": "Get the current active state of this session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": "This must be called when an app has finished performing playback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "sendSessionEvent(event: String, extras: Bundle?)",
+      "desc": "Send a proprietary event to all MediaControllers listening to this Session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setActive(active: Boolean)",
+      "desc": "Set if this session is currently active and ready to receive commands."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCallback(callback: MediaSession.Callback?)",
+      "desc": "Set the callback to receive updates for the MediaSession."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCallback(callback: MediaSession.Callback?, handler: Handler?)",
+      "desc": "Set the callback to receive updates for the MediaSession."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setExtras(extras: Bundle?)",
+      "desc": "Set some extras that can be associated with the MediaSession."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setFlags(flags: Int)",
+      "desc": "Set any flags for the session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setMediaButtonReceiver(mbr: PendingIntent?)",
+      "desc": "Set a pending intent for your media button receiver to allow restarting playback after the session has been stopped."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setMetadata(metadata: MediaMetadata?)",
+      "desc": "Update the current metadata."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPlaybackState(state: PlaybackState?)",
+      "desc": "Update the current playback state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPlaybackToLocal(attributes: AudioAttributes!)",
+      "desc": "Set the attributes for this session's audio."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPlaybackToRemote(volumeProvider: VolumeProvider)",
+      "desc": "Configure this session to use remote volume handling."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setQueue(queue: MutableList<MediaSession.QueueItem!>?)",
+      "desc": "Update the list of items in the play queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setQueueTitle(title: CharSequence?)",
+      "desc": "Set the title of the play queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setRatingType(type: Int)",
+      "desc": "Set the style of rating used by this session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setSessionActivity(pi: PendingIntent?)",
+      "desc": "Set an intent for launching UI for this Session."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "Receives media buttons, transport controls, and commands from controllers and the system."
+    },
+    {
+      "type": "nested-classes",
+      "code": "QueueItem",
+      "desc": "A single item that is part of the play queue."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Token",
+      "desc": "Represents an ongoing session."
+    }
+  ]
+}

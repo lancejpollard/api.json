@@ -1,0 +1,249 @@
+{
+  "path": "android.nfc.tech",
+  "name": "MifareClassic",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BLOCK_SIZE",
+      "desc": "Size of a MIFARE Classic block (in bytes)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIZE_1K",
+      "desc": "Tag contains 16 sectors, each with 4 blocks."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIZE_2K",
+      "desc": "Tag contains 32 sectors, each with 4 blocks."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIZE_4K",
+      "desc": "Tag contains 40 sectors."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIZE_MINI",
+      "desc": "Tag contains 5 sectors, each with 4 blocks."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_CLASSIC",
+      "desc": "A MIFARE Classic tag"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_PLUS",
+      "desc": "A MIFARE Plus tag"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_PRO",
+      "desc": "A MIFARE Pro tag"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_UNKNOWN",
+      "desc": "A MIFARE Classic compatible card of unknown type"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "authenticateSectorWithKeyA(sectorIndex: Int, key: ByteArray!)",
+      "desc": "Authenticate a sector with key A."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "authenticateSectorWithKeyB(sectorIndex: Int, key: ByteArray!)",
+      "desc": "Authenticate a sector with key B."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "blockToSector(blockIndex: Int)",
+      "desc": "Return the sector that contains a given block."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "connect()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "decrement(blockIndex: Int, value: Int)",
+      "desc": "Decrement a value block, storing the result in the temporary block on the tag."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MifareClassic",
+      "code": "get(tag: Tag!)",
+      "desc": "Get an instance of MifareClassic for the given tag.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getBlockCount()",
+      "desc": "Return the total number of MIFARE Classic blocks."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getBlockCountInSector(sectorIndex: Int)",
+      "desc": "Return the number of blocks in the given sector."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getMaxTransceiveLength()",
+      "desc": "Return the maximum number of bytes that can be sent with transceive."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getSectorCount()",
+      "desc": "Return the number of MIFARE Classic sectors."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getSize()",
+      "desc": "Return the size of the tag in bytes"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Tag",
+      "code": "getTag()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getTimeout()",
+      "desc": "Get the current transceive timeout in milliseconds."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getType()",
+      "desc": "Return the type of this MIFARE Classic compatible tag."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "increment(blockIndex: Int, value: Int)",
+      "desc": "Increment a value block, storing the result in the temporary block on the tag."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isConnected()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "readBlock(blockIndex: Int)",
+      "desc": "Read 16-byte block.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "restore(blockIndex: Int)",
+      "desc": "Copy from a value block to the temporary block."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "sectorToBlock(sectorIndex: Int)",
+      "desc": "Return the first block of a given sector."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setTimeout(timeout: Int)",
+      "desc": "Set the transceive timeout in milliseconds."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "transceive(data: ByteArray!)",
+      "desc": "Send raw NfcA data to a tag and receive the response.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "transfer(blockIndex: Int)",
+      "desc": "Copy from the temporary block to a value block."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "writeBlock(blockIndex: Int, data: ByteArray!)",
+      "desc": "Write 16-byte block."
+    }
+  ]
+}

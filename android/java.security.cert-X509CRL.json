@@ -1,0 +1,247 @@
+{
+  "path": "java.security.cert",
+  "name": "X509CRL",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": "Compares this CRL for equality with the given object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ByteArray",
+      "code": "getEncoded()",
+      "desc": "Returns the ASN.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Principal",
+      "code": "getIssuerDN()",
+      "desc": "Denigrated, replaced by  .",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "X500Principal",
+      "code": "getIssuerX500Principal()",
+      "desc": "Returns the issuer (issuer distinguished name) value from the CRL as an X500Principal.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Date",
+      "code": "getNextUpdate()",
+      "desc": "Gets the nextUpdate date from the CRL.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "X509CRLEntry",
+      "code": "getRevokedCertificate(serialNumber: BigInteger!)",
+      "desc": "Gets the CRL entry, if any, with the given certificate serialNumber.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "X509CRLEntry",
+      "code": "getRevokedCertificate(certificate: X509Certificate!)",
+      "desc": "Get the CRL entry, if any, for the given certificate.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableSet",
+      "code": "getRevokedCertificates()",
+      "desc": "Gets all the entries from this CRL.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "getSigAlgName()",
+      "desc": "Gets the signature algorithm name for the CRL signature algorithm.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "getSigAlgOID()",
+      "desc": "Gets the signature algorithm OID string from the CRL.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ByteArray",
+      "code": "getSigAlgParams()",
+      "desc": "Gets the DER-encoded signature algorithm parameters from this CRL's signature algorithm.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ByteArray",
+      "code": "getSignature()",
+      "desc": "Gets the signature value (the raw signature bits) from the CRL.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ByteArray",
+      "code": "getTBSCertList()",
+      "desc": "Gets the DER-encoded CRL information, the tbsCertList from this CRL.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Date",
+      "code": "getThisUpdate()",
+      "desc": "Gets the thisUpdate date from the CRL.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getVersion()",
+      "desc": "Gets the version (version number) value from the CRL."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": "Returns a hashcode value for this CRL from its encoded form."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "verify(key: PublicKey!)",
+      "desc": "Verifies that this CRL was signed using the private key that corresponds to the given public key."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "verify(key: PublicKey!, sigProvider: String!)",
+      "desc": "Verifies that this CRL was signed using the private key that corresponds to the given public key."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "verify(key: PublicKey!, sigProvider: Provider!)",
+      "desc": "Verifies that this CRL was signed using the private key that corresponds to the given public key."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "X509Extension"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MutableSet<String!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCriticalExtensionOIDs()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ByteArray!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getExtensionValue(oid: String!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "oid"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "oid"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MutableSet<String!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getNonCriticalExtensionOIDs()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "hasUnsupportedCriticalExtension()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "CRL"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isRevoked(cert: Certificate!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "toString()"
+    }
+  ]
+}

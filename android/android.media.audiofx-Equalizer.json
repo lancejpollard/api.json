@@ -1,0 +1,590 @@
+{
+  "path": "android.media.audiofx",
+  "name": "Equalizer",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_BAND_FREQ_RANGE",
+      "desc": "Band frequency range."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_BAND_LEVEL",
+      "desc": "Band level."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_CENTER_FREQ",
+      "desc": "Band center frequency."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_CURRENT_PRESET",
+      "desc": "Current preset."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_GET_BAND",
+      "desc": "Band for a given frequency."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_GET_NUM_OF_PRESETS",
+      "desc": "Request number of presets."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_GET_PRESET_NAME",
+      "desc": "Request preset name."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_LEVEL_RANGE",
+      "desc": "Band level range."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_NUM_BANDS",
+      "desc": "Number of bands."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_STRING_SIZE_MAX",
+      "desc": "Maximum size for preset name"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(priority: Int, audioSession: Int)\n            Class constructor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Short",
+      "code": "getBand(frequency: Int)",
+      "desc": "Gets the band that has the most effect on the given frequency."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntArray",
+      "code": "getBandFreqRange(band: Short)",
+      "desc": "Gets the frequency range of the given frequency band.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Short",
+      "code": "getBandLevel(band: Short)",
+      "desc": "Gets the gain set for the given equalizer band."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ShortArray",
+      "code": "getBandLevelRange()",
+      "desc": "Gets the level range for use by setBandLevel(short,short).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getCenterFreq(band: Short)",
+      "desc": "Gets the center frequency of the given band."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Short",
+      "code": "getCurrentPreset()",
+      "desc": "Gets current preset."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Short",
+      "code": "getNumberOfBands()",
+      "desc": "Gets the number of frequency bands supported by the Equalizer engine."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Short",
+      "code": "getNumberOfPresets()",
+      "desc": "Gets the total number of presets the equalizer supports."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getPresetName(preset: Short)",
+      "desc": "Gets the preset name based on the index.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Equalizer.Settings",
+      "code": "getProperties()",
+      "desc": "Gets the equalizer properties.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setBandLevel(band: Short, level: Short)",
+      "desc": "Sets the given equalizer band to the given gain value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setParameterListener(listener: Equalizer.OnParameterChangeListener!)",
+      "desc": "Registers an OnParameterChangeListener interface."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setProperties(settings: Equalizer.Settings!)",
+      "desc": "Sets the equalizer properties."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "usePreset(preset: Short)",
+      "desc": "Sets the equalizer according to the given preset."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "AudioEffect"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PACKAGE_NAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_AUDIO_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_AUDIO_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PACKAGE_NAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_AUDIO_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ALREADY_EXISTS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_GAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MOVIE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MUSIC"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_VOICE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EFFECT_AUXILIARY"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "getId()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EFFECT_INSERT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EFFECT_POST_PROCESSING"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EFFECT_PRE_PROCESSING"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_BAD_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_DEAD_OBJECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_INVALID_OPERATION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_NO_INIT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_NO_MEMORY"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_AUDIO_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MUSIC"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MOVIE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_GAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_VOICE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MUSIC"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PACKAGE_NAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "SUCCESS"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnParameterChangeListener",
+      "desc": "The OnParameterChangeListener interface defines a method called by the Equalizer when a parameter value has changed."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Settings",
+      "desc": "The Settings class regroups all equalizer parameters."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AudioEffect"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "finalize()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AudioEffect.Descriptor!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDescriptor()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getEnabled()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getId()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "hasControl()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Array<AudioEffect.Descriptor!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "queryEffects()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.media.audiofx.AudioEffect.Descriptor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "release()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setControlStatusListener(listener: AudioEffect.OnControlStatusChangeListener!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setEnableStatusListener(listener: AudioEffect.OnEnableStatusChangeListener!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setEnabled(enabled: Boolean)"
+    }
+  ]
+}

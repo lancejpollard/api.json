@@ -1,0 +1,117 @@
+{
+  "path": "android.opengl",
+  "name": "ETC1",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DECODED_BLOCK_SIZE",
+      "desc": "Size in bytes of a decoded block."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCODED_BLOCK_SIZE",
+      "desc": "Size in bytes of an encoded block."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ETC1_RGB8_OES",
+      "desc": "Accepted by the internalformat parameter of glCompressedTexImage2D."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ETC_PKM_HEADER_SIZE",
+      "desc": "Size of a PKM file header, in bytes."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "decodeBlock(in: Buffer!, out: Buffer!)",
+      "desc": "Decode a block of pixels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "decodeImage(in: Buffer!, out: Buffer!, width: Int, height: Int, pixelSize: Int, stride: Int)",
+      "desc": "Decode an entire image."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "encodeBlock(in: Buffer!, validPixelMask: Int, out: Buffer!)",
+      "desc": "Encode a block of pixels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "encodeImage(in: Buffer!, width: Int, height: Int, pixelSize: Int, stride: Int, out: Buffer!)",
+      "desc": "Encode an entire image."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "formatHeader(header: Buffer!, width: Int, height: Int)",
+      "desc": "Format a PKM header"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getEncodedDataSize(width: Int, height: Int)",
+      "desc": "Return the size of the encoded image data (does not include size of PKM header)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getHeight(header: Buffer!)",
+      "desc": "Read the image height from a PKM header"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getWidth(header: Buffer!)",
+      "desc": "Read the image width from a PKM header"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isValid(header: Buffer!)",
+      "desc": "Check if a PKM header is correctly formatted."
+    }
+  ]
+}

@@ -1,0 +1,578 @@
+{
+  "path": "java.nio.file",
+  "name": "Files",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "copy(source: Path!, target: Path!, vararg options: CopyOption!)",
+      "desc": "Copy a file to a target file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "copy(in: InputStream!, target: Path!, vararg options: CopyOption!)",
+      "desc": "Copies all bytes from an input stream to a file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "copy(source: Path!, out: OutputStream!)",
+      "desc": "Copies all bytes from a file to an output stream."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createDirectories(dir: Path!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a directory by creating all nonexistent parent directories first.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createDirectory(dir: Path!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a new directory.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createFile(path: Path!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a new and empty file, failing if the file already exists.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createLink(link: Path!, existing: Path!)",
+      "desc": "Creates a new link (directory entry) for an existing file (optional operation).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createSymbolicLink(link: Path!, target: Path!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a symbolic link to a target (optional operation).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createTempDirectory(dir: Path!, prefix: String!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a new directory in the specified directory, using the given prefix to generate its name.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createTempDirectory(prefix: String!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a new directory in the default temporary-file directory, using the given prefix to generate its name.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createTempFile(dir: Path!, prefix: String!, suffix: String!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a new empty file in the specified directory, using the given prefix and suffix strings to generate its name.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "createTempFile(prefix: String!, suffix: String!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates an empty file in the default temporary-file directory, using the given prefix and suffix to generate its name.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "delete(path: Path!)",
+      "desc": "Deletes a file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "deleteIfExists(path: Path!)",
+      "desc": "Deletes a file if it exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "exists(path: Path!, vararg options: LinkOption!)",
+      "desc": "Tests whether a file exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Stream",
+      "code": "find(start: Path!, maxDepth: Int, matcher: BiPredicate<Path!, BasicFileAttributes!>!, vararg options: FileVisitOption!)",
+      "desc": "Return a Stream that is lazily populated with Path by searching for files in a file tree rooted at a given starting file.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Any",
+      "code": "getAttribute(path: Path!, attribute: String!, vararg options: LinkOption!)",
+      "desc": "Reads the value of a file attribute.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "V",
+      "code": "getFileAttributeView(path: Path!, type: Class<V>!, vararg options: LinkOption!)",
+      "desc": "Returns a file attribute view of a given type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "FileStore",
+      "code": "getFileStore(path: Path!)",
+      "desc": "Returns the FileStore representing the file store where a file is located.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "FileTime",
+      "code": "getLastModifiedTime(path: Path!, vararg options: LinkOption!)",
+      "desc": "Returns a file's last modified time.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UserPrincipal",
+      "code": "getOwner(path: Path!, vararg options: LinkOption!)",
+      "desc": "Returns the owner of a file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MutableSet",
+      "code": "getPosixFilePermissions(path: Path!, vararg options: LinkOption!)",
+      "desc": "Returns a file's POSIX file permissions.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isDirectory(path: Path!, vararg options: LinkOption!)",
+      "desc": "Tests whether a file is a directory."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isExecutable(path: Path!)",
+      "desc": "Tests whether a file is executable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isHidden(path: Path!)",
+      "desc": "Tells whether or not a file is considered hidden."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isReadable(path: Path!)",
+      "desc": "Tests whether a file is readable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isRegularFile(path: Path!, vararg options: LinkOption!)",
+      "desc": "Tests whether a file is a regular file with opaque content."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isSameFile(path: Path!, path2: Path!)",
+      "desc": "Tests if two paths locate the same file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isSymbolicLink(path: Path!)",
+      "desc": "Tests whether a file is a symbolic link."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isWritable(path: Path!)",
+      "desc": "Tests whether a file is writable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Stream",
+      "code": "lines(path: Path!, cs: Charset!)",
+      "desc": "Read all lines from a file as a Stream.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Stream",
+      "code": "lines(path: Path!)",
+      "desc": "Read all lines from a file as a Stream.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Stream",
+      "code": "list(dir: Path!)",
+      "desc": "Return a lazily populated Stream, the elements of which are the entries in the directory.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "move(source: Path!, target: Path!, vararg options: CopyOption!)",
+      "desc": "Move or rename a file to a target file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "BufferedReader",
+      "code": "newBufferedReader(path: Path!, cs: Charset!)",
+      "desc": "Opens a file for reading, returning a BufferedReader that may be used to read text from the file in an efficient manner.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "BufferedReader",
+      "code": "newBufferedReader(path: Path!)",
+      "desc": "Opens a file for reading, returning a BufferedReader to read text from the file in an efficient manner.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "BufferedWriter",
+      "code": "newBufferedWriter(path: Path!, cs: Charset!, vararg options: OpenOption!)",
+      "desc": "Opens or creates a file for writing, returning a BufferedWriter that may be used to write text to the file in an efficient manner.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "BufferedWriter",
+      "code": "newBufferedWriter(path: Path!, vararg options: OpenOption!)",
+      "desc": "Opens or creates a file for writing, returning a BufferedWriter to write text to the file in an efficient manner.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SeekableByteChannel",
+      "code": "newByteChannel(path: Path!, options: MutableSet<out OpenOption!>!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Opens or creates a file, returning a seekable byte channel to access the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SeekableByteChannel",
+      "code": "newByteChannel(path: Path!, vararg options: OpenOption!)",
+      "desc": "Opens or creates a file, returning a seekable byte channel to access the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "DirectoryStream",
+      "code": "newDirectoryStream(dir: Path!)",
+      "desc": "Opens a directory, returning a DirectoryStream to iterate over all entries in the directory.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "DirectoryStream",
+      "code": "newDirectoryStream(dir: Path!, glob: String!)",
+      "desc": "Opens a directory, returning a DirectoryStream to iterate over the entries in the directory.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "DirectoryStream",
+      "code": "newDirectoryStream(dir: Path!, filter: DirectoryStream.Filter<in Path!>!)",
+      "desc": "Opens a directory, returning a DirectoryStream to iterate over the entries in the directory.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "InputStream",
+      "code": "newInputStream(path: Path!, vararg options: OpenOption!)",
+      "desc": "Opens a file, returning an input stream to read from the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "OutputStream",
+      "code": "newOutputStream(path: Path!, vararg options: OpenOption!)",
+      "desc": "Opens or creates a file, returning an output stream that may be used to write bytes to the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "notExists(path: Path!, vararg options: LinkOption!)",
+      "desc": "Tests whether the file located by this path does not exist."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "probeContentType(path: Path!)",
+      "desc": "Probes the content type of a file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ByteArray",
+      "code": "readAllBytes(path: Path!)",
+      "desc": "Reads all the bytes from a file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MutableList",
+      "code": "readAllLines(path: Path!, cs: Charset!)",
+      "desc": "Read all lines from a file.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MutableList",
+      "code": "readAllLines(path: Path!)",
+      "desc": "Read all lines from a file.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "A",
+      "code": "readAttributes(path: Path!, type: Class<A>!, vararg options: LinkOption!)",
+      "desc": "Reads a file's attributes as a bulk operation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MutableMap",
+      "code": "readAttributes(path: Path!, attributes: String!, vararg options: LinkOption!)",
+      "desc": "Reads a set of file attributes as a bulk operation.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "readSymbolicLink(link: Path!)",
+      "desc": "Reads the target of a symbolic link (optional operation).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "setAttribute(path: Path!, attribute: String!, value: Any!, vararg options: LinkOption!)",
+      "desc": "Sets the value of a file attribute.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "setLastModifiedTime(path: Path!, time: FileTime!)",
+      "desc": "Updates a file's last modified time attribute.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "setOwner(path: Path!, owner: UserPrincipal!)",
+      "desc": "Updates the file owner.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "setPosixFilePermissions(path: Path!, perms: MutableSet<PosixFilePermission!>!)",
+      "desc": "Sets a file's POSIX permissions.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "size(path: Path!)",
+      "desc": "Returns the size of a file (in bytes)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Stream",
+      "code": "walk(start: Path!, maxDepth: Int, vararg options: FileVisitOption!)",
+      "desc": "Return a Stream that is lazily populated with Path by walking the file tree rooted at a given starting file.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Stream",
+      "code": "walk(start: Path!, vararg options: FileVisitOption!)",
+      "desc": "Return a Stream that is lazily populated with Path by walking the file tree rooted at a given starting file.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "walkFileTree(start: Path!, options: MutableSet<FileVisitOption!>!, maxDepth: Int, visitor: FileVisitor<in Path!>!)",
+      "desc": "Walks a file tree.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "walkFileTree(start: Path!, visitor: FileVisitor<in Path!>!)",
+      "desc": "Walks a file tree.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "write(path: Path!, bytes: ByteArray!, vararg options: OpenOption!)",
+      "desc": "Writes bytes to a file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "write(path: Path!, lines: MutableIterable<CharSequence!>!, cs: Charset!, vararg options: OpenOption!)",
+      "desc": "Write lines of text to a file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Path",
+      "code": "write(path: Path!, lines: MutableIterable<CharSequence!>!, vararg options: OpenOption!)",
+      "desc": "Write lines of text to a file.",
+      "symbol": "!"
+    }
+  ]
+}

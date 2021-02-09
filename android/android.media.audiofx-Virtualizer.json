@@ -1,0 +1,527 @@
+{
+  "path": "android.media.audiofx",
+  "name": "Virtualizer",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_STRENGTH",
+      "desc": "Virtualizer effect strength."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PARAM_STRENGTH_SUPPORTED",
+      "desc": "Is strength parameter supported by virtualizer engine."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUALIZATION_MODE_AUTO",
+      "desc": "A virtualization mode used to indicate the virtualizer effect must stop forcing the processing to a particular mode in forceVirtualizationMode(int)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUALIZATION_MODE_BINAURAL",
+      "desc": "A virtualization mode typically used over headphones."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUALIZATION_MODE_OFF",
+      "desc": "A virtualization mode indicating virtualization processing is not active."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUALIZATION_MODE_TRANSAURAL",
+      "desc": "A virtualization mode typically used over speakers."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(priority: Int, audioSession: Int)\n            Class constructor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "canVirtualize(inputChannelMask: Int, virtualizationMode: Int)",
+      "desc": "Checks if the combination of a channel mask and virtualization mode is supported by this virtualizer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "forceVirtualizationMode(virtualizationMode: Int)",
+      "desc": "Forces the virtualizer effect to use the given processing mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Virtualizer.Settings",
+      "code": "getProperties()",
+      "desc": "Gets the virtualizer properties.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Short",
+      "code": "getRoundedStrength()",
+      "desc": "Gets the current strength of the effect."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getSpeakerAngles(inputChannelMask: Int, virtualizationMode: Int, angles: IntArray!)",
+      "desc": "Queries the virtual speaker angles (azimuth and elevation) for a combination of a channel mask and virtualization mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getStrengthSupported()",
+      "desc": "Indicates whether setting strength is supported."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getVirtualizationMode()",
+      "desc": "Return the virtualization mode being used, if any."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setParameterListener(listener: Virtualizer.OnParameterChangeListener!)",
+      "desc": "Registers an OnParameterChangeListener interface."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setProperties(settings: Virtualizer.Settings!)",
+      "desc": "Sets the virtualizer properties."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStrength(strength: Short)",
+      "desc": "Sets the strength of the virtualizer effect."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "AudioEffect"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PACKAGE_NAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_AUDIO_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_AUDIO_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PACKAGE_NAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_AUDIO_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ALREADY_EXISTS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_GAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MOVIE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MUSIC"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_VOICE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EFFECT_AUXILIARY"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "getId()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EFFECT_INSERT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EFFECT_POST_PROCESSING"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EFFECT_PRE_PROCESSING"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_BAD_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_DEAD_OBJECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_INVALID_OPERATION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_NO_INIT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ERROR_NO_MEMORY"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_AUDIO_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_CONTENT_TYPE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_DISPLAY_AUDIO_EFFECT_CONTROL_PANEL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MUSIC"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MOVIE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_GAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_VOICE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENT_TYPE_MUSIC"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PACKAGE_NAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_OPEN_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ACTION_CLOSE_AUDIO_EFFECT_CONTROL_SESSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "SUCCESS"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnParameterChangeListener",
+      "desc": "The OnParameterChangeListener interface defines a method called by the Virtualizer when a parameter value has changed."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Settings",
+      "desc": "The Settings class regroups all virtualizer parameters."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AudioEffect"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "finalize()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AudioEffect.Descriptor!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDescriptor()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getEnabled()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getId()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "hasControl()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Array<AudioEffect.Descriptor!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "queryEffects()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.media.audiofx.AudioEffect.Descriptor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "release()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setControlStatusListener(listener: AudioEffect.OnControlStatusChangeListener!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setEnableStatusListener(listener: AudioEffect.OnEnableStatusChangeListener!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setEnabled(enabled: Boolean)"
+    }
+  ]
+}

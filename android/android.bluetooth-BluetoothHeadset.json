@@ -1,0 +1,292 @@
+{
+  "path": "android.bluetooth",
+  "name": "BluetoothHeadset",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_AUDIO_STATE_CHANGED",
+      "desc": "Intent used to broadcast the change in the Audio Connection state of the HDP profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CONNECTION_STATE_CHANGED",
+      "desc": "Intent used to broadcast the change in connection state of the Headset profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_VENDOR_SPECIFIC_HEADSET_EVENT",
+      "desc": "Intent used to broadcast that the headset has posted a vendor-specific event."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AT_CMD_TYPE_ACTION",
+      "desc": "AT command type ACTION used with EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD_TYPE For example, AT+CHUP."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AT_CMD_TYPE_BASIC",
+      "desc": "AT command type BASIC used with EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD_TYPE For example, ATD."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AT_CMD_TYPE_READ",
+      "desc": "AT command type READ used with EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD_TYPE For example, AT+VGM?."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AT_CMD_TYPE_SET",
+      "desc": "AT command type SET used with EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD_TYPE For example, AT+VGM=."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AT_CMD_TYPE_TEST",
+      "desc": "AT command type TEST used with EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD_TYPE For example, AT+VGM=?."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_ARGS",
+      "desc": "A Parcelable String array extra field in ACTION_VENDOR_SPECIFIC_HEADSET_EVENT intents that contains the arguments to the vendor-specific command."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD",
+      "desc": "A String extra field in ACTION_VENDOR_SPECIFIC_HEADSET_EVENT intents that contains the name of the vendor-specific command."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_VENDOR_SPECIFIC_HEADSET_EVENT_CMD_TYPE",
+      "desc": "An int extra field in ACTION_VENDOR_SPECIFIC_HEADSET_EVENT intents that contains the AT command type of the vendor-specific command."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_AUDIO_CONNECTED",
+      "desc": "Headset state when SCO audio is connected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_AUDIO_CONNECTING",
+      "desc": "Headset state when SCO audio is connecting."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_AUDIO_DISCONNECTED",
+      "desc": "Headset state when SCO audio is not connected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "VENDOR_RESULT_CODE_COMMAND_ANDROID",
+      "desc": "A vendor-specific command for unsolicited result code."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "VENDOR_SPECIFIC_HEADSET_EVENT_COMPANY_ID_CATEGORY",
+      "desc": "The intent category to be used with ACTION_VENDOR_SPECIFIC_HEADSET_EVENT for the companyId"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getConnectedDevices()",
+      "desc": "Get connected devices for this specific profile.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getConnectionState(device: BluetoothDevice!)",
+      "desc": "Get the current connection state of the profile  Requires android.Manifest.permission#BLUETOOTH"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getDevicesMatchingConnectionStates(states: IntArray!)",
+      "desc": "Get a list of devices that match any of the given connection states.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isAudioConnected(device: BluetoothDevice!)",
+      "desc": "Check if Bluetooth SCO audio is connected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendVendorSpecificResultCode(device: BluetoothDevice!, command: String!, arg: String!)",
+      "desc": "Sends a vendor-specific unsolicited result code to the headset."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "startVoiceRecognition(device: BluetoothDevice!)",
+      "desc": "Start Bluetooth voice recognition."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "stopVoiceRecognition(device: BluetoothDevice!)",
+      "desc": "Stop Bluetooth Voice Recognition mode, and shut down the Bluetooth audio path."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "BluetoothProfile"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "A2DP"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PREVIOUS_STATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_STATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "GATT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "GATT_SERVER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEADSET"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEALTH"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEARING_AID"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HID_DEVICE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "SAP"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_CONNECTED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_CONNECTING"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_DISCONNECTED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_DISCONNECTING"
+    }
+  ]
+}

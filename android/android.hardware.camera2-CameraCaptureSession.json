@@ -1,0 +1,183 @@
+{
+  "path": "android.hardware.camera2",
+  "name": "CameraCaptureSession",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "abortCaptures()",
+      "desc": "Discard all captures currently pending and in-progress as fast as possible."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "capture(request: CaptureRequest, listener: CameraCaptureSession.CaptureCallback?, handler: Handler?)",
+      "desc": "Submit a request for an image to be captured by the camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "captureBurst(requests: MutableList<CaptureRequest!>, listener: CameraCaptureSession.CaptureCallback?, handler: Handler?)",
+      "desc": "Submit a list of requests to be captured in sequence as a burst."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "captureBurstRequests(requests: MutableList<CaptureRequest!>, executor: Executor, listener: CameraCaptureSession.CaptureCallback)",
+      "desc": "Submit a list of requests to be captured in sequence as a burst."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "captureSingleRequest(request: CaptureRequest, executor: Executor, listener: CameraCaptureSession.CaptureCallback)",
+      "desc": "Submit a request for an image to be captured by the camera device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Close this capture session asynchronously."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "finalizeOutputConfigurations(outputConfigs: MutableList<OutputConfiguration!>!)",
+      "desc": "Finalize the output configurations that now have their deferred and/or extra Surfaces included."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "CameraDevice",
+      "code": "getDevice()",
+      "desc": "Get the camera device that this session is created for."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Surface",
+      "code": "getInputSurface()",
+      "desc": "Get the input Surface associated with a reprocessable capture session.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isReprocessable()",
+      "desc": "Return if the application can submit reprocess capture requests with this camera capture session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "prepare(surface: Surface)",
+      "desc": "Pre-allocate all buffers for an output Surface."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "setRepeatingBurst(requests: MutableList<CaptureRequest!>, listener: CameraCaptureSession.CaptureCallback?, handler: Handler?)",
+      "desc": "Request endlessly repeating capture of a sequence of images by this capture session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setRepeatingBurstRequests(requests: MutableList<CaptureRequest!>, executor: Executor, listener: CameraCaptureSession.CaptureCallback)",
+      "desc": "Request endlessly repeating capture of a sequence of images by this capture session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "setRepeatingRequest(request: CaptureRequest, listener: CameraCaptureSession.CaptureCallback?, handler: Handler?)",
+      "desc": "Request endlessly repeating capture of images by this capture session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setSingleRepeatingRequest(request: CaptureRequest, executor: Executor, listener: CameraCaptureSession.CaptureCallback)",
+      "desc": "Request endlessly repeating capture of images by this capture session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "stopRepeating()",
+      "desc": "Cancel any ongoing repeating capture set by either setRepeatingRequest or setRepeatingBurst."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "supportsOfflineProcessing(surface: Surface)",
+      "desc": "Query whether a given Surface is able to support offline mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CameraOfflineSession",
+      "code": "switchToOffline(offlineSurfaces: MutableCollection<Surface!>, executor: Executor, listener: CameraOfflineSession.CameraOfflineSessionCallback)",
+      "desc": "Switch the current capture session and a given set of registered camera surfaces to offline processing mode.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "updateOutputConfiguration(config: OutputConfiguration!)",
+      "desc": "Update OutputConfiguration after configuration finalization see finalizeOutputConfigurations."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "CaptureCallback",
+      "desc": "A callback object for tracking the progress of a CaptureRequest submitted to the camera device."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "StateCallback",
+      "desc": "A callback object for receiving updates about the state of a camera capture session."
+    }
+  ]
+}

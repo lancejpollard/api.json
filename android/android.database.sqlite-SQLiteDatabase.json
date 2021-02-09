@@ -1,0 +1,717 @@
+{
+  "path": "android.database.sqlite",
+  "name": "SQLiteDatabase",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFLICT_ABORT",
+      "desc": "When a constraint violation occurs,no ROLLBACK is executed so changes from prior commands within the same transaction are preserved."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFLICT_FAIL",
+      "desc": "When a constraint violation occurs, the command aborts with a return code SQLITE_CONSTRAINT."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFLICT_IGNORE",
+      "desc": "When a constraint violation occurs, the one row that contains the constraint violation is not inserted or changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFLICT_NONE",
+      "desc": "Use the following when no conflict action is specified."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFLICT_REPLACE",
+      "desc": "When a UNIQUE constraint violation occurs, the pre-existing rows that are causing the constraint violation are removed prior to inserting or updating the current row."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFLICT_ROLLBACK",
+      "desc": "When a constraint violation occurs, an immediate ROLLBACK occurs, thus ending the current transaction, and the command aborts with a return code of SQLITE_CONSTRAINT."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CREATE_IF_NECESSARY",
+      "desc": "Open flag: Flag for openDatabase to create the database file if it does not already exist."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENABLE_WRITE_AHEAD_LOGGING",
+      "desc": "Open flag: Flag for openDatabase to open the database file with write-ahead logging enabled by default."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MAX_SQL_CACHE_SIZE",
+      "desc": "Absolute max value that can be set by setMaxSqlCacheSize(int)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NO_LOCALIZED_COLLATORS",
+      "desc": "Open flag: Flag for openDatabase to open the database without support for localized collators."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OPEN_READONLY",
+      "desc": "Open flag: Flag for openDatabase to open the database for reading only."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OPEN_READWRITE",
+      "desc": "Open flag: Flag for openDatabase to open the database for reading and writing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SQLITE_MAX_LIKE_PATTERN_LENGTH",
+      "desc": "Maximum Length Of A LIKE Or GLOB Pattern The pattern matching algorithm used in the default LIKE and GLOB implementation of SQLite can exhibit O(N^2) performance (where N is the number of characters in the pattern) for certain pathological cases."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "beginTransaction()",
+      "desc": "Begins a transaction in EXCLUSIVE mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "beginTransactionNonExclusive()",
+      "desc": "Begins a transaction in IMMEDIATE mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "beginTransactionWithListener(transactionListener: SQLiteTransactionListener!)",
+      "desc": "Begins a transaction in EXCLUSIVE mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "beginTransactionWithListenerNonExclusive(transactionListener: SQLiteTransactionListener!)",
+      "desc": "Begins a transaction in IMMEDIATE mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "SQLiteStatement",
+      "code": "compileStatement(sql: String!)",
+      "desc": "Compiles an SQL statement into a reusable pre-compiled statement object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SQLiteDatabase",
+      "code": "create(factory: SQLiteDatabase.CursorFactory?)",
+      "desc": "Create a memory backed SQLite database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SQLiteDatabase",
+      "code": "createInMemory(openParams: SQLiteDatabase.OpenParams)",
+      "desc": "Create a memory backed SQLite database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "delete(table: String!, whereClause: String!, whereArgs: Array<String!>!)",
+      "desc": "Convenience method for deleting rows in the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "deleteDatabase(file: File)",
+      "desc": "Deletes a database including its journal file and other auxiliary files that may have been created by the database engine."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "disableWriteAheadLogging()",
+      "desc": "This method disables the features enabled by enableWriteAheadLogging()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "enableWriteAheadLogging()",
+      "desc": "This method enables parallel execution of queries from multiple threads on the same database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "endTransaction()",
+      "desc": "End a transaction."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "execPerConnectionSQL(sql: String, bindArgs: Array<Any!>?)",
+      "desc": "Execute the given SQL statement on all connections to this database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "execSQL(sql: String!)",
+      "desc": "Execute a single SQL statement that is NOT a SELECT or any other SQL statement that returns data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "execSQL(sql: String!, bindArgs: Array<Any!>!)",
+      "desc": "Execute a single SQL statement that is NOT a SELECT/INSERT/UPDATE/DELETE."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "findEditTable(tables: String!)",
+      "desc": "Finds the name of the first table, which is editable.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getAttachedDbs()",
+      "desc": "Returns list of full pathnames of all attached databases including the main database by executing 'pragma database_list' on the database.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getMaximumSize()",
+      "desc": "Returns the maximum size the database may grow to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getPageSize()",
+      "desc": "Returns the current database page size, in bytes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getPath()",
+      "desc": "Gets the path to the database file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableMap",
+      "code": "getSyncedTables()",
+      "desc": "Deprecated.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getVersion()",
+      "desc": "Gets the database version."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "inTransaction()",
+      "desc": "Returns true if the current thread has a transaction pending."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "insert(table: String!, nullColumnHack: String!, values: ContentValues!)",
+      "desc": "Convenience method for inserting a row into the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "insertOrThrow(table: String!, nullColumnHack: String!, values: ContentValues!)",
+      "desc": "Convenience method for inserting a row into the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "insertWithOnConflict(table: String!, nullColumnHack: String!, initialValues: ContentValues!, conflictAlgorithm: Int)",
+      "desc": "General method for inserting a row into the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDatabaseIntegrityOk()",
+      "desc": "Runs 'pragma integrity_check' on the given database (and all the attached databases) and returns true if the given database (and all its attached databases) pass integrity_check, false otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDbLockedByCurrentThread()",
+      "desc": "Returns true if the current thread is holding an active connection to the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDbLockedByOtherThreads()",
+      "desc": "Always returns false."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isOpen()",
+      "desc": "Returns true if the database is currently open."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isReadOnly()",
+      "desc": "Returns true if the database is opened as read only."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isWriteAheadLoggingEnabled()",
+      "desc": "Returns true if write-ahead logging has been enabled for this database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "markTableSyncable(table: String!, deletedTable: String!)",
+      "desc": "Mark this table as syncable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "markTableSyncable(table: String!, foreignKey: String!, updateTable: String!)",
+      "desc": "Mark this table as syncable, with the _sync_dirty residing in another table."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "needUpgrade(newVersion: Int)",
+      "desc": "Returns true if the new version code is greater than the current database version."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SQLiteDatabase",
+      "code": "openDatabase(path: String, factory: SQLiteDatabase.CursorFactory?, flags: Int)",
+      "desc": "Open the database according to the flags OPEN_READWRITE OPEN_READONLY CREATE_IF_NECESSARY and/or NO_LOCALIZED_COLLATORS.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SQLiteDatabase",
+      "code": "openDatabase(path: File, openParams: SQLiteDatabase.OpenParams)",
+      "desc": "Open the database according to the specified OpenParams",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SQLiteDatabase",
+      "code": "openDatabase(path: String, factory: SQLiteDatabase.CursorFactory?, flags: Int, errorHandler: DatabaseErrorHandler?)",
+      "desc": "Open the database according to the flags OPEN_READWRITEOPEN_READONLYCREATE_IF_NECESSARY and/or NO_LOCALIZED_COLLATORS.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SQLiteDatabase",
+      "code": "openOrCreateDatabase(file: File, factory: SQLiteDatabase.CursorFactory?)",
+      "desc": "Equivalent to openDatabase(file.getPath(), factory, CREATE_IF_NECESSARY).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SQLiteDatabase",
+      "code": "openOrCreateDatabase(path: String, factory: SQLiteDatabase.CursorFactory?)",
+      "desc": "Equivalent to openDatabase(path, factory, CREATE_IF_NECESSARY).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SQLiteDatabase",
+      "code": "openOrCreateDatabase(path: String, factory: SQLiteDatabase.CursorFactory?, errorHandler: DatabaseErrorHandler?)",
+      "desc": "Equivalent to openDatabase(path, factory, CREATE_IF_NECESSARY, errorHandler).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "query(distinct: Boolean, table: String!, columns: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, orderBy: String!, limit: String!)",
+      "desc": "Query the given URL, returning a Cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "query(distinct: Boolean, table: String!, columns: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, orderBy: String!, limit: String!, cancellationSignal: CancellationSignal!)",
+      "desc": "Query the given URL, returning a Cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "query(table: String!, columns: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, orderBy: String!)",
+      "desc": "Query the given table, returning a Cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "query(table: String!, columns: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, orderBy: String!, limit: String!)",
+      "desc": "Query the given table, returning a Cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "queryWithFactory(cursorFactory: SQLiteDatabase.CursorFactory!, distinct: Boolean, table: String!, columns: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, orderBy: String!, limit: String!)",
+      "desc": "Query the given URL, returning a Cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "queryWithFactory(cursorFactory: SQLiteDatabase.CursorFactory!, distinct: Boolean, table: String!, columns: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, orderBy: String!, limit: String!, cancellationSignal: CancellationSignal!)",
+      "desc": "Query the given URL, returning a Cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "rawQuery(sql: String!, selectionArgs: Array<String!>!)",
+      "desc": "Runs the provided SQL and returns a Cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "rawQuery(sql: String!, selectionArgs: Array<String!>!, cancellationSignal: CancellationSignal!)",
+      "desc": "Runs the provided SQL and returns a Cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "rawQueryWithFactory(cursorFactory: SQLiteDatabase.CursorFactory!, sql: String!, selectionArgs: Array<String!>!, editTable: String!)",
+      "desc": "Runs the provided SQL and returns a cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "rawQueryWithFactory(cursorFactory: SQLiteDatabase.CursorFactory!, sql: String!, selectionArgs: Array<String!>!, editTable: String!, cancellationSignal: CancellationSignal!)",
+      "desc": "Runs the provided SQL and returns a cursor over the result set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "releaseMemory()",
+      "desc": "Attempts to release memory that SQLite holds but does not require to operate properly."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "replace(table: String!, nullColumnHack: String!, initialValues: ContentValues!)",
+      "desc": "Convenience method for replacing a row in the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "replaceOrThrow(table: String!, nullColumnHack: String!, initialValues: ContentValues!)",
+      "desc": "Convenience method for replacing a row in the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCustomAggregateFunction(functionName: String, aggregateFunction: BinaryOperator<String!>)",
+      "desc": "Register a custom aggregate function that can be called from SQL expressions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCustomScalarFunction(functionName: String, scalarFunction: UnaryOperator<String!>)",
+      "desc": "Register a custom scalar function that can be called from SQL expressions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setForeignKeyConstraintsEnabled(enable: Boolean)",
+      "desc": "Sets whether foreign key constraints are enabled for the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setLocale(locale: Locale!)",
+      "desc": "Sets the locale for this database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setLockingEnabled(lockingEnabled: Boolean)",
+      "desc": "Control whether or not the SQLiteDatabase is made thread-safe by using locks around critical sections."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setMaxSqlCacheSize(cacheSize: Int)",
+      "desc": "Sets the maximum size of the prepared-statement cache for this database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "setMaximumSize(numBytes: Long)",
+      "desc": "Sets the maximum size the database will grow to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPageSize(numBytes: Long)",
+      "desc": "Sets the database page size."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setTransactionSuccessful()",
+      "desc": "Marks the current transaction as successful."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setVersion(version: Int)",
+      "desc": "Sets the database version."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "update(table: String!, values: ContentValues!, whereClause: String!, whereArgs: Array<String!>!)",
+      "desc": "Convenience method for updating rows in the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "updateWithOnConflict(table: String!, values: ContentValues!, whereClause: String!, whereArgs: Array<String!>!, conflictAlgorithm: Int)",
+      "desc": "Convenience method for updating rows in the database."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "validateSql(sql: String, cancellationSignal: CancellationSignal?)",
+      "desc": "Verifies that a SQL SELECT statement is valid by compiling it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "yieldIfContended()",
+      "desc": "Temporarily end the transaction to let other threads run."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "yieldIfContendedSafely()",
+      "desc": "Temporarily end the transaction to let other threads run."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "yieldIfContendedSafely(sleepAfterYieldDelay: Long)",
+      "desc": "Temporarily end the transaction to let other threads run."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "onAllReferencesReleased()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "CursorFactory",
+      "desc": "Used to allow returning sub-classes of Cursor when calling query."
+    },
+    {
+      "type": "nested-classes",
+      "code": "OpenParams",
+      "desc": "Wrapper for configuration parameters that are used for opening SQLiteDatabase"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "SQLiteClosable"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "acquireReference()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "close()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "releaseReference"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAllReferencesReleasedFromContainer()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "releaseReferenceFromContainer()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "releaseReference()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "releaseReferenceFromContainer()"
+    }
+  ]
+}

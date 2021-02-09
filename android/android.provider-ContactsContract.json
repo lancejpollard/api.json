@@ -1,0 +1,327 @@
+{
+  "path": "android.provider",
+  "name": "ContactsContract",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "AUTHORITY",
+      "desc": "The authority for the contacts provider"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CALLER_IS_SYNCADAPTER",
+      "desc": "An optional URI parameter for insert, update, or delete queries that allows the caller to specify that it is a sync adapter."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DEFERRED_SNIPPETING",
+      "desc": "A key to a boolean in the \"extras\" bundle of the cursor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DEFERRED_SNIPPETING_QUERY",
+      "desc": "Key to retrieve the original deferred snippeting from the cursor on the client side."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DIRECTORY_PARAM_KEY",
+      "desc": "Query parameter that should be used by the client to access a specific Directory."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "LIMIT_PARAM_KEY",
+      "desc": "A query parameter that limits the number of results returned for supported URIs."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PRIMARY_ACCOUNT_NAME",
+      "desc": "A query parameter specifing a primary account."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PRIMARY_ACCOUNT_TYPE",
+      "desc": "A query parameter specifing a primary account."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REMOVE_DUPLICATE_ENTRIES",
+      "desc": "A boolean parameter for Phone.CONTENT_URI, Email.CONTENT_URI, and StructuredPostal.CONTENT_URI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "STREQUENT_PHONE_ONLY",
+      "desc": "A boolean parameter for Contacts#CONTENT_STREQUENT_URI and Contacts#CONTENT_STREQUENT_FILTER_URI, which requires the ContactsProvider to return only phone-related results."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isProfileId(id: Long)",
+      "desc": "This method can be used to identify whether the given ID is associated with profile data."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "AggregationExceptions",
+      "desc": "Constants for the contact aggregation exceptions table, which contains aggregation rules overriding those used by automatic aggregation."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "BaseSyncColumns",
+      "desc": "Generic columns for use by sync adapters."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CommonDataKinds",
+      "desc": "Container for definitions of common data types stored in the ContactsContract.Data table."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ContactNameColumns",
+      "desc": "Contact name and contact name metadata columns in the RawContacts table."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ContactOptionsColumns",
+      "desc": "Columns of ContactsContract.Contacts that track the user's preferences for, or interactions with, the contact."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ContactStatusColumns",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "code": "Contacts",
+      "desc": "Constants for the contacts table, which contains a record per aggregate of raw contacts representing the same person."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ContactsColumns",
+      "desc": "Columns of ContactsContract.Contacts that refer to intrinsic properties of the contact, as opposed to the user-specified options found in ContactOptionsColumns."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Data",
+      "desc": "Constants for the data table, which contains data points tied to a raw contact."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "DataColumns",
+      "desc": "Columns in the Data table."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "DataColumnsWithJoins",
+      "desc": "Combines all columns returned by ContactsContract.Data table queries."
+    },
+    {
+      "type": "nested-classes",
+      "code": "DataUsageFeedback",
+      "desc": "API allowing applications to send usage information for each Data row to the Contacts Provider."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "DataUsageStatColumns",
+      "desc": "Columns in the Data_Usage_Stat table"
+    },
+    {
+      "type": "nested-classes",
+      "code": "DeletedContacts",
+      "desc": "Constants for the deleted contact table."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "DeletedContactsColumns",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "code": "Directory",
+      "desc": "A Directory represents a contacts corpus, e."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "DisplayNameSources",
+      "desc": "Types of data used to produce the display name for a contact."
+    },
+    {
+      "type": "nested-classes",
+      "code": "DisplayPhoto",
+      "desc": "Helper class for accessing full-size photos by photo file ID."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "FullNameStyle",
+      "desc": "Constants for various styles of combining given name, family name etc into a full name."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Groups",
+      "desc": "Constants for the groups table."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "GroupsColumns",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "code": "Intents",
+      "desc": "Contains helper classes used to create or manage Intents that involve contacts."
+    },
+    {
+      "type": "nested-classes",
+      "code": "PhoneLookup",
+      "desc": "A table that represents the result of looking up a phone number, for example for caller ID."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "PhoneLookupColumns",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "PhoneticNameStyle",
+      "desc": "Constants for various styles of capturing the pronunciation of a person's name."
+    },
+    {
+      "type": "nested-classes",
+      "code": "PinnedPositions",
+      "desc": "Contact-specific information about whether or not a contact has been pinned by the user at a particular position within the system contact application's user interface."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Presence",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "PresenceColumns",
+      "desc": "Additional data mixed in with StatusColumns to link back to specific ContactsContract.Data#_ID entries."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Profile",
+      "desc": "Constants for the user's profile data, which is represented as a single contact on the device that represents the user."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ProfileSyncState",
+      "desc": "A table provided for sync adapters to use for storing private sync state data for the user's personal profile."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ProviderStatus",
+      "desc": "API for inquiring about the general status of the provider."
+    },
+    {
+      "type": "nested-classes",
+      "code": "QuickContact",
+      "desc": "Helper methods to display QuickContact dialogs that display all the information belonging to a specific Contacts entry."
+    },
+    {
+      "type": "nested-classes",
+      "code": "RawContacts",
+      "desc": "Constants for the raw contacts table, which contains one row of contact information for each person in each synced account."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "RawContactsColumns",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "code": "RawContactsEntity",
+      "desc": "Constants for the raw contacts entities table, which can be thought of as an outer join of the raw_contacts table with the data table."
+    },
+    {
+      "type": "nested-classes",
+      "code": "SearchSnippets",
+      "desc": "Additional column returned by ContactsContract.Contacts#CONTENT_FILTER_URI explaining why the filter matched the contact."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Settings",
+      "desc": "Contacts-specific settings for various Account's."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "SettingsColumns",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "StatusColumns",
+      "desc": "Social status update columns."
+    },
+    {
+      "type": "nested-classes",
+      "code": "StatusUpdates",
+      "desc": "A status update is linked to a ContactsContract.Data row and captures the user's latest status update via the corresponding source, e."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "SyncColumns",
+      "desc": "Columns that appear when each row of a table belongs to a specific account, including sync information that an account may need."
+    },
+    {
+      "type": "nested-classes",
+      "code": "SyncState",
+      "desc": "A table provided for sync adapters to use for storing private sync state data for contacts."
+    }
+  ]
+}

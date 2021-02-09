@@ -1,0 +1,228 @@
+{
+  "path": "android.media",
+  "name": "MediaRouter",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CALLBACK_FLAG_PERFORM_ACTIVE_SCAN",
+      "desc": "Flag for addCallback: Actively scan for routes while this callback is registered."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CALLBACK_FLAG_UNFILTERED_EVENTS",
+      "desc": "Flag for addCallback: Do not filter route events."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ROUTE_TYPE_LIVE_AUDIO",
+      "desc": "Route type flag for live audio."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ROUTE_TYPE_LIVE_VIDEO",
+      "desc": "Route type flag for live video."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ROUTE_TYPE_USER",
+      "desc": "Route type flag for application-specific usage."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addCallback(types: Int, cb: MediaRouter.Callback!)",
+      "desc": "Add a callback to listen to events about specific kinds of media routes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addCallback(types: Int, cb: MediaRouter.Callback!, flags: Int)",
+      "desc": "Add a callback to listen to events about specific kinds of media routes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addUserRoute(info: MediaRouter.UserRouteInfo!)",
+      "desc": "Add an app-specified route for media to the MediaRouter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearUserRoutes()",
+      "desc": "Remove all app-specified routes from the MediaRouter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MediaRouter.RouteCategory",
+      "code": "createRouteCategory(name: CharSequence!, isGroupable: Boolean)",
+      "desc": "Create a new route category.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MediaRouter.RouteCategory",
+      "code": "createRouteCategory(nameResId: Int, isGroupable: Boolean)",
+      "desc": "Create a new route category.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MediaRouter.UserRouteInfo",
+      "code": "createUserRoute(category: MediaRouter.RouteCategory!)",
+      "desc": "Create a new user route that may be modified and registered for use by the application.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MediaRouter.RouteCategory",
+      "code": "getCategoryAt(index: Int)",
+      "desc": "Return the MediaRouter.RouteCategory at the given index.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getCategoryCount()",
+      "desc": "Return the number of MediaRouter.RouteCategory currently represented by routes known to this MediaRouter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MediaRouter.RouteInfo",
+      "code": "getDefaultRoute()",
+      "desc": "Gets the default route for playing media content on the system.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MediaRouter.RouteInfo",
+      "code": "getRouteAt(index: Int)",
+      "desc": "Return the route at the specified index.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRouteCount()",
+      "desc": "Return the number of MediaRouter.RouteInfo currently known to this MediaRouter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MediaRouter.RouteInfo",
+      "code": "getSelectedRoute(type: Int)",
+      "desc": "Return the currently selected route for any of the given types",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeCallback(cb: MediaRouter.Callback!)",
+      "desc": "Remove the specified callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeUserRoute(info: MediaRouter.UserRouteInfo!)",
+      "desc": "Remove an app-specified route for media from the MediaRouter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "selectRoute(types: Int, route: MediaRouter.RouteInfo)",
+      "desc": "Select the specified route to use for output of the given media types."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "Interface for receiving events about media routing changes."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RouteCategory",
+      "desc": "Definition of a category of routes."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RouteGroup",
+      "desc": "Information about a route that consists of multiple other routes in a group."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RouteInfo",
+      "desc": "Information about a media route."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "SimpleCallback",
+      "desc": "Stub implementation of MediaRouter.Callback."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "UserRouteInfo",
+      "desc": "Information about a route that the application may define and modify."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "VolumeCallback",
+      "desc": "Interface for receiving events about volume changes."
+    }
+  ]
+}

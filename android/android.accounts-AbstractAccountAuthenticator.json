@@ -1,0 +1,158 @@
+{
+  "path": "android.accounts",
+  "name": "AbstractAccountAuthenticator",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CUSTOM_TOKEN_EXPIRY",
+      "desc": "Bundle key used for the long expiration time (in millis from the unix epoch) of the associated auth token."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!)"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Bundle",
+      "code": "addAccount(response: AccountAuthenticatorResponse!, accountType: String!, authTokenType: String!, requiredFeatures: Array<String!>!, options: Bundle!)",
+      "desc": "Adds an account of the specified accountType.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "addAccountFromCredentials(response: AccountAuthenticatorResponse!, account: Account!, accountCredentials: Bundle!)",
+      "desc": "Creates an account based on credentials provided by the authenticator instance of another user on the device, who has chosen to share the account with this user.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Bundle",
+      "code": "confirmCredentials(response: AccountAuthenticatorResponse!, account: Account!, options: Bundle!)",
+      "desc": "Checks that the user knows the credentials of an account.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Bundle",
+      "code": "editProperties(response: AccountAuthenticatorResponse!, accountType: String!)",
+      "desc": "Returns a Bundle that contains the Intent of the activity that can be used to edit the properties.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "finishSession(response: AccountAuthenticatorResponse!, accountType: String!, sessionBundle: Bundle!)",
+      "desc": "Finishes the session started by #startAddAccountSession or #startUpdateCredentials by installing the account to device with AccountManager, or updating the local credentials.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getAccountCredentialsForCloning(response: AccountAuthenticatorResponse!, account: Account!)",
+      "desc": "Returns a Bundle that contains whatever is required to clone the account on a different user.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getAccountRemovalAllowed(response: AccountAuthenticatorResponse!, account: Account!)",
+      "desc": "Checks if the removal of this account is allowed.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Bundle",
+      "code": "getAuthToken(response: AccountAuthenticatorResponse!, account: Account!, authTokenType: String!, options: Bundle!)",
+      "desc": "Gets an authtoken for an account.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "getAuthTokenLabel(authTokenType: String!)",
+      "desc": "Ask the authenticator for a localized label for the given authTokenType.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IBinder",
+      "code": "getIBinder()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Bundle",
+      "code": "hasFeatures(response: AccountAuthenticatorResponse!, account: Account!, features: Array<String!>!)",
+      "desc": "Checks if the account supports all the specified authenticator specific features.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "isCredentialsUpdateSuggested(response: AccountAuthenticatorResponse!, account: Account!, statusToken: String!)",
+      "desc": "Checks if update of the account credentials is suggested.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "startAddAccountSession(response: AccountAuthenticatorResponse!, accountType: String!, authTokenType: String!, requiredFeatures: Array<String!>!, options: Bundle!)",
+      "desc": "Starts the add account session to authenticate user to an account of the specified accountType.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "startUpdateCredentialsSession(response: AccountAuthenticatorResponse!, account: Account!, authTokenType: String!, options: Bundle!)",
+      "desc": "Asks user to re-authenticate for an account but defers updating the locally stored credentials.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Bundle",
+      "code": "updateCredentials(response: AccountAuthenticatorResponse!, account: Account!, authTokenType: String!, options: Bundle!)",
+      "desc": "Update the locally stored credentials for an account.",
+      "symbol": "!"
+    }
+  ]
+}

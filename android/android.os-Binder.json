@@ -1,0 +1,291 @@
+{
+  "path": "android.os",
+  "name": "Binder",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Default constructor just initializes the object."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(descriptor: String?)\n            Constructor for creating a raw Binder object (token) along with a descriptor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "attachInterface(owner: IInterface?, descriptor: String?)",
+      "desc": "Convenience method for associating a specific interface with the Binder."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "clearCallingIdentity()",
+      "desc": "Reset the identity of the incoming IPC on the current thread."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "clearCallingWorkSource()",
+      "desc": "Clears the work source on this thread."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dump(fd: FileDescriptor, args: Array<String!>?)",
+      "desc": "Implemented to call the more convenient version dump(java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[])."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dumpAsync(fd: FileDescriptor, args: Array<String!>?)",
+      "desc": "Like dump(java.io.FileDescriptor,java.lang.String[]), but ensures the target executes asynchronously."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "flushPendingCommands()",
+      "desc": "Flush any Binder commands pending in the current thread to the kernel driver."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "getCallingPid()",
+      "desc": "Return the ID of the process that sent you the current transaction that is being processed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "getCallingUid()",
+      "desc": "Return the Linux uid assigned to the process that sent you the current transaction that is being processed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "getCallingUidOrThrow()",
+      "desc": "Return the Linux uid assigned to the process that sent the transaction currently being processed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UserHandle",
+      "code": "getCallingUserHandle()",
+      "desc": "Return the UserHandle assigned to the process that sent you the current transaction that is being processed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "getCallingWorkSourceUid()",
+      "desc": "Returns the work source set by the caller."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getInterfaceDescriptor()",
+      "desc": "Default implementation returns an empty interface name.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isBinderAlive()",
+      "desc": "Check to see if the process that the binder is in is still alive."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "joinThreadPool()",
+      "desc": "Add the calling thread to the IPC thread pool."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "linkToDeath(recipient: IBinder.DeathRecipient, flags: Int)",
+      "desc": "Local implementation is a no-op."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "pingBinder()",
+      "desc": "Default implementation always returns true -- if you got here, the object is alive."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IInterface",
+      "code": "queryLocalInterface(descriptor: String)",
+      "desc": "Use information supplied to attachInterface() to return the associated IInterface if it matches the requested descriptor.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "restoreCallingIdentity(token: Long)",
+      "desc": "Restore the identity of the incoming IPC on the current thread back to a previously identity that was returned by  ."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "restoreCallingWorkSource(token: Long)",
+      "desc": "Restores the work source on this thread using a token returned by or"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "setCallingWorkSourceUid(workSource: Int)",
+      "desc": "Sets the work source for this thread."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "transact(code: Int, data: Parcel, reply: Parcel?, flags: Int)",
+      "desc": "Default implementation rewinds the parcels and calls onTransact."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "unlinkToDeath(recipient: IBinder.DeathRecipient, flags: Int)",
+      "desc": "Local implementation is a no-op."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dump(fd: FileDescriptor, fout: PrintWriter, args: Array<String!>?)",
+      "desc": "Print the object's state into the given stream."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onTransact(code: Int, data: Parcel, reply: Parcel?, flags: Int)",
+      "desc": "Default implementation is a stub that returns false."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "IBinder"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "DUMP_TRANSACTION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "FIRST_CALL_TRANSACTION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "FLAG_ONEWAY"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "transact"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "INTERFACE_TRANSACTION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "LAST_CALL_TRANSACTION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "LIKE_TRANSACTION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PING_TRANSACTION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TWEET_TRANSACTION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Build.VERSION_CODES#HONEYCOMB_MR2"
+    }
+  ]
+}

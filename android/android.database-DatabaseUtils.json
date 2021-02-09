@@ -1,0 +1,483 @@
+{
+  "path": "android.database",
+  "name": "DatabaseUtils",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_ABORT",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_ATTACH",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_BEGIN",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_COMMIT",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_DDL",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_OTHER",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_PRAGMA",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_SELECT",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_UNPREPARED",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATEMENT_UPDATE",
+      "desc": "One of the values returned by getSqlStatementType(java.lang.String)."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "appendEscapedSQLString(sb: StringBuilder!, sqlString: String!)",
+      "desc": "Appends an SQL string to the given StringBuilder, including the opening and closing single quotes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "appendSelectionArgs(originalValues: Array<String!>!, newValues: Array<String!>!)",
+      "desc": "Appends one set of selection args to another.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "appendValueToSql(sql: StringBuilder!, value: Any!)",
+      "desc": "Appends an Object to an SQL string with the proper escaping, etc."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "bindObjectToProgram(prog: SQLiteProgram!, index: Int, value: Any!)",
+      "desc": "Binds the given Object to the given SQLiteProgram using the proper typing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "blobFileDescriptorForQuery(db: SQLiteDatabase!, query: String!, selectionArgs: Array<String!>!)",
+      "desc": "Utility method to run the query on the db and return the blob value in the first column of the first row.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "blobFileDescriptorForQuery(prog: SQLiteStatement!, selectionArgs: Array<String!>!)",
+      "desc": "Utility method to run the pre-compiled query and return the blob value in the first column of the first row.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "concatenateWhere(a: String!, b: String!)",
+      "desc": "Concatenates two SQL WHERE clauses, handling empty or null values.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "createDbFromSqlStatements(context: Context!, dbName: String!, dbVersion: Int, sqlStatements: String!)",
+      "desc": "Creates a db and populates it with the sql statements in sqlStatements."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorDoubleToContentValues(cursor: Cursor!, field: String!, values: ContentValues!, key: String!)",
+      "desc": "Reads a Double out of a field in a Cursor and writes it to a Map."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorDoubleToContentValuesIfPresent(cursor: Cursor!, values: ContentValues!, column: String!)",
+      "desc": "Reads a Double out of a column in a Cursor and writes it to a ContentValues."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorDoubleToCursorValues(cursor: Cursor!, field: String!, values: ContentValues!)",
+      "desc": "Reads a Double out of a field in a Cursor and writes it to a Map."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorFloatToContentValuesIfPresent(cursor: Cursor!, values: ContentValues!, column: String!)",
+      "desc": "Reads a Float out of a column in a Cursor and writes it to a ContentValues."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorIntToContentValues(cursor: Cursor!, field: String!, values: ContentValues!)",
+      "desc": "Reads an Integer out of a field in a Cursor and writes it to a Map."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorIntToContentValues(cursor: Cursor!, field: String!, values: ContentValues!, key: String!)",
+      "desc": "Reads a Integer out of a field in a Cursor and writes it to a Map."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorIntToContentValuesIfPresent(cursor: Cursor!, values: ContentValues!, column: String!)",
+      "desc": "Reads a Integer out of a column in a Cursor and writes it to a ContentValues."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorLongToContentValues(cursor: Cursor!, field: String!, values: ContentValues!)",
+      "desc": "Reads a Long out of a field in a Cursor and writes it to a Map."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorLongToContentValues(cursor: Cursor!, field: String!, values: ContentValues!, key: String!)",
+      "desc": "Reads a Long out of a field in a Cursor and writes it to a Map."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorLongToContentValuesIfPresent(cursor: Cursor!, values: ContentValues!, column: String!)",
+      "desc": "Reads a Long out of a column in a Cursor and writes it to a ContentValues."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorRowToContentValues(cursor: Cursor!, values: ContentValues!)",
+      "desc": "Read the entire contents of a cursor row and store them in a ContentValues."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorShortToContentValuesIfPresent(cursor: Cursor!, values: ContentValues!, column: String!)",
+      "desc": "Reads a Short out of a column in a Cursor and writes it to a ContentValues."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorStringToContentValues(cursor: Cursor!, field: String!, values: ContentValues!)",
+      "desc": "Reads a String out of a field in a Cursor and writes it to a Map."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorStringToContentValues(cursor: Cursor!, field: String!, values: ContentValues!, key: String!)",
+      "desc": "Reads a String out of a field in a Cursor and writes it to a Map."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorStringToContentValuesIfPresent(cursor: Cursor!, values: ContentValues!, column: String!)",
+      "desc": "Reads a String out of a column in a Cursor and writes it to a ContentValues."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cursorStringToInsertHelper(cursor: Cursor!, field: String!, inserter: DatabaseUtils.InsertHelper!, index: Int)",
+      "desc": "Reads a String out of a field in a Cursor and writes it to an InsertHelper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dumpCurrentRow(cursor: Cursor!)",
+      "desc": "Prints the contents of a Cursor's current row to System."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dumpCurrentRow(cursor: Cursor!, stream: PrintStream!)",
+      "desc": "Prints the contents of a Cursor's current row to a PrintSteam."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dumpCurrentRow(cursor: Cursor!, sb: StringBuilder!)",
+      "desc": "Prints the contents of a Cursor's current row to a StringBuilder."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "dumpCurrentRowToString(cursor: Cursor!)",
+      "desc": "Dump the contents of a Cursor's current row to a String.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dumpCursor(cursor: Cursor!)",
+      "desc": "Prints the contents of a Cursor to System."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dumpCursor(cursor: Cursor!, stream: PrintStream!)",
+      "desc": "Prints the contents of a Cursor to a PrintSteam."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dumpCursor(cursor: Cursor!, sb: StringBuilder!)",
+      "desc": "Prints the contents of a Cursor to a StringBuilder."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "dumpCursorToString(cursor: Cursor!)",
+      "desc": "Prints the contents of a Cursor to a String.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getCollationKey(name: String!)",
+      "desc": "return the collation key",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getHexCollationKey(name: String!)",
+      "desc": "return the collation key in hex format",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSqlStatementType(sql: String!)",
+      "desc": "Returns one of the following which represent the type of the given SQL statement."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "longForQuery(db: SQLiteDatabase!, query: String!, selectionArgs: Array<String!>!)",
+      "desc": "Utility method to run the query on the db and return the value in the first column of the first row."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "longForQuery(prog: SQLiteStatement!, selectionArgs: Array<String!>!)",
+      "desc": "Utility method to run the pre-compiled query and return the value in the first column of the first row."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "queryNumEntries(db: SQLiteDatabase!, table: String!)",
+      "desc": "Query the table for the number of rows in the table."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "queryNumEntries(db: SQLiteDatabase!, table: String!, selection: String!)",
+      "desc": "Query the table for the number of rows in the table."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "queryNumEntries(db: SQLiteDatabase!, table: String!, selection: String!, selectionArgs: Array<String!>!)",
+      "desc": "Query the table for the number of rows in the table."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "readExceptionFromParcel(reply: Parcel!)",
+      "desc": "Special function for reading an exception result from the header of a parcel, to be used after receiving the result of a transaction."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "readExceptionWithFileNotFoundExceptionFromParcel(reply: Parcel!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "readExceptionWithOperationApplicationExceptionFromParcel(reply: Parcel!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "sqlEscapeString(value: String!)",
+      "desc": "SQL-escape a string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "stringForQuery(db: SQLiteDatabase!, query: String!, selectionArgs: Array<String!>!)",
+      "desc": "Utility method to run the query on the db and return the value in the first column of the first row.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "stringForQuery(prog: SQLiteStatement!, selectionArgs: Array<String!>!)",
+      "desc": "Utility method to run the pre-compiled query and return the value in the first column of the first row.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "writeExceptionToParcel(reply: Parcel!, e: Exception!)",
+      "desc": "Special function for writing an exception result at the header of a parcel, to be used when returning an exception from a transaction."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "InsertHelper",
+      "desc": "This class allows users to do multiple inserts into a table using the same statement."
+    }
+  ]
+}

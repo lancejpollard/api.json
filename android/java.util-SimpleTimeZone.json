@@ -1,0 +1,454 @@
+{
+  "path": "java.util",
+  "name": "SimpleTimeZone",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STANDARD_TIME",
+      "desc": "Constant for a mode of start or end time specified as standard time."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "UTC_TIME",
+      "desc": "Constant for a mode of start or end time specified as UTC."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WALL_TIME",
+      "desc": "Constant for a mode of start or end time specified as wall clock time."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(rawOffset: Int, ID: String!)\n            Constructs a SimpleTimeZone with the given base time zone offset from GMT and time zone ID with no daylight saving time schedule."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(rawOffset: Int, ID: String!, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int)\n            Constructs a SimpleTimeZone with the given base time zone offset from GMT, time zone ID, and rules for starting and ending the daylight time."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(rawOffset: Int, ID: String!, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, dstSavings: Int)\n            Constructs a SimpleTimeZone with the given base time zone offset from GMT, time zone ID, and rules for starting and ending the daylight time."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(rawOffset: Int, ID: String!, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, startTimeMode: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, endTimeMode: Int, dstSavings: Int)\n            Constructs a SimpleTimeZone with the given base time zone offset from GMT, time zone ID, and rules for starting and ending the daylight time."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Any",
+      "code": "clone()",
+      "desc": "Returns a clone of this SimpleTimeZone instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": "Compares the equality of two SimpleTimeZone objects."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDSTSavings()",
+      "desc": "Returns the amount of time in milliseconds that the clock is advanced during daylight saving time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getOffset(date: Long)",
+      "desc": "Returns the offset of this time zone from UTC at the given time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getOffset(era: Int, year: Int, month: Int, day: Int, dayOfWeek: Int, millis: Int)",
+      "desc": "Returns the difference in milliseconds between local time and UTC, taking into account both the raw offset and the effect of daylight saving, for the specified date and time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRawOffset()",
+      "desc": "Gets the GMT offset for this time zone."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasSameRules(other: TimeZone!)",
+      "desc": "Returns true if this zone has the same rules and offset as another zone."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": "Generates the hash code for the SimpleDateFormat object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "inDaylightTime(date: Date!)",
+      "desc": "Queries if the given date is in daylight saving time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "observesDaylightTime()",
+      "desc": "Returns true if this SimpleTimeZone observes Daylight Saving Time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDSTSavings(millisSavedDuringDST: Int)",
+      "desc": "Sets the amount of time in milliseconds that the clock is advanced during daylight saving time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setEndRule(endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int)",
+      "desc": "Sets the daylight saving time end rule."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setEndRule(endMonth: Int, endDay: Int, endTime: Int)",
+      "desc": "Sets the daylight saving time end rule to a fixed date within a month."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setEndRule(endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, after: Boolean)",
+      "desc": "Sets the daylight saving time end rule to a weekday before or after the given date within a month, e."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRawOffset(offsetMillis: Int)",
+      "desc": "Sets the base time zone offset to GMT."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStartRule(startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int)",
+      "desc": "Sets the daylight saving time start rule."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStartRule(startMonth: Int, startDay: Int, startTime: Int)",
+      "desc": "Sets the daylight saving time start rule to a fixed date within a month."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStartRule(startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, after: Boolean)",
+      "desc": "Sets the daylight saving time start rule to a weekday before or after the given date within a month, e."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStartYear(year: Int)",
+      "desc": "Sets the daylight saving time starting year."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string representation of this time zone."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "useDaylightTime()",
+      "desc": "Queries if this time zone uses daylight saving time."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "LONG"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "getDisplayName()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "SHORT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "getDisplayName()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Array<String!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getAvailableIDs(rawOffset: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Array<String!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getAvailableIDs()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDefault()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDisplayName()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDisplayName(locale: Locale!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "locale"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDisplayName(daylight: Boolean, style: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "style"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "daylight"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDisplayName(daylightTime: Boolean, style: Int, locale: Locale!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "short"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "long"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "locale"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "GMT[+-]hh:mm"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getID()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTimeZone(id: String!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTimeZone(zoneId: ZoneId!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "zoneId"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setDefault(timeZone: TimeZone!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDefault"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "timeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "timeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "user.timezone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setID(ID: String!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ZoneId!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "toZoneId()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TimeZone"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ZoneId"
+    }
+  ]
+}

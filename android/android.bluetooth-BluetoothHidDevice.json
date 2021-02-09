@@ -1,0 +1,371 @@
+{
+  "path": "android.bluetooth",
+  "name": "BluetoothHidDevice",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CONNECTION_STATE_CHANGED",
+      "desc": "Intent used to broadcast the change in connection state of the Input Host profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "ERROR_RSP_INVALID_PARAM",
+      "desc": "Constant representing error response for Set Report due to \"invalid parameter\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "ERROR_RSP_INVALID_RPT_ID",
+      "desc": "Constant representing error response for Set Report due to \"invalid report ID\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "ERROR_RSP_NOT_READY",
+      "desc": "Constant representing error response for Set Report due to \"not ready\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "ERROR_RSP_SUCCESS",
+      "desc": "Constant representing success response for Set Report."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "ERROR_RSP_UNKNOWN",
+      "desc": "Constant representing error response for Set Report with unknown reason."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "ERROR_RSP_UNSUPPORTED_REQ",
+      "desc": "Constant representing error response for Set Report due to \"unsupported request\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "PROTOCOL_BOOT_MODE",
+      "desc": "Constant representing boot protocol mode used set by host."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "PROTOCOL_REPORT_MODE",
+      "desc": "Constant representing report protocol mode used set by host."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "REPORT_TYPE_FEATURE",
+      "desc": "Constant representing HID Feature Report type."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "REPORT_TYPE_INPUT",
+      "desc": "Constant representing HID Input Report type."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "REPORT_TYPE_OUTPUT",
+      "desc": "Constant representing HID Output Report type."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS1_COMBO",
+      "desc": "Constant representing combo keyboard and mouse subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS1_KEYBOARD",
+      "desc": "Constant representing keyboard subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS1_MOUSE",
+      "desc": "Constant representing mouse subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS1_NONE",
+      "desc": "Constant representing unspecified HID device subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS2_CARD_READER",
+      "desc": "Constant representing card reader subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS2_DIGITIZER_TABLET",
+      "desc": "Constant representing digitizer tablet subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS2_GAMEPAD",
+      "desc": "Constant representing gamepad subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS2_JOYSTICK",
+      "desc": "Constant representing joystick subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS2_REMOTE_CONTROL",
+      "desc": "Constant representing remote control subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS2_SENSING_DEVICE",
+      "desc": "Constant representing sensing device subclass."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SUBCLASS2_UNCATEGORIZED",
+      "desc": "Constant representing uncategorized HID device subclass."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "connect(device: BluetoothDevice!)",
+      "desc": "Initiates connection to host which is currently paired with this device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "disconnect(device: BluetoothDevice!)",
+      "desc": "Disconnects from currently connected host."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getConnectedDevices()",
+      "desc": "Get connected devices for this specific profile.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getConnectionState(device: BluetoothDevice!)",
+      "desc": "Get the current connection state of the profile  Requires android.Manifest.permission#BLUETOOTH"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getDevicesMatchingConnectionStates(states: IntArray!)",
+      "desc": "Get a list of devices that match any of the given connection states.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "registerApp(sdp: BluetoothHidDeviceAppSdpSettings!, inQos: BluetoothHidDeviceAppQosSettings!, outQos: BluetoothHidDeviceAppQosSettings!, executor: Executor!, callback: BluetoothHidDevice.Callback!)",
+      "desc": "Registers application to be used for HID device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "replyReport(device: BluetoothDevice!, type: Byte, id: Byte, data: ByteArray!)",
+      "desc": "Sends report to remote host as reply for GET_REPORT request from Callback#onGetReport(BluetoothDevice, byte, byte, int)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "reportError(device: BluetoothDevice!, error: Byte)",
+      "desc": "Sends error handshake message as reply for invalid SET_REPORT request from Callback#onSetReport(BluetoothDevice, byte, byte, byte[])."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendReport(device: BluetoothDevice!, id: Int, data: ByteArray!)",
+      "desc": "Sends report to remote host using interrupt channel."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "unregisterApp()",
+      "desc": "Unregisters application."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "BluetoothProfile"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "A2DP"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PREVIOUS_STATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_STATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "GATT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "GATT_SERVER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEADSET"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEALTH"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEARING_AID"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HID_DEVICE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "SAP"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_CONNECTED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_CONNECTING"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_DISCONNECTED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_DISCONNECTING"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "The template class that applications use to call callback functions on events from the HID host."
+    }
+  ]
+}

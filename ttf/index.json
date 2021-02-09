@@ -7668,5 +7668,295 @@
         ]
       }
     ]
+  },
+  {
+    "title": "trak",
+    "tables": [
+      {
+        "title": "tracking table format",
+        "rows": [
+          {
+            "Type": "fixed",
+            "Name": "version",
+            "Description": "Version number of the tracking table (0x00010000 for the current version)."
+          },
+          {
+            "Type": "uint16",
+            "Name": "format",
+            "Description": "Format of the tracking table (set to 0)."
+          },
+          {
+            "Type": "uint16",
+            "Name": "horizOffset",
+            "Description": "Offset from start of tracking table to TrackData for horizontal text (or 0 if none)."
+          },
+          {
+            "Type": "uint16",
+            "Name": "vertOffset",
+            "Description": "Offset from start of tracking table to TrackData for vertical text (or 0 if none)."
+          },
+          {
+            "Type": "uint16",
+            "Name": "reserved",
+            "Description": "Reserved. Set to 0."
+          },
+          {
+            "Type": "TrackData",
+            "Name": "horizData",
+            "Description": "TrackData for horizontal text (if present)."
+          },
+          {
+            "Type": "TrackData",
+            "Name": "vertData",
+            "Description": "TrackData for vertical text (if present)."
+          }
+        ]
+      },
+      {
+        "title": "TrackData table format",
+        "rows": [
+          {
+            "Type": "uint16",
+            "Name": "nTracks",
+            "Description": "Number of separate tracks included in this table."
+          },
+          {
+            "Type": "uint16",
+            "Name": "nSizes",
+            "Description": "Number of point sizes included in this table."
+          },
+          {
+            "Type": "uint32",
+            "Name": "sizeTableOffset",
+            "Description": "Offset from start of the tracking table to the start of the size subtable."
+          },
+          {
+            "Type": "trackTableEntry",
+            "Name": "trackTable[]",
+            "Description": "Array[nTracks] of TrackTableEntry records."
+          },
+          {
+            "Type": "fixed32",
+            "Name": "sizeTable[]",
+            "Description": "Array[nSizes] of size values."
+          }
+        ]
+      },
+      {
+        "title": "trackTableEntry format",
+        "rows": [
+          {
+            "Type": "fixed32",
+            "Name": "track",
+            "Description": "Track value for this record."
+          },
+          {
+            "Type": "uint16",
+            "Name": "nameIndex",
+            "Description": "The 'name' table index for this track (a short word or phrase like \"loose\" or \"very tight\"). NameIndex has a value greater than 255 and less than 32768."
+          },
+          {
+            "Type": "uint16",
+            "Name": "offset",
+            "Description": "Offset from start of tracking table to per-size tracking values for this track."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "vhea",
+    "tables": [
+      {
+        "title": "vertical header table format",
+        "rows": [
+          {
+            "Type": "fixed32",
+            "Name": "version",
+            "Description": "Version number of the Vertical Header Table (0x00011000 for the current version)."
+          },
+          {
+            "Type": "int16",
+            "Name": "vertTypoAscender",
+            "Description": "The vertical typographic ascender for this font. It is the distance in FUnits from the vertical center baseline to the right of the design space. This will usually be set to half the horizontal advance of full-width glyphs. For example, if the full width is 1000 FUnits, this field will be set to 500."
+          },
+          {
+            "Type": "int16",
+            "Name": "vertTypoDescender",
+            "Description": "The vertical typographic descender for this font. It is the distance in FUnits from the vertical center baseline to the left of the design space. This will usually be set to half the horizontal advance of full-width glyphs. For example, if the full width is 1000 FUnits, this field will be set to -500."
+          },
+          {
+            "Type": "int16",
+            "Name": "vertTypoLineGap",
+            "Description": "The vertical typographic line gap for this font."
+          },
+          {
+            "Type": "int16",
+            "Name": "advanceHeightMax",
+            "Description": "The maximum advance height measurement in FUnits found in the font. This value must be consistent with the entries in the vertical metrics table."
+          },
+          {
+            "Type": "int16",
+            "Name": "minTopSideBearing",
+            "Description": "The minimum top side bearing measurement in FUnits found in the font, in FUnits. This value must be consistent with the entries in the vertical metrics table."
+          },
+          {
+            "Type": "int16",
+            "Name": "minBottomSideBearing",
+            "Description": "The minimum bottom side bearing measurement in FUnits found in the font, in FUnits. This value must be consistent with the entries in the vertical metrics table."
+          },
+          {
+            "Type": "int16",
+            "Name": "yMaxExtent",
+            "Description": "This is defined as the value of the minTopSideBearing field added to the result of the value of the yMin field subtracted from the value of the yMax field."
+          },
+          {
+            "Type": "int16",
+            "Name": "caretSlopeRise",
+            "Description": "The value of the caretSlopeRise field divided by the value of the caretSlopeRun field determines the slope of the caret. A value of 0 for the rise and a value of 1 for the run specifies a horizontal caret. A value of 1 for the rise and a value of 0 for the run specifies a vertical caret. A value between 0 for the rise and 1 for the run is desirable for fonts whose glyphs are oblique or italic. For a vertical font, a horizontal caret is best."
+          },
+          {
+            "Type": "int16",
+            "Name": "caretSlopeRun",
+            "Description": "See the caretSlopeRise field. Value = 0 for non-slanted fonts."
+          },
+          {
+            "Type": "int16",
+            "Name": "caretOffset",
+            "Description": "The amount by which the highlight on a slanted glyph needs to be shifted away from the glyph in order to produce the best appearance. Set value equal to 0 for non-slanted fonts."
+          },
+          {
+            "Type": "int16",
+            "Name": "reserved",
+            "Description": "Set to 0."
+          },
+          {
+            "Type": "int16",
+            "Name": "reserved",
+            "Description": "Set to 0."
+          },
+          {
+            "Type": "int16",
+            "Name": "reserved",
+            "Description": "Set to 0."
+          },
+          {
+            "Type": "int16",
+            "Name": "reserved",
+            "Description": "Set to 0."
+          },
+          {
+            "Type": "int16",
+            "Name": "metricDataFormat",
+            "Description": "Set to 0."
+          },
+          {
+            "Type": "uint16",
+            "Name": "numOfLongVerMetrics",
+            "Description": "Number of advance heights in the Vertical Metrics table."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "vmtx",
+    "tables": [
+      {
+        "title": "format of an entry in the vertical metrics array",
+        "rows": [
+          {
+            "Type": "uint16",
+            "Name": "advanceHeight",
+            "Description": "The advance height of the glyph. Signed integer in FUnits."
+          },
+          {
+            "Type": "int16",
+            "Name": "topSideBearing",
+            "Description": "The top side bearing of the glyph. Signed integer in FUnits"
+          }
+        ]
+      },
+      {
+        "title": "format of the top side bearing array",
+        "rows": [
+          {
+            "Type": "int16",
+            "Name": "topSideBearing[]",
+            "Description": "The top side bearing of the glyph. Signed integer in FUnits"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "xref",
+    "tables": [
+      {
+        "title": "header",
+        "rows": [
+          {
+            "Type": "uint32_t",
+            "Name": "version",
+            "Description": "The version of the table format, currently 1"
+          },
+          {
+            "Type": "uint32_t",
+            "Name": "flags",
+            "Description": "Flags, currently unused and set to 0"
+          },
+          {
+            "Type": "uint32_t",
+            "Name": "numEntries",
+            "Description": "The number of entries in the table"
+          },
+          {
+            "Type": "uint32_t",
+            "Name": "stringOffset",
+            "Description": "Offset from the beginning of the table to the string data"
+          }
+        ]
+      },
+      {
+        "title": "Table Entry",
+        "rows": [
+          {
+            "Type": "FourCharCode",
+            "Name": "tableTag",
+            "Description": "The tag for the table that uses this entry (currently 'just', 'kerx', or 'morx')"
+          },
+          {
+            "Type": "int16_t",
+            "Name": "chainIndex",
+            "Description": "The 'morx' chain corresponding to this name"
+          },
+          {
+            "Type": "int16_t",
+            "Name": "subtableIndex",
+            "Description": "The index of the subtable corresponding to this name"
+          },
+          {
+            "Type": "int16_t",
+            "Name": "tableType",
+            "Description": "The type of object corresponding to this name. Values are 0 (class name), 1 (state name), 2 (entry/transition name), 3 (action name), 4 (column class name), and 5 (row class name)."
+          },
+          {
+            "Type": "int16_t",
+            "Name": "tableIndex",
+            "Description": "The index of the object corresponding to this name"
+          },
+          {
+            "Type": "uint16_t",
+            "Name": "stringOffset",
+            "Description": "The offset from the beginning of the string data to this name"
+          },
+          {
+            "Type": "uint16_t",
+            "Name": "stringLength",
+            "Description": "The length of the string data for this name"
+          }
+        ]
+      }
+    ]
   }
 ]

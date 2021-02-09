@@ -1,0 +1,457 @@
+{
+  "path": "java.util.concurrent",
+  "name": "ForkJoinPool",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Creates a ForkJoinPool with parallelism equal to  , using the  , no UncaughtExceptionHandler, and non-async LIFO processing mode."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(parallelism: Int)\n            Creates a ForkJoinPool with the indicated parallelism level, the  , no UncaughtExceptionHandler, and non-async LIFO processing mode."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(parallelism: Int, factory: ForkJoinPool.ForkJoinWorkerThreadFactory!, handler: Thread.UncaughtExceptionHandler!, asyncMode: Boolean)\n            Creates a ForkJoinPool with the given parameters."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "awaitQuiescence(timeout: Long, unit: TimeUnit!)",
+      "desc": "If called by a ForkJoinTask operating in this pool, equivalent in effect to ForkJoinTask#helpQuiesce."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "awaitTermination(timeout: Long, unit: TimeUnit!)",
+      "desc": "Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs, or the current thread is interrupted, whichever happens first."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinPool",
+      "code": "commonPool()",
+      "desc": "Returns the common pool instance.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "execute(task: ForkJoinTask<*>!)",
+      "desc": "Arranges for (asynchronous) execution of the given task."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "execute(task: Runnable!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getActiveThreadCount()",
+      "desc": "Returns an estimate of the number of threads that are currently stealing or executing tasks."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getAsyncMode()",
+      "desc": "Returns true if this pool uses local first-in-first-out scheduling mode for forked tasks that are never joined."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getCommonPoolParallelism()",
+      "desc": "Returns the targeted parallelism level of the common pool."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinPool.ForkJoinWorkerThreadFactory",
+      "code": "getFactory()",
+      "desc": "Returns the factory used for constructing new workers.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getParallelism()",
+      "desc": "Returns the targeted parallelism level of this pool."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPoolSize()",
+      "desc": "Returns the number of worker threads that have started but not yet terminated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getQueuedSubmissionCount()",
+      "desc": "Returns an estimate of the number of tasks submitted to this pool that have not yet begun executing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getQueuedTaskCount()",
+      "desc": "Returns an estimate of the total number of tasks currently held in queues by worker threads (but not including tasks submitted to the pool that have not begun executing)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRunningThreadCount()",
+      "desc": "Returns an estimate of the number of worker threads that are not blocked waiting to join tasks or for other managed synchronization."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getStealCount()",
+      "desc": "Returns an estimate of the total number of tasks stolen from one thread's work queue by another."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Thread.UncaughtExceptionHandler",
+      "code": "getUncaughtExceptionHandler()",
+      "desc": "Returns the handler for internal worker threads that terminate due to unrecoverable errors encountered while executing tasks.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasQueuedSubmissions()",
+      "desc": "Returns true if there are any tasks submitted to this pool that have not yet begun executing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "T",
+      "code": "invoke(task: ForkJoinTask<T>!)",
+      "desc": "Performs the given task, returning its result upon completion."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "invokeAll(tasks: MutableCollection<out Callable<T>!>!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isQuiescent()",
+      "desc": "Returns true if all worker threads are currently idle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isShutdown()",
+      "desc": "Returns true if this pool has been shut down."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTerminated()",
+      "desc": "Returns true if all tasks have completed following shut down."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTerminating()",
+      "desc": "Returns true if the process of termination has commenced but not yet completed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "managedBlock(blocker: ForkJoinPool.ManagedBlocker!)",
+      "desc": "Runs the given possibly blocking task."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "shutdown()",
+      "desc": "Possibly initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "shutdownNow()",
+      "desc": "Possibly attempts to cancel and/or stop all tasks, and reject all subsequently submitted tasks.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "submit(task: ForkJoinTask<T>!)",
+      "desc": "Submits a ForkJoinTask for execution.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "submit(task: Callable<T>!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "submit(task: Runnable!, result: T)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "submit(task: Runnable!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string identifying this pool, as well as its state, including indications of run state, parallelism level, and worker and task counts."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "drainTasksTo(c: MutableCollection<in ForkJoinTask<*>!>!)",
+      "desc": "Removes all available unexecuted submitted and forked tasks from scheduling queues and adds them to the given collection, without altering their execution status."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "RunnableFuture",
+      "code": "newTaskFor(runnable: Runnable!, value: T)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "RunnableFuture",
+      "code": "newTaskFor(callable: Callable<T>!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "pollSubmission()",
+      "desc": "Removes and returns the next unexecuted submission if one is available.",
+      "symbol": "<"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ForkJoinWorkerThreadFactory",
+      "desc": "Factory for creating new ForkJoinWorkerThreads."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ManagedBlocker",
+      "desc": "Interface for extending managed parallelism for tasks running in ForkJoinPools."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ExecutorService"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "awaitTermination(timeout: Long, unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isShutdown()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isTerminated()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isTerminated"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdown"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdownNow"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdown()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "awaitTermination"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MutableList<Runnable!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdownNow()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "awaitTermination"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Thread#interrupt"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Executor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "execute(command: Runnable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Executor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AbstractExecutorService"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MutableList<Future<T>!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAll(tasks: MutableCollection<out Callable<T>!>!, timeout: Long, unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "T"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAny(tasks: MutableCollection<out Callable<T>!>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "T"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAny(tasks: MutableCollection<out Callable<T>!>!, timeout: Long, unit: TimeUnit!)"
+    }
+  ]
+}

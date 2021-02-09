@@ -1,0 +1,91 @@
+{
+  "path": "android.media",
+  "name": "MediaDescrambler",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SCRAMBLE_CONTROL_EVEN_KEY",
+      "desc": "Scramble control value indicating that the even key is used."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SCRAMBLE_CONTROL_ODD_KEY",
+      "desc": "Scramble control value indicating that the odd key is used."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SCRAMBLE_CONTROL_RESERVED",
+      "desc": "Scramble control value reserved and shouldn't be used currently."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SCRAMBLE_CONTROL_UNSCRAMBLED",
+      "desc": "Scramble control value indicating that the samples are not scrambled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "SCRAMBLE_FLAG_PES_HEADER",
+      "desc": "Scramble flag for a hint indicating that the descrambling request is for retrieving the PES header info only."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(CA_system_id: Int)\n            Instantiate a MediaDescrambler."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "descramble(srcBuf: ByteBuffer, dstBuf: ByteBuffer, cryptoInfo: MediaCodec.CryptoInfo)",
+      "desc": "Descramble a ByteBuffer of data described by a android.media.MediaCodec.CryptoInfo structure."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "requiresSecureDecoderComponent(mime: String)",
+      "desc": "Query if the scrambling scheme requires the use of a secure decoder to decode data of the given mime type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setMediaCasSession(session: MediaCas.Session)",
+      "desc": "Associate a MediaCas session with this MediaDescrambler instance."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    }
+  ]
+}

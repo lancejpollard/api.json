@@ -1,0 +1,525 @@
+{
+  "path": "android.media",
+  "name": "AudioRecord",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR",
+      "desc": "Denotes a generic operation failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_BAD_VALUE",
+      "desc": "Denotes a failure due to the use of an invalid value."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_DEAD_OBJECT",
+      "desc": "An error code indicating that the object reporting it is no longer valid and needs to be recreated."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_INVALID_OPERATION",
+      "desc": "Denotes a failure due to the improper use of a method."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "READ_BLOCKING",
+      "desc": "The read mode indicating the read operation will block until all data requested has been read."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "READ_NON_BLOCKING",
+      "desc": "The read mode indicating the read operation will return immediately after reading as much audio data as possible without blocking."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECORDSTATE_RECORDING",
+      "desc": "indicates AudioRecord recording state is recording"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECORDSTATE_STOPPED",
+      "desc": "indicates AudioRecord recording state is not recording"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_INITIALIZED",
+      "desc": "indicates AudioRecord state is ready to be used"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_UNINITIALIZED",
+      "desc": "indicates AudioRecord state is not successfully initialized."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SUCCESS",
+      "desc": "Denotes a successful operation."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(audioSource: Int, sampleRateInHz: Int, channelConfig: Int, audioFormat: Int, bufferSizeInBytes: Int)\n            Class constructor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnRoutingChangedListener(listener: AudioRouting.OnRoutingChangedListener!, handler: Handler!)",
+      "desc": "Adds an AudioRouting.OnRoutingChangedListener to receive notifications of routing changes on this AudioRecord."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnRoutingChangedListener(listener: AudioRecord.OnRoutingChangedListener!, handler: Handler!)",
+      "desc": "Adds an OnRoutingChangedListener to receive notifications of routing changes on this AudioRecord."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getActiveMicrophones()",
+      "desc": "Returns a lists of MicrophoneInfo representing the active microphones.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AudioRecordingConfiguration",
+      "code": "getActiveRecordingConfiguration()",
+      "desc": "Returns the current active audio recording for this audio recorder.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getAudioFormat()",
+      "desc": "Returns the configured audio data encoding."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getAudioSessionId()",
+      "desc": "Returns the audio session ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getAudioSource()",
+      "desc": "Returns the audio recording source."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getBufferSizeInFrames()",
+      "desc": "Returns the frame count of the native AudioRecord buffer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getChannelConfiguration()",
+      "desc": "Returns the configured channel position mask."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getChannelCount()",
+      "desc": "Returns the configured number of channels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AudioFormat",
+      "code": "getFormat()",
+      "desc": "Returns the configured AudioRecord format."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PersistableBundle",
+      "code": "getMetrics()",
+      "desc": "Return Metrics data about the current AudioTrack instance.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMinBufferSize(sampleRateInHz: Int, channelConfig: Int, audioFormat: Int)",
+      "desc": "Returns the minimum buffer size required for the successful creation of an AudioRecord object, in byte units."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getNotificationMarkerPosition()",
+      "desc": "Returns the notification marker position expressed in frames."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPositionNotificationPeriod()",
+      "desc": "Returns the notification update period expressed in frames."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AudioDeviceInfo",
+      "code": "getPreferredDevice()",
+      "desc": "Returns the selected input specified by setPreferredDevice.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRecordingState()",
+      "desc": "Returns the recording state of the AudioRecord instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AudioDeviceInfo",
+      "code": "getRoutedDevice()",
+      "desc": "Returns an AudioDeviceInfo identifying the current routing of this AudioRecord.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSampleRate()",
+      "desc": "Returns the configured audio sink sample rate in Hz."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getState()",
+      "desc": "Returns the state of the AudioRecord instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getTimestamp(outTimestamp: AudioTimestamp, timebase: Int)",
+      "desc": "Poll for an AudioTimestamp on demand."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPrivacySensitive()",
+      "desc": "Returns whether this AudioRecord is marked as privacy sensitive or not."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "read(audioData: ByteArray, offsetInBytes: Int, sizeInBytes: Int)",
+      "desc": "Reads audio data from the audio hardware for recording into a byte array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "read(audioData: ByteArray, offsetInBytes: Int, sizeInBytes: Int, readMode: Int)",
+      "desc": "Reads audio data from the audio hardware for recording into a byte array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "read(audioData: ShortArray, offsetInShorts: Int, sizeInShorts: Int)",
+      "desc": "Reads audio data from the audio hardware for recording into a short array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "read(audioData: ShortArray, offsetInShorts: Int, sizeInShorts: Int, readMode: Int)",
+      "desc": "Reads audio data from the audio hardware for recording into a short array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "read(audioData: FloatArray, offsetInFloats: Int, sizeInFloats: Int, readMode: Int)",
+      "desc": "Reads audio data from the audio hardware for recording into a float array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "read(audioBuffer: ByteBuffer, sizeInBytes: Int)",
+      "desc": "Reads audio data from the audio hardware for recording into a direct buffer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "read(audioBuffer: ByteBuffer, sizeInBytes: Int, readMode: Int)",
+      "desc": "Reads audio data from the audio hardware for recording into a direct buffer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerAudioRecordingCallback(executor: Executor, cb: AudioManager.AudioRecordingCallback)",
+      "desc": "Register a callback to be notified of audio capture changes via a AudioManager.AudioRecordingCallback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": "Releases the native AudioRecord resources."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnRoutingChangedListener(listener: AudioRouting.OnRoutingChangedListener!)",
+      "desc": "Removes an AudioRouting.OnRoutingChangedListener which has been previously added to receive rerouting notifications."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnRoutingChangedListener(listener: AudioRecord.OnRoutingChangedListener!)",
+      "desc": "Removes an OnRoutingChangedListener which has been previously added to receive rerouting notifications."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setNotificationMarkerPosition(markerInFrames: Int)",
+      "desc": "Sets the marker position at which the listener is called, if set with setRecordPositionUpdateListener(android.media.AudioRecord.OnRecordPositionUpdateListener) or setRecordPositionUpdateListener(android.media.AudioRecord.OnRecordPositionUpdateListener,android.os.Handler)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setPositionNotificationPeriod(periodInFrames: Int)",
+      "desc": "Sets the period at which the listener is called, if set with setRecordPositionUpdateListener(android.media.AudioRecord.OnRecordPositionUpdateListener) or setRecordPositionUpdateListener(android.media.AudioRecord.OnRecordPositionUpdateListener,android.os.Handler)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPreferredDevice(deviceInfo: AudioDeviceInfo!)",
+      "desc": "Specifies an audio device (via an AudioDeviceInfo object) to route the input to this AudioRecord."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPreferredMicrophoneDirection(direction: Int)",
+      "desc": "Specifies the logical microphone (for processing)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPreferredMicrophoneFieldDimension(zoom: Float)",
+      "desc": "Specifies the zoom factor (i.e. the field dimension) for the selected microphone (for processing)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRecordPositionUpdateListener(listener: AudioRecord.OnRecordPositionUpdateListener!)",
+      "desc": "Sets the listener the AudioRecord notifies when a previously set marker is reached or for each periodic record head position update."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRecordPositionUpdateListener(listener: AudioRecord.OnRecordPositionUpdateListener!, handler: Handler!)",
+      "desc": "Sets the listener the AudioRecord notifies when a previously set marker is reached or for each periodic record head position update."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startRecording()",
+      "desc": "Starts recording from the AudioRecord instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startRecording(syncEvent: MediaSyncEvent!)",
+      "desc": "Starts recording from the AudioRecord instance when the specified synchronization event occurs on the specified audio session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "stop()",
+      "desc": "Stops recording."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterAudioRecordingCallback(cb: AudioManager.AudioRecordingCallback)",
+      "desc": "Unregister an audio recording callback previously registered with registerAudioRecordingCallback(java.util.concurrent.Executor,android.media.AudioManager.AudioRecordingCallback)."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "MicrophoneDirection"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "MIC_DIRECTION_AWAY_FROM_USER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "MIC_DIRECTION_EXTERNAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "MIC_DIRECTION_TOWARDS_USER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "MIC_DIRECTION_UNSPECIFIED"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Builder",
+      "desc": "Builder class for AudioRecord objects."
+    },
+    {
+      "type": "nested-classes",
+      "code": "MetricsConstants",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnRecordPositionUpdateListener",
+      "desc": "Interface definition for a callback to be invoked when an AudioRecord has reached a notification marker set by AudioRecord#setNotificationMarkerPosition(int) or for periodic updates on the progress of the record head, as set by AudioRecord#setPositionNotificationPeriod(int)."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnRoutingChangedListener",
+      "desc": "Defines the interface by which applications can receive notifications of routing changes for the associated AudioRecord."
+    }
+  ]
+}

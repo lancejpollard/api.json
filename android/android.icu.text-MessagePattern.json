@@ -1,0 +1,273 @@
+{
+  "path": "android.icu.text",
+  "name": "MessagePattern",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ARG_NAME_NOT_NUMBER",
+      "desc": "Return value from validateArgumentName(java.lang.String) for when the string is a valid \"pattern identifier\" but not a number."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ARG_NAME_NOT_VALID",
+      "desc": "Return value from validateArgumentName(java.lang.String) for when the string is invalid."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Double",
+      "code": "NO_NUMERIC_VALUE",
+      "desc": "Special value that is returned by getNumericValue(Part) when no numeric value is defined for a part."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Constructs an empty MessagePattern with default ApostropheMode."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(mode: MessagePattern.ApostropheMode!)\n            Constructs an empty MessagePattern."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(pattern: String!)\n            Constructs a MessagePattern with default ApostropheMode and parses the MessageFormat pattern string."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "autoQuoteApostropheDeep()",
+      "desc": "Returns a version of the parsed pattern string where each ASCII apostrophe is doubled (escaped) if it is not already, and if it is not interpreted as quoting syntax.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "clear()",
+      "desc": "Clears this MessagePattern."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "clearPatternAndSetApostropheMode(mode: MessagePattern.ApostropheMode!)",
+      "desc": "Clears this MessagePattern and sets the ApostropheMode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Any",
+      "code": "clone()",
+      "desc": "Creates and returns a copy of this object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern",
+      "code": "cloneAsThawed()",
+      "desc": "Creates and returns an unfrozen copy of this object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "countParts()",
+      "desc": "Returns the number of \"parts\" created by parsing the pattern string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern",
+      "code": "freeze()",
+      "desc": "Freezes this object, making it immutable and thread-safe.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern.ApostropheMode",
+      "code": "getApostropheMode()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getLimitPartIndex(start: Int)",
+      "desc": "Returns the index of the ARG|MSG_LIMIT part corresponding to the ARG|MSG_START at start."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Double",
+      "code": "getNumericValue(part: MessagePattern.Part!)",
+      "desc": "Returns the numeric value associated with an ARG_INT or ARG_DOUBLE."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern.Part",
+      "code": "getPart(i: Int)",
+      "desc": "Gets the i-th pattern \"part\".",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern.Part.Type",
+      "code": "getPartType(i: Int)",
+      "desc": "Returns the Part.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getPatternIndex(partIndex: Int)",
+      "desc": "Returns the pattern index of the specified pattern \"part\"."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getPatternString()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Double",
+      "code": "getPluralOffset(pluralStart: Int)",
+      "desc": "Returns the \"offset:\" value of a PluralFormat argument, or 0 if none is specified."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getSubstring(part: MessagePattern.Part!)",
+      "desc": "Returns the substring of the pattern string indicated by the Part.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasNamedArguments()",
+      "desc": "Does the parsed pattern have named arguments like {first_name}?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasNumberedArguments()",
+      "desc": "Does the parsed pattern have numbered arguments like {2}?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": "Returns a hash code value for the object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isFrozen()",
+      "desc": "Determines whether this object is frozen (immutable) or not."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern",
+      "code": "parse(pattern: String!)",
+      "desc": "Parses a MessageFormat pattern string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern",
+      "code": "parseChoiceStyle(pattern: String!)",
+      "desc": "Parses a ChoiceFormat pattern string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern",
+      "code": "parsePluralStyle(pattern: String!)",
+      "desc": "Parses a PluralFormat pattern string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MessagePattern",
+      "code": "parseSelectStyle(pattern: String!)",
+      "desc": "Parses a SelectFormat pattern string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "partSubstringMatches(part: MessagePattern.Part!, s: String!)",
+      "desc": "Compares the part's substring with the input string s."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string representation of the object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "validateArgumentName(name: String!)",
+      "desc": "Validates and parses an argument name or argument number string."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ApostropheMode",
+      "desc": "Mode for when an apostrophe starts quoted literal text for MessageFormat output."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ArgType",
+      "desc": "Argument type constants."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Part",
+      "desc": "A message pattern \"part\", representing a pattern parsing event."
+    }
+  ]
+}

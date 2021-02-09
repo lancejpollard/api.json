@@ -1,0 +1,49 @@
+{
+  "path": "java.net",
+  "name": "ResponseCache",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "CacheResponse",
+      "code": "get(uri: URI!, rqstMethod: String!, rqstHeaders: MutableMap<String!, MutableList<String!>!>!)",
+      "desc": "Retrieve the cached response based on the requesting uri, request method and request headers.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ResponseCache",
+      "code": "getDefault()",
+      "desc": "Gets the system-wide response cache.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "CacheRequest",
+      "code": "put(uri: URI!, conn: URLConnection!)",
+      "desc": "The protocol handler calls this method after a resource has been retrieved, and the ResponseCache must decide whether or not to store the resource in its cache.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDefault(responseCache: ResponseCache!)",
+      "desc": "Sets (or unsets) the system-wide cache."
+    }
+  ]
+}

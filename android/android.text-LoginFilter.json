@@ -1,0 +1,72 @@
+{
+  "path": "android.text",
+  "name": "LoginFilter",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "filter(source: CharSequence!, start: Int, end: Int, dest: Spanned!, dstart: Int, dend: Int)",
+      "desc": "This method is called when the buffer is going to replace the range dstart … dend of dest with the new text from the range start … end of source.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isAllowed(c: Char)",
+      "desc": "Returns whether or not we allow character c."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onInvalidCharacter(c: Char)",
+      "desc": "Called whenever we encounter an invalid character."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onStart()",
+      "desc": "Called when we start processing filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onStop()",
+      "desc": "Called when we're done processing filter"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "PasswordFilterGMail",
+      "desc": "This filter is compatible with GMail passwords which restricts characters to the Latin-1 (ISO8859-1) char set."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "UsernameFilterGMail",
+      "desc": "This filter rejects characters in the user name that are not compatible with GMail account creation."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "UsernameFilterGeneric",
+      "desc": "This filter rejects characters in the user name that are not compatible with Google login."
+    }
+  ]
+}

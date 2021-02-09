@@ -1,0 +1,199 @@
+{
+  "path": "android.hardware.camera2.params",
+  "name": "RecommendedStreamConfigurationMap",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "USECASE_LOW_LATENCY_SNAPSHOT",
+      "desc": "The recommended stream configuration map for use case low latency snapshot must contain subset of configurations with end-to-end latency that does not exceed 200 ms."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "USECASE_PREVIEW",
+      "desc": "The recommended stream configuration map for use case preview must contain a subset of efficient, non-stalling configurations that must include both android.graphics.ImageFormat#PRIVATE and android.graphics.ImageFormat#YUV_420_888 output formats."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "USECASE_RAW",
+      "desc": "In case the device supports android.hardware.camera2.CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_RAW, the recommended stream configuration map for use case RAW must contain a subset of efficient configurations that include the android.graphics.ImageFormat#RAW_SENSOR and other RAW output formats."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "USECASE_RECORD",
+      "desc": "The recommended stream configuration map for recording must contain a subset of efficient video configurations that include android.graphics.ImageFormat#PRIVATE output format for at least all supported profiles."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "USECASE_SNAPSHOT",
+      "desc": "The recommended stream configuration map for use case snapshot must contain a subset of efficient still capture configurations that must include android.graphics.ImageFormat#JPEG output format and at least one configuration with size approximately equal to the sensor pixel array size CameraCharacteristics#SENSOR_INFO_ACTIVE_ARRAY_SIZE."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "USECASE_VIDEO_SNAPSHOT",
+      "desc": "The recommended stream configuration map for use case video snapshot must only contain a subset of efficient liveshot configurations that include android.graphics.ImageFormat#JPEG output format."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "USECASE_ZSL",
+      "desc": "In case the device supports CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_YUV_REPROCESSING and/or CameraMetadata#REQUEST_AVAILABLE_CAPABILITIES_PRIVATE_REPROCESSING, the recommended stream configuration map for use case ZSL must contain a subset of efficient configurations that include the suggested input and output format mappings."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getHighResolutionOutputSizes(format: Int)",
+      "desc": "Get a list of supported high resolution sizes, which cannot operate at full BURST_CAPTURE rate.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getHighSpeedVideoFpsRanges()",
+      "desc": "Get a list of supported high speed video recording FPS ranges.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getHighSpeedVideoFpsRangesFor(size: Size)",
+      "desc": "Get the frame per second ranges (fpsMin, fpsMax) for input high speed video size.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getHighSpeedVideoSizes()",
+      "desc": "Get a list of supported high speed video recording sizes.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getHighSpeedVideoSizesFor(fpsRange: Range<Int!>)",
+      "desc": "Get the supported video sizes for an input high speed FPS range.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getInputFormats()",
+      "desc": "Get the image format input formats in this stream configuration.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getInputSizes(format: Int)",
+      "desc": "Get the supported input sizes for this input format.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getOutputFormats()",
+      "desc": "Get the image format output formats in this stream configuration.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getOutputMinFrameDuration(format: Int, size: Size)",
+      "desc": "Get the minimum frame duration for the format/size combination (in nanoseconds)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getOutputMinFrameDuration(klass: Class<T>, size: Size)",
+      "desc": "Get the minimum CaptureRequest#SENSOR_FRAME_DURATION for the class/size combination (in nanoseconds)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getOutputSizes(format: Int)",
+      "desc": "Get a list of sizes compatible with the requested image format.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getOutputSizes(klass: Class<T>)",
+      "desc": "Get a list of sizes compatible with klass to use as an output.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getOutputStallDuration(format: Int, size: Size)",
+      "desc": "Get the stall duration for the format/size combination (in nanoseconds)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getOutputStallDuration(klass: Class<T>, size: Size)",
+      "desc": "Get the stall duration for the class/size combination (in nanoseconds)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getRecommendedUseCase()",
+      "desc": "Get the use case value for the recommended stream configurations."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getValidOutputFormatsForInput(inputFormat: Int)",
+      "desc": "Get the image format output formats for a reprocessing input format.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isOutputSupportedFor(format: Int)",
+      "desc": "Determine whether or not output surfaces with a particular user-defined format can be passed CameraDevice#createCaptureSession."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isOutputSupportedFor(surface: Surface)",
+      "desc": "Determine whether or not the surface in its current state is suitable to be included in a CameraDevice#createCaptureSession as an output."
+    }
+  ]
+}

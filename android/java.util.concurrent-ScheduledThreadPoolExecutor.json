@@ -1,0 +1,693 @@
+{
+  "path": "java.util.concurrent",
+  "name": "ScheduledThreadPoolExecutor",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(corePoolSize: Int)\n            Creates a new ScheduledThreadPoolExecutor with the given core pool size."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(corePoolSize: Int, threadFactory: ThreadFactory!)\n            Creates a new ScheduledThreadPoolExecutor with the given initial parameters."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(corePoolSize: Int, handler: RejectedExecutionHandler!)\n            Creates a new ScheduledThreadPoolExecutor with the given initial parameters."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(corePoolSize: Int, threadFactory: ThreadFactory!, handler: RejectedExecutionHandler!)\n            Creates a new ScheduledThreadPoolExecutor with the given initial parameters."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "execute(command: Runnable!)",
+      "desc": "Executes command with zero required delay."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getContinueExistingPeriodicTasksAfterShutdownPolicy()",
+      "desc": "Gets the policy on whether to continue executing existing periodic tasks even when this executor has been shutdown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getExecuteExistingDelayedTasksAfterShutdownPolicy()",
+      "desc": "Gets the policy on whether to execute existing delayed tasks even when this executor has been shutdown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BlockingQueue",
+      "code": "getQueue()",
+      "desc": "Returns the task queue used by this executor.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getRemoveOnCancelPolicy()",
+      "desc": "Gets the policy on whether cancelled tasks should be immediately removed from the work queue at time of cancellation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ScheduledFuture",
+      "code": "schedule(command: Runnable!, delay: Long, unit: TimeUnit!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ScheduledFuture",
+      "code": "schedule(callable: Callable<V>!, delay: Long, unit: TimeUnit!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ScheduledFuture",
+      "code": "scheduleAtFixedRate(command: Runnable!, initialDelay: Long, period: Long, unit: TimeUnit!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ScheduledFuture",
+      "code": "scheduleWithFixedDelay(command: Runnable!, initialDelay: Long, delay: Long, unit: TimeUnit!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setContinueExistingPeriodicTasksAfterShutdownPolicy(value: Boolean)",
+      "desc": "Sets the policy on whether to continue executing existing periodic tasks even when this executor has been shutdown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setExecuteExistingDelayedTasksAfterShutdownPolicy(value: Boolean)",
+      "desc": "Sets the policy on whether to execute existing delayed tasks even when this executor has been shutdown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRemoveOnCancelPolicy(value: Boolean)",
+      "desc": "Sets the policy on whether cancelled tasks should be immediately removed from the work queue at time of cancellation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "shutdown()",
+      "desc": "Initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "shutdownNow()",
+      "desc": "Attempts to stop all actively executing tasks, halts the processing of waiting tasks, and returns a list of the tasks that were awaiting execution.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Future",
+      "code": "submit(task: Runnable!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Future",
+      "code": "submit(task: Runnable!, result: T)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Future",
+      "code": "submit(task: Callable<T>!)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "RunnableScheduledFuture",
+      "code": "decorateTask(runnable: Runnable!, task: RunnableScheduledFuture<V>!)",
+      "desc": "Modifies or replaces the task used to execute a runnable.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "RunnableScheduledFuture",
+      "code": "decorateTask(callable: Callable<V>!, task: RunnableScheduledFuture<V>!)",
+      "desc": "Modifies or replaces the task used to execute a callable.",
+      "symbol": "<"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ThreadPoolExecutor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "afterExecute(r: Runnable!, t: Throwable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RuntimeException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Error"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "super.afterExecute"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FutureTask"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "submit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "allowCoreThreadTimeOut(value: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "allowsCoreThreadTimeOut()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "awaitTermination(timeout: Long, unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "beforeExecute(t: Thread!, r: Runnable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "t"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "r"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "super.beforeExecute"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "finalize()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdown"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getActiveCount()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Long"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCompletedTaskCount()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCorePoolSize()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Long"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getKeepAliveTime(unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getLargestPoolSize()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getMaximumPoolSize()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getPoolSize()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RejectedExecutionHandler!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getRejectedExecutionHandler()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Long"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTaskCount()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ThreadFactory!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getThreadFactory()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isShutdown()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isTerminated()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isTerminating()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdown"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdownNow"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "prestartAllCoreThreads()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "prestartCoreThread()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "false"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "purge()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Future"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "remove(task: Runnable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "submit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Future"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "purge"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setCorePoolSize(corePoolSize: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setKeepAliveTime(time: Long, unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setMaximumPoolSize(maximumPoolSize: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setRejectedExecutionHandler(handler: RejectedExecutionHandler!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setThreadFactory(threadFactory: ThreadFactory!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "terminated()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "super.terminated"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "toString()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ExecutorService"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "awaitTermination(timeout: Long, unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isShutdown()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isTerminated()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isTerminated"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdown"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdownNow"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdown()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "awaitTermination"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MutableList<Runnable!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdownNow()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "awaitTermination"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Thread#interrupt"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Executor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "execute(command: Runnable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Executor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AbstractExecutorService"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MutableList<Future<T>!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAll(tasks: MutableCollection<out Callable<T>!>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MutableList<Future<T>!>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAll(tasks: MutableCollection<out Callable<T>!>!, timeout: Long, unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "T"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAny(tasks: MutableCollection<out Callable<T>!>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "T"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeAny(tasks: MutableCollection<out Callable<T>!>!, timeout: Long, unit: TimeUnit!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RunnableFuture<T>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "newTaskFor(runnable: Runnable!, value: T)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RunnableFuture"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RunnableFuture<T>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "newTaskFor(callable: Callable<T>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "RunnableFuture"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Future<*>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "submit(task: Runnable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Future<T>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "submit(task: Runnable!, result: T)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Future<T>!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "submit(task: Callable<T>!)"
+    }
+  ]
+}

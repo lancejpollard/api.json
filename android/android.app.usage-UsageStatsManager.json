@@ -1,0 +1,145 @@
+{
+  "path": "android.app.usage",
+  "name": "UsageStatsManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERVAL_BEST",
+      "desc": "An interval type that will use the best fit interval for the given time range."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERVAL_DAILY",
+      "desc": "An interval type that spans a day."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERVAL_MONTHLY",
+      "desc": "An interval type that spans a month."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERVAL_WEEKLY",
+      "desc": "An interval type that spans a week."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERVAL_YEARLY",
+      "desc": "An interval type that spans a year."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STANDBY_BUCKET_ACTIVE",
+      "desc": "The app was used very recently, currently in use or likely to be used very soon."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STANDBY_BUCKET_FREQUENT",
+      "desc": "The app was used in the last few days and/or likely to be used in the next few days."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STANDBY_BUCKET_RARE",
+      "desc": "The app has not be used for several days and/or is unlikely to be used for several days."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STANDBY_BUCKET_RESTRICTED",
+      "desc": "The app has not be used for several days, is unlikely to be used for several days, and has been misbehaving in some manner."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STANDBY_BUCKET_WORKING_SET",
+      "desc": "The app was used recently and/or likely to be used in the next few hours."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getAppStandbyBucket()",
+      "desc": "Returns the current standby bucket of the calling app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isAppInactive(packageName: String!)",
+      "desc": "Returns whether the specified app is currently considered inactive."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableMap",
+      "code": "queryAndAggregateUsageStats(beginTime: Long, endTime: Long)",
+      "desc": "A convenience method that queries for all stats in the given range (using the best interval for that range), merges the resulting data, and keys it by package name.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "queryConfigurations(intervalType: Int, beginTime: Long, endTime: Long)",
+      "desc": "Gets the hardware configurations the device was in for the given time range, aggregated by the specified interval.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "queryEventStats(intervalType: Int, beginTime: Long, endTime: Long)",
+      "desc": "Gets aggregated event stats for the given time range, aggregated by the specified interval.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UsageEvents",
+      "code": "queryEvents(beginTime: Long, endTime: Long)",
+      "desc": "Query for events in the given time range.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UsageEvents",
+      "code": "queryEventsForSelf(beginTime: Long, endTime: Long)",
+      "desc": "Like queryEvents(long,long), but only returns events for the calling package.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "queryUsageStats(intervalType: Int, beginTime: Long, endTime: Long)",
+      "desc": "Gets application usage stats for the given time range, aggregated by the specified interval.",
+      "symbol": "<"
+    }
+  ]
+}

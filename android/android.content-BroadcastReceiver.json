@@ -1,0 +1,155 @@
+{
+  "path": "android.content",
+  "name": "BroadcastReceiver",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "abortBroadcast()",
+      "desc": "Sets the flag indicating that this receiver should abort the current broadcast; only works with broadcasts sent through Context#sendOrderedBroadcast(Intent, String)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "clearAbortBroadcast()",
+      "desc": "Clears the flag indicating that this receiver should abort the current broadcast."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "getAbortBroadcast()",
+      "desc": "Returns the flag indicating whether or not this receiver should abort the current broadcast."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "getDebugUnregister()",
+      "desc": "Return the last value given to setDebugUnregister."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getResultCode()",
+      "desc": "Retrieve the current result code, as set by the previous receiver."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getResultData()",
+      "desc": "Retrieve the current result data, as set by the previous receiver.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Bundle",
+      "code": "getResultExtras(makeMap: Boolean)",
+      "desc": "Retrieve the current result extra data, as set by the previous receiver.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "BroadcastReceiver.PendingResult",
+      "code": "goAsync()",
+      "desc": "This can be called by an application in onReceive to allow it to keep the broadcast active after returning from that function.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isInitialStickyBroadcast()",
+      "desc": "Returns true if the receiver is currently processing the initial value of a sticky broadcast -- that is, the value that was last broadcast and is currently held in the sticky cache, so this is not directly the result of a broadcast right now."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isOrderedBroadcast()",
+      "desc": "Returns true if the receiver is currently processing an ordered broadcast."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onReceive(context: Context!, intent: Intent!)",
+      "desc": "This method is called when the BroadcastReceiver is receiving an Intent broadcast."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IBinder",
+      "code": "peekService(myContext: Context!, service: Intent!)",
+      "desc": "Provide a binder to an already-bound service.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDebugUnregister(debug: Boolean)",
+      "desc": "Control inclusion of debugging help for mismatched calls to Context#registerReceiver(BroadcastReceiver, IntentFilter)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOrderedHint(isOrdered: Boolean)",
+      "desc": "For internal use, sets the hint about whether this BroadcastReceiver is running in ordered mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setResult(code: Int, data: String!, extras: Bundle!)",
+      "desc": "Change all of the result data returned from this broadcasts; only works with broadcasts sent through Context#sendOrderedBroadcast(Intent, String)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setResultCode(code: Int)",
+      "desc": "Change the current result code of this broadcast; only works with broadcasts sent through Context#sendOrderedBroadcast(Intent, String)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setResultData(data: String!)",
+      "desc": "Change the current result data of this broadcast; only works with broadcasts sent through Context#sendOrderedBroadcast(Intent, String)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setResultExtras(extras: Bundle!)",
+      "desc": "Change the current result extras of this broadcast; only works with broadcasts sent through Context#sendOrderedBroadcast(Intent, String)."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "PendingResult",
+      "desc": "State for a result that is pending for a broadcast receiver."
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "path": "android.speech.tts",
+  "name": "UtteranceProgressListener",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onAudioAvailable(utteranceId: String!, audio: ByteArray!)",
+      "desc": "This is called when a chunk of audio is ready for consumption."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onBeginSynthesis(utteranceId: String!, sampleRateInHz: Int, audioFormat: Int, channelCount: Int)",
+      "desc": "Called when the TTS engine begins to synthesize the audio for a request."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onDone(utteranceId: String!)",
+      "desc": "Called when an utterance has successfully completed processing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onError(utteranceId: String!)",
+      "desc": "Called when an error has occurred during processing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onError(utteranceId: String!, errorCode: Int)",
+      "desc": "Called when an error has occurred during processing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRangeStart(utteranceId: String!, start: Int, end: Int, frame: Int)",
+      "desc": "This is called when the TTS service is about to speak the specified range of the utterance with the given utteranceId."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onStart(utteranceId: String!)",
+      "desc": "Called when an utterance \"starts\" as perceived by the caller."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onStop(utteranceId: String!, interrupted: Boolean)",
+      "desc": "Called when an utterance has been stopped while in progress or flushed from the synthesis queue."
+    }
+  ]
+}

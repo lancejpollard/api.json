@@ -1,0 +1,365 @@
+{
+  "path": "android.os",
+  "name": "ParcelFileDescriptor",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_APPEND",
+      "desc": "For use with open: append to end of file while writing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_CREATE",
+      "desc": "For use with open: create the file if it doesn't already exist."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_READ_ONLY",
+      "desc": "For use with open: open the file with read-only access."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_READ_WRITE",
+      "desc": "For use with open: open the file with read and write access."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_TRUNCATE",
+      "desc": "For use with open: erase contents of file when opening."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_WORLD_READABLE",
+      "desc": "For use with open: if MODE_CREATE has been supplied and this file doesn't already exist, then create the file with permissions such that any application can read it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_WORLD_WRITEABLE",
+      "desc": "For use with open: if MODE_CREATE has been supplied and this file doesn't already exist, then create the file with permissions such that any application can write it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_WRITE_ONLY",
+      "desc": "For use with open: open the file with write-only access."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(wrapped: ParcelFileDescriptor!)\n            Create a new ParcelFileDescriptor wrapped around another descriptor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "adoptFd(fd: Int)",
+      "desc": "Take ownership of a raw native fd in to a new ParcelFileDescriptor.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "canDetectErrors()",
+      "desc": "Indicates if this ParcelFileDescriptor can communicate and detect remote errors/crashes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "checkError()",
+      "desc": "Detect and throw if the other end of a pipe or socket pair encountered an error or crashed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Close the ParcelFileDescriptor."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "closeWithError(msg: String!)",
+      "desc": "Close the ParcelFileDescriptor, informing any peer that an error occurred while processing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "createPipe()",
+      "desc": "Create two ParcelFileDescriptors structured as a data pipe.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "createReliablePipe()",
+      "desc": "Create two ParcelFileDescriptors structured as a data pipe.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "createReliableSocketPair()",
+      "desc": "Create two ParcelFileDescriptors structured as a pair of sockets connected to each other.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "createSocketPair()",
+      "desc": "Create two ParcelFileDescriptors structured as a pair of sockets connected to each other.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "detachFd()",
+      "desc": "Return the native fd int for this ParcelFileDescriptor and detach it from the object here."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "dup()",
+      "desc": "Create a new ParcelFileDescriptor that is a dup of the existing FileDescriptor.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "dup(orig: FileDescriptor!)",
+      "desc": "Create a new ParcelFileDescriptor that is a dup of an existing FileDescriptor.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "fromDatagramSocket(datagramSocket: DatagramSocket!)",
+      "desc": "Create a new ParcelFileDescriptor from the specified DatagramSocket.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "fromFd(fd: Int)",
+      "desc": "Create a new ParcelFileDescriptor from a raw native fd.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "fromSocket(socket: Socket!)",
+      "desc": "Create a new ParcelFileDescriptor from the specified Socket.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getFd()",
+      "desc": "Return the native fd int for this ParcelFileDescriptor."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "FileDescriptor",
+      "code": "getFileDescriptor()",
+      "desc": "Retrieve the actual FileDescriptor associated with this object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getStatSize()",
+      "desc": "Return the total size of the file representing this fd, as determined by stat()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "open(file: File!, mode: Int)",
+      "desc": "Create a new ParcelFileDescriptor accessing a given file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "open(file: File!, mode: Int, handler: Handler!, listener: ParcelFileDescriptor.OnCloseListener!)",
+      "desc": "Create a new ParcelFileDescriptor accessing a given file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "parseMode(mode: String!)",
+      "desc": "Converts a string representing a file mode, such as \"rw\", into a bitmask suitable for use with open."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "wrap(pfd: ParcelFileDescriptor, handler: Handler, listener: ParcelFileDescriptor.OnCloseListener)",
+      "desc": "Create a new ParcelFileDescriptor wrapping an already-opened file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "writeToParcel(out: Parcel!, flags: Int)",
+      "desc": "Flatten this object in to a Parcel."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "AutoCloseInputStream",
+      "desc": "An InputStream you can create on a ParcelFileDescriptor, which will take care of calling ParcelFileDescriptor#close for you when the stream is closed."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "AutoCloseOutputStream",
+      "desc": "An OutputStream you can create on a ParcelFileDescriptor, which will take care of calling ParcelFileDescriptor#close for you when the stream is closed."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "FileDescriptorDetachedException",
+      "desc": "Exception that indicates that the file descriptor was detached."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnCloseListener",
+      "desc": "Callback indicating that a ParcelFileDescriptor has been closed."
+    }
+  ]
+}

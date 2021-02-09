@@ -1,0 +1,485 @@
+{
+  "path": "android.graphics",
+  "name": "Matrix",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MPERSP_0",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MPERSP_1",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MPERSP_2",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MSCALE_X",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MSCALE_Y",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MSKEW_X",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MSKEW_Y",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MTRANS_X",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MTRANS_Y",
+      "desc": ""
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Create an identity matrix"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(src: Matrix!)\n            Create a matrix that is a (deep) copy of src"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": "Returns true iff obj is a Matrix and its values equal our values."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "getValues(values: FloatArray!)",
+      "desc": "Copy 9 values from the matrix into the array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "invert(inverse: Matrix!)",
+      "desc": "If this matrix can be inverted, return true and if inverse is not null, set inverse to be the inverse of this matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAffine()",
+      "desc": "Gets whether this matrix is affine."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isIdentity()",
+      "desc": "Returns true if the matrix is identity."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "mapPoints(dst: FloatArray!, dstIndex: Int, src: FloatArray!, srcIndex: Int, pointCount: Int)",
+      "desc": "Apply this matrix to the array of 2D points specified by src, and write the transformed points into the array of points specified by dst."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "mapPoints(dst: FloatArray!, src: FloatArray!)",
+      "desc": "Apply this matrix to the array of 2D points specified by src, and write the transformed points into the array of points specified by dst."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "mapPoints(pts: FloatArray!)",
+      "desc": "Apply this matrix to the array of 2D points, and write the transformed points back into the array"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "mapRadius(radius: Float)",
+      "desc": "Return the mean radius of a circle after it has been mapped by this matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "mapRect(dst: RectF!, src: RectF!)",
+      "desc": "Apply this matrix to the src rectangle, and write the transformed rectangle into dst."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "mapRect(rect: RectF!)",
+      "desc": "Apply this matrix to the rectangle, and write the transformed rectangle back into it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "mapVectors(dst: FloatArray!, dstIndex: Int, src: FloatArray!, srcIndex: Int, vectorCount: Int)",
+      "desc": "Apply this matrix to the array of 2D vectors specified by src, and write the transformed vectors into the array of vectors specified by dst."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "mapVectors(dst: FloatArray!, src: FloatArray!)",
+      "desc": "Apply this matrix to the array of 2D vectors specified by src, and write the transformed vectors into the array of vectors specified by dst."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "mapVectors(vecs: FloatArray!)",
+      "desc": "Apply this matrix to the array of 2D vectors, and write the transformed vectors back into the array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "postConcat(other: Matrix!)",
+      "desc": "Postconcats the matrix with the specified matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "postRotate(degrees: Float, px: Float, py: Float)",
+      "desc": "Postconcats the matrix with the specified rotation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "postRotate(degrees: Float)",
+      "desc": "Postconcats the matrix with the specified rotation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "postScale(sx: Float, sy: Float, px: Float, py: Float)",
+      "desc": "Postconcats the matrix with the specified scale."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "postScale(sx: Float, sy: Float)",
+      "desc": "Postconcats the matrix with the specified scale."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "postSkew(kx: Float, ky: Float, px: Float, py: Float)",
+      "desc": "Postconcats the matrix with the specified skew."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "postSkew(kx: Float, ky: Float)",
+      "desc": "Postconcats the matrix with the specified skew."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "postTranslate(dx: Float, dy: Float)",
+      "desc": "Postconcats the matrix with the specified translation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "preConcat(other: Matrix!)",
+      "desc": "Preconcats the matrix with the specified matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "preRotate(degrees: Float, px: Float, py: Float)",
+      "desc": "Preconcats the matrix with the specified rotation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "preRotate(degrees: Float)",
+      "desc": "Preconcats the matrix with the specified rotation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "preScale(sx: Float, sy: Float, px: Float, py: Float)",
+      "desc": "Preconcats the matrix with the specified scale."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "preScale(sx: Float, sy: Float)",
+      "desc": "Preconcats the matrix with the specified scale."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "preSkew(kx: Float, ky: Float, px: Float, py: Float)",
+      "desc": "Preconcats the matrix with the specified skew."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "preSkew(kx: Float, ky: Float)",
+      "desc": "Preconcats the matrix with the specified skew."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "preTranslate(dx: Float, dy: Float)",
+      "desc": "Preconcats the matrix with the specified translation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "rectStaysRect()",
+      "desc": "Returns true if will map a rectangle to another rectangle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reset()",
+      "desc": "Set the matrix to identity"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "set(src: Matrix!)",
+      "desc": "(deep) copy the src matrix into this matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setConcat(a: Matrix!, b: Matrix!)",
+      "desc": "Set the matrix to the concatenation of the two specified matrices and return true."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPolyToPoly(src: FloatArray!, srcIndex: Int, dst: FloatArray!, dstIndex: Int, pointCount: Int)",
+      "desc": "Set the matrix such that the specified src points would map to the specified dst points."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setRectToRect(src: RectF!, dst: RectF!, stf: Matrix.ScaleToFit!)",
+      "desc": "Set the matrix to the scale and translate values that map the source rectangle to the destination rectangle, returning true if the the result can be represented."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRotate(degrees: Float, px: Float, py: Float)",
+      "desc": "Set the matrix to rotate by the specified number of degrees, with a pivot point at (px, py)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRotate(degrees: Float)",
+      "desc": "Set the matrix to rotate about (0,0) by the specified number of degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setScale(sx: Float, sy: Float, px: Float, py: Float)",
+      "desc": "Set the matrix to scale by sx and sy, with a pivot point at (px, py)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setScale(sx: Float, sy: Float)",
+      "desc": "Set the matrix to scale by sx and sy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSinCos(sinValue: Float, cosValue: Float, px: Float, py: Float)",
+      "desc": "Set the matrix to rotate by the specified sine and cosine values, with a pivot point at (px, py)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSinCos(sinValue: Float, cosValue: Float)",
+      "desc": "Set the matrix to rotate by the specified sine and cosine values."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSkew(kx: Float, ky: Float, px: Float, py: Float)",
+      "desc": "Set the matrix to skew by sx and sy, with a pivot point at (px, py)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSkew(kx: Float, ky: Float)",
+      "desc": "Set the matrix to skew by sx and sy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTranslate(dx: Float, dy: Float)",
+      "desc": "Set the matrix to translate by (dx, dy)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setValues(values: FloatArray!)",
+      "desc": "Copy 9 values from the array into the matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toShortString()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ScaleToFit",
+      "desc": "Controlls how the src rect should align into the dst rect for setRectToRect()."
+    }
+  ]
+}

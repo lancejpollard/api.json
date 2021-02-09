@@ -1,0 +1,685 @@
+{
+  "path": "android.icu.text",
+  "name": "Bidi",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_DEFAULT_LEFT_TO_RIGHT",
+      "desc": "Constant indicating that the base direction depends on the first strong directional character in the text according to the Unicode Bidirectional Algorithm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_DEFAULT_RIGHT_TO_LEFT",
+      "desc": "Constant indicating that the base direction depends on the first strong directional character in the text according to the Unicode Bidirectional Algorithm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_LEFT_TO_RIGHT",
+      "desc": "Constant indicating base direction is left-to-right."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_RIGHT_TO_LEFT",
+      "desc": "Constant indicating base direction is right-to-left."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "DO_MIRRORING",
+      "desc": "option bit for writeReordered(): replace characters with the \"mirrored\" property in RTL runs by their mirror-image mappings"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "INSERT_LRM_FOR_NUMERIC",
+      "desc": "option bit for writeReordered(): surround the run with LRMs if necessary; this is part of the approximate \"inverse Bidi\" algorithm"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "KEEP_BASE_COMBINING",
+      "desc": "option bit for writeReordered(): keep combining characters after their base characters in RTL runs"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "LEVEL_DEFAULT_LTR",
+      "desc": "Paragraph level setting"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "LEVEL_DEFAULT_RTL",
+      "desc": "Paragraph level setting"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "LEVEL_OVERRIDE",
+      "desc": "Bit flag for level input."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "LTR",
+      "desc": "Left-to-right text."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MAP_NOWHERE",
+      "desc": "Special value which can be returned by the mapping methods when a logical index has no corresponding visual index or vice-versa."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "MAX_EXPLICIT_LEVEL",
+      "desc": "Maximum explicit embedding level."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "MIXED",
+      "desc": "Mixed-directional text."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "NEUTRAL",
+      "desc": "No strongly directional text."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OPTION_DEFAULT",
+      "desc": "Option value for setReorderingOptions: disable all the options which can be set with this method"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OPTION_INSERT_MARKS",
+      "desc": "Option bit for setReorderingOptions: insert Bidi marks (LRM or RLM) when needed to ensure correct result of a reordering to a Logical order"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OPTION_REMOVE_CONTROLS",
+      "desc": "Option bit for setReorderingOptions: remove Bidi control characters"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OPTION_STREAMING",
+      "desc": "Option bit for setReorderingOptions: process the output as part of a stream to be continued"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "OUTPUT_REVERSE",
+      "desc": "option bit for writeReordered(): write the output in reverse order"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "REMOVE_BIDI_CONTROLS",
+      "desc": "option bit for writeReordered(): remove Bidi control characters (this does not affect INSERT_LRM_FOR_NUMERIC)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "REORDER_DEFAULT",
+      "desc": "Reordering mode: Regular Logical to Visual Bidi algorithm according to Unicode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "REORDER_GROUP_NUMBERS_WITH_R",
+      "desc": "Reordering mode: Logical to Visual algorithm grouping numbers with adjacent R characters (reversible algorithm)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "REORDER_INVERSE_FOR_NUMBERS_SPECIAL",
+      "desc": "Reordering mode: Inverse Bidi (Visual to Logical) algorithm for the REORDER_NUMBERS_SPECIAL Bidi algorithm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "REORDER_INVERSE_LIKE_DIRECT",
+      "desc": "Reordering mode: Visual to Logical algorithm equivalent to the regular Logical to Visual algorithm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "REORDER_INVERSE_NUMBERS_AS_L",
+      "desc": "Reordering mode: Visual to Logical algorithm which handles numbers like L (same algorithm as selected by setInverse(true)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "REORDER_NUMBERS_SPECIAL",
+      "desc": "Reordering mode: Logical to Visual algorithm which handles numbers in a way which mimicks the behavior of Windows XP."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "REORDER_RUNS_ONLY",
+      "desc": "Reordering mode: Reorder runs only to transform a Logical LTR string to the logical RTL string with the same display, or vice-versa."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Byte",
+      "code": "RTL",
+      "desc": "Right-to-left text."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Allocate a Bidi object."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(maxLength: Int, maxRunCount: Int)\n            Allocate a Bidi object with preallocated memory for internal structures."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(paragraph: String!, flags: Int)\n            Create Bidi from the given paragraph of text and base direction."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(paragraph: AttributedCharacterIterator!)\n            Create Bidi from the given paragraph of text."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(text: CharArray!, textStart: Int, embeddings: ByteArray!, embStart: Int, paragraphLength: Int, flags: Int)\n            Create Bidi from the given text, embedding, and direction information."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "baseIsLeftToRight()",
+      "desc": "Return true if the base direction is left-to-right"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "countParagraphs()",
+      "desc": "Get the number of paragraphs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "countRuns()",
+      "desc": "Get the number of runs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bidi",
+      "code": "createLineBidi(lineStart: Int, lineLimit: Int)",
+      "desc": "Create a Bidi object representing the bidi information on a line of text within the paragraph represented by the current Bidi.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Byte",
+      "code": "getBaseDirection(paragraph: CharSequence!)",
+      "desc": "Get the base direction of the text provided according to the Unicode Bidirectional Algorithm."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getBaseLevel()",
+      "desc": "Return the base level (0 if left-to-right, 1 if right-to-left)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BidiClassifier",
+      "code": "getCustomClassifier()",
+      "desc": "Gets the current custom class classifier used for Bidi class determination.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getCustomizedClass(c: Int)",
+      "desc": "Retrieves the Bidi class for a given code point."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Byte",
+      "code": "getDirection()",
+      "desc": "Get the directionality of the text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getLength()",
+      "desc": "Get the length of the text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Byte",
+      "code": "getLevelAt(charIndex: Int)",
+      "desc": "Get the level for one character."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ByteArray",
+      "code": "getLevels()",
+      "desc": "Get an array of levels for each character.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getLogicalIndex(visualIndex: Int)",
+      "desc": "Get the logical text position from a visual position."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntArray",
+      "code": "getLogicalMap()",
+      "desc": "Get a logical-to-visual index map (array) for the characters in the Bidi (paragraph or line) object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BidiRun",
+      "code": "getLogicalRun(logicalPosition: Int)",
+      "desc": "Get a logical run.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Byte",
+      "code": "getParaLevel()",
+      "desc": "Get the paragraph level of the text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BidiRun",
+      "code": "getParagraph(charIndex: Int)",
+      "desc": "Get a paragraph, given a position within the text.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BidiRun",
+      "code": "getParagraphByIndex(paraIndex: Int)",
+      "desc": "Get a paragraph, given the index of this paragraph.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getParagraphIndex(charIndex: Int)",
+      "desc": "Get the index of a paragraph, given a position within the text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getProcessedLength()",
+      "desc": "Get the length of the source text processed by the last call to setPara()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getReorderingMode()",
+      "desc": "What is the requested reordering mode for a given Bidi object?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getReorderingOptions()",
+      "desc": "What are the reordering options applied to a given Bidi object?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getResultLength()",
+      "desc": "Get the length of the reordered text resulting from the last call to setPara()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRunCount()",
+      "desc": "Return the number of level runs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRunLevel(run: Int)",
+      "desc": "Return the level of the nth logical run in this line."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRunLimit(run: Int)",
+      "desc": "Return the index of the character past the end of the nth logical run in this line, as an offset from the start of the line."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getRunStart(run: Int)",
+      "desc": "Return the index of the character at the start of the nth logical run in this line, as an offset from the start of the line."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharArray",
+      "code": "getText()",
+      "desc": "Get the text.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getTextAsString()",
+      "desc": "Get the text.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getVisualIndex(logicalIndex: Int)",
+      "desc": "Get the visual position from a logical text position."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntArray",
+      "code": "getVisualMap()",
+      "desc": "Get a visual-to-logical index map (array) for the characters in the Bidi (paragraph or line) object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BidiRun",
+      "code": "getVisualRun(runIndex: Int)",
+      "desc": "Get a BidiRun object according to its index.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntArray",
+      "code": "invertMap(srcMap: IntArray!)",
+      "desc": "Invert an index map.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isInverse()",
+      "desc": "Is this Bidi object set to perform the inverse Bidi algorithm?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isLeftToRight()",
+      "desc": "Return true if the line is all left-to-right text and the base direction is left-to-right."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isMixed()",
+      "desc": "Return true if the line is not left-to-right or right-to-left."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOrderParagraphsLTR()",
+      "desc": "Is this Bidi object set to allocate level 0 to block separators so that successive paragraphs progress from left to right?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRightToLeft()",
+      "desc": "Return true if the line is all right-to-left text, and the base direction is right-to-left"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "orderParagraphsLTR(ordarParaLTR: Boolean)",
+      "desc": "Specify whether block separators must be allocated level zero, so that successive paragraphs will progress from left to right."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntArray",
+      "code": "reorderLogical(levels: ByteArray!)",
+      "desc": "This is a convenience method that does not use a Bidi object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntArray",
+      "code": "reorderVisual(levels: ByteArray!)",
+      "desc": "This is a convenience method that does not use a Bidi object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reorderVisually(levels: ByteArray!, levelStart: Int, objects: Array<Any!>!, objectStart: Int, count: Int)",
+      "desc": "Reorder the objects in the array into visual order based on their levels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "requiresBidi(text: CharArray!, start: Int, limit: Int)",
+      "desc": "Return true if the specified text requires bidi analysis."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setContext(prologue: String!, epilogue: String!)",
+      "desc": "Set the context before a call to setPara()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCustomClassifier(classifier: BidiClassifier!)",
+      "desc": "Set a custom Bidi classifier used by the UBA implementation for Bidi class determination."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setInverse(isInverse: Boolean)",
+      "desc": "Modify the operation of the Bidi algorithm such that it approximates an \"inverse Bidi\" algorithm."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bidi",
+      "code": "setLine(start: Int, limit: Int)",
+      "desc": "setLine() returns a Bidi object to contain the reordering information, especially the resolved levels, for all the characters in a line of text.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPara(text: String!, paraLevel: Byte, embeddingLevels: ByteArray!)",
+      "desc": "Perform the Unicode Bidi algorithm."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPara(chars: CharArray!, paraLevel: Byte, embeddingLevels: ByteArray!)",
+      "desc": "Perform the Unicode Bidi algorithm."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPara(paragraph: AttributedCharacterIterator!)",
+      "desc": "Perform the Unicode Bidi algorithm on a given paragraph, as defined in the Unicode Standard Annex #9, version 13, also described in The Unicode Standard, Version 4."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setReorderingMode(reorderingMode: Int)",
+      "desc": "Modify the operation of the Bidi algorithm such that it implements some variant to the basic Bidi algorithm or approximates an \"inverse Bidi\" algorithm, depending on different values of the \"reordering mode\"."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setReorderingOptions(options: Int)",
+      "desc": "Specify which of the reordering options should be applied during Bidi transformations."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "writeReordered(options: Int)",
+      "desc": "Take a Bidi object containing the reordering information for a piece of text (one or more paragraphs) set by setPara() or for a line of text set by setLine() and return a string containing the reordered text.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "writeReverse(src: String!, options: Int)",
+      "desc": "Reverse a Right-To-Left run of Unicode text.",
+      "symbol": "!"
+    }
+  ]
+}

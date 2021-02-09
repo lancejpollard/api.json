@@ -1,0 +1,112 @@
+{
+  "path": "android.os",
+  "name": "DropBoxManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DROPBOX_ENTRY_ADDED",
+      "desc": "Broadcast Action: This is broadcast when a new entry is added in the dropbox."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DROPPED_COUNT",
+      "desc": "Extra for android.os.DropBoxManager#ACTION_DROPBOX_ENTRY_ADDED: integer value containing number of broadcasts dropped due to rate limiting on this android.os.DropBoxManager#EXTRA_TAG"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TAG",
+      "desc": "Extra for android.os.DropBoxManager#ACTION_DROPBOX_ENTRY_ADDED: string containing the dropbox tag."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TIME",
+      "desc": "Extra for android.os.DropBoxManager#ACTION_DROPBOX_ENTRY_ADDED: long integer value containing time (in milliseconds since January 1, 1970 00:00:00 UTC) when the entry was created."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IS_EMPTY",
+      "desc": "Flag value: Entry's content was deleted to save space."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IS_GZIPPED",
+      "desc": "Flag value: Content can be decompressed with java.util.zip.GZIPOutputStream."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IS_TEXT",
+      "desc": "Flag value: Content is human-readable UTF-8 text (can be combined with IS_GZIPPED)."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addData(tag: String!, data: ByteArray!, flags: Int)",
+      "desc": "Stores binary data, which may be ignored or discarded as with addText."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addFile(tag: String!, file: File!, flags: Int)",
+      "desc": "Stores the contents of a file, which may be ignored or discarded as with addText."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addText(tag: String!, data: String!)",
+      "desc": "Stores human-readable text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "DropBoxManager.Entry",
+      "code": "getNextEntry(tag: String!, msec: Long)",
+      "desc": "Gets the next entry from the drop box after the specified time.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTagEnabled(tag: String!)",
+      "desc": "Checks any blacklists (set in system settings) to see whether a certain tag is allowed."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Entry",
+      "desc": "A single entry retrieved from the drop box."
+    }
+  ]
+}

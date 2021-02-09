@@ -1,0 +1,555 @@
+{
+  "path": "android.app",
+  "name": "AppOpsManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_ALLOWED",
+      "desc": "Result from checkOp, noteOp, startOp: the given caller is allowed to perform the given operation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_DEFAULT",
+      "desc": "Result from checkOp, noteOp, startOp: the given caller should use its default security check."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_ERRORED",
+      "desc": "Result from checkOpNoThrow, noteOpNoThrow, startOpNoThrow: the given caller is not allowed to perform the given operation, and this attempt should cause it to have a fatal error, typically a SecurityException."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_FOREGROUND",
+      "desc": "Special mode that means \"allow only when app is in foreground."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_IGNORED",
+      "desc": "Result from checkOp, noteOp, startOp: the given caller is not allowed to perform the given operation, and this attempt should silently fail (it should not cause the app to crash)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_ADD_VOICEMAIL",
+      "desc": "Required to access phone state related information."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_ANSWER_PHONE_CALLS",
+      "desc": "Answer incoming phone calls"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_BODY_SENSORS",
+      "desc": "Access to body sensors such as heart rate, etc."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_CALL_PHONE",
+      "desc": "Allows an application to initiate a phone call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_CAMERA",
+      "desc": "Required to be able to access the camera device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_COARSE_LOCATION",
+      "desc": "Access to coarse location information."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_FINE_LOCATION",
+      "desc": "Access to fine location information."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_GET_USAGE_STATS",
+      "desc": "Access to android.app.usage.UsageStatsManager."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_MOCK_LOCATION",
+      "desc": "Inject mock location into the system."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_MONITOR_HIGH_POWER_LOCATION",
+      "desc": "Continually monitoring location data with a relatively high power request."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_MONITOR_LOCATION",
+      "desc": "Continually monitoring location data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_PICTURE_IN_PICTURE",
+      "desc": "Access to picture-in-picture."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_PROCESS_OUTGOING_CALLS",
+      "desc": "Access APIs for diverting outgoing calls"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_READ_CALENDAR",
+      "desc": "Allows an application to read the user's calendar data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_READ_CALL_LOG",
+      "desc": "Allows an application to read the user's call log."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_READ_CELL_BROADCASTS",
+      "desc": "Read previously received cell broadcast messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_READ_CONTACTS",
+      "desc": "Allows an application to read the user's contacts data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_READ_EXTERNAL_STORAGE",
+      "desc": "Read external storage."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_READ_PHONE_NUMBERS",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_READ_PHONE_STATE",
+      "desc": "Required to access phone state related information."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_READ_SMS",
+      "desc": "Allows an application to read SMS messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_RECEIVE_MMS",
+      "desc": "Allows an application to receive MMS messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_RECEIVE_SMS",
+      "desc": "Allows an application to receive SMS messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_RECEIVE_WAP_PUSH",
+      "desc": "Allows an application to receive WAP push messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_RECORD_AUDIO",
+      "desc": "Required to be able to access the microphone device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_SEND_SMS",
+      "desc": "Allows an application to send SMS messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_SYSTEM_ALERT_WINDOW",
+      "desc": "Required to draw on top of other apps."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_USE_FINGERPRINT",
+      "desc": "Use the fingerprint API."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_USE_SIP",
+      "desc": "Access APIs for SIP calling over VOIP or WiFi"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_WRITE_CALENDAR",
+      "desc": "Allows an application to write to the user's calendar data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_WRITE_CALL_LOG",
+      "desc": "Allows an application to write to the user's call log."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_WRITE_CONTACTS",
+      "desc": "Allows an application to write to the user's contacts data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_WRITE_EXTERNAL_STORAGE",
+      "desc": "Write external storage."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "OPSTR_WRITE_SETTINGS",
+      "desc": "Required to write/modify/update system settings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WATCH_FOREGROUND_CHANGES",
+      "desc": "Flag for startWatchingMode(java.lang.String,java.lang.String,int,android.app.AppOpsManager.OnOpChangedListener): Also get reports if the foreground state of an op's uid changes."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "checkOp(op: String, uid: Int, packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "checkOpNoThrow(op: String, uid: Int, packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "checkPackage(uid: Int, packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finishOp(op: String, uid: Int, packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finishOp(op: String, uid: Int, packageName: String, attributionTag: String?)",
+      "desc": "Report that an application is no longer performing an operation that had previously been started with startOp(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOpActive(op: String, uid: Int, packageName: String)",
+      "desc": "Checks whether the given op for a package is active, i."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteOp(op: String, uid: Int, packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteOp(op: String, uid: Int, packageName: String?, attributionTag: String?, message: String?)",
+      "desc": "Make note of an application performing an operation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteOpNoThrow(op: String, uid: Int, packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteOpNoThrow(op: String, uid: Int, packageName: String, attributionTag: String?, message: String?)",
+      "desc": "Like noteOp(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String) but instead of throwing a SecurityException it returns MODE_ERRORED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteProxyOp(op: String, proxiedPackageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteProxyOp(op: String, proxiedPackageName: String?, proxiedUid: Int, proxiedAttributionTag: String?, message: String?)",
+      "desc": "Make note of an application performing an operation on behalf of another application when handling an IPC."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteProxyOpNoThrow(op: String, proxiedPackageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteProxyOpNoThrow(op: String, proxiedPackageName: String?, proxiedUid: Int)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "noteProxyOpNoThrow(op: String, proxiedPackageName: String?, proxiedUid: Int, proxiedAttributionTag: String?, message: String?)",
+      "desc": "Like noteProxyOp(java.lang.String,java.lang.String,int,java.lang.String,java.lang.String) but instead of throwing a SecurityException it returns MODE_ERRORED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "permissionToOp(permission: String)",
+      "desc": "Gets the app-op name associated with a given permission.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOnOpNotedCallback(asyncExecutor: Executor?, callback: AppOpsManager.OnOpNotedCallback?)",
+      "desc": "Set a new OnOpNotedCallback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "startOp(op: String, uid: Int, packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "startOp(op: String, uid: Int, packageName: String?, attributionTag: String?, message: String?)",
+      "desc": "Report that an application has started executing a long-running operation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "startOpNoThrow(op: String, uid: Int, packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "startOpNoThrow(op: String, uid: Int, packageName: String, attributionTag: String, message: String?)",
+      "desc": "Like startOp(java.lang.String,int,java.lang.String,java.lang.String,java.lang.String) but instead of throwing a SecurityException it returns MODE_ERRORED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startWatchingActive(ops: Array<String!>, executor: Executor, callback: AppOpsManager.OnOpActiveChangedListener)",
+      "desc": "Start watching for changes to the active state of app-ops."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startWatchingMode(op: String, packageName: String?, callback: AppOpsManager.OnOpChangedListener)",
+      "desc": "Monitor for changes to the operating mode for the given op in the given app package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startWatchingMode(op: String, packageName: String?, flags: Int, callback: AppOpsManager.OnOpChangedListener)",
+      "desc": "Monitor for changes to the operating mode for the given op in the given app package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "stopWatchingActive(callback: AppOpsManager.OnOpActiveChangedListener)",
+      "desc": "Stop watching for changes to the active state of an app-op."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "stopWatchingMode(callback: AppOpsManager.OnOpChangedListener)",
+      "desc": "Stop monitoring that was previously started with startWatchingMode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "unsafeCheckOp(op: String, uid: Int, packageName: String)",
+      "desc": "Do a quick check for whether an application might be able to perform an operation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "unsafeCheckOpNoThrow(op: String, uid: Int, packageName: String)",
+      "desc": "Like checkOp but instead of throwing a SecurityException it returns MODE_ERRORED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "unsafeCheckOpRaw(op: String, uid: Int, packageName: String)",
+      "desc": "Like checkOp but returns the raw mode associated with the op."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "unsafeCheckOpRawNoThrow(op: String, uid: Int, packageName: String)",
+      "desc": "Like unsafeCheckOpNoThrow(java.lang.String,int,java.lang.String) but returns the raw mode associated with the op."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnOpActiveChangedListener",
+      "desc": "Callback for notification of changes to operation active state."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnOpChangedListener",
+      "desc": "Callback for notification of changes to operation state."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnOpNotedCallback",
+      "desc": "Callback an app can set to monitor the app-ops the system has tracked for it."
+    }
+  ]
+}

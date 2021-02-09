@@ -1,0 +1,323 @@
+{
+  "path": "android.drm",
+  "name": "DrmManagerClient",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_NONE",
+      "desc": "Indicates that a request was successful or that no error occurred."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_UNKNOWN",
+      "desc": "Indicates that an error occurred and the reason is not known."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!)\n            Creates a DrmManagerClient."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "DrmInfo",
+      "code": "acquireDrmInfo(drmInfoRequest: DrmInfoRequest!)",
+      "desc": "Retrieves information for registering, unregistering, or acquiring rights.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "acquireRights(drmInfoRequest: DrmInfoRequest!)",
+      "desc": "Processes a given DrmInfoRequest and returns the rights information asynchronously."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "canHandle(path: String!, mimeType: String!)",
+      "desc": "Checks whether the given MIME type or path can be handled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "canHandle(uri: Uri!, mimeType: String!)",
+      "desc": "Checks whether the given MIME type or URI can be handled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "checkRightsStatus(path: String!)",
+      "desc": "Checks whether the given content has valid rights."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "checkRightsStatus(uri: Uri!)",
+      "desc": "Check whether the given content has valid rights."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "checkRightsStatus(path: String!, action: Int)",
+      "desc": "Checks whether the given rights-protected content has valid rights for the specified DrmStore.Action."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "checkRightsStatus(uri: Uri!, action: Int)",
+      "desc": "Checks whether the given rights-protected content has valid rights for the specified DrmStore.Action."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Releases resources associated with the current session of DrmManagerClient."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "DrmConvertedStatus",
+      "code": "closeConvertSession(convertId: Int)",
+      "desc": "Informs the DRM plug-in (agent) that there is no more data to convert or that an error has occurred.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "DrmConvertedStatus",
+      "code": "convertData(convertId: Int, inputData: ByteArray!)",
+      "desc": "Converts the input data (content) that is part of a rights-protected file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getAvailableDrmEngines()",
+      "desc": "Retrieves information about all the DRM plug-ins (agents) that are registered with the DRM framework.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableCollection",
+      "code": "getAvailableDrmSupportInfo()",
+      "desc": "Retrieves information about all the DRM plug-ins (agents) that are registered with the DRM framework.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ContentValues",
+      "code": "getConstraints(path: String!, action: Int)",
+      "desc": "Retrieves constraint information for rights-protected content.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ContentValues",
+      "code": "getConstraints(uri: Uri!, action: Int)",
+      "desc": "Retrieves constraint information for rights-protected content.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDrmObjectType(path: String!, mimeType: String!)",
+      "desc": "Retrieves the type of rights-protected object (for example, content object, rights object, and so on) using the specified path or MIME type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDrmObjectType(uri: Uri!, mimeType: String!)",
+      "desc": "Retrieves the type of rights-protected object (for example, content object, rights object, and so on) using the specified URI or MIME type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ContentValues",
+      "code": "getMetadata(path: String!)",
+      "desc": "Retrieves metadata information for rights-protected content.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ContentValues",
+      "code": "getMetadata(uri: Uri!)",
+      "desc": "Retrieves metadata information for rights-protected content.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getOriginalMimeType(path: String!)",
+      "desc": "Retrieves the MIME type embedded in the original content.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getOriginalMimeType(uri: Uri!)",
+      "desc": "Retrieves the MIME type embedded in the original content.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "openConvertSession(mimeType: String!)",
+      "desc": "Initiates a new conversion session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "processDrmInfo(drmInfo: DrmInfo!)",
+      "desc": "Processes the given DRM information based on the information type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "removeAllRights()",
+      "desc": "Removes all the rights information of every DRM plug-in (agent) associated with the DRM framework."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "removeRights(path: String!)",
+      "desc": "Removes the rights associated with the given rights-protected content."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "removeRights(uri: Uri!)",
+      "desc": "Removes the rights associated with the given rights-protected content."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveRights(drmRights: DrmRights!, rightsPath: String!, contentPath: String!)",
+      "desc": "Saves rights to a specified path and associates that path with the content path."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOnErrorListener(errorListener: DrmManagerClient.OnErrorListener!)",
+      "desc": "Registers an DrmManagerClient.OnErrorListener callback, which is invoked when the DRM framework sends error information."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOnEventListener(eventListener: DrmManagerClient.OnEventListener!)",
+      "desc": "Registers an DrmManagerClient.OnEventListener callback, which is invoked when the DRM framework sends information about DRM processing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOnInfoListener(infoListener: DrmManagerClient.OnInfoListener!)",
+      "desc": "Registers an DrmManagerClient.OnInfoListener callback, which is invoked when the DRM framework sends status or warning information during registration or rights acquisition."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnErrorListener",
+      "desc": "Interface definition for a callback that receives information about DRM framework errors."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnEventListener",
+      "desc": "Interface definition for a callback that receives information about DRM processing events."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnInfoListener",
+      "desc": "Interface definition for a callback that receives status messages and warnings during registration and rights acquisition."
+    }
+  ]
+}

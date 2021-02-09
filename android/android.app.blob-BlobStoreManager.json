@@ -1,0 +1,108 @@
+{
+  "path": "android.app.blob",
+  "name": "BlobStoreManager",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "abandonSession(sessionId: Long)",
+      "desc": "Abandons an existing session and deletes any data that was written to that session so far."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "acquireLease(blobHandle: BlobHandle, descriptionResId: Int, leaseExpiryTimeMillis: Long)",
+      "desc": "Acquire a lease to the blob represented by blobHandle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "acquireLease(blobHandle: BlobHandle, description: CharSequence, leaseExpiryTimeMillis: Long)",
+      "desc": "Acquire a lease to the blob represented by blobHandle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "acquireLease(blobHandle: BlobHandle, descriptionResId: Int)",
+      "desc": "Acquire a lease to the blob represented by blobHandle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "acquireLease(blobHandle: BlobHandle, description: CharSequence)",
+      "desc": "Acquire a lease to the blob represented by blobHandle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "createSession(blobHandle: BlobHandle)",
+      "desc": "Create a new session using the given BlobHandle, returning a unique id that represents the session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getLeasedBlobs()",
+      "desc": "Return the BlobHandle corresponding to the data blobs that the calling app currently has a lease on.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getRemainingLeaseQuotaBytes()",
+      "desc": "Return the remaining quota size for acquiring a lease (in bytes) which indicates the remaining amount of data that an app can acquire a lease on before the System starts rejecting lease requests."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openBlob(blobHandle: BlobHandle)",
+      "desc": "Opens an existing blob for reading from the blob store managed by the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BlobStoreManager.Session",
+      "code": "openSession(sessionId: Long)",
+      "desc": "Open an existing session to actively perform work."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "releaseLease(blobHandle: BlobHandle)",
+      "desc": "Release any active lease to the blob represented by blobHandle which is currently held by the caller."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Session",
+      "desc": "Represents an ongoing session of a blob's contribution to the blob store managed by the system."
+    }
+  ]
+}

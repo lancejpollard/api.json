@@ -1,0 +1,196 @@
+{
+  "path": "android.icu.text",
+  "name": "AlphabeticIndex",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(locale: ULocale!)\n            Create the index object."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(locale: Locale!)\n            Create the index object."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(collator: RuleBasedCollator!)\n            Create an AlphabeticIndex that uses a specific collator."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "addLabels(additions: UnicodeSet!)",
+      "desc": "Add more index characters (aside from what are in the locale)",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "addLabels(vararg additions: ULocale!)",
+      "desc": "Add more index characters (aside from what are in the locale)",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "addLabels(vararg additions: Locale!)",
+      "desc": "Add more index characters (aside from what are in the locale)",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "addRecord(name: CharSequence!, data: V)",
+      "desc": "Add a record (name and data) to the index.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex.ImmutableIndex",
+      "code": "buildImmutableIndex()",
+      "desc": "Builds an immutable, thread-safe version of this instance, without data records.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "clearRecords()",
+      "desc": "Clear the index.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getBucketCount()",
+      "desc": "Return the number of buckets in the index."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getBucketIndex(name: CharSequence!)",
+      "desc": "Get the bucket number for the given name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getBucketLabels()",
+      "desc": "Get the labels.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "RuleBasedCollator",
+      "code": "getCollator()",
+      "desc": "Get a clone of the collator used internally.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getInflowLabel()",
+      "desc": "Get the default label used for abbreviated buckets between other labels.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getMaxLabelCount()",
+      "desc": "Get the limit on the number of labels in the index."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getOverflowLabel()",
+      "desc": "Get the default label used in the IndexCharacters' locale for overflow, eg the first item in: .",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getRecordCount()",
+      "desc": "Return the number of records in the index: that is, the total number of distinct <name,data> pairs added with addRecord(...), over all the buckets."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getUnderflowLabel()",
+      "desc": "Get the default label used in the IndexCharacters' locale for underflow, eg the last item in: X Y Z .",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "iterator()",
+      "desc": "Return an iterator over the buckets.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "setInflowLabel(inflowLabel: String!)",
+      "desc": "Set the inflowLabel label",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "setMaxLabelCount(maxLabelCount: Int)",
+      "desc": "Set a limit on the number of labels in the index.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "setOverflowLabel(overflowLabel: String!)",
+      "desc": "Set the overflow label",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AlphabeticIndex",
+      "code": "setUnderflowLabel(underflowLabel: String!)",
+      "desc": "Set the underflowLabel label",
+      "symbol": "<"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Bucket",
+      "desc": "An index \"bucket\" with a label string and type."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ImmutableIndex",
+      "desc": "Immutable, thread-safe version of AlphabeticIndex."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Record",
+      "desc": "A (name, data) pair, to be sorted by name into one of the index buckets."
+    }
+  ]
+}

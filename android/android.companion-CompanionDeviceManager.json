@@ -1,0 +1,65 @@
+{
+  "path": "android.companion",
+  "name": "CompanionDeviceManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DEVICE",
+      "desc": "A device, returned in the activity result of the IntentSender received in Callback#onDeviceFound Type is:"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "associate(request: AssociationRequest, callback: CompanionDeviceManager.Callback, handler: Handler?)",
+      "desc": "Associate this app with a companion device, selected by user"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "disassociate(deviceMacAddress: String)",
+      "desc": "Remove the association between this app and the device with the given mac address."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getAssociations()",
+      "desc": "Calling this API requires a uses-feature PackageManager#FEATURE_COMPANION_DEVICE_SETUP declaration in the manifest",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasNotificationAccess(component: ComponentName!)",
+      "desc": "Check whether the given component can access the notifications via a NotificationListenerService Your app must have an association with a device before calling this API"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "requestNotificationAccess(component: ComponentName!)",
+      "desc": "Request notification access for the given component."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "A callback to receive once at least one suitable device is found, or the search failed (e.g. timed out)"
+    }
+  ]
+}

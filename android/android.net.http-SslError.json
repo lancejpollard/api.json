@@ -1,0 +1,128 @@
+{
+  "path": "android.net.http",
+  "name": "SslError",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SSL_DATE_INVALID",
+      "desc": "The date of the certificate is invalid"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SSL_EXPIRED",
+      "desc": "The certificate has expired"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SSL_IDMISMATCH",
+      "desc": "Hostname mismatch"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SSL_INVALID",
+      "desc": "A generic error occurred"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SSL_MAX_ERROR",
+      "desc": "The number of different SSL errors."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SSL_NOTYETVALID",
+      "desc": "The certificate is not yet valid"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SSL_UNTRUSTED",
+      "desc": "The certificate authority is not trusted"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(error: Int, certificate: SslCertificate!)\n            Creates a new SslError object using the supplied error and certificate."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(error: Int, certificate: X509Certificate!)\n            Creates a new SslError object using the supplied error and certificate."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(error: Int, certificate: SslCertificate!, url: String!)\n            Creates a new SslError object using the supplied error, certificate and URL."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(error: Int, certificate: X509Certificate!, url: String!)\n            Creates a new SslError object using the supplied error, certificate and URL."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addError(error: Int)",
+      "desc": "Adds the supplied SSL error to the set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SslCertificate",
+      "code": "getCertificate()",
+      "desc": "Gets the SSL certificate associated with this object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPrimaryError()",
+      "desc": "Gets the most severe SSL error in this object's set of errors."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getUrl()",
+      "desc": "Gets the URL associated with this object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasError(error: Int)",
+      "desc": "Determines whether this object includes the supplied error."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string representation of this object."
+    }
+  ]
+}

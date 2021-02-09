@@ -1,0 +1,118 @@
+{
+  "path": "android.hardware.display",
+  "name": "DisplayManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DISPLAY_CATEGORY_PRESENTATION",
+      "desc": "Display category: Presentation displays."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR",
+      "desc": "Virtual display flag: Allows content to be mirrored on private displays when no content is being shown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY",
+      "desc": "Virtual display flag: Only show this display's own content; do not mirror the content of another display."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUAL_DISPLAY_FLAG_PRESENTATION",
+      "desc": "Virtual display flag: Create a presentation display."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUAL_DISPLAY_FLAG_PUBLIC",
+      "desc": "Virtual display flag: Create a public display."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIRTUAL_DISPLAY_FLAG_SECURE",
+      "desc": "Virtual display flag: Create a secure display."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "VirtualDisplay",
+      "code": "createVirtualDisplay(name: String, width: Int, height: Int, densityDpi: Int, surface: Surface?, flags: Int)",
+      "desc": "Creates a virtual display.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "VirtualDisplay",
+      "code": "createVirtualDisplay(name: String, width: Int, height: Int, densityDpi: Int, surface: Surface?, flags: Int, callback: VirtualDisplay.Callback?, handler: Handler?)",
+      "desc": "Creates a virtual display.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Display",
+      "code": "getDisplay(displayId: Int)",
+      "desc": "Gets information about a logical display.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getDisplays()",
+      "desc": "Gets all currently valid logical displays.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getDisplays(category: String!)",
+      "desc": "Gets all currently valid logical displays of the specified category.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerDisplayListener(listener: DisplayManager.DisplayListener!, handler: Handler!)",
+      "desc": "Registers an display listener to receive notifications about when displays are added, removed or changed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregisterDisplayListener(listener: DisplayManager.DisplayListener!)",
+      "desc": "Unregisters a display listener."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "DisplayListener",
+      "desc": "Listens for changes in available display devices."
+    }
+  ]
+}

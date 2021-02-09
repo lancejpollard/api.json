@@ -1,0 +1,1777 @@
+{
+  "path": "android.app",
+  "name": "ListFragment",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ListAdapter",
+      "code": "getListAdapter()",
+      "desc": "Get the ListAdapter associated with this fragment's ListView.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ListView",
+      "code": "getListView()",
+      "desc": "Get the fragment's list view widget.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getSelectedItemId()",
+      "desc": "Get the cursor row ID of the currently selected list item."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSelectedItemPosition()",
+      "desc": "Get the position of the currently selected list item."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "View",
+      "code": "onCreateView(inflater: LayoutInflater!, container: ViewGroup?, savedInstanceState: Bundle!)",
+      "desc": "Provide default implementation to return a simple list view.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDestroyView()",
+      "desc": "Detach from list view."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onListItemClick(l: ListView!, v: View!, position: Int, id: Long)",
+      "desc": "This method will be called when an item in the list is selected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onViewCreated(view: View!, savedInstanceState: Bundle?)",
+      "desc": "Attach to list view once the view hierarchy has been created."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setEmptyText(text: CharSequence!)",
+      "desc": "The default content for a ListFragment has a TextView that can be shown when the list is empty."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setListAdapter(adapter: ListAdapter!)",
+      "desc": "Provide the cursor for the list view."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setListShown(shown: Boolean)",
+      "desc": "Control whether the list is being displayed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setListShownNoAnimation(shown: Boolean)",
+      "desc": "Like setListShown(boolean), but no animation is used when transitioning from the previous state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSelection(position: Int)",
+      "desc": "Set the currently selected list item to the specified position with the adapter's data"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_BACKGROUND"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_COMPLETE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_MODERATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_CRITICAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_LOW"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_MODERATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_UI_HIDDEN"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Fragment"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "dump(prefix: String!, fd: FileDescriptor!, writer: PrintWriter!, args: Array<String!>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "equals(other: Any?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getActivity()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getAllowEnterTransitionOverlap()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getAllowReturnTransitionOverlap()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Bundle!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getArguments()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setArguments"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentManager!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getChildFragmentManager()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getContext()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Transition!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ViewGroup#isTransitionGroup"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.Visibility"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#INVISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#VISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Transition!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getExitTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ViewGroup#isTransitionGroup"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.Visibility"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#VISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#INVISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentManager!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getFragmentManager()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getActivity()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentTransaction"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getChildFragmentManager()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Any?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getHost()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getId()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "LayoutInflater!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getLayoutInflater()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onGetLayoutInflater(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onGetLayoutInflater(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDetach()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "LoaderManager!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getLoaderManager()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Fragment!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getParentFragment()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Transition!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getReenterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ViewGroup#isTransitionGroup"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.Visibility"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#VISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#INVISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setExitTransition(android.transition.Transition)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Resources!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getResources()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getActivity().getResources()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getRetainInstance()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Transition!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getReturnTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ViewGroup#isTransitionGroup"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.Visibility"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#VISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#INVISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "transition"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Transition!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getSharedElementEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.ChangeBounds"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Transition!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getSharedElementReturnTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.ChangeBounds"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setSharedElementEnterTransition(android.transition.Transition)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getString(resId: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getString(resId: Int, vararg formatArgs: Any!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "java.util.Formatter"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "java.lang.String#format"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTag()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Fragment!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTargetFragment()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setTargetFragment"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTargetRequestCode()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setTargetFragment"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "CharSequence!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getText(resId: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getUserVisibleHint()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getView()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateView"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "hashCode()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Fragment!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "instantiate(context: Context!, fname: String!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "instantiate(android.content.Context,java.lang.String,android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Fragment!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "instantiate(context: Context!, fname: String!, args: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isAdded()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDetached()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentTransaction#detach(Fragment)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isHidden()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onHiddenChanged"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isInLayout()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isRemoving()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isResumed()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onResume()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onPause()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isStateSaved()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setArguments(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isVisible()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onActivityCreated(savedInstanceState: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setRetainInstance(boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateView"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onViewStateRestored(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onActivityResult(requestCode: Int, resultCode: Int, data: Intent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startActivityForResult(android.content.Intent,int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onActivityResult(int, int, Intent)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAttach(context: Context!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAttach(activity: Activity!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAttachFragment(childFragment: Fragment!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAttach"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onConfigurationChanged(newConfig: Configuration)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onContextItemSelected(item: MenuItem!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "MenuItem#getMenuInfo()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate(savedInstanceState: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAttach(android.app.Activity)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setRetainInstance(boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onActivityCreated(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "targetSdkVersion"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.os.Build.VERSION_CODES#M"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.os.Build.VERSION_CODES#N"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Fragment.onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Animator!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateAnimator(transit: Int, enter: Boolean, nextAnim: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateContextMenu(menu: ContextMenu!, v: View!, menuInfo: ContextMenu.ContextMenuInfo!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "view"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateOptionsMenu"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AdapterView"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "menuInfo"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onContextItemSelected(android.view.MenuItem)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onCreateContextMenu"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateOptionsMenu(menu: Menu!, inflater: MenuInflater!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setHasOptionsMenu"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onCreateOptionsMenu(Menu)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDestroy()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onStop()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDetach()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDestroyOptionsMenu()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateOptionsMenu(android.view.Menu,android.view.MenuInflater)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDetach()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDestroy()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setRetainInstance(boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onStop()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "LayoutInflater!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onGetLayoutInflater(savedInstanceState: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onHiddenChanged(hidden: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isHidden()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onInflate(attrs: AttributeSet!, savedInstanceState: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onInflate(context: Context!, attrs: AttributeSet!, savedInstanceState: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAttach(android.app.Activity)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getArguments()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onInflate(activity: Activity!, attrs: AttributeSet!, savedInstanceState: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#TRIM_MEMORY_COMPLETE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onMultiWindowModeChanged(isInMultiWindowMode: Boolean, newConfig: Configuration!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onMultiWindowModeChanged"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onConfigurationChanged(android.content.res.Configuration)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onMultiWindowModeChanged(isInMultiWindowMode: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onMultiWindowModeChanged"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onOptionsItemSelected(item: MenuItem!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onOptionsMenuClosed(menu: Menu!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onPause()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onPause()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean, newConfig: Configuration!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onPictureInPictureModeChanged"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onConfigurationChanged(android.content.res.Configuration)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onPictureInPictureModeChanged"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onPrepareOptionsMenu(menu: Menu!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onPrepareOptionsMenu(Menu)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onRequestPermissionsResult(requestCode: Int, permissions: Array<String!>, grantResults: IntArray)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "requestPermissions(java.lang.String[],int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onResume()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onResume()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onSaveInstanceState(outState: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onActivityCreated(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onSaveInstanceState(Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDestroy()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onStart()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onStart()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onStop()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onStop()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onTrimMemory(level: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ActivityManager.getMyMemoryState(RunningAppProcessInfo)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onViewStateRestored(savedInstanceState: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onActivityCreated(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onStart()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "postponeEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startPostponedEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentManager#executePendingTransactions()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startPostponedEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAttach(android.content.Context)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startPostponedEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "registerForContextMenu(view: View!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "OnCreateContextMenuListener"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu.ContextMenuInfo)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "requestPermissions(permissions: Array<String!>, requestCode: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "#PROTECTION_DANGEROUS dangerous"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.content.pm.PermissionInfo#PROTECTION_NORMAL"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.content.pm.PermissionInfo#PROTECTION_SIGNATURE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shouldShowRequestPermissionRationale(java.lang.String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": ""
+    },
+    {
+      "type": "inherited-methods",
+      "from": ""
+    },
+    {
+      "type": "inherited-methods",
+      "from": ""
+    },
+    {
+      "type": "inherited-methods",
+      "from": ""
+    },
+    {
+      "type": "inherited-methods",
+      "from": "true"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onRequestPermissionsResult(int,java.lang.String[],int[])"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setAllowEnterTransitionOverlap(allow: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setAllowReturnTransitionOverlap(allow: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setArguments(args: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isStateSaved()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Build.VERSION_CODES#O"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setEnterSharedElementCallback(callback: SharedElementCallback!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setEnterTransition(transition: Transition!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ViewGroup#isTransitionGroup"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.Visibility"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#INVISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#VISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "transition"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setExitSharedElementCallback(callback: SharedElementCallback!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setExitTransition(transition: Transition!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ViewGroup#isTransitionGroup"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.Visibility"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#VISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#INVISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setHasOptionsMenu(hasMenu: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreateOptionsMenu"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setInitialSavedState(state: Fragment.SavedState!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentManager#saveFragmentInstanceState(Fragment)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setMenuVisibility(menuVisible: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setReenterTransition(transition: Transition!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ViewGroup#isTransitionGroup"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.Visibility"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#VISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#INVISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setExitTransition(android.transition.Transition)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setRetainInstance(retain: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDestroy()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDetach()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onAttach(android.app.Activity)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onActivityCreated(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setReturnTransition(transition: Transition!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ViewGroup#isTransitionGroup"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.Visibility"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#VISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "View#INVISIBLE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "transition"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setEnterTransition(android.transition.Transition)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setSharedElementEnterTransition(transition: Transition!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.ChangeBounds"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setSharedElementReturnTransition(transition: Transition!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.transition.ChangeBounds"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setSharedElementEnterTransition(android.transition.Transition)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setTargetFragment(fragment: Fragment!, requestCode: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentManager#putFragment"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setUserVisibleHint(isVisibleToUser: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setUserVisibleHint"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentTransaction"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "targetSdkVersion"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shouldShowRequestPermissionRationale(permission: String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startActivity(intent: Intent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#startActivity(Intent)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startActivity(intent: Intent!, options: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#startActivity(Intent, Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startActivityForResult(intent: Intent!, requestCode: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#startActivityForResult(Intent, int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startActivityForResult(intent: Intent!, requestCode: Int, options: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#startActivityForResult(Intent, int, Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startIntentSenderForResult(intent: IntentSender!, requestCode: Int, fillInIntent: Intent?, flagsMask: Int, flagsValues: Int, extraFlags: Int, options: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#startIntentSenderForResult(IntentSender, int, Intent, int, int, int,"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startPostponedEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "postponeEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentManager#executePendingTransactions()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FragmentManager#executePendingTransactions()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startPostponedEnterTransition()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "toString()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "unregisterForContextMenu(view: View!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "OnCreateContextMenuListener"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onConfigurationChanged(newConfig: Configuration)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#TRIM_MEMORY_COMPLETE"
+    }
+  ]
+}

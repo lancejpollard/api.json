@@ -1,0 +1,764 @@
+{
+  "path": "android.renderscript",
+  "name": "ScriptIntrinsicBLAS",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONJ_TRANSPOSE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LEFT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOWER",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NON_UNIT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NO_TRANSPOSE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RIGHT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TRANSPOSE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "UNIT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "UPPER",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "BNNM(A: Allocation!, a_offset: Int, B: Allocation!, b_offset: Int, C: Allocation!, c_offset: Int, c_mult: Int)",
+      "desc": "8-bit GEMM-like operation for neural networks: C = A * Transpose(B) Calculations are done in 1."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CGBMV(TransA: Int, KL: Int, KU: Int, alpha: Float2!, A: Allocation!, X: Allocation!, incX: Int, beta: Float2!, Y: Allocation!, incY: Int)",
+      "desc": "CGBMV performs one of the matrix-vector operations y := alpha*A*x + beta*y or y := alpha*A**T*x + beta*y or y := alpha*A**H*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CGEMM(TransA: Int, TransB: Int, alpha: Float2!, A: Allocation!, B: Allocation!, beta: Float2!, C: Allocation!)",
+      "desc": "CGEMM performs one of the matrix-matrix operations C := alpha*op(A)*op(B) + beta*C where op(X) is one of op(X) = X or op(X) = X**T or op(X) = X**H Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CGEMV(TransA: Int, alpha: Float2!, A: Allocation!, X: Allocation!, incX: Int, beta: Float2!, Y: Allocation!, incY: Int)",
+      "desc": "CGEMV performs one of the matrix-vector operations y := alpha*A*x + beta*y or y := alpha*A**T*x + beta*y or y := alpha*A**H*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CGERC(alpha: Float2!, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "CGERC performs the rank 1 operation A := alpha*x*y**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CGERU(alpha: Float2!, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "CGERU performs the rank 1 operation A := alpha*x*y**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHBMV(Uplo: Int, K: Int, alpha: Float2!, A: Allocation!, X: Allocation!, incX: Int, beta: Float2!, Y: Allocation!, incY: Int)",
+      "desc": "CHBMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHEMM(Side: Int, Uplo: Int, alpha: Float2!, A: Allocation!, B: Allocation!, beta: Float2!, C: Allocation!)",
+      "desc": "CHEMM performs one of the matrix-matrix operations C := alpha*A*B + beta*C or C := alpha*B*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHEMV(Uplo: Int, alpha: Float2!, A: Allocation!, X: Allocation!, incX: Int, beta: Float2!, Y: Allocation!, incY: Int)",
+      "desc": "CHEMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHER(Uplo: Int, alpha: Float, X: Allocation!, incX: Int, A: Allocation!)",
+      "desc": "CHER performs the rank 1 operation A := alpha*x*x**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHER2(Uplo: Int, alpha: Float2!, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "CHER2 performs the symmetric rank 2 operation A := alpha*x*y**H + alpha*y*x**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHER2K(Uplo: Int, Trans: Int, alpha: Float2!, A: Allocation!, B: Allocation!, beta: Float, C: Allocation!)",
+      "desc": "CHER2K performs one of the hermitian rank 2k operations C := alpha*A*B**H + conjg( alpha )*B*A**H + beta*C or C := alpha*A**H*B + conjg( alpha )*B**H*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHERK(Uplo: Int, Trans: Int, alpha: Float, A: Allocation!, beta: Float, C: Allocation!)",
+      "desc": "CHERK performs one of the hermitian rank k operations C := alpha*A*A**H + beta*C or C := alpha*A**H*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHPMV(Uplo: Int, alpha: Float2!, Ap: Allocation!, X: Allocation!, incX: Int, beta: Float2!, Y: Allocation!, incY: Int)",
+      "desc": "CHPMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHPR(Uplo: Int, alpha: Float, X: Allocation!, incX: Int, Ap: Allocation!)",
+      "desc": "CHPR performs the rank 1 operation A := alpha*x*x**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CHPR2(Uplo: Int, alpha: Float2!, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, Ap: Allocation!)",
+      "desc": "CHPR2 performs the symmetric rank 2 operation A := alpha*x*y**H + alpha*y*x**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CSYMM(Side: Int, Uplo: Int, alpha: Float2!, A: Allocation!, B: Allocation!, beta: Float2!, C: Allocation!)",
+      "desc": "CSYMM performs one of the matrix-matrix operations C := alpha*A*B + beta*C or C := alpha*B*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CSYR2K(Uplo: Int, Trans: Int, alpha: Float2!, A: Allocation!, B: Allocation!, beta: Float2!, C: Allocation!)",
+      "desc": "CSYR2K performs one of the symmetric rank 2k operations C := alpha*A*B**T + alpha*B*A**T + beta*C or C := alpha*A**T*B + alpha*B**T*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CSYRK(Uplo: Int, Trans: Int, alpha: Float2!, A: Allocation!, beta: Float2!, C: Allocation!)",
+      "desc": "CSYRK performs one of the symmetric rank k operations C := alpha*A*A**T + beta*C or C := alpha*A**T*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CTBMV(Uplo: Int, TransA: Int, Diag: Int, K: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "CTBMV performs one of the matrix-vector operations x := A*x or x := A**T*x or x := A**H*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CTBSV(Uplo: Int, TransA: Int, Diag: Int, K: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "CTBSV solves one of the systems of equations A*x = b or A**T*x = b or A**H*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CTPMV(Uplo: Int, TransA: Int, Diag: Int, Ap: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "CTPMV performs one of the matrix-vector operations x := A*x or x := A**T*x or x := A**H*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CTPSV(Uplo: Int, TransA: Int, Diag: Int, Ap: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "CTPSV solves one of the systems of equations A*x = b or A**T*x = b or A**H*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CTRMM(Side: Int, Uplo: Int, TransA: Int, Diag: Int, alpha: Float2!, A: Allocation!, B: Allocation!)",
+      "desc": "CTRMM performs one of the matrix-matrix operations B := alpha*op(A)*B or B := alpha*B*op(A) op(A) is one of op(A) = A or op(A) = A**T or op(A) = A**H Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CTRMV(Uplo: Int, TransA: Int, Diag: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "CTRMV performs one of the matrix-vector operations x := A*x or x := A**T*x or x := A**H*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CTRSM(Side: Int, Uplo: Int, TransA: Int, Diag: Int, alpha: Float2!, A: Allocation!, B: Allocation!)",
+      "desc": "CTRSM solves one of the matrix equations op(A)*X := alpha*B or X*op(A) := alpha*B op(A) is one of op(A) = A or op(A) = A**T or op(A) = A**H Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "CTRSV(Uplo: Int, TransA: Int, Diag: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "CTRSV solves one of the systems of equations A*x = b or A**T*x = b or A**H*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DGBMV(TransA: Int, KL: Int, KU: Int, alpha: Double, A: Allocation!, X: Allocation!, incX: Int, beta: Double, Y: Allocation!, incY: Int)",
+      "desc": "DGBMV performs one of the matrix-vector operations y := alpha*A*x + beta*y or y := alpha*A**T*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DGEMM(TransA: Int, TransB: Int, alpha: Double, A: Allocation!, B: Allocation!, beta: Double, C: Allocation!)",
+      "desc": "DGEMM performs one of the matrix-matrix operations C := alpha*op(A)*op(B) + beta*C where op(X) is one of op(X) = X or op(X) = X**T Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DGEMV(TransA: Int, alpha: Double, A: Allocation!, X: Allocation!, incX: Int, beta: Double, Y: Allocation!, incY: Int)",
+      "desc": "DGEMV performs one of the matrix-vector operations y := alpha*A*x + beta*y or y := alpha*A**T*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DGER(alpha: Double, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "DGER performs the rank 1 operation A := alpha*x*y**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSBMV(Uplo: Int, K: Int, alpha: Double, A: Allocation!, X: Allocation!, incX: Int, beta: Double, Y: Allocation!, incY: Int)",
+      "desc": "DSBMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSPMV(Uplo: Int, alpha: Double, Ap: Allocation!, X: Allocation!, incX: Int, beta: Double, Y: Allocation!, incY: Int)",
+      "desc": "DSPMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSPR(Uplo: Int, alpha: Double, X: Allocation!, incX: Int, Ap: Allocation!)",
+      "desc": "DSPR performs the rank 1 operation A := alpha*x*x**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSPR2(Uplo: Int, alpha: Double, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, Ap: Allocation!)",
+      "desc": "DSPR2 performs the symmetric rank 2 operation A := alpha*x*y**T + alpha*y*x**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSYMM(Side: Int, Uplo: Int, alpha: Double, A: Allocation!, B: Allocation!, beta: Double, C: Allocation!)",
+      "desc": "DSYMM performs one of the matrix-matrix operations C := alpha*A*B + beta*C or C := alpha*B*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSYMV(Uplo: Int, alpha: Double, A: Allocation!, X: Allocation!, incX: Int, beta: Double, Y: Allocation!, incY: Int)",
+      "desc": "DSYMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSYR(Uplo: Int, alpha: Double, X: Allocation!, incX: Int, A: Allocation!)",
+      "desc": "DSYR performs the rank 1 operation A := alpha*x*x**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSYR2(Uplo: Int, alpha: Double, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "DSYR2 performs the symmetric rank 2 operation A := alpha*x*y**T + alpha*y*x**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSYR2K(Uplo: Int, Trans: Int, alpha: Double, A: Allocation!, B: Allocation!, beta: Double, C: Allocation!)",
+      "desc": "DSYR2K performs one of the symmetric rank 2k operations C := alpha*A*B**T + alpha*B*A**T + beta*C or C := alpha*A**T*B + alpha*B**T*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DSYRK(Uplo: Int, Trans: Int, alpha: Double, A: Allocation!, beta: Double, C: Allocation!)",
+      "desc": "DSYRK performs one of the symmetric rank k operations C := alpha*A*A**T + beta*C or C := alpha*A**T*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DTBMV(Uplo: Int, TransA: Int, Diag: Int, K: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "DTBMV performs one of the matrix-vector operations x := A*x or x := A**T*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DTBSV(Uplo: Int, TransA: Int, Diag: Int, K: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "DTBSV solves one of the systems of equations A*x = b or A**T*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DTPMV(Uplo: Int, TransA: Int, Diag: Int, Ap: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "DTPMV performs one of the matrix-vector operations x := A*x or x := A**T*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DTPSV(Uplo: Int, TransA: Int, Diag: Int, Ap: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "DTPSV solves one of the systems of equations A*x = b or A**T*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DTRMM(Side: Int, Uplo: Int, TransA: Int, Diag: Int, alpha: Double, A: Allocation!, B: Allocation!)",
+      "desc": "DTRMM performs one of the matrix-matrix operations B := alpha*op(A)*B or B := alpha*B*op(A) op(A) is one of op(A) = A or op(A) = A**T Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DTRMV(Uplo: Int, TransA: Int, Diag: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "DTRMV performs one of the matrix-vector operations x := A*x or x := A**T*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DTRSM(Side: Int, Uplo: Int, TransA: Int, Diag: Int, alpha: Double, A: Allocation!, B: Allocation!)",
+      "desc": "DTRSM solves one of the matrix equations op(A)*X := alpha*B or X*op(A) := alpha*B op(A) is one of op(A) = A or op(A) = A**T Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "DTRSV(Uplo: Int, TransA: Int, Diag: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "DTRSV solves one of the systems of equations A*x = b or A**T*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SGBMV(TransA: Int, KL: Int, KU: Int, alpha: Float, A: Allocation!, X: Allocation!, incX: Int, beta: Float, Y: Allocation!, incY: Int)",
+      "desc": "SGBMV performs one of the matrix-vector operations y := alpha*A*x + beta*y or y := alpha*A**T*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SGEMM(TransA: Int, TransB: Int, alpha: Float, A: Allocation!, B: Allocation!, beta: Float, C: Allocation!)",
+      "desc": "SGEMM performs one of the matrix-matrix operations C := alpha*op(A)*op(B) + beta*C where op(X) is one of op(X) = X or op(X) = X**T Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SGEMV(TransA: Int, alpha: Float, A: Allocation!, X: Allocation!, incX: Int, beta: Float, Y: Allocation!, incY: Int)",
+      "desc": "SGEMV performs one of the matrix-vector operations y := alpha*A*x + beta*y or y := alpha*A**T*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SGER(alpha: Float, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "SGER performs the rank 1 operation A := alpha*x*y**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSBMV(Uplo: Int, K: Int, alpha: Float, A: Allocation!, X: Allocation!, incX: Int, beta: Float, Y: Allocation!, incY: Int)",
+      "desc": "SSBMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSPMV(Uplo: Int, alpha: Float, Ap: Allocation!, X: Allocation!, incX: Int, beta: Float, Y: Allocation!, incY: Int)",
+      "desc": "SSPMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSPR(Uplo: Int, alpha: Float, X: Allocation!, incX: Int, Ap: Allocation!)",
+      "desc": "SSPR performs the rank 1 operation A := alpha*x*x**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSPR2(Uplo: Int, alpha: Float, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, Ap: Allocation!)",
+      "desc": "SSPR2 performs the symmetric rank 2 operation A := alpha*x*y**T + alpha*y*x**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSYMM(Side: Int, Uplo: Int, alpha: Float, A: Allocation!, B: Allocation!, beta: Float, C: Allocation!)",
+      "desc": "SSYMM performs one of the matrix-matrix operations C := alpha*A*B + beta*C or C := alpha*B*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSYMV(Uplo: Int, alpha: Float, A: Allocation!, X: Allocation!, incX: Int, beta: Float, Y: Allocation!, incY: Int)",
+      "desc": "SSYMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSYR(Uplo: Int, alpha: Float, X: Allocation!, incX: Int, A: Allocation!)",
+      "desc": "SSYR performs the rank 1 operation A := alpha*x*x**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSYR2(Uplo: Int, alpha: Float, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "SSYR2 performs the symmetric rank 2 operation A := alpha*x*y**T + alpha*y*x**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSYR2K(Uplo: Int, Trans: Int, alpha: Float, A: Allocation!, B: Allocation!, beta: Float, C: Allocation!)",
+      "desc": "SSYR2K performs one of the symmetric rank 2k operations C := alpha*A*B**T + alpha*B*A**T + beta*C or C := alpha*A**T*B + alpha*B**T*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "SSYRK(Uplo: Int, Trans: Int, alpha: Float, A: Allocation!, beta: Float, C: Allocation!)",
+      "desc": "SSYRK performs one of the symmetric rank k operations C := alpha*A*A**T + beta*C or C := alpha*A**T*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "STBMV(Uplo: Int, TransA: Int, Diag: Int, K: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "STBMV performs one of the matrix-vector operations x := A*x or x := A**T*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "STBSV(Uplo: Int, TransA: Int, Diag: Int, K: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "STBSV solves one of the systems of equations A*x = b or A**T*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "STPMV(Uplo: Int, TransA: Int, Diag: Int, Ap: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "STPMV performs one of the matrix-vector operations x := A*x or x := A**T*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "STPSV(Uplo: Int, TransA: Int, Diag: Int, Ap: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "STPSV solves one of the systems of equations A*x = b or A**T*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "STRMM(Side: Int, Uplo: Int, TransA: Int, Diag: Int, alpha: Float, A: Allocation!, B: Allocation!)",
+      "desc": "STRMM performs one of the matrix-matrix operations B := alpha*op(A)*B or B := alpha*B*op(A) op(A) is one of op(A) = A or op(A) = A**T Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "STRMV(Uplo: Int, TransA: Int, Diag: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "STRMV performs one of the matrix-vector operations x := A*x or x := A**T*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "STRSM(Side: Int, Uplo: Int, TransA: Int, Diag: Int, alpha: Float, A: Allocation!, B: Allocation!)",
+      "desc": "STRSM solves one of the matrix equations op(A)*X := alpha*B or X*op(A) := alpha*B op(A) is one of op(A) = A or op(A) = A**T Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "STRSV(Uplo: Int, TransA: Int, Diag: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "STRSV solves one of the systems of equations A*x = b or A**T*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZGBMV(TransA: Int, KL: Int, KU: Int, alpha: Double2!, A: Allocation!, X: Allocation!, incX: Int, beta: Double2!, Y: Allocation!, incY: Int)",
+      "desc": "ZGBMV performs one of the matrix-vector operations y := alpha*A*x + beta*y or y := alpha*A**T*x + beta*y or y := alpha*A**H*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZGEMM(TransA: Int, TransB: Int, alpha: Double2!, A: Allocation!, B: Allocation!, beta: Double2!, C: Allocation!)",
+      "desc": "ZGEMM performs one of the matrix-matrix operations C := alpha*op(A)*op(B) + beta*C where op(X) is one of op(X) = X or op(X) = X**T or op(X) = X**H Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZGEMV(TransA: Int, alpha: Double2!, A: Allocation!, X: Allocation!, incX: Int, beta: Double2!, Y: Allocation!, incY: Int)",
+      "desc": "ZGEMV performs one of the matrix-vector operations y := alpha*A*x + beta*y or y := alpha*A**T*x + beta*y or y := alpha*A**H*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZGERC(alpha: Double2!, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "ZGERC performs the rank 1 operation A := alpha*x*y**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZGERU(alpha: Double2!, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "ZGERU performs the rank 1 operation A := alpha*x*y**T + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHBMV(Uplo: Int, K: Int, alpha: Double2!, A: Allocation!, X: Allocation!, incX: Int, beta: Double2!, Y: Allocation!, incY: Int)",
+      "desc": "ZHBMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHEMM(Side: Int, Uplo: Int, alpha: Double2!, A: Allocation!, B: Allocation!, beta: Double2!, C: Allocation!)",
+      "desc": "ZHEMM performs one of the matrix-matrix operations C := alpha*A*B + beta*C or C := alpha*B*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHEMV(Uplo: Int, alpha: Double2!, A: Allocation!, X: Allocation!, incX: Int, beta: Double2!, Y: Allocation!, incY: Int)",
+      "desc": "ZHEMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHER(Uplo: Int, alpha: Double, X: Allocation!, incX: Int, A: Allocation!)",
+      "desc": "ZHER performs the rank 1 operation A := alpha*x*x**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHER2(Uplo: Int, alpha: Double2!, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, A: Allocation!)",
+      "desc": "ZHER2 performs the symmetric rank 2 operation A := alpha*x*y**H + alpha*y*x**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHER2K(Uplo: Int, Trans: Int, alpha: Double2!, A: Allocation!, B: Allocation!, beta: Double, C: Allocation!)",
+      "desc": "ZHER2K performs one of the hermitian rank 2k operations C := alpha*A*B**H + conjg( alpha )*B*A**H + beta*C or C := alpha*A**H*B + conjg( alpha )*B**H*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHERK(Uplo: Int, Trans: Int, alpha: Double, A: Allocation!, beta: Double, C: Allocation!)",
+      "desc": "ZHERK performs one of the hermitian rank k operations C := alpha*A*A**H + beta*C or C := alpha*A**H*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHPMV(Uplo: Int, alpha: Double2!, Ap: Allocation!, X: Allocation!, incX: Int, beta: Double2!, Y: Allocation!, incY: Int)",
+      "desc": "ZHPMV performs the matrix-vector operation y := alpha*A*x + beta*y Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHPR(Uplo: Int, alpha: Double, X: Allocation!, incX: Int, Ap: Allocation!)",
+      "desc": "ZHPR performs the rank 1 operation A := alpha*x*x**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZHPR2(Uplo: Int, alpha: Double2!, X: Allocation!, incX: Int, Y: Allocation!, incY: Int, Ap: Allocation!)",
+      "desc": "ZHPR2 performs the symmetric rank 2 operation A := alpha*x*y**H + alpha*y*x**H + A Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZSYMM(Side: Int, Uplo: Int, alpha: Double2!, A: Allocation!, B: Allocation!, beta: Double2!, C: Allocation!)",
+      "desc": "ZSYMM performs one of the matrix-matrix operations C := alpha*A*B + beta*C or C := alpha*B*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZSYR2K(Uplo: Int, Trans: Int, alpha: Double2!, A: Allocation!, B: Allocation!, beta: Double2!, C: Allocation!)",
+      "desc": "ZSYR2K performs one of the symmetric rank 2k operations C := alpha*A*B**T + alpha*B*A**T + beta*C or C := alpha*A**T*B + alpha*B**T*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZSYRK(Uplo: Int, Trans: Int, alpha: Double2!, A: Allocation!, beta: Double2!, C: Allocation!)",
+      "desc": "ZSYRK performs one of the symmetric rank k operations C := alpha*A*A**T + beta*C or C := alpha*A**T*A + beta*C Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZTBMV(Uplo: Int, TransA: Int, Diag: Int, K: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "ZTBMV performs one of the matrix-vector operations x := A*x or x := A**T*x or x := A**H*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZTBSV(Uplo: Int, TransA: Int, Diag: Int, K: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "ZTBSV solves one of the systems of equations A*x = b or A**T*x = b or A**H*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZTPMV(Uplo: Int, TransA: Int, Diag: Int, Ap: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "ZTPMV performs one of the matrix-vector operations x := A*x or x := A**T*x or x := A**H*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZTPSV(Uplo: Int, TransA: Int, Diag: Int, Ap: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "ZTPSV solves one of the systems of equations A*x = b or A**T*x = b or A**H*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZTRMM(Side: Int, Uplo: Int, TransA: Int, Diag: Int, alpha: Double2!, A: Allocation!, B: Allocation!)",
+      "desc": "ZTRMM performs one of the matrix-matrix operations B := alpha*op(A)*B or B := alpha*B*op(A) op(A) is one of op(A) = A or op(A) = A**T or op(A) = A**H Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZTRMV(Uplo: Int, TransA: Int, Diag: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "ZTRMV performs one of the matrix-vector operations x := A*x or x := A**T*x or x := A**H*x Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZTRSM(Side: Int, Uplo: Int, TransA: Int, Diag: Int, alpha: Double2!, A: Allocation!, B: Allocation!)",
+      "desc": "ZTRSM solves one of the matrix equations op(A)*X := alpha*B or X*op(A) := alpha*B op(A) is one of op(A) = A or op(A) = A**T or op(A) = A**H Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "ZTRSV(Uplo: Int, TransA: Int, Diag: Int, A: Allocation!, X: Allocation!, incX: Int)",
+      "desc": "ZTRSV solves one of the systems of equations A*x = b or A**T*x = b or A**H*x = b Details: http://www."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "ScriptIntrinsicBLAS",
+      "code": "create(rs: RenderScript!)",
+      "desc": "Create an intrinsic to access BLAS subroutines.",
+      "symbol": "!"
+    }
+  ]
+}

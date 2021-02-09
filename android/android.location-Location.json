@@ -1,0 +1,501 @@
+{
+  "path": "android.location",
+  "name": "Location",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FORMAT_DEGREES",
+      "desc": "Constant used to specify formatting of a latitude or longitude in the form \"[+-]DDD."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FORMAT_MINUTES",
+      "desc": "Constant used to specify formatting of a latitude or longitude in the form \"[+-]DDD:MM."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FORMAT_SECONDS",
+      "desc": "Constant used to specify formatting of a latitude or longitude in the form \"DDD:MM:SS."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(provider: String!)\n            Construct a new Location with a named provider."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(l: Location!)\n            Construct a new Location object that is copied from an existing one."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "bearingTo(dest: Location!)",
+      "desc": "Returns the approximate initial bearing in degrees East of true North when traveling along the shortest path between this location and the given location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "convert(coordinate: Double, outputType: Int)",
+      "desc": "Converts a coordinate to a String representation.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Double",
+      "code": "convert(coordinate: String!)",
+      "desc": "Converts a String in one of the formats described by FORMAT_DEGREES, FORMAT_MINUTES, or FORMAT_SECONDS into a double."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "distanceBetween(startLatitude: Double, startLongitude: Double, endLatitude: Double, endLongitude: Double, results: FloatArray!)",
+      "desc": "Computes the approximate distance in meters between two locations, and optionally the initial and final bearings of the shortest path between them."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "distanceTo(dest: Location!)",
+      "desc": "Returns the approximate distance in meters between this location and the given location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dump(pw: Printer!, prefix: String!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getAccuracy()",
+      "desc": "Get the estimated horizontal accuracy of this location, radial, in meters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Double",
+      "code": "getAltitude()",
+      "desc": "Get the altitude if available, in meters above the WGS 84 reference ellipsoid."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getBearing()",
+      "desc": "Get the bearing, in degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getBearingAccuracyDegrees()",
+      "desc": "Get the estimated bearing accuracy of this location, in degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getElapsedRealtimeNanos()",
+      "desc": "Return the time of this fix, in elapsed real-time since system boot."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Double",
+      "code": "getElapsedRealtimeUncertaintyNanos()",
+      "desc": "Get estimate of the relative precision of the alignment of the ElapsedRealtimeNanos timestamp, with the reported measurements in nanoseconds (68% confidence)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getExtras()",
+      "desc": "Returns additional provider-specific information about the location fix as a Bundle.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Double",
+      "code": "getLatitude()",
+      "desc": "Get the latitude, in degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Double",
+      "code": "getLongitude()",
+      "desc": "Get the longitude, in degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getProvider()",
+      "desc": "Returns the name of the provider that generated this fix.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getSpeed()",
+      "desc": "Get the speed if it is available, in meters/second over ground."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getSpeedAccuracyMetersPerSecond()",
+      "desc": "Get the estimated speed accuracy of this location, in meters per second."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getTime()",
+      "desc": "Return the UTC time of this fix, in milliseconds since January 1, 1970."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getVerticalAccuracyMeters()",
+      "desc": "Get the estimated vertical accuracy of this location, in meters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasAccuracy()",
+      "desc": "True if this location has a horizontal accuracy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasAltitude()",
+      "desc": "True if this location has an altitude."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasBearing()",
+      "desc": "True if this location has a bearing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasBearingAccuracy()",
+      "desc": "True if this location has a bearing accuracy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasElapsedRealtimeUncertaintyNanos()",
+      "desc": "True if this location has a elapsed realtime accuracy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasSpeed()",
+      "desc": "True if this location has a speed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasSpeedAccuracy()",
+      "desc": "True if this location has a speed accuracy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasVerticalAccuracy()",
+      "desc": "True if this location has a vertical accuracy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isFromMockProvider()",
+      "desc": "Returns true if the Location came from a mock provider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeAccuracy()",
+      "desc": "Remove the horizontal accuracy from this location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeAltitude()",
+      "desc": "Remove the altitude from this location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeBearing()",
+      "desc": "Remove the bearing from this location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeSpeed()",
+      "desc": "Remove the speed from this location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reset()",
+      "desc": "Clears the contents of the location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "set(l: Location!)",
+      "desc": "Sets the contents of the location to the values from the given location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAccuracy(horizontalAccuracy: Float)",
+      "desc": "Set the estimated horizontal accuracy of this location, meters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAltitude(altitude: Double)",
+      "desc": "Set the altitude, in meters above the WGS 84 reference ellipsoid."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setBearing(bearing: Float)",
+      "desc": "Set the bearing, in degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setBearingAccuracyDegrees(bearingAccuracyDegrees: Float)",
+      "desc": "Set the estimated bearing accuracy of this location, degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setElapsedRealtimeNanos(time: Long)",
+      "desc": "Set the time of this fix, in elapsed real-time since system boot."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setElapsedRealtimeUncertaintyNanos(time: Double)",
+      "desc": "Set estimate of the relative precision of the alignment of the ElapsedRealtimeNanos timestamp, with the reported measurements in nanoseconds (68% confidence)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setExtras(extras: Bundle!)",
+      "desc": "Sets the extra information associated with this fix to the given Bundle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setLatitude(latitude: Double)",
+      "desc": "Set the latitude, in degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setLongitude(longitude: Double)",
+      "desc": "Set the longitude, in degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setProvider(provider: String!)",
+      "desc": "Sets the name of the provider that generated this fix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSpeed(speed: Float)",
+      "desc": "Set the speed, in meters/second over ground."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSpeedAccuracyMetersPerSecond(speedAccuracyMeterPerSecond: Float)",
+      "desc": "Set the estimated speed accuracy of this location, meters per second."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTime(time: Long)",
+      "desc": "Set the UTC time of this fix, in milliseconds since January 1, 1970."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setVerticalAccuracyMeters(verticalAccuracyMeters: Float)",
+      "desc": "Set the estimated vertical accuracy of this location, meters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "writeToParcel(parcel: Parcel!, flags: Int)",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    }
+  ]
+}

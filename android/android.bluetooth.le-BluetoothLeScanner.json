@@ -1,0 +1,76 @@
+{
+  "path": "android.bluetooth.le",
+  "name": "BluetoothLeScanner",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CALLBACK_TYPE",
+      "desc": "Optional extra indicating the callback type, which will be one of CALLBACK_TYPE_* constants in ScanSettings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_ERROR_CODE",
+      "desc": "Optional extra indicating the error code, if any."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_LIST_SCAN_RESULT",
+      "desc": "Extra containing a list of ScanResults."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "flushPendingScanResults(callback: ScanCallback!)",
+      "desc": "Flush pending batch scan results stored in Bluetooth controller."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "startScan(callback: ScanCallback!)",
+      "desc": "Start Bluetooth LE scan with default parameters and no filters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "startScan(filters: MutableList<ScanFilter!>!, settings: ScanSettings!, callback: ScanCallback!)",
+      "desc": "Start Bluetooth LE scan."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "startScan(filters: MutableList<ScanFilter!>?, settings: ScanSettings?, callbackIntent: PendingIntent)",
+      "desc": "Start Bluetooth LE scan using a PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stopScan(callback: ScanCallback!)",
+      "desc": "Stops an ongoing Bluetooth LE scan."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stopScan(callbackIntent: PendingIntent!)",
+      "desc": "Stops an ongoing Bluetooth LE scan started using a PendingIntent."
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "path": "android.content.pm",
+  "name": "LauncherApps",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CONFIRM_PIN_APPWIDGET",
+      "desc": "Activity Action: For the default launcher to show the confirmation dialog to create a pinned app widget."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CONFIRM_PIN_SHORTCUT",
+      "desc": "Activity Action: For the default launcher to show the confirmation dialog to create a pinned shortcut."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PIN_ITEM_REQUEST",
+      "desc": "An extra for ACTION_CONFIRM_PIN_SHORTCUT & ACTION_CONFIRM_PIN_APPWIDGET containing a PinItemRequest of appropriate type asked to pin."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getActivityList(packageName: String!, user: UserHandle!)",
+      "desc": "Retrieves a list of activities that specify Intent#ACTION_MAIN and Intent#CATEGORY_LAUNCHER, across all apps, for a specified user.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getAllPackageInstallerSessions()",
+      "desc": "Return list of all known install sessions in this user and managed profiles, regardless of the installer.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ApplicationInfo",
+      "code": "getApplicationInfo(packageName: String, flags: Int, user: UserHandle)",
+      "desc": "Returns ApplicationInfo about an application installed for a specific user profile.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "LauncherApps.PinItemRequest",
+      "code": "getPinItemRequest(intent: Intent!)",
+      "desc": "A helper method to extract a PinItemRequest set to the EXTRA_PIN_ITEM_REQUEST extra.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getProfiles()",
+      "desc": "Return a list of profiles that the caller can access via the LauncherApps APIs.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "getShortcutBadgedIconDrawable(shortcut: ShortcutInfo!, density: Int)",
+      "desc": "Returns the shortcut icon with badging appropriate for the profile.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntentSender",
+      "code": "getShortcutConfigActivityIntent(info: LauncherActivityInfo)",
+      "desc": "Returns an intent sender which can be used to start the configure activity for creating custom shortcuts.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getShortcutConfigActivityList(packageName: String?, user: UserHandle)",
+      "desc": "Retrieves a list of config activities for creating ShortcutInfo.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Drawable",
+      "code": "getShortcutIconDrawable(shortcut: ShortcutInfo, density: Int)",
+      "desc": "Returns the icon for this shortcut, without any badging for the profile.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getShortcuts(query: LauncherApps.ShortcutQuery, user: UserHandle)",
+      "desc": "Returns ShortcutInfos that match query.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getSuspendedPackageLauncherExtras(packageName: String!, user: UserHandle!)",
+      "desc": "Gets the launcher extras supplied to the system when the given package was suspended via PackageManager#setPackagesSuspended(String[], boolean, PersistableBundle, PersistableBundle, String).",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasShortcutHostPermission()",
+      "desc": "Returns whether the caller can access the shortcut information."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isActivityEnabled(component: ComponentName!, user: UserHandle!)",
+      "desc": "Checks if the activity exists and it enabled for a profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPackageEnabled(packageName: String!, user: UserHandle!)",
+      "desc": "Checks if the package is installed and enabled for a profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "pinShortcuts(packageName: String, shortcutIds: MutableList<String!>, user: UserHandle)",
+      "desc": "Pin shortcuts on a package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerCallback(callback: LauncherApps.Callback!)",
+      "desc": "Registers a callback for changes to packages in this user and managed profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerCallback(callback: LauncherApps.Callback!, handler: Handler!)",
+      "desc": "Registers a callback for changes to packages in this user and managed profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerPackageInstallerSessionCallback(executor: Executor, callback: PackageInstaller.SessionCallback)",
+      "desc": "Register a callback to watch for session lifecycle events in this user and managed profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "LauncherActivityInfo",
+      "code": "resolveActivity(intent: Intent!, user: UserHandle!)",
+      "desc": "Returns the activity info for a given intent and user handle, if it resolves.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "shouldHideFromSuggestions(packageName: String, user: UserHandle)",
+      "desc": "Returns whether a package should be hidden from suggestions to the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startAppDetailsActivity(component: ComponentName!, user: UserHandle!, sourceBounds: Rect!, opts: Bundle!)",
+      "desc": "Starts the settings activity to show the application details for a package in the specified profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startMainActivity(component: ComponentName!, user: UserHandle!, sourceBounds: Rect!, opts: Bundle!)",
+      "desc": "Starts a Main activity in the specified profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startPackageInstallerSessionDetailsActivity(sessionInfo: PackageInstaller.SessionInfo, sourceBounds: Rect?, opts: Bundle?)",
+      "desc": "Starts an activity to show the details of the specified session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startShortcut(packageName: String, shortcutId: String, sourceBounds: Rect?, startActivityOptions: Bundle?, user: UserHandle)",
+      "desc": "Starts a shortcut."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startShortcut(shortcut: ShortcutInfo, sourceBounds: Rect?, startActivityOptions: Bundle?)",
+      "desc": "Launches a shortcut."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterCallback(callback: LauncherApps.Callback!)",
+      "desc": "Unregisters a callback that was previously registered."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterPackageInstallerSessionCallback(callback: PackageInstaller.SessionCallback)",
+      "desc": "Unregisters a callback that was previously registered."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "Callbacks for package changes to this and related managed profiles."
+    },
+    {
+      "type": "nested-classes",
+      "code": "PinItemRequest",
+      "desc": "Represents a \"pin shortcut\" or a \"pin appwidget\" request made by an app, which is sent with an ACTION_CONFIRM_PIN_SHORTCUT or ACTION_CONFIRM_PIN_APPWIDGET intent respectively to the default launcher app."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "ShortcutQuery",
+      "desc": "Represents a query passed to getShortcuts(android.content.pm.LauncherApps.ShortcutQuery,android.os.UserHandle)."
+    }
+  ]
+}

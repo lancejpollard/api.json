@@ -1,0 +1,315 @@
+{
+  "path": "android.content.pm",
+  "name": "PackageInstaller",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SESSION_COMMITTED",
+      "desc": "Broadcast Action: Explicit broadcast sent to the last known default launcher when a session for a new install is committed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SESSION_DETAILS",
+      "desc": "Activity Action: Show details about a particular install session."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SESSION_UPDATED",
+      "desc": "Broadcast Action: Send information about a staged install session when its state is updated."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_OTHER_PACKAGE_NAME",
+      "desc": "Another package name relevant to a status."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PACKAGE_NAME",
+      "desc": "Package name that an operation is working with."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SESSION",
+      "desc": "SessionInfo that an operation is working with."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SESSION_ID",
+      "desc": "An integer session ID that an operation is working with."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_STATUS",
+      "desc": "Current status of an operation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_STATUS_MESSAGE",
+      "desc": "Detailed string representation of the status, including raw details that are useful for debugging."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_STORAGE_PATH",
+      "desc": "Storage path relevant to a status."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_FAILURE",
+      "desc": "The operation failed in a generic way."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_FAILURE_ABORTED",
+      "desc": "The operation failed because it was actively aborted."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_FAILURE_BLOCKED",
+      "desc": "The operation failed because it was blocked."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_FAILURE_CONFLICT",
+      "desc": "The operation failed because it conflicts (or is inconsistent with) with another package already installed on the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_FAILURE_INCOMPATIBLE",
+      "desc": "The operation failed because it is fundamentally incompatible with this device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_FAILURE_INVALID",
+      "desc": "The operation failed because one or more of the APKs was invalid."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_FAILURE_STORAGE",
+      "desc": "The operation failed because of storage issues."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_PENDING_USER_ACTION",
+      "desc": "User action is currently required to proceed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_SUCCESS",
+      "desc": "The operation succeeded."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "abandonSession(sessionId: Int)",
+      "desc": "Completely abandon the given session, destroying all staged data and rendering it invalid."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "createSession(params: PackageInstaller.SessionParams)",
+      "desc": "Create a new session using the given parameters, returning a unique ID that represents the session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PackageInstaller.SessionInfo",
+      "code": "getActiveStagedSession()",
+      "desc": "Returns first active staged session, or null if there is none.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getActiveStagedSessions()",
+      "desc": "Returns list of active staged sessions.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getAllSessions()",
+      "desc": "Return list of all known install sessions, regardless of the installer.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getMySessions()",
+      "desc": "Return list of all known install sessions owned by the calling app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PackageInstaller.SessionInfo",
+      "code": "getSessionInfo(sessionId: Int)",
+      "desc": "Return details for a specific session.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getStagedSessions()",
+      "desc": "Return list of all staged install sessions.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "installExistingPackage(packageName: String, installReason: Int, statusReceiver: IntentSender?)",
+      "desc": "Install the given package, which already exists on the device, for the user for which this installer was created."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PackageInstaller.Session",
+      "code": "openSession(sessionId: Int)",
+      "desc": "Open an existing session to actively perform work."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerSessionCallback(callback: PackageInstaller.SessionCallback)",
+      "desc": "Register to watch for session lifecycle events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerSessionCallback(callback: PackageInstaller.SessionCallback, handler: Handler)",
+      "desc": "Register to watch for session lifecycle events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "uninstall(packageName: String, statusReceiver: IntentSender)",
+      "desc": "Uninstall the given package, removing it completely from the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "uninstall(versionedPackage: VersionedPackage, statusReceiver: IntentSender)",
+      "desc": "Uninstall the given package with a specific version code, removing it completely from the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterSessionCallback(callback: PackageInstaller.SessionCallback)",
+      "desc": "Unregister a previously registered callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "updateSessionAppIcon(sessionId: Int, appIcon: Bitmap?)",
+      "desc": "Update the icon representing the app being installed in a specific session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "updateSessionAppLabel(sessionId: Int, appLabel: CharSequence?)",
+      "desc": "Update the label representing the app being installed in a specific session."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Session",
+      "desc": "An installation that is being actively staged."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "SessionCallback",
+      "desc": "Events for observing session lifecycle."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "SessionInfo",
+      "desc": "Details for an active install session."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "SessionParams",
+      "desc": "Parameters for creating a new PackageInstaller.Session."
+    }
+  ]
+}

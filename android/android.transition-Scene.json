@@ -1,0 +1,76 @@
+{
+  "path": "android.transition",
+  "name": "Scene",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(sceneRoot: ViewGroup!)\n            Constructs a Scene with no information about how values will change when this scene is applied."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(sceneRoot: ViewGroup!, layout: View!)\n            Constructs a Scene which, when entered, will remove any children from the sceneRoot container and add the layout object as a new child of that container."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(sceneRoot: ViewGroup!, layout: ViewGroup!)"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "enter()",
+      "desc": "Enters this scene, which entails changing all values that are specified by this scene."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "exit()",
+      "desc": "Exits this scene, if it is the current scene on the scene's scene root."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Scene",
+      "code": "getCurrentScene(sceneRoot: ViewGroup)",
+      "desc": "Gets the current Scene set on the given ViewGroup.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Scene",
+      "code": "getSceneForLayout(sceneRoot: ViewGroup!, layoutId: Int, context: Context!)",
+      "desc": "Returns a Scene described by the resource file associated with the given layoutId parameter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ViewGroup",
+      "code": "getSceneRoot()",
+      "desc": "Gets the root of the scene, which is the root of the view hierarchy affected by changes due to this scene, and which will be animated when this scene is entered.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setEnterAction(action: Runnable!)",
+      "desc": "Scenes that are not defined with layout resources or hierarchies, or which need to perform additional steps after those hierarchies are changed to, should set an enter action, and possibly an exit action as well."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setExitAction(action: Runnable!)",
+      "desc": "Scenes that are not defined with layout resources or hierarchies, or which need to perform additional steps after those hierarchies are changed to, should set an enter action, and possibly an exit action as well."
+    }
+  ]
+}

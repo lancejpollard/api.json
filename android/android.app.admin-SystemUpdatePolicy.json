@@ -1,0 +1,167 @@
+{
+  "path": "android.app.admin",
+  "name": "SystemUpdatePolicy",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_INSTALL_AUTOMATIC",
+      "desc": "Installs system updates (without user interaction) as soon as they become available."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_INSTALL_WINDOWED",
+      "desc": "Installs system updates (without user interaction) during a daily maintenance window."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_POSTPONE",
+      "desc": "Postpones the installation of system updates for 30 days."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SystemUpdatePolicy",
+      "code": "createAutomaticInstallPolicy()",
+      "desc": "Create a policy object and set it to install update automatically as soon as one is available.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SystemUpdatePolicy",
+      "code": "createPostponeInstallPolicy()",
+      "desc": "Create a policy object and set it to block installation for a maximum period of 30 days.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "SystemUpdatePolicy",
+      "code": "createWindowedInstallPolicy(startTime: Int, endTime: Int)",
+      "desc": "Create a policy object and set it to: new system update will only be installed automatically when the system clock is inside a daily maintenance window.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getFreezePeriods()",
+      "desc": "Returns the list of freeze periods previously set on this system update policy object.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getInstallWindowEnd()",
+      "desc": "Get the end of the maintenance window."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getInstallWindowStart()",
+      "desc": "Get the start of the maintenance window."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getPolicyType()",
+      "desc": "Returns the type of system update policy, or -1 if no policy has been set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "SystemUpdatePolicy",
+      "code": "setFreezePeriods(freezePeriods: MutableList<FreezePeriod!>!)",
+      "desc": "Configure a list of freeze periods on top of the current policy.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "writeToParcel(dest: Parcel!, flags: Int)",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ValidationFailedException",
+      "desc": "An exception class that represents various validation errors thrown from SystemUpdatePolicy#setFreezePeriods and DevicePolicyManager#setSystemUpdatePolicy"
+    }
+  ]
+}

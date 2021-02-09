@@ -1,0 +1,302 @@
+{
+  "path": "android.media.tv",
+  "name": "TvContract",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_INITIALIZE_PROGRAMS",
+      "desc": "Broadcast Action: sent to the target TV input after it is first installed to notify the input to initialize its channels and programs to the system content provider."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PREVIEW_PROGRAM_ADDED_TO_WATCH_NEXT",
+      "desc": "Broadcast Action: sent by the system to tell the target TV input that one of its existing preview programs is added to the watch next programs table by user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PREVIEW_PROGRAM_BROWSABLE_DISABLED",
+      "desc": "Broadcast Action: sent by the system to tell the target TV input that one of its preview program's browsable state is disabled, i."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_REQUEST_CHANNEL_BROWSABLE",
+      "desc": "Activity Action: sent by an application telling the system to make the given channel browsable with user interaction."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_WATCH_NEXT_PROGRAM_BROWSABLE_DISABLED",
+      "desc": "Broadcast Action: sent by the system to tell the target TV input that one of its \"watch next\" program's browsable state is disabled, i."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "AUTHORITY",
+      "desc": "The authority for the TV provider."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CHANNEL_ID",
+      "desc": "The key for a bundle parameter containing a channel ID as a long integer"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PREVIEW_PROGRAM_ID",
+      "desc": "The key for a bundle parameter containing a program ID as a long integer."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_WATCH_NEXT_PROGRAM_ID",
+      "desc": "The key for a bundle parameter containing a watch next program ID as a long integer."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildChannelLogoUri(channelId: Long)",
+      "desc": "Builds a URI that points to a channel logo.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildChannelLogoUri(channelUri: Uri!)",
+      "desc": "Builds a URI that points to a channel logo.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildChannelUri(channelId: Long)",
+      "desc": "Builds a URI that points to a specific channel.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildChannelUriForPassthroughInput(inputId: String!)",
+      "desc": "Build a special channel URI intended to be used with pass-through inputs.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildChannelsUriForInput(inputId: String?)",
+      "desc": "Builds a URI that points to all channels from a given TV input.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "buildInputId(name: ComponentName!)",
+      "desc": "Builds an ID that uniquely identifies a TV input service.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildPreviewProgramUri(previewProgramId: Long)",
+      "desc": "Builds a URI that points to a specific preview program.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildPreviewProgramsUriForChannel(channelId: Long)",
+      "desc": "Builds a URI that points to all preview programs on a given channel.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildPreviewProgramsUriForChannel(channelUri: Uri!)",
+      "desc": "Builds a URI that points to all preview programs on a given channel.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildProgramUri(programId: Long)",
+      "desc": "Builds a URI that points to a specific program.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildProgramsUriForChannel(channelId: Long)",
+      "desc": "Builds a URI that points to all programs on a given channel.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildProgramsUriForChannel(channelUri: Uri!)",
+      "desc": "Builds a URI that points to all programs on a given channel.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildProgramsUriForChannel(channelId: Long, startTime: Long, endTime: Long)",
+      "desc": "Builds a URI that points to programs on a specific channel whose schedules overlap with the given time frame.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildProgramsUriForChannel(channelUri: Uri!, startTime: Long, endTime: Long)",
+      "desc": "Builds a URI that points to programs on a specific channel whose schedules overlap with the given time frame.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildRecordedProgramUri(recordedProgramId: Long)",
+      "desc": "Builds a URI that points to a specific recorded program.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Uri",
+      "code": "buildWatchNextProgramUri(watchNextProgramId: Long)",
+      "desc": "Builds a URI that points to a specific watch next program.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isChannelUri(uri: Uri)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isChannelUriForPassthroughInput(uri: Uri)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isChannelUriForTunerInput(uri: Uri)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isProgramUri(uri: Uri)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isRecordedProgramUri(uri: Uri)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "requestChannelBrowsable(context: Context!, channelId: Long)",
+      "desc": "Requests to make a channel browsable."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "BaseTvColumns",
+      "desc": "Common base for the tables of TV channels/programs."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Channels",
+      "desc": "Column definitions for the TV channels table."
+    },
+    {
+      "type": "nested-classes",
+      "code": "PreviewPrograms",
+      "desc": "Column definitions for the preview TV programs table."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Programs",
+      "desc": "Column definitions for the TV programs table."
+    },
+    {
+      "type": "nested-classes",
+      "code": "RecordedPrograms",
+      "desc": "Column definitions for the recorded TV programs table."
+    },
+    {
+      "type": "nested-classes",
+      "code": "WatchNextPrograms",
+      "desc": "Column definitions for the \"watch next\" TV programs table."
+    }
+  ]
+}

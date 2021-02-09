@@ -1,0 +1,254 @@
+{
+  "path": "android.os.storage",
+  "name": "StorageManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CLEAR_APP_CACHE",
+      "desc": "Activity Action: Allows the user to free up space by clearing app external cache directories."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_MANAGE_STORAGE",
+      "desc": "Activity Action: Allows the user to manage their storage."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_REQUESTED_BYTES",
+      "desc": "Extra used to indicate the total size (in bytes) that an application is interested in allocating."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_UUID",
+      "desc": "Extra UUID used to indicate the storage volume where an application is interested in allocating or managing disk space."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "allocateBytes(storageUuid: UUID, bytes: Long)",
+      "desc": "Allocate the requested number of bytes for your application to use on the given storage volume."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "allocateBytes(fd: FileDescriptor!, bytes: Long)",
+      "desc": "Allocate the requested number of bytes for your application to use in the given open file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getAllocatableBytes(storageUuid: UUID)",
+      "desc": "Return the maximum number of new bytes that your app can allocate for itself on the given storage volume."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getCacheQuotaBytes(storageUuid: UUID)",
+      "desc": "Return quota size in bytes for all cached data belonging to the calling app on the given storage volume."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getCacheSizeBytes(storageUuid: UUID)",
+      "desc": "Return total size in bytes of all cached data belonging to the calling app on the given storage volume."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getMountedObbPath(rawPath: String!)",
+      "desc": "Check the mounted path of an Opaque Binary Blob (OBB) file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "StorageVolume",
+      "code": "getPrimaryStorageVolume()",
+      "desc": "Return the primary shared/external storage volume available to the current user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getRecentStorageVolumes()",
+      "desc": "Return the list of shared/external storage volumes both currently and recently available to the calling user.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "StorageVolume",
+      "code": "getStorageVolume(file: File)",
+      "desc": "Return the StorageVolume that contains the given file, or null if none.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "StorageVolume",
+      "code": "getStorageVolume(uri: Uri)",
+      "desc": "Return the StorageVolume that contains the given MediaStore item."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getStorageVolumes()",
+      "desc": "Return the list of shared/external storage volumes currently available to the calling user.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UUID",
+      "code": "getUuidForPath(path: File)",
+      "desc": "Return a UUID identifying the storage volume that hosts the given filesystem path."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAllocationSupported(fd: FileDescriptor)",
+      "desc": "Test if the given file descriptor supports allocation of disk space using allocateBytes(java.io.FileDescriptor,long)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isCacheBehaviorGroup(path: File!)",
+      "desc": "Read the current value set by setCacheBehaviorGroup(java.io.File,boolean)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isCacheBehaviorTombstone(path: File!)",
+      "desc": "Read the current value set by setCacheBehaviorTombstone(java.io.File,boolean)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isCheckpointSupported()",
+      "desc": "Check whether the device supports filesystem checkpoint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isEncrypted(file: File!)",
+      "desc": "Return if data stored at or under the given path will be encrypted while at rest."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isObbMounted(rawPath: String!)",
+      "desc": "Check whether an Opaque Binary Blob (OBB) is mounted or not."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "mountObb(rawPath: String!, key: String!, listener: OnObbStateChangeListener!)",
+      "desc": "Mount an Opaque Binary Blob (OBB) file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openProxyFileDescriptor(mode: Int, callback: ProxyFileDescriptorCallback!, handler: Handler!)",
+      "desc": "Opens a seekable ParcelFileDescriptor that proxies all low-level I/O requests back to the given ProxyFileDescriptorCallback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerStorageVolumeCallback(executor: Executor, callback: StorageManager.StorageVolumeCallback)",
+      "desc": "Registers the given callback to listen for StorageVolume changes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCacheBehaviorGroup(path: File!, group: Boolean)",
+      "desc": "Enable or disable special cache behavior that treats this directory and its contents as an entire group."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCacheBehaviorTombstone(path: File!, tombstone: Boolean)",
+      "desc": "Enable or disable special cache behavior that leaves deleted cache files intact as tombstones."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "unmountObb(rawPath: String!, force: Boolean, listener: OnObbStateChangeListener!)",
+      "desc": "Unmount an Opaque Binary Blob (OBB) file asynchronously."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterStorageVolumeCallback(callback: StorageManager.StorageVolumeCallback)",
+      "desc": "Unregisters the given callback from listening for StorageVolume changes."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "StorageVolumeCallback",
+      "desc": "Callback that delivers StorageVolume related events."
+    }
+  ]
+}

@@ -1,0 +1,680 @@
+{
+  "path": "android.media",
+  "name": "MediaDrm",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "EVENT_KEY_EXPIRED",
+      "desc": "This event type indicates that the licensed usage duration for keys in a session has expired."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "EVENT_KEY_REQUIRED",
+      "desc": "This event type indicates that the app needs to request keys from a license server."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "EVENT_PROVISION_REQUIRED",
+      "desc": "This event type indicates that the app needs to request a certificate from the provisioning server."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "EVENT_SESSION_RECLAIMED",
+      "desc": "This event indicates that a session opened by the app has been reclaimed by the resource manager."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "EVENT_VENDOR_DEFINED",
+      "desc": "This event may indicate some specific vendor-defined condition, see your DRM provider documentation for details"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HDCP_LEVEL_UNKNOWN",
+      "desc": "The DRM plugin did not report an HDCP level, or an error occurred accessing it"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HDCP_NONE",
+      "desc": "HDCP is not supported on this device, content is unprotected"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HDCP_NO_DIGITAL_OUTPUT",
+      "desc": "No digital output, implicitly secure"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HDCP_V1",
+      "desc": "HDCP version 1."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HDCP_V2",
+      "desc": "HDCP version 2."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HDCP_V2_1",
+      "desc": "HDCP version 2."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HDCP_V2_2",
+      "desc": "HDCP version 2."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HDCP_V2_3",
+      "desc": "HDCP version 2."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEY_TYPE_OFFLINE",
+      "desc": "This key request type specifies that the keys will be for offline use, they will be saved to the device for use when the device is not connected to a network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEY_TYPE_RELEASE",
+      "desc": "This key request type specifies that previously saved offline keys should be released."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEY_TYPE_STREAMING",
+      "desc": "This key request type species that the keys will be for online use, they will not be saved to the device for subsequent use when the device is not connected to a network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OFFLINE_LICENSE_STATE_RELEASED",
+      "desc": "Offline license is released, the keys have been marked for release using getKeyRequest with KEY_TYPE_RELEASE but the key response has not been received."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OFFLINE_LICENSE_STATE_UNKNOWN",
+      "desc": "Offline license state is unknown, an error occurred while trying to access it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OFFLINE_LICENSE_STATE_USABLE",
+      "desc": "Offline license is usable, the keys may be used for decryption."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PROPERTY_ALGORITHMS",
+      "desc": "String property name: a comma-separated list of cipher and mac algorithms supported by CryptoSession."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PROPERTY_DESCRIPTION",
+      "desc": "String property name: describes the DRM plugin"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PROPERTY_DEVICE_UNIQUE_ID",
+      "desc": "Byte array property name: the device unique identifier is established during device provisioning and provides a means of uniquely identifying each device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PROPERTY_VENDOR",
+      "desc": "String property name: identifies the maker of the DRM plugin"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PROPERTY_VERSION",
+      "desc": "String property name: identifies the version of the DRM plugin"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SECURITY_LEVEL_HW_SECURE_ALL",
+      "desc": "DRM key management, crypto operations, decoding of content and all handling of the media (compressed and uncompressed) is handled within a hardware backed trusted execution environment."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SECURITY_LEVEL_HW_SECURE_CRYPTO",
+      "desc": "DRM key management and crypto operations are performed within a hardware backed trusted execution environment."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SECURITY_LEVEL_HW_SECURE_DECODE",
+      "desc": "DRM key management, crypto operations and decoding of content are performed within a hardware backed trusted execution environment."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SECURITY_LEVEL_SW_SECURE_CRYPTO",
+      "desc": "DRM key management uses software-based whitebox crypto."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SECURITY_LEVEL_SW_SECURE_DECODE",
+      "desc": "DRM key management and decoding use software-based whitebox crypto."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SECURITY_LEVEL_UNKNOWN",
+      "desc": "The DRM plugin did not report a security level, or an error occurred accessing it"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(uuid: UUID)\n            Instantiate a MediaDrm object"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "clearOnEventListener()",
+      "desc": "Clear the OnEventListener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "clearOnExpirationUpdateListener()",
+      "desc": "Clear the OnExpirationUpdateListener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "clearOnKeyStatusChangeListener()",
+      "desc": "Clear the OnKeyStatusChangeListener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "clearOnSessionLostStateListener()",
+      "desc": "Clear the OnSessionLostStateListener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Releases resources associated with the current session of MediaDrm."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "closeSession(sessionId: ByteArray)",
+      "desc": "Close a session on the MediaDrm object that was previously opened with openSession."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getConnectedHdcpLevel()",
+      "desc": "Return the HDCP level negotiated with downstream receivers the device is connected to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaDrm.CryptoSession",
+      "code": "getCryptoSession(sessionId: ByteArray, cipherAlgorithm: String, macAlgorithm: String)",
+      "desc": "Obtain a CryptoSession object which can be used to encrypt, decrypt, sign and verify messages or data using the session keys established for the session using methods getKeyRequest and provideKeyResponse using a session key server.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaDrm.KeyRequest",
+      "code": "getKeyRequest(scope: ByteArray, init: ByteArray?, mimeType: String?, keyType: Int, optionalParameters: HashMap<String!, String!>?)",
+      "desc": "A key request/response exchange occurs between the app and a license server to obtain or release keys used to decrypt encrypted content."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getMaxHdcpLevel()",
+      "desc": "Return the maximum supported HDCP level."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "getMaxSecurityLevel()",
+      "desc": "Returns a value that may be passed as a parameter to openSession(int) requesting that the session be opened at the maximum security level of the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getMaxSessionCount()",
+      "desc": "Return the maximum number of MediaDrm sessions that may be opened simultaneosly among all MediaDrm instances for the active DRM scheme."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "PersistableBundle",
+      "code": "getMetrics()",
+      "desc": "Return Metrics data about the current MediaDrm instance.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getOfflineLicenseKeySetIds()",
+      "desc": "The keys in an offline license allow protected content to be played even if the device is not connected to a network.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getOfflineLicenseState(keySetId: ByteArray)",
+      "desc": "Request the state of an offline license."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getOpenSessionCount()",
+      "desc": "Return the number of MediaDrm sessions that are currently opened simultaneously among all MediaDrm instances for the active DRM scheme."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "getPropertyByteArray(propertyName: String!)",
+      "desc": "Read a MediaDrm byte array property value, given the property name string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getPropertyString(propertyName: String)",
+      "desc": "Read a MediaDrm String property value, given the property name string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaDrm.ProvisionRequest",
+      "code": "getProvisionRequest()",
+      "desc": "A provision request/response exchange occurs between the app and a provisioning server to retrieve a device certificate."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "getSecureStop(ssid: ByteArray)",
+      "desc": "Access a specific secure stop given its secure stop ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getSecureStopIds()",
+      "desc": "Return a list of all secure stop IDs currently in persistent memory.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getSecureStops()",
+      "desc": "Secure stops are a way to enforce limits on the number of concurrent streams per subscriber across devices.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getSecurityLevel(sessionId: ByteArray)",
+      "desc": "Return the current security level of a session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MutableList",
+      "code": "getSupportedCryptoSchemes()",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isCryptoSchemeSupported(uuid: UUID)",
+      "desc": "Query if the given scheme identified by its UUID is supported on this device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isCryptoSchemeSupported(uuid: UUID, mimeType: String)",
+      "desc": "Query if the given scheme identified by its UUID is supported on this device, and whether the DRM plugin is able to handle the media container format specified by mimeType."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isCryptoSchemeSupported(uuid: UUID, mimeType: String, securityLevel: Int)",
+      "desc": "Query if the given scheme identified by its UUID is supported on this device, and whether the DRM plugin is able to handle the media container format specified by mimeType at the requested security level."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "openSession()",
+      "desc": "Open a new session with the MediaDrm object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "openSession(level: Int)",
+      "desc": "Open a new session at a requested security level."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "provideKeyResponse(scope: ByteArray, response: ByteArray)",
+      "desc": "A key response is received from the license server by the app, then it is provided to the MediaDrm instance using provideKeyResponse.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "provideProvisionResponse(response: ByteArray)",
+      "desc": "After a provision response is received by the app, it is provided to the MediaDrm instance using this method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "HashMap",
+      "code": "queryKeyStatus(sessionId: ByteArray)",
+      "desc": "Request an informative description of the key status for the session.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "releaseAllSecureStops()",
+      "desc": "Remove all secure stops without requiring a secure stop release message from the license server."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "releaseSecureStops(ssRelease: ByteArray)",
+      "desc": "Process the secure stop server response message ssRelease."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeAllSecureStops()",
+      "desc": "Remove all secure stops without requiring a secure stop release message from the license server."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeKeys(sessionId: ByteArray)",
+      "desc": "Remove the current keys from a session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeOfflineLicense(keySetId: ByteArray)",
+      "desc": "Normally offline licenses are released using a key request/response exchange using getKeyRequest where the key type is KEY_TYPE_RELEASE, followed by provideKeyResponse."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeSecureStop(ssid: ByteArray)",
+      "desc": "Remove a specific secure stop without requiring a secure stop release message from the license server."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "restoreKeys(sessionId: ByteArray, keySetId: ByteArray)",
+      "desc": "Restore persisted offline keys into a new session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnEventListener(listener: MediaDrm.OnEventListener?)",
+      "desc": "Register a callback to be invoked when an event occurs"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnEventListener(listener: MediaDrm.OnEventListener?, handler: Handler?)",
+      "desc": "Register a callback to be invoked when an event occurs"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnEventListener(executor: Executor, listener: MediaDrm.OnEventListener)",
+      "desc": "Register a callback to be invoked when an event occurs"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnExpirationUpdateListener(listener: MediaDrm.OnExpirationUpdateListener?, handler: Handler?)",
+      "desc": "Register a callback to be invoked when a session expiration update occurs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnExpirationUpdateListener(executor: Executor, listener: MediaDrm.OnExpirationUpdateListener)",
+      "desc": "Register a callback to be invoked when a session expiration update occurs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnKeyStatusChangeListener(listener: MediaDrm.OnKeyStatusChangeListener?, handler: Handler?)",
+      "desc": "Register a callback to be invoked when the state of keys in a session change, e."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnKeyStatusChangeListener(executor: Executor, listener: MediaDrm.OnKeyStatusChangeListener)",
+      "desc": "Register a callback to be invoked when the state of keys in a session change."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnSessionLostStateListener(listener: MediaDrm.OnSessionLostStateListener?, handler: Handler?)",
+      "desc": "Register a callback to be invoked when session state has been lost."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnSessionLostStateListener(executor: Executor, listener: MediaDrm.OnSessionLostStateListener?)",
+      "desc": "Register a callback to be invoked when session state has been lost."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPropertyByteArray(propertyName: String, value: ByteArray)",
+      "desc": "Set a MediaDrm byte array property value, given the property name string and new value for the property."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPropertyString(propertyName: String, value: String)",
+      "desc": "Set a MediaDrm String property value, given the property name string and new value for the property."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "CryptoSession",
+      "desc": "In addition to supporting decryption of DASH Common Encrypted Media, the MediaDrm APIs provide the ability to securely deliver session keys from an operator's session key server to a client device, based on the factory-installed root of trust, and then perform encrypt, decrypt, sign and verify operations with the session key on arbitrary user data."
+    },
+    {
+      "type": "nested-classes",
+      "code": "HdcpLevel",
+      "desc": "Value is android.media.MediaDrm#HDCP_LEVEL_UNKNOWN, android.media.MediaDrm#HDCP_NONE, android.media.MediaDrm#HDCP_V1, android.media.MediaDrm#HDCP_V2, android.media.MediaDrm#HDCP_V2_1, android.media.MediaDrm#HDCP_V2_2, android.media.MediaDrm#HDCP_V2_3, or android.media.MediaDrm#HDCP_NO_DIGITAL_OUTPUT"
+    },
+    {
+      "type": "nested-classes",
+      "code": "KeyRequest",
+      "desc": "Contains the opaque data an app uses to request keys from a license server."
+    },
+    {
+      "type": "nested-classes",
+      "code": "KeyStatus",
+      "desc": "Defines the status of a key."
+    },
+    {
+      "type": "nested-classes",
+      "code": "MediaDrmStateException",
+      "desc": "Thrown when an unrecoverable failure occurs during a MediaDrm operation."
+    },
+    {
+      "type": "nested-classes",
+      "code": "MetricsConstants",
+      "desc": "Definitions for the metrics that are reported via the getMetrics call."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnEventListener",
+      "desc": "Interface definition for a callback to be invoked when a drm event occurs"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnExpirationUpdateListener",
+      "desc": "Interface definition for a callback to be invoked when a drm session expiration update occurs"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnKeyStatusChangeListener",
+      "desc": "Interface definition for a callback to be invoked when the keys in a drm session change states."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnSessionLostStateListener",
+      "desc": "Interface definition for a callback to be invoked when the session state has been lost and is now invalid"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ProvisionRequest",
+      "desc": "Contains the opaque data an app uses to request a certificate from a provisioning server"
+    },
+    {
+      "type": "nested-classes",
+      "code": "SecurityLevel",
+      "desc": "Security level indicates the robustness of the device's DRM implementation."
+    },
+    {
+      "type": "nested-classes",
+      "code": "SessionException",
+      "desc": "Thrown when an error occurs in any method that has a session context."
+    }
+  ]
+}

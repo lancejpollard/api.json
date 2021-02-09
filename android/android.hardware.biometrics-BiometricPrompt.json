@@ -1,0 +1,253 @@
+{
+  "path": "android.hardware.biometrics",
+  "name": "BiometricPrompt",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUTHENTICATION_RESULT_TYPE_BIOMETRIC",
+      "desc": "Authentication type reported by AuthenticationResult when the user authenticated by presenting some form of biometric (e.g. fingerprint or face)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUTHENTICATION_RESULT_TYPE_DEVICE_CREDENTIAL",
+      "desc": "Authentication type reported by AuthenticationResult when the user authenticated by entering their device PIN, pattern, or password."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ACQUIRED_GOOD",
+      "desc": "The image acquired was good."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ACQUIRED_IMAGER_DIRTY",
+      "desc": "The biometric image was too noisy due to suspected or detected dirt on the sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ACQUIRED_INSUFFICIENT",
+      "desc": "The biometric image was too noisy to process due to a detected condition or a possibly dirty sensor (See BIOMETRIC_ACQUIRED_IMAGER_DIRTY)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ACQUIRED_PARTIAL",
+      "desc": "Only a partial biometric image was detected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ACQUIRED_TOO_FAST",
+      "desc": "The biometric image was incomplete due to quick motion."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ACQUIRED_TOO_SLOW",
+      "desc": "The biometric image was unreadable due to lack of motion."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_CANCELED",
+      "desc": "The operation was canceled because the biometric sensor is unavailable."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_HW_NOT_PRESENT",
+      "desc": "The device does not have a biometric sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_HW_UNAVAILABLE",
+      "desc": "The hardware is unavailable."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_LOCKOUT",
+      "desc": "The operation was canceled because the API is locked out due to too many attempts."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_LOCKOUT_PERMANENT",
+      "desc": "The operation was canceled because BIOMETRIC_ERROR_LOCKOUT occurred too many times."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_NO_BIOMETRICS",
+      "desc": "The user does not have any biometrics enrolled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_NO_DEVICE_CREDENTIAL",
+      "desc": "The device does not have pin, pattern, or password set up."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_NO_SPACE",
+      "desc": "Error state returned for operations like enrollment; the operation cannot be completed because there's not enough storage remaining to complete the operation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED",
+      "desc": "A security vulnerability has been discovered and the sensor is unavailable until a security update has addressed this issue."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_TIMEOUT",
+      "desc": "Error state returned when the current request has been running too long."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_UNABLE_TO_PROCESS",
+      "desc": "Error state returned when the sensor was unable to process the current image."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_USER_CANCELED",
+      "desc": "The user canceled the operation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BIOMETRIC_ERROR_VENDOR",
+      "desc": "OEMs should use this constant if there are conditions that do not fit under any of the other publicly defined constants, and must provide appropriate strings for these errors to the BiometricPrompt.AuthenticationCallback#onAuthenticationError(int, callback."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "authenticate(crypto: BiometricPrompt.CryptoObject, cancel: CancellationSignal, executor: Executor, callback: BiometricPrompt.AuthenticationCallback)",
+      "desc": "This call warms up the biometric hardware, displays a system-provided dialog, and starts scanning for a biometric."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "authenticate(cancel: CancellationSignal, executor: Executor, callback: BiometricPrompt.AuthenticationCallback)",
+      "desc": "This call warms up the biometric hardware, displays a system-provided dialog, and starts scanning for a biometric."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getAllowedAuthenticators()",
+      "desc": "Gets the type(s) of authenticators that may be invoked by the prompt to authenticate the user, as set by Builder#setAllowedAuthenticators(int)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getDescription()",
+      "desc": "Gets the description for the prompt, as set by Builder#setDescription(CharSequence).",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getNegativeButtonText()",
+      "desc": "Gets the negative button text for the prompt, as set by Builder#setNegativeButton(CharSequence, Executor, DialogInterface.OnClickListener).",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getSubtitle()",
+      "desc": "Gets the subtitle for the prompt, as set by Builder#setSubtitle(CharSequence).",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getTitle()",
+      "desc": "Gets the title for the prompt, as set by Builder#setTitle(CharSequence)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isConfirmationRequired()",
+      "desc": "Determines if explicit user confirmation is required by the prompt, as set by Builder#setConfirmationRequired(boolean)."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "AuthenticationCallback",
+      "desc": "Callback structure provided to BiometricPrompt#authenticate(CancellationSignal, or BiometricPrompt#authenticate(CryptoObject,."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "AuthenticationResult",
+      "desc": "Container for callback data from authenticate(android.os.CancellationSignal,java.util.concurrent.Executor,android.hardware.biometrics.BiometricPrompt.AuthenticationCallback) and authenticate(android.hardware.biometrics.BiometricPrompt.CryptoObject,android.os.CancellationSignal,java.util.concurrent.Executor,android.hardware.biometrics.BiometricPrompt.AuthenticationCallback)."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Builder",
+      "desc": "A builder that collects arguments to be shown on the system-provided biometric dialog."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CryptoObject",
+      "desc": "A wrapper class for the cryptographic operations supported by BiometricPrompt."
+    }
+  ]
+}

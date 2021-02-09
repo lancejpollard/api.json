@@ -1,0 +1,261 @@
+{
+  "path": "android.app",
+  "name": "FragmentManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "POP_BACK_STACK_INCLUSIVE",
+      "desc": "Flag for popBackStack(java.lang.String,int) and popBackStack(int,int): If set, and the name or ID of a back stack entry has been supplied, then all matching entries will be consumed until one that doesn't match is found or the bottom of the stack is reached."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "addOnBackStackChangedListener(listener: FragmentManager.OnBackStackChangedListener!)",
+      "desc": "Add a new listener for changes to the fragment back stack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "FragmentTransaction",
+      "code": "beginTransaction()",
+      "desc": "Start a series of edit operations on the Fragments associated with this FragmentManager.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "dump(prefix: String!, fd: FileDescriptor!, writer: PrintWriter!, args: Array<String!>!)",
+      "desc": "Print the FragmentManager's state into the given stream."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "enableDebugLogging(enabled: Boolean)",
+      "desc": "Control whether the framework's internal fragment manager debugging logs are turned on."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "executePendingTransactions()",
+      "desc": "After a FragmentTransaction is committed with FragmentTransaction#commit, it is scheduled to be executed asynchronously on the process's main thread."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Fragment",
+      "code": "findFragmentById(id: Int)",
+      "desc": "Finds a fragment that was identified by the given id either when inflated from XML or as the container ID when added in a transaction.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Fragment",
+      "code": "findFragmentByTag(tag: String!)",
+      "desc": "Finds a fragment that was identified by the given tag either when inflated from XML or as supplied when added in a transaction.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "FragmentManager.BackStackEntry",
+      "code": "getBackStackEntryAt(index: Int)",
+      "desc": "Return the BackStackEntry at index index in the back stack; where the item on the bottom of the stack has index 0.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getBackStackEntryCount()",
+      "desc": "Return the number of entries currently in the back stack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Fragment",
+      "code": "getFragment(bundle: Bundle!, key: String!)",
+      "desc": "Retrieve the current Fragment instance for a reference previously placed with putFragment(android.os.Bundle,java.lang.String,android.app.Fragment).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "getFragments()",
+      "desc": "Get a list of all fragments that are currently added to the FragmentManager.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Fragment",
+      "code": "getPrimaryNavigationFragment()",
+      "desc": "Return the currently active primary navigation fragment for this FragmentManager.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "invalidateOptionsMenu()",
+      "desc": "Invalidate the attached activity's options menu as necessary."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isDestroyed()",
+      "desc": "Returns true if the final Activity#onDestroy() call has been made on the FragmentManager's Activity, so this instance is now dead."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isStateSaved()",
+      "desc": "Returns true if the FragmentManager's state has already been saved by its host."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "popBackStack()",
+      "desc": "Pop the top state off the back stack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "popBackStack(name: String!, flags: Int)",
+      "desc": "Pop the last fragment transition from the manager's fragment back stack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "popBackStack(id: Int, flags: Int)",
+      "desc": "Pop all back stack states up to the one with the given identifier."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "popBackStackImmediate()",
+      "desc": "Like popBackStack(), but performs the operation immediately inside of the call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "popBackStackImmediate(name: String!, flags: Int)",
+      "desc": "Like popBackStack(java.lang.String,int), but performs the operation immediately inside of the call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "popBackStackImmediate(id: Int, flags: Int)",
+      "desc": "Like popBackStack(int,int), but performs the operation immediately inside of the call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "putFragment(bundle: Bundle!, key: String!, fragment: Fragment!)",
+      "desc": "Put a reference to a fragment in a Bundle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "registerFragmentLifecycleCallbacks(cb: FragmentManager.FragmentLifecycleCallbacks!, recursive: Boolean)",
+      "desc": "Registers a FragmentLifecycleCallbacks to listen to fragment lifecycle events happening in this FragmentManager."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "removeOnBackStackChangedListener(listener: FragmentManager.OnBackStackChangedListener!)",
+      "desc": "Remove a listener that was previously added with addOnBackStackChangedListener(android.app.FragmentManager.OnBackStackChangedListener)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Fragment.SavedState",
+      "code": "saveFragmentInstanceState(f: Fragment!)",
+      "desc": "Save the current instance state of the given Fragment.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "unregisterFragmentLifecycleCallbacks(cb: FragmentManager.FragmentLifecycleCallbacks!)",
+      "desc": "Unregisters a previously registered FragmentLifecycleCallbacks."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "BackStackEntry",
+      "desc": "Representation of an entry on the fragment back stack, as created with FragmentTransaction#addToBackStack(String)."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "FragmentLifecycleCallbacks",
+      "desc": "Callback interface for listening to fragment state changes that happen within a given FragmentManager."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnBackStackChangedListener",
+      "desc": "Interface to watch for changes to the back stack."
+    }
+  ]
+}

@@ -1,0 +1,915 @@
+{
+  "path": "android.app",
+  "name": "Notification",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BADGE_ICON_LARGE",
+      "desc": "If this notification is being shown as a badge, use the getLargeIcon() to represent this notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BADGE_ICON_NONE",
+      "desc": "If this notification is being shown as a badge, always show as a number."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BADGE_ICON_SMALL",
+      "desc": "If this notification is being shown as a badge, use the getSmallIcon() to represent this notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_ALARM",
+      "desc": "Notification category: alarm or timer."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_CALL",
+      "desc": "Notification category: incoming call (voice or video) or similar synchronous communication request."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_EMAIL",
+      "desc": "Notification category: asynchronous bulk message (email)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_ERROR",
+      "desc": "Notification category: error in background operation or authentication status."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_EVENT",
+      "desc": "Notification category: calendar event."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_MESSAGE",
+      "desc": "Notification category: incoming direct message (SMS, instant message, etc.)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_NAVIGATION",
+      "desc": "Notification category: map turn-by-turn navigation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_PROGRESS",
+      "desc": "Notification category: progress of a long-running background operation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_PROMO",
+      "desc": "Notification category: promotion or advertisement."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_RECOMMENDATION",
+      "desc": "Notification category: a specific, timely recommendation for a single thing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_REMINDER",
+      "desc": "Notification category: user-scheduled reminder."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_SERVICE",
+      "desc": "Notification category: indication of running background service."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_SOCIAL",
+      "desc": "Notification category: social network or sharing update."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_STATUS",
+      "desc": "Notification category: ongoing information about device or contextual status."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_SYSTEM",
+      "desc": "Notification category: system or device status update."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_TRANSPORT",
+      "desc": "Notification category: media transport control for playback."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "COLOR_DEFAULT",
+      "desc": "Special value of color telling the system not to decorate this notification with any special color but instead use default colors when presenting this notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DEFAULT_ALL",
+      "desc": "Use all default values (where applicable)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DEFAULT_LIGHTS",
+      "desc": "Use the default notification lights."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DEFAULT_SOUND",
+      "desc": "Use the default notification sound."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DEFAULT_VIBRATE",
+      "desc": "Use the default notification vibrate."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_AUDIO_CONTENTS_URI",
+      "desc": "extras key: the audio contents of this notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_BACKGROUND_IMAGE_URI",
+      "desc": "extras key: flat String representation of a content URI pointing to an image that can be displayed in the background when the notification is selected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_BIG_TEXT",
+      "desc": "extras key: this is the longer text shown in the big form of a BigTextStyle notification, as supplied to BigTextStyle#bigText(CharSequence)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CHANNEL_GROUP_ID",
+      "desc": "Optional extra for INTENT_CATEGORY_NOTIFICATION_PREFERENCES."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CHANNEL_ID",
+      "desc": "Optional extra for INTENT_CATEGORY_NOTIFICATION_PREFERENCES."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CHRONOMETER_COUNT_DOWN",
+      "desc": "extras key: whether the chronometer set on the notification should count down instead of counting up."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_COLORIZED",
+      "desc": "extras key: whether the notification should be colorized as supplied to Builder#setColorized(boolean)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_COMPACT_ACTIONS",
+      "desc": "extras key: the indices of actions to be shown in the compact view, as supplied to (e.g.)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CONVERSATION_TITLE",
+      "desc": "extras key: a CharSequence to be displayed as the title to a conversation represented by a android.app.Notification.MessagingStyle"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_HISTORIC_MESSAGES",
+      "desc": "extras key: an array of historic android.app.Notification.MessagingStyle.Message bundles provided by a android.app.Notification.MessagingStyle notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_INFO_TEXT",
+      "desc": "extras key: this is a small piece of additional text as supplied to Builder#setContentInfo(CharSequence)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_IS_GROUP_CONVERSATION",
+      "desc": "extras key: whether the android.app.Notification.MessagingStyle notification represents a group conversation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_LARGE_ICON",
+      "desc": "extras key: this is a bitmap to be used instead of the small icon when showing the notification payload, as supplied to Builder#setLargeIcon(android.graphics.Bitmap)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_LARGE_ICON_BIG",
+      "desc": "extras key: this is a bitmap to be used instead of the one from Builder#setLargeIcon(android.graphics.Bitmap) when the notification is shown in its expanded form, as supplied to BigPictureStyle#bigLargeIcon(android.graphics.Bitmap)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_MEDIA_SESSION",
+      "desc": "extras key: A android.media.session.MediaSession.Token associated with a android.app.Notification.MediaStyle notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_MESSAGES",
+      "desc": "extras key: an array of android.app.Notification.MessagingStyle.Message bundles provided by a android.app.Notification.MessagingStyle notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_MESSAGING_PERSON",
+      "desc": "extras key: the person to be displayed for all messages sent by the user including direct replies android.app.Notification.MessagingStyle notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NOTIFICATION_ID",
+      "desc": "Optional extra for INTENT_CATEGORY_NOTIFICATION_PREFERENCES."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NOTIFICATION_TAG",
+      "desc": "Optional extra for INTENT_CATEGORY_NOTIFICATION_PREFERENCES."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PEOPLE",
+      "desc": "extras key: A String array containing the people that this notification relates to, each of which was supplied to Builder#addPerson(String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PEOPLE_LIST",
+      "desc": "extras key: An arrayList of Person objects containing the people that this notification relates to."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PICTURE",
+      "desc": "extras key: this is a bitmap to be shown in BigPictureStyle expanded notifications, supplied to BigPictureStyle#bigPicture(android.graphics.Bitmap)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROGRESS",
+      "desc": "extras key: this is the progress value supplied to Builder#setProgress(int, int, boolean)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROGRESS_INDETERMINATE",
+      "desc": "extras key: whether the progress bar is indeterminate, supplied to Builder#setProgress(int, int, boolean)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROGRESS_MAX",
+      "desc": "extras key: this is the maximum value supplied to Builder#setProgress(int, int, boolean)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_REMOTE_INPUT_DRAFT",
+      "desc": "If the notification contained an unsent draft for a RemoteInput when the user clicked on it, we're adding the draft as a String extra to the contentIntent using this key."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_REMOTE_INPUT_HISTORY",
+      "desc": "extras key: this is the remote input history, as supplied to Builder#setRemoteInputHistory(CharSequence[])."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SELF_DISPLAY_NAME",
+      "desc": "extras key: the username to be displayed for all messages sent by the user including direct replies android.app.Notification.MessagingStyle notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SHOW_CHRONOMETER",
+      "desc": "extras key: whether when should be shown as a count-up timer (specifically a android.widget.Chronometer) instead of a timestamp, as supplied to Builder#setUsesChronometer(boolean)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SHOW_WHEN",
+      "desc": "extras key: whether when should be shown, as supplied to Builder#setShowWhen(boolean)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SMALL_ICON",
+      "desc": "extras key: this is the resource ID of the notification's main small icon, as supplied to Builder#setSmallIcon(int)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SUB_TEXT",
+      "desc": "extras key: this is a third line of text, as supplied to Builder#setSubText(CharSequence)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SUMMARY_TEXT",
+      "desc": "extras key: this is a line of summary information intended to be shown alongside expanded notifications, as supplied to (e.g.)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TEMPLATE",
+      "desc": "extras key: A string representing the name of the specific android.app.Notification.Style used to create this notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TEXT",
+      "desc": "extras key: this is the main text payload, as supplied to Builder#setContentText(CharSequence)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TEXT_LINES",
+      "desc": "extras key: An array of CharSequences to show in InboxStyle expanded notifications, each of which was supplied to InboxStyle#addLine(CharSequence)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TITLE",
+      "desc": "extras key: this is the title of the notification, as supplied to Builder#setContentTitle(CharSequence)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TITLE_BIG",
+      "desc": "extras key: this is the title of the notification when shown in expanded form, e."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_AUTO_CANCEL",
+      "desc": "Bit to be bitwise-ored into the flags field that should be set if the notification should be canceled when it is clicked by the user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_BUBBLE",
+      "desc": "Bit to be bitswised-ored into the flags field that should be set by the system if this notification is showing as a bubble."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_FOREGROUND_SERVICE",
+      "desc": "Bit to be bitwise-ored into the flags field that should be set if this notification represents a currently running service."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_GROUP_SUMMARY",
+      "desc": "Bit to be bitswise-ored into the flags field that should be set if this notification is the group summary for a group of notifications."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_HIGH_PRIORITY",
+      "desc": "Obsolete flag indicating high-priority notifications; use the priority field instead."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_INSISTENT",
+      "desc": "Bit to be bitwise-ored into the flags field that if set, the audio will be repeated until the notification is cancelled or the notification window is opened."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_LOCAL_ONLY",
+      "desc": "Bit to be bitswise-ored into the flags field that should be set if this notification is relevant to the current device only and it is not recommended that it bridge to other devices."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_NO_CLEAR",
+      "desc": "Bit to be bitwise-ored into the flags field that should be set if the notification should not be canceled when the user clicks the Clear all button."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_ONGOING_EVENT",
+      "desc": "Bit to be bitwise-ored into the flags field that should be set if this notification is in reference to something that is ongoing, like a phone call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_ONLY_ALERT_ONCE",
+      "desc": "Bit to be bitwise-ored into the flags field that should be set if you would only like the sound, vibrate and ticker to be played if the notification was not already showing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_SHOW_LIGHTS",
+      "desc": "Bit to be bitwise-ored into the flags field that should be set if you want the LED on for this notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GROUP_ALERT_ALL",
+      "desc": "Constant for Builder#setGroupAlertBehavior(int), meaning that all notifications in a group with sound or vibration ought to make sound or vibrate (respectively), so this notification will not be muted when it is in a group."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GROUP_ALERT_CHILDREN",
+      "desc": "Constant for Builder#setGroupAlertBehavior(int), meaning that the summary notification in a group should be silenced (no sound or vibration) even if they are posted to a NotificationChannel that has sound and/or vibration."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GROUP_ALERT_SUMMARY",
+      "desc": "Constant for Builder#setGroupAlertBehavior(int), meaning that all children notification in a group should be silenced (no sound or vibration) even if they are posted to a NotificationChannel that has sound and/or vibration."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "INTENT_CATEGORY_NOTIFICATION_PREFERENCES",
+      "desc": "An activity that provides a user interface for adjusting notification preferences for its containing application."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIORITY_DEFAULT",
+      "desc": "Default notification priority."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIORITY_HIGH",
+      "desc": "Higher priority, for more important notifications or alerts."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIORITY_LOW",
+      "desc": "Lower priority, for items that are less important."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIORITY_MAX",
+      "desc": "Highest priority, for your application's most important items that require the user's prompt attention or input."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIORITY_MIN",
+      "desc": "Lowest priority; these items might not be shown to the user except under special circumstances, such as detailed notification logs."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STREAM_DEFAULT",
+      "desc": "Use this constant as the value for audioStreamType to request that the default stream type for notifications be used."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VISIBILITY_PRIVATE",
+      "desc": "Notification visibility: Show this notification on all lockscreens, but conceal sensitive or private information on secure lockscreens."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VISIBILITY_PUBLIC",
+      "desc": "Notification visibility: Show this notification in its entirety on all lockscreens."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VISIBILITY_SECRET",
+      "desc": "Notification visibility: Do not reveal any part of this notification on a secure lockscreen."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Constructs a Notification object with default values."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(icon: Int, tickerText: CharSequence!, when: Long)\n            Constructs a Notification object with the information needed to have a status bar icon without the standard expanded view."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(parcel: Parcel!)\n            Unflatten the notification from a parcel."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Notification",
+      "code": "clone()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Pair",
+      "code": "findRemoteInputActionPair(requiresFreeform: Boolean)",
+      "desc": "Finds and returns a remote input and its corresponding action.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getAllowSystemGeneratedContextualActions()",
+      "desc": "Returns whether the platform is allowed (by the app developer) to generate contextual actions for this notification."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getBadgeIconType()",
+      "desc": "Returns what icon should be shown for this notification if it is being displayed in a Launcher that supports badging."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Notification.BubbleMetadata",
+      "code": "getBubbleMetadata()",
+      "desc": "Returns the bubble metadata that will be used to display app content in a floating window over the existing foreground activity.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getChannelId()",
+      "desc": "Returns the id of the channel this notification posts to.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getContextualActions()",
+      "desc": "Returns the actions that are contextual (that is, suggested because of the content of the notification) out of the actions in this notification.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getGroup()",
+      "desc": "Get the key used to group this notification into a cluster or stack with other notifications on devices which support such rendering.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getGroupAlertBehavior()",
+      "desc": "Returns which type of notifications in a group are responsible for audibly alerting the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Icon",
+      "code": "getLargeIcon()",
+      "desc": "The large icon shown in this notification's content view.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "LocusId",
+      "code": "getLocusId()",
+      "desc": "Gets the LocusId associated with this notification.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getSettingsText()",
+      "desc": "Returns the settings text provided to Builder#setSettingsText(CharSequence).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getShortcutId()",
+      "desc": "Returns the ShortcutInfo#getId() that this notification supersedes, if any.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Icon",
+      "code": "getSmallIcon()",
+      "desc": "The small icon representing this notification in the status bar and content view.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getSortKey()",
+      "desc": "Get a sort key that orders this notification among other notifications from the same package.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getTimeoutAfter()",
+      "desc": "Returns the duration from posting after which this notification should be canceled by the system, if it's not canceled already."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "writeToParcel(parcel: Parcel!, flags: Int)",
+      "desc": "Flatten this notification into a parcel."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Action",
+      "desc": "Structure to encapsulate a named action that can be shown as part of this notification."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "BigPictureStyle",
+      "desc": "Helper class for generating large-format notifications that include a large image attachment."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "BigTextStyle",
+      "desc": "Helper class for generating large-format notifications that include a lot of text."
+    },
+    {
+      "type": "nested-classes",
+      "code": "BubbleMetadata",
+      "desc": "Encapsulates the information needed to display a notification as a bubble."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Builder",
+      "desc": "Builder class for Notification objects."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CarExtender",
+      "desc": "Helper class to add Android Auto extensions to notifications."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "DecoratedCustomViewStyle",
+      "desc": "Notification style for custom views that are decorated by the system"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "DecoratedMediaCustomViewStyle",
+      "desc": "Notification style for media custom views that are decorated by the system"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Extender",
+      "desc": "Extender interface for use with Builder#extend."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "InboxStyle",
+      "desc": "Helper class for generating large-format notifications that include a list of (up to 5) strings."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "MediaStyle",
+      "desc": "Notification style for media playback notifications."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "MessagingStyle",
+      "desc": "Helper class for generating large-format notifications that include multiple back-and-forth messages of varying types between any number of people."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Style",
+      "desc": "An object that can apply a rich notification style to a Notification.Builder object."
+    },
+    {
+      "type": "nested-classes",
+      "code": "WearableExtender",
+      "desc": "Helper class to add wearable extensions to notifications."
+    }
+  ]
+}

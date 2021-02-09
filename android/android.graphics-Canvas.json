@@ -1,0 +1,894 @@
+{
+  "path": "android.graphics",
+  "name": "Canvas",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ALL_SAVE_FLAG",
+      "desc": "Restore everything when restore() is called (standard save flags)."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Construct an empty raster canvas."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(bitmap: Bitmap)\n            Construct a canvas with the specified bitmap to draw into."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipOutPath(path: Path)",
+      "desc": "Set the clip to the difference of the current clip and the specified path."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipOutRect(rect: RectF)",
+      "desc": "Set the clip to the difference of the current clip and the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipOutRect(rect: Rect)",
+      "desc": "Set the clip to the difference of the current clip and the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipOutRect(left: Float, top: Float, right: Float, bottom: Float)",
+      "desc": "Set the clip to the difference of the current clip and the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipOutRect(left: Int, top: Int, right: Int, bottom: Int)",
+      "desc": "Set the clip to the difference of the current clip and the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipPath(path: Path, op: Region.Op)",
+      "desc": "Modify the current clip with the specified path."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipPath(path: Path)",
+      "desc": "Intersect the current clip with the specified path."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipRect(rect: RectF, op: Region.Op)",
+      "desc": "Modify the current clip with the specified rectangle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipRect(rect: Rect, op: Region.Op)",
+      "desc": "Modify the current clip with the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipRect(rect: RectF)",
+      "desc": "Intersect the current clip with the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipRect(rect: Rect)",
+      "desc": "Intersect the current clip with the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipRect(left: Float, top: Float, right: Float, bottom: Float, op: Region.Op)",
+      "desc": "Modify the current clip with the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipRect(left: Float, top: Float, right: Float, bottom: Float)",
+      "desc": "Intersect the current clip with the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clipRect(left: Int, top: Int, right: Int, bottom: Int)",
+      "desc": "Intersect the current clip with the specified rectangle, which is expressed in local coordinates."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "concat(matrix: Matrix?)",
+      "desc": "Preconcat the current matrix with the specified matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "disableZ()",
+      "desc": "Disables Z support, preventing any RenderNodes drawn after this point from being visually reordered or having shadows rendered."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawARGB(a: Int, r: Int, g: Int, b: Int)",
+      "desc": "Fill the entire canvas' bitmap (restricted to the current clip) with the specified ARGB color, using srcover porterduff mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawArc(oval: RectF, startAngle: Float, sweepAngle: Float, useCenter: Boolean, paint: Paint)",
+      "desc": "Draw the specified arc, which will be scaled to fit inside the specified oval."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawArc(left: Float, top: Float, right: Float, bottom: Float, startAngle: Float, sweepAngle: Float, useCenter: Boolean, paint: Paint)",
+      "desc": "Draw the specified arc, which will be scaled to fit inside the specified oval."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawBitmap(bitmap: Bitmap, left: Float, top: Float, paint: Paint?)",
+      "desc": "Draw the specified bitmap, with its top/left corner at (x,y), using the specified paint, transformed by the current matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawBitmap(bitmap: Bitmap, src: Rect?, dst: RectF, paint: Paint?)",
+      "desc": "Draw the specified bitmap, scaling/translating automatically to fill the destination rectangle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawBitmap(bitmap: Bitmap, src: Rect?, dst: Rect, paint: Paint?)",
+      "desc": "Draw the specified bitmap, scaling/translating automatically to fill the destination rectangle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawBitmap(colors: IntArray, offset: Int, stride: Int, x: Float, y: Float, width: Int, height: Int, hasAlpha: Boolean, paint: Paint?)",
+      "desc": "Treat the specified array of colors as a bitmap, and draw it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawBitmap(colors: IntArray, offset: Int, stride: Int, x: Int, y: Int, width: Int, height: Int, hasAlpha: Boolean, paint: Paint?)",
+      "desc": "Legacy version of drawBitmap(int[] colors, ...) that took ints for x,y"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawBitmap(bitmap: Bitmap, matrix: Matrix, paint: Paint?)",
+      "desc": "Draw the bitmap using the specified matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawBitmapMesh(bitmap: Bitmap, meshWidth: Int, meshHeight: Int, verts: FloatArray, vertOffset: Int, colors: IntArray?, colorOffset: Int, paint: Paint?)",
+      "desc": "Draw the bitmap through the mesh, where mesh vertices are evenly distributed across the bitmap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawCircle(cx: Float, cy: Float, radius: Float, paint: Paint)",
+      "desc": "Draw the specified circle using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawColor(color: Int)",
+      "desc": "Fill the entire canvas' bitmap (restricted to the current clip) with the specified color, using srcover porterduff mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawColor(color: Long)",
+      "desc": "Fill the entire canvas' bitmap (restricted to the current clip) with the specified color, using srcover porterduff mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawColor(color: Int, mode: PorterDuff.Mode)",
+      "desc": "Fill the entire canvas' bitmap (restricted to the current clip) with the specified color and porter-duff xfermode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawColor(color: Int, mode: BlendMode)",
+      "desc": "Fill the entire canvas' bitmap (restricted to the current clip) with the specified color and blendmode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawColor(color: Long, mode: BlendMode)",
+      "desc": "Fill the entire canvas' bitmap (restricted to the current clip) with the specified color and blendmode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawDoubleRoundRect(outer: RectF, outerRx: Float, outerRy: Float, inner: RectF, innerRx: Float, innerRy: Float, paint: Paint)",
+      "desc": "Draws a double rounded rectangle using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawDoubleRoundRect(outer: RectF, outerRadii: FloatArray, inner: RectF, innerRadii: FloatArray, paint: Paint)",
+      "desc": "Draws a double rounded rectangle using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawLine(startX: Float, startY: Float, stopX: Float, stopY: Float, paint: Paint)",
+      "desc": "Draw a line segment with the specified start and stop x,y coordinates, using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawLines(pts: FloatArray, offset: Int, count: Int, paint: Paint)",
+      "desc": "Draw a series of lines."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawLines(pts: FloatArray, paint: Paint)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawOval(oval: RectF, paint: Paint)",
+      "desc": "Draw the specified oval using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawOval(left: Float, top: Float, right: Float, bottom: Float, paint: Paint)",
+      "desc": "Draw the specified oval using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPaint(paint: Paint)",
+      "desc": "Fill the entire canvas' bitmap (restricted to the current clip) with the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPath(path: Path, paint: Paint)",
+      "desc": "Draw the specified path using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPicture(picture: Picture)",
+      "desc": "Save the canvas state, draw the picture, and restore the canvas state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPicture(picture: Picture, dst: RectF)",
+      "desc": "Draw the picture, stretched to fit into the dst rectangle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPicture(picture: Picture, dst: Rect)",
+      "desc": "Draw the picture, stretched to fit into the dst rectangle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPoint(x: Float, y: Float, paint: Paint)",
+      "desc": "Helper for drawPoints() for drawing a single point."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPoints(pts: FloatArray!, offset: Int, count: Int, paint: Paint)",
+      "desc": "Draw a series of points."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPoints(pts: FloatArray, paint: Paint)",
+      "desc": "Helper for drawPoints() that assumes you want to draw the entire array"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPosText(text: CharArray, index: Int, count: Int, pos: FloatArray, paint: Paint)",
+      "desc": "Draw the text in the array, with each character's origin specified by the pos array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawPosText(text: String, pos: FloatArray, paint: Paint)",
+      "desc": "Draw the text in the array, with each character's origin specified by the pos array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawRGB(r: Int, g: Int, b: Int)",
+      "desc": "Fill the entire canvas' bitmap (restricted to the current clip) with the specified RGB color, using srcover porterduff mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawRect(rect: RectF, paint: Paint)",
+      "desc": "Draw the specified Rect using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawRect(r: Rect, paint: Paint)",
+      "desc": "Draw the specified Rect using the specified Paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawRect(left: Float, top: Float, right: Float, bottom: Float, paint: Paint)",
+      "desc": "Draw the specified Rect using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawRenderNode(renderNode: RenderNode)",
+      "desc": "Draws the given RenderNode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawRoundRect(rect: RectF, rx: Float, ry: Float, paint: Paint)",
+      "desc": "Draw the specified round-rect using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawRoundRect(left: Float, top: Float, right: Float, bottom: Float, rx: Float, ry: Float, paint: Paint)",
+      "desc": "Draw the specified round-rect using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawText(text: CharArray, index: Int, count: Int, x: Float, y: Float, paint: Paint)",
+      "desc": "Draw the text, with origin at (x,y), using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawText(text: String, x: Float, y: Float, paint: Paint)",
+      "desc": "Draw the text, with origin at (x,y), using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawText(text: String, start: Int, end: Int, x: Float, y: Float, paint: Paint)",
+      "desc": "Draw the text, with origin at (x,y), using the specified paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawText(text: CharSequence, start: Int, end: Int, x: Float, y: Float, paint: Paint)",
+      "desc": "Draw the specified range of text, specified by start/end, with its origin at (x,y), in the specified Paint."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawTextOnPath(text: CharArray, index: Int, count: Int, path: Path, hOffset: Float, vOffset: Float, paint: Paint)",
+      "desc": "Draw the text, with origin at (x,y), using the specified paint, along the specified path."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawTextOnPath(text: String, path: Path, hOffset: Float, vOffset: Float, paint: Paint)",
+      "desc": "Draw the text, with origin at (x,y), using the specified paint, along the specified path."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawTextRun(text: CharArray, index: Int, count: Int, contextIndex: Int, contextCount: Int, x: Float, y: Float, isRtl: Boolean, paint: Paint)",
+      "desc": "Draw a run of text, all in a single direction, with optional context for complex text shaping."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawTextRun(text: CharSequence, start: Int, end: Int, contextStart: Int, contextEnd: Int, x: Float, y: Float, isRtl: Boolean, paint: Paint)",
+      "desc": "Draw a run of text, all in a single direction, with optional context for complex text shaping."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawTextRun(text: MeasuredText, start: Int, end: Int, contextStart: Int, contextEnd: Int, x: Float, y: Float, isRtl: Boolean, paint: Paint)",
+      "desc": "Draw a run of text, all in a single direction, with optional context for complex text shaping."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "drawVertices(mode: Canvas.VertexMode, vertexCount: Int, verts: FloatArray, vertOffset: Int, texs: FloatArray?, texOffset: Int, colors: IntArray?, colorOffset: Int, indices: ShortArray?, indexOffset: Int, indexCount: Int, paint: Paint)",
+      "desc": "Draw the array of vertices, interpreted as triangles (based on mode)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "enableZ()",
+      "desc": "Enables Z support which defaults to disabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getClipBounds(bounds: Rect?)",
+      "desc": "Return the bounds of the current clip (in local coordinates) in the bounds parameter, and return true if it is non-empty."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Rect",
+      "code": "getClipBounds()",
+      "desc": "Retrieve the bounds of the current clip (in local coordinates)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDensity()",
+      "desc": "Returns the target density of the canvas."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "DrawFilter",
+      "code": "getDrawFilter()",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getHeight()",
+      "desc": "Returns the height of the current drawing layer"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "getMatrix(ctm: Matrix)",
+      "desc": "Return, in ctm, the current transformation matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Matrix",
+      "code": "getMatrix()",
+      "desc": "Return a new matrix with a copy of the canvas' current transformation matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMaximumBitmapHeight()",
+      "desc": "Returns the maximum allowed height for bitmaps drawn with this canvas."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMaximumBitmapWidth()",
+      "desc": "Returns the maximum allowed width for bitmaps drawn with this canvas."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSaveCount()",
+      "desc": "Returns the number of matrix/clip states on the Canvas' private stack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getWidth()",
+      "desc": "Returns the width of the current drawing layer"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isHardwareAccelerated()",
+      "desc": "Indicates whether this Canvas uses hardware acceleration."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOpaque()",
+      "desc": "Return true if the device that the current layer draws into is opaque (i.e. does not support per-pixel alpha)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "quickReject(rect: RectF, type: Canvas.EdgeType)",
+      "desc": "Return true if the specified rectangle, after being transformed by the current matrix, would lie completely outside of the current clip."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "quickReject(rect: RectF)",
+      "desc": "Return true if the specified rectangle, after being transformed by the current matrix, would lie completely outside of the current clip."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "quickReject(path: Path, type: Canvas.EdgeType)",
+      "desc": "Return true if the specified path, after being transformed by the current matrix, would lie completely outside of the current clip."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "quickReject(path: Path)",
+      "desc": "Return true if the specified path, after being transformed by the current matrix, would lie completely outside of the current clip."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "quickReject(left: Float, top: Float, right: Float, bottom: Float, type: Canvas.EdgeType)",
+      "desc": "Return true if the specified rectangle, after being transformed by the current matrix, would lie completely outside of the current clip."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "quickReject(left: Float, top: Float, right: Float, bottom: Float)",
+      "desc": "Return true if the specified rectangle, after being transformed by the current matrix, would lie completely outside of the current clip."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "restore()",
+      "desc": "This call balances a previous call to save(), and is used to remove all modifications to the matrix/clip state since the last save call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "restoreToCount(saveCount: Int)",
+      "desc": "Efficient way to pop any calls to save() that happened after the save count reached saveCount."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "rotate(degrees: Float)",
+      "desc": "Preconcat the current matrix with the specified rotation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "rotate(degrees: Float, px: Float, py: Float)",
+      "desc": "Preconcat the current matrix with the specified rotation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "save()",
+      "desc": "Saves the current matrix and clip onto a private stack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveLayer(bounds: RectF?, paint: Paint?, saveFlags: Int)",
+      "desc": "This behaves the same as save(), but in addition it allocates and redirects drawing to an offscreen bitmap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveLayer(bounds: RectF?, paint: Paint?)",
+      "desc": "This behaves the same as save(), but in addition it allocates and redirects drawing to an offscreen rendering target."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveLayer(left: Float, top: Float, right: Float, bottom: Float, paint: Paint?, saveFlags: Int)",
+      "desc": "Helper version of saveLayer() that takes 4 values rather than a RectF."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveLayer(left: Float, top: Float, right: Float, bottom: Float, paint: Paint?)",
+      "desc": "Convenience for saveLayer(android.graphics.RectF,android.graphics.Paint) that takes the four float coordinates of the bounds rectangle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveLayerAlpha(bounds: RectF?, alpha: Int, saveFlags: Int)",
+      "desc": "This behaves the same as save(), but in addition it allocates and redirects drawing to an offscreen bitmap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveLayerAlpha(bounds: RectF?, alpha: Int)",
+      "desc": "Convenience for saveLayer(android.graphics.RectF,android.graphics.Paint) but instead of taking a entire Paint object it takes only the alpha parameter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveLayerAlpha(left: Float, top: Float, right: Float, bottom: Float, alpha: Int, saveFlags: Int)",
+      "desc": "Helper for saveLayerAlpha() that takes 4 values instead of a RectF."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "saveLayerAlpha(left: Float, top: Float, right: Float, bottom: Float, alpha: Int)",
+      "desc": "Convenience for saveLayerAlpha(android.graphics.RectF,int) that takes the four float coordinates of the bounds rectangle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "scale(sx: Float, sy: Float)",
+      "desc": "Preconcat the current matrix with the specified scale."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "scale(sx: Float, sy: Float, px: Float, py: Float)",
+      "desc": "Preconcat the current matrix with the specified scale."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setBitmap(bitmap: Bitmap?)",
+      "desc": "Specify a bitmap for the canvas to draw into."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDensity(density: Int)",
+      "desc": "Specifies the density for this Canvas' backing bitmap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDrawFilter(filter: DrawFilter?)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setMatrix(matrix: Matrix?)",
+      "desc": "Completely replace the current matrix with the specified matrix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "skew(sx: Float, sy: Float)",
+      "desc": "Preconcat the current matrix with the specified skew."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "translate(dx: Float, dy: Float)",
+      "desc": "Preconcat the current matrix with the specified translation"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "EdgeType",
+      "desc": "Constant values used as parameters to quickReject() calls."
+    },
+    {
+      "type": "nested-classes",
+      "code": "VertexMode",
+      "desc": ""
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "path": "android.os",
+  "name": "AsyncTask",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Creates a new asynchronous task."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "cancel(mayInterruptIfRunning: Boolean)",
+      "desc": "Attempts to cancel execution of this task."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AsyncTask",
+      "code": "execute(vararg params: Params)",
+      "desc": "Executes the task with the specified parameters.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "execute(runnable: Runnable!)",
+      "desc": "Convenience version of execute(java.lang.Object...) for use with a simple Runnable object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AsyncTask",
+      "code": "executeOnExecutor(exec: Executor!, vararg params: Params)",
+      "desc": "Executes the task with the specified parameters.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Result",
+      "code": "get()",
+      "desc": "Waits if necessary for the computation to complete, and then retrieves its result."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Result",
+      "code": "get(timeout: Long, unit: TimeUnit!)",
+      "desc": "Waits if necessary for at most the given time for the computation to complete, and then retrieves its result."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AsyncTask.Status",
+      "code": "getStatus()",
+      "desc": "Returns the current status of this task.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isCancelled()",
+      "desc": "Returns true if this task was cancelled before it completed normally."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Result",
+      "code": "doInBackground(vararg params: Params)",
+      "desc": "Override this method to perform a computation on a background thread."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCancelled(result: Result)",
+      "desc": "Runs on the UI thread after cancel(boolean) is invoked and doInBackground(java.lang.Object[]) has finished."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCancelled()",
+      "desc": "Applications should preferably override onCancelled(java.lang.Object)."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPostExecute(result: Result)",
+      "desc": "Runs on the UI thread after doInBackground."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPreExecute()",
+      "desc": "Runs on the UI thread before doInBackground."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onProgressUpdate(vararg values: Progress)",
+      "desc": "Runs on the UI thread after publishProgress is invoked."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "publishProgress(vararg values: Progress)",
+      "desc": "This method can be invoked from doInBackground to publish updates on the UI thread while the background computation is still running."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Status",
+      "desc": "Indicates the current status of the task."
+    }
+  ]
+}

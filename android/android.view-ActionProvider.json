@@ -1,0 +1,97 @@
+{
+  "path": "android.view",
+  "name": "ActionProvider",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!)\n            Creates a new instance."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasSubMenu()",
+      "desc": "Determines if this ActionProvider has a submenu associated with it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isVisible()",
+      "desc": "If overridesItemVisibility() returns true, the return value of this method will help determine the visibility of the MenuItem this ActionProvider is bound to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "View",
+      "code": "onCreateActionView()",
+      "desc": "Factory method called by the Android framework to create new action views.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "View",
+      "code": "onCreateActionView(forItem: MenuItem!)",
+      "desc": "Factory method called by the Android framework to create new action views.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onPerformDefaultAction()",
+      "desc": "Performs an optional default action."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPrepareSubMenu(subMenu: SubMenu!)",
+      "desc": "Called to prepare an associated submenu for the menu item backed by this ActionProvider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "overridesItemVisibility()",
+      "desc": "The result of this method determines whether or not isVisible() will be used by the MenuItem this ActionProvider is bound to help determine its visibility."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "refreshVisibility()",
+      "desc": "If this ActionProvider is associated with an item in a menu, refresh the visibility of the item based on overridesItemVisibility() and isVisible()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setVisibilityListener(listener: ActionProvider.VisibilityListener!)",
+      "desc": "Set a listener to be notified when this ActionProvider's overridden visibility changes."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "VisibilityListener",
+      "desc": "Listens to changes in visibility as reported by ActionProvider#refreshVisibility()."
+    }
+  ]
+}

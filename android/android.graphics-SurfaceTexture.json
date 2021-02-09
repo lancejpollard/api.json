@@ -1,0 +1,137 @@
+{
+  "path": "android.graphics",
+  "name": "SurfaceTexture",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(texName: Int)\n            Construct a new SurfaceTexture to stream images to a given OpenGL texture."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(texName: Int, singleBufferMode: Boolean)\n            Construct a new SurfaceTexture to stream images to a given OpenGL texture."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(singleBufferMode: Boolean)\n            Construct a new SurfaceTexture to stream images to a given OpenGL texture."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "attachToGLContext(texName: Int)",
+      "desc": "Attach the SurfaceTexture to the OpenGL ES context that is current on the calling thread."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "detachFromGLContext()",
+      "desc": "Detach the SurfaceTexture from the OpenGL ES context that owns the OpenGL ES texture object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getTimestamp()",
+      "desc": "Retrieve the timestamp associated with the texture image set by the most recent call to updateTexImage."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "getTransformMatrix(mtx: FloatArray!)",
+      "desc": "Retrieve the 4x4 texture coordinate transform matrix associated with the texture image set by the most recent call to updateTexImage."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isReleased()",
+      "desc": "Returns true if the SurfaceTexture was released."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": "release() frees all the buffers and puts the SurfaceTexture into the 'abandoned' state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "releaseTexImage()",
+      "desc": "Releases the the texture content."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDefaultBufferSize(width: Int, height: Int)",
+      "desc": "Set the default size of the image buffers."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOnFrameAvailableListener(listener: SurfaceTexture.OnFrameAvailableListener?)",
+      "desc": "Register a callback to be invoked when a new image frame becomes available to the SurfaceTexture."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOnFrameAvailableListener(listener: SurfaceTexture.OnFrameAvailableListener?, handler: Handler?)",
+      "desc": "Register a callback to be invoked when a new image frame becomes available to the SurfaceTexture."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "updateTexImage()",
+      "desc": "Update the texture image to the most recent frame from the image stream."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnFrameAvailableListener",
+      "desc": "Callback interface for being notified that a new stream frame is available."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "OutOfResourcesException",
+      "desc": "Exception thrown when a SurfaceTexture couldn't be created or resized."
+    }
+  ]
+}

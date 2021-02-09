@@ -1,0 +1,65 @@
+{
+  "path": "android.media.midi",
+  "name": "MidiReceiver",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Default MidiReceiver constructor."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(maxMessageSize: Int)\n            MidiReceiver constructor."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "flush()",
+      "desc": "Instructs the receiver to discard all pending MIDI data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getMaxMessageSize()",
+      "desc": "Returns the maximum size of a message this receiver can receive."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onFlush()",
+      "desc": "Called when the receiver is instructed to discard all pending MIDI data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onSend(msg: ByteArray!, offset: Int, count: Int, timestamp: Long)",
+      "desc": "Called whenever the receiver is passed new MIDI data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "send(msg: ByteArray!, offset: Int, count: Int)",
+      "desc": "Called to send MIDI data to the receiver without a timestamp."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "send(msg: ByteArray!, offset: Int, count: Int, timestamp: Long)",
+      "desc": "Called to send MIDI data to the receiver with a specified timestamp."
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "path": "android.util",
+  "name": "LruCache",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(maxSize: Int)"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "createCount()",
+      "desc": "Returns the number of times create(java.lang.Object) returned a value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "evictAll()",
+      "desc": "Clear the cache, calling entryRemoved on each removed entry."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "evictionCount()",
+      "desc": "Returns the number of values that have been evicted."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "V",
+      "code": "get(key: K)",
+      "desc": "Returns the value for key if it exists in the cache or can be created by create."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "hitCount()",
+      "desc": "Returns the number of times get returned a value that was already present in the cache."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "maxSize()",
+      "desc": "For caches that do not override sizeOf, this returns the maximum number of entries in the cache."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "missCount()",
+      "desc": "Returns the number of times get returned null or required a new value to be created."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "V",
+      "code": "put(key: K, value: V)",
+      "desc": "Caches value for key."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "putCount()",
+      "desc": "Returns the number of times put was called."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "V",
+      "code": "remove(key: K)",
+      "desc": "Removes the entry for key if it exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "resize(maxSize: Int)",
+      "desc": "Sets the size of the cache."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "size()",
+      "desc": "For caches that do not override sizeOf, this returns the number of entries in the cache."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableMap",
+      "code": "snapshot()",
+      "desc": "Returns a copy of the current contents of the cache, ordered from least recently accessed to most recently accessed.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "trimToSize(maxSize: Int)",
+      "desc": "Remove the eldest entries until the total of remaining entries is at or below the requested size."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "V",
+      "code": "create(key: K)",
+      "desc": "Called after a cache miss to compute a value for the corresponding key."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "entryRemoved(evicted: Boolean, key: K, oldValue: V, newValue: V)",
+      "desc": "Called for entries that have been evicted or removed."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "sizeOf(key: K, value: V)",
+      "desc": "Returns the size of the entry for key and value in user-defined units."
+    }
+  ]
+}

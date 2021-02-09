@@ -1,0 +1,418 @@
+{
+  "path": "android.app.job",
+  "name": "JobInfo",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BACKOFF_POLICY_EXPONENTIAL",
+      "desc": "Exponentially back-off a failed job."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BACKOFF_POLICY_LINEAR",
+      "desc": "Linearly back-off a failed job."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "DEFAULT_INITIAL_BACKOFF_MILLIS",
+      "desc": "Amount of backoff a job has initially by default, in milliseconds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "MAX_BACKOFF_DELAY_MILLIS",
+      "desc": "Maximum backoff we allow for a job, in milliseconds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NETWORK_BYTES_UNKNOWN",
+      "desc": "Sentinel value indicating that bytes are unknown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NETWORK_TYPE_ANY",
+      "desc": "This job requires network connectivity."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NETWORK_TYPE_CELLULAR",
+      "desc": "This job requires network connectivity that is a cellular network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NETWORK_TYPE_METERED",
+      "desc": "This job requires metered connectivity such as most cellular data networks."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NETWORK_TYPE_NONE",
+      "desc": "Default."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NETWORK_TYPE_NOT_ROAMING",
+      "desc": "This job requires network connectivity that is not roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NETWORK_TYPE_UNMETERED",
+      "desc": "This job requires network connectivity that is unmetered."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getBackoffPolicy()",
+      "desc": "Return the backoff policy of this job."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ClipData",
+      "code": "getClipData()",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getClipGrantFlags()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getEstimatedNetworkDownloadBytes()",
+      "desc": "Return the estimated size of download traffic that will be performed by this job, in bytes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getEstimatedNetworkUploadBytes()",
+      "desc": "Return the estimated size of upload traffic that will be performed by this job, in bytes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PersistableBundle",
+      "code": "getExtras()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getFlexMillis()",
+      "desc": "Flex time for this job."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getId()",
+      "desc": "Unique job id associated with this application (uid)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getInitialBackoffMillis()",
+      "desc": "The amount of time the JobScheduler will wait before rescheduling a failed job."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getIntervalMillis()",
+      "desc": "Set to the interval between occurrences of this job."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getMaxExecutionDelayMillis()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "getMinFlexMillis()",
+      "desc": "Query the minimum flex time allowed for periodic scheduled jobs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getMinLatencyMillis()",
+      "desc": "Set for a job that does not recur periodically, to specify a delay after which the job will be eligible for execution."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "getMinPeriodMillis()",
+      "desc": "Query the minimum interval allowed for periodic scheduled jobs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getNetworkType()",
+      "desc": "Return the basic description of the kind of network this job requires."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "NetworkRequest",
+      "code": "getRequiredNetwork()",
+      "desc": "Return the detailed description of the kind of network this job requires, or null if no specific kind of network is required.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ComponentName",
+      "code": "getService()",
+      "desc": "Name of the service endpoint that will be called back into by the JobScheduler."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getTransientExtras()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getTriggerContentMaxDelay()",
+      "desc": "When triggering on content URI changes, this is the maximum delay we will use before scheduling the job."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getTriggerContentUpdateDelay()",
+      "desc": "When triggering on content URI changes, this is the delay from when a change is detected until the job is scheduled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getTriggerContentUris()",
+      "desc": "Which content: URIs must change for the job to be scheduled.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isImportantWhileForeground()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPeriodic()",
+      "desc": "Track whether this job will repeat with a given period."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPersisted()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPrefetch()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRequireBatteryNotLow()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRequireCharging()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRequireDeviceIdle()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRequireStorageNotLow()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "writeToParcel(out: Parcel!, flags: Int)",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Builder",
+      "desc": "Builder class for constructing JobInfo objects."
+    },
+    {
+      "type": "nested-classes",
+      "code": "TriggerContentUri",
+      "desc": "Information about a content URI modification that a job would like to trigger on."
+    }
+  ]
+}

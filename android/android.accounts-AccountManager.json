@@ -1,0 +1,691 @@
+{
+  "path": "android.accounts",
+  "name": "AccountManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_ACCOUNT_REMOVED",
+      "desc": "Action sent as a broadcast Intent by the AccountsService when any account is removed or renamed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_AUTHENTICATOR_INTENT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "AUTHENTICATOR_ATTRIBUTES_NAME",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "AUTHENTICATOR_META_DATA_NAME",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CODE_BAD_ARGUMENTS",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CODE_BAD_AUTHENTICATION",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CODE_BAD_REQUEST",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CODE_CANCELED",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CODE_INVALID_RESPONSE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CODE_NETWORK_ERROR",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CODE_REMOTE_EXCEPTION",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_CODE_UNSUPPORTED_OPERATION",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ACCOUNTS",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ACCOUNT_AUTHENTICATOR_RESPONSE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ACCOUNT_MANAGER_RESPONSE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ACCOUNT_NAME",
+      "desc": "Bundle key used for the String account name in results from methods which return information about a particular account."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ACCOUNT_SESSION_BUNDLE",
+      "desc": "Bundle key used for a Bundle in result from startAddAccountSession and friends which returns session data for installing an account later."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ACCOUNT_STATUS_TOKEN",
+      "desc": "Bundle key used for the String account status token in result from startAddAccountSession and friends which returns information about a particular account."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ACCOUNT_TYPE",
+      "desc": "Bundle key used for the String account type in results from methods which return information about a particular account."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ANDROID_PACKAGE_NAME",
+      "desc": "The Android package of the caller will be set in the options bundle by the AccountManager and will be passed to the AccountManagerService and to the AccountAuthenticators."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_AUTHENTICATOR_TYPES",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_AUTHTOKEN",
+      "desc": "Bundle key used for the auth token value in results from getAuthToken and friends."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_AUTH_FAILED_MESSAGE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_AUTH_TOKEN_LABEL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_BOOLEAN_RESULT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CALLER_PID",
+      "desc": "The process id of caller app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CALLER_UID",
+      "desc": "The UID of caller app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ERROR_CODE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ERROR_MESSAGE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_INTENT",
+      "desc": "Bundle key used for an Intent in results from methods that may require the caller to interact with the user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_LAST_AUTHENTICATED_TIME",
+      "desc": "Bundle key used to supply the last time the credentials of the account were authenticated successfully."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_PASSWORD",
+      "desc": "Bundle key used to supply the password directly in options to confirmCredentials, rather than prompting the user with the standard password prompt."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_USERDATA",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "LOGIN_ACCOUNTS_CHANGED_ACTION",
+      "desc": "Action sent as a broadcast Intent by the AccountsService when accounts are added, accounts are removed, or an account's credentials (saved password, etc) are changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PACKAGE_NAME_KEY_LEGACY_NOT_VISIBLE",
+      "desc": "Key to set default visibility for applications which don't satisfy conditions in PACKAGE_NAME_KEY_LEGACY_VISIBLE."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PACKAGE_NAME_KEY_LEGACY_VISIBLE",
+      "desc": "Key to set visibility for applications which satisfy one of the following conditions:"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VISIBILITY_NOT_VISIBLE",
+      "desc": "Account is not visible to given application and only authenticator can grant visibility."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VISIBILITY_UNDEFINED",
+      "desc": "Account visibility was not set."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VISIBILITY_USER_MANAGED_NOT_VISIBLE",
+      "desc": "Account is not visible to given application, but user can reveal it, for example, using newChooseAccountIntent(android.accounts.Account,java.util.List,java.lang.String[],java.lang.String,java.lang.String,java.lang.String[],android.os.Bundle)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VISIBILITY_USER_MANAGED_VISIBLE",
+      "desc": "Account is visible to given application, but user can revoke visibility."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VISIBILITY_VISIBLE",
+      "desc": "Account is always visible to given application and only authenticator can revoke visibility."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "addAccount(accountType: String!, authTokenType: String!, requiredFeatures: Array<String!>!, addAccountOptions: Bundle!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Asks the user to add an account of a specified type.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addAccountExplicitly(account: Account!, password: String!, userdata: Bundle!)",
+      "desc": "Adds an account directly to the AccountManager."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addAccountExplicitly(account: Account!, password: String!, extras: Bundle!, visibility: MutableMap<String!, Int!>!)",
+      "desc": "Adds an account directly to the AccountManager."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnAccountsUpdatedListener(listener: OnAccountsUpdateListener!, handler: Handler!, updateImmediately: Boolean)",
+      "desc": "Adds an OnAccountsUpdateListener to this instance of the AccountManager."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnAccountsUpdatedListener(listener: OnAccountsUpdateListener!, handler: Handler!, updateImmediately: Boolean, accountTypes: Array<String!>!)",
+      "desc": "Adds an OnAccountsUpdateListener to this instance of the AccountManager."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "blockingGetAuthToken(account: Account!, authTokenType: String!, notifyAuthFailure: Boolean)",
+      "desc": "This convenience helper synchronously gets an auth token with getAuthToken(android.accounts.Account,java.lang.String,boolean,android.accounts.AccountManagerCallback,android.os.Handler).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearPassword(account: Account!)",
+      "desc": "Forgets a saved password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "confirmCredentials(account: Account!, options: Bundle!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Confirms that the user knows the password for an account to make extra sure they are the owner of the account.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "editProperties(accountType: String!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Offers the user an opportunity to change an authenticator's settings.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "finishSession(sessionBundle: Bundle!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Finishes the session started by startAddAccountSession or startUpdateCredentialsSession.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManager",
+      "code": "get(context: Context!)",
+      "desc": "Gets an AccountManager instance associated with a Context.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getAccountVisibility(account: Account!, packageName: String!)",
+      "desc": "Get visibility of certain account for given application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getAccounts()",
+      "desc": "Lists all accounts visible to the caller regardless of type.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableMap",
+      "code": "getAccountsAndVisibilityForPackage(packageName: String!, accountType: String!)",
+      "desc": "Gets all accounts of given type and their visibility for specific package.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getAccountsByType(type: String!)",
+      "desc": "Lists all accounts of particular type visible to the caller.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "getAccountsByTypeAndFeatures(type: String!, features: Array<String!>!, callback: AccountManagerCallback<Array<Account!>!>!, handler: Handler!)",
+      "desc": "Lists all accounts of a type which have certain features.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getAccountsByTypeForPackage(type: String!, packageName: String!)",
+      "desc": "Returns the accounts visible to the specified package in an environment where some apps are not authorized to view all accounts.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "getAuthToken(account: Account!, authTokenType: String!, options: Bundle!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Gets an auth token of the specified type for a particular account, prompting the user for credentials if necessary.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "getAuthToken(account: Account!, authTokenType: String!, notifyAuthFailure: Boolean, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Gets an auth token of the specified type for a particular account, optionally raising a notification if the user must enter credentials.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "getAuthToken(account: Account!, authTokenType: String!, options: Bundle!, notifyAuthFailure: Boolean, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Gets an auth token of the specified type for a particular account, optionally raising a notification if the user must enter credentials.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "getAuthTokenByFeatures(accountType: String!, authTokenType: String!, features: Array<String!>!, activity: Activity!, addAccountOptions: Bundle!, getAuthTokenOptions: Bundle!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "This convenience helper combines the functionality of getAccountsByTypeAndFeatures, getAuthToken, and addAccount.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getAuthenticatorTypes()",
+      "desc": "Lists the currently registered authenticators.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableMap",
+      "code": "getPackagesAndVisibilityForAccount(account: Account!)",
+      "desc": "Returns package names and visibility which were explicitly set for given account.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getPassword(account: Account!)",
+      "desc": "Gets the saved password associated with the account.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getPreviousName(account: Account!)",
+      "desc": "Gets the previous name associated with the account or null, if none.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getUserData(account: Account!, key: String!)",
+      "desc": "Gets the user data named by \"key\" associated with the account.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "hasFeatures(account: Account!, features: Array<String!>!, callback: AccountManagerCallback<Boolean!>!, handler: Handler!)",
+      "desc": "Finds out whether a particular account has all the specified features.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "invalidateAuthToken(accountType: String!, authToken: String!)",
+      "desc": "Removes an auth token from the AccountManager's cache."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "isCredentialsUpdateSuggested(account: Account!, statusToken: String!, callback: AccountManagerCallback<Boolean!>!, handler: Handler!)",
+      "desc": "Checks whether updateCredentials or startUpdateCredentialsSession should be called with respect to the specified account.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "newChooseAccountIntent(selectedAccount: Account!, allowableAccounts: ArrayList<Account!>!, allowableAccountTypes: Array<String!>!, alwaysPromptForAccount: Boolean, descriptionOverrideText: String!, addAccountAuthTokenType: String!, addAccountRequiredFeatures: Array<String!>!, addAccountOptions: Bundle!)",
+      "desc": "Deprecated in favor of newChooseAccountIntent(android.accounts.Account,java.util.List,java.lang.String[],java.lang.String,java.lang.String,java.lang.String[],android.os.Bundle).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "newChooseAccountIntent(selectedAccount: Account!, allowableAccounts: MutableList<Account!>!, allowableAccountTypes: Array<String!>!, descriptionOverrideText: String!, addAccountAuthTokenType: String!, addAccountRequiredFeatures: Array<String!>!, addAccountOptions: Bundle!)",
+      "desc": "Returns an intent to an Activity that prompts the user to choose from a list of accounts.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "notifyAccountAuthenticated(account: Account!)",
+      "desc": "Notifies the system that the account has just been authenticated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "peekAuthToken(account: Account!, authTokenType: String!)",
+      "desc": "Gets an auth token from the AccountManager's cache.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "removeAccount(account: Account!, callback: AccountManagerCallback<Boolean!>!, handler: Handler!)",
+      "desc": "Removes an account from the AccountManager.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "removeAccount(account: Account!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Removes an account from the AccountManager.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "removeAccountExplicitly(account: Account!)",
+      "desc": "Removes an account directly."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnAccountsUpdatedListener(listener: OnAccountsUpdateListener!)",
+      "desc": "Removes an OnAccountsUpdateListener previously registered with addOnAccountsUpdatedListener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "renameAccount(account: Account!, newName: String!, callback: AccountManagerCallback<Account!>!, handler: Handler!)",
+      "desc": "Rename the specified Account.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setAccountVisibility(account: Account!, packageName: String!, visibility: Int)",
+      "desc": "Set visibility value of given account to certain package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAuthToken(account: Account!, authTokenType: String!, authToken: String!)",
+      "desc": "Adds an auth token to the AccountManager cache for an account."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPassword(account: Account!, password: String!)",
+      "desc": "Sets or forgets a saved password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setUserData(account: Account!, key: String!, value: String!)",
+      "desc": "Sets one userdata key for an account."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "startAddAccountSession(accountType: String!, authTokenType: String!, requiredFeatures: Array<String!>!, options: Bundle!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Asks the user to authenticate with an account of a specified type.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "startUpdateCredentialsSession(account: Account!, authTokenType: String!, options: Bundle!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Asks the user to enter a new password for the account but not updating the saved credentials for the account until finishSession is called.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AccountManagerFuture",
+      "code": "updateCredentials(account: Account!, authTokenType: String!, options: Bundle!, activity: Activity!, callback: AccountManagerCallback<Bundle!>!, handler: Handler!)",
+      "desc": "Asks the user to enter a new password for an account, updating the saved credentials for the account.",
+      "symbol": "<"
+    }
+  ]
+}

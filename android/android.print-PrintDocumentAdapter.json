@@ -1,0 +1,71 @@
+{
+  "path": "android.print",
+  "name": "PrintDocumentAdapter",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PRINT_PREVIEW",
+      "desc": "Extra: mapped to a boolean value that is true if the current layout is for a print preview, false otherwise."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onFinish()",
+      "desc": "Called when printing finishes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onLayout(oldAttributes: PrintAttributes!, newAttributes: PrintAttributes!, cancellationSignal: CancellationSignal!, callback: PrintDocumentAdapter.LayoutResultCallback!, extras: Bundle!)",
+      "desc": "Called when the print attributes (page size, density, etc) changed giving you a chance to layout the content such that it matches the new constraints."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onStart()",
+      "desc": "Called when printing starts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onWrite(pages: Array<PageRange!>!, destination: ParcelFileDescriptor!, cancellationSignal: CancellationSignal!, callback: PrintDocumentAdapter.WriteResultCallback!)",
+      "desc": "Called when specific pages of the content should be written in the form of a PDF file to the given file descriptor."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "LayoutResultCallback",
+      "desc": "Base class for implementing a callback for the result of PrintDocumentAdapter#onLayout(PrintAttributes, PrintAttributes,."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "WriteResultCallback",
+      "desc": "Base class for implementing a callback for the result of PrintDocumentAdapter#onWrite(PageRange[], ParcelFileDescriptor, CancellationSignal,."
+    }
+  ]
+}

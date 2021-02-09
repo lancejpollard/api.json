@@ -1,0 +1,226 @@
+{
+  "path": "android.app",
+  "name": "AlarmManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NEXT_ALARM_CLOCK_CHANGED",
+      "desc": "Broadcast Action: Sent after the value returned by getNextAlarmClock() has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ELAPSED_REALTIME",
+      "desc": "Alarm time in  SystemClock.elapsedRealtime() (time since boot, including sleep)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ELAPSED_REALTIME_WAKEUP",
+      "desc": "Alarm time in  SystemClock.elapsedRealtime() (time since boot, including sleep), which will wake up the device when it goes off."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "INTERVAL_DAY",
+      "desc": "Available inexact recurrence interval recognized by setInexactRepeating(int,long,long,android.app.PendingIntent) when running on Android prior to API 19."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "INTERVAL_FIFTEEN_MINUTES",
+      "desc": "Available inexact recurrence interval recognized by setInexactRepeating(int,long,long,android.app.PendingIntent) when running on Android prior to API 19."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "INTERVAL_HALF_DAY",
+      "desc": "Available inexact recurrence interval recognized by setInexactRepeating(int,long,long,android.app.PendingIntent) when running on Android prior to API 19."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "INTERVAL_HALF_HOUR",
+      "desc": "Available inexact recurrence interval recognized by setInexactRepeating(int,long,long,android.app.PendingIntent) when running on Android prior to API 19."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "INTERVAL_HOUR",
+      "desc": "Available inexact recurrence interval recognized by setInexactRepeating(int,long,long,android.app.PendingIntent) when running on Android prior to API 19."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RTC",
+      "desc": "Alarm time in System#currentTimeMillis (wall clock time in UTC)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RTC_WAKEUP",
+      "desc": "Alarm time in System#currentTimeMillis (wall clock time in UTC), which will wake up the device when it goes off."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancel(operation: PendingIntent!)",
+      "desc": "Remove any alarms with a matching Intent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancel(listener: AlarmManager.OnAlarmListener!)",
+      "desc": "Remove any alarm scheduled to be delivered to the given OnAlarmListener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AlarmManager.AlarmClockInfo",
+      "code": "getNextAlarmClock()",
+      "desc": "Gets information about the next alarm clock currently scheduled.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "set(type: Int, triggerAtMillis: Long, operation: PendingIntent!)",
+      "desc": "Schedule an alarm."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "set(type: Int, triggerAtMillis: Long, tag: String!, listener: AlarmManager.OnAlarmListener!, targetHandler: Handler!)",
+      "desc": "Direct callback version of set(int,long,android.app.PendingIntent)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAlarmClock(info: AlarmManager.AlarmClockInfo!, operation: PendingIntent!)",
+      "desc": "Schedule an alarm that represents an alarm clock, which will be used to notify the user when it goes off."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAndAllowWhileIdle(type: Int, triggerAtMillis: Long, operation: PendingIntent!)",
+      "desc": "Like set(int,long,android.app.PendingIntent), but this alarm will be allowed to execute even when the system is in low-power idle (a.k.a. doze) modes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setExact(type: Int, triggerAtMillis: Long, operation: PendingIntent!)",
+      "desc": "Schedule an alarm to be delivered precisely at the stated time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setExact(type: Int, triggerAtMillis: Long, tag: String!, listener: AlarmManager.OnAlarmListener!, targetHandler: Handler!)",
+      "desc": "Direct callback version of setExact(int,long,android.app.PendingIntent)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setExactAndAllowWhileIdle(type: Int, triggerAtMillis: Long, operation: PendingIntent!)",
+      "desc": "Like setExact(int,long,android.app.PendingIntent), but this alarm will be allowed to execute even when the system is in low-power idle modes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setInexactRepeating(type: Int, triggerAtMillis: Long, intervalMillis: Long, operation: PendingIntent!)",
+      "desc": "Schedule a repeating alarm that has inexact trigger time requirements; for example, an alarm that repeats every hour, but not necessarily at the top of every hour."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRepeating(type: Int, triggerAtMillis: Long, intervalMillis: Long, operation: PendingIntent!)",
+      "desc": "Schedule a repeating alarm."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTime(millis: Long)",
+      "desc": "Set the system wall clock time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTimeZone(timeZone: String!)",
+      "desc": "Sets the system's persistent default time zone."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setWindow(type: Int, windowStartMillis: Long, windowLengthMillis: Long, operation: PendingIntent!)",
+      "desc": "Schedule an alarm to be delivered within a given window of time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setWindow(type: Int, windowStartMillis: Long, windowLengthMillis: Long, tag: String!, listener: AlarmManager.OnAlarmListener!, targetHandler: Handler!)",
+      "desc": "Direct callback version of setWindow(int,long,long,android.app.PendingIntent)."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "AlarmClockInfo",
+      "desc": "An immutable description of a scheduled \"alarm clock\" event."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnAlarmListener",
+      "desc": "Direct-notification alarms: the requester must be running continuously from the time the alarm is set to the time it is delivered, or delivery will fail."
+    }
+  ]
+}

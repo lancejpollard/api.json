@@ -1,0 +1,1803 @@
+{
+  "path": "android.telephony",
+  "name": "CarrierConfigManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CARRIER_CONFIG_CHANGED",
+      "desc": "This intent is broadcast by the system when carrier config changes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DATA_CYCLE_THRESHOLD_DISABLED",
+      "desc": "Flag indicating that a data cycle threshold should be disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DATA_CYCLE_USE_PLATFORM_DEFAULT",
+      "desc": "When KEY_MONTHLY_DATA_CYCLE_DAY_INT, KEY_DATA_LIMIT_THRESHOLD_BYTES_LONG, or KEY_DATA_WARNING_THRESHOLD_BYTES_LONG are set to this value, the platform default value will be used for that key."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ENABLE_EAP_METHOD_PREFIX_BOOL",
+      "desc": "Specifies whether the system should prefix the EAP method to the anonymous identity."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SLOT_INDEX",
+      "desc": "Extra included in ACTION_CARRIER_CONFIG_CHANGED to indicate the slot index that the broadcast is for."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SUBSCRIPTION_INDEX",
+      "desc": "Optional extra included in ACTION_CARRIER_CONFIG_CHANGED to indicate the subscription index that the broadcast is for, if a valid one is available."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "IMSI_KEY_AVAILABILITY_INT",
+      "desc": "Identifies if the key is available for WLAN or EPDG or both."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_5G_NR_SSRSRP_THRESHOLDS_INT_ARRAY",
+      "desc": "List of 4 customized 5G SS reference signal received power (SSRSRP) thresholds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_5G_NR_SSRSRQ_THRESHOLDS_INT_ARRAY",
+      "desc": "List of 4 customized 5G SS reference signal received quality (SSRSRQ) thresholds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_5G_NR_SSSINR_THRESHOLDS_INT_ARRAY",
+      "desc": "List of 4 customized 5G SS signal-to-noise and interference ratio (SSSINR) thresholds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ADDITIONAL_CALL_SETTING_BOOL",
+      "desc": "Does not display additional call setting for IMS phone based on GSM Phone"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_ADDING_APNS_BOOL",
+      "desc": "Allow user to add APNs"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_ADD_CALL_DURING_VIDEO_CALL_BOOL",
+      "desc": "When true, indicates that adding a call is disabled when there is an ongoing video call or when there is an ongoing call on wifi which was downgraded from video and VoWifi is turned off."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_EMERGENCY_NUMBERS_IN_CALL_LOG_BOOL",
+      "desc": "Determines if the current device should allow emergency numbers to be logged in the Call Log."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_EMERGENCY_VIDEO_CALLS_BOOL",
+      "desc": "Flag indicating whether to allow carrier video calls to emergency numbers."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_HOLD_CALL_DURING_EMERGENCY_BOOL",
+      "desc": "Flag indicating whether or not an ongoing call will be held when an outgoing emergency call is placed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_HOLD_VIDEO_CALL_BOOL",
+      "desc": "When true, indicates that video calls can be put on hold in order to swap to another call (e.g. a new outgoing call)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_LOCAL_DTMF_TONES_BOOL",
+      "desc": "Determine whether we want to play local DTMF tones in a call, or just let the radio/BP handle playing of the tones."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_MERGE_WIFI_CALLS_WHEN_VOWIFI_OFF_BOOL",
+      "desc": "Flag indicating whether the carrier supports merging wifi calls when VoWIFI is disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_NON_EMERGENCY_CALLS_IN_ECM_BOOL",
+      "desc": "Determines whether the carrier supports making non-emergency phone calls while the phone is in emergency callback mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALLOW_VIDEO_CALLING_FALLBACK_BOOL",
+      "desc": "Whether system apps are allowed to use fallback if carrier video call is not available."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALWAYS_SHOW_DATA_RAT_ICON_BOOL",
+      "desc": "Boolean indicating if show data RAT icon on status bar even when data is disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALWAYS_SHOW_EMERGENCY_ALERT_ONOFF_BOOL",
+      "desc": "The default flag specifying whether \"Allow alerts\" option will be always shown in emergency alerts settings regardless developer options is turned on or not."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALWAYS_SHOW_PRIMARY_SIGNAL_BAR_IN_OPPORTUNISTIC_NETWORK_BOOLEAN",
+      "desc": "Indicates when a carrier has a primary subscription and an opportunistic subscription active, and when Internet data is switched to opportunistic network, whether to still show signal bar of primary network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_APN_EXPAND_BOOL",
+      "desc": "Control whether users can edit APNs in Settings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_APN_SETTINGS_DEFAULT_APN_TYPES_STRING_ARRAY",
+      "desc": "Default value of APN types field if not specified by user when adding/modifying an APN."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_AUTO_RETRY_ENABLED_BOOL",
+      "desc": "Flag indicating if auto retry is enabled"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CALL_BARRING_SUPPORTS_DEACTIVATE_ALL_BOOL",
+      "desc": "Flag indicating whether or not deactivating all call barring features via the \"Call Barring\" settings menu is supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CALL_BARRING_SUPPORTS_PASSWORD_CHANGE_BOOL",
+      "desc": "Flag indicating whether or not changing the call barring password via the \"Call Barring\" settings menu is supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CALL_BARRING_VISIBILITY_BOOL",
+      "desc": "Boolean indicating if the \"Call barring\" item is visible in the Call Settings menu."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CALL_FORWARDING_BLOCKS_WHILE_ROAMING_STRING_ARRAY",
+      "desc": "An array containing custom call forwarding number prefixes that will be blocked while the device is reporting that it is roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CALL_REDIRECTION_SERVICE_COMPONENT_NAME_STRING",
+      "desc": "Specifies a carrier-defined android.telecom.CallRedirectionService which Telecom will bind to for outgoing calls."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_ALLOW_DEFLECT_IMS_CALL_BOOL",
+      "desc": "Flag indicating whether the carrier supports call deflection for an incoming IMS call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_ALLOW_TURNOFF_IMS_BOOL",
+      "desc": "Flag specifying whether IMS service can be turned off."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_APP_REQUIRED_DURING_SIM_SETUP_BOOL",
+      "desc": "Determines whether the carrier app needed to be involved when users try to finish setting up the SIM card to get network service."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_CALL_SCREENING_APP_STRING",
+      "desc": "The Component Name of a carrier-provided CallScreeningService implementation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_CERTIFICATE_STRING_ARRAY",
+      "desc": "Holds the list of carrier certificate hashes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_CONFIG_APPLIED_BOOL",
+      "desc": "Determines whether any carrier has been identified and its specific config has been applied, default to false."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_CONFIG_VERSION_STRING",
+      "desc": "Specifies a value that identifies the version of the carrier configuration that is currently in use."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DATA_CALL_PERMANENT_FAILURE_STRINGS",
+      "desc": "Data call setup permanent failure causes by the carrier"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DEFAULT_ACTIONS_ON_DCFAILURE_STRING_ARRAY",
+      "desc": "Defines carrier-specific actions which act upon CARRIER_SIGNAL_REQUEST_NETWORK_FAILED and configured signal args: android."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DEFAULT_ACTIONS_ON_DEFAULT_NETWORK_AVAILABLE",
+      "desc": "Defines carrier-specific actions which act upon com."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DEFAULT_ACTIONS_ON_REDIRECTION_STRING_ARRAY",
+      "desc": "Defines carrier-specific actions which act upon com."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DEFAULT_ACTIONS_ON_RESET",
+      "desc": "Defines carrier-specific actions which act upon CARRIER_SIGNAL_RESET, used for customization of the default carrier app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DEFAULT_REDIRECTION_URL_STRING_ARRAY",
+      "desc": "Defines a list of acceptable redirection url for default carrier app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DEFAULT_WFC_IMS_ENABLED_BOOL",
+      "desc": "Default WFC_IMS_enabled: true VoWiFi by default is on false VoWiFi by default is off"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DEFAULT_WFC_IMS_MODE_INT",
+      "desc": "Default mode for WFC over IMS on home network:"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_DEFAULT_WFC_IMS_ROAMING_MODE_INT",
+      "desc": "Default mode for WFC over IMS on roaming network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_FORCE_DISABLE_ETWS_CMAS_TEST_BOOL",
+      "desc": "The default flag specifying whether ETWS/CMAS test setting is forcibly disabled in Settings->More->Emergency broadcasts menu even though developer options is turned on."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_IMS_GBA_REQUIRED_BOOL",
+      "desc": "Flag specifying whether Generic Bootstrapping Architecture capable SIM is required for IMS."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_INSTANT_LETTERING_AVAILABLE_BOOL",
+      "desc": "Flag specifying whether IMS instant lettering is available for the carrier."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_INSTANT_LETTERING_ENCODING_STRING",
+      "desc": "When IMS instant lettering is available for a carrier (see KEY_CARRIER_INSTANT_LETTERING_AVAILABLE_BOOL), determines the character encoding which will be used when determining the length of messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_INSTANT_LETTERING_ESCAPED_CHARS_STRING",
+      "desc": "When IMS instant lettering is available for a carrier (see KEY_CARRIER_INSTANT_LETTERING_AVAILABLE_BOOL), determines a list of characters which must be escaped with a backslash '\\' character."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_INSTANT_LETTERING_INVALID_CHARS_STRING",
+      "desc": "When IMS instant lettering is available for a carrier (see KEY_CARRIER_INSTANT_LETTERING_AVAILABLE_BOOL), determines the list of characters which may not be contained in messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_INSTANT_LETTERING_LENGTH_LIMIT_INT",
+      "desc": "When IMS instant lettering is available for a carrier (see KEY_CARRIER_INSTANT_LETTERING_AVAILABLE_BOOL), the length limit for messages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_NAME_OVERRIDE_BOOL",
+      "desc": "Unconditionally override the carrier name string using #KEY_CARRIER_NAME_STRING."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_NAME_STRING",
+      "desc": "String to identify carrier name in CarrierConfig app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_RCS_PROVISIONING_REQUIRED_BOOL",
+      "desc": "Flag specifying whether provisioning is required for RCS."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_SETTINGS_ACTIVITY_COMPONENT_NAME_STRING",
+      "desc": "Flatten android.content.ComponentName of the carrier's settings activity."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_SETTINGS_ENABLE_BOOL",
+      "desc": "Display carrier settings menu if true"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_SUPPORTS_SS_OVER_UT_BOOL",
+      "desc": "Flag indicating whether or not the carrier supports Supplementary Services over the UT interface for this subscription."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_USE_IMS_FIRST_FOR_EMERGENCY_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_UT_PROVISIONING_REQUIRED_BOOL",
+      "desc": "Flag indicating whether or not the IMS MmTel UT capability requires carrier provisioning before it can be set as enabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_VOLTE_AVAILABLE_BOOL",
+      "desc": "Flag specifying whether VoLTE should be available for carrier, independent of carrier provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_VOLTE_OVERRIDE_WFC_PROVISIONING_BOOL",
+      "desc": "Flag specifying if WFC provisioning depends on VoLTE provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_VOLTE_PROVISIONED_BOOL",
+      "desc": "This flag specifies whether VoLTE availability is based on provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_VOLTE_PROVISIONING_REQUIRED_BOOL",
+      "desc": "Flag specifying whether provisioning is required for VoLTE, Video Telephony, and WiFi Calling."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_VOLTE_TTY_SUPPORTED_BOOL",
+      "desc": "Flag specifying whether VoLTE TTY is supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_VT_AVAILABLE_BOOL",
+      "desc": "Flag specifying whether video telephony is available for carrier."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_VVM_PACKAGE_NAME_STRING",
+      "desc": "The package name of the carrier's visual voicemail app to ensure that dialer visual voicemail and carrier visual voicemail are not active at the same time."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_VVM_PACKAGE_NAME_STRING_ARRAY",
+      "desc": "A list of the carrier's visual voicemail app package names to ensure that dialer visual voicemail and carrier visual voicemail are not active at the same time."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_WFC_IMS_AVAILABLE_BOOL",
+      "desc": "Flag specifying whether WFC over IMS should be available for carrier: independent of carrier provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CARRIER_WFC_SUPPORTS_WIFI_ONLY_BOOL",
+      "desc": "Flag specifying whether WFC over IMS supports the \"wifi only\" option."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CDMA_3WAYCALL_FLASH_DELAY_INT",
+      "desc": "For carriers which require an empty flash to be sent before sending the normal 3-way calling flash, the duration in milliseconds of the empty flash to send."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CDMA_DTMF_TONE_DELAY_INT",
+      "desc": "Specifies the amount of gap to be added in millis between postdial DTMF tones."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CDMA_NONROAMING_NETWORKS_STRING_ARRAY",
+      "desc": "Override the platform's notion of a network operator being considered non roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CDMA_ROAMING_MODE_INT",
+      "desc": "The CDMA roaming mode (aka CDMA system select)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CDMA_ROAMING_NETWORKS_STRING_ARRAY",
+      "desc": "Override the platform's notion of a network operator being considered roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CHECK_PRICING_WITH_CARRIER_FOR_DATA_ROAMING_BOOL",
+      "desc": "Determines whether we should show a warning asking the user to check with their carrier on pricing when the user enabled data roaming, default to false."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CI_ACTION_ON_SYS_UPDATE_BOOL",
+      "desc": "Flag specifying whether an additional (client initiated) intent needs to be sent on System update"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CI_ACTION_ON_SYS_UPDATE_EXTRA_STRING",
+      "desc": "Extra to be included in the intent sent for additional action on System update"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CI_ACTION_ON_SYS_UPDATE_EXTRA_VAL_STRING",
+      "desc": "Value of extra included in intent sent for additional action on System update"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CI_ACTION_ON_SYS_UPDATE_INTENT_STRING",
+      "desc": "Intent to be sent for the additional action on System update"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CONFIG_IMS_MMTEL_PACKAGE_OVERRIDE_STRING",
+      "desc": "The package name containing the ImsService that will be bound to the telephony framework to support IMS MMTEL feature functionality instead of the device default ImsService for this subscription."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CONFIG_IMS_PACKAGE_OVERRIDE_STRING",
+      "desc": "The package name containing the ImsService that will be bound to the telephony framework to support both IMS MMTEL and RCS feature functionality instead of the device default ImsService for this subscription."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CONFIG_IMS_RCS_PACKAGE_OVERRIDE_STRING",
+      "desc": "The package name containing the ImsService that will be bound to the telephony framework to support IMS RCS feature functionality instead of the device default ImsService for this subscription."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CONFIG_PLANS_PACKAGE_OVERRIDE_STRING",
+      "desc": "Override the package that will manage SubscriptionPlan information instead of the CarrierService that defines this value."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CONFIG_TELEPHONY_USE_OWN_NUMBER_FOR_VOICEMAIL_BOOL",
+      "desc": "Flag that specifies to use the user's own phone number as the voicemail number when there is no pre-loaded voicemail number on the SIM card."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CONFIG_WIFI_DISABLE_IN_ECBM",
+      "desc": "Flag to indicate if Wi-Fi needs to be disabled in ECBM."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_CSP_ENABLED_BOOL",
+      "desc": "If this is true, the SIM card (through Customer Service Profile EF file) will be able to prevent manual operator selection."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DATA_LIMIT_NOTIFICATION_BOOL",
+      "desc": "Controls if the device should automatically notify the user as they reach their cellular data limit."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DATA_LIMIT_THRESHOLD_BYTES_LONG",
+      "desc": "Controls the cellular data limit."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DATA_RAPID_NOTIFICATION_BOOL",
+      "desc": "Controls if the device should automatically notify the user when rapid cellular data usage is observed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DATA_SWITCH_VALIDATION_TIMEOUT_LONG",
+      "desc": "Upon data switching between subscriptions within a carrier group, if switch depends on validation result, this value defines customized value of how long we wait for validation success before we fail and revoke the switch."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DATA_WARNING_NOTIFICATION_BOOL",
+      "desc": "Controls if the device should automatically notify the user as they reach their cellular data warning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DATA_WARNING_THRESHOLD_BYTES_LONG",
+      "desc": "Controls the data usage warning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DEFAULT_SIM_CALL_MANAGER_STRING",
+      "desc": "The default sim call manager to use when the default dialer doesn't implement one."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DEFAULT_VM_NUMBER_ROAMING_AND_IMS_UNREGISTERED_STRING",
+      "desc": "Where there is no preloaded voicemail number on a SIM card, specifies the carrier's default voicemail number while the device is both roaming and not registered for IMS."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DEFAULT_VM_NUMBER_STRING",
+      "desc": "Where there is no preloaded voicemail number on a SIM card, specifies the carrier's default voicemail number."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DIAL_STRING_REPLACE_STRING_ARRAY",
+      "desc": "Specifies a map from dialstrings to replacements for roaming network service numbers which cannot be replaced on the carrier side."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DISABLE_CDMA_ACTIVATION_CODE_BOOL",
+      "desc": "Disables dialing \"*228\" (OTASP provisioning) on CDMA carriers where it is not supported or is potentially harmful by locking the SIM to 3G."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DISABLE_CHARGE_INDICATION_BOOL",
+      "desc": "The flag to disable the popup dialog which warns the user of data charges."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DISABLE_SUPPLEMENTARY_SERVICES_IN_AIRPLANE_MODE_BOOL",
+      "desc": "Boolean indicating the Supplementary Services(SS) is disable when airplane mode on in the Call Settings menu."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DISCONNECT_CAUSE_PLAY_BUSYTONE_INT_ARRAY",
+      "desc": "DisconnectCause array to play busy tone."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DISPLAY_HD_AUDIO_PROPERTY_BOOL",
+      "desc": "Determines whether High Definition audio property is displayed in the dialer UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DROP_VIDEO_CALL_WHEN_ANSWERING_AUDIO_CALL_BOOL",
+      "desc": "When true, if the user is in an ongoing video call over WIFI and answers an incoming audio call, the video call will be disconnected before the audio call is answered."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DTMF_TYPE_ENABLED_BOOL",
+      "desc": "Flag indicating if dtmf tone type is enabled"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_DURATION_BLOCKING_DISABLED_AFTER_EMERGENCY_INT",
+      "desc": "The duration in seconds that platform call and message blocking is disabled after the user contacts emergency services."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_EDITABLE_ENHANCED_4G_LTE_BOOL",
+      "desc": "Determine whether user can toggle Enhanced 4G LTE Mode in Settings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_EDITABLE_VOICEMAIL_NUMBER_BOOL",
+      "desc": "Since the default voicemail number is empty, if a SIM card does not have a voicemail number available the user cannot use voicemail."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_EDITABLE_VOICEMAIL_NUMBER_SETTING_BOOL",
+      "desc": "Determine whether user can edit voicemail number in Settings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_EDITABLE_WFC_MODE_BOOL",
+      "desc": "Determine whether user can switch Wi-Fi preferred or Cellular preferred in calling preference."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_EDITABLE_WFC_ROAMING_MODE_BOOL",
+      "desc": "Determine whether user can change Wi-Fi Calling preference in roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_EMERGENCY_NOTIFICATION_DELAY_INT",
+      "desc": "Time delay (in ms) after which we show the notification for emergency calls, while the device is registered over WFC."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_EMERGENCY_NUMBER_PREFIX_STRING_ARRAY",
+      "desc": "Indicates zero or more emergency number prefix(es), because some carrier requires if users dial an emergency number address with a specific prefix, the combination of the prefix and the address is also a valid emergency number to dial."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ENABLE_DIALER_KEY_VIBRATION_BOOL",
+      "desc": "If true, enable vibration (haptic feedback) for key presses in the EmergencyDialer activity."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ENHANCED_4G_LTE_ON_BY_DEFAULT_BOOL",
+      "desc": "Sets the default state for the \"Enhanced 4G LTE\" or \"Advanced Calling\" mode toggle set by the user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ENHANCED_4G_LTE_TITLE_VARIANT_INT",
+      "desc": "The index indicates the carrier specified title string of Enhanced 4G LTE Mode settings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_FORCE_HOME_NETWORK_BOOL",
+      "desc": "Override the platform's notion of a network operator being considered non roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_GSM_DTMF_TONE_DELAY_INT",
+      "desc": "Specifies the amount of gap to be added in millis between postdial DTMF tones."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_GSM_NONROAMING_NETWORKS_STRING_ARRAY",
+      "desc": "Override the platform's notion of a network operator being considered not roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_GSM_ROAMING_NETWORKS_STRING_ARRAY",
+      "desc": "Override the platform's notion of a network operator being considered roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_HAS_IN_CALL_NOISE_SUPPRESSION_BOOL",
+      "desc": "Determines if device implements a noise suppression device for in call audio."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_HIDE_CARRIER_NETWORK_SETTINGS_BOOL",
+      "desc": "Control whether users can reach the carrier portions of Cellular Network Settings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_HIDE_ENHANCED_4G_LTE_BOOL",
+      "desc": "Determines whether the Enhanced 4G LTE toggle will be shown in the settings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_HIDE_IMS_APN_BOOL",
+      "desc": "Determine whether IMS apn can be shown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_HIDE_LTE_PLUS_DATA_ICON_BOOL",
+      "desc": "Boolean indicating if LTE+ icon should be shown if available."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_HIDE_PREFERRED_NETWORK_TYPE_BOOL",
+      "desc": "Determine whether preferred network type can be shown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_HIDE_PRESET_APN_DETAILS_BOOL",
+      "desc": "Flag to hide Preset APN details."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_HIDE_SIM_LOCK_SETTINGS_BOOL",
+      "desc": "Control whether users can reach the SIM lock settings."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_IGNORE_DATA_ENABLED_CHANGED_FOR_VIDEO_CALLS",
+      "desc": "When true, changes to the mobile data enabled switch will not cause the VT registration state to change."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_IGNORE_RTT_MODE_SETTING_BOOL",
+      "desc": "When true, the phone will always tell the IMS stack to keep RTT enabled and determine on a per-call basis (based on extras from the dialer app) whether a call should be an RTT call or not."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_IGNORE_SIM_NETWORK_LOCKED_EVENTS_BOOL",
+      "desc": "Flag indicating whether the Phone app should ignore EVENT_SIM_NETWORK_LOCKED events from the Sim."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_IMS_CONFERENCE_SIZE_LIMIT_INT",
+      "desc": "Determines the maximum number of participants the carrier supports for a conference call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_IMS_DTMF_TONE_DELAY_INT",
+      "desc": "Specifies the amount of gap to be added in millis between DTMF tones."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_IS_IMS_CONFERENCE_SIZE_ENFORCED_BOOL",
+      "desc": "Determines whether a maximum size limit for IMS conference calls is enforced on the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_LTE_ENABLED_BOOL",
+      "desc": "Boolean to decide whether LTE is enabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_LTE_RSRQ_THRESHOLDS_INT_ARRAY",
+      "desc": "A list of 4 customized LTE Reference Signal Received Quality (RSRQ) thresholds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_LTE_RSSNR_THRESHOLDS_INT_ARRAY",
+      "desc": "A list of 4 customized LTE Reference Signal Signal to Noise Ratio (RSSNR) thresholds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MDN_IS_ADDITIONAL_VOICEMAIL_NUMBER_BOOL",
+      "desc": "When checking if a given number is the voicemail number, if this flag is true then in addition to comparing the given number to the voicemail number, we also compare it to the mdn."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_ALIAS_ENABLED_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_ALIAS_MAX_CHARS_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_ALIAS_MIN_CHARS_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_ALLOW_ATTACH_AUDIO_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_APPEND_TRANSACTION_ID_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_CLOSE_CONNECTION_BOOL",
+      "desc": "If true, add \"Connection: close\" header to MMS HTTP requests so the connection is immediately closed (disabling keep-alive)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_EMAIL_GATEWAY_NUMBER_STRING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_GROUP_MMS_ENABLED_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_HTTP_PARAMS_STRING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_HTTP_SOCKET_TIMEOUT_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_MAX_IMAGE_HEIGHT_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_MAX_IMAGE_WIDTH_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_MAX_MESSAGE_SIZE_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_MESSAGE_TEXT_MAX_SIZE_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_MMS_DELIVERY_REPORT_ENABLED_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_MMS_ENABLED_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_MMS_READ_REPORT_ENABLED_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_MULTIPART_SMS_ENABLED_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_NAI_SUFFIX_STRING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_NOTIFY_WAP_MMSC_ENABLED_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_RECIPIENT_LIMIT_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_SEND_MULTIPART_SMS_AS_SEPARATE_MESSAGES_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_SHOW_CELL_BROADCAST_APP_LINKS_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_SMS_DELIVERY_REPORT_ENABLED_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_SMS_TO_MMS_TEXT_LENGTH_THRESHOLD_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_SMS_TO_MMS_TEXT_THRESHOLD_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_SUBJECT_MAX_LENGTH_INT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_SUPPORT_HTTP_CHARSET_HEADER_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_SUPPORT_MMS_CONTENT_DISPOSITION_BOOL",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_UA_PROF_TAG_NAME_STRING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_UA_PROF_URL_STRING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MMS_USER_AGENT_STRING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_MONTHLY_DATA_CYCLE_DAY_INT",
+      "desc": "The day of the month (1-31) on which the data cycle rolls over."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ONLY_AUTO_SELECT_IN_HOME_NETWORK_BOOL",
+      "desc": "Only allow auto selection in Advanced Network Settings when in home network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ONLY_SINGLE_DC_ALLOWED_INT_ARRAY",
+      "desc": "List of RIL radio technologies (See ServiceState RIL_RADIO_TECHNOLOGY_* constants) which support only a single data connection at a time."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPERATOR_SELECTION_EXPAND_BOOL",
+      "desc": "Control whether users can choose a network operator."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_BACKOFF_TIME_LONG",
+      "desc": "Controls back off time in milli seconds for switching back to opportunistic subscription."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_DATA_SWITCH_EXIT_HYSTERESIS_TIME_LONG",
+      "desc": "Controls hysteresis time in milli seconds for which OpportunisticNetworkService will wait before switching data from opportunistic network to primary network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_DATA_SWITCH_HYSTERESIS_TIME_LONG",
+      "desc": "Controls hysteresis time in milli seconds for which OpportunisticNetworkService will wait before switching data to an opportunistic network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_ENTRY_OR_EXIT_HYSTERESIS_TIME_LONG",
+      "desc": "Controls hysteresis time in milli seconds for which OpportunisticNetworkService will wait before attaching to a network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_ENTRY_THRESHOLD_BANDWIDTH_INT",
+      "desc": "Controls bandwidth threshold in Kbps at which OpportunisticNetworkService will decide whether the opportunistic network is good enough for internet data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_ENTRY_THRESHOLD_RSRP_INT",
+      "desc": "Controls RSRP threshold at which OpportunisticNetworkService will decide whether the opportunistic network is good enough for internet data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_ENTRY_THRESHOLD_RSSNR_INT",
+      "desc": "Controls RSSNR threshold at which OpportunisticNetworkService will decide whether the opportunistic network is good enough for internet data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_EXIT_THRESHOLD_RSRP_INT",
+      "desc": "Controls RSRP threshold below which OpportunisticNetworkService will decide whether the opportunistic network available is not good enough for internet data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_EXIT_THRESHOLD_RSSNR_INT",
+      "desc": "Controls RSSNR threshold below which OpportunisticNetworkService will decide whether the opportunistic network available is not good enough for internet data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_MAX_BACKOFF_TIME_LONG",
+      "desc": "Controls the max back off time in milli seconds for switching back to opportunistic subscription."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_OPPORTUNISTIC_NETWORK_PING_PONG_TIME_LONG",
+      "desc": "Controls the ping pong determination of opportunistic network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_PING_TEST_BEFORE_DATA_SWITCH_BOOL",
+      "desc": "Controls whether to do ping test before switching data to opportunistic network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_PREFER_2G_BOOL",
+      "desc": "Used in Cellular Network Settings for preferred network type."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_PREVENT_CLIR_ACTIVATION_AND_DEACTIVATION_CODE_BOOL",
+      "desc": "Flag specifying whether to prevent sending CLIR activation(\"*31#\") and deactivation(\"#31#\") code only without dialing number."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_RADIO_RESTART_FAILURE_CAUSES_INT_ARRAY",
+      "desc": "A list of failure cause codes that will trigger a modem restart when telephony receiving one of those during data setup."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_RCS_CONFIG_SERVER_URL_STRING",
+      "desc": "The RCS configuration server URL."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_READ_ONLY_APN_FIELDS_STRING_ARRAY",
+      "desc": "APN fields that user is not allowed to modify."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_READ_ONLY_APN_TYPES_STRING_ARRAY",
+      "desc": "APN types that user is not allowed to modify."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_REQUIRE_ENTITLEMENT_CHECKS_BOOL",
+      "desc": "Flag to require or skip entitlement checks."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_RESTART_RADIO_ON_PDP_FAIL_REGULAR_DEACTIVATION_BOOL",
+      "desc": "Flag indicating whether radio is to be restarted on error PDP_FAIL_REGULAR_DEACTIVATION This is false by default."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_RTT_SUPPORTED_BOOL",
+      "desc": "Flag indicating whether the carrier supports RTT over IMS."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_4G_FOR_3G_DATA_ICON_BOOL",
+      "desc": "Boolean indicating if default data account should show 4G icon when in 3G."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_4G_FOR_LTE_DATA_ICON_BOOL",
+      "desc": "Boolean indicating if default data account should show LTE or 4G icon."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_APN_SETTING_CDMA_BOOL",
+      "desc": "Show APN Settings for some CDMA carriers"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_BLOCKING_PAY_PHONE_OPTION_BOOL",
+      "desc": "Flag specifying whether to show blocking pay phone option in blocked numbers screen."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_CALL_BLOCKING_DISABLED_NOTIFICATION_ALWAYS_BOOL",
+      "desc": "Flag specifying whether to show notification(call blocking disabled) when Enhanced Call Blocking(KEY_SUPPORT_ENHANCED_CALL_BLOCKING_BOOL) is enabled and making emergency call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_CDMA_CHOICES_BOOL",
+      "desc": "Show cdma network mode choices 1x, 3G, global etc."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_FORWARDED_NUMBER_BOOL",
+      "desc": "Flag specifying whether to show forwarded number on call-in-progress screen."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_ICCID_IN_SIM_STATUS_BOOL",
+      "desc": "Flag specifying whether ICCID is showed in SIM Status screen, default to false."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_IMS_REGISTRATION_STATUS_BOOL",
+      "desc": "Flag specifying whether IMS registration state menu is shown in Status Info setting, default to false."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_ONSCREEN_DIAL_BUTTON_BOOL",
+      "desc": "If true, show an onscreen \"Dial\" button in the dialer."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_SIGNAL_STRENGTH_IN_SIM_STATUS_BOOL",
+      "desc": "Flag specifying whether the android.telephony.SignalStrength is shown in the SIM Status screen."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_VIDEO_CALL_CHARGES_ALERT_DIALOG_BOOL",
+      "desc": "Flag specifying whether to show an alert dialog for video call charges."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SHOW_WFC_LOCATION_PRIVACY_POLICY_BOOL",
+      "desc": "Determines whether wifi calling location privacy policy is shown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SIMPLIFIED_NETWORK_SETTINGS_BOOL",
+      "desc": "Control whether users receive a simplified network settings UI and improved network selection."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SIM_NETWORK_UNLOCK_ALLOW_DISMISS_BOOL",
+      "desc": "Flag indicating whether the Phone app should provide a \"Dismiss\" button on the SIM network unlock screen."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SMS_REQUIRES_DESTINATION_NUMBER_CONVERSION_BOOL",
+      "desc": "Determines if the carrier requires converting the destination number before sending out an SMS."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_3GPP_CALL_FORWARDING_WHILE_ROAMING_BOOL",
+      "desc": "Indicates whether the carrier supports 3gpp call forwarding MMI codes while roaming."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_CLIR_NETWORK_DEFAULT_BOOL",
+      "desc": "Flag indicating whether to support \"Network default\" option in Caller ID settings for Calling Line Identification Restriction (CLIR)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_CONFERENCE_CALL_BOOL",
+      "desc": "Determines whether conference calls are supported by a carrier."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_EMERGENCY_SMS_OVER_IMS_BOOL",
+      "desc": "Flag indicating whether or not sending emergency SMS messages over IMS is supported when in LTE/limited LTE (Emergency only) service mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_ENHANCED_CALL_BLOCKING_BOOL",
+      "desc": "Determines whether to enable enhanced call blocking feature on the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_IMS_CONFERENCE_EVENT_PACKAGE_BOOL",
+      "desc": "Determines whether the IMS conference merge process supports and returns its participants data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_PAUSE_IMS_VIDEO_CALLS_BOOL",
+      "desc": "For IMS video over LTE calls, determines whether video pause signalling is supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_SWAP_AFTER_MERGE_BOOL",
+      "desc": "After a CDMA conference call is merged, the swap button should be displayed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_TDSCDMA_BOOL",
+      "desc": "Boolean to decide whether TD-SCDMA is supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SUPPORT_TDSCDMA_ROAMING_NETWORKS_STRING_ARRAY",
+      "desc": "A list of mcc/mnc that support TD-SCDMA for device when connect to the roaming network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_SWITCH_DATA_TO_PRIMARY_IF_PRIMARY_IS_OOS_BOOL",
+      "desc": "Controls whether to switch data to primary from opportunistic subscription if primary is out of service."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_TREAT_DOWNGRADED_VIDEO_CALLS_AS_VIDEO_CALLS_BOOL",
+      "desc": "Flag indicating whether some telephony logic will treat a call which was formerly a video call as if it is still a video call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_TTY_SUPPORTED_BOOL",
+      "desc": "Boolean flag indicating whether the carrier supports TTY."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_UNLOGGABLE_NUMBERS_STRING_ARRAY",
+      "desc": "A string array containing numbers that shouldn't be included in the call log."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_USE_HFA_FOR_PROVISIONING_BOOL",
+      "desc": "CDMA activation goes through HFA"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_USE_OTASP_FOR_PROVISIONING_BOOL",
+      "desc": "CDMA activation goes through OTASP."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_USE_RCS_PRESENCE_BOOL",
+      "desc": "Flag indicating whether the carrier supports RCS presence indication for User Capability Exchange (UCE)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_USE_RCS_SIP_OPTIONS_BOOL",
+      "desc": "Flag indicating whether the carrier supports RCS SIP OPTIONS indication for User Capability Exchange (UCE)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_USE_WFC_HOME_NETWORK_MODE_IN_ROAMING_NETWORK_BOOL",
+      "desc": "Flag specifying whether the carrier will use the WFC home network mode in roaming network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VOICEMAIL_NOTIFICATION_PERSISTENT_BOOL",
+      "desc": "Determine whether the voicemail notification is persistent in the notification bar."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VOICE_PRIVACY_DISABLE_UI_BOOL",
+      "desc": "If true, removes the Voice Privacy option from Call Settings"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VOLTE_REPLACEMENT_RAT_INT",
+      "desc": "If Voice Radio Technology is RIL_RADIO_TECHNOLOGY_LTE:14 or RIL_RADIO_TECHNOLOGY_UNKNOWN:0 this is the value that should be used instead."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_CELLULAR_DATA_REQUIRED_BOOL",
+      "desc": "Whether cellular data is required to access visual voicemail."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_CLIENT_PREFIX_STRING",
+      "desc": "The default OMTP visual voicemail client prefix to use."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_DESTINATION_NUMBER_STRING",
+      "desc": "The carrier number mobile outgoing (MO) sms messages are sent to."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_DISABLED_CAPABILITIES_STRING_ARRAY",
+      "desc": "A set of capabilities that should not be used even if it is reported by the visual voicemail IMAP CAPABILITY command."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_LEGACY_MODE_ENABLED_BOOL",
+      "desc": "Whether legacy mode should be used when the visual voicemail client is disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_PORT_NUMBER_INT",
+      "desc": "The port through which the mobile outgoing (MO) sms messages are sent through."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_PREFETCH_BOOL",
+      "desc": "Whether to prefetch audio data on new voicemail arrival, defaulted to true."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_SSL_ENABLED_BOOL",
+      "desc": "Whether to use SSL to connect to the visual voicemail IMAP server."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_VVM_TYPE_STRING",
+      "desc": "The type of visual voicemail protocol the carrier adheres to."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_WFC_EMERGENCY_ADDRESS_CARRIER_APP_STRING",
+      "desc": "The Component Name of the activity that can setup the emergency address for WiFi Calling as per carrier requirement."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_WORLD_MODE_ENABLED_BOOL",
+      "desc": "Boolean to decide whether world mode is enabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_WORLD_PHONE_BOOL",
+      "desc": "Flag indicating if the phone is a world phone"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PersistableBundle",
+      "code": "getConfig()",
+      "desc": "Gets the configuration values for the default subscription.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PersistableBundle",
+      "code": "getConfigByComponentForSubId(prefix: String, subId: Int)",
+      "desc": "Gets the configuration values for a component using its prefix.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PersistableBundle",
+      "code": "getConfigForSubId(subId: Int)",
+      "desc": "Gets the configuration values for a particular subscription, which is associated with a specific SIM card.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isConfigForIdentifiedCarrier(bundle: PersistableBundle!)",
+      "desc": "Determines whether a configuration PersistableBundle obtained from getConfig() or getConfigForSubId(int) corresponds to an identified carrier."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "notifyConfigChangedForSubId(subId: Int)",
+      "desc": "Calling this method triggers telephony services to fetch the current carrier configuration."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Apn",
+      "desc": "Configs used for APN setup."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Gps",
+      "desc": "GPS configs."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Ims",
+      "desc": "Configs used by the IMS stack."
+    }
+  ]
+}

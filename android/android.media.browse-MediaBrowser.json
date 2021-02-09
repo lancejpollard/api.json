@@ -1,0 +1,141 @@
+{
+  "path": "android.media.browse",
+  "name": "MediaBrowser",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PAGE",
+      "desc": "Used as an int extra field to denote the page number to subscribe."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PAGE_SIZE",
+      "desc": "Used as an int extra field to denote the number of media items in a page."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, serviceComponent: ComponentName!, callback: MediaBrowser.ConnectionCallback!, rootHints: Bundle!)\n            Creates a media browser for the specified media browser service."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "connect()",
+      "desc": "Connects to the media browser service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "disconnect()",
+      "desc": "Disconnects from the media browser service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Bundle",
+      "code": "getExtras()",
+      "desc": "Gets any extras for the media service.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "getItem(mediaId: String, cb: MediaBrowser.ItemCallback)",
+      "desc": "Retrieves a specific MediaItem from the connected service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getRoot()",
+      "desc": "Gets the root id."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ComponentName",
+      "code": "getServiceComponent()",
+      "desc": "Gets the service component that the media browser is connected to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaSession.Token",
+      "code": "getSessionToken()",
+      "desc": "Gets the media session token associated with the media browser."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isConnected()",
+      "desc": "Returns whether the browser is connected to the service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "subscribe(parentId: String, callback: MediaBrowser.SubscriptionCallback)",
+      "desc": "Queries for information about the media items that are contained within the specified id and subscribes to receive updates when they change."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "subscribe(parentId: String, options: Bundle, callback: MediaBrowser.SubscriptionCallback)",
+      "desc": "Queries with service-specific arguments for information about the media items that are contained within the specified id and subscribes to receive updates when they change."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unsubscribe(parentId: String)",
+      "desc": "Unsubscribes for changes to the children of the specified media id."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unsubscribe(parentId: String, callback: MediaBrowser.SubscriptionCallback)",
+      "desc": "Unsubscribes for changes to the children of the specified media id through a callback."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ConnectionCallback",
+      "desc": "Callbacks for connection related events."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ItemCallback",
+      "desc": "Callback for receiving the result of getItem."
+    },
+    {
+      "type": "nested-classes",
+      "code": "MediaItem",
+      "desc": "A class with information on a single media item for use in browsing/searching media."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "SubscriptionCallback",
+      "desc": "Callbacks for subscription related events."
+    }
+  ]
+}

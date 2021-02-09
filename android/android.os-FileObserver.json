@@ -1,0 +1,164 @@
+{
+  "path": "android.os",
+  "name": "FileObserver",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ACCESS",
+      "desc": "Event type: Data was read from a file"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ALL_EVENTS",
+      "desc": "Event mask: All valid event types, combined  Value is either 0 or a combination of android.os.FileObserver#ACCESS, android.os.FileObserver#MODIFY, android.os.FileObserver#ATTRIB, android.os.FileObserver#CLOSE_WRITE, android.os.FileObserver#CLOSE_NOWRITE, android.os.FileObserver#OPEN, android.os.FileObserver#MOVED_FROM, android.os.FileObserver#MOVED_TO, android.os.FileObserver#CREATE, android.os.FileObserver#DELETE, android.os.FileObserver#DELETE_SELF, and android.os.FileObserver#MOVE_SELF"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ATTRIB",
+      "desc": "Event type: Metadata (permissions, owner, timestamp) was changed explicitly"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CLOSE_NOWRITE",
+      "desc": "Event type: Someone had a file or directory open read-only, and closed it"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CLOSE_WRITE",
+      "desc": "Event type: Someone had a file or directory open for writing, and closed it"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CREATE",
+      "desc": "Event type: A new file or subdirectory was created under the monitored directory"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DELETE",
+      "desc": "Event type: A file was deleted from the monitored directory"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DELETE_SELF",
+      "desc": "Event type: The monitored file or directory was deleted; monitoring effectively stops"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODIFY",
+      "desc": "Event type: Data was written to a file"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MOVED_FROM",
+      "desc": "Event type: A file or subdirectory was moved from the monitored directory"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MOVED_TO",
+      "desc": "Event type: A file or subdirectory was moved to the monitored directory"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MOVE_SELF",
+      "desc": "Event type: The monitored file or directory was moved; monitoring continues"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "OPEN",
+      "desc": "Event type: A file or directory was opened"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(path: String!)\n            Equivalent to FileObserver(path, FileObserver.ALL_EVENTS)."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(file: File)\n            Equivalent to FileObserver(file, FileObserver.ALL_EVENTS)."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(files: MutableList<File!>)\n            Equivalent to FileObserver(paths, FileObserver.ALL_EVENTS)."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(path: String!, mask: Int)\n            Create a new file observer for a certain file or directory."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(file: File, mask: Int)\n            Create a new file observer for a certain file or directory."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(files: MutableList<File!>, mask: Int)\n            Version of FileObserver(java.io.File,int) that allows callers to monitor multiple files or directories."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onEvent(event: Int, path: String?)",
+      "desc": "The event handler, which must be implemented by subclasses."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startWatching()",
+      "desc": "Start watching for events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "stopWatching()",
+      "desc": "Stop watching for events."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    }
+  ]
+}

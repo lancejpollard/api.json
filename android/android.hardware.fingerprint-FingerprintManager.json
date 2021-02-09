@@ -1,0 +1,176 @@
+{
+  "path": "android.hardware.fingerprint",
+  "name": "FingerprintManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ACQUIRED_GOOD",
+      "desc": "The image acquired was good."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ACQUIRED_IMAGER_DIRTY",
+      "desc": "The fingerprint image was too noisy due to suspected or detected dirt on the sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ACQUIRED_INSUFFICIENT",
+      "desc": "The fingerprint image was too noisy to process due to a detected condition (i.e. dry skin) or a possibly dirty sensor (See"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ACQUIRED_PARTIAL",
+      "desc": "Only a partial fingerprint image was detected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ACQUIRED_TOO_FAST",
+      "desc": "The fingerprint image was incomplete due to quick motion."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ACQUIRED_TOO_SLOW",
+      "desc": "The fingerprint image was unreadable due to lack of motion."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_CANCELED",
+      "desc": "The operation was canceled because the fingerprint sensor is unavailable."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_HW_NOT_PRESENT",
+      "desc": "The device does not have a fingerprint sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_HW_UNAVAILABLE",
+      "desc": "The hardware is unavailable."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_LOCKOUT",
+      "desc": "The operation was canceled because the API is locked out due to too many attempts."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_LOCKOUT_PERMANENT",
+      "desc": "The operation was canceled because FINGERPRINT_ERROR_LOCKOUT occurred too many times."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_NO_FINGERPRINTS",
+      "desc": "The user does not have any fingerprints enrolled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_NO_SPACE",
+      "desc": "Error state returned for operations like enrollment; the operation cannot be completed because there's not enough storage remaining to complete the operation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_TIMEOUT",
+      "desc": "Error state returned when the current request has been running too long."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_UNABLE_TO_PROCESS",
+      "desc": "Error state returned when the sensor was unable to process the current image."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_USER_CANCELED",
+      "desc": "The user canceled the operation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FINGERPRINT_ERROR_VENDOR",
+      "desc": "Hardware vendors may extend this list if there are conditions that do not fall under one of the above categories."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "authenticate(crypto: FingerprintManager.CryptoObject?, cancel: CancellationSignal?, flags: Int, callback: FingerprintManager.AuthenticationCallback, handler: Handler?)",
+      "desc": "Request authentication of a crypto object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasEnrolledFingerprints()",
+      "desc": "Determine if there is at least one fingerprint enrolled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isHardwareDetected()",
+      "desc": "Determine if fingerprint hardware is present and functional."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "AuthenticationCallback",
+      "desc": "Callback structure provided to FingerprintManager#authenticate(CryptoObject,."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "AuthenticationResult",
+      "desc": "Container for callback data from FingerprintManager#authenticate(CryptoObject,."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CryptoObject",
+      "desc": "A wrapper class for the crypto objects supported by FingerprintManager."
+    }
+  ]
+}

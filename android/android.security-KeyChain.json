@@ -1,0 +1,145 @@
+{
+  "path": "android.security",
+  "name": "KeyChain",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_KEYCHAIN_CHANGED",
+      "desc": "Broadcast Action: Indicates the contents of the keychain has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_KEY_ACCESS_CHANGED",
+      "desc": "Broadcast Action: Indicates that the access permissions for a private key have changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_STORAGE_CHANGED",
+      "desc": "Broadcast Action: Indicates the trusted storage has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_TRUST_STORE_CHANGED",
+      "desc": "Broadcast Action: Indicates the contents of the trusted certificate store has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CERTIFICATE",
+      "desc": "Optional extra to specify an X."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_KEY_ACCESSIBLE",
+      "desc": "Used as a boolean extra field in ACTION_KEY_ACCESS_CHANGED to supply if the key is accessible to the application."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_KEY_ALIAS",
+      "desc": "Used as a String extra field in ACTION_KEY_ACCESS_CHANGED to supply the alias of the key."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NAME",
+      "desc": "Optional extra to specify a String credential name on the Intent returned by createInstallIntent."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PKCS12",
+      "desc": "Optional extra for use with the Intent returned by createInstallIntent to specify a PKCS#12 key store to install."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_ALIAS_SELECTION_DENIED",
+      "desc": "Used by DPC or delegated app in android.app.admin.DeviceAdminReceiver#onChoosePrivateKeyAlias or android.app.admin.DelegatedAdminReceiver#onChoosePrivateKeyAlias to identify that the requesting app is not granted access to any key, and nor will the user be able to grant access manually."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "choosePrivateKeyAlias(activity: Activity, response: KeyChainAliasCallback, keyTypes: Array<String!>?, issuers: Array<Principal!>?, host: String?, port: Int, alias: String?)",
+      "desc": "Launches an Activity for the user to select the alias for a private key and certificate pair for authentication."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "choosePrivateKeyAlias(activity: Activity, response: KeyChainAliasCallback, keyTypes: Array<String!>?, issuers: Array<Principal!>?, uri: Uri?, alias: String?)",
+      "desc": "Launches an Activity for the user to select the alias for a private key and certificate pair for authentication."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Intent",
+      "code": "createInstallIntent()",
+      "desc": "Returns an Intent that can be used for credential installation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Array",
+      "code": "getCertificateChain(context: Context, alias: String)",
+      "desc": "Returns the X509Certificate chain for the requested alias, or null if the alias does not exist or the caller has no permission to access it (see note on exceptions in getPrivateKey).",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PrivateKey",
+      "code": "getPrivateKey(context: Context, alias: String)",
+      "desc": "Returns the PrivateKey for the requested alias, or null if the alias does not exist or the caller has no permission to access it (see note on exceptions below).",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isBoundKeyAlgorithm(algorithm: String)",
+      "desc": "Returns true if the current device's KeyChain binds any PrivateKey of the given algorithm to the device once imported or generated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isKeyAlgorithmSupported(algorithm: String)",
+      "desc": "Returns true if the current device's KeyChain supports a specific PrivateKey type indicated by algorithm (e.g., \"RSA\")."
+    }
+  ]
+}

@@ -1,0 +1,2212 @@
+{
+  "path": "android.content.pm",
+  "name": "PackageManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CERT_INPUT_RAW_X509",
+      "desc": "Certificate input bytes: the input bytes represent an encoded X."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CERT_INPUT_SHA256",
+      "desc": "Certificate input bytes: the input bytes represent the SHA256 output of an encoded X."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "COMPONENT_ENABLED_STATE_DEFAULT",
+      "desc": "Flag for setApplicationEnabledSetting(java.lang.String,int,int) and setComponentEnabledSetting(android.content.ComponentName,int,int): This component or application is in its default enabled state (as specified in its manifest)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "COMPONENT_ENABLED_STATE_DISABLED",
+      "desc": "Flag for setApplicationEnabledSetting(java.lang.String,int,int) and setComponentEnabledSetting(android.content.ComponentName,int,int): This component or application has been explicitly disabled, regardless of what it has specified in its manifest."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED",
+      "desc": "Flag for setApplicationEnabledSetting(java.lang.String,int,int) only: This application should be considered, until the point where the user actually wants to use it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "COMPONENT_ENABLED_STATE_DISABLED_USER",
+      "desc": "Flag for setApplicationEnabledSetting(java.lang.String,int,int) only: The user has explicitly disabled the application, regardless of what it has specified in its manifest."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "COMPONENT_ENABLED_STATE_ENABLED",
+      "desc": "Flag for setApplicationEnabledSetting(java.lang.String,int,int) and setComponentEnabledSetting(android.content.ComponentName,int,int): This component or application has been explictily enabled, regardless of what it has specified in its manifest."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DONT_KILL_APP",
+      "desc": "Flag parameter for setComponentEnabledSetting(android.content.ComponentName,int,int) to indicate that you don't want to kill the app containing the component."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_VERIFICATION_ID",
+      "desc": "Extra field name for the ID of a package pending verification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_VERIFICATION_RESULT",
+      "desc": "Extra field name for the result of a verification, either VERIFICATION_ALLOW, or VERIFICATION_REJECT."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_ACTIVITIES_ON_SECONDARY_DISPLAYS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports running activities on secondary displays."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_APP_WIDGETS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports app widgets."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_AUDIO_LOW_LATENCY",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's audio pipeline is low-latency, more suitable for audio applications sensitive to delays or lag in sound input or output."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_AUDIO_OUTPUT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes at least one form of audio output, as defined in the Android Compatibility Definition Document (CDD) section 7.8 Audio."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_AUDIO_PRO",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has professional audio level of functionality and performance."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_AUTOFILL",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports autofill of user credentials, addresses, credit cards, etc via integration with autofill."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_AUTOMOTIVE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: This is a device dedicated to showing UI on a vehicle headunit."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_BACKUP",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device can perform backup and restore operations on installed applications."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_BLUETOOTH",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device is capable of communicating with other devices via Bluetooth."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_BLUETOOTH_LE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device is capable of communicating with other devices via Bluetooth Low Energy radio."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a camera facing away from the screen."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_ANY",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has at least one camera pointing in some direction, or can support an external camera being connected to it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_AR",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: At least one of the cameras on the device supports the  MOTION_TRACKING capability level."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_AUTOFOCUS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's camera supports auto-focus."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_CAPABILITY_MANUAL_POST_PROCESSING",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: At least one of the cameras on the device supports the manual post-processing capability level."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_CAPABILITY_MANUAL_SENSOR",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: At least one of the cameras on the device supports the manual sensor capability level."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_CAPABILITY_RAW",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: At least one of the cameras on the device supports the RAW capability level."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_CONCURRENT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's main front and back cameras can stream concurrently as described in  ."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_EXTERNAL",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device can support having an external camera connected to it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_FLASH",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's camera supports flash."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_FRONT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a front facing camera."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CAMERA_LEVEL_FULL",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: At least one of the cameras on the device supports the full hardware capability level."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CANT_SAVE_STATE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports the android.R.attr#cantSaveState API."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_COMPANION_DEVICE_SETUP",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports associating with devices via android.companion.CompanionDeviceManager."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CONNECTION_SERVICE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The Connection Service API is enabled on the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CONSUMER_IR",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device is capable of communicating with consumer IR devices."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_CONTROLS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports a system interface for the user to select and bind device control services provided by applications."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_DEVICE_ADMIN",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports device policy enforcement via device admins."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_EMBEDDED",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: This is a device for IoT and may not have an UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_ETHERNET",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: This device supports ethernet."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_FACE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has biometric hardware to perform face authentication."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_FAKETOUCH",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device does not have a touch screen, but does support touch emulation for basic events."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_FAKETOUCH_MULTITOUCH_DISTINCT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device does not have a touch screen, but does support touch emulation for basic events that supports distinct tracking of two or more fingers."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_FAKETOUCH_MULTITOUCH_JAZZHAND",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device does not have a touch screen, but does support touch emulation for basic events that supports tracking a hand of fingers (5 or more fingers) fully independently."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_FINGERPRINT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has biometric hardware to detect a fingerprint."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_FREEFORM_WINDOW_MANAGEMENT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports freeform window management."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_GAMEPAD",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has all of the inputs necessary to be considered a compatible game controller, or includes a compatible game controller in the box."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_HIFI_SENSORS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports high fidelity sensor processing capabilities."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_HOME_SCREEN",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports a home screen that is replaceable by third party applications."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_INPUT_METHODS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports adding new input methods implemented with the android.inputmethodservice.InputMethodService API."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_IPSEC_TUNNELS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has the requisite kernel support for multinetworking-capable IPsec tunnels."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_IRIS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has biometric hardware to perform iris authentication."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_LEANBACK",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports leanback UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_LEANBACK_ONLY",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports only leanback UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_LIVE_TV",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports live TV and can display contents from TV inputs implemented with the android.media.tv.TvInputService API."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_LIVE_WALLPAPER",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports live wallpapers."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_LOCATION",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports one or more methods of reporting current location."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_LOCATION_GPS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a Global Positioning System receiver and can report precise location."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_LOCATION_NETWORK",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device can report location with coarse accuracy using a network-based geolocation system."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_MANAGED_USERS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports creating secondary users and managed profiles via DevicePolicyManager."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_MICROPHONE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device can record audio via a microphone."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_MIDI",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a full implementation of the android."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_NFC",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device can communicate using Near-Field Communications (NFC)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_NFC_BEAM",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The Beam API is enabled on the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_NFC_HOST_CARD_EMULATION",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports host- based NFC card emulation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_NFC_HOST_CARD_EMULATION_NFCF",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports host- based NFC-F card emulation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_NFC_OFF_HOST_CARD_EMULATION_ESE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports eSE- based NFC card emulation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_NFC_OFF_HOST_CARD_EMULATION_UICC",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports uicc- based NFC card emulation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_OPENGLES_EXTENSION_PACK",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports the OpenGL ES  Android Extension Pack."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_PC",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: This is a device dedicated to be primarily used with keyboard, mouse or touchpad."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_PICTURE_IN_PICTURE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports picture-in-picture multi-window mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_PRINTING",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports printing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_RAM_LOW",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's ActivityManager#isLowRamDevice() method returns true."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_RAM_NORMAL",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's ActivityManager#isLowRamDevice() method returns false."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SCREEN_LANDSCAPE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports landscape orientation screens."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SCREEN_PORTRAIT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports portrait orientation screens."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SECURELY_REMOVES_USERS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports secure removal of users."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SECURE_LOCK_SCREEN",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a secure implementation of keyguard, meaning the device supports PIN, pattern and password as defined in Android CDD"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_ACCELEROMETER",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes an accelerometer."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_AMBIENT_TEMPERATURE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes an ambient temperature sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_BAROMETER",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a barometer (air pressure sensor.)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_COMPASS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a magnetometer (compass)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_GYROSCOPE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a gyroscope."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_HEART_RATE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a heart rate monitor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_HEART_RATE_ECG",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The heart rate sensor on this device is an Electrocardiogram."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_HINGE_ANGLE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a hinge angle sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_LIGHT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a light sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_PROXIMITY",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a proximity sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_RELATIVE_HUMIDITY",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a relative humidity sensor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_STEP_COUNTER",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a hardware step counter."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SENSOR_STEP_DETECTOR",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device includes a hardware step detector."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SE_OMAPI_ESE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports Open Mobile API capable eSE-based secure elements."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SE_OMAPI_SD",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports Open Mobile API capable SD-based secure elements."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SE_OMAPI_UICC",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports Open Mobile API capable UICC-based secure elements."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SIP",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The SIP API is enabled on the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_SIP_VOIP",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports SIP-based VOIP."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_STRONGBOX_KEYSTORE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a StrongBox hardware-backed Keystore."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TELEPHONY",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a telephony radio with data communication support."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TELEPHONY_CDMA",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a CDMA telephony stack."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TELEPHONY_EUICC",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports embedded subscriptions on eUICCs."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TELEPHONY_GSM",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a GSM telephony stack."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TELEPHONY_IMS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports attaching to IMS implementations using the ImsService API in telephony."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TELEPHONY_MBMS",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports cell-broadcast reception using the MBMS APIs."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TELEVISION",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: This is a device dedicated to showing UI on a television."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TOUCHSCREEN",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's display has a touch screen."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TOUCHSCREEN_MULTITOUCH",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's touch screen supports multitouch sufficient for basic two-finger gesture detection."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TOUCHSCREEN_MULTITOUCH_DISTINCT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's touch screen is capable of tracking two or more fingers fully independently."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_TOUCHSCREEN_MULTITOUCH_JAZZHAND",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device's touch screen is capable of tracking a full hand of fingers fully independently -- that is, 5 or more simultaneous independent pointers."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_USB_ACCESSORY",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports connecting to USB accessories."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_USB_HOST",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports connecting to USB devices as the USB host."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_VERIFIED_BOOT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports verified boot."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_VR_HEADTRACKING",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device implements headtracking suitable for a VR device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_VR_MODE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device implements an optimized mode for virtual reality (VR) applications that handles stereoscopic rendering of notifications, and disables most monocular system UI components while a VR application has user focus."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_VR_MODE_HIGH_PERFORMANCE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device implements an optimized mode for virtual reality (VR) applications that handles stereoscopic rendering of notifications, disables most monocular system UI components while a VR application has user focus and meets extra CDD requirements to provide a high-quality VR experience."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_VULKAN_DEQP_LEVEL",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature(java.lang.String,int): If this feature is supported, the feature version specifies a date such that the device is known to pass the Vulkan dEQP test suite associated with that date."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_VULKAN_HARDWARE_COMPUTE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature(java.lang.String,int): If this feature is supported, the Vulkan implementation on this device is hardware accelerated, and the Vulkan native API will enumerate at least one VkPhysicalDevice, and the feature version will indicate what level of optional compute features that device supports beyond the Vulkan 1."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_VULKAN_HARDWARE_LEVEL",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature(java.lang.String,int): If this feature is supported, the Vulkan implementation on this device is hardware accelerated, and the Vulkan native API will enumerate at least one VkPhysicalDevice, and the feature version will indicate what level of optional hardware features limits it supports."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_VULKAN_HARDWARE_VERSION",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature(java.lang.String,int): If this feature is supported, the Vulkan implementation on this device is hardware accelerated, and the feature version will indicate the highest VkPhysicalDeviceProperties::apiVersion supported by the physical devices that support the hardware level indicated by FEATURE_VULKAN_HARDWARE_LEVEL."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_WATCH",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: This is a device dedicated to showing UI on a watch."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_WEBVIEW",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device has a full implementation of the android."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_WIFI",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports WiFi (802.11) networking."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_WIFI_AWARE",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports Wi-Fi Aware."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_WIFI_DIRECT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports Wi-Fi Direct networking."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_WIFI_PASSPOINT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports Wi-Fi Passpoint and all Passpoint related APIs in WifiManager are supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "FEATURE_WIFI_RTT",
+      "desc": "Feature for getSystemAvailableFeatures and hasSystemFeature: The device supports Wi-Fi RTT (IEEE 802.11mc)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_PERMISSION_WHITELIST_INSTALLER",
+      "desc": "Permission whitelist flag: permissions whitelisted by the installer."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_PERMISSION_WHITELIST_SYSTEM",
+      "desc": "Permission whitelist flag: permissions whitelisted by the system."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_PERMISSION_WHITELIST_UPGRADE",
+      "desc": "Permission whitelist flag: permissions whitelisted by the system when upgrading from an OS version where the permission was not restricted to an OS version where the permission is restricted."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_ACTIVITIES",
+      "desc": "PackageInfo flag: return information about activities in the package in PackageInfo#activities."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_CONFIGURATIONS",
+      "desc": "PackageInfo flag: return information about hardware preferences in PackageInfo#configPreferences, and requested features in PackageInfo#reqFeatures and PackageInfo#featureGroups."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_DISABLED_COMPONENTS",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_DISABLED_UNTIL_USED_COMPONENTS",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_GIDS",
+      "desc": "PackageInfo flag: return the PackageInfo#gids that are associated with an application."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_INSTRUMENTATION",
+      "desc": "PackageInfo flag: return information about instrumentation in the package in PackageInfo#instrumentation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_INTENT_FILTERS",
+      "desc": "PackageInfo flag: return information about the intent filters supported by the activity."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_META_DATA",
+      "desc": "ComponentInfo flag: return the ComponentInfo#metaData data android.os.Bundles that are associated with a component."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_PERMISSIONS",
+      "desc": "PackageInfo flag: return information about permissions in the package in PackageInfo#permissions."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_PROVIDERS",
+      "desc": "PackageInfo flag: return information about content providers in the package in PackageInfo#providers."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_RECEIVERS",
+      "desc": "PackageInfo flag: return information about intent receivers in the package in PackageInfo#receivers."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_RESOLVED_FILTER",
+      "desc": "ResolveInfo flag: return the IntentFilter that was matched for a particular ResolveInfo in ResolveInfo#filter."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_SERVICES",
+      "desc": "PackageInfo flag: return information about services in the package in PackageInfo#services."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_SHARED_LIBRARY_FILES",
+      "desc": "ApplicationInfo flag: return the ApplicationInfo#sharedLibraryFiles that are associated with an application."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_SIGNATURES",
+      "desc": "PackageInfo flag: return information about the signatures included in the package."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_SIGNING_CERTIFICATES",
+      "desc": "PackageInfo flag: return the signing certificates associated with this package."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_UNINSTALLED_PACKAGES",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GET_URI_PERMISSION_PATTERNS",
+      "desc": "ProviderInfo flag: return the ProviderInfo#uriPermissionPatterns that are associated with a content provider."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INSTALL_REASON_DEVICE_RESTORE",
+      "desc": "Code indicating that this package was installed as part of restoring from another device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INSTALL_REASON_DEVICE_SETUP",
+      "desc": "Code indicating that this package was installed as part of device setup."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INSTALL_REASON_POLICY",
+      "desc": "Code indicating that this package was installed due to enterprise policy."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INSTALL_REASON_UNKNOWN",
+      "desc": "Code indicating that the reason for installing this package is unknown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INSTALL_REASON_USER",
+      "desc": "Code indicating that the package installation was initiated by the user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_ALL",
+      "desc": "Querying flag: if set and if the platform is doing any filtering of the results, then the filtering will not happen."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_APEX",
+      "desc": "PackageInfo flag: include APEX packages that are currently installed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_DEFAULT_ONLY",
+      "desc": "Resolution and querying flag: if set, only filters that support the android.content.Intent#CATEGORY_DEFAULT will be considered for matching."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_DIRECT_BOOT_AUTO",
+      "desc": "Querying flag: automatically match components based on their Direct Boot awareness and the current user state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_DIRECT_BOOT_AWARE",
+      "desc": "Querying flag: match components which are direct boot aware in the returned info, regardless of the current user state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_DIRECT_BOOT_UNAWARE",
+      "desc": "Querying flag: match components which are direct boot unaware in the returned info, regardless of the current user state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_DISABLED_COMPONENTS",
+      "desc": "PackageInfo flag: include disabled components in the returned info."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_DISABLED_UNTIL_USED_COMPONENTS",
+      "desc": "PackageInfo flag: include disabled components which are in that state only because of COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED in the returned info."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_SYSTEM_ONLY",
+      "desc": "Querying flag: include only components from applications that are marked with ApplicationInfo#FLAG_SYSTEM."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_UNINSTALLED_PACKAGES",
+      "desc": "Flag parameter to retrieve some information about all applications (even uninstalled ones) which have data directories."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "MAXIMUM_VERIFICATION_TIMEOUT",
+      "desc": "Can be used as the millisecondsToDelay argument for PackageManager#extendVerificationTimeout."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERMISSION_DENIED",
+      "desc": "Permission check result: this is returned by checkPermission if the permission has not been granted to the given package."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERMISSION_GRANTED",
+      "desc": "Permission check result: this is returned by checkPermission if the permission has been granted to the given package."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIGNATURE_FIRST_NOT_SIGNED",
+      "desc": "Signature check result: this is returned by checkSignatures if the first package is not signed but the second is."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIGNATURE_MATCH",
+      "desc": "Signature check result: this is returned by checkSignatures if all signatures on the two packages match."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIGNATURE_NEITHER_SIGNED",
+      "desc": "Signature check result: this is returned by checkSignatures if neither of the two packages is signed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIGNATURE_NO_MATCH",
+      "desc": "Signature check result: this is returned by checkSignatures if not all signatures on both packages match."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIGNATURE_SECOND_NOT_SIGNED",
+      "desc": "Signature check result: this is returned by checkSignatures if the second package is not signed but the first is."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SIGNATURE_UNKNOWN_PACKAGE",
+      "desc": "Signature check result: this is returned by checkSignatures if either of the packages are not valid."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SYNCHRONOUS",
+      "desc": "Flag parameter for setComponentEnabledSetting(android.content.ComponentName,int,int) to indicate that the given user's package restrictions state will be serialised to disk after the component state has been updated."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VERIFICATION_ALLOW",
+      "desc": "Used as the verificationCode argument for PackageManager#verifyPendingInstall to indicate that the calling package verifier allows the installation to proceed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VERIFICATION_REJECT",
+      "desc": "Used as the verificationCode argument for PackageManager#verifyPendingInstall to indicate the calling package verifier does not vote to allow the installation to proceed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VERSION_CODE_HIGHEST",
+      "desc": "Constant for specifying the highest installed package version code."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "addPackageToPreferred(packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "addPermission(info: PermissionInfo)",
+      "desc": "Add a new dynamic permission to the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "addPermissionAsync(info: PermissionInfo)",
+      "desc": "Like addPermission(android.content.pm.PermissionInfo) but asynchronously persists the package manager state after returning from the call, allowing it to return quicker and batch a series of adds at the expense of no guarantee the added permission will be retained if the device is rebooted before it is written."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "addPreferredActivity(filter: IntentFilter, match: Int, set: Array<ComponentName!>?, activity: ComponentName)",
+      "desc": "Add a new preferred activity mapping to the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addWhitelistedRestrictedPermission(packageName: String, permName: String, whitelistFlags: Int)",
+      "desc": "Adds a whitelisted restricted permission for an app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "canRequestPackageInstalls()",
+      "desc": "Checks whether the calling package is allowed to request package installs through package installer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Array",
+      "code": "canonicalToCurrentPackageNames(packageNames: Array<String!>)",
+      "desc": "Map from a packages canonical name to the current name in use on the device.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "checkPermission(permName: String, packageName: String)",
+      "desc": "Check whether a particular package has been granted a particular permission."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "checkSignatures(packageName1: String, packageName2: String)",
+      "desc": "Compare the signatures of two packages to determine if the same signature appears in both of them."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "checkSignatures(uid1: Int, uid2: Int)",
+      "desc": "Like checkSignatures(java.lang.String,java.lang.String), but takes UIDs of the two packages to be checked."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "clearInstantAppCookie()",
+      "desc": "Clears the instant application cookie for the calling app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "clearPackagePreferredActivities(packageName: String)",
+      "desc": "Remove all preferred activity mappings, previously added with addPreferredActivity, from the system whose activities are implemented in the given package name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Array",
+      "code": "currentToCanonicalPackageNames(packageNames: Array<String!>)",
+      "desc": "Map from the current package names in use on the device to whatever the current canonical name of that package is.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "extendVerificationTimeout(id: Int, verificationCodeAtTimeout: Int, millisecondsToDelay: Long)",
+      "desc": "Allows a package listening to the Intent#ACTION_PACKAGE_NEEDS_VERIFICATION to extend the default timeout for a response and declare what action to perform after the timeout occurs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getActivityBanner(activityName: ComponentName)",
+      "desc": "Retrieve the banner associated with an activity.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getActivityBanner(intent: Intent)",
+      "desc": "Retrieve the banner associated with an Intent.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getActivityIcon(activityName: ComponentName)",
+      "desc": "Retrieve the icon associated with an activity."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getActivityIcon(intent: Intent)",
+      "desc": "Retrieve the icon associated with an Intent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ActivityInfo",
+      "code": "getActivityInfo(component: ComponentName, flags: Int)",
+      "desc": "Retrieve all of the information we know about a particular activity class."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getActivityLogo(activityName: ComponentName)",
+      "desc": "Retrieve the logo associated with an activity.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getActivityLogo(intent: Intent)",
+      "desc": "Retrieve the logo associated with an Intent.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "getAllPermissionGroups(flags: Int)",
+      "desc": "Retrieve all of the known permission groups in the system.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getApplicationBanner(info: ApplicationInfo)",
+      "desc": "Retrieve the banner associated with an application.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getApplicationBanner(packageName: String)",
+      "desc": "Retrieve the banner associated with an application.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getApplicationEnabledSetting(packageName: String)",
+      "desc": "Return the enabled setting for an application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getApplicationIcon(info: ApplicationInfo)",
+      "desc": "Retrieve the icon associated with an application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getApplicationIcon(packageName: String)",
+      "desc": "Retrieve the icon associated with an application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ApplicationInfo",
+      "code": "getApplicationInfo(packageName: String, flags: Int)",
+      "desc": "Retrieve all of the information we know about a particular package/application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "CharSequence",
+      "code": "getApplicationLabel(info: ApplicationInfo)",
+      "desc": "Return the label to use for this application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getApplicationLogo(info: ApplicationInfo)",
+      "desc": "Retrieve the logo associated with an application.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getApplicationLogo(packageName: String)",
+      "desc": "Retrieve the logo associated with an application.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getBackgroundPermissionOptionLabel()",
+      "desc": "Gets the localized label that corresponds to the option in settings for granting background access."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ChangedPackages",
+      "code": "getChangedPackages(sequenceNumber: Int)",
+      "desc": "Returns the names of the packages that have been changed [eg.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getComponentEnabledSetting(componentName: ComponentName)",
+      "desc": "Return the enabled setting for a package component (activity, receiver, service, provider)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getDefaultActivityIcon()",
+      "desc": "Return the generic icon for an activity that is used when no specific icon is defined."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getDrawable(packageName: String, resid: Int, appInfo: ApplicationInfo?)",
+      "desc": "Retrieve an image from a package.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "InstallSourceInfo",
+      "code": "getInstallSourceInfo(packageName: String)",
+      "desc": "Retrieves information about how a package was installed or updated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "getInstalledApplications(flags: Int)",
+      "desc": "Return a List of all application packages that are installed for the current user.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getInstalledModules(flags: Int)",
+      "desc": "Return a List of all modules that are installed.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "getInstalledPackages(flags: Int)",
+      "desc": "Return a List of all packages that are installed for the current user.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "getInstallerPackageName(packageName: String)",
+      "desc": "Retrieve the package name of the application that installed a package.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ByteArray",
+      "code": "getInstantAppCookie()",
+      "desc": "Gets the instant application cookie for this app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getInstantAppCookieMaxBytes()",
+      "desc": "Gets the maximum size in bytes of the cookie data an instant app can store on the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "InstrumentationInfo",
+      "code": "getInstrumentationInfo(className: ComponentName, flags: Int)",
+      "desc": "Retrieve all of the information we know about a particular instrumentation class."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Intent",
+      "code": "getLaunchIntentForPackage(packageName: String)",
+      "desc": "Returns a \"good\" intent to launch a front-door activity in a package.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Intent",
+      "code": "getLeanbackLaunchIntentForPackage(packageName: String)",
+      "desc": "Return a \"good\" intent to launch a front-door Leanback activity in a package, for use for example to implement an \"open\" button when browsing through packages.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getMimeGroup(mimeGroup: String)",
+      "desc": "Gets all MIME types contained by MIME group.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ModuleInfo",
+      "code": "getModuleInfo(packageName: String, flags: Int)",
+      "desc": "Retrieve information for a particular module."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "getNameForUid(uid: Int)",
+      "desc": "Retrieve the official name associated with a uid.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PackageInfo",
+      "code": "getPackageArchiveInfo(archiveFilePath: String, flags: Int)",
+      "desc": "Retrieve overall information about an application package defined in a package archive file",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "IntArray",
+      "code": "getPackageGids(packageName: String)",
+      "desc": "Return an array of all of the POSIX secondary group IDs that have been assigned to the given package.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "IntArray",
+      "code": "getPackageGids(packageName: String, flags: Int)",
+      "desc": "Return an array of all of the POSIX secondary group IDs that have been assigned to the given package.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "PackageInfo",
+      "code": "getPackageInfo(packageName: String, flags: Int)",
+      "desc": "Retrieve overall information about an application package that is installed on the system.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "PackageInfo",
+      "code": "getPackageInfo(versionedPackage: VersionedPackage, flags: Int)",
+      "desc": "Retrieve overall information about an application package that is installed on the system.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "PackageInstaller",
+      "code": "getPackageInstaller()",
+      "desc": "Return interface that offers the ability to install, upgrade, and remove applications on the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getPackageUid(packageName: String, flags: Int)",
+      "desc": "Return the UID associated with the given package name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Array",
+      "code": "getPackagesForUid(uid: Int)",
+      "desc": "Retrieve the names of all packages that are associated with a particular user id.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "getPackagesHoldingPermissions(permissions: Array<String!>, flags: Int)",
+      "desc": "Return a List of all installed packages that are currently holding any of the given permissions.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "PermissionGroupInfo",
+      "code": "getPermissionGroupInfo(permName: String, flags: Int)",
+      "desc": "Retrieve all of the information we know about a particular group of permissions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "PermissionInfo",
+      "code": "getPermissionInfo(permName: String, flags: Int)",
+      "desc": "Retrieve all of the information we know about a particular permission.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getPreferredActivities(outFilters: MutableList<IntentFilter!>, outActivities: MutableList<ComponentName!>, packageName: String?)",
+      "desc": "Retrieve all preferred activities, previously added with addPreferredActivity, that are currently registered with the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "getPreferredPackages(flags: Int)",
+      "desc": "Retrieve the list of all currently configured preferred packages.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ProviderInfo",
+      "code": "getProviderInfo(component: ComponentName, flags: Int)",
+      "desc": "Retrieve all of the information we know about a particular content provider class."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ActivityInfo",
+      "code": "getReceiverInfo(component: ComponentName, flags: Int)",
+      "desc": "Retrieve all of the information we know about a particular receiver class."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Resources",
+      "code": "getResourcesForActivity(activityName: ComponentName)",
+      "desc": "Retrieve the resources associated with an activity."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Resources",
+      "code": "getResourcesForApplication(app: ApplicationInfo)",
+      "desc": "Retrieve the resources for an application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Resources",
+      "code": "getResourcesForApplication(packageName: String)",
+      "desc": "Retrieve the resources associated with an application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ServiceInfo",
+      "code": "getServiceInfo(component: ComponentName, flags: Int)",
+      "desc": "Retrieve all of the information we know about a particular service class."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "getSharedLibraries(flags: Int)",
+      "desc": "Get a list of shared libraries on the device.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getSuspendedPackageAppExtras()",
+      "desc": "Returns a Bundle of extras that was meant to be sent to the calling app when it was suspended.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getSyntheticAppDetailsActivityEnabled(packageName: String)",
+      "desc": "Return whether a synthetic app details activity will be generated if the app has no enabled launcher activity."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Array",
+      "code": "getSystemAvailableFeatures()",
+      "desc": "Get a list of features that are available on the system.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Array",
+      "code": "getSystemSharedLibraryNames()",
+      "desc": "Get a list of shared libraries that are available on the system.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "CharSequence",
+      "code": "getText(packageName: String, resid: Int, appInfo: ApplicationInfo?)",
+      "desc": "Retrieve text from a package.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getUserBadgedDrawableForDensity(drawable: Drawable, user: UserHandle, badgeLocation: Rect?, badgeDensity: Int)",
+      "desc": "If the target user is a managed profile of the calling user or the caller is itself a managed profile, then this returns a badged copy of the given drawable allowing the user to distinguish it from the original drawable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Drawable",
+      "code": "getUserBadgedIcon(drawable: Drawable, user: UserHandle)",
+      "desc": "If the target user is a managed profile, then this returns a badged copy of the given icon to be able to distinguish it from the original icon."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "CharSequence",
+      "code": "getUserBadgedLabel(label: CharSequence, user: UserHandle)",
+      "desc": "If the target user is a managed profile of the calling user or the caller is itself a managed profile, then this returns a copy of the label with badging for accessibility services like talkback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getWhitelistedRestrictedPermissions(packageName: String, whitelistFlag: Int)",
+      "desc": "Gets the restricted permissions that have been whitelisted and the app is allowed to have them granted in their full form.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "XmlResourceParser",
+      "code": "getXml(packageName: String, resid: Int, appInfo: ApplicationInfo?)",
+      "desc": "Retrieve an XML file from a package.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasSigningCertificate(packageName: String, certificate: ByteArray, type: Int)",
+      "desc": "Searches the set of signing certificates by which the given package has proven to have been signed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasSigningCertificate(uid: Int, certificate: ByteArray, type: Int)",
+      "desc": "Searches the set of signing certificates by which the package(s) for the given uid has proven to have been signed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "hasSystemFeature(featureName: String)",
+      "desc": "Check whether the given feature name is one of the available features as returned by getSystemAvailableFeatures()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "hasSystemFeature(featureName: String, version: Int)",
+      "desc": "Check whether the given feature name and version is one of the available features as returned by getSystemAvailableFeatures()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAutoRevokeWhitelisted(packageName: String)",
+      "desc": "Checks whether an application is exempt from having its permissions be automatically revoked when the app is unused for an extended period of time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAutoRevokeWhitelisted()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDefaultApplicationIcon(drawable: Drawable)",
+      "desc": "Returns if the provided drawable represents the default activity icon provided by the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDeviceUpgrading()",
+      "desc": "Returns true if the device is upgrading, such as first boot after OTA."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isInstantApp()",
+      "desc": "Gets whether this application is an instant app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isInstantApp(packageName: String)",
+      "desc": "Gets whether the given package is an instant app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPackageSuspended(packageName: String)",
+      "desc": "Query if an app is currently suspended."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPackageSuspended()",
+      "desc": "Apps can query this to know if they have been suspended."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isPermissionRevokedByPolicy(permName: String, packageName: String)",
+      "desc": "Checks whether a particular permissions has been revoked for a package by policy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isSafeMode()",
+      "desc": "Return whether the device has been booted into safe mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "queryBroadcastReceivers(intent: Intent, flags: Int)",
+      "desc": "Retrieve all receivers that can handle a broadcast of the given intent.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "queryContentProviders(processName: String?, uid: Int, flags: Int)",
+      "desc": "Retrieve content provider information.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "queryInstrumentation(targetPackage: String, flags: Int)",
+      "desc": "Retrieve information about available instrumentation code.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "queryIntentActivities(intent: Intent, flags: Int)",
+      "desc": "Retrieve all activities that can be performed for the given intent.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "queryIntentActivityOptions(caller: ComponentName?, specifics: Array<Intent!>?, intent: Intent, flags: Int)",
+      "desc": "Retrieve a set of activities that should be presented to the user as similar options.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "queryIntentContentProviders(intent: Intent, flags: Int)",
+      "desc": "Retrieve all providers that can match the given intent.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "queryIntentServices(intent: Intent, flags: Int)",
+      "desc": "Retrieve all services that can match the given intent.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableList",
+      "code": "queryPermissionsByGroup(permissionGroup: String, flags: Int)",
+      "desc": "Query for all of the permissions associated with a particular group.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "removePackageFromPreferred(packageName: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "removePermission(permName: String)",
+      "desc": "Removes a permission that was previously added with addPermission(android.content.pm.PermissionInfo)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "removeWhitelistedRestrictedPermission(packageName: String, permName: String, whitelistFlags: Int)",
+      "desc": "Removes a whitelisted restricted permission for an app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ResolveInfo",
+      "code": "resolveActivity(intent: Intent, flags: Int)",
+      "desc": "Determine the best action to perform for a given Intent.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ProviderInfo",
+      "code": "resolveContentProvider(authority: String, flags: Int)",
+      "desc": "Find a single content provider by its authority.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ResolveInfo",
+      "code": "resolveService(intent: Intent, flags: Int)",
+      "desc": "Determine the best service to handle for a given Intent.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "setApplicationCategoryHint(packageName: String, categoryHint: Int)",
+      "desc": "Provide a hint of what the ApplicationInfo#category value should be for the given package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "setApplicationEnabledSetting(packageName: String, newState: Int, flags: Int)",
+      "desc": "Set the enabled setting for an application This setting will override any enabled state which may have been set by the application in its manifest."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setAutoRevokeWhitelisted(packageName: String, whitelisted: Boolean)",
+      "desc": "Marks an application exempt from having its permissions be automatically revoked when the app is unused for an extended period of time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "setComponentEnabledSetting(componentName: ComponentName, newState: Int, flags: Int)",
+      "desc": "Set the enabled setting for a package component (activity, receiver, service, provider)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "setInstallerPackageName(targetPackage: String, installerPackageName: String?)",
+      "desc": "Change the installer associated with a given package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setMimeGroup(mimeGroup: String, mimeTypes: MutableSet<String!>)",
+      "desc": "Sets MIME group's MIME types."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "updateInstantAppCookie(cookie: ByteArray?)",
+      "desc": "Updates the instant application cookie for the calling app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "verifyPendingInstall(id: Int, verificationCode: Int)",
+      "desc": "Allows a package listening to the Intent#ACTION_PACKAGE_NEEDS_VERIFICATION to respond to the package manager."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "NameNotFoundException",
+      "desc": "This exception is thrown when a given package, application, or component name cannot be found."
+    }
+  ]
+}

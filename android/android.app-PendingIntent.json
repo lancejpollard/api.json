@@ -1,0 +1,312 @@
+{
+  "path": "android.app",
+  "name": "PendingIntent",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_CANCEL_CURRENT",
+      "desc": "Flag indicating that if the described PendingIntent already exists, the current one should be canceled before generating a new one."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_IMMUTABLE",
+      "desc": "Flag indicating that the created PendingIntent should be immutable."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_NO_CREATE",
+      "desc": "Flag indicating that if the described PendingIntent does not already exist, then simply return null instead of creating it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_ONE_SHOT",
+      "desc": "Flag indicating that this PendingIntent can be used only once."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_UPDATE_CURRENT",
+      "desc": "Flag indicating that if the described PendingIntent already exists, then keep it but replace its extra data with what is in this new Intent."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "cancel()",
+      "desc": "Cancel a currently active PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": "Comparison operator on two PendingIntent objects, such that true is returned then they both represent the same operation from the same package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PendingIntent",
+      "code": "getActivities(context: Context!, requestCode: Int, intents: Array<Intent!>, flags: Int)",
+      "desc": "Like getActivity(android.content.Context,int,android.content.Intent,int), but allows an array of Intents to be supplied.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PendingIntent",
+      "code": "getActivities(context: Context!, requestCode: Int, intents: Array<Intent!>, flags: Int, options: Bundle?)",
+      "desc": "Like getActivity(android.content.Context,int,android.content.Intent,int), but allows an array of Intents to be supplied.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PendingIntent",
+      "code": "getActivity(context: Context!, requestCode: Int, intent: Intent!, flags: Int)",
+      "desc": "Retrieve a PendingIntent that will start a new activity, like calling Context#startActivity(Intent).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PendingIntent",
+      "code": "getActivity(context: Context!, requestCode: Int, intent: Intent, flags: Int, options: Bundle?)",
+      "desc": "Retrieve a PendingIntent that will start a new activity, like calling Context#startActivity(Intent).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PendingIntent",
+      "code": "getBroadcast(context: Context!, requestCode: Int, intent: Intent!, flags: Int)",
+      "desc": "Retrieve a PendingIntent that will perform a broadcast, like calling Context#sendBroadcast(Intent).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCreatorPackage()",
+      "desc": "Return the package name of the application that created this PendingIntent, that is the identity under which you will actually be sending the Intent.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getCreatorUid()",
+      "desc": "Return the uid of the application that created this PendingIntent, that is the identity under which you will actually be sending the Intent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UserHandle",
+      "code": "getCreatorUserHandle()",
+      "desc": "Return the user handle of the application that created this PendingIntent, that is the user under which you will actually be sending the Intent.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PendingIntent",
+      "code": "getForegroundService(context: Context!, requestCode: Int, intent: Intent, flags: Int)",
+      "desc": "Retrieve a PendingIntent that will start a foreground service, like calling Context#startForegroundService.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IntentSender",
+      "code": "getIntentSender()",
+      "desc": "Retrieve a IntentSender object that wraps the existing sender of the PendingIntent",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PendingIntent",
+      "code": "getService(context: Context!, requestCode: Int, intent: Intent, flags: Int)",
+      "desc": "Retrieve a PendingIntent that will start a service, like calling Context#startService.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getTargetPackage()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "PendingIntent",
+      "code": "readPendingIntentOrNullFromParcel(in: Parcel)",
+      "desc": "Convenience function for reading either a PendingIntent or null pointer from a Parcel.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "send()",
+      "desc": "Perform the operation associated with this PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "send(code: Int)",
+      "desc": "Perform the operation associated with this PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "send(context: Context!, code: Int, intent: Intent?)",
+      "desc": "Perform the operation associated with this PendingIntent, allowing the caller to specify information about the Intent to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "send(code: Int, onFinished: PendingIntent.OnFinished?, handler: Handler?)",
+      "desc": "Perform the operation associated with this PendingIntent, allowing the caller to be notified when the send has completed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "send(context: Context!, code: Int, intent: Intent?, onFinished: PendingIntent.OnFinished?, handler: Handler?)",
+      "desc": "Perform the operation associated with this PendingIntent, allowing the caller to specify information about the Intent to use and be notified when the send has completed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "send(context: Context!, code: Int, intent: Intent?, onFinished: PendingIntent.OnFinished?, handler: Handler?, requiredPermission: String?)",
+      "desc": "Perform the operation associated with this PendingIntent, allowing the caller to specify information about the Intent to use and be notified when the send has completed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "send(context: Context!, code: Int, intent: Intent?, onFinished: PendingIntent.OnFinished?, handler: Handler?, requiredPermission: String?, options: Bundle?)",
+      "desc": "Perform the operation associated with this PendingIntent, allowing the caller to specify information about the Intent to use and be notified when the send has completed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "writePendingIntentOrNullToParcel(sender: PendingIntent?, out: Parcel)",
+      "desc": "Convenience function for writing either a PendingIntent or null pointer to a Parcel."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "writeToParcel(out: Parcel!, flags: Int)",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "CanceledException",
+      "desc": "Exception thrown when trying to send through a PendingIntent that has been canceled or is otherwise no longer able to execute the request."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnFinished",
+      "desc": "Callback interface for discovering when a send operation has completed."
+    }
+  ]
+}

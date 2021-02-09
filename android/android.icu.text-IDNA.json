@@ -1,0 +1,120 @@
+{
+  "path": "android.icu.text",
+  "name": "IDNA",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CHECK_BIDI",
+      "desc": "IDNA option to check for whether the input conforms to the BiDi rules."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CHECK_CONTEXTJ",
+      "desc": "IDNA option to check for whether the input conforms to the CONTEXTJ rules."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CHECK_CONTEXTO",
+      "desc": "IDNA option to check for whether the input conforms to the CONTEXTO rules."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DEFAULT",
+      "desc": "Default options value: None of the other options are set."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NONTRANSITIONAL_TO_ASCII",
+      "desc": "IDNA option for nontransitional processing in ToASCII()."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NONTRANSITIONAL_TO_UNICODE",
+      "desc": "IDNA option for nontransitional processing in ToUnicode()."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "USE_STD3_RULES",
+      "desc": "Option to check whether the input conforms to the STD3 ASCII rules, for example the restriction of labels to LDH characters (ASCII Letters, Digits and Hyphen-Minus)."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IDNA",
+      "code": "getUTS46Instance(options: Int)",
+      "desc": "Returns an IDNA instance which implements UTS #46.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "StringBuilder",
+      "code": "labelToASCII(label: CharSequence!, dest: StringBuilder!, info: IDNA.Info!)",
+      "desc": "Converts a single domain name label into its ASCII form for DNS lookup.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "StringBuilder",
+      "code": "labelToUnicode(label: CharSequence!, dest: StringBuilder!, info: IDNA.Info!)",
+      "desc": "Converts a single domain name label into its Unicode form for human-readable display.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "StringBuilder",
+      "code": "nameToASCII(name: CharSequence!, dest: StringBuilder!, info: IDNA.Info!)",
+      "desc": "Converts a whole domain name into its ASCII form for DNS lookup.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "StringBuilder",
+      "code": "nameToUnicode(name: CharSequence!, dest: StringBuilder!, info: IDNA.Info!)",
+      "desc": "Converts a whole domain name into its Unicode form for human-readable display.",
+      "symbol": "!"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Error",
+      "desc": "IDNA error bit set values."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Info",
+      "desc": "Output container for IDNA processing errors."
+    }
+  ]
+}

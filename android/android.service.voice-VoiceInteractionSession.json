@@ -1,0 +1,670 @@
+{
+  "path": "android.service.voice",
+  "name": "VoiceInteractionSession",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_SOURCE_ACTIVITY",
+      "desc": "Flag for use with onShow: indicates that an Activity has invoked the voice interaction service for a local interaction using Activity#startLocalVoiceInteraction(Bundle)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_SOURCE_APPLICATION",
+      "desc": "Flag for use with onShow: indicates that the application itself has invoked the assistant."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_SOURCE_ASSIST_GESTURE",
+      "desc": "Flag for use with onShow: indicates that the session has been started from the system assist gesture."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_SOURCE_AUTOMOTIVE_SYSTEM_UI",
+      "desc": "Flag for use with onShow: indicates that the voice interaction service was invoked from an Android automotive system UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_SOURCE_NOTIFICATION",
+      "desc": "Flag for use with onShow: indicates that the voice interaction service was invoked from a notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_SOURCE_PUSH_TO_TALK",
+      "desc": "Flag for use with onShow: indicates that the voice interaction service was invoked from a physical button."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_WITH_ASSIST",
+      "desc": "Flag received in onShow: originator requested that the session be started with assist data from the currently focused activity."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_WITH_SCREENSHOT",
+      "desc": "Flag received in onShow: originator requested that the session be started with a screen shot of the currently focused activity."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!)"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, handler: Handler!)"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "closeSystemDialogs()",
+      "desc": "Request that all system dialogs (and status bar shade etc) be closed, allowing access to the session's UI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dump(prefix: String!, fd: FileDescriptor!, writer: PrintWriter!, args: Array<String!>!)",
+      "desc": "Print the Service's state into the given stream."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finish()",
+      "desc": "Finish the session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Context",
+      "code": "getContext()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDisabledShowContext()",
+      "desc": "Equivalent to VoiceInteractionService#getDisabledShowContext."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "LayoutInflater",
+      "code": "getLayoutInflater()",
+      "desc": "Convenience for inflating views.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getUserDisabledShowContext()",
+      "desc": "Return which show context flags have been disabled by the user through the system settings UI, so the session will never get this data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Dialog",
+      "code": "getWindow()",
+      "desc": "Retrieve the window being used to show the session's UI.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "hide()",
+      "desc": "Hide the session's UI, if currently shown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onAssistStructureFailure(failure: Throwable!)",
+      "desc": "Called when there has been a failure transferring the AssistStructure to the assistant."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onBackPressed()",
+      "desc": "Called when the user presses the back button while focus is in the session UI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCancelRequest(request: VoiceInteractionSession.Request!)",
+      "desc": "Called when the android.app.VoiceInteractor has asked to cancel a Request that was previously delivered to onRequestConfirmation, onRequestPickOption, onRequestCompleteVoice, onRequestAbortVoice, or onRequestCommand."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCloseSystemDialogs()",
+      "desc": "Sessions automatically watch for requests that all system UI be closed (such as when the user presses HOME), which will appear here."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onComputeInsets(outInsets: VoiceInteractionSession.Insets!)",
+      "desc": "Compute the interesting insets into your UI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onConfigurationChanged(newConfig: Configuration)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCreate()",
+      "desc": "Initiatize a new session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "View",
+      "code": "onCreateContentView()",
+      "desc": "Hook in which to create the session's UI.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDestroy()",
+      "desc": "Last callback to the session as it is being finished."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDirectActionsInvalidated(activityId: VoiceInteractionSession.ActivityId)",
+      "desc": "Called when the direct actions are invalidated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BooleanArray",
+      "code": "onGetSupportedCommands(commands: Array<String!>!)",
+      "desc": "Request to query for what extended commands the session supports.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onHandleAssist(data: Bundle?, structure: AssistStructure?, content: AssistContent?)",
+      "desc": "Called to receive data from the application that the user was currently viewing when an assist session is started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onHandleAssist(state: VoiceInteractionSession.AssistState)",
+      "desc": "Called to receive data from the application that the user was currently viewing when an assist session is started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onHandleAssistSecondary(data: Bundle?, structure: AssistStructure?, content: AssistContent?, index: Int, count: Int)",
+      "desc": "Called to receive data from other applications that the user was or is interacting with, that are currently on the screen in a multi-window display environment, not including the currently focused activity."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onHandleScreenshot(screenshot: Bitmap?)",
+      "desc": "Called to receive a screenshot of what the user was currently viewing when an assist session is started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onHide()",
+      "desc": "Called immediately after stopping to show the session UI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onKeyDown(keyCode: Int, event: KeyEvent!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onKeyLongPress(keyCode: Int, event: KeyEvent!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onKeyMultiple(keyCode: Int, count: Int, event: KeyEvent!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onKeyUp(keyCode: Int, event: KeyEvent!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onLockscreenShown()",
+      "desc": "Called when the lockscreen was shown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onLowMemory()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPrepareShow(args: Bundle!, showFlags: Int)",
+      "desc": "Called prior to onShow before any UI setup has occurred."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRequestAbortVoice(request: VoiceInteractionSession.AbortVoiceRequest!)",
+      "desc": "Request to abort the voice interaction session because the voice activity can not complete its interaction using voice."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRequestCommand(request: VoiceInteractionSession.CommandRequest!)",
+      "desc": "Process an arbitrary extended command from the caller, corresponding to a  VoiceInteractor.CommandRequest."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRequestCompleteVoice(request: VoiceInteractionSession.CompleteVoiceRequest!)",
+      "desc": "Request to complete the voice interaction session because the voice activity successfully completed its interaction using voice."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRequestConfirmation(request: VoiceInteractionSession.ConfirmationRequest!)",
+      "desc": "Request to confirm with the user before proceeding with an unrecoverable operation, corresponding to a  VoiceInteractor.ConfirmationRequest."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRequestPickOption(request: VoiceInteractionSession.PickOptionRequest!)",
+      "desc": "Request for the user to pick one of N options, corresponding to a VoiceInteractor.PickOptionRequest."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onShow(args: Bundle!, showFlags: Int)",
+      "desc": "Called when the session UI is going to be shown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onTaskFinished(intent: Intent!, taskId: Int)",
+      "desc": "Called when the last activity of a task initiated by startVoiceActivity(android.content.Intent) has finished."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onTaskStarted(intent: Intent!, taskId: Int)",
+      "desc": "Called when a task initiated by startVoiceActivity(android.content.Intent) has actually started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onTrimMemory(level: Int)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "performDirectAction(action: DirectAction, extras: Bundle?, cancellationSignal: CancellationSignal?, resultExecutor: Executor, resultListener: Consumer<Bundle!>)",
+      "desc": "Asks that an action be performed by the app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "requestDirectActions(activityId: VoiceInteractionSession.ActivityId, cancellationSignal: CancellationSignal?, resultExecutor: Executor, callback: Consumer<MutableList<DirectAction!>!>)",
+      "desc": "Requests a list of supported actions from an app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setContentView(view: View!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDisabledShowContext(flags: Int)",
+      "desc": "Equivalent to VoiceInteractionService#setDisabledShowContext."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setKeepAwake(keepAwake: Boolean)",
+      "desc": "Set whether this session will keep the device awake while it is running a voice activity."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTheme(theme: Int)",
+      "desc": "You can call this to customize the theme used by your IME's window."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setUiEnabled(enabled: Boolean)",
+      "desc": "Control whether the UI layer for this session is enabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "show(args: Bundle!, flags: Int)",
+      "desc": "Show the UI for this session."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startAssistantActivity(intent: Intent!)",
+      "desc": "Ask that a new assistant activity be started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startVoiceActivity(intent: Intent!)",
+      "desc": "Ask that a new activity be started for voice interaction."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_BACKGROUND"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_COMPLETE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_MODERATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_CRITICAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_LOW"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_MODERATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_UI_HIDDEN"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "AbortVoiceRequest",
+      "desc": "A request to report that the current user interaction can not be completed with voice, as per VoiceInteractor.AbortVoiceRequest."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "ActivityId",
+      "desc": "Represents the id of an assist source activity."
+    },
+    {
+      "type": "nested-classes",
+      "code": "AssistState",
+      "desc": "Represents assist state captured when this session was started."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CommandRequest",
+      "desc": "A generic vendor-specific request, as per VoiceInteractor.CommandRequest."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CompleteVoiceRequest",
+      "desc": "A request to simply inform the user that the voice operation has completed, as per  VoiceInteractor.CompleteVoiceRequest."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ConfirmationRequest",
+      "desc": "A request for confirmation from the user of an operation, as per  VoiceInteractor.ConfirmationRequest."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Insets",
+      "desc": "Information about where interesting parts of the input method UI appear."
+    },
+    {
+      "type": "nested-classes",
+      "code": "PickOptionRequest",
+      "desc": "A request for the user to pick from a set of option, as per VoiceInteractor.PickOptionRequest."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Request",
+      "desc": "Base class representing a request from a voice-driver app to perform a particular voice operation with the user."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onConfigurationChanged(newConfig: Configuration)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#TRIM_MEMORY_COMPLETE"
+    }
+  ]
+}

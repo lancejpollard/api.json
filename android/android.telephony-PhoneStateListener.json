@@ -1,0 +1,313 @@
+{
+  "path": "android.telephony",
+  "name": "PhoneStateListener",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_ACTIVE_DATA_SUBSCRIPTION_ID_CHANGE",
+      "desc": "Listen for changes to active data subId."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_BARRING_INFO",
+      "desc": "Listen for Barring Information for the current registered / camped cell."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_CALL_DISCONNECT_CAUSES",
+      "desc": "Listen for call disconnect causes which contains DisconnectCause and PreciseDisconnectCause."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_CALL_FORWARDING_INDICATOR",
+      "desc": "Listen for changes to the call-forwarding indicator."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_CALL_STATE",
+      "desc": "Listen for changes to the device call state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_CELL_INFO",
+      "desc": "Listen for changes to observed cell info."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_CELL_LOCATION",
+      "desc": "Listen for changes to the device's cell location."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_DATA_ACTIVITY",
+      "desc": "Listen for changes to the direction of data traffic on the data connection (cellular)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_DATA_CONNECTION_STATE",
+      "desc": "Listen for changes to the data connection state (cellular)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_DISPLAY_INFO_CHANGED",
+      "desc": "Listen for display info changed event."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_EMERGENCY_NUMBER_LIST",
+      "desc": "Listen for changes to emergency number list based on all active subscriptions."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_IMS_CALL_DISCONNECT_CAUSES",
+      "desc": "Listen for IMS call disconnect causes which contains android.telephony.ims.ImsReasonInfo"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_MESSAGE_WAITING_INDICATOR",
+      "desc": "Listen for changes to the message-waiting indicator."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_NONE",
+      "desc": "Stop listening for updates."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_PRECISE_DATA_CONNECTION_STATE",
+      "desc": "Listen for PreciseDataConnectionState on the data connection (cellular)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_REGISTRATION_FAILURE",
+      "desc": "Listen for Registration Failures."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_SERVICE_STATE",
+      "desc": "Listen for changes to the network service state (cellular)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_SIGNAL_STRENGTH",
+      "desc": "Listen for changes to the network signal strength (cellular)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_SIGNAL_STRENGTHS",
+      "desc": "Listen for changes to the network signal strengths (cellular)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LISTEN_USER_MOBILE_DATA_STATE",
+      "desc": "Listen for changes to the user mobile data state"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Create a PhoneStateListener for the Phone with the default subscription."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(executor: Executor)\n            Create a PhoneStateListener for the Phone using the specified Executor"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onActiveDataSubscriptionIdChanged(subId: Int)",
+      "desc": "Callback invoked when active data subId changes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onBarringInfoChanged(barringInfo: BarringInfo)",
+      "desc": "Report updated barring information for the current camped/registered cell."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCallDisconnectCauseChanged(disconnectCause: Int, preciseDisconnectCause: Int)",
+      "desc": "Callback invoked when call disconnect cause changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCallForwardingIndicatorChanged(cfi: Boolean)",
+      "desc": "Callback invoked when the call-forwarding indicator changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCallStateChanged(state: Int, phoneNumber: String!)",
+      "desc": "Callback invoked when device call state changes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCellInfoChanged(cellInfo: MutableList<CellInfo!>!)",
+      "desc": "Callback invoked when a observed cell info has changed or new cells have been added or removed on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCellLocationChanged(location: CellLocation!)",
+      "desc": "Callback invoked when device cell location changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDataActivity(direction: Int)",
+      "desc": "Callback invoked when data activity state changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDataConnectionStateChanged(state: Int)",
+      "desc": "Callback invoked when connection state changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDataConnectionStateChanged(state: Int, networkType: Int)",
+      "desc": "same as above, but with the network type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDisplayInfoChanged(telephonyDisplayInfo: TelephonyDisplayInfo)",
+      "desc": "Callback invoked when the display info has changed on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onImsCallDisconnectCauseChanged(imsReasonInfo: ImsReasonInfo)",
+      "desc": "Callback invoked when Ims call disconnect cause changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onMessageWaitingIndicatorChanged(mwi: Boolean)",
+      "desc": "Callback invoked when the message-waiting indicator changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPreciseDataConnectionStateChanged(dataConnectionState: PreciseDataConnectionState)",
+      "desc": "Callback providing update about the default/internet data connection on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRegistrationFailed(cellIdentity: CellIdentity, chosenPlmn: String, domain: Int, causeCode: Int, additionalCauseCode: Int)",
+      "desc": "Report that Registration or a Location/Routing/Tracking Area update has failed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onServiceStateChanged(serviceState: ServiceState!)",
+      "desc": "Callback invoked when device service state changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSignalStrengthChanged(asu: Int)",
+      "desc": "Callback invoked when network signal strength changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSignalStrengthsChanged(signalStrength: SignalStrength!)",
+      "desc": "Callback invoked when network signal strengths changes on the registered subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onUserMobileDataStateChanged(enabled: Boolean)",
+      "desc": "Callback invoked when the user mobile data state has changed on the registered subscription."
+    }
+  ]
+}

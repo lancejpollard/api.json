@@ -1,0 +1,235 @@
+{
+  "path": "android.app",
+  "name": "RemoteInput",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "EDIT_CHOICES_BEFORE_SENDING_AUTO",
+      "desc": "The platform will determine whether choices will be edited before being sent to the app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "EDIT_CHOICES_BEFORE_SENDING_DISABLED",
+      "desc": "Tapping on a choice should send the input immediately, without letting the user edit it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "EDIT_CHOICES_BEFORE_SENDING_ENABLED",
+      "desc": "Tapping on a choice should let the user edit the input before it is sent to the app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_RESULTS_DATA",
+      "desc": "Extra added to a clip data intent object to hold the text results bundle."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "RESULTS_CLIP_LABEL",
+      "desc": "Label used to denote the clip data type used for remote input transport"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SOURCE_CHOICE",
+      "desc": "The user selected one of the choices from getChoices."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SOURCE_FREE_FORM_INPUT",
+      "desc": "The user manually entered the data."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "addDataResultToIntent(remoteInput: RemoteInput!, intent: Intent!, results: MutableMap<String!, Uri!>!)",
+      "desc": "Same as addResultsToIntent but for setting data results."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "addResultsToIntent(remoteInputs: Array<RemoteInput!>!, intent: Intent!, results: Bundle!)",
+      "desc": "Populate an intent object with the text results gathered from remote input."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "getAllowFreeFormInput()",
+      "desc": "Get whether or not users can provide an arbitrary value for input."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableSet",
+      "code": "getAllowedDataTypes()",
+      "desc": "Get possible non-textual inputs that are accepted.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getChoices()",
+      "desc": "Get possible input choices.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MutableMap",
+      "code": "getDataResultsFromIntent(intent: Intent!, remoteInputResultKey: String!)",
+      "desc": "Similar as getResultsFromIntent but retrieves data results for a specific RemoteInput result.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getEditChoicesBeforeSending()",
+      "desc": "Gets whether tapping on a choice should let the user edit the input before it is sent to the app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Bundle",
+      "code": "getExtras()",
+      "desc": "Get additional metadata carried around with this remote input.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CharSequence",
+      "code": "getLabel()",
+      "desc": "Get the label to display to users when collecting this input.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getResultKey()",
+      "desc": "Get the key that the result of this input will be set in from the Bundle returned by getResultsFromIntent when the android.app.PendingIntent is sent.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Bundle",
+      "code": "getResultsFromIntent(intent: Intent!)",
+      "desc": "Get the remote input text results bundle from an intent.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "getResultsSource(intent: Intent!)",
+      "desc": "Get the source of the RemoteInput results."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDataOnly()",
+      "desc": "Returns true if the input only accepts data, meaning getAllowFreeFormInput is false, getChoices is null or empty, and getAllowedDataTypes is non-null and not empty."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "setResultsSource(intent: Intent!, source: Int)",
+      "desc": "Set the source of the RemoteInput results."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "writeToParcel(out: Parcel!, flags: Int)",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Builder",
+      "desc": "Builder class for RemoteInput objects."
+    }
+  ]
+}

@@ -1,0 +1,645 @@
+{
+  "path": "android.app.admin",
+  "name": "DeviceAdminReceiver",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CHOOSE_PRIVATE_KEY_ALIAS",
+      "desc": "Broadcast action: notify that some app is attempting to choose a KeyChain key."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEVICE_ADMIN_DISABLED",
+      "desc": "Action sent to a device administrator when the user has disabled it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEVICE_ADMIN_DISABLE_REQUESTED",
+      "desc": "Action sent to a device administrator when the user has requested to disable it, but before this has actually been done."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEVICE_ADMIN_ENABLED",
+      "desc": "This is the primary action that a device administrator must implement to be allowed to manage a device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_LOCK_TASK_ENTERING",
+      "desc": "Action sent to a device administrator to notify that the device is entering lock task mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_LOCK_TASK_EXITING",
+      "desc": "Action sent to a device administrator to notify that the device is exiting lock task mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NETWORK_LOGS_AVAILABLE",
+      "desc": "Broadcast action: notify that a new batch of network logs is ready to be collected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PASSWORD_CHANGED",
+      "desc": "Action sent to a device administrator when the user has changed the password of their device or profile challenge."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PASSWORD_EXPIRING",
+      "desc": "Action periodically sent to a device administrator when the device or profile challenge password is expiring."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PASSWORD_FAILED",
+      "desc": "Action sent to a device administrator when the user has entered an incorrect device or profile challenge password."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PASSWORD_SUCCEEDED",
+      "desc": "Action sent to a device administrator when the user has successfully entered their device or profile challenge password, after failing one or more times."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PROFILE_PROVISIONING_COMPLETE",
+      "desc": "Broadcast Action: This broadcast is sent to indicate that provisioning of a managed profile or managed device has completed successfully."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BUGREPORT_FAILURE_FAILED_COMPLETING",
+      "desc": "Bugreport completion process failed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BUGREPORT_FAILURE_FILE_NO_LONGER_AVAILABLE",
+      "desc": "Bugreport has been created, but is no longer available for collection."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DEVICE_ADMIN_META_DATA",
+      "desc": "Name under which a DevicePolicy component publishes information about itself."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DISABLE_WARNING",
+      "desc": "A CharSequence that can be shown to the user informing them of the impact of disabling your admin."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_LOCK_TASK_PACKAGE",
+      "desc": "A string containing the name of the package entering lock task mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TRANSFER_OWNERSHIP_ADMIN_EXTRAS_BUNDLE",
+      "desc": "A android.os.Parcelable extra of type android.os.PersistableBundle that allows a mobile device management application to pass data to the management application instance after owner transfer."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "DevicePolicyManager",
+      "code": "getManager(context: Context)",
+      "desc": "Retrieve the DevicePolicyManager interface for this administrator to work with the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ComponentName",
+      "code": "getWho(context: Context)",
+      "desc": "Retrieve the ComponentName describing who this device administrator is, for use in DevicePolicyManager APIs that require the administrator to identify itself."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onBugreportFailed(context: Context, intent: Intent, failureCode: Int)",
+      "desc": "Called when the bugreport collection flow has failed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onBugreportShared(context: Context, intent: Intent, bugreportHash: String)",
+      "desc": "Called when the bugreport has been shared with the device administrator app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onBugreportSharingDeclined(context: Context, intent: Intent)",
+      "desc": "Called when sharing a bugreport has been cancelled by the user of the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "onChoosePrivateKeyAlias(context: Context, intent: Intent, uid: Int, uri: Uri?, alias: String?)",
+      "desc": "Allows this receiver to select the alias for a private key and certificate pair for authentication.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "onDisableRequested(context: Context, intent: Intent)",
+      "desc": "Called when the user has asked to disable the administrator, as a result of receiving ACTION_DEVICE_ADMIN_DISABLE_REQUESTED, giving you a chance to present a warning message to them.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDisabled(context: Context, intent: Intent)",
+      "desc": "Called prior to the administrator being disabled, as a result of receiving ACTION_DEVICE_ADMIN_DISABLED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onEnabled(context: Context, intent: Intent)",
+      "desc": "Called after the administrator is first enabled, as a result of receiving ACTION_DEVICE_ADMIN_ENABLED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onLockTaskModeEntering(context: Context, intent: Intent, pkg: String)",
+      "desc": "Called when a device is entering lock task mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onLockTaskModeExiting(context: Context, intent: Intent)",
+      "desc": "Called when a device is exiting lock task mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onNetworkLogsAvailable(context: Context, intent: Intent, batchToken: Long, networkLogsCount: Int)",
+      "desc": "Called each time a new batch of network logs can be retrieved."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPasswordChanged(context: Context, intent: Intent)",
+      "desc": "Called after the user has changed their device or profile challenge password, as a result of receiving ACTION_PASSWORD_CHANGED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPasswordChanged(context: Context, intent: Intent, user: UserHandle)",
+      "desc": "Called after the user has changed their device or profile challenge password, as a result of receiving ACTION_PASSWORD_CHANGED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPasswordExpiring(context: Context, intent: Intent)",
+      "desc": "Called periodically when the device or profile challenge password is about to expire or has expired."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPasswordExpiring(context: Context, intent: Intent, user: UserHandle)",
+      "desc": "Called periodically when the device or profile challenge password is about to expire or has expired."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPasswordFailed(context: Context, intent: Intent)",
+      "desc": "Called after the user has failed at entering their device or profile challenge password, as a result of receiving ACTION_PASSWORD_FAILED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPasswordFailed(context: Context, intent: Intent, user: UserHandle)",
+      "desc": "Called after the user has failed at entering their device or profile challenge password, as a result of receiving ACTION_PASSWORD_FAILED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPasswordSucceeded(context: Context, intent: Intent)",
+      "desc": "Called after the user has succeeded at entering their device or profile challenge password, as a result of receiving ACTION_PASSWORD_SUCCEEDED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPasswordSucceeded(context: Context, intent: Intent, user: UserHandle)",
+      "desc": "Called after the user has succeeded at entering their device or profile challenge password, as a result of receiving ACTION_PASSWORD_SUCCEEDED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onProfileProvisioningComplete(context: Context, intent: Intent)",
+      "desc": "Called when provisioning of a managed profile or managed device has completed successfully."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onReadyForUserInitialization(context: Context, intent: Intent)",
+      "desc": "Called during provisioning of a managed device to allow the device initializer to perform user setup steps."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onReceive(context: Context, intent: Intent)",
+      "desc": "Intercept standard device administrator broadcasts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSecurityLogsAvailable(context: Context, intent: Intent)",
+      "desc": "Called when a new batch of security logs can be retrieved."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSystemUpdatePending(context: Context, intent: Intent, receivedTime: Long)",
+      "desc": "Called when the information about a pending system update is available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onTransferAffiliatedProfileOwnershipComplete(context: Context, user: UserHandle)",
+      "desc": "Called on the device owner when the ownership of one of its affiliated profiles is transferred."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onTransferOwnershipComplete(context: Context, bundle: PersistableBundle?)",
+      "desc": "Called on the newly assigned owner (either device owner or profile owner) when the ownership transfer has completed successfully."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onUserAdded(context: Context, intent: Intent, addedUser: UserHandle)",
+      "desc": "Called when a user or profile is created."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onUserRemoved(context: Context, intent: Intent, removedUser: UserHandle)",
+      "desc": "Called when a user or profile is removed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onUserStarted(context: Context, intent: Intent, startedUser: UserHandle)",
+      "desc": "Called when a user or profile is started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onUserStopped(context: Context, intent: Intent, stoppedUser: UserHandle)",
+      "desc": "Called when a user or profile is stopped."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onUserSwitched(context: Context, intent: Intent, switchedUser: UserHandle)",
+      "desc": "Called when a user or profile is switched to."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "BroadcastReceiver"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "abortBroadcast()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendOrderedBroadcast(Intent, String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onReceive"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendOrderedBroadcast(Intent, String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendBroadcast(Intent)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "clearAbortBroadcast()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getAbortBroadcast()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDebugUnregister()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setDebugUnregister"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getResultCode()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getResultData()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Bundle!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getResultExtras(makeMap: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "BroadcastReceiver.PendingResult!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "goAsync()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onReceive"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "goAsync"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "PendingResult#finish()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Intent#FLAG_RECEIVER_FOREGROUND"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.app.job.JobScheduler"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.app.Service"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isInitialStickyBroadcast()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isOrderedBroadcast()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "IBinder!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "peekService(myContext: Context!, service: Intent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onReceive"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.os.IBinder"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.content.Context#bindService(Intent, ServiceConnection, int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setDebugUnregister(debug: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#registerReceiver(BroadcastReceiver, IntentFilter)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#unregisterReceiver(BroadcastReceiver)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setOrderedHint(isOrdered: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setResult(code: Int, data: String!, extras: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendOrderedBroadcast(Intent, String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendBroadcast(Intent)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setResultCode(code: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendOrderedBroadcast(Intent, String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.app.Activity#RESULT_CANCELED"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.app.Activity#RESULT_OK"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendBroadcast(Intent)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setResultData(data: String!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendOrderedBroadcast(Intent, String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendBroadcast(Intent)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setResultExtras(extras: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendOrderedBroadcast(Intent, String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#sendBroadcast(Intent)"
+    }
+  ]
+}

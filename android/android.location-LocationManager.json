@@ -1,0 +1,577 @@
+{
+  "path": "android.location",
+  "name": "LocationManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_LOCATION_ENABLED",
+      "desc": "Intent extra included with MODE_CHANGED_ACTION broadcasts, containing the boolean enabled state of location."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVIDER_ENABLED",
+      "desc": "Intent extra included with PROVIDERS_CHANGED_ACTION broadcasts, containing the boolean enabled state of the location provider that has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVIDER_NAME",
+      "desc": "Intent extra included with PROVIDERS_CHANGED_ACTION broadcasts, containing the name of the location provider that has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "GPS_PROVIDER",
+      "desc": "Name of the GNSS location provider."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_LOCATION_CHANGED",
+      "desc": "Key used for an extra holding a Location value when a location change is broadcast using a PendingIntent."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_PROVIDER_ENABLED",
+      "desc": "Key used for an extra holding a boolean enabled/disabled status value when a provider enabled/disabled event is broadcast using a PendingIntent."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_PROXIMITY_ENTERING",
+      "desc": "Key used for the Bundle extra holding a boolean indicating whether a proximity alert is entering (true) or exiting (false)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "KEY_STATUS_CHANGED",
+      "desc": "This key is no longer in use."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "MODE_CHANGED_ACTION",
+      "desc": "Broadcast intent action when the device location enabled state changes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "NETWORK_PROVIDER",
+      "desc": "Name of the network location provider."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PASSIVE_PROVIDER",
+      "desc": "A special location provider for receiving locations without actually initiating a location fix."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PROVIDERS_CHANGED_ACTION",
+      "desc": "Broadcast intent action when the set of enabled location providers changes."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addGpsStatusListener(listener: GpsStatus.Listener!)",
+      "desc": "Adds a GPS status listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addNmeaListener(listener: GpsStatus.NmeaListener)",
+      "desc": "No-op method to keep backward-compatibility."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addNmeaListener(listener: OnNmeaMessageListener)",
+      "desc": "Adds an NMEA listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addNmeaListener(listener: OnNmeaMessageListener, handler: Handler?)",
+      "desc": "Adds an NMEA listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addNmeaListener(executor: Executor, listener: OnNmeaMessageListener)",
+      "desc": "Adds an NMEA listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addProximityAlert(latitude: Double, longitude: Double, radius: Float, expiration: Long, intent: PendingIntent)",
+      "desc": "Set a proximity alert for the location given by the position (latitude, longitude) and the given radius."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addTestProvider(provider: String, requiresNetwork: Boolean, requiresSatellite: Boolean, requiresCell: Boolean, hasMonetaryCost: Boolean, supportsAltitude: Boolean, supportsSpeed: Boolean, supportsBearing: Boolean, powerRequirement: Int, accuracy: Int)",
+      "desc": "Creates a test location provider and adds it to the set of active providers."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearTestProviderEnabled(provider: String)",
+      "desc": "Equivalent to calling setTestProviderEnabled(java.lang.String,boolean) to disable a test provider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearTestProviderLocation(provider: String)",
+      "desc": "Does nothing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearTestProviderStatus(provider: String)",
+      "desc": "This method has no effect as provider status has been deprecated and is no longer supported."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getAllProviders()",
+      "desc": "Returns a list of the names of all known location providers.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getBestProvider(criteria: Criteria, enabledOnly: Boolean)",
+      "desc": "Returns the name of the provider that best meets the given criteria.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "getCurrentLocation(provider: String, cancellationSignal: CancellationSignal?, executor: Executor, consumer: Consumer<Location!>)",
+      "desc": "Asynchronously returns a single current location fix."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "GnssCapabilities",
+      "code": "getGnssCapabilities()",
+      "desc": "Returns the supported capabilities of the GNSS chipset."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getGnssHardwareModelName()",
+      "desc": "Returns the Model Name (including Vendor and Hardware/Software Version) of the GNSS hardware driver.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getGnssYearOfHardware()",
+      "desc": "Returns the model year of the GNSS hardware and software build."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "GpsStatus",
+      "code": "getGpsStatus(status: GpsStatus?)",
+      "desc": "Retrieves information about the current status of the GPS engine.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Location",
+      "code": "getLastKnownLocation(provider: String)",
+      "desc": "Gets the last known location from the given provider, or null if there is no last known location.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "LocationProvider",
+      "code": "getProvider(provider: String)",
+      "desc": "Returns the information about the location provider with the given name, or null if no provider exists by that name.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getProviders(enabledOnly: Boolean)",
+      "desc": "Returns a list of the names of location providers.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getProviders(criteria: Criteria, enabledOnly: Boolean)",
+      "desc": "Returns a list of the names of providers that satisfy the given criteria.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isLocationEnabled()",
+      "desc": "Returns the current enabled/disabled state of location."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isProviderEnabled(provider: String)",
+      "desc": "Returns the current enabled/disabled status of the given provider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerAntennaInfoListener(executor: Executor, listener: GnssAntennaInfo.Listener)",
+      "desc": "Registers a Gnss Antenna Info listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssMeasurementsCallback(callback: GnssMeasurementsEvent.Callback)",
+      "desc": "Registers a GPS Measurement callback which will run on a binder thread."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssMeasurementsCallback(callback: GnssMeasurementsEvent.Callback, handler: Handler?)",
+      "desc": "Registers a GPS Measurement callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssMeasurementsCallback(executor: Executor, callback: GnssMeasurementsEvent.Callback)",
+      "desc": "Registers a GPS Measurement callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssNavigationMessageCallback(callback: GnssNavigationMessage.Callback)",
+      "desc": "Registers a GNSS Navigation Message callback which will run on a binder thread."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssNavigationMessageCallback(callback: GnssNavigationMessage.Callback, handler: Handler?)",
+      "desc": "Registers a GNSS Navigation Message callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssNavigationMessageCallback(executor: Executor, callback: GnssNavigationMessage.Callback)",
+      "desc": "Registers a GNSS Navigation Message callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssStatusCallback(callback: GnssStatus.Callback)",
+      "desc": "Registers a GNSS status callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssStatusCallback(callback: GnssStatus.Callback, handler: Handler?)",
+      "desc": "Registers a GNSS status callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "registerGnssStatusCallback(executor: Executor, callback: GnssStatus.Callback)",
+      "desc": "Registers a GNSS status callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeGpsStatusListener(listener: GpsStatus.Listener!)",
+      "desc": "Removes a GPS status listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeNmeaListener(listener: GpsStatus.NmeaListener)",
+      "desc": "No-op method to keep backward-compatibility."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeNmeaListener(listener: OnNmeaMessageListener)",
+      "desc": "Removes an NMEA listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeProximityAlert(intent: PendingIntent)",
+      "desc": "Removes the proximity alert with the given PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeTestProvider(provider: String)",
+      "desc": "Removes the test location provider with the given name or does nothing if no such test location provider exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeUpdates(listener: LocationListener)",
+      "desc": "Removes location updates for the specified LocationListener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeUpdates(pendingIntent: PendingIntent)",
+      "desc": "Removes location updates for the specified PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestLocationUpdates(provider: String, minTimeMs: Long, minDistanceM: Float, listener: LocationListener)",
+      "desc": "Register for location updates from the given provider with the given arguments."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestLocationUpdates(provider: String, minTimeMs: Long, minDistanceM: Float, listener: LocationListener, looper: Looper?)",
+      "desc": "Register for location updates using the named provider, and a callback on the specified Looper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestLocationUpdates(provider: String, minTimeMs: Long, minDistanceM: Float, executor: Executor, listener: LocationListener)",
+      "desc": "Register for location updates using the named provider, and a callback on the specified Executor."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestLocationUpdates(minTimeMs: Long, minDistanceM: Float, criteria: Criteria, listener: LocationListener, looper: Looper?)",
+      "desc": "Register for location updates using a provider selected through the given Criteria, and a callback on the specified Looper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestLocationUpdates(minTimeMs: Long, minDistanceM: Float, criteria: Criteria, executor: Executor, listener: LocationListener)",
+      "desc": "Register for location updates using a provider selected through the given Criteria, and a callback on the specified Executor."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestLocationUpdates(provider: String, minTimeMs: Long, minDistanceM: Float, pendingIntent: PendingIntent)",
+      "desc": "Register for location updates using the named provider, and callbacks delivered via the provided PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestLocationUpdates(minTimeMs: Long, minDistanceM: Float, criteria: Criteria, pendingIntent: PendingIntent)",
+      "desc": "Register for location updates using a provider selected through the given Criteria, and callbacks delivered via the provided PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestSingleUpdate(provider: String, listener: LocationListener, looper: Looper?)",
+      "desc": "Register for a single location update using the named provider and a callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestSingleUpdate(criteria: Criteria, listener: LocationListener, looper: Looper?)",
+      "desc": "Register for a single location update using a Criteria and a callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestSingleUpdate(provider: String, pendingIntent: PendingIntent)",
+      "desc": "Register for a single location update using a named provider and pending intent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestSingleUpdate(criteria: Criteria, pendingIntent: PendingIntent)",
+      "desc": "Register for a single location update using a Criteria and pending intent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "sendExtraCommand(provider: String, command: String, extras: Bundle?)",
+      "desc": "Sends additional commands to a location provider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTestProviderEnabled(provider: String, enabled: Boolean)",
+      "desc": "Sets the given test provider to be enabled or disabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTestProviderLocation(provider: String, location: Location)",
+      "desc": "Sets a new location for the given test provider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTestProviderStatus(provider: String, status: Int, extras: Bundle?, updateTime: Long)",
+      "desc": "This method has no effect as provider status has been deprecated and is no longer supported."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterAntennaInfoListener(listener: GnssAntennaInfo.Listener)",
+      "desc": "Unregisters a GNSS Antenna Info listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterGnssMeasurementsCallback(callback: GnssMeasurementsEvent.Callback)",
+      "desc": "Unregisters a GPS Measurement callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterGnssNavigationMessageCallback(callback: GnssNavigationMessage.Callback)",
+      "desc": "Unregisters a GNSS Navigation Message callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterGnssStatusCallback(callback: GnssStatus.Callback)",
+      "desc": "Removes a GNSS status callback."
+    }
+  ]
+}

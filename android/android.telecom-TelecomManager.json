@@ -1,0 +1,646 @@
+{
+  "path": "android.telecom",
+  "name": "TelecomManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CHANGE_DEFAULT_DIALER",
+      "desc": "Activity action: Shows a dialog asking the user whether or not they want to replace the current default Dialer with the one specified in EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CHANGE_PHONE_ACCOUNTS",
+      "desc": "The android.content.Intent action used to show the settings page used to configure PhoneAccount preferences."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CONFIGURE_PHONE_ACCOUNT",
+      "desc": "An android.content.Intent action sent by the telecom framework to start a configuration dialog for a registered PhoneAccount."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEFAULT_CALL_SCREENING_APP_CHANGED",
+      "desc": "Broadcast intent action indicating that the current default call screening app has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEFAULT_DIALER_CHANGED",
+      "desc": "Broadcast intent action indicating that the current default dialer has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_INCOMING_CALL",
+      "desc": "Activity action: Starts the UI for handing an incoming call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PHONE_ACCOUNT_REGISTERED",
+      "desc": "android.content.Intent action used indicate that a new phone account was just registered."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PHONE_ACCOUNT_UNREGISTERED",
+      "desc": "android.content.Intent action used indicate that a phone account was just unregistered."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_POST_CALL",
+      "desc": "Start an activity indicating that the completion of an outgoing call or an incoming call which was not blocked by the CallScreeningService, and which was NOT terminated while the call was in Call#STATE_AUDIO_PROCESSING."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SHOW_CALL_ACCESSIBILITY_SETTINGS",
+      "desc": "The android.content.Intent action used to show the call accessibility settings page."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SHOW_CALL_SETTINGS",
+      "desc": "The android.content.Intent action used to show the call settings page."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SHOW_MISSED_CALLS_NOTIFICATION",
+      "desc": "Broadcast intent action for letting custom component know to show the missed call notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SHOW_RESPOND_VIA_SMS_SETTINGS",
+      "desc": "The android.content.Intent action used to show the respond via SMS settings page."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Char",
+      "code": "DTMF_CHARACTER_PAUSE",
+      "desc": "The dual tone multi-frequency signaling character sent to indicate the dialing system should pause for a predefined period."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Char",
+      "code": "DTMF_CHARACTER_WAIT",
+      "desc": "The dual-tone multi-frequency signaling character sent to indicate the dialing system should wait for user confirmation before proceeding."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DURATION_LONG",
+      "desc": "A integer value for EXTRA_CALL_DURATION, indicates the duration of the completed call was >= 120 seconds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DURATION_MEDIUM",
+      "desc": "A integer value for EXTRA_CALL_DURATION, indicates the duration of the completed call was >= 60 seconds and < 120 seconds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DURATION_SHORT",
+      "desc": "A integer value for EXTRA_CALL_DURATION, indicates the duration of the completed call was >= 3 seconds and < 60 seconds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DURATION_VERY_SHORT",
+      "desc": "A integer value for EXTRA_CALL_DURATION, indicates the duration of the completed call was < 3 seconds."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CALL_BACK_NUMBER",
+      "desc": "The number which the party on the other side of the line will see (and use to return the call)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CALL_DISCONNECT_CAUSE",
+      "desc": "Optional extra for android.telephony.TelephonyManager#ACTION_PHONE_STATE_CHANGED containing the disconnect code."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CALL_DISCONNECT_MESSAGE",
+      "desc": "Optional extra for android.telephony.TelephonyManager#ACTION_PHONE_STATE_CHANGED containing the disconnect message."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CALL_DURATION",
+      "desc": "A integer value provided for completed calls to indicate the duration of the call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CALL_NETWORK_TYPE",
+      "desc": "Optional extra for communicating the call network technology used by a android.telecom.Connection to Telecom and InCallUI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CALL_SUBJECT",
+      "desc": "Optional extra for android.content.Intent#ACTION_CALL containing a string call subject which will be associated with an outgoing call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME",
+      "desc": "Extra value used to provide the package name for ACTION_CHANGE_DEFAULT_DIALER."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DEFAULT_CALL_SCREENING_APP_COMPONENT_NAME",
+      "desc": "Extra value used with ACTION_DEFAULT_CALL_SCREENING_APP_CHANGED broadcast to indicate the ComponentName of the call screening app which has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DISCONNECT_CAUSE",
+      "desc": "A integer value provided for completed calls to indicate the reason for the call disconnection."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_HANDLE",
+      "desc": "A Uri extra, which when set on the ACTION_POST_CALL intent, indicates the uri handle(phone number) of the completed call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_INCOMING_CALL_ADDRESS",
+      "desc": "The extra used by a ConnectionService to provide the handle of the caller that has initiated a new incoming call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_INCOMING_CALL_EXTRAS",
+      "desc": "Optional extra for ACTION_INCOMING_CALL containing a Bundle which contains metadata about the call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_INCOMING_VIDEO_STATE",
+      "desc": "Optional extra for addNewIncomingCall(android.telecom.PhoneAccountHandle,android.os.Bundle) containing an integer that determines the requested video state for an incoming call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_IS_DEFAULT_CALL_SCREENING_APP",
+      "desc": "Extra value used with ACTION_DEFAULT_CALL_SCREENING_APP_CHANGED broadcast to indicate whether an app is the default call screening app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NOTIFICATION_COUNT",
+      "desc": "The number of calls associated with the notification."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NOTIFICATION_PHONE_NUMBER",
+      "desc": "The number associated with the missed calls."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_OUTGOING_CALL_EXTRAS",
+      "desc": "Optional extra for android.content.Intent#ACTION_CALL and android.content.Intent#ACTION_DIAL Intent containing a Bundle which contains metadata about the call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PHONE_ACCOUNT_HANDLE",
+      "desc": "The extra used with an android.content.Intent#ACTION_CALL and android.content.Intent#ACTION_DIAL Intent to specify a PhoneAccountHandle to use when making the call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_START_CALL_WITH_RTT",
+      "desc": "A boolean extra, which when set on the Intent#ACTION_CALL intent or on the bundle passed into placeCall(android.net.Uri,android.os.Bundle), indicates that the call should be initiated with an RTT session open."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_START_CALL_WITH_SPEAKERPHONE",
+      "desc": "Optional extra for android.content.Intent#ACTION_CALL containing a boolean that determines whether the speakerphone should be automatically turned on for an outgoing call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_START_CALL_WITH_VIDEO_STATE",
+      "desc": "Optional extra for android.content.Intent#ACTION_CALL containing an integer that determines the desired video state for an outgoing call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_USE_ASSISTED_DIALING",
+      "desc": "The boolean indicated by this extra controls whether or not a call is eligible to undergo assisted dialing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "GATEWAY_ORIGINAL_ADDRESS",
+      "desc": "An optional android.content.Intent#ACTION_CALL intent extra corresponding to the original address to dial for the call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "GATEWAY_PROVIDER_PACKAGE",
+      "desc": "An optional android.content.Intent#ACTION_CALL intent extra denoting the package name of the app specifying an alternative gateway for the call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "METADATA_INCLUDE_EXTERNAL_CALLS",
+      "desc": "A boolean meta-data value indicating whether an InCallService wants to be informed of calls which have the Call.Details#PROPERTY_IS_EXTERNAL_CALL property."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "METADATA_INCLUDE_SELF_MANAGED_CALLS",
+      "desc": "A boolean meta-data value indicating whether an InCallService wants to be informed of calls which have the Call.Details#PROPERTY_SELF_MANAGED property."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "METADATA_IN_CALL_SERVICE_CAR_MODE_UI",
+      "desc": "A boolean meta-data value indicating whether an InCallService implements an in-call user interface to be used while the device is in car-mode (see android.content.res.Configuration#UI_MODE_TYPE_CAR)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "METADATA_IN_CALL_SERVICE_RINGING",
+      "desc": "A boolean meta-data value indicating whether an InCallService implements ringing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "METADATA_IN_CALL_SERVICE_UI",
+      "desc": "A boolean meta-data value indicating whether an InCallService implements an in-call user interface."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRESENTATION_ALLOWED",
+      "desc": "Indicates that the address or number of a call is allowed to be displayed for caller ID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRESENTATION_PAYPHONE",
+      "desc": "Indicates that the address or number of a call belongs to a pay phone."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRESENTATION_RESTRICTED",
+      "desc": "Indicates that the address or number of a call is blocked by the other party."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRESENTATION_UNKNOWN",
+      "desc": "Indicates that the address or number of a call is not specified or known by the carrier."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "acceptHandover(srcAddr: Uri!, videoState: Int, destAcct: PhoneAccountHandle!)",
+      "desc": "Called by an app to indicate that it wishes to accept the handover of an ongoing call to a PhoneAccountHandle it defines."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "acceptRingingCall()",
+      "desc": "If there is a ringing incoming call, this method accepts the call on behalf of the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "acceptRingingCall(videoState: Int)",
+      "desc": "If there is a ringing incoming call, this method accepts the call on behalf of the user, with the specified video state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addNewIncomingCall(phoneAccount: PhoneAccountHandle!, extras: Bundle!)",
+      "desc": "Registers a new incoming call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancelMissedCallsNotification()",
+      "desc": "Removes the missed-call notification if one is present."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "createManageBlockedNumbersIntent()",
+      "desc": "Creates the Intent which can be used with Context#startActivity(Intent) to launch the activity to manage blocked numbers.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "endCall()",
+      "desc": "Ends the foreground call on the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Uri",
+      "code": "getAdnUriForPhoneAccount(accountHandle: PhoneAccountHandle!)",
+      "desc": "Requires permission: android.Manifest.permission#MODIFY_PHONE_STATE  Requires android.Manifest.permission#MODIFY_PHONE_STATE",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getCallCapablePhoneAccounts()",
+      "desc": "Returns a list of PhoneAccountHandles which can be used to make and receive phone calls.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getDefaultDialerPackage()",
+      "desc": "Used to determine the currently selected default dialer package.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PhoneAccountHandle",
+      "code": "getDefaultOutgoingPhoneAccount(uriScheme: String!)",
+      "desc": "Return the PhoneAccount which will be used to place outgoing calls to addresses with the specified uriScheme.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getLine1Number(accountHandle: PhoneAccountHandle!)",
+      "desc": "Return the line 1 phone number for given phone account.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PhoneAccount",
+      "code": "getPhoneAccount(account: PhoneAccountHandle!)",
+      "desc": "Return the PhoneAccount for a specified PhoneAccountHandle.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getSelfManagedPhoneAccounts()",
+      "desc": "Returns a list of PhoneAccountHandles for self-managed ConnectionServices.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PhoneAccountHandle",
+      "code": "getSimCallManager()",
+      "desc": "Returns the current SIM call manager.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PhoneAccountHandle",
+      "code": "getSimCallManagerForSubscription(subscriptionId: Int)",
+      "desc": "Returns current SIM call manager for the Telephony Subscription ID specified.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getSystemDialerPackage()",
+      "desc": "Determines the package name of the system-provided default phone app.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PhoneAccountHandle",
+      "code": "getUserSelectedOutgoingPhoneAccount()",
+      "desc": "Return the PhoneAccount which is the user-chosen default for making outgoing phone calls.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getVoiceMailNumber(accountHandle: PhoneAccountHandle!)",
+      "desc": "Return the voicemail number for a given phone account.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "handleMmi(dialString: String!)",
+      "desc": "Processes the specified dial string as an MMI code."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "handleMmi(dialString: String!, accountHandle: PhoneAccountHandle!)",
+      "desc": "Processes the specified dial string as an MMI code."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isInCall()",
+      "desc": "Returns whether there is an ongoing phone call (can be in dialing, ringing, active or holding states) originating from either a manager or self-managed ConnectionService."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isInManagedCall()",
+      "desc": "Returns whether there is an ongoing call originating from a managed ConnectionService."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isIncomingCallPermitted(phoneAccountHandle: PhoneAccountHandle!)",
+      "desc": "Determines whether Telecom would permit an incoming call to be added via the addNewIncomingCall(android.telecom.PhoneAccountHandle,android.os.Bundle) API for the specified PhoneAccountHandle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOutgoingCallPermitted(phoneAccountHandle: PhoneAccountHandle!)",
+      "desc": "Determines whether Telecom would permit an outgoing call to be placed via the placeCall(android.net.Uri,android.os.Bundle) API for the specified PhoneAccountHandle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTtySupported()",
+      "desc": "Returns whether TTY is supported on this device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isVoiceMailNumber(accountHandle: PhoneAccountHandle!, number: String!)",
+      "desc": "Return whether a given phone number is the configured voicemail number for a particular phone account."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "placeCall(address: Uri!, extras: Bundle!)",
+      "desc": "Places a new outgoing call to the provided address using the system telecom service with the specified extras."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerPhoneAccount(account: PhoneAccount!)",
+      "desc": "Register a PhoneAccount for use by the system that will be stored in Device Encrypted storage."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "showInCallScreen(showDialpad: Boolean)",
+      "desc": "Brings the in-call screen to the foreground if there is an ongoing call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "silenceRinger()",
+      "desc": "Silences the ringer if a ringing call exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterPhoneAccount(accountHandle: PhoneAccountHandle!)",
+      "desc": "Remove a PhoneAccount registration from the system."
+    }
+  ]
+}

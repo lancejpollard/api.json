@@ -1,0 +1,384 @@
+{
+  "path": "android.telecom",
+  "name": "Conference",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "CONNECT_TIME_NOT_SPECIFIED",
+      "desc": "Used to indicate that the conference connection time is not specified."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(phoneAccount: PhoneAccountHandle!)\n            Constructs a new Conference with a mandatory PhoneAccountHandle"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "addConnection(connection: Connection!)",
+      "desc": "Adds the specified connection as a child of this conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "destroy()",
+      "desc": "Tears down the conference object and any of its current connections."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CallAudioState",
+      "code": "getCallAudioState()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getConferenceableConnections()",
+      "desc": "Returns the connections with which this connection can be conferenced.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getConnectionCapabilities()",
+      "desc": "Returns the capabilities of the conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getConnectionProperties()",
+      "desc": "Returns the properties of the conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getConnectionStartElapsedRealtimeMillis()",
+      "desc": "Retrieves the connection start time of the Conference, if specified."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getConnectionTime()",
+      "desc": "Retrieves the connection start time of the Conference, if specified."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getConnections()",
+      "desc": "Returns the list of connections currently associated with the conference call.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "DisconnectCause",
+      "code": "getDisconnectCause()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Bundle",
+      "code": "getExtras()",
+      "desc": "Returns the extras associated with this conference.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "PhoneAccountHandle",
+      "code": "getPhoneAccountHandle()",
+      "desc": "Returns the PhoneAccountHandle the conference call is being placed through.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getState()",
+      "desc": "Gets the state of the conference call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "StatusHints",
+      "code": "getStatusHints()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Connection.VideoProvider",
+      "code": "getVideoProvider()",
+      "desc": "Returns VideoProvider of the primary call.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getVideoState()",
+      "desc": "Returns video state of the primary call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCallAudioStateChanged(state: CallAudioState!)",
+      "desc": "Notifies the Conference that the getCallAudioState() property has a new value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onConnectionAdded(connection: Connection!)",
+      "desc": "Notifies the Conference that a Connection has been added to it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDisconnect()",
+      "desc": "Notifies the Conference when the Conference and all it's Connections should be disconnected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onExtrasChanged(extras: Bundle!)",
+      "desc": "Notifies this Conference of a change to the extras made outside the ConnectionService."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onHold()",
+      "desc": "Notifies the Conference when it should be put on hold."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onMerge(connection: Connection!)",
+      "desc": "Notifies the Conference when the specified Connection should merged with the conference call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onMerge()",
+      "desc": "Notifies the Conference when the child calls should be merged."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onPlayDtmfTone(c: Char)",
+      "desc": "Notifies the Conference of a request to play a DTMF tone."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSeparate(connection: Connection!)",
+      "desc": "Notifies the Conference when the specified Connection should be separated from the conference call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onStopDtmfTone()",
+      "desc": "Notifies the Conference of a request to stop any currently playing DTMF tones."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSwap()",
+      "desc": "Notifies the Conference when the child calls should be swapped."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onUnhold()",
+      "desc": "Notifies the Conference when it should be moved from a held to active state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "putExtras(extras: Bundle)",
+      "desc": "Adds some extras to this Conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeConnection(connection: Connection!)",
+      "desc": "Removes the specified connection as a child of this conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeExtras(keys: MutableList<String!>!)",
+      "desc": "Removes extras from this Conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeExtras(vararg keys: String!)",
+      "desc": "Removes extras from this Conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendConferenceEvent(event: String, extras: Bundle?)",
+      "desc": "Sends an event associated with this Conference with associated event extras to the InCallService."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setActive()",
+      "desc": "Sets state to be active."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setConferenceableConnections(conferenceableConnections: MutableList<Connection!>!)",
+      "desc": "Sets the connections with which this connection can be conferenced."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setConnectionCapabilities(connectionCapabilities: Int)",
+      "desc": "Sets the capabilities of a conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setConnectionProperties(connectionProperties: Int)",
+      "desc": "Sets the properties of a conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setConnectionStartElapsedRealTime(connectionStartElapsedRealTime: Long)",
+      "desc": "Sets the start time of the Conference which is the basis for the determining the duration of the Conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setConnectionStartElapsedRealtimeMillis(connectionStartElapsedRealTime: Long)",
+      "desc": "Sets the start time of the Conference which is the basis for the determining the duration of the Conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setConnectionTime(connectionTimeMillis: Long)",
+      "desc": "Sets the connection start time of the Conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDialing()",
+      "desc": "Sets state to be dialing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDisconnected(disconnectCause: DisconnectCause!)",
+      "desc": "Sets state to disconnected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setExtras(extras: Bundle?)",
+      "desc": "Replaces all the extras associated with this Conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnHold()",
+      "desc": "Sets state to be on hold."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setStatusHints(statusHints: StatusHints!)",
+      "desc": "Sets the label and icon status to display in the InCall UI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setVideoProvider(c: Connection!, videoProvider: Connection.VideoProvider!)",
+      "desc": "Sets the video connection provider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setVideoState(c: Connection!, videoState: Int)",
+      "desc": "Set the video state for the conference."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    }
+  ]
+}

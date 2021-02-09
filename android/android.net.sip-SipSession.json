@@ -1,0 +1,118 @@
+{
+  "path": "android.net.sip",
+  "name": "SipSession",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "answerCall(sessionDescription: String!, timeout: Int)",
+      "desc": "Answers an incoming call with the specified session description."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "changeCall(sessionDescription: String!, timeout: Int)",
+      "desc": "Changes the session description during a call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "endCall()",
+      "desc": "Ends an established call, terminates an outgoing call or rejects an incoming call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCallId()",
+      "desc": "Gets the call ID of the session.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getLocalIp()",
+      "desc": "Gets the IP address of the local host on which this SIP session runs.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "SipProfile",
+      "code": "getLocalProfile()",
+      "desc": "Gets the SIP profile that this session is associated with.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "SipProfile",
+      "code": "getPeerProfile()",
+      "desc": "Gets the SIP profile that this session is connected to.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getState()",
+      "desc": "Gets the session state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isInCall()",
+      "desc": "Checks if the session is in a call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "makeCall(callee: SipProfile!, sessionDescription: String!, timeout: Int)",
+      "desc": "Initiates a call to the specified profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "register(duration: Int)",
+      "desc": "Performs registration to the server specified by the associated local profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setListener(listener: SipSession.Listener!)",
+      "desc": "Sets the listener to listen to the session events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregister()",
+      "desc": "Performs unregistration to the server specified by the associated local profile."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Listener",
+      "desc": "Listener for events relating to a SIP session, such as when a session is being registered (\"on registering\") or a call is outgoing (\"on calling\")."
+    },
+    {
+      "type": "nested-classes",
+      "code": "State",
+      "desc": "Defines SIP session states, such as \"registering\", \"outgoing call\", and \"in call\"."
+    }
+  ]
+}

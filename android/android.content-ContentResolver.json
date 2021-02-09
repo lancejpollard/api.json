@@ -1,0 +1,908 @@
+{
+  "path": "android.content",
+  "name": "ContentResolver",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ANY_CURSOR_ITEM_TYPE",
+      "desc": "This is the Android platform's generic MIME type to match any MIME type of the form \"CURSOR_ITEM_BASE_TYPE/SUB_TYPE\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CURSOR_DIR_BASE_TYPE",
+      "desc": "This is the Android platform's base MIME type for a content: URI containing a Cursor of zero or more items."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CURSOR_ITEM_BASE_TYPE",
+      "desc": "This is the Android platform's base MIME type for a content: URI containing a Cursor of a single item."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_HONORED_ARGS",
+      "desc": "Allows provider to report back to client which query keys are honored in a Cursor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_REFRESH_SUPPORTED",
+      "desc": "An extra boolean describing whether a particular provider supports refresh or not."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SIZE",
+      "desc": "An extra Point describing the optimal size for a requested image resource, in pixels."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_TOTAL_COUNT",
+      "desc": "Added to Cursor extras Bundle to indicate total row count of recordset when paging is supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NOTIFY_DELETE",
+      "desc": "Flag for notifyChange(android.net.Uri,android.database.ContentObserver,int): typically set by a ContentProvider to indicate that this notification is the result of a ContentProvider#delete call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NOTIFY_INSERT",
+      "desc": "Flag for notifyChange(android.net.Uri,android.database.ContentObserver,int): typically set by a ContentProvider to indicate that this notification is the result of an ContentProvider#insert call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NOTIFY_SKIP_NOTIFY_FOR_DESCENDANTS",
+      "desc": "Flag for notifyChange(android.net.Uri,android.database.ContentObserver,int): if set, this notification will be skipped if it is being delivered to the root URI of a ContentObserver that is using \"notify for descendants."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NOTIFY_SYNC_TO_NETWORK",
+      "desc": "Flag for notifyChange(android.net.Uri,android.database.ContentObserver,int): attempt to sync the change to the network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NOTIFY_UPDATE",
+      "desc": "Flag for notifyChange(android.net.Uri,android.database.ContentObserver,int): typically set by a ContentProvider to indicate that this notification is the result of an ContentProvider#update call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_GROUP_COLUMNS",
+      "desc": "Specifies the list of columns (stored as a String[]) against which to group results."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_LIMIT",
+      "desc": "Specifies the max number of rows to include in a Cursor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_OFFSET",
+      "desc": "Specifies the offset row index within a Cursor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SORT_COLLATION",
+      "desc": "Allows client to specify a hint to the provider declaring which collation to use when sorting values."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SORT_COLUMNS",
+      "desc": "Specifies the list of columns (stored as a String[]) against which to sort results."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SORT_DIRECTION",
+      "desc": "Specifies desired sort order."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SORT_LOCALE",
+      "desc": "Allows client to specify a hint to the provider declaring which locale to use when sorting values."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SQL_GROUP_BY",
+      "desc": "Key for an SQL style GROUP BY string that may be present in the query Bundle argument passed to ContentProvider#query(Uri, String[], Bundle, CancellationSignal)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SQL_HAVING",
+      "desc": "Key for an SQL style HAVING string that may be present in the query Bundle argument passed to ContentProvider#query(Uri, String[], Bundle, CancellationSignal)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SQL_LIMIT",
+      "desc": "Key for an SQL style LIMIT string that may be present in the query Bundle argument passed to ContentProvider#query(Uri, String[], Bundle, CancellationSignal)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SQL_SELECTION",
+      "desc": "Key for an SQL style selection string that may be present in the query Bundle argument passed to ContentProvider#query(Uri, String[], Bundle, CancellationSignal) when called by a legacy client."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SQL_SELECTION_ARGS",
+      "desc": "Key for SQL selection string arguments list."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "QUERY_ARG_SQL_SORT_ORDER",
+      "desc": "Key for an SQL style sort string that may be present in the query Bundle argument passed to ContentProvider#query(Uri, String[], Bundle, CancellationSignal) when called by a legacy client."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "QUERY_SORT_DIRECTION_ASCENDING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "QUERY_SORT_DIRECTION_DESCENDING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SCHEME_ANDROID_RESOURCE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SCHEME_CONTENT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SCHEME_FILE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_ACCOUNT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_DISCARD_LOCAL_DELETIONS",
+      "desc": "Indicates that the sync adapter should not proceed with the delete operations, if it determines that there are too many."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_DO_NOT_RETRY",
+      "desc": "If this extra is set to true then the request will not be retried if it fails."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_EXPEDITED",
+      "desc": "If this extra is set to true, the sync request will be scheduled at the front of the sync request queue and without any delay"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_FORCE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_IGNORE_BACKOFF",
+      "desc": "If this extra is set to true then any backoffs for the initial attempt (e.g. due to retries) are ignored by the sync scheduler."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_IGNORE_SETTINGS",
+      "desc": "If this extra is set to true then the sync settings (like getSyncAutomatically()) are ignored by the sync scheduler."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_INITIALIZE",
+      "desc": "Set by the SyncManager to request that the SyncAdapter initialize itself for the given account/authority pair."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_MANUAL",
+      "desc": "Setting this extra is the equivalent of setting both SYNC_EXTRAS_IGNORE_SETTINGS and SYNC_EXTRAS_IGNORE_BACKOFF"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_OVERRIDE_TOO_MANY_DELETIONS",
+      "desc": "Indicates that the sync adapter should proceed with the delete operations, even if it determines that there are too many."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_REQUIRE_CHARGING",
+      "desc": "If this extra is set to true, the sync request will be scheduled only when the device is plugged in."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SYNC_EXTRAS_UPLOAD",
+      "desc": "Indicates that this sync is intended to only upload local changes to the server."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SYNC_OBSERVER_TYPE_ACTIVE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SYNC_OBSERVER_TYPE_PENDING",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SYNC_OBSERVER_TYPE_SETTINGS",
+      "desc": ""
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context?)"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ContentProviderClient",
+      "code": "acquireContentProviderClient(uri: Uri)",
+      "desc": "Returns a ContentProviderClient that is associated with the ContentProvider that services the content at uri, starting the provider if necessary.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ContentProviderClient",
+      "code": "acquireContentProviderClient(name: String)",
+      "desc": "Returns a ContentProviderClient that is associated with the ContentProvider with the authority of name, starting the provider if necessary.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ContentProviderClient",
+      "code": "acquireUnstableContentProviderClient(uri: Uri)",
+      "desc": "Like acquireContentProviderClient(android.net.Uri), but for use when you do not trust the stability of the target content provider.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ContentProviderClient",
+      "code": "acquireUnstableContentProviderClient(name: String)",
+      "desc": "Like acquireContentProviderClient(java.lang.String), but for use when you do not trust the stability of the target content provider.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addPeriodicSync(account: Account!, authority: String!, extras: Bundle!, pollFrequency: Long)",
+      "desc": "Specifies that a sync should be requested with the specified the account, authority, and extras at the given frequency."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Any",
+      "code": "addStatusChangeListener(mask: Int, callback: SyncStatusObserver!)",
+      "desc": "Request notifications when the different aspects of the SyncManager change.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "applyBatch(authority: String, operations: ArrayList<ContentProviderOperation!>)",
+      "desc": "Applies each of the ContentProviderOperation objects and returns an array of their results.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "bulkInsert(url: Uri, values: Array<ContentValues!>)",
+      "desc": "Inserts multiple rows into a table at the given URL."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Bundle",
+      "code": "call(uri: Uri, method: String, arg: String?, extras: Bundle?)",
+      "desc": "Call a provider-defined method.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Bundle",
+      "code": "call(authority: String, method: String, arg: String?, extras: Bundle?)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancelSync(uri: Uri!)",
+      "desc": "Cancel any active or pending syncs that match the Uri."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancelSync(account: Account!, authority: String!)",
+      "desc": "Cancel any active or pending syncs that match account and authority."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancelSync(request: SyncRequest!)",
+      "desc": "Remove the specified sync."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Uri",
+      "code": "canonicalize(url: Uri)",
+      "desc": "Transform the given url to a canonical representation of its referenced resource, which can be used across devices, persisted, backed up and restored, etc.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "delete(url: Uri, where: String?, selectionArgs: Array<String!>?)",
+      "desc": "Deletes row(s) specified by a content URI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "delete(url: Uri, extras: Bundle?)",
+      "desc": "Deletes row(s) specified by a content URI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SyncInfo",
+      "code": "getCurrentSync()",
+      "desc": "If a sync is active returns the information about it, otherwise returns null.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getCurrentSyncs()",
+      "desc": "Returns a list with information about all the active syncs.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getIsSyncable(account: Account!, authority: String!)",
+      "desc": "Check if this account/provider is syncable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getMasterSyncAutomatically()",
+      "desc": "Gets the master auto-sync setting that applies to all the providers and accounts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getOutgoingPersistedUriPermissions()",
+      "desc": "Return list of all persisted URI permission grants that are hosted by the calling app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getPeriodicSyncs(account: Account!, authority: String!)",
+      "desc": "Get the list of information about the periodic syncs for the given account and authority.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getPersistedUriPermissions()",
+      "desc": "Return list of all URI permission grants that have been persisted by the calling app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getStreamTypes(url: Uri, mimeTypeFilter: String)",
+      "desc": "Query for the possible MIME types for the representations the given content URL can be returned when opened as as stream with openTypedAssetFileDescriptor.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getSyncAdapterTypes()",
+      "desc": "Get information about the SyncAdapters that are known to the system.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getSyncAutomatically(account: Account!, authority: String!)",
+      "desc": "Check if the provider should be synced when a network tickle is received"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getType(url: Uri)",
+      "desc": "Return the MIME type of the given content URL.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ContentResolver.MimeTypeInfo",
+      "code": "getTypeInfo(mimeType: String)",
+      "desc": "Return a detailed description of the given MIME type, including an icon and label that describe the type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Uri",
+      "code": "insert(url: Uri, values: ContentValues?)",
+      "desc": "Inserts a row into a table at the given URL.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Uri",
+      "code": "insert(url: Uri, values: ContentValues?, extras: Bundle?)",
+      "desc": "Inserts a row into a table at the given URL.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isSyncActive(account: Account!, authority: String!)",
+      "desc": "Returns true if there is currently a sync operation for the given account or authority actively being processed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isSyncPending(account: Account!, authority: String!)",
+      "desc": "Return true if the pending status is true of any matching authorities."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bitmap",
+      "code": "loadThumbnail(uri: Uri, size: Size, signal: CancellationSignal?)",
+      "desc": "Convenience method that efficiently loads a visual thumbnail for the given Uri."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "notifyChange(uri: Uri, observer: ContentObserver?)",
+      "desc": "Notify registered observers that a row was updated and attempt to sync changes to the network."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "notifyChange(uri: Uri, observer: ContentObserver?, syncToNetwork: Boolean)",
+      "desc": "Notify registered observers that a row was updated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "notifyChange(uri: Uri, observer: ContentObserver?, flags: Int)",
+      "desc": "Notify registered observers that a row was updated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "notifyChange(uris: MutableCollection<Uri!>, observer: ContentObserver?, flags: Int)",
+      "desc": "Notify registered observers that several rows have been updated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AssetFileDescriptor",
+      "code": "openAssetFile(uri: Uri, mode: String, signal: CancellationSignal?)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AssetFileDescriptor",
+      "code": "openAssetFileDescriptor(uri: Uri, mode: String)",
+      "desc": "Open a raw file descriptor to access data under a URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AssetFileDescriptor",
+      "code": "openAssetFileDescriptor(uri: Uri, mode: String, cancellationSignal: CancellationSignal?)",
+      "desc": "Open a raw file descriptor to access data under a URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openFile(uri: Uri, mode: String, signal: CancellationSignal?)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openFileDescriptor(uri: Uri, mode: String)",
+      "desc": "Open a raw file descriptor to access data under a URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openFileDescriptor(uri: Uri, mode: String, cancellationSignal: CancellationSignal?)",
+      "desc": "Open a raw file descriptor to access data under a URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "InputStream",
+      "code": "openInputStream(uri: Uri)",
+      "desc": "Open a stream on to the content associated with a content URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "OutputStream",
+      "code": "openOutputStream(uri: Uri)",
+      "desc": "Synonym for  openOutputStream(uri, \"w\").",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "OutputStream",
+      "code": "openOutputStream(uri: Uri, mode: String)",
+      "desc": "Open a stream on to the content associated with a content URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AssetFileDescriptor",
+      "code": "openTypedAssetFile(uri: Uri, mimeTypeFilter: String, opts: Bundle?, signal: CancellationSignal?)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AssetFileDescriptor",
+      "code": "openTypedAssetFileDescriptor(uri: Uri, mimeType: String, opts: Bundle?)",
+      "desc": "Open a raw file descriptor to access (potentially type transformed) data from a \"content:\" URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "AssetFileDescriptor",
+      "code": "openTypedAssetFileDescriptor(uri: Uri, mimeType: String, opts: Bundle?, cancellationSignal: CancellationSignal?)",
+      "desc": "Open a raw file descriptor to access (potentially type transformed) data from a \"content:\" URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "query(uri: Uri, projection: Array<String!>?, selection: String?, selectionArgs: Array<String!>?, sortOrder: String?)",
+      "desc": "Query the given URI, returning a Cursor over the result set.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "query(uri: Uri, projection: Array<String!>?, selection: String?, selectionArgs: Array<String!>?, sortOrder: String?, cancellationSignal: CancellationSignal?)",
+      "desc": "Query the given URI, returning a Cursor over the result set with optional support for cancellation.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Cursor",
+      "code": "query(uri: Uri, projection: Array<String!>?, queryArgs: Bundle?, cancellationSignal: CancellationSignal?)",
+      "desc": "Query the given URI, returning a Cursor over the result set with support for cancellation.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "refresh(url: Uri, extras: Bundle?, cancellationSignal: CancellationSignal?)",
+      "desc": "This allows clients to request an explicit refresh of content identified by uri."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerContentObserver(uri: Uri, notifyForDescendants: Boolean, observer: ContentObserver)",
+      "desc": "Register an observer class that gets callbacks when data identified by a given content URI changes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "releasePersistableUriPermission(uri: Uri, modeFlags: Int)",
+      "desc": "Relinquish a persisted URI permission grant."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removePeriodicSync(account: Account!, authority: String!, extras: Bundle!)",
+      "desc": "Remove a periodic sync."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeStatusChangeListener(handle: Any!)",
+      "desc": "Remove a previously registered status change listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestSync(account: Account!, authority: String!, extras: Bundle!)",
+      "desc": "Start an asynchronous sync operation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestSync(request: SyncRequest!)",
+      "desc": "Register a sync with the SyncManager."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setIsSyncable(account: Account!, authority: String!, syncable: Int)",
+      "desc": "Set whether this account/provider is syncable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setMasterSyncAutomatically(sync: Boolean)",
+      "desc": "Sets the master auto-sync setting that applies to all the providers and accounts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSyncAutomatically(account: Account!, authority: String!, sync: Boolean)",
+      "desc": "Set whether or not the provider is synced when it receives a network tickle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startSync(uri: Uri!, extras: Bundle!)",
+      "desc": "Start an asynchronous sync operation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "takePersistableUriPermission(uri: Uri, modeFlags: Int)",
+      "desc": "Take a persistable URI permission grant that has been offered."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Uri",
+      "code": "uncanonicalize(url: Uri)",
+      "desc": "Given a canonical Uri previously generated by canonicalize, convert it to its local non-canonical form.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregisterContentObserver(observer: ContentObserver)",
+      "desc": "Unregisters a change observer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "update(uri: Uri, values: ContentValues?, where: String?, selectionArgs: Array<String!>?)",
+      "desc": "Update row(s) in a content URI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "update(uri: Uri, values: ContentValues?, extras: Bundle?)",
+      "desc": "Update row(s) in a content URI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "validateSyncExtrasBundle(extras: Bundle!)",
+      "desc": "Check that only values of the following types are in the Bundle:"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ContentResolver",
+      "code": "wrap(wrapped: ContentProvider)",
+      "desc": "Create a ContentResolver instance that redirects all its methods to the given ContentProvider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ContentResolver",
+      "code": "wrap(wrapped: ContentProviderClient)",
+      "desc": "Create a ContentResolver instance that redirects all its methods to the given ContentProviderClient."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "MimeTypeInfo",
+      "desc": "Detailed description of a specific MIME type, including an icon and label that describe the type."
+    }
+  ]
+}

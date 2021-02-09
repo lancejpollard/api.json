@@ -1,0 +1,307 @@
+{
+  "path": "android.net",
+  "name": "UrlQuerySanitizer",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Constructs a UrlQuerySanitizer."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(url: String!)\n            Constructs a UrlQuerySanitizer and parses a URL."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getAllButNulAndAngleBracketsLegal()",
+      "desc": "Return a value sanitizer that allows any special characters except angle brackets ('<' and '>') and Nul ('\\0').",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getAllButNulLegal()",
+      "desc": "Return a value sanitizer that allows everything except Nul ('\\0') characters.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getAllButWhitespaceLegal()",
+      "desc": "Return a value sanitizer that allows everything except Nul ('\\0') characters, space (' '), and other whitespace characters.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getAllIllegal()",
+      "desc": "Return a value sanitizer that does not allow any special characters, and also does not allow script URLs.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getAllowUnregisteredParamaters()",
+      "desc": "Get whether or not unregistered parameters are allowed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getAmpAndSpaceLegal()",
+      "desc": "Return a value sanitizer that does not allow any special characters except ampersand ('&') and space (' ').",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getAmpLegal()",
+      "desc": "Return a value sanitizer that does not allow any special characters except ampersand ('&').",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getEffectiveValueSanitizer(parameter: String!)",
+      "desc": "Get the effective value sanitizer for a parameter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getParameterList()",
+      "desc": "An array list of all of the parameter-value pairs in the sanitized query, in the order they appeared in the query.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getParameterSet()",
+      "desc": "Get a set of all of the parameters found in the sanitized query.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getPreferFirstRepeatedParameter()",
+      "desc": "Get whether or not the first occurrence of a repeated parameter is preferred."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getSpaceLegal()",
+      "desc": "Return a value sanitizer that does not allow any special characters except space (' ').",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getUnregisteredParameterValueSanitizer()",
+      "desc": "Get the current value sanitizer used when processing unregistered parameter values.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getUrlAndSpaceLegal()",
+      "desc": "Return a value sanitizer that allows all the characters used by encoded URLs and allows spaces, which are not technically legal in encoded URLs, but commonly appear anyway.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getUrlLegal()",
+      "desc": "Return a value sanitizer that allows all the characters used by encoded URLs.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getValue(parameter: String!)",
+      "desc": "Get the value for a parameter in the current sanitized query.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UrlQuerySanitizer.ValueSanitizer",
+      "code": "getValueSanitizer(parameter: String!)",
+      "desc": "Get the value sanitizer for a parameter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasParameter(parameter: String!)",
+      "desc": "Check if a parameter exists in the current sanitized query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "parseQuery(query: String!)",
+      "desc": "Parse a query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "parseUrl(url: String!)",
+      "desc": "Parse the query parameters out of an encoded URL."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerParameter(parameter: String!, valueSanitizer: UrlQuerySanitizer.ValueSanitizer!)",
+      "desc": "Register a value sanitizer for a particular parameter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerParameters(parameters: Array<String!>!, valueSanitizer: UrlQuerySanitizer.ValueSanitizer!)",
+      "desc": "Register a value sanitizer for an array of parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAllowUnregisteredParamaters(allowUnregisteredParamaters: Boolean)",
+      "desc": "Set whether or not unregistered parameters are allowed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPreferFirstRepeatedParameter(preferFirstRepeatedParameter: Boolean)",
+      "desc": "Set whether or not the first occurrence of a repeated parameter is preferred."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setUnregisteredParameterValueSanitizer(sanitizer: UrlQuerySanitizer.ValueSanitizer!)",
+      "desc": "Set the value sanitizer used when processing unregistered parameter values."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "unescape(string: String!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addSanitizedEntry(parameter: String!, value: String!)",
+      "desc": "Record a sanitized parameter-value pair."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clear()",
+      "desc": "Clear the existing entries."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "decodeHexDigit(c: Char)",
+      "desc": "Convert a character that represents a hexidecimal digit into an integer."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isHexDigit(c: Char)",
+      "desc": "Test if a character is a hexidecimal digit."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "parseEntry(parameter: String!, value: String!)",
+      "desc": "Parse an escaped parameter-value pair."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "IllegalCharacterValueSanitizer",
+      "desc": "Sanitize values based on which characters they contain."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "ParameterValuePair",
+      "desc": "A simple tuple that holds parameter-value pairs."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ValueSanitizer",
+      "desc": "A functor used to sanitize a single query value."
+    }
+  ]
+}

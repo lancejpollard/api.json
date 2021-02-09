@@ -1,0 +1,263 @@
+{
+  "path": "android.telephony",
+  "name": "MbmsDownloadSession",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DEFAULT_TOP_LEVEL_TEMP_DIRECTORY",
+      "desc": "The default directory name for all MBMS temp files."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_MBMS_COMPLETED_FILE_URI",
+      "desc": "Uri extra that Android will attach to the intent supplied via android.telephony.mbms.DownloadRequest.Builder#setAppIntent(Intent) Indicates the location of the successfully downloaded file within the directory that the app provided via the builder."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_MBMS_DOWNLOAD_REQUEST",
+      "desc": "Extra containing the DownloadRequest for which the download result or file descriptor request is for."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_MBMS_DOWNLOAD_RESULT",
+      "desc": "Integer extra that Android will attach to the intent supplied via android.telephony.mbms.DownloadRequest.Builder#setAppIntent(Intent) Indicates the result code of the download."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_MBMS_FILE_INFO",
+      "desc": "FileInfo extra that Android will attach to the intent supplied via android.telephony.mbms.DownloadRequest.Builder#setAppIntent(Intent) Indicates the file for which the download result is for."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_CANCELLED",
+      "desc": "Indicates that the download was cancelled via cancelDownload(android.telephony.mbms.DownloadRequest)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_DOWNLOAD_FAILURE",
+      "desc": "Indicates that there was an error while processing downloaded files, such as a file repair or file decoding error and is not due to a file I/O error."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_EXPIRED",
+      "desc": "Indicates that the download will not be completed due to the expiration of its download window on the carrier's network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_FILE_ROOT_UNREACHABLE",
+      "desc": "Indicates that the file root that was set is currently unreachable."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_IO_ERROR",
+      "desc": "Indicates that the download will not be completed due to an I/O error incurred while writing to temp files."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_OUT_OF_STORAGE",
+      "desc": "Indicates that the file system is full and the DownloadRequest can not complete."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_SERVICE_ID_NOT_DEFINED",
+      "desc": "Indicates that the Service ID specified in the DownloadRequest is incorrect due to the Id being incorrect, stale, expired, or similar."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_SUCCESSFUL",
+      "desc": "Indicates that the download was successful."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_ACTIVELY_DOWNLOADING",
+      "desc": "Indicates that the file is actively being downloaded."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_PENDING_DOWNLOAD",
+      "desc": "Indicates that the file is awaiting the next download or repair operations."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_PENDING_DOWNLOAD_WINDOW",
+      "desc": "Indicates that the file is waiting to download because its download window has not yet started and is scheduled for a future time."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_PENDING_REPAIR",
+      "desc": "Indicates that the file is awaiting file repair after the download has ended."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_UNKNOWN",
+      "desc": "Indicates that the middleware has no information on the file."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addProgressListener(request: DownloadRequest, executor: Executor, listener: DownloadProgressListener)",
+      "desc": "Registers a progress listener for a DownloadRequest previously requested via download(android.telephony.mbms.DownloadRequest)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addStatusListener(request: DownloadRequest, executor: Executor, listener: DownloadStatusListener)",
+      "desc": "Registers a download status listener for a DownloadRequest previously requested via download(android.telephony.mbms.DownloadRequest)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancelDownload(downloadRequest: DownloadRequest)",
+      "desc": "Attempts to cancel the specified DownloadRequest."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Terminates this instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MbmsDownloadSession",
+      "code": "create(context: Context, executor: Executor, callback: MbmsDownloadSessionCallback)",
+      "desc": "Create a new MbmsDownloadSession using the system default data subscription ID.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MbmsDownloadSession",
+      "code": "create(context: Context, executor: Executor, subscriptionId: Int, callback: MbmsDownloadSessionCallback)",
+      "desc": "Create a new MbmsDownloadManager using the given subscription ID.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "download(request: DownloadRequest)",
+      "desc": "Requests the download of a file or set of files that the carrier has indicated to be available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "File",
+      "code": "getTempFileRootDirectory()",
+      "desc": "Retrieves the currently configured temp file root directory.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "listPendingDownloads()",
+      "desc": "Returns a list of pending DownloadRequests that originated from this application.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeProgressListener(request: DownloadRequest, listener: DownloadProgressListener)",
+      "desc": "Un-register a listener previously registered via addProgressListener(android.telephony.mbms.DownloadRequest,java.util.concurrent.Executor,android.telephony.mbms.DownloadProgressListener)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeStatusListener(request: DownloadRequest, listener: DownloadStatusListener)",
+      "desc": "Un-register a listener previously registered via addStatusListener(android.telephony.mbms.DownloadRequest,java.util.concurrent.Executor,android.telephony.mbms.DownloadStatusListener)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestDownloadState(downloadRequest: DownloadRequest!, fileInfo: FileInfo!)",
+      "desc": "Requests information about the state of a file pending download."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestUpdateFileServices(classList: MutableList<String!>)",
+      "desc": "An inspection API to retrieve the list of available android.telephony.mbms.FileServiceInfos currently being advertised."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "resetDownloadKnowledge(downloadRequest: DownloadRequest!)",
+      "desc": "Resets the middleware's knowledge of previously-downloaded files in this download request."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTempFileRootDirectory(tempFileRootDirectory: File)",
+      "desc": "Sets the temp file root for downloads."
+    }
+  ]
+}

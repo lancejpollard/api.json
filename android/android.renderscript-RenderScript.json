@@ -1,0 +1,205 @@
+{
+  "path": "android.renderscript",
+  "name": "RenderScript",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CREATE_FLAG_LOW_LATENCY",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CREATE_FLAG_LOW_POWER",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CREATE_FLAG_NONE",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "contextDump()",
+      "desc": "Print the currently available debugging information about the state of the RS context to the log."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "RenderScript",
+      "code": "create(ctx: Context!)",
+      "desc": "calls create(ctx, ContextType.NORMAL, CREATE_FLAG_NONE) See documentation for @create for details",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "RenderScript",
+      "code": "create(ctx: Context!, ct: RenderScript.ContextType!)",
+      "desc": "calls create(ctx, ct, CREATE_FLAG_NONE) See documentation for @create for details",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "RenderScript",
+      "code": "create(ctx: Context!, ct: RenderScript.ContextType!, flags: Int)",
+      "desc": "Gets or creates a RenderScript context of the specified type.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "RenderScript",
+      "code": "createMultiContext(ctx: Context!, ct: RenderScript.ContextType!, flags: Int, API_number: Int)",
+      "desc": "Create a RenderScript context.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "destroy()",
+      "desc": "Destroys this RenderScript context."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finish()",
+      "desc": "Wait for any pending asynchronous opeations (such as copies to a RS allocation or RS script executions) to complete."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Context",
+      "code": "getApplicationContext()",
+      "desc": "Gets the application context associated with the RenderScript context.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "RenderScript.RSErrorHandler",
+      "code": "getErrorHandler()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "RenderScript.RSMessageHandler",
+      "code": "getMessageHandler()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getMinorVersion()",
+      "desc": "Returns an identifier that can be used to identify a particular minor version of RS."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "releaseAllContexts()",
+      "desc": "Releases all the process contexts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendMessage(id: Int, data: IntArray!)",
+      "desc": "Place a message into the message queue to be sent back to the message handler once all previous commands have been executed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setErrorHandler(msg: RenderScript.RSErrorHandler!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setMessageHandler(msg: RenderScript.RSMessageHandler!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPriority(p: RenderScript.Priority!)",
+      "desc": "Change the priority of the worker threads for this context."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ContextType",
+      "desc": "ContextType specifies the specific type of context to be created."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Priority",
+      "desc": "RenderScript worker thread priority enumeration."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RSErrorHandler",
+      "desc": "The runtime error handler base class."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RSMessageHandler",
+      "desc": "The base class from which an application should derive in order to receive RS messages from scripts."
+    }
+  ]
+}

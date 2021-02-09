@@ -1,0 +1,393 @@
+{
+  "path": "android.bluetooth",
+  "name": "BluetoothGatt",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONNECTION_PRIORITY_BALANCED",
+      "desc": "Connection parameter update - Use the connection parameters recommended by the Bluetooth SIG."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONNECTION_PRIORITY_HIGH",
+      "desc": "Connection parameter update - Request a high priority, low latency connection."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONNECTION_PRIORITY_LOW_POWER",
+      "desc": "Connection parameter update - Request low power, reduced data rate connection parameters."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_CONNECTION_CONGESTED",
+      "desc": "A remote device connection is congested."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_FAILURE",
+      "desc": "A GATT operation failed, errors other than the above"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_INSUFFICIENT_AUTHENTICATION",
+      "desc": "Insufficient authentication for a given operation"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_INSUFFICIENT_ENCRYPTION",
+      "desc": "Insufficient encryption for a given operation"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_INVALID_ATTRIBUTE_LENGTH",
+      "desc": "A write operation exceeds the maximum length of the attribute"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_INVALID_OFFSET",
+      "desc": "A read or write operation was requested with an invalid offset"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_READ_NOT_PERMITTED",
+      "desc": "GATT read operation is not permitted"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_REQUEST_NOT_SUPPORTED",
+      "desc": "The given request is not supported"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_SUCCESS",
+      "desc": "A GATT operation completed successfully"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GATT_WRITE_NOT_PERMITTED",
+      "desc": "GATT write operation is not permitted"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "abortReliableWrite()",
+      "desc": "Cancels a reliable write transaction for a given device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "abortReliableWrite(mDevice: BluetoothDevice!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "beginReliableWrite()",
+      "desc": "Initiates a reliable write transaction for a given remote device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Close this Bluetooth GATT client."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "connect()",
+      "desc": "Connect back to remote device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "disconnect()",
+      "desc": "Disconnects an established connection, or cancels a connection attempt currently in progress."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "discoverServices()",
+      "desc": "Discovers services offered by a remote device as well as their characteristics and descriptors."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "executeReliableWrite()",
+      "desc": "Executes a reliable write transaction for a given remote device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getConnectedDevices()",
+      "desc": "Not supported - please use BluetoothManager#getConnectedDevices(int) with BluetoothProfile#GATT as argument",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getConnectionState(device: BluetoothDevice!)",
+      "desc": "Not supported - please use BluetoothManager#getConnectedDevices(int) with BluetoothProfile#GATT as argument"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "BluetoothDevice",
+      "code": "getDevice()",
+      "desc": "Return the remote bluetooth device this GATT client targets to",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getDevicesMatchingConnectionStates(states: IntArray!)",
+      "desc": "Not supported - please use BluetoothManager#getDevicesMatchingConnectionStates(int, int[]) with BluetoothProfile#GATT as first argument",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "BluetoothGattService",
+      "code": "getService(uuid: UUID!)",
+      "desc": "Returns a BluetoothGattService, if the requested UUID is supported by the remote device.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getServices()",
+      "desc": "Returns a list of GATT services offered by the remote device.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "readCharacteristic(characteristic: BluetoothGattCharacteristic!)",
+      "desc": "Reads the requested characteristic from the associated remote device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "readDescriptor(descriptor: BluetoothGattDescriptor!)",
+      "desc": "Reads the value for a given descriptor from the associated remote device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "readPhy()",
+      "desc": "Read the current transmitter PHY and receiver PHY of the connection."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "readRemoteRssi()",
+      "desc": "Read the RSSI for a connected remote device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "requestConnectionPriority(connectionPriority: Int)",
+      "desc": "Request a connection parameter update."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "requestMtu(mtu: Int)",
+      "desc": "Request an MTU size used for a given connection."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "setCharacteristicNotification(characteristic: BluetoothGattCharacteristic!, enable: Boolean)",
+      "desc": "Enable or disable notifications/indications for a given characteristic."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPreferredPhy(txPhy: Int, rxPhy: Int, phyOptions: Int)",
+      "desc": "Set the preferred connection PHY for this app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "writeCharacteristic(characteristic: BluetoothGattCharacteristic!)",
+      "desc": "Writes a given characteristic and its values to the associated remote device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "writeDescriptor(descriptor: BluetoothGattDescriptor!)",
+      "desc": "Write the value of a given descriptor to the associated remote device."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "BluetoothProfile"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "A2DP"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_PREVIOUS_STATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EXTRA_STATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "GATT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "GATT_SERVER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEADSET"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEALTH"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HEARING_AID"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "HID_DEVICE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "SAP"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_CONNECTED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_CONNECTING"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_DISCONNECTED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "STATE_DISCONNECTING"
+    }
+  ]
+}

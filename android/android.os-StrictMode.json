@@ -1,0 +1,103 @@
+{
+  "path": "android.os",
+  "name": "StrictMode",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "StrictMode.ThreadPolicy",
+      "code": "allowThreadDiskReads()",
+      "desc": "A convenience wrapper that takes the current ThreadPolicy from  , modifies it to permit disk reads, and sets the new policy with  , returning the old policy so you can restore it at the end of a block.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "StrictMode.ThreadPolicy",
+      "code": "allowThreadDiskWrites()",
+      "desc": "A convenience wrapper that takes the current ThreadPolicy from  , modifies it to permit both disk reads & writes, and sets the new policy with setThreadPolicy, returning the old policy so you can restore it at the end of a block.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "enableDefaults()",
+      "desc": "Enable the recommended StrictMode defaults, with violations just being logged."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "StrictMode.ThreadPolicy",
+      "code": "getThreadPolicy()",
+      "desc": "Returns the current thread's policy.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "StrictMode.VmPolicy",
+      "code": "getVmPolicy()",
+      "desc": "Gets the current VM policy.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "noteSlowCall(name: String!)",
+      "desc": "For code to note that it's slow."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "setThreadPolicy(policy: StrictMode.ThreadPolicy!)",
+      "desc": "Sets the policy for what actions on the current thread should be detected, as well as the penalty if such actions occur."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "setVmPolicy(policy: StrictMode.VmPolicy!)",
+      "desc": "Sets the policy for what actions in the VM process (on any thread) should be detected, as well as the penalty if such actions occur."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnThreadViolationListener",
+      "desc": "When #ThreadPolicy.Builder#penaltyListener is enabled, the listener is called on the provided executor when a Thread violation occurs."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnVmViolationListener",
+      "desc": "When #VmPolicy.Builder#penaltyListener is enabled, the listener is called on the provided executor when a VM violation occurs."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ThreadPolicy",
+      "desc": "StrictMode policy applied to a certain thread."
+    },
+    {
+      "type": "nested-classes",
+      "code": "VmPolicy",
+      "desc": "StrictMode policy applied to all threads in the virtual machine's process."
+    }
+  ]
+}

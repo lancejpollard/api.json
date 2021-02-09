@@ -1,0 +1,86 @@
+{
+  "path": "android.location",
+  "name": "GpsStatus",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GPS_EVENT_FIRST_FIX",
+      "desc": "Event sent when the GPS system has received its first fix since starting."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GPS_EVENT_SATELLITE_STATUS",
+      "desc": "Event sent periodically to report GPS satellite status."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GPS_EVENT_STARTED",
+      "desc": "Event sent when the GPS system has started."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "GPS_EVENT_STOPPED",
+      "desc": "Event sent when the GPS system has stopped."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "GpsStatus",
+      "code": "create(gnssStatus: GnssStatus, timeToFirstFix: Int)",
+      "desc": "Builds a GpsStatus from the given GnssStatus."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getMaxSatellites()",
+      "desc": "Returns the maximum number of satellites that can be in the satellite list that can be returned by getSatellites()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterable",
+      "code": "getSatellites()",
+      "desc": "Returns an array of GpsSatellite objects, which represent the current state of the GPS engine.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getTimeToFirstFix()",
+      "desc": "Returns the time required to receive the first fix since the most recent restart of the GPS engine."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Listener",
+      "desc": "Used for receiving notifications when GPS status has changed."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "NmeaListener",
+      "desc": "Used for receiving NMEA sentences from the GPS."
+    }
+  ]
+}

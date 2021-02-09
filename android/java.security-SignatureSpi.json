@@ -1,0 +1,142 @@
+{
+  "path": "java.security",
+  "name": "SignatureSpi",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Any",
+      "code": "clone()",
+      "desc": "Returns a clone if the implementation is cloneable.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Any",
+      "code": "engineGetParameter(param: String!)",
+      "desc": "Gets the value of the specified algorithm parameter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "AlgorithmParameters",
+      "code": "engineGetParameters()",
+      "desc": "This method is overridden by providers to return the parameters used with this signature engine, or null if this signature engine does not use any parameters.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "engineInitSign(privateKey: PrivateKey!)",
+      "desc": "Initializes this signature object with the specified private key for signing operations."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "engineInitSign(privateKey: PrivateKey!, random: SecureRandom!)",
+      "desc": "Initializes this signature object with the specified private key and source of randomness for signing operations."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "engineInitVerify(publicKey: PublicKey!)",
+      "desc": "Initializes this signature object with the specified public key for verification operations."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "engineSetParameter(param: String!, value: Any!)",
+      "desc": "Sets the specified algorithm parameter to the specified value."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "engineSetParameter(params: AlgorithmParameterSpec!)",
+      "desc": "This method is overridden by providers to initialize this signature engine with the specified parameter set."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "ByteArray",
+      "code": "engineSign()",
+      "desc": "Returns the signature bytes of all the data updated so far.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "engineSign(outbuf: ByteArray!, offset: Int, len: Int)",
+      "desc": "Finishes this signature operation and stores the resulting signature bytes in the provided buffer outbuf, starting at offset."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "engineUpdate(b: Byte)",
+      "desc": "Updates the data to be signed or verified using the specified byte."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "engineUpdate(b: ByteArray!, off: Int, len: Int)",
+      "desc": "Updates the data to be signed or verified, using the specified array of bytes, starting at the specified offset."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "engineUpdate(input: ByteBuffer!)",
+      "desc": "Updates the data to be signed or verified using the specified ByteBuffer."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "engineVerify(sigBytes: ByteArray!)",
+      "desc": "Verifies the passed-in signature."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "engineVerify(sigBytes: ByteArray!, offset: Int, length: Int)",
+      "desc": "Verifies the passed-in signature in the specified array of bytes, starting at the specified offset."
+    }
+  ]
+}

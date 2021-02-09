@@ -1,0 +1,869 @@
+{
+  "path": "android.view.inputmethod",
+  "name": "EditorInfo",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_ACTION_DONE",
+      "desc": "Bits of IME_MASK_ACTION: the action key performs a \"done\" operation, typically meaning there is nothing more to input and the IME will be closed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_ACTION_GO",
+      "desc": "Bits of IME_MASK_ACTION: the action key performs a \"go\" operation to take the user to the target of the text they typed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_ACTION_NEXT",
+      "desc": "Bits of IME_MASK_ACTION: the action key performs a \"next\" operation, taking the user to the next field that will accept text."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_ACTION_NONE",
+      "desc": "Bits of IME_MASK_ACTION: there is no available action."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_ACTION_PREVIOUS",
+      "desc": "Bits of IME_MASK_ACTION: like IME_ACTION_NEXT, but for moving to the previous field."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_ACTION_SEARCH",
+      "desc": "Bits of IME_MASK_ACTION: the action key performs a \"search\" operation, taking the user to the results of searching for the text they have typed (in whatever context is appropriate)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_ACTION_SEND",
+      "desc": "Bits of IME_MASK_ACTION: the action key performs a \"send\" operation, delivering the text to its target."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_ACTION_UNSPECIFIED",
+      "desc": "Bits of IME_MASK_ACTION: no specific action has been associated with this editor, let the editor come up with its own if it can."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_FLAG_FORCE_ASCII",
+      "desc": "Flag of imeOptions: used to request an IME that is capable of inputting ASCII characters."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_FLAG_NAVIGATE_NEXT",
+      "desc": "Flag of imeOptions: used to specify that there is something interesting that a forward navigation can focus on."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_FLAG_NAVIGATE_PREVIOUS",
+      "desc": "Flag of imeOptions: like IME_FLAG_NAVIGATE_NEXT, but specifies there is something interesting that a backward navigation can focus on."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_FLAG_NO_ACCESSORY_ACTION",
+      "desc": "Flag of imeOptions: used in conjunction with one of the actions masked by IME_MASK_ACTION, this indicates that the action should not be available as an accessory button on the right of the extracted text when the input method is full-screen."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_FLAG_NO_ENTER_ACTION",
+      "desc": "Flag of imeOptions: used in conjunction with one of the actions masked by IME_MASK_ACTION."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_FLAG_NO_EXTRACT_UI",
+      "desc": "Flag of imeOptions: used to specify that the IME does not need to show its extracted text UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_FLAG_NO_FULLSCREEN",
+      "desc": "Flag of imeOptions: used to request that the IME never go into fullscreen mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_FLAG_NO_PERSONALIZED_LEARNING",
+      "desc": "Flag of imeOptions: used to request that the IME should not update any personalized data such as typing history and personalized language model based on what the user typed on this text editing object."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_MASK_ACTION",
+      "desc": "Set of bits in imeOptions that provide alternative actions associated with the \"enter\" key."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IME_NULL",
+      "desc": "Generic unspecified type for imeOptions."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dump(pw: Printer!, prefix: String!)",
+      "desc": "Write debug output of this object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getInitialSelectedText(flags: Int)",
+      "desc": "Gets the selected text, if any.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getInitialTextAfterCursor(length: Int, flags: Int)",
+      "desc": "Get length characters of text after the current cursor position.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getInitialTextBeforeCursor(length: Int, flags: Int)",
+      "desc": "Get length characters of text before the current cursor position.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "makeCompatible(targetSdkVersion: Int)",
+      "desc": "Ensure that the data in this EditorInfo is compatible with an application that was developed against the given target API version."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setInitialSurroundingSubText(subText: CharSequence, subTextStart: Int)",
+      "desc": "Editors may use this method to provide initial input text to IMEs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setInitialSurroundingText(sourceText: CharSequence)",
+      "desc": "Editors may use this method to provide initial input text to IMEs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "writeToParcel(dest: Parcel!, flags: Int)",
+      "desc": "Used to package this object into a Parcel."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputType"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_DATETIME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_DATETIME_VARIATION_NORMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_DATETIME_VARIATION_DATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_DATETIME_VARIATION_TIME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_NUMBER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NUMBER_FLAG_SIGNED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NUMBER_FLAG_DECIMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NUMBER_VARIATION_NORMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NUMBER_VARIATION_PASSWORD"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_PHONE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_CHARACTERS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_WORDS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_SENTENCES"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_NORMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_URI"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_DATETIME_VARIATION_DATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_DATETIME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_DATETIME_VARIATION_NORMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_DATETIME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_DATETIME_VARIATION_TIME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_DATETIME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_MASK_CLASS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_NUMBER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_PHONE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_DATETIME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_MASK_FLAGS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_MASK_VARIATION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NULL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NUMBER_FLAG_DECIMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_NUMBER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NUMBER_FLAG_SIGNED"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_NUMBER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NUMBER_VARIATION_NORMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_NUMBER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "android.os.Build.VERSION_CODES#HONEYCOMB"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EditorInfo.makeCompatible(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_NUMBER_VARIATION_PASSWORD"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_NUMBER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "android.os.Build.VERSION_CODES#HONEYCOMB"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EditorInfo.makeCompatible(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_COMPLETE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputMethodSession.displayCompletions()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputMethodManager.displayCompletions()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_CORRECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_NO_SUGGESTIONS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_COMPLETE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_CORRECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_COMPLETE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_NO_SUGGESTIONS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_CORRECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_CHARACTERS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_WORDS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_SENTENCES"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TextUtils#CAP_MODE_CHARACTERS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_SENTENCES"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TextUtils#CAP_MODE_SENTENCES"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_WORDS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_CAP_SENTENCES"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TextUtils#CAP_MODE_WORDS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_IME_MULTI_LINE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_MULTI_LINE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_NO_SUGGESTIONS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_CORRECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_CORRECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_CORRECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_AUTO_COMPLETE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_FLAG_NO_SUGGESTIONS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_EMAIL_ADDRESS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_EMAIL_SUBJECT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_FILTER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_LONG_MESSAGE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_NORMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_PASSWORD"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_PERSON_NAME"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_PHONETIC"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_POSTAL_ADDRESS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_SHORT_MESSAGE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_URI"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_VISIBLE_PASSWORD"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_WEB_EDIT_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "android.os.Build.VERSION_CODES#HONEYCOMB"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_EMAIL_ADDRESS"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EditorInfo.makeCompatible(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_WEB_PASSWORD"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_CLASS_TEXT"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "android.os.Build.VERSION_CODES#HONEYCOMB"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TYPE_TEXT_VARIATION_PASSWORD"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "EditorInfo.makeCompatible(int)"
+    }
+  ]
+}

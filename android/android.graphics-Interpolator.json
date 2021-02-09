@@ -1,0 +1,110 @@
+{
+  "path": "android.graphics",
+  "name": "Interpolator",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(valueCount: Int)"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(valueCount: Int, frameCount: Int)"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getKeyFrameCount()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getValueCount()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reset(valueCount: Int)",
+      "desc": "Reset the Interpolator to have the specified number of values and an implicit keyFrame count of 2 (just a start and end)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reset(valueCount: Int, frameCount: Int)",
+      "desc": "Reset the Interpolator to have the specified number of values and keyFrames."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setKeyFrame(index: Int, msec: Int, values: FloatArray!)",
+      "desc": "Assign the keyFrame (specified by index) a time value and an array of key values (with an implicity blend array of [0, 0, 1, 1] giving linear transition to the next set of key values)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setKeyFrame(index: Int, msec: Int, values: FloatArray!, blend: FloatArray!)",
+      "desc": "Assign the keyFrame (specified by index) a time value and an array of key values and blend array."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRepeatMirror(repeatCount: Float, mirror: Boolean)",
+      "desc": "Set a repeat count (which may be fractional) for the interpolator, and whether the interpolator should mirror its repeats."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Interpolator.Result",
+      "code": "timeToValues(values: FloatArray!)",
+      "desc": "Calls timeToValues(msec, values) with the msec set to now (by calling (int)SystemClock.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Interpolator.Result",
+      "code": "timeToValues(msec: Int, values: FloatArray!)",
+      "desc": "Given a millisecond time value (msec), return the interpolated values and return whether the specified time was within the range of key times (NORMAL), was before the first key time (FREEZE_START) or after the last key time (FREEZE_END).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "Result",
+      "desc": ""
+    }
+  ]
+}

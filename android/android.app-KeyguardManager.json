@@ -1,0 +1,105 @@
+{
+  "path": "android.app",
+  "name": "KeyguardManager",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "createConfirmDeviceCredentialIntent(title: CharSequence!, description: CharSequence!)",
+      "desc": "Get an intent to prompt the user to confirm credentials (pin, pattern, password or biometrics if enrolled) for the current user of the device.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "exitKeyguardSecurely(callback: KeyguardManager.OnKeyguardExitResult!)",
+      "desc": "Exit the keyguard securely."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "inKeyguardRestrictedInputMode()",
+      "desc": "If keyguard screen is showing or in restricted key input mode (i.e. in keyguard password emergency screen)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDeviceLocked()",
+      "desc": "Returns whether the device is currently locked and requires a PIN, pattern or password to unlock."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDeviceSecure()",
+      "desc": "Returns whether the device is secured with a PIN, pattern or password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isKeyguardLocked()",
+      "desc": "Return whether the keyguard is currently locked."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isKeyguardSecure()",
+      "desc": "Return whether the keyguard is secured by a PIN, pattern or password or a SIM card is currently locked."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "KeyguardManager.KeyguardLock",
+      "code": "newKeyguardLock(tag: String!)",
+      "desc": "Enables you to lock or unlock the keyguard.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestDismissKeyguard(activity: Activity, callback: KeyguardManager.KeyguardDismissCallback?)",
+      "desc": "If the device is currently locked (see isKeyguardLocked(), requests the Keyguard to be dismissed."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "KeyguardDismissCallback",
+      "desc": "Callback passed to KeyguardManager#requestDismissKeyguard(Activity, KeyguardDismissCallback) to notify caller of result."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "KeyguardLock",
+      "desc": "Handle returned by KeyguardManager#newKeyguardLock that allows you to disable / reenable the keyguard."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnKeyguardExitResult",
+      "desc": "Callback passed to KeyguardManager#exitKeyguardSecurely to notify caller of result."
+    }
+  ]
+}

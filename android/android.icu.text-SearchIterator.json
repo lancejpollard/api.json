@@ -1,0 +1,216 @@
+{
+  "path": "android.icu.text",
+  "name": "SearchIterator",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DONE",
+      "desc": "DONE is returned by previous() and next() after all valid matches have been returned, and by first() and last() if there are no matches at all."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "first()",
+      "desc": "Returns the first index at which the string text matches the search pattern."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "following(position: Int)",
+      "desc": "Returns the first index equal or greater than position at which the string text matches the search pattern."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "BreakIterator",
+      "code": "getBreakIterator()",
+      "desc": "Returns the BreakIterator that is used to restrict the indexes at which matches are detected.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SearchIterator.ElementComparisonType",
+      "code": "getElementComparisonType()",
+      "desc": "Returns the collation element comparison type.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getIndex()",
+      "desc": "Return the current index in the text being searched."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMatchLength()",
+      "desc": "Returns the length of text in the string which matches the search pattern."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMatchStart()",
+      "desc": "Returns the index to the match in the text string that was searched."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getMatchedText()",
+      "desc": "Returns the text that was matched by the most recent call to first, next, previous, or last.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharacterIterator",
+      "code": "getTarget()",
+      "desc": "Return the string text to be searched.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOverlapping()",
+      "desc": "Return true if the overlapping property has been set."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "last()",
+      "desc": "Returns the last index in the target text at which it matches the search pattern."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "next()",
+      "desc": "Returns the index of the next point at which the text matches the search pattern, starting from the current position The iterator is adjusted so that its current index (as returned by getIndex) is the match position if one was found."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "preceding(position: Int)",
+      "desc": "Returns the first index less than position at which the string text matches the search pattern."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "previous()",
+      "desc": "Returns the index of the previous point at which the string text matches the search pattern, starting at the current position."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reset()",
+      "desc": "Resets the iteration."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setBreakIterator(breakiter: BreakIterator!)",
+      "desc": "Set the BreakIterator that will be used to restrict the points at which matches are detected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setElementComparisonType(type: SearchIterator.ElementComparisonType!)",
+      "desc": "Sets the collation element comparison type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setIndex(position: Int)",
+      "desc": "Sets the position in the target text at which the next search will start."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOverlapping(allowOverlap: Boolean)",
+      "desc": "Determines whether overlapping matches are returned."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTarget(text: CharacterIterator!)",
+      "desc": "Set the target text to be searched."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "handleNext(start: Int)",
+      "desc": "Abstract method which subclasses override to provide the mechanism for finding the next match in the target text."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "handlePrevious(startAt: Int)",
+      "desc": "Abstract method which subclasses override to provide the mechanism for finding the previous match in the target text."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setMatchLength(length: Int)",
+      "desc": "Sets the length of the most recent match in the target text."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ElementComparisonType",
+      "desc": "Option to control how collation elements are compared."
+    }
+  ]
+}

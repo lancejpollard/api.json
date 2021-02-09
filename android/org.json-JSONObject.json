@@ -1,0 +1,358 @@
+{
+  "path": "org.json",
+  "name": "JSONObject",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Creates a JSONObject with no name/value mappings."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(copyFrom: MutableMap<Any?, Any?>)\n            Creates a new JSONObject by copying all name/value mappings from the given map."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(readFrom: JSONTokener)\n            Creates a new JSONObject with name/value mappings from the next object in the tokener."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(json: String)\n            Creates a new JSONObject with name/value mappings from the JSON string."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(copyFrom: JSONObject, names: Array<String!>)\n            Creates a new JSONObject by copying mappings for the listed names from the given object."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "accumulate(name: String, value: Any?)",
+      "desc": "Appends value to the array already mapped to name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Any",
+      "code": "get(name: String)",
+      "desc": "Returns the value mapped by name, or throws if no such mapping exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getBoolean(name: String)",
+      "desc": "Returns the value mapped by name if it exists and is a boolean or can be coerced to a boolean, or throws otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Double",
+      "code": "getDouble(name: String)",
+      "desc": "Returns the value mapped by name if it exists and is a double or can be coerced to a double, or throws otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getInt(name: String)",
+      "desc": "Returns the value mapped by name if it exists and is an int or can be coerced to an int, or throws otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONArray",
+      "code": "getJSONArray(name: String)",
+      "desc": "Returns the value mapped by name if it exists and is a JSONArray, or throws otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "getJSONObject(name: String)",
+      "desc": "Returns the value mapped by name if it exists and is a JSONObject, or throws otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getLong(name: String)",
+      "desc": "Returns the value mapped by name if it exists and is a long or can be coerced to a long, or throws otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getString(name: String)",
+      "desc": "Returns the value mapped by name if it exists, coercing it if necessary, or throws if no such mapping exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "has(name: String?)",
+      "desc": "Returns true if this object has a mapping for name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isNull(name: String?)",
+      "desc": "Returns true if this object has no mapping for name or if it has a mapping whose value is NULL."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableIterator",
+      "code": "keys()",
+      "desc": "Returns an iterator of the String names in this object.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "length()",
+      "desc": "Returns the number of name/value mappings in this object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONArray",
+      "code": "names()",
+      "desc": "Returns an array containing the string names in this object.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "numberToString(number: Number)",
+      "desc": "Encodes the number as a JSON string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Any",
+      "code": "opt(name: String?)",
+      "desc": "Returns the value mapped by name, or null if no such mapping exists.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "optBoolean(name: String?)",
+      "desc": "Returns the value mapped by name if it exists and is a boolean or can be coerced to a boolean, or false otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "optBoolean(name: String?, fallback: Boolean)",
+      "desc": "Returns the value mapped by name if it exists and is a boolean or can be coerced to a boolean, or fallback otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Double",
+      "code": "optDouble(name: String?)",
+      "desc": "Returns the value mapped by name if it exists and is a double or can be coerced to a double, or NaN otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Double",
+      "code": "optDouble(name: String?, fallback: Double)",
+      "desc": "Returns the value mapped by name if it exists and is a double or can be coerced to a double, or fallback otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "optInt(name: String?)",
+      "desc": "Returns the value mapped by name if it exists and is an int or can be coerced to an int, or 0 otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "optInt(name: String?, fallback: Int)",
+      "desc": "Returns the value mapped by name if it exists and is an int or can be coerced to an int, or fallback otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONArray",
+      "code": "optJSONArray(name: String?)",
+      "desc": "Returns the value mapped by name if it exists and is a JSONArray, or null otherwise.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "optJSONObject(name: String?)",
+      "desc": "Returns the value mapped by name if it exists and is a JSONObject, or null otherwise.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "optLong(name: String?)",
+      "desc": "Returns the value mapped by name if it exists and is a long or can be coerced to a long, or 0 otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "optLong(name: String?, fallback: Long)",
+      "desc": "Returns the value mapped by name if it exists and is a long or can be coerced to a long, or fallback otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "optString(name: String?)",
+      "desc": "Returns the value mapped by name if it exists, coercing it if necessary, or the empty string if no such mapping exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "optString(name: String?, fallback: String)",
+      "desc": "Returns the value mapped by name if it exists, coercing it if necessary, or fallback if no such mapping exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "put(name: String, value: Boolean)",
+      "desc": "Maps name to value, clobbering any existing name/value mapping with the same name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "put(name: String, value: Double)",
+      "desc": "Maps name to value, clobbering any existing name/value mapping with the same name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "put(name: String, value: Int)",
+      "desc": "Maps name to value, clobbering any existing name/value mapping with the same name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "put(name: String, value: Long)",
+      "desc": "Maps name to value, clobbering any existing name/value mapping with the same name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "put(name: String, value: Any?)",
+      "desc": "Maps name to value, clobbering any existing name/value mapping with the same name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONObject",
+      "code": "putOpt(name: String?, value: Any?)",
+      "desc": "Equivalent to put(name, value) when both parameters are non-null; does nothing otherwise."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "quote(data: String?)",
+      "desc": "Encodes data as a JSON string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Any",
+      "code": "remove(name: String?)",
+      "desc": "Removes the named mapping if it exists; does nothing otherwise.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "JSONArray",
+      "code": "toJSONArray(names: JSONArray?)",
+      "desc": "Returns an array with the values corresponding to names.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Encodes this object as a compact JSON string, such as:"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString(indentSpaces: Int)",
+      "desc": "Encodes this object as a human readable JSON string for debugging, such as:"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Any",
+      "code": "wrap(o: Any?)",
+      "desc": "Wraps the given object if necessary.",
+      "symbol": "?"
+    }
+  ]
+}

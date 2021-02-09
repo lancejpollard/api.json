@@ -1,0 +1,202 @@
+{
+  "path": "android.net.sip",
+  "name": "SipManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CALL_ID",
+      "desc": "Key to retrieve the call ID from an incoming call intent."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_OFFER_SD",
+      "desc": "Key to retrieve the offered session description from an incoming call intent."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INCOMING_CALL_RESULT_CODE",
+      "desc": "The result code to be sent back with the incoming call PendingIntent."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "close(localProfileUri: String!)",
+      "desc": "Closes the specified profile to not make/receive calls."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SipSession",
+      "code": "createSipSession(localProfile: SipProfile!, listener: SipSession.Listener!)",
+      "desc": "Creates a SipSession with the specified profile.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getCallId(incomingCallIntent: Intent!)",
+      "desc": "Gets the call ID from the specified incoming call broadcast intent.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getOfferSessionDescription(incomingCallIntent: Intent!)",
+      "desc": "Gets the offer session description from the specified incoming call broadcast intent.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SipSession",
+      "code": "getSessionFor(incomingCallIntent: Intent!)",
+      "desc": "Gets the SipSession that handles the incoming call.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isApiSupported(context: Context!)",
+      "desc": "Returns true if the SIP API is supported by the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isIncomingCallIntent(intent: Intent!)",
+      "desc": "Checks if the intent is an incoming call broadcast intent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOpened(localProfileUri: String!)",
+      "desc": "Checks if the specified profile is opened in the SIP service for making and/or receiving calls."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRegistered(localProfileUri: String!)",
+      "desc": "Checks if the SIP service has successfully registered the profile to the SIP provider (specified in the profile) for receiving calls."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isSipWifiOnly(context: Context!)",
+      "desc": "Returns true if SIP is only available on WIFI."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isVoipSupported(context: Context!)",
+      "desc": "Returns true if the system supports SIP-based VOIP API."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SipAudioCall",
+      "code": "makeAudioCall(localProfile: SipProfile!, peerProfile: SipProfile!, listener: SipAudioCall.Listener!, timeout: Int)",
+      "desc": "Creates a SipAudioCall to make a call.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SipAudioCall",
+      "code": "makeAudioCall(localProfileUri: String!, peerProfileUri: String!, listener: SipAudioCall.Listener!, timeout: Int)",
+      "desc": "Creates a SipAudioCall to make an audio call.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SipManager",
+      "code": "newInstance(context: Context!)",
+      "desc": "Creates a manager instance.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "open(localProfile: SipProfile!)",
+      "desc": "Opens the profile for making generic SIP calls."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "open(localProfile: SipProfile!, incomingCallPendingIntent: PendingIntent!, listener: SipRegistrationListener!)",
+      "desc": "Opens the profile for making calls and/or receiving generic SIP calls."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "register(localProfile: SipProfile!, expiryTime: Int, listener: SipRegistrationListener!)",
+      "desc": "Manually registers the profile to the corresponding SIP provider for receiving calls."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRegistrationListener(localProfileUri: String!, listener: SipRegistrationListener!)",
+      "desc": "Sets the listener to listen to registration events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SipAudioCall",
+      "code": "takeAudioCall(incomingCallIntent: Intent!, listener: SipAudioCall.Listener!)",
+      "desc": "Creates a SipAudioCall to take an incoming call.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregister(localProfile: SipProfile!, listener: SipRegistrationListener!)",
+      "desc": "Manually unregisters the profile from the corresponding SIP provider for stop receiving further calls."
+    }
+  ]
+}

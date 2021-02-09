@@ -1,0 +1,217 @@
+{
+  "path": "java.util.concurrent.locks",
+  "name": "StampedLock",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Creates a new lock, initially in unlocked state."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Lock",
+      "code": "asReadLock()",
+      "desc": "Returns a plain Lock view of this StampedLock in which the Lock#lock method is mapped to readLock, and similarly for other methods.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ReadWriteLock",
+      "code": "asReadWriteLock()",
+      "desc": "Returns a ReadWriteLock view of this StampedLock in which the ReadWriteLock#readLock() method is mapped to asReadLock(), and ReadWriteLock#writeLock() to asWriteLock().",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Lock",
+      "code": "asWriteLock()",
+      "desc": "Returns a plain Lock view of this StampedLock in which the Lock#lock method is mapped to writeLock, and similarly for other methods.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getReadLockCount()",
+      "desc": "Queries the number of read locks held for this lock."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isReadLocked()",
+      "desc": "Returns true if the lock is currently held non-exclusively."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isWriteLocked()",
+      "desc": "Returns true if the lock is currently held exclusively."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "readLock()",
+      "desc": "Non-exclusively acquires the lock, blocking if necessary until available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "readLockInterruptibly()",
+      "desc": "Non-exclusively acquires the lock, blocking if necessary until available or the current thread is interrupted."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string identifying this lock, as well as its lock state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "tryConvertToOptimisticRead(stamp: Long)",
+      "desc": "If the lock state matches the given stamp then, atomically, if the stamp represents holding a lock, releases it and returns an observation stamp."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "tryConvertToReadLock(stamp: Long)",
+      "desc": "If the lock state matches the given stamp, atomically performs one of the following actions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "tryConvertToWriteLock(stamp: Long)",
+      "desc": "If the lock state matches the given stamp, atomically performs one of the following actions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "tryOptimisticRead()",
+      "desc": "Returns a stamp that can later be validated, or zero if exclusively locked."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "tryReadLock()",
+      "desc": "Non-exclusively acquires the lock if it is immediately available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "tryReadLock(time: Long, unit: TimeUnit!)",
+      "desc": "Non-exclusively acquires the lock if it is available within the given time and the current thread has not been interrupted."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "tryUnlockRead()",
+      "desc": "Releases one hold of the read lock if it is held, without requiring a stamp value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "tryUnlockWrite()",
+      "desc": "Releases the write lock if it is held, without requiring a stamp value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "tryWriteLock()",
+      "desc": "Exclusively acquires the lock if it is immediately available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "tryWriteLock(time: Long, unit: TimeUnit!)",
+      "desc": "Exclusively acquires the lock if it is available within the given time and the current thread has not been interrupted."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unlock(stamp: Long)",
+      "desc": "If the lock state matches the given stamp, releases the corresponding mode of the lock."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unlockRead(stamp: Long)",
+      "desc": "If the lock state matches the given stamp, releases the non-exclusive lock."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unlockWrite(stamp: Long)",
+      "desc": "If the lock state matches the given stamp, releases the exclusive lock."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "validate(stamp: Long)",
+      "desc": "Returns true if the lock has not been exclusively acquired since issuance of the given stamp."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "writeLock()",
+      "desc": "Exclusively acquires the lock, blocking if necessary until available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "writeLockInterruptibly()",
+      "desc": "Exclusively acquires the lock, blocking if necessary until available or the current thread is interrupted."
+    }
+  ]
+}

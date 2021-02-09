@@ -1,0 +1,575 @@
+{
+  "path": "android.app",
+  "name": "NotificationManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_APP_BLOCK_STATE_CHANGED",
+      "desc": "Intent that is broadcast when an application is blocked or unblocked."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_AUTOMATIC_ZEN_RULE",
+      "desc": "Activity Action: Launch an Automatic Zen Rule configuration screen"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_AUTOMATIC_ZEN_RULE_STATUS_CHANGED",
+      "desc": "Intent that is broadcast when the status of an AutomaticZenRule has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_INTERRUPTION_FILTER_CHANGED",
+      "desc": "Intent that is broadcast when the state of getCurrentInterruptionFilter() changes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED",
+      "desc": "Intent that is broadcast when a NotificationChannel is blocked (when NotificationChannel#getImportance() is IMPORTANCE_NONE) or unblocked (when NotificationChannel#getImportance() is anything other than IMPORTANCE_NONE)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED",
+      "desc": "Intent that is broadcast when a NotificationChannelGroup is NotificationChannelGroup#isBlocked() or unblocked."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NOTIFICATION_POLICY_ACCESS_GRANTED_CHANGED",
+      "desc": "Intent that is broadcast when the state of isNotificationPolicyAccessGranted() changes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NOTIFICATION_POLICY_CHANGED",
+      "desc": "Intent that is broadcast when the state of getNotificationPolicy() changes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUTOMATIC_RULE_STATUS_DISABLED",
+      "desc": "Constant value for EXTRA_AUTOMATIC_ZEN_RULE_STATUS - the given rule currently exists but is disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUTOMATIC_RULE_STATUS_ENABLED",
+      "desc": "Constant value for EXTRA_AUTOMATIC_ZEN_RULE_STATUS - the given rule currently exists and is enabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUTOMATIC_RULE_STATUS_REMOVED",
+      "desc": "Constant value for EXTRA_AUTOMATIC_ZEN_RULE_STATUS - the given rule has been deleted."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUTOMATIC_RULE_STATUS_UNKNOWN",
+      "desc": "Constant value for EXTRA_AUTOMATIC_ZEN_RULE_STATUS - the current status of the rule is unknown at your target sdk version, and you should continue to provide state changes via setAutomaticZenRuleState(java.lang.String,android.service.notification.Condition)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_AUTOMATIC_RULE_ID",
+      "desc": "Used as an optional string extra on ACTION_AUTOMATIC_ZEN_RULE intents."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_AUTOMATIC_ZEN_RULE_ID",
+      "desc": "String extra for ACTION_AUTOMATIC_ZEN_RULE_STATUS_CHANGED containing the id of the AutomaticZenRule (see addAutomaticZenRule(android.app.AutomaticZenRule)) that has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_AUTOMATIC_ZEN_RULE_STATUS",
+      "desc": "Integer extra for ACTION_AUTOMATIC_ZEN_RULE_STATUS_CHANGED containing the state of the AutomaticZenRule."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_BLOCKED_STATE",
+      "desc": "Extra for ACTION_NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED or ACTION_NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED containing the new blocked state as a boolean."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NOTIFICATION_CHANNEL_GROUP_ID",
+      "desc": "Extra for ACTION_NOTIFICATION_CHANNEL_GROUP_BLOCK_STATE_CHANGED containing the id of the NotificationChannelGroup which has a new blocked state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NOTIFICATION_CHANNEL_ID",
+      "desc": "Extra for ACTION_NOTIFICATION_CHANNEL_BLOCK_STATE_CHANGED containing the id of the NotificationChannel which has a new blocked state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IMPORTANCE_DEFAULT",
+      "desc": "Default notification importance: shows everywhere, makes noise, but does not visually intrude."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IMPORTANCE_HIGH",
+      "desc": "Higher notification importance: shows everywhere, makes noise and peeks."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IMPORTANCE_LOW",
+      "desc": "Low notification importance: Shows in the shade, and potentially in the status bar (see shouldHideSilentStatusBarIcons()), but is not audibly intrusive."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IMPORTANCE_MAX",
+      "desc": "Unused."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IMPORTANCE_MIN",
+      "desc": "Min notification importance: only shows in the shade, below the fold."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IMPORTANCE_NONE",
+      "desc": "A notification with no importance: does not show in the shade."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "IMPORTANCE_UNSPECIFIED",
+      "desc": "Value signifying that the user has not expressed an importance."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERRUPTION_FILTER_ALARMS",
+      "desc": "Interruption filter constant - Alarms only interruption filter - all notifications except those of category Notification#CATEGORY_ALARM are suppressed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERRUPTION_FILTER_ALL",
+      "desc": "Interruption filter constant - Normal interruption filter - no notifications are suppressed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERRUPTION_FILTER_NONE",
+      "desc": "Interruption filter constant - No interruptions filter - all notifications are suppressed and all audio streams (except those used for phone calls) and vibrations are muted."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERRUPTION_FILTER_PRIORITY",
+      "desc": "Interruption filter constant - Priority interruption filter - all notifications are suppressed except those that match the priority criteria."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INTERRUPTION_FILTER_UNKNOWN",
+      "desc": "Interruption filter constant - returned when the value is unavailable for any reason."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "META_DATA_AUTOMATIC_RULE_TYPE",
+      "desc": "A required meta-data tag for activities that handle ACTION_AUTOMATIC_ZEN_RULE."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "META_DATA_RULE_INSTANCE_LIMIT",
+      "desc": "An optional meta-data tag for activities that handle ACTION_AUTOMATIC_ZEN_RULE."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "addAutomaticZenRule(automaticZenRule: AutomaticZenRule!)",
+      "desc": "Creates the given zen rule.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "areBubblesAllowed()",
+      "desc": "Gets whether all notifications posted by this app can appear outside of the notification shade, floating over other apps' content."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "areNotificationsEnabled()",
+      "desc": "Returns whether notifications from the calling package are blocked."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "areNotificationsPaused()",
+      "desc": "Returns whether notifications from this package are temporarily hidden."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "canNotifyAsPackage(pkg: String)",
+      "desc": "Returns whether you are allowed to post notifications on behalf of a given package, with notifyAsPackage(java.lang.String,java.lang.String,int,android.app.Notification)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancel(id: Int)",
+      "desc": "Cancels a previously posted notification."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancel(tag: String?, id: Int)",
+      "desc": "Cancels a previously posted notification."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancelAll()",
+      "desc": "Cancel all previously shown notifications."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancelAsPackage(targetPackage: String, tag: String?, id: Int)",
+      "desc": "Cancels a previously posted notification."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "createNotificationChannel(channel: NotificationChannel)",
+      "desc": "Creates a notification channel that notifications can be posted to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "createNotificationChannelGroup(group: NotificationChannelGroup)",
+      "desc": "Creates a group container for NotificationChannel objects."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "createNotificationChannelGroups(groups: MutableList<NotificationChannelGroup!>)",
+      "desc": "Creates multiple notification channel groups."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "createNotificationChannels(channels: MutableList<NotificationChannel!>)",
+      "desc": "Creates multiple notification channels that different notifications can be posted to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "deleteNotificationChannel(channelId: String!)",
+      "desc": "Deletes the given notification channel."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "deleteNotificationChannelGroup(groupId: String!)",
+      "desc": "Deletes the given notification channel group, and all notification channels that belong to it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getActiveNotifications()",
+      "desc": "Recover a list of active notifications: ones that have been posted by the calling app that have not yet been dismissed by the user or cancel(java.lang.String,int)ed by the app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AutomaticZenRule",
+      "code": "getAutomaticZenRule(id: String!)",
+      "desc": "Returns the AutomaticZenRule with the given id, if it exists and the caller has access.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableMap",
+      "code": "getAutomaticZenRules()",
+      "desc": "Returns AutomaticZenRules owned by the caller.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "NotificationManager.Policy",
+      "code": "getConsolidatedNotificationPolicy()",
+      "desc": "Returns the currently applied notification policy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getCurrentInterruptionFilter()",
+      "desc": "Gets the current notification interruption filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getImportance()",
+      "desc": "Returns the user specified importance for notifications from the calling package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "NotificationChannel",
+      "code": "getNotificationChannel(channelId: String!)",
+      "desc": "Returns the notification channel settings for a given channel id.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "NotificationChannel",
+      "code": "getNotificationChannel(channelId: String, conversationId: String)",
+      "desc": "Returns the notification channel settings for a given channel and ShortcutInfo#getId().",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "NotificationChannelGroup",
+      "code": "getNotificationChannelGroup(channelGroupId: String!)",
+      "desc": "Returns the notification channel group settings for a given channel group id.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getNotificationChannelGroups()",
+      "desc": "Returns all notification channel groups belonging to the calling app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getNotificationChannels()",
+      "desc": "Returns all notification channels belonging to the calling package.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getNotificationDelegate()",
+      "desc": "Returns the delegate that can post notifications on your behalf, if there currently is one.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "NotificationManager.Policy",
+      "code": "getNotificationPolicy()",
+      "desc": "Gets the current user-specified default notification policy.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isNotificationListenerAccessGranted(listener: ComponentName!)",
+      "desc": "Checks whether the user has approved a given android.service.notification.NotificationListenerService."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isNotificationPolicyAccessGranted()",
+      "desc": "Checks the ability to modify notification do not disturb policy for the calling package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "notify(id: Int, notification: Notification!)",
+      "desc": "Post a notification to be shown in the status bar."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "notify(tag: String!, id: Int, notification: Notification!)",
+      "desc": "Posts a notification to be shown in the status bar."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "notifyAsPackage(targetPackage: String, tag: String?, id: Int, notification: Notification)",
+      "desc": "Posts a notification as a specified package to be shown in the status bar."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "removeAutomaticZenRule(id: String!)",
+      "desc": "Deletes the automatic zen rule with the given id."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAutomaticZenRuleState(id: String, condition: Condition)",
+      "desc": "Informs the notification manager that the state of an AutomaticZenRule has changed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setInterruptionFilter(interruptionFilter: Int)",
+      "desc": "Sets the current notification interruption filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setNotificationDelegate(delegate: String?)",
+      "desc": "Allows a package to post notifications on your behalf using notifyAsPackage(java.lang.String,java.lang.String,int,android.app.Notification)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setNotificationPolicy(policy: NotificationManager.Policy)",
+      "desc": "Sets the current notification policy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "shouldHideSilentStatusBarIcons()",
+      "desc": "Returns whether the user wants silent notifications (see IMPORTANCE_LOW to appear in the status bar."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "updateAutomaticZenRule(id: String!, automaticZenRule: AutomaticZenRule!)",
+      "desc": "Updates the given zen rule."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Policy",
+      "desc": "Notification policy configuration."
+    }
+  ]
+}

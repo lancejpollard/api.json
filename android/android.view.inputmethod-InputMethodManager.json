@@ -1,0 +1,348 @@
+{
+  "path": "android.view.inputmethod",
+  "name": "InputMethodManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HIDE_IMPLICIT_ONLY",
+      "desc": "Flag for hideSoftInputFromWindow and InputMethodService#requestHideSelf(int) to indicate that the soft input window should only be hidden if it was not explicitly shown by the user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "HIDE_NOT_ALWAYS",
+      "desc": "Flag for hideSoftInputFromWindow and InputMethodService#requestShowSelf(int) to indicate that the soft input window should normally be hidden, unless it was originally shown with SHOW_FORCED."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_HIDDEN",
+      "desc": "Flag for the ResultReceiver result code from showSoftInput(android.view.View,int,android.os.ResultReceiver) and hideSoftInputFromWindow(android.os.IBinder,int,android.os.ResultReceiver): the state of the soft input window changed from shown to hidden."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_SHOWN",
+      "desc": "Flag for the ResultReceiver result code from showSoftInput(android.view.View,int,android.os.ResultReceiver) and hideSoftInputFromWindow(android.os.IBinder,int,android.os.ResultReceiver): the state of the soft input window changed from hidden to shown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_UNCHANGED_HIDDEN",
+      "desc": "Flag for the ResultReceiver result code from showSoftInput(android.view.View,int,android.os.ResultReceiver) and hideSoftInputFromWindow(android.os.IBinder,int,android.os.ResultReceiver): the state of the soft input window was unchanged and remains hidden."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESULT_UNCHANGED_SHOWN",
+      "desc": "Flag for the ResultReceiver result code from showSoftInput(android.view.View,int,android.os.ResultReceiver) and hideSoftInputFromWindow(android.os.IBinder,int,android.os.ResultReceiver): the state of the soft input window was unchanged and remains shown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_FORCED",
+      "desc": "Flag for showSoftInput to indicate that the user has forced the input method open (such as by long-pressing menu) so it should not be closed until they explicitly do so."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SHOW_IMPLICIT",
+      "desc": "Flag for showSoftInput to indicate that this is an implicit request to show the input window, not as the result of a direct request by the user."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "dispatchKeyEventFromInputMethod(targetView: View?, event: KeyEvent)",
+      "desc": "Provides the default implementation of InputConnection#sendKeyEvent(KeyEvent), which is expected to dispatch an keyboard event sent from the IME to an appropriate event target depending on the given View and the current focus state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "displayCompletions(view: View!, completions: Array<CompletionInfo!>!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "InputMethodSubtype",
+      "code": "getCurrentInputMethodSubtype()",
+      "desc": "Returns the current input method subtype.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getEnabledInputMethodList()",
+      "desc": "Returns the list of enabled input methods.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getEnabledInputMethodSubtypeList(imi: InputMethodInfo!, allowsImplicitlySelectedSubtypes: Boolean)",
+      "desc": "Returns a list of enabled input method subtypes for the specified input method info.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getInputMethodList()",
+      "desc": "Returns the list of installed input methods.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "InputMethodSubtype",
+      "code": "getLastInputMethodSubtype()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableMap",
+      "code": "getShortcutInputMethodsAndSubtypes()",
+      "desc": "Returns a map of all shortcut input method info and their subtypes.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "hideSoftInputFromInputMethod(token: IBinder!, flags: Int)",
+      "desc": "Close/hide the input method's soft input area, so the user no longer sees it or can interact with it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hideSoftInputFromWindow(windowToken: IBinder!, flags: Int)",
+      "desc": "Synonym for hideSoftInputFromWindow(android.os.IBinder,int,android.os.ResultReceiver) without a result: request to hide the soft input window from the context of the window that is currently accepting input."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hideSoftInputFromWindow(windowToken: IBinder!, flags: Int, resultReceiver: ResultReceiver!)",
+      "desc": "Request to hide the soft input window from the context of the window that is currently accepting input."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "hideStatusIcon(imeToken: IBinder!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isAcceptingText()",
+      "desc": "Return true if the currently served view is accepting full text edits."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isActive(view: View!)",
+      "desc": "Return true if the given view is the currently active view for the input method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isActive()",
+      "desc": "Return true if any view is currently active in the input method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isFullscreenMode()",
+      "desc": "Allows you to discover whether the attached input method is running in fullscreen mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isWatchingCursor(view: View!)",
+      "desc": "Return true if the current input method wants to watch the location of the input editor's cursor in its window."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "restartInput(view: View!)",
+      "desc": "If the input method is currently connected to the given view, restart it with its new contents."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "sendAppPrivateCommand(view: View!, action: String!, data: Bundle!)",
+      "desc": "Call InputMethodSession#appPrivateCommand(String, Bundle) on the current Input Method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setAdditionalInputMethodSubtypes(imiId: String!, subtypes: Array<InputMethodSubtype!>!)",
+      "desc": "Set additional input method subtypes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "setCurrentInputMethodSubtype(subtype: InputMethodSubtype!)",
+      "desc": "Switch to a new input method subtype of the current input method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setInputMethod(token: IBinder!, id: String!)",
+      "desc": "Force switch to a new input method component."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setInputMethodAndSubtype(token: IBinder, id: String!, subtype: InputMethodSubtype!)",
+      "desc": "Force switch to a new input method and subtype."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "shouldOfferSwitchingToNextInputMethod(imeToken: IBinder!)",
+      "desc": "Returns true if the current IME needs to offer the users ways to switch to a next input method (e.g. a globe key.)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "showInputMethodAndSubtypeEnabler(imiId: String!)",
+      "desc": "Show the settings for enabling subtypes of the specified input method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "showInputMethodPicker()",
+      "desc": "Show IME picker popup window."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "showSoftInput(view: View!, flags: Int)",
+      "desc": "Synonym for showSoftInput(android.view.View,int,android.os.ResultReceiver) without a result receiver: explicitly request that the current input method's soft input area be shown to the user, if needed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "showSoftInput(view: View!, flags: Int, resultReceiver: ResultReceiver!)",
+      "desc": "Explicitly request that the current input method's soft input area be shown to the user, if needed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "showSoftInputFromInputMethod(token: IBinder!, flags: Int)",
+      "desc": "Show the input method's soft input area, so the user sees the input method window and can interact with it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "showStatusIcon(imeToken: IBinder!, packageName: String!, iconId: Int)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "switchToLastInputMethod(imeToken: IBinder!)",
+      "desc": "Force switch to the last used input method and subtype."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "switchToNextInputMethod(imeToken: IBinder!, onlyCurrentIme: Boolean)",
+      "desc": "Force switch to the next input method and subtype."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "toggleSoftInput(showFlags: Int, hideFlags: Int)",
+      "desc": "This method toggles the input method window display."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "toggleSoftInputFromWindow(windowToken: IBinder!, showFlags: Int, hideFlags: Int)",
+      "desc": "This method toggles the input method window display."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "updateCursor(view: View!, left: Int, top: Int, right: Int, bottom: Int)",
+      "desc": "Report the current cursor location in its window."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "updateCursorAnchorInfo(view: View!, cursorAnchorInfo: CursorAnchorInfo!)",
+      "desc": "Report positional change of the text insertion point and/or characters in the composition string."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "updateExtractedText(view: View!, token: Int, text: ExtractedText!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "updateSelection(view: View!, selStart: Int, selEnd: Int, candidatesStart: Int, candidatesEnd: Int)",
+      "desc": "Report the current selection range."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "viewClicked(view: View!)",
+      "desc": "Notify the event when the user tapped or clicked the text view."
+    }
+  ]
+}

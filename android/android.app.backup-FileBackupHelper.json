@@ -1,0 +1,38 @@
+{
+  "path": "android.app.backup",
+  "name": "FileBackupHelper",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, vararg files: String!)\n            Construct a helper to manage backup/restore of entire files within the application's data directory hierarchy."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "performBackup(oldState: ParcelFileDescriptor!, data: BackupDataOutput!, newState: ParcelFileDescriptor!)",
+      "desc": "Based on oldState, determine which of the files from the application's data directory need to be backed up, write them to the data stream, and fill in newState with the state as it exists now."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "restoreEntity(data: BackupDataInputStream!)",
+      "desc": "Restore one record [representing a single file] from the restore dataset."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "writeNewStateDescription(fd: ParcelFileDescriptor!)",
+      "desc": ""
+    }
+  ]
+}

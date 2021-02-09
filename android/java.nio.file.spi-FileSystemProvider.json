@@ -1,0 +1,249 @@
+{
+  "path": "java.nio.file.spi",
+  "name": "FileSystemProvider",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "checkAccess(path: Path!, vararg modes: AccessMode!)",
+      "desc": "Checks the existence, and optionally the accessibility, of a file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "copy(source: Path!, target: Path!, vararg options: CopyOption!)",
+      "desc": "Copy a file to a target file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "createDirectory(dir: Path!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a new directory."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "createLink(link: Path!, existing: Path!)",
+      "desc": "Creates a new link (directory entry) for an existing file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "createSymbolicLink(link: Path!, target: Path!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Creates a symbolic link to a target."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "delete(path: Path!)",
+      "desc": "Deletes a file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "deleteIfExists(path: Path!)",
+      "desc": "Deletes a file if it exists."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "V",
+      "code": "getFileAttributeView(path: Path!, type: Class<V>!, vararg options: LinkOption!)",
+      "desc": "Returns a file attribute view of a given type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "FileStore",
+      "code": "getFileStore(path: Path!)",
+      "desc": "Returns the FileStore representing the file store where a file is located.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "FileSystem",
+      "code": "getFileSystem(uri: URI!)",
+      "desc": "Returns an existing FileSystem created by this provider.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Path",
+      "code": "getPath(uri: URI!)",
+      "desc": "Return a Path object by converting the given URI.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "getScheme()",
+      "desc": "Returns the URI scheme that identifies this provider.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "installedProviders()",
+      "desc": "Returns a list of the installed file system providers.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isHidden(path: Path!)",
+      "desc": "Tells whether or not a file is considered hidden."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isSameFile(path: Path!, path2: Path!)",
+      "desc": "Tests if two paths locate the same file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "move(source: Path!, target: Path!, vararg options: CopyOption!)",
+      "desc": "Move or rename a file to a target file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AsynchronousFileChannel",
+      "code": "newAsynchronousFileChannel(path: Path!, options: MutableSet<out OpenOption!>!, executor: ExecutorService!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Opens or creates a file for reading and/or writing, returning an asynchronous file channel to access the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "SeekableByteChannel",
+      "code": "newByteChannel(path: Path!, options: MutableSet<out OpenOption!>!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Opens or creates a file, returning a seekable byte channel to access the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "DirectoryStream",
+      "code": "newDirectoryStream(dir: Path!, filter: DirectoryStream.Filter<in Path!>!)",
+      "desc": "Opens a directory, returning a DirectoryStream to iterate over the entries in the directory.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "FileChannel",
+      "code": "newFileChannel(path: Path!, options: MutableSet<out OpenOption!>!, vararg attrs: FileAttribute<*>!)",
+      "desc": "Opens or creates a file for reading and/or writing, returning a file channel to access the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "FileSystem",
+      "code": "newFileSystem(uri: URI!, env: MutableMap<String!, *>!)",
+      "desc": "Constructs a new FileSystem object identified by a URI.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "FileSystem",
+      "code": "newFileSystem(path: Path!, env: MutableMap<String!, *>!)",
+      "desc": "Constructs a new FileSystem to access the contents of a file as a file system.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "InputStream",
+      "code": "newInputStream(path: Path!, vararg options: OpenOption!)",
+      "desc": "Opens a file, returning an input stream to read from the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "OutputStream",
+      "code": "newOutputStream(path: Path!, vararg options: OpenOption!)",
+      "desc": "Opens or creates a file, returning an output stream that may be used to write bytes to the file.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "A",
+      "code": "readAttributes(path: Path!, type: Class<A>!, vararg options: LinkOption!)",
+      "desc": "Reads a file's attributes as a bulk operation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "MutableMap",
+      "code": "readAttributes(path: Path!, attributes: String!, vararg options: LinkOption!)",
+      "desc": "Reads a set of file attributes as a bulk operation.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Path",
+      "code": "readSymbolicLink(link: Path!)",
+      "desc": "Reads the target of a symbolic link.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "setAttribute(path: Path!, attribute: String!, value: Any!, vararg options: LinkOption!)",
+      "desc": "Sets the value of a file attribute."
+    }
+  ]
+}

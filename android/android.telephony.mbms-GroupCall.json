@@ -1,0 +1,100 @@
+{
+  "path": "android.telephony.mbms",
+  "name": "GroupCall",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_BY_USER_REQUEST",
+      "desc": "State changed due to a call to close() or MbmsGroupCallSession#startGroupCall"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_FREQUENCY_CONFLICT",
+      "desc": "State changed due to a frequency conflict with another requested call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_LEFT_MBMS_BROADCAST_AREA",
+      "desc": "State changed due to the device leaving the area where this call is being broadcast."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_NONE",
+      "desc": "Indicates that the middleware does not have a reason to provide for the state change."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_NOT_CONNECTED_TO_HOMECARRIER_LTE",
+      "desc": "State changed due to the device leaving the home carrier's LTE network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_OUT_OF_MEMORY",
+      "desc": "State changed due to the middleware running out of memory"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_STALLED",
+      "desc": "Indicates that the group call is stalled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_STARTED",
+      "desc": "Indicates that the group call is started."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_STOPPED",
+      "desc": "Indicates that the group call is in a stopped state This can be reported after network action or after calling close."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Stop this group call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getTmgi()",
+      "desc": "Retrieve the TMGI (Temporary Mobile Group Identity) corresponding to this call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "updateGroupCall(saiList: MutableList<Int!>, frequencyList: MutableList<Int!>)",
+      "desc": "Send an update to the middleware when the SAI (Service Area Identifier) list and frequency information of the group call has * changed."
+    }
+  ]
+}

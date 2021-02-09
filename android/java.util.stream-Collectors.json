@@ -1,0 +1,343 @@
+{
+  "path": "java.util.stream",
+  "name": "Collectors",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "averagingDouble(mapper: ToDoubleFunction<in T>!)",
+      "desc": "Returns a Collector that produces the arithmetic mean of a double-valued function applied to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "averagingInt(mapper: ToIntFunction<in T>!)",
+      "desc": "Returns a Collector that produces the arithmetic mean of an integer-valued function applied to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "averagingLong(mapper: ToLongFunction<in T>!)",
+      "desc": "Returns a Collector that produces the arithmetic mean of a long-valued function applied to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "collectingAndThen(downstream: Collector<T, A, R>!, finisher: Function<R, RR>!)",
+      "desc": "Adapts a Collector to perform an additional finishing transformation.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "counting()",
+      "desc": "Returns a Collector accepting elements of type T that counts the number of input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "groupingBy(classifier: Function<in T, out K>!)",
+      "desc": "Returns a Collector implementing a \"group by\" operation on input elements of type T, grouping elements according to a classification function, and returning the results in a Map.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "groupingBy(classifier: Function<in T, out K>!, downstream: Collector<in T, A, D>!)",
+      "desc": "Returns a Collector implementing a cascaded \"group by\" operation on input elements of type T, grouping elements according to a classification function, and then performing a reduction operation on the values associated with a given key using the specified downstream Collector.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "groupingBy(classifier: Function<in T, out K>!, mapFactory: Supplier<M>!, downstream: Collector<in T, A, D>!)",
+      "desc": "Returns a Collector implementing a cascaded \"group by\" operation on input elements of type T, grouping elements according to a classification function, and then performing a reduction operation on the values associated with a given key using the specified downstream Collector.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "groupingByConcurrent(classifier: Function<in T, out K>!)",
+      "desc": "Returns a concurrent Collector implementing a \"group by\" operation on input elements of type T, grouping elements according to a classification function.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "groupingByConcurrent(classifier: Function<in T, out K>!, downstream: Collector<in T, A, D>!)",
+      "desc": "Returns a concurrent Collector implementing a cascaded \"group by\" operation on input elements of type T, grouping elements according to a classification function, and then performing a reduction operation on the values associated with a given key using the specified downstream Collector.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "groupingByConcurrent(classifier: Function<in T, out K>!, mapFactory: Supplier<M>!, downstream: Collector<in T, A, D>!)",
+      "desc": "Returns a concurrent Collector implementing a cascaded \"group by\" operation on input elements of type T, grouping elements according to a classification function, and then performing a reduction operation on the values associated with a given key using the specified downstream Collector.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "joining()",
+      "desc": "Returns a Collector that concatenates the input elements into a String, in encounter order.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "joining(delimiter: CharSequence!)",
+      "desc": "Returns a Collector that concatenates the input elements, separated by the specified delimiter, in encounter order.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "joining(delimiter: CharSequence!, prefix: CharSequence!, suffix: CharSequence!)",
+      "desc": "Returns a Collector that concatenates the input elements, separated by the specified delimiter, with the specified prefix and suffix, in encounter order.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "mapping(mapper: Function<in T, out U>!, downstream: Collector<in U, A, R>!)",
+      "desc": "Adapts a Collector accepting elements of type U to one accepting elements of type T by applying a mapping function to each input element before accumulation.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "maxBy(comparator: Comparator<in T>!)",
+      "desc": "Returns a Collector that produces the maximal element according to a given Comparator, described as an Optional<T>.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "minBy(comparator: Comparator<in T>!)",
+      "desc": "Returns a Collector that produces the minimal element according to a given Comparator, described as an Optional<T>.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "partitioningBy(predicate: Predicate<in T>!)",
+      "desc": "Returns a Collector which partitions the input elements according to a Predicate, and organizes them into a Map<Boolean, List<T>>.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "partitioningBy(predicate: Predicate<in T>!, downstream: Collector<in T, A, D>!)",
+      "desc": "Returns a Collector which partitions the input elements according to a Predicate, reduces the values in each partition according to another Collector, and organizes them into a Map<Boolean, D> whose values are the result of the downstream reduction.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "reducing(identity: T, op: BinaryOperator<T>!)",
+      "desc": "Returns a Collector which performs a reduction of its input elements under a specified BinaryOperator using the provided identity.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "reducing(op: BinaryOperator<T>!)",
+      "desc": "Returns a Collector which performs a reduction of its input elements under a specified BinaryOperator.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "reducing(identity: U, mapper: Function<in T, out U>!, op: BinaryOperator<U>!)",
+      "desc": "Returns a Collector which performs a reduction of its input elements under a specified mapping function and BinaryOperator.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "summarizingDouble(mapper: ToDoubleFunction<in T>!)",
+      "desc": "Returns a Collector which applies an double-producing mapping function to each input element, and returns summary statistics for the resulting values.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "summarizingInt(mapper: ToIntFunction<in T>!)",
+      "desc": "Returns a Collector which applies an int-producing mapping function to each input element, and returns summary statistics for the resulting values.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "summarizingLong(mapper: ToLongFunction<in T>!)",
+      "desc": "Returns a Collector which applies an long-producing mapping function to each input element, and returns summary statistics for the resulting values.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "summingDouble(mapper: ToDoubleFunction<in T>!)",
+      "desc": "Returns a Collector that produces the sum of a double-valued function applied to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "summingInt(mapper: ToIntFunction<in T>!)",
+      "desc": "Returns a Collector that produces the sum of a integer-valued function applied to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "summingLong(mapper: ToLongFunction<in T>!)",
+      "desc": "Returns a Collector that produces the sum of a long-valued function applied to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toCollection(collectionFactory: Supplier<C>!)",
+      "desc": "Returns a Collector that accumulates the input elements into a new Collection, in encounter order.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toConcurrentMap(keyMapper: Function<in T, out K>!, valueMapper: Function<in T, out U>!)",
+      "desc": "Returns a concurrent Collector that accumulates elements into a ConcurrentMap whose keys and values are the result of applying the provided mapping functions to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toConcurrentMap(keyMapper: Function<in T, out K>!, valueMapper: Function<in T, out U>!, mergeFunction: BinaryOperator<U>!)",
+      "desc": "Returns a concurrent Collector that accumulates elements into a ConcurrentMap whose keys and values are the result of applying the provided mapping functions to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toConcurrentMap(keyMapper: Function<in T, out K>!, valueMapper: Function<in T, out U>!, mergeFunction: BinaryOperator<U>!, mapSupplier: Supplier<M>!)",
+      "desc": "Returns a concurrent Collector that accumulates elements into a ConcurrentMap whose keys and values are the result of applying the provided mapping functions to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toList()",
+      "desc": "Returns a Collector that accumulates the input elements into a new List.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toMap(keyMapper: Function<in T, out K>!, valueMapper: Function<in T, out U>!)",
+      "desc": "Returns a Collector that accumulates elements into a Map whose keys and values are the result of applying the provided mapping functions to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toMap(keyMapper: Function<in T, out K>!, valueMapper: Function<in T, out U>!, mergeFunction: BinaryOperator<U>!)",
+      "desc": "Returns a Collector that accumulates elements into a Map whose keys and values are the result of applying the provided mapping functions to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toMap(keyMapper: Function<in T, out K>!, valueMapper: Function<in T, out U>!, mergeFunction: BinaryOperator<U>!, mapSupplier: Supplier<M>!)",
+      "desc": "Returns a Collector that accumulates elements into a Map whose keys and values are the result of applying the provided mapping functions to the input elements.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Collector",
+      "code": "toSet()",
+      "desc": "Returns a Collector that accumulates the input elements into a new Set.",
+      "symbol": "<"
+    }
+  ]
+}

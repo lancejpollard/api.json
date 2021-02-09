@@ -1,0 +1,568 @@
+{
+  "path": "android.content",
+  "name": "ContentProvider",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Construct a ContentProvider instance."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "applyBatch(authority: String, operations: ArrayList<ContentProviderOperation!>)",
+      "desc": "Override this to handle requests to perform a batch of operations, or the default implementation will iterate over the operations and call ContentProviderOperation#apply on each of them.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "applyBatch(operations: ArrayList<ContentProviderOperation!>)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "attachInfo(context: Context!, info: ProviderInfo!)",
+      "desc": "After being instantiated, this is called to tell the content provider about itself."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "bulkInsert(uri: Uri, values: Array<ContentValues!>)",
+      "desc": "Override this to handle requests to insert a set of new rows, or the default implementation will iterate over the values and call insert on each of them."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "call(authority: String, method: String, arg: String?, extras: Bundle?)",
+      "desc": "Call a provider-defined method.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "call(method: String, arg: String?, extras: Bundle?)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Uri",
+      "code": "canonicalize(url: Uri)",
+      "desc": "Implement this to support canonicalization of URIs that refer to your content provider.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ContentProvider.CallingIdentity",
+      "code": "clearCallingIdentity()",
+      "desc": "Reset the identity of the incoming IPC on the current thread."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "delete(uri: Uri, selection: String?, selectionArgs: Array<String!>?)",
+      "desc": "Implement this to handle requests to delete one or more rows."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "delete(uri: Uri, extras: Bundle?)",
+      "desc": "Implement this to handle requests to delete one or more rows."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dump(fd: FileDescriptor!, writer: PrintWriter!, args: Array<String!>!)",
+      "desc": "Print the Provider's state into the given stream."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCallingAttributionTag()",
+      "desc": "Return the attribution tag of the caller that initiated the request being processed on the current thread.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCallingPackage()",
+      "desc": "Return the package name of the caller that initiated the request being processed on the current thread.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCallingPackageUnchecked()",
+      "desc": "Return the package name of the caller that initiated the request being processed on the current thread.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Context",
+      "code": "getContext()",
+      "desc": "Retrieves the Context this provider is running in.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getPathPermissions()",
+      "desc": "Return the path-based permissions required for read and/or write access to this content provider.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getReadPermission()",
+      "desc": "Return the name of the permission required for read-only access to this content provider.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getStreamTypes(uri: Uri, mimeTypeFilter: String)",
+      "desc": "Called by a client to determine the types of data streams that this content provider supports for the given URI.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "getType(uri: Uri)",
+      "desc": "Implement this to handle requests for the MIME type of the data at the given URI.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getWritePermission()",
+      "desc": "Return the name of the permission required for read/write access to this content provider.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Uri",
+      "code": "insert(uri: Uri, values: ContentValues?)",
+      "desc": "Implement this to handle requests to insert a new row.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Uri",
+      "code": "insert(uri: Uri, values: ContentValues?, extras: Bundle?)",
+      "desc": "Implement this to handle requests to insert a new row.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCallingPackageChanged()",
+      "desc": "Called whenever the value of getCallingPackage() changes, giving the provider an opportunity to invalidate any security related caching it may be performing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onConfigurationChanged(newConfig: Configuration)",
+      "desc": "Called by the system when the device configuration changes while your component is running."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "onCreate()",
+      "desc": "Implement this to initialize your content provider on startup."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onLowMemory()",
+      "desc": "This is called when the overall system is running low on memory, and actively running processes should trim their memory usage."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onTrimMemory(level: Int)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AssetFileDescriptor",
+      "code": "openAssetFile(uri: Uri, mode: String)",
+      "desc": "This is like openFile, but can be implemented by providers that need to be able to return sub-sections of files, often assets inside of their .",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AssetFileDescriptor",
+      "code": "openAssetFile(uri: Uri, mode: String, signal: CancellationSignal?)",
+      "desc": "This is like openFile, but can be implemented by providers that need to be able to return sub-sections of files, often assets inside of their .",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openFile(uri: Uri, mode: String)",
+      "desc": "Override this to handle requests to open a file blob.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openFile(uri: Uri, mode: String, signal: CancellationSignal?)",
+      "desc": "Override this to handle requests to open a file blob.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openPipeHelper(uri: Uri, mimeType: String, opts: Bundle?, args: T?, func: ContentProvider.PipeDataWriter<T>)",
+      "desc": "A helper function for implementing openTypedAssetFile, for creating a data pipe and background thread allowing you to stream generated data back to the client."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AssetFileDescriptor",
+      "code": "openTypedAssetFile(uri: Uri, mimeTypeFilter: String, opts: Bundle?)",
+      "desc": "Called by a client to open a read-only stream containing data of a particular MIME type.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AssetFileDescriptor",
+      "code": "openTypedAssetFile(uri: Uri, mimeTypeFilter: String, opts: Bundle?, signal: CancellationSignal?)",
+      "desc": "Called by a client to open a read-only stream containing data of a particular MIME type.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Cursor",
+      "code": "query(uri: Uri, projection: Array<String!>?, selection: String?, selectionArgs: Array<String!>?, sortOrder: String?)",
+      "desc": "Implement this to handle query requests from clients.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Cursor",
+      "code": "query(uri: Uri, projection: Array<String!>?, selection: String?, selectionArgs: Array<String!>?, sortOrder: String?, cancellationSignal: CancellationSignal?)",
+      "desc": "Implement this to handle query requests from clients with support for cancellation.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Cursor",
+      "code": "query(uri: Uri, projection: Array<String!>?, queryArgs: Bundle?, cancellationSignal: CancellationSignal?)",
+      "desc": "Implement this to handle query requests where the arguments are packed into a Bundle.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "refresh(uri: Uri!, extras: Bundle?, cancellationSignal: CancellationSignal?)",
+      "desc": "Implement this to support refresh of content identified by uri."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Context",
+      "code": "requireContext()",
+      "desc": "Retrieves a Non-Nullable Context this provider is running in, this is intended to be called after onCreate."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "restoreCallingIdentity(identity: ContentProvider.CallingIdentity)",
+      "desc": "Restore the identity of the incoming IPC on the current thread back to a previously identity that was returned by clearCallingIdentity."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "shutdown()",
+      "desc": "Implement this to shut down the ContentProvider instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Uri",
+      "code": "uncanonicalize(url: Uri)",
+      "desc": "Remove canonicalization from canonical URIs previously returned by canonicalize.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<String!>?)",
+      "desc": "Implement this to handle requests to update one or more rows."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "update(uri: Uri, values: ContentValues?, extras: Bundle?)",
+      "desc": "Implement this to handle requests to update one or more rows."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTemporary()",
+      "desc": "Returns true if this instance is a temporary content provider."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openFileHelper(uri: Uri, mode: String)",
+      "desc": "Convenience for subclasses that wish to implement openFile by looking up a column named \"_data\" at the given URI."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "setPathPermissions(permissions: Array<PathPermission!>?)",
+      "desc": "Change the path-based permission required to read and/or write data in the content provider."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "setReadPermission(permission: String?)",
+      "desc": "Change the permission required to read data from the content provider."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "setWritePermission(permission: String?)",
+      "desc": "Change the permission required to read and write data in the content provider."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_BACKGROUND"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_COMPLETE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_MODERATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_CRITICAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_LOW"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_MODERATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_UI_HIDDEN"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "CallingIdentity",
+      "desc": "Opaque token representing the identity of an incoming IPC."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "PipeDataWriter",
+      "desc": "Interface to write a stream of data to a pipe."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onConfigurationChanged(newConfig: Configuration)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#TRIM_MEMORY_COMPLETE"
+    }
+  ]
+}

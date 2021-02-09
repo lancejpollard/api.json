@@ -1,0 +1,333 @@
+{
+  "path": "android.media.tv",
+  "name": "TvInputManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_BLOCKED_RATINGS_CHANGED",
+      "desc": "Broadcast intent action when the user blocked content ratings change."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PARENTAL_CONTROLS_ENABLED_CHANGED",
+      "desc": "Broadcast intent action when the parental controls enabled state changes."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_QUERY_CONTENT_RATING_SYSTEMS",
+      "desc": "Broadcast intent action used to query available content rating systems."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SETUP_INPUTS",
+      "desc": "Activity action to set up channel sources i."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_VIEW_RECORDING_SCHEDULES",
+      "desc": "Activity action to display the recording schedules."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INPUT_STATE_CONNECTED",
+      "desc": "State for getInputState(java.lang.String) and TvInputCallback#onInputStateChanged(String, int): The input source is connected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INPUT_STATE_CONNECTED_STANDBY",
+      "desc": "State for getInputState(java.lang.String) and TvInputCallback#onInputStateChanged(String, int): The input source is connected but in standby mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INPUT_STATE_DISCONNECTED",
+      "desc": "State for getInputState(java.lang.String) and TvInputCallback#onInputStateChanged(String, int): The input source is disconnected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "META_DATA_CONTENT_RATING_SYSTEMS",
+      "desc": "Content rating systems metadata associated with ACTION_QUERY_CONTENT_RATING_SYSTEMS."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECORDING_ERROR_INSUFFICIENT_SPACE",
+      "desc": "Error for TvInputService.RecordingSession#notifyError(int) and TvRecordingClient.RecordingCallback#onError(int): Recording cannot proceed due to insufficient storage space."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECORDING_ERROR_RESOURCE_BUSY",
+      "desc": "Error for TvInputService.RecordingSession#notifyError(int) and TvRecordingClient.RecordingCallback#onError(int): Recording cannot proceed because a required recording resource was not able to be allocated."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECORDING_ERROR_UNKNOWN",
+      "desc": "Error for TvInputService.RecordingSession#notifyError(int) and TvRecordingClient.RecordingCallback#onError(int): The requested operation cannot be completed due to a problem that does not fit under any other error codes, or the error code for the problem is defined on the higher version than application's android:targetSdkVersion."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Long",
+      "code": "TIME_SHIFT_INVALID_TIME",
+      "desc": "Value returned by TvInputService.Session#onTimeShiftGetCurrentPosition() and TvInputService.Session#onTimeShiftGetStartPosition() when time shifting has not yet started."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TIME_SHIFT_STATUS_AVAILABLE",
+      "desc": "Status for TvInputService.Session#notifyTimeShiftStatusChanged(int) and TvView.TvInputCallback#onTimeShiftStatusChanged(String, int): Time shifting is currently available."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TIME_SHIFT_STATUS_UNAVAILABLE",
+      "desc": "Status for TvInputService.Session#notifyTimeShiftStatusChanged(int) and TvView.TvInputCallback#onTimeShiftStatusChanged(String, int): Time shifting is currently unavailable but might work again later."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TIME_SHIFT_STATUS_UNKNOWN",
+      "desc": "Status for TvInputService.Session#notifyTimeShiftStatusChanged(int) and TvView.TvInputCallback#onTimeShiftStatusChanged(String, int): Unknown status."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TIME_SHIFT_STATUS_UNSUPPORTED",
+      "desc": "Status for TvInputService.Session#notifyTimeShiftStatusChanged(int) and TvView.TvInputCallback#onTimeShiftStatusChanged(String, int): The current TV input does not support time shifting."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_AUDIO_ONLY",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the current TV program is audio-only."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_BUFFERING",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the corresponding TV input has stopped playback temporarily to buffer more data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_BLACKOUT",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because of a geographical blackout."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_CARD_INVALID",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because smart card is invalid."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_CARD_MUTE",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because smart card is muted."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_INSUFFICIENT_OUTPUT_PROTECTION",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the output protection level enabled on the device is not sufficient to meet the requirements in the license policy."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_LICENSE_EXPIRED",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because Using a license in whhich the keys have expired."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_NEED_ACTIVATION",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the device need be activated."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_NEED_PAIRING",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the device need be paired."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_NO_CARD",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because smart card is missed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_PVR_RECORDING_NOT_ALLOWED",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the PVR record is not allowed by the license policy."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_REBOOTING",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because CAS system is rebooting."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_CAS_UNKNOWN",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because of unknown CAS error."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_INSUFFICIENT_RESOURCE",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the resource is not enough to meet requirement."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_NOT_CONNECTED",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the source is not physically connected, for example the HDMI cable is not connected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_TUNING",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable because the corresponding TV input is in the middle of tuning to a new channel."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_UNKNOWN",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable due to an unspecified error."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_UNAVAILABLE_REASON_WEAK_SIGNAL",
+      "desc": "Reason for TvInputService.Session#notifyVideoUnavailable(int) and TvView.TvInputCallback#onVideoUnavailable(String, int): Video is unavailable due to weak TV signal."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getBlockedRatings()",
+      "desc": "Returns the list of blocked content ratings.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getInputState(inputId: String)",
+      "desc": "Returns the state of a given TV input."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "TvInputInfo",
+      "code": "getTvInputInfo(inputId: String)",
+      "desc": "Returns the TvInputInfo for a given TV input.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getTvInputList()",
+      "desc": "Returns the complete list of TV inputs on the system.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isParentalControlsEnabled()",
+      "desc": "Returns the user's parental controls enabled state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isRatingBlocked(rating: TvContentRating)",
+      "desc": "Checks whether a given TV content rating is blocked by the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerCallback(callback: TvInputManager.TvInputCallback, handler: Handler)",
+      "desc": "Registers a TvInputCallback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregisterCallback(callback: TvInputManager.TvInputCallback)",
+      "desc": "Unregisters the existing TvInputCallback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "updateTvInputInfo(inputInfo: TvInputInfo)",
+      "desc": "Updates the TvInputInfo for an existing TV input."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "TvInputCallback",
+      "desc": "Callback used to monitor status of the TV inputs."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "path": "android.opengl",
+  "name": "GLDebugHelper",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFIG_CHECK_GL_ERROR",
+      "desc": "Check glError() after every call."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFIG_CHECK_THREAD",
+      "desc": "Check if all calls are on the same thread."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFIG_LOG_ARGUMENT_NAMES",
+      "desc": "Print argument names when logging GL Calls."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_WRONG_THREAD",
+      "desc": "The Error number used in the GLException that is thrown if CONFIG_CHECK_THREAD is enabled and you call OpenGL ES on the a different thread."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "GL",
+      "code": "wrap(gl: GL!, configFlags: Int, log: Writer!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "EGL",
+      "code": "wrap(egl: EGL!, configFlags: Int, log: Writer!)",
+      "desc": "Wrap an existing EGL interface in a new EGL interface that adds support for error checking and/or logging.",
+      "symbol": "!"
+    }
+  ]
+}

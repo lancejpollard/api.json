@@ -1,0 +1,284 @@
+{
+  "path": "android.media",
+  "name": "MediaExtractor",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SAMPLE_FLAG_ENCRYPTED",
+      "desc": "The sample is (at least partially) encrypted, see also the documentation for android.media.MediaCodec#queueSecureInputBuffer"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SAMPLE_FLAG_PARTIAL_FRAME",
+      "desc": "This indicates that the buffer only contains part of a frame, and the decoder should batch the data until a buffer without this flag appears before decoding the frame."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SAMPLE_FLAG_SYNC",
+      "desc": "The sample is a sync sample (or in MediaCodec's terminology it is a key frame."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SEEK_TO_CLOSEST_SYNC",
+      "desc": "If possible, seek to the sync sample closest to the specified time"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SEEK_TO_NEXT_SYNC",
+      "desc": "If possible, seek to a sync sample at or after the specified time"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SEEK_TO_PREVIOUS_SYNC",
+      "desc": "If possible, seek to a sync sample at or before the specified time"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "advance()",
+      "desc": "Advance to the next sample."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getAudioPresentations(trackIndex: Int)",
+      "desc": "Get the list of available audio presentations for the track.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getCachedDuration()",
+      "desc": "Returns an estimate of how much data is presently cached in memory expressed in microseconds."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaExtractor.CasInfo",
+      "code": "getCasInfo(index: Int)",
+      "desc": "Retrieves the information about the conditional access system used to scramble a track.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "DrmInitData",
+      "code": "getDrmInitData()",
+      "desc": "Extract DRM initialization data if it exists",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "PersistableBundle",
+      "code": "getMetrics()",
+      "desc": "Return Metrics data about the current media container.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableMap",
+      "code": "getPsshInfo()",
+      "desc": "Get the PSSH info if present.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "getSampleCryptoInfo(info: MediaCodec.CryptoInfo)",
+      "desc": "If the sample flags indicate that the current sample is at least partially encrypted, this call returns relevant information about the structure of the sample data required for decryption."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getSampleFlags()",
+      "desc": "Returns the current sample's flags."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getSampleSize()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getSampleTime()",
+      "desc": "Returns the current sample's presentation time in microseconds."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getSampleTrackIndex()",
+      "desc": "Returns the track index the current sample originates from (or -1 if no more samples are available)"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getTrackCount()",
+      "desc": "Count the number of tracks found in the data source."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaFormat",
+      "code": "getTrackFormat(index: Int)",
+      "desc": "Get the track format at the specified index."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasCacheReachedEndOfStream()",
+      "desc": "Returns true iff we are caching data and the cache has reached the end of the data stream (for now, a future seek may of course restart the fetching of data)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "readSampleData(byteBuf: ByteBuffer, offset: Int)",
+      "desc": "Retrieve the current encoded sample and store it in the byte buffer starting at the given offset."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": "Make sure you call this when you're done to free up any resources instead of relying on the garbage collector to do this for you at some point in the future."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "seekTo(timeUs: Long, mode: Int)",
+      "desc": "All selected tracks seek near the requested time according to the specified mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "selectTrack(index: Int)",
+      "desc": "Subsequent calls to readSampleData, getSampleTrackIndex and getSampleTime only retrieve information for the subset of tracks selected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDataSource(dataSource: MediaDataSource)",
+      "desc": "Sets the data source (MediaDataSource) to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDataSource(context: Context, uri: Uri, headers: MutableMap<String!, String!>?)",
+      "desc": "Sets the data source as a content Uri."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDataSource(path: String, headers: MutableMap<String!, String!>?)",
+      "desc": "Sets the data source (file-path or http URL) to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDataSource(path: String)",
+      "desc": "Sets the data source (file-path or http URL) to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDataSource(afd: AssetFileDescriptor)",
+      "desc": "Sets the data source (AssetFileDescriptor) to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDataSource(fd: FileDescriptor)",
+      "desc": "Sets the data source (FileDescriptor) to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDataSource(fd: FileDescriptor, offset: Long, length: Long)",
+      "desc": "Sets the data source (FileDescriptor) to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setMediaCas(mediaCas: MediaCas)",
+      "desc": "Sets the MediaCas instance to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unselectTrack(index: Int)",
+      "desc": "Subsequent calls to readSampleData, getSampleTrackIndex and getSampleTime only retrieve information for the subset of tracks selected."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "CasInfo",
+      "desc": "Describes the conditional access system used to scramble a track."
+    },
+    {
+      "type": "nested-classes",
+      "code": "MetricsConstants",
+      "desc": ""
+    }
+  ]
+}

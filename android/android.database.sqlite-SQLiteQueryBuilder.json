@@ -1,0 +1,283 @@
+{
+  "path": "android.database.sqlite",
+  "name": "SQLiteQueryBuilder",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "appendColumns(s: StringBuilder!, columns: Array<String!>!)",
+      "desc": "Add the names that are non-null in columns to s, separating them with commas."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "appendWhere(inWhere: CharSequence)",
+      "desc": "Append a chunk to the WHERE clause of the query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "appendWhereEscapeString(inWhere: String)",
+      "desc": "Append a chunk to the WHERE clause of the query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "appendWhereStandalone(inWhere: CharSequence)",
+      "desc": "Add a standalone chunk to the WHERE clause of this query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "buildQuery(projectionIn: Array<String!>!, selection: String!, groupBy: String!, having: String!, sortOrder: String!, limit: String!)",
+      "desc": "Construct a SELECT statement suitable for use in a group of SELECT statements that will be joined through UNION operators in buildUnionQuery.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "buildQuery(projectionIn: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, sortOrder: String!, limit: String!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "buildQueryString(distinct: Boolean, tables: String!, columns: Array<String!>!, where: String!, groupBy: String!, having: String!, orderBy: String!, limit: String!)",
+      "desc": "Build an SQL query string from the given clauses.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "buildUnionQuery(subQueries: Array<String!>!, sortOrder: String!, limit: String!)",
+      "desc": "Given a set of subqueries, all of which are SELECT statements, construct a query that returns the union of what those subqueries return.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "buildUnionSubQuery(typeDiscriminatorColumn: String!, unionColumns: Array<String!>!, columnsPresentInTable: MutableSet<String!>!, computedColumnsOffset: Int, typeDiscriminatorValue: String!, selection: String!, groupBy: String!, having: String!)",
+      "desc": "Construct a SELECT statement suitable for use in a group of SELECT statements that will be joined through UNION operators in buildUnionQuery.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "buildUnionSubQuery(typeDiscriminatorColumn: String!, unionColumns: Array<String!>!, columnsPresentInTable: MutableSet<String!>!, computedColumnsOffset: Int, typeDiscriminatorValue: String!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "delete(db: SQLiteDatabase, selection: String?, selectionArgs: Array<String!>?)",
+      "desc": "Perform a delete by combining all current settings and the information passed into this method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SQLiteDatabase.CursorFactory",
+      "code": "getCursorFactory()",
+      "desc": "Gets the cursor factory to be used for the query, as last configured by setCursorFactory(android.database.sqlite.SQLiteDatabase.CursorFactory).",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableCollection",
+      "code": "getProjectionGreylist()",
+      "desc": "Gets the projection greylist for the query, as last configured by setProjectionGreylist.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableMap",
+      "code": "getProjectionMap()",
+      "desc": "Gets the projection map for the query, as last configured by setProjectionMap(java.util.Map).",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getTables()",
+      "desc": "Returns the list of tables being queried",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "insert(db: SQLiteDatabase, values: ContentValues)",
+      "desc": "Perform an insert by combining all current settings and the information passed into this method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDistinct()",
+      "desc": "Get if the query is marked as DISTINCT, as last configured by setDistinct(boolean)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isStrict()",
+      "desc": "Get if the query is marked as strict, as last configured by setStrict(boolean)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isStrictColumns()",
+      "desc": "Get if the query is marked as strict, as last configured by setStrictColumns(boolean)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isStrictGrammar()",
+      "desc": "Get if the query is marked as strict, as last configured by setStrictGrammar(boolean)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Cursor",
+      "code": "query(db: SQLiteDatabase!, projectionIn: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, sortOrder: String!)",
+      "desc": "Perform a query by combining all current settings and the information passed into this method.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Cursor",
+      "code": "query(db: SQLiteDatabase!, projectionIn: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, sortOrder: String!, limit: String!)",
+      "desc": "Perform a query by combining all current settings and the information passed into this method.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Cursor",
+      "code": "query(db: SQLiteDatabase!, projectionIn: Array<String!>!, selection: String!, selectionArgs: Array<String!>!, groupBy: String!, having: String!, sortOrder: String!, limit: String!, cancellationSignal: CancellationSignal!)",
+      "desc": "Perform a query by combining all current settings and the information passed into this method.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCursorFactory(factory: SQLiteDatabase.CursorFactory?)",
+      "desc": "Sets the cursor factory to be used for the query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDistinct(distinct: Boolean)",
+      "desc": "Mark the query as DISTINCT."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setProjectionGreylist(projectionGreylist: MutableCollection<Pattern!>?)",
+      "desc": "Sets a projection greylist of columns that will be allowed through, even when setStrict(boolean) is enabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setProjectionMap(columnMap: MutableMap<String!, String!>?)",
+      "desc": "Sets the projection map for the query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStrict(strict: Boolean)",
+      "desc": "When set, the selection is verified against malicious arguments."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStrictColumns(strictColumns: Boolean)",
+      "desc": "When enabled, verify that all projections and ContentValues only contain valid columns as defined by setProjectionMap(java.util.Map)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStrictGrammar(strictGrammar: Boolean)",
+      "desc": "When enabled, verify that all untrusted SQL conforms to a restricted SQL grammar."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTables(inTables: String?)",
+      "desc": "Sets the list of tables to query."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "update(db: SQLiteDatabase, values: ContentValues, selection: String?, selectionArgs: Array<String!>?)",
+      "desc": "Perform an update by combining all current settings and the information passed into this method."
+    }
+  ]
+}

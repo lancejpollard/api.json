@@ -1,0 +1,607 @@
+{
+  "path": "android.app",
+  "name": "Instrumentation",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REPORT_KEY_IDENTIFIER",
+      "desc": "If included in the status or final bundle sent to an IInstrumentationWatcher, this key identifies the class that is writing the report."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REPORT_KEY_STREAMRESULT",
+      "desc": "If included in the status or final bundle sent to an IInstrumentationWatcher, this key identifies a string which can simply be printed to the output stream."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "TestLooperManager",
+      "code": "acquireLooperManager(looper: Looper!)",
+      "desc": "Takes control of the execution of messages on the specified looper until TestLooperManager#release is called.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addMonitor(monitor: Instrumentation.ActivityMonitor!)",
+      "desc": "Add a new ActivityMonitor that will be checked whenever an activity is started."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Instrumentation.ActivityMonitor",
+      "code": "addMonitor(filter: IntentFilter!, result: Instrumentation.ActivityResult!, block: Boolean)",
+      "desc": "A convenience wrapper for addMonitor(android.app.Instrumentation.ActivityMonitor) that creates an intent filter matching ActivityMonitor for you and returns it.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Instrumentation.ActivityMonitor",
+      "code": "addMonitor(cls: String!, result: Instrumentation.ActivityResult!, block: Boolean)",
+      "desc": "A convenience wrapper for addMonitor(android.app.Instrumentation.ActivityMonitor) that creates a class matching ActivityMonitor for you and returns it.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addResults(results: Bundle!)",
+      "desc": "Report some results in the middle of instrumentation execution."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnCreate(activity: Activity!, icicle: Bundle!)",
+      "desc": "Perform calling of an activity's Activity#onCreate method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnCreate(activity: Activity!, icicle: Bundle!, persistentState: PersistableBundle!)",
+      "desc": "Perform calling of an activity's Activity#onCreate method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnDestroy(activity: Activity!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnNewIntent(activity: Activity!, intent: Intent!)",
+      "desc": "Perform calling of an activity's Activity#onNewIntent method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnPause(activity: Activity!)",
+      "desc": "Perform calling of an activity's Activity#onPause method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnPictureInPictureRequested(activity: Activity)",
+      "desc": "Perform calling of an activity's Activity#onPictureInPictureRequested method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnPostCreate(activity: Activity, savedInstanceState: Bundle?)",
+      "desc": "Perform calling of an activity's Activity#onPostCreate method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnPostCreate(activity: Activity, savedInstanceState: Bundle?, persistentState: PersistableBundle?)",
+      "desc": "Perform calling of an activity's Activity#onPostCreate method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnRestart(activity: Activity!)",
+      "desc": "Perform calling of an activity's Activity#onRestart method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnRestoreInstanceState(activity: Activity, savedInstanceState: Bundle)",
+      "desc": "Perform calling of an activity's Activity#onRestoreInstanceState method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnRestoreInstanceState(activity: Activity, savedInstanceState: Bundle?, persistentState: PersistableBundle?)",
+      "desc": "Perform calling of an activity's Activity#onRestoreInstanceState method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnResume(activity: Activity!)",
+      "desc": "Perform calling of an activity's Activity#onResume method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnSaveInstanceState(activity: Activity, outState: Bundle)",
+      "desc": "Perform calling of an activity's Activity#onSaveInstanceState method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnSaveInstanceState(activity: Activity, outState: Bundle, outPersistentState: PersistableBundle)",
+      "desc": "Perform calling of an activity's Activity#onSaveInstanceState method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnStart(activity: Activity!)",
+      "desc": "Perform calling of an activity's Activity#onStart method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnStop(activity: Activity!)",
+      "desc": "Perform calling of an activity's Activity#onStop method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callActivityOnUserLeaving(activity: Activity!)",
+      "desc": "Perform calling of an activity's Activity#onUserLeaveHint method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "callApplicationOnCreate(app: Application!)",
+      "desc": "Perform calling of the application's Application#onCreate method."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "checkMonitorHit(monitor: Instrumentation.ActivityMonitor!, minHits: Int)",
+      "desc": "Test whether an existing ActivityMonitor has been hit."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "endPerformanceSnapshot()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finish(resultCode: Int, results: Bundle!)",
+      "desc": "Terminate instrumentation of the application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getAllocCounts()",
+      "desc": "Returns a bundle with the current results from the allocation counting.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getBinderCounts()",
+      "desc": "Returns a bundle with the counts for various binder counts for this process.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ComponentName",
+      "code": "getComponentName()",
+      "desc": "Returns complete component name of this instrumentation.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Context",
+      "code": "getContext()",
+      "desc": "Return the Context of this instrumentation's package.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getProcessName()",
+      "desc": "Return the name of the process this instrumentation is running in.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Context",
+      "code": "getTargetContext()",
+      "desc": "Return a Context for the target application being instrumented.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UiAutomation",
+      "code": "getUiAutomation()",
+      "desc": "Gets the UiAutomation instance with no flags set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UiAutomation",
+      "code": "getUiAutomation(flags: Int)",
+      "desc": "Gets the UiAutomation instance with flags set.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "invokeContextMenuAction(targetActivity: Activity!, id: Int, flag: Int)",
+      "desc": "Show the context menu for the currently focused view and executes a particular context menu item."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "invokeMenuActionSync(targetActivity: Activity!, id: Int, flag: Int)",
+      "desc": "Execute a particular menu item."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isProfiling()",
+      "desc": "Check whether this instrumentation was started with profiling enabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Activity",
+      "code": "newActivity(clazz: Class<*>!, context: Context!, token: IBinder!, application: Application!, intent: Intent!, info: ActivityInfo!, title: CharSequence!, parent: Activity!, id: String!, lastNonConfigurationInstance: Any!)",
+      "desc": "Perform instantiation of an Activity object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Activity",
+      "code": "newActivity(cl: ClassLoader!, className: String!, intent: Intent!)",
+      "desc": "Perform instantiation of the process's Activity object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Application",
+      "code": "newApplication(cl: ClassLoader!, className: String!, context: Context!)",
+      "desc": "Perform instantiation of the process's Application object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Application",
+      "code": "newApplication(clazz: Class<*>!, context: Context!)",
+      "desc": "Perform instantiation of the process's Application object.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCreate(arguments: Bundle!)",
+      "desc": "Called when the instrumentation is starting, before any application code has been loaded."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onDestroy()",
+      "desc": "Called when the instrumented application is stopping, after all of the normal application cleanup has occurred."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onException(obj: Any!, e: Throwable!)",
+      "desc": "This is called whenever the system captures an unhandled exception that was thrown by the application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onStart()",
+      "desc": "Method where the instrumentation thread enters execution."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeMonitor(monitor: Instrumentation.ActivityMonitor!)",
+      "desc": "Remove an ActivityMonitor that was previously added with addMonitor."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "runOnMainSync(runner: Runnable!)",
+      "desc": "Execute a call on the application's main thread, blocking until it is complete."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendCharacterSync(keyCode: Int)",
+      "desc": "Higher-level method for sending both the down and up key events for a particular character key code."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendKeyDownUpSync(key: Int)",
+      "desc": "Sends an up and down key event sync to the currently focused window."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendKeySync(event: KeyEvent!)",
+      "desc": "Send a key event to the currently focused window/view and wait for it to be processed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendPointerSync(event: MotionEvent!)",
+      "desc": "Dispatch a pointer event."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendStatus(resultCode: Int, results: Bundle!)",
+      "desc": "Provide a status report about the application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendStringSync(text: String!)",
+      "desc": "Sends the key events corresponding to the text to the app being instrumented."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "sendTrackballEventSync(event: MotionEvent!)",
+      "desc": "Dispatch a trackball event."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAutomaticPerformanceSnapshots()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setInTouchMode(inTouch: Boolean)",
+      "desc": "Force the global system in or out of touch mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "start()",
+      "desc": "Create and start a new thread in which to run instrumentation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Activity",
+      "code": "startActivitySync(intent: Intent!)",
+      "desc": "Start a new activity and wait for it to begin running before returning.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Activity",
+      "code": "startActivitySync(intent: Intent, options: Bundle?)",
+      "desc": "Start a new activity and wait for it to begin running before returning."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startAllocCounting()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startPerformanceSnapshot()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startProfiling()",
+      "desc": "This method will start profiling if isProfiling() returns true."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "stopAllocCounting()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "stopProfiling()",
+      "desc": "Stops profiling if isProfiling() returns true."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "waitForIdle(recipient: Runnable!)",
+      "desc": "Schedule a callback for when the application's main thread goes idle (has no more events to process)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "waitForIdleSync()",
+      "desc": "Synchronously wait for the application to be idle."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Activity",
+      "code": "waitForMonitor(monitor: Instrumentation.ActivityMonitor!)",
+      "desc": "Wait for an existing ActivityMonitor to be hit.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Activity",
+      "code": "waitForMonitorWithTimeout(monitor: Instrumentation.ActivityMonitor!, timeOut: Long)",
+      "desc": "Wait for an existing ActivityMonitor to be hit till the timeout expires.",
+      "symbol": "!"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "ActivityMonitor",
+      "desc": "Information about a particular kind of Intent that is being monitored."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ActivityResult",
+      "desc": "Description of a Activity execution result to return to the original activity."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "path": "android.hardware.usb",
+  "name": "UsbManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_USB_ACCESSORY_ATTACHED",
+      "desc": "Activity intent sent when user attaches a USB accessory."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_USB_ACCESSORY_DETACHED",
+      "desc": "Broadcast Action: A broadcast for USB accessory detached event."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_USB_DEVICE_ATTACHED",
+      "desc": "Activity intent sent when user attaches a USB device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_USB_DEVICE_DETACHED",
+      "desc": "Broadcast Action: A broadcast for USB device detached event."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_ACCESSORY",
+      "desc": "Name of extra for ACTION_USB_ACCESSORY_ATTACHED and ACTION_USB_ACCESSORY_DETACHED broadcasts containing the UsbAccessory object for the accessory."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DEVICE",
+      "desc": "Name of extra for ACTION_USB_DEVICE_ATTACHED and ACTION_USB_DEVICE_DETACHED broadcasts containing the UsbDevice object for the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PERMISSION_GRANTED",
+      "desc": "Name of extra added to the android.app.PendingIntent passed into requestPermission(android.hardware.usb.UsbDevice,android.app.PendingIntent) or requestPermission(android.hardware.usb.UsbAccessory,android.app.PendingIntent) containing a boolean value indicating whether the user granted permission or not."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getAccessoryList()",
+      "desc": "Returns a list of currently attached USB accessories.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "HashMap",
+      "code": "getDeviceList()",
+      "desc": "Returns a HashMap containing all USB devices currently attached.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasPermission(device: UsbDevice!)",
+      "desc": "Returns true if the caller has permission to access the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasPermission(accessory: UsbAccessory!)",
+      "desc": "Returns true if the caller has permission to access the accessory."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelFileDescriptor",
+      "code": "openAccessory(accessory: UsbAccessory!)",
+      "desc": "Opens a file descriptor for reading and writing data to the USB accessory.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UsbDeviceConnection",
+      "code": "openDevice(device: UsbDevice!)",
+      "desc": "Opens the device so it can be used to send and receive data using android.hardware.usb.UsbRequest.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestPermission(device: UsbDevice!, pi: PendingIntent!)",
+      "desc": "Requests temporary permission for the given package to access the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "requestPermission(accessory: UsbAccessory!, pi: PendingIntent!)",
+      "desc": "Requests temporary permission for the given package to access the accessory."
+    }
+  ]
+}

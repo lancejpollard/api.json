@@ -1,0 +1,115 @@
+{
+  "path": "android.app",
+  "name": "VoiceInteractor",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "VoiceInteractor.Request",
+      "code": "getActiveRequest(name: String!)",
+      "desc": "Return any currently active request that was submitted with the given name.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getActiveRequests()",
+      "desc": "Return all currently active requests.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDestroyed()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "notifyDirectActionsChanged()",
+      "desc": "Notifies the assist framework that the direct actions supported by the app changed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "registerOnDestroyedCallback(executor: Executor, callback: Runnable)",
+      "desc": "Registers a callback to be called when the VoiceInteractor is destroyed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "submitRequest(request: VoiceInteractor.Request!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "submitRequest(request: VoiceInteractor.Request!, name: String!)",
+      "desc": "Submit a new Request to the voice interaction service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "BooleanArray",
+      "code": "supportsCommands(commands: Array<String!>!)",
+      "desc": "Queries the supported commands available from the VoiceInteractionService.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "unregisterOnDestroyedCallback(callback: Runnable)",
+      "desc": "Unregisters a previously registered onDestroy callback"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "AbortVoiceRequest",
+      "desc": "Reports that the current interaction can not be complete with voice, so the application will need to switch to a traditional input UI."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CommandRequest",
+      "desc": "Execute a vendor-specific command using the trusted system VoiceInteractionService."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CompleteVoiceRequest",
+      "desc": "Reports that the current interaction was successfully completed with voice, so the application can report the final status to the user."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ConfirmationRequest",
+      "desc": "Confirms an operation with the user via the trusted system VoiceInteractionService."
+    },
+    {
+      "type": "nested-classes",
+      "code": "PickOptionRequest",
+      "desc": "Select a single option from multiple potential options with the user via the trusted system VoiceInteractionService."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Prompt",
+      "desc": "A set of voice prompts to use with the voice interaction system to confirm an action, select an option, or do similar operations."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Request",
+      "desc": "Base class for voice interaction requests that can be submitted to the interactor."
+    }
+  ]
+}

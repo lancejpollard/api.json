@@ -1,0 +1,208 @@
+{
+  "path": "android.service.voice",
+  "name": "AlwaysOnHotwordDetector",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUDIO_CAPABILITY_ECHO_CANCELLATION",
+      "desc": "If set the underlying module supports AEC."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "AUDIO_CAPABILITY_NOISE_SUPPRESSION",
+      "desc": "If set, the underlying module supports noise suppression."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODEL_PARAM_THRESHOLD_FACTOR",
+      "desc": "Controls the sensitivity threshold adjustment factor for a given model."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECOGNITION_FLAG_ALLOW_MULTIPLE_TRIGGERS",
+      "desc": "Recognition flag for startRecognition(int) that indicates whether the recognition should keep going on even after the keyphrase triggers."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECOGNITION_FLAG_CAPTURE_TRIGGER_AUDIO",
+      "desc": "Recognition flag for startRecognition(int) that indicates whether the trigger audio for hotword needs to be captured."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECOGNITION_FLAG_ENABLE_AUDIO_ECHO_CANCELLATION",
+      "desc": "Audio capabilities flag for startRecognition(int) that indicates if the underlying recognition should use AEC."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECOGNITION_FLAG_ENABLE_AUDIO_NOISE_SUPPRESSION",
+      "desc": "Audio capabilities flag for startRecognition(int) that indicates if the underlying recognition should use noise suppression."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECOGNITION_MODE_USER_IDENTIFICATION",
+      "desc": "User identification performed with the keyphrase recognition."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECOGNITION_MODE_VOICE_TRIGGER",
+      "desc": "Simple recognition of the key phrase."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_HARDWARE_UNAVAILABLE",
+      "desc": "Indicates that recognition for the given keyphrase is not available on the system because of the hardware configuration."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_KEYPHRASE_ENROLLED",
+      "desc": "Indicates that the given keyphrase is currently enrolled and it's possible to start recognition for it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_KEYPHRASE_UNENROLLED",
+      "desc": "Indicates that the given keyphrase is not enrolled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_KEYPHRASE_UNSUPPORTED",
+      "desc": "Indicates that recognition for the given keyphrase is not supported."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "createEnrollIntent()",
+      "desc": "Creates an intent to start the enrollment for the associated keyphrase.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "createReEnrollIntent()",
+      "desc": "Creates an intent to start the re-enrollment for the associated keyphrase.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "createUnEnrollIntent()",
+      "desc": "Creates an intent to start the un-enrollment for the associated keyphrase.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getParameter(modelParam: Int)",
+      "desc": "Get a model specific android."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSupportedAudioCapabilities()",
+      "desc": "Get the audio capabilities supported by the platform which can be enabled when starting a recognition."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSupportedRecognitionModes()",
+      "desc": "Gets the recognition modes supported by the associated keyphrase."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AlwaysOnHotwordDetector.ModelParamRange",
+      "code": "queryParameter(modelParam: Int)",
+      "desc": "Determine if parameter control is supported for the given model handle.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setParameter(modelParam: Int, value: Int)",
+      "desc": "Set a model specific android."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "startRecognition(recognitionFlags: Int)",
+      "desc": "Starts recognition for the associated keyphrase."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "stopRecognition()",
+      "desc": "Stops recognition for the associated keyphrase."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "Callbacks for always-on hotword detection."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "EventPayload",
+      "desc": "Additional payload for Callback#onDetected."
+    },
+    {
+      "type": "nested-classes",
+      "code": "ModelParamRange",
+      "desc": "A ModelParamRange is a representation of supported parameter range for a given loaded model."
+    }
+  ]
+}

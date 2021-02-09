@@ -1,0 +1,948 @@
+{
+  "path": "android.test",
+  "name": "InstrumentationTestRunner",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REPORT_KEY_NAME_CLASS",
+      "desc": "If included in the status or final bundle sent to an IInstrumentationWatcher, this key identifies the name of the current test class."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REPORT_KEY_NAME_TEST",
+      "desc": "If included in the status or final bundle sent to an IInstrumentationWatcher, this key identifies the name of the current test."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REPORT_KEY_NUM_CURRENT",
+      "desc": "If included in the status or final bundle sent to an IInstrumentationWatcher, this key identifies the sequence number of the current test."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REPORT_KEY_NUM_TOTAL",
+      "desc": "If included in the status or final bundle sent to an IInstrumentationWatcher, this key identifies the total number of tests that are being run."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REPORT_KEY_STACK",
+      "desc": "If included in the status bundle sent to an IInstrumentationWatcher, this key identifies a stack trace describing an error or failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "REPORT_VALUE_ID",
+      "desc": "This value, if stored with key android.app.Instrumentation#REPORT_KEY_IDENTIFIER, identifies InstrumentationTestRunner as the source of the report."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REPORT_VALUE_RESULT_ERROR",
+      "desc": "The test completed with an error."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REPORT_VALUE_RESULT_FAILURE",
+      "desc": "The test completed with a failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REPORT_VALUE_RESULT_OK",
+      "desc": "The test completed successfully."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REPORT_VALUE_RESULT_START",
+      "desc": "The test is starting."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "TestSuite",
+      "code": "getAllTests()",
+      "desc": "Override this to define all of the tests to run in your package.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getArguments()",
+      "desc": "Get the arguments passed to this instrumentation.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ClassLoader",
+      "code": "getLoader()",
+      "desc": "Override this to provide access to the class loader of your package.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "TestSuite",
+      "code": "getTestSuite()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onCreate(arguments: Bundle!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onStart()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "AndroidTestRunner",
+      "code": "getAndroidTestRunner()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Instrumentation"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "REPORT_KEY_IDENTIFIER"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "String"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "REPORT_KEY_STREAMRESULT"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Instrumentation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TestLooperManager!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "acquireLooperManager(looper: Looper!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "TestLooperManager#release"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "addMonitor(monitor: Instrumentation.ActivityMonitor!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ActivityMonitor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Instrumentation.ActivityMonitor!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "addMonitor(filter: IntentFilter!, result: Instrumentation.ActivityResult!, block: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "addMonitor(android.app.Instrumentation.ActivityMonitor)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ActivityMonitor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Instrumentation.ActivityMonitor!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "addMonitor(cls: String!, result: Instrumentation.ActivityResult!, block: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "addMonitor(android.app.Instrumentation.ActivityMonitor)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ActivityMonitor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "addResults(results: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "finish"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Bundle#putAll"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnCreate(activity: Activity!, icicle: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnCreate(activity: Activity!, icicle: Bundle!, persistentState: PersistableBundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnDestroy(activity: Activity!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnNewIntent(activity: Activity!, intent: Intent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onNewIntent"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnPause(activity: Activity!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onPause"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnPictureInPictureRequested(activity: Activity)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onPictureInPictureRequested"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnPostCreate(activity: Activity, savedInstanceState: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onPostCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnPostCreate(activity: Activity, savedInstanceState: Bundle?, persistentState: PersistableBundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onPostCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnRestart(activity: Activity!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onRestart"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnRestoreInstanceState(activity: Activity, savedInstanceState: Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onRestoreInstanceState"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnRestoreInstanceState(activity: Activity, savedInstanceState: Bundle?, persistentState: PersistableBundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onRestoreInstanceState"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnResume(activity: Activity!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onResume"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnSaveInstanceState(activity: Activity, outState: Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onSaveInstanceState"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnSaveInstanceState(activity: Activity, outState: Bundle, outPersistentState: PersistableBundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onSaveInstanceState"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnStart(activity: Activity!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onStart"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnStop(activity: Activity!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onStop"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callActivityOnUserLeaving(activity: Activity!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onUserLeaveHint"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "callApplicationOnCreate(app: Application!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Application#onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate(android.os.Bundle)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "checkMonitorHit(monitor: Instrumentation.ActivityMonitor!, minHits: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ActivityMonitor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "endPerformanceSnapshot()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "finish(resultCode: Int, results: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Bundle!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getAllocCounts()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Bundle!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getBinderCounts()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentName!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getComponentName()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getContext()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTargetContext"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getProcessName()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTargetContext()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getContext"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getUiAutomation()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Instrumentation#sendPointerSync(MotionEvent)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation#injectInputEvent(android.view.InputEvent, boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Instrumentation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getUiAutomation(0)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getUiAutomation(flags: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Instrumentation#sendPointerSync(MotionEvent)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation#injectInputEvent(android.view.InputEvent, boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Instrumentation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "UiAutomation"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeContextMenuAction(targetActivity: Activity!, id: Int, flag: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "invokeMenuActionSync(targetActivity: Activity!, id: Int, flag: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isProfiling()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "newActivity(clazz: Class<*>!, context: Context!, token: IBinder!, application: Application!, intent: Intent!, info: ActivityInfo!, title: CharSequence!, parent: Activity!, id: String!, lastNonConfigurationInstance: Any!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "newActivity(cl: ClassLoader!, className: String!, intent: Intent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Application!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "newApplication(cl: ClassLoader!, className: String!, context: Context!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Application"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Application!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "newApplication(clazz: Class<*>!, context: Context!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Application"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onDestroy()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onException(obj: Any!, e: Throwable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "removeMonitor(monitor: Instrumentation.ActivityMonitor!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ActivityMonitor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "addMonitor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "runOnMainSync(runner: Runnable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "sendCharacterSync(keyCode: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "sendKeySync"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "sendKeyDownUpSync(key: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "sendKeySync(event: KeyEvent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "sendPointerSync(event: MotionEvent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "sendStatus(resultCode: Int, results: Bundle!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "sendStringSync(text: String!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "sendTrackballEventSync(event: MotionEvent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setAutomaticPerformanceSnapshots()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setInTouchMode(inTouch: Boolean)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "start()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onStart"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startActivitySync(intent: Intent!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#startActivity"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onResume"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startActivitySync(intent: Intent, options: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context#startActivity"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity#onResume"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startAllocCounting()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startPerformanceSnapshot()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "startProfiling()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "stopAllocCounting()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "stopProfiling()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "waitForIdle(recipient: Runnable!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "waitForIdleSync()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "start"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "waitForMonitor(monitor: Instrumentation.ActivityMonitor!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ActivityMonitor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Activity!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "waitForMonitorWithTimeout(monitor: Instrumentation.ActivityMonitor!, timeOut: Long)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ActivityMonitor"
+    }
+  ]
+}

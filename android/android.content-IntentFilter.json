@@ -1,0 +1,558 @@
+{
+  "path": "android.content",
+  "name": "IntentFilter",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_ADJUSTMENT_MASK",
+      "desc": "The part of a match constant that applies a quality adjustment to the basic category of match."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_ADJUSTMENT_NORMAL",
+      "desc": "Quality adjustment applied to the category of match that signifies the default, base value; higher numbers improve the quality while lower numbers reduce it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_CATEGORY_EMPTY",
+      "desc": "The filter matched an intent that had no data specified."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_CATEGORY_HOST",
+      "desc": "The filter matched an intent with the same data URI scheme and authority host."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_CATEGORY_MASK",
+      "desc": "The part of a match constant that describes the category of match that occurred."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_CATEGORY_PATH",
+      "desc": "The filter matched an intent with the same data URI scheme, authority, and path."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_CATEGORY_PORT",
+      "desc": "The filter matched an intent with the same data URI scheme and authority host and port."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_CATEGORY_SCHEME",
+      "desc": "The filter matched an intent with the same data URI scheme."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_CATEGORY_SCHEME_SPECIFIC_PART",
+      "desc": "The filter matched an intent with the same data URI scheme and scheme specific part."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MATCH_CATEGORY_TYPE",
+      "desc": "The filter matched an intent with the same data MIME type."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NO_MATCH_ACTION",
+      "desc": "The filter didn't match due to different actions."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NO_MATCH_CATEGORY",
+      "desc": "The filter didn't match because it required one or more categories that were not in the Intent."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NO_MATCH_DATA",
+      "desc": "The filter didn't match due to different data URIs."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NO_MATCH_TYPE",
+      "desc": "The filter didn't match due to different MIME types."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SYSTEM_HIGH_PRIORITY",
+      "desc": "The filter setPriority value at which system high-priority receivers are placed; that is, receivers that should execute before application code."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SYSTEM_LOW_PRIORITY",
+      "desc": "The filter setPriority value at which system low-priority receivers are placed; that is, receivers that should execute after application code."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            New empty IntentFilter."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(action: String!)\n            New IntentFilter that matches a single action with no data."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(action: String!, dataType: String!)\n            New IntentFilter that matches a single action and data type."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(o: IntentFilter!)\n            New IntentFilter containing a copy of an existing filter."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "actionsIterator()",
+      "desc": "Return an iterator over the filter's actions.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addAction(action: String!)",
+      "desc": "Add a new Intent action to match against."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addCategory(category: String!)",
+      "desc": "Add a new Intent category to match against."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addDataAuthority(host: String!, port: String!)",
+      "desc": "Add a new Intent data authority to match against."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addDataPath(path: String!, type: Int)",
+      "desc": "Add a new Intent data path to match against."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addDataScheme(scheme: String!)",
+      "desc": "Add a new Intent data scheme to match against."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addDataSchemeSpecificPart(ssp: String!, type: Int)",
+      "desc": "Add a new Intent data \"scheme specific part\" to match against."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addDataType(type: String!)",
+      "desc": "Add a new Intent data type to match against."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "authoritiesIterator()",
+      "desc": "Return an iterator over the filter's data authorities.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "categoriesIterator()",
+      "desc": "Return an iterator over the filter's categories.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "countActions()",
+      "desc": "Return the number of actions in the filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "countCategories()",
+      "desc": "Return the number of categories in the filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "countDataAuthorities()",
+      "desc": "Return the number of data authorities in the filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "countDataPaths()",
+      "desc": "Return the number of data paths in the filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "countDataSchemeSpecificParts()",
+      "desc": "Return the number of data scheme specific parts in the filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "countDataSchemes()",
+      "desc": "Return the number of data schemes in the filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "countDataTypes()",
+      "desc": "Return the number of data types in the filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntentFilter",
+      "code": "create(action: String!, dataType: String!)",
+      "desc": "Create a new IntentFilter instance with a specified action and MIME type, where you know the MIME type is correctly formatted.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dump(du: Printer!, prefix: String!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getAction(index: Int)",
+      "desc": "Return an action in the filter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCategory(index: Int)",
+      "desc": "Return a category in the filter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IntentFilter.AuthorityEntry",
+      "code": "getDataAuthority(index: Int)",
+      "desc": "Return a data authority in the filter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "PatternMatcher",
+      "code": "getDataPath(index: Int)",
+      "desc": "Return a data path in the filter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDataScheme(index: Int)",
+      "desc": "Return a data scheme in the filter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "PatternMatcher",
+      "code": "getDataSchemeSpecificPart(index: Int)",
+      "desc": "Return a data scheme specific part in the filter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDataType(index: Int)",
+      "desc": "Return a data type in the filter.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getPriority()",
+      "desc": "Return the priority of this filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasAction(action: String!)",
+      "desc": "Is the given action included in the filter? Note that if the filter does not include any actions, false will always be returned."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasCategory(category: String!)",
+      "desc": "Is the given category included in the filter?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasDataAuthority(data: Uri!)",
+      "desc": "Is the given data authority included in the filter? Note that if the filter does not include any authorities, false will always be returned."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasDataPath(data: String!)",
+      "desc": "Is the given data path included in the filter? Note that if the filter does not include any paths, false will always be returned."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasDataScheme(scheme: String!)",
+      "desc": "Is the given data scheme included in the filter? Note that if the filter does not include any scheme, false will always be returned."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasDataSchemeSpecificPart(data: String!)",
+      "desc": "Is the given data scheme specific part included in the filter? Note that if the filter does not include any scheme specific parts, false will always be returned."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasDataType(type: String!)",
+      "desc": "Is the given data type included in the filter? Note that if the filter does not include any type, false will always be returned."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "match(resolver: ContentResolver!, intent: Intent!, resolve: Boolean, logTag: String!)",
+      "desc": "Test whether this filter matches the given intent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "match(action: String!, type: String!, scheme: String!, data: Uri!, categories: MutableSet<String!>!, logTag: String!)",
+      "desc": "Test whether this filter matches the given intent data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "matchAction(action: String!)",
+      "desc": "Match this filter against an Intent's action."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "matchCategories(categories: MutableSet<String!>!)",
+      "desc": "Match this filter against an Intent's categories.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "matchData(type: String!, scheme: String!, data: Uri!)",
+      "desc": "Match this filter against an Intent's data (type, scheme and path)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "matchDataAuthority(data: Uri!)",
+      "desc": "Match this intent filter against the given Intent data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "pathsIterator()",
+      "desc": "Return an iterator over the filter's data paths.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "readFromXml(parser: XmlPullParser!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "schemeSpecificPartsIterator()",
+      "desc": "Return an iterator over the filter's data scheme specific parts.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "schemesIterator()",
+      "desc": "Return an iterator over the filter's data schemes.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPriority(priority: Int)",
+      "desc": "Modify priority of this filter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableIterator",
+      "code": "typesIterator()",
+      "desc": "Return an iterator over the filter's data types.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "writeToParcel(dest: Parcel!, flags: Int)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "writeToXml(serializer: XmlSerializer!)",
+      "desc": "Write the contents of the IntentFilter as an XML stream."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "AuthorityEntry",
+      "desc": "This is an entry for a single authority in the Iterator returned by authoritiesIterator()."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "MalformedMimeTypeException",
+      "desc": "This exception is thrown when a given MIME type does not have a valid syntax."
+    }
+  ]
+}

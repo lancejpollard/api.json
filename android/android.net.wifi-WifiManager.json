@@ -1,0 +1,888 @@
+{
+  "path": "android.net.wifi",
+  "name": "WifiManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PICK_WIFI_NETWORK",
+      "desc": "Activity Action: Pick a Wi-Fi network to connect to."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_REQUEST_SCAN_ALWAYS_AVAILABLE",
+      "desc": "Activity Action: Show a system activity that allows the user to enable scans to be available even with Wi-Fi turned off."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_WIFI_NETWORK_SUGGESTION_POST_CONNECTION",
+      "desc": "Directed broadcast intent action indicating that the device has connected to one of the network suggestions provided by the app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_WIFI_SCAN_AVAILABILITY_CHANGED",
+      "desc": "Broadcast intent action indicating whether Wi-Fi scanning is currently available."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_AUTHENTICATING",
+      "desc": "The error code if there was a problem authenticating."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_BSSID",
+      "desc": "The lookup key for a String giving the BSSID of the access point to which we are connected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NETWORK_INFO",
+      "desc": "The lookup key for a android.net.NetworkInfo object associated with the Wi-Fi network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NETWORK_SUGGESTION",
+      "desc": "Sent as as a part of ACTION_WIFI_NETWORK_SUGGESTION_POST_CONNECTION that holds an instance of WifiNetworkSuggestion corresponding to the connected network."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NEW_RSSI",
+      "desc": "The lookup key for an int giving the new RSSI in dBm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NEW_STATE",
+      "desc": "The lookup key for a SupplicantState describing the new state Retrieve with android.content.Intent#getParcelableExtra(String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PREVIOUS_WIFI_STATE",
+      "desc": "The previous Wi-Fi state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_RESULTS_UPDATED",
+      "desc": "Lookup key for a boolean extra in intent SCAN_RESULTS_AVAILABLE_ACTION representing if the scan was successful or not."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SCAN_AVAILABLE",
+      "desc": "A boolean extra indicating whether scanning is currently available."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SUPPLICANT_CONNECTED",
+      "desc": "The lookup key for a boolean that indicates whether a connection to the supplicant daemon has been gained or lost."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SUPPLICANT_ERROR",
+      "desc": "The lookup key for a SupplicantState describing the supplicant error code if any Retrieve with android.content.Intent#getIntExtra(String, int)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_WIFI_INFO",
+      "desc": "The lookup key for a android.net.wifi.WifiInfo object giving the information about the access point to which we are connected."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_WIFI_STATE",
+      "desc": "The lookup key for an int that indicates whether Wi-Fi is enabled, disabled, enabling, disabling, or unknown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "NETWORK_IDS_CHANGED_ACTION",
+      "desc": "The network IDs of the configured networks could have changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "NETWORK_STATE_CHANGED_ACTION",
+      "desc": "Broadcast intent action indicating that the state of Wi-Fi connectivity has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "RSSI_CHANGED_ACTION",
+      "desc": "The RSSI (signal strength) has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SCAN_RESULTS_AVAILABLE_ACTION",
+      "desc": "An access point scan has completed, and results are available."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_NETWORK_SUGGESTIONS_ERROR_ADD_DUPLICATE",
+      "desc": "Reason code if one or more of the network suggestions added already exists in platform's database."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_NETWORK_SUGGESTIONS_ERROR_ADD_EXCEEDS_MAX_PER_APP",
+      "desc": "Reason code if the number of network suggestions provided by the app crosses the max threshold set per app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_NETWORK_SUGGESTIONS_ERROR_ADD_INVALID",
+      "desc": "Reason code if one or more of the network suggestions added is invalid."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_NETWORK_SUGGESTIONS_ERROR_ADD_NOT_ALLOWED",
+      "desc": "Reason code if one or more of the network suggestions added is not allowed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_NETWORK_SUGGESTIONS_ERROR_APP_DISALLOWED",
+      "desc": "Reason code if the user has disallowed \"android:change_wifi_state\" app-ops from the app."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_NETWORK_SUGGESTIONS_ERROR_INTERNAL",
+      "desc": "Reason code if there was an internal error in the platform while processing the addition or removal of suggestions."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_NETWORK_SUGGESTIONS_ERROR_REMOVE_INVALID",
+      "desc": "Reason code if one or more of the network suggestions removed does not exist in platform's database."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_NETWORK_SUGGESTIONS_SUCCESS",
+      "desc": "Reason code if all of the network suggestions were successfully added or removed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_SUGGESTION_CONNECTION_FAILURE_ASSOCIATION",
+      "desc": "Reason code if suggested network connection attempt failed with association failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_SUGGESTION_CONNECTION_FAILURE_AUTHENTICATION",
+      "desc": "Reason code if suggested network connection attempt failed with an authentication failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_SUGGESTION_CONNECTION_FAILURE_IP_PROVISIONING",
+      "desc": "Reason code if suggested network connection attempt failed with an IP provision failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATUS_SUGGESTION_CONNECTION_FAILURE_UNKNOWN",
+      "desc": "Reason code if suggested network connection attempt failed with an unknown failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SUPPLICANT_CONNECTION_CHANGE_ACTION",
+      "desc": "Broadcast intent action indicating that a connection to the supplicant has been established (and it is now possible to perform Wi-Fi operations) or the connection to the supplicant has been lost."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "SUPPLICANT_STATE_CHANGED_ACTION",
+      "desc": "Broadcast intent action indicating that the state of establishing a connection to an access point has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "UNKNOWN_SSID",
+      "desc": "Indicates an invalid SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_MODE_FULL",
+      "desc": "In this Wi-Fi lock mode, Wi-Fi will be kept active, and will behave normally, i."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_MODE_FULL_HIGH_PERF",
+      "desc": "In this Wi-Fi lock mode, Wi-Fi will not go to power save."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_MODE_FULL_LOW_LATENCY",
+      "desc": "In this Wi-Fi lock mode, Wi-Fi will operate with a priority to achieve low latency."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_MODE_SCAN_ONLY",
+      "desc": "In this Wi-Fi lock mode, Wi-Fi will be kept active, but the only operation that will be supported is initiation of scans, and the subsequent reporting of scan results."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "WIFI_STATE_CHANGED_ACTION",
+      "desc": "Broadcast intent action indicating that Wi-Fi has been enabled, disabled, enabling, disabling, or unknown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_STATE_DISABLED",
+      "desc": "Wi-Fi is disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_STATE_DISABLING",
+      "desc": "Wi-Fi is currently being disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_STATE_ENABLED",
+      "desc": "Wi-Fi is enabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_STATE_ENABLING",
+      "desc": "Wi-Fi is currently being enabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIFI_STATE_UNKNOWN",
+      "desc": "Wi-Fi is in an unknown state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WPS_AUTH_FAILURE",
+      "desc": "Authentication failure on WPS"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WPS_OVERLAP_ERROR",
+      "desc": "WPS overlap detected"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WPS_TIMED_OUT",
+      "desc": "WPS timed out"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WPS_TKIP_ONLY_PROHIBITED",
+      "desc": "TKIP only prohibited"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WPS_WEP_PROHIBITED",
+      "desc": "WEP on WPS is prohibited"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addNetwork(config: WifiConfiguration!)",
+      "desc": "Add a new network description to the set of configured networks."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addNetworkSuggestions(networkSuggestions: MutableList<WifiNetworkSuggestion!>)",
+      "desc": "Provide a list of network suggestions to the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOrUpdatePasspointConfiguration(config: PasspointConfiguration!)",
+      "desc": "Add or update a Passpoint configuration."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addSuggestionConnectionStatusListener(executor: Executor, listener: WifiManager.SuggestionConnectionStatusListener)",
+      "desc": "Add a listener for suggestion networks."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "calculateSignalLevel(rssi: Int)",
+      "desc": "Given a raw RSSI, return the RSSI signal quality rating using the system default RSSI quality rating thresholds."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "calculateSignalLevel(rssi: Int, numLevels: Int)",
+      "desc": "Calculates the level of the signal."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "cancelWps(listener: WifiManager.WpsCallback!)",
+      "desc": "WPS support has been deprecated from Client mode and this method will immediately trigger WpsCallback#onFailed(int) with a generic error."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "compareSignalLevel(rssiA: Int, rssiB: Int)",
+      "desc": "Compares two signal strengths."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "WifiManager.MulticastLock",
+      "code": "createMulticastLock(tag: String!)",
+      "desc": "Create a new MulticastLock",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "WifiManager.WifiLock",
+      "code": "createWifiLock(lockType: Int, tag: String!)",
+      "desc": "Creates a new WifiLock.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "WifiManager.WifiLock",
+      "code": "createWifiLock(tag: String!)",
+      "desc": "Creates a new WifiLock.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "disableNetwork(netId: Int)",
+      "desc": "Disable a configured network."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "disconnect()",
+      "desc": "Disassociate from the currently active access point."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "enableNetwork(netId: Int, attemptConnect: Boolean)",
+      "desc": "Allow a previously configured network to be associated with."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getConfiguredNetworks()",
+      "desc": "Return a list of all the networks configured for the current foreground user.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "WifiInfo",
+      "code": "getConnectionInfo()",
+      "desc": "Return dynamic information about the current Wi-Fi connection, if any is active.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "DhcpInfo",
+      "code": "getDhcpInfo()",
+      "desc": "Return the DHCP-assigned addresses from the last successful DHCP request, if any.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMaxNumberOfNetworkSuggestionsPerApp()",
+      "desc": "Returns the max number of network suggestions that are allowed per app on the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMaxSignalLevel()",
+      "desc": "Get the system default maximum signal level."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getNetworkSuggestions()",
+      "desc": "Get all network suggestions provided by the calling app.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getPasspointConfigurations()",
+      "desc": "Return the list of installed Passpoint configurations added by the caller.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getScanResults()",
+      "desc": "Return the results of the latest access point scan.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getWifiState()",
+      "desc": "Gets the Wi-Fi enabled state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "is5GHzBandSupported()",
+      "desc": "Check if the chipset supports 5GHz band."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "is6GHzBandSupported()",
+      "desc": "Check if the chipset supports 6GHz band."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAutoWakeupEnabled()",
+      "desc": "Get the persisted Wi-Fi auto wakeup feature state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDeviceToApRttSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isEasyConnectSupported()",
+      "desc": "Wi-Fi Easy Connect (DPP) introduces standardized mechanisms to simplify the provisioning and configuration of Wi-Fi devices."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isEnhancedOpenSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isEnhancedPowerReportingSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isP2pSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPreferredNetworkOffloadSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isScanAlwaysAvailable()",
+      "desc": "Check if scanning is always available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isScanThrottleEnabled()",
+      "desc": "Get the persisted Wi-Fi scan throttle state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isStaApConcurrencySupported()",
+      "desc": "Query whether the device supports Station (STA) + Access point (AP) concurrency or not."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTdlsSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isWapiSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isWifiEnabled()",
+      "desc": "Return whether Wi-Fi is enabled or disabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isWifiStandardSupported(standard: Int)",
+      "desc": "Check if the chipset supports a certain Wi-Fi standard."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isWpa3SaeSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isWpa3SuiteBSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "pingSupplicant()",
+      "desc": "Check that the supplicant daemon is responding to requests."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "reassociate()",
+      "desc": "Reconnect to the currently active access point, even if we are already connected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "reconnect()",
+      "desc": "Reconnect to the currently active access point, if we are currently disconnected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerScanResultsCallback(executor: Executor, callback: WifiManager.ScanResultsCallback)",
+      "desc": "Register a callback for Scan Results."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "removeNetwork(netId: Int)",
+      "desc": "Remove the specified network from the list of configured networks."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "removeNetworkSuggestions(networkSuggestions: MutableList<WifiNetworkSuggestion!>)",
+      "desc": "Remove some or all of the network suggestions that were previously provided by the app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removePasspointConfiguration(fqdn: String!)",
+      "desc": "Remove the Passpoint configuration identified by its FQDN (Fully Qualified Domain Name) added by the caller."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeSuggestionConnectionStatusListener(listener: WifiManager.SuggestionConnectionStatusListener)",
+      "desc": "Allow callers to remove a previously registered listener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "saveConfiguration()",
+      "desc": "Tell the device to persist the current list of configured networks."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTdlsEnabled(remoteIPAddress: InetAddress!, enable: Boolean)",
+      "desc": "Enable/Disable TDLS on a specific local route."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTdlsEnabledWithMacAddress(remoteMacAddress: String!, enable: Boolean)",
+      "desc": "Similar to setTdlsEnabled(java.net.InetAddress,boolean), except this version allows you to specify remote endpoint with a MAC address."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setWifiEnabled(enabled: Boolean)",
+      "desc": "Enable or disable Wi-Fi."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startLocalOnlyHotspot(callback: WifiManager.LocalOnlyHotspotCallback!, handler: Handler?)",
+      "desc": "Request a local only hotspot that an application can use to communicate between co-located devices connected to the created WiFi hotspot."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "startScan()",
+      "desc": "Request a scan for access points."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "startWps(config: WpsInfo!, listener: WifiManager.WpsCallback!)",
+      "desc": "WPS suport has been deprecated from Client mode and this method will immediately trigger WpsCallback#onFailed(int) with a generic error."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterScanResultsCallback(callback: WifiManager.ScanResultsCallback)",
+      "desc": "Allow callers to unregister a previously registered callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "updateNetwork(config: WifiConfiguration!)",
+      "desc": "Update the network description of an existing configured network."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "LocalOnlyHotspotCallback",
+      "desc": "Callback class for applications to receive updates about the LocalOnlyHotspot status."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "LocalOnlyHotspotReservation",
+      "desc": "LocalOnlyHotspotReservation that contains the SoftApConfiguration for the active LocalOnlyHotspot request."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "MulticastLock",
+      "desc": "Allows an application to receive Wifi Multicast packets."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ScanResultsCallback",
+      "desc": "Abstract class for scan results callback."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "SuggestionConnectionStatusListener",
+      "desc": "Interface for suggestion connection status listener."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "WifiLock",
+      "desc": "Allows an application to keep the Wi-Fi radio awake."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "WpsCallback",
+      "desc": "Interface for callback invocation on a start WPS action"
+    }
+  ]
+}

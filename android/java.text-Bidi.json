@@ -1,0 +1,161 @@
+{
+  "path": "java.text",
+  "name": "Bidi",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_DEFAULT_LEFT_TO_RIGHT",
+      "desc": "Constant indicating that the base direction depends on the first strong directional character in the text according to the Unicode Bidirectional Algorithm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_DEFAULT_RIGHT_TO_LEFT",
+      "desc": "Constant indicating that the base direction depends on the first strong directional character in the text according to the Unicode Bidirectional Algorithm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_LEFT_TO_RIGHT",
+      "desc": "Constant indicating base direction is left-to-right."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_RIGHT_TO_LEFT",
+      "desc": "Constant indicating base direction is right-to-left."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(paragraph: String!, flags: Int)\n            Create Bidi from the given paragraph of text and base direction."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(paragraph: AttributedCharacterIterator!)\n            Create Bidi from the given paragraph of text."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(text: CharArray!, textStart: Int, embeddings: ByteArray!, embStart: Int, paragraphLength: Int, flags: Int)\n            Create Bidi from the given text, embedding, and direction information."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "baseIsLeftToRight()",
+      "desc": "Return true if the base direction is left-to-right."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Bidi",
+      "code": "createLineBidi(lineStart: Int, lineLimit: Int)",
+      "desc": "Create a Bidi object representing the bidi information on a line of text within the paragraph represented by the current Bidi.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getBaseLevel()",
+      "desc": "Return the base level (0 if left-to-right, 1 if right-to-left)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getLength()",
+      "desc": "Return the length of text in the line."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getLevelAt(offset: Int)",
+      "desc": "Return the resolved level of the character at offset."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getRunCount()",
+      "desc": "Return the number of level runs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getRunLevel(run: Int)",
+      "desc": "Return the level of the nth logical run in this line."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getRunLimit(run: Int)",
+      "desc": "Return the index of the character past the end of the nth logical run in this line, as an offset from the start of the line."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getRunStart(run: Int)",
+      "desc": "Return the index of the character at the start of the nth logical run in this line, as an offset from the start of the line."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isLeftToRight()",
+      "desc": "Return true if the line is all left-to-right text and the base direction is left-to-right."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isMixed()",
+      "desc": "Return true if the line is not left-to-right or right-to-left."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isRightToLeft()",
+      "desc": "Return true if the line is all right-to-left text, and the base direction is right-to-left."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "reorderVisually(levels: ByteArray!, levelStart: Int, objects: Array<Any!>!, objectStart: Int, count: Int)",
+      "desc": "Reorder the objects in the array into visual order based on their levels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "requiresBidi(text: CharArray!, start: Int, limit: Int)",
+      "desc": "Return true if the specified text requires bidi analysis."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Display the bidi internal state, used in debugging."
+    }
+  ]
+}

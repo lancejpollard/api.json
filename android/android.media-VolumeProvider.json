@@ -1,0 +1,94 @@
+{
+  "path": "android.media",
+  "name": "VolumeProvider",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VOLUME_CONTROL_ABSOLUTE",
+      "desc": "The volume control uses an absolute value."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VOLUME_CONTROL_FIXED",
+      "desc": "The volume is fixed and can not be modified."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VOLUME_CONTROL_RELATIVE",
+      "desc": "The volume control uses relative adjustment via onAdjustVolume(int)."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(volumeControl: Int, maxVolume: Int, currentVolume: Int)\n            Create a new volume provider for handling volume events."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(volumeControl: Int, maxVolume: Int, currentVolume: Int, volumeControlId: String?)\n            Create a new volume provider for handling volume events."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getCurrentVolume()",
+      "desc": "Gets the current volume."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getMaxVolume()",
+      "desc": "Get the maximum volume this provider allows."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getVolumeControl()",
+      "desc": "Get the volume control type that this volume provider uses."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getVolumeControlId()",
+      "desc": "Gets the volume control ID.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onAdjustVolume(direction: Int)",
+      "desc": "Override to handle requests to adjust the volume of the current output."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSetVolumeTo(volume: Int)",
+      "desc": "Override to handle requests to set the volume of the current output."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCurrentVolume(currentVolume: Int)",
+      "desc": "Notify the system that the current volume has been changed."
+    }
+  ]
+}

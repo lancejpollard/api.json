@@ -1,0 +1,375 @@
+{
+  "path": "android.hardware",
+  "name": "Camera",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NEW_PICTURE",
+      "desc": "Broadcast Action: A new picture is taken by the camera, and the entry of the picture has been added to the media store."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NEW_VIDEO",
+      "desc": "Broadcast Action: A new video is recorded by the camera, and the entry of the video has been added to the media store."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CAMERA_ERROR_EVICTED",
+      "desc": "Camera was disconnected due to use by higher priority user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CAMERA_ERROR_SERVER_DIED",
+      "desc": "Media server died."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CAMERA_ERROR_UNKNOWN",
+      "desc": "Unspecified camera error."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "addCallbackBuffer(callbackBuffer: ByteArray!)",
+      "desc": "Adds a pre-allocated buffer to the preview callback buffer queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "autoFocus(cb: Camera.AutoFocusCallback!)",
+      "desc": "Starts camera auto-focus and registers a callback function to run when the camera is focused."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "cancelAutoFocus()",
+      "desc": "Cancels any auto-focus function in progress."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "enableShutterSound(enabled: Boolean)",
+      "desc": "Enable or disable the default shutter sound when taking a picture."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "getCameraInfo(cameraId: Int, cameraInfo: Camera.CameraInfo!)",
+      "desc": "Returns the information about a particular camera."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getNumberOfCameras()",
+      "desc": "Returns the number of physical cameras available on this device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Camera.Parameters",
+      "code": "getParameters()",
+      "desc": "Returns the current settings for this Camera service.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "lock()",
+      "desc": "Re-locks the camera to prevent other processes from accessing it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Camera",
+      "code": "open(cameraId: Int)",
+      "desc": "Creates a new Camera object to access a particular hardware camera.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Camera",
+      "code": "open()",
+      "desc": "Creates a new Camera object to access the first back-facing camera on the device.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "reconnect()",
+      "desc": "Reconnects to the camera service after another process used it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": "Disconnects and releases the Camera object resources."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAutoFocusMoveCallback(cb: Camera.AutoFocusMoveCallback!)",
+      "desc": "Sets camera auto-focus move callback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setDisplayOrientation(degrees: Int)",
+      "desc": "Set the clockwise rotation of preview display in degrees."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setErrorCallback(cb: Camera.ErrorCallback!)",
+      "desc": "Registers a callback to be invoked when an error occurs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setFaceDetectionListener(listener: Camera.FaceDetectionListener!)",
+      "desc": "Registers a listener to be notified about the faces detected in the preview frame."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOneShotPreviewCallback(cb: Camera.PreviewCallback!)",
+      "desc": "Installs a callback to be invoked for the next preview frame in addition to displaying it on the screen."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setParameters(params: Camera.Parameters!)",
+      "desc": "Changes the settings for this Camera service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPreviewCallback(cb: Camera.PreviewCallback!)",
+      "desc": "Installs a callback to be invoked for every preview frame in addition to displaying them on the screen."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPreviewCallbackWithBuffer(cb: Camera.PreviewCallback!)",
+      "desc": "Installs a callback to be invoked for every preview frame, using buffers supplied with addCallbackBuffer(byte[]), in addition to displaying them on the screen."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPreviewDisplay(holder: SurfaceHolder!)",
+      "desc": "Sets the Surface to be used for live preview."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPreviewTexture(surfaceTexture: SurfaceTexture!)",
+      "desc": "Sets the SurfaceTexture to be used for live preview."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setZoomChangeListener(listener: Camera.OnZoomChangeListener!)",
+      "desc": "Registers a listener to be notified when the zoom value is updated by the camera driver during smooth zoom."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "startFaceDetection()",
+      "desc": "Starts the face detection."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "startPreview()",
+      "desc": "Starts capturing and drawing preview frames to the screen."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "startSmoothZoom(value: Int)",
+      "desc": "Zooms to the requested value smoothly."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stopFaceDetection()",
+      "desc": "Stops the face detection."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stopPreview()",
+      "desc": "Stops capturing and drawing preview frames to the surface, and resets the camera for a future call to startPreview()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stopSmoothZoom()",
+      "desc": "Stops the smooth zoom."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "takePicture(shutter: Camera.ShutterCallback!, raw: Camera.PictureCallback!, jpeg: Camera.PictureCallback!)",
+      "desc": "Equivalent to"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "takePicture(shutter: Camera.ShutterCallback!, raw: Camera.PictureCallback!, postview: Camera.PictureCallback!, jpeg: Camera.PictureCallback!)",
+      "desc": "Triggers an asynchronous image capture."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unlock()",
+      "desc": "Unlocks the camera to allow another process to access it."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Area",
+      "desc": "The Area class is used for choosing specific metering and focus areas for the camera to use when calculating auto-exposure, auto-white balance, and auto-focus."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "AutoFocusCallback",
+      "desc": "Callback interface used to notify on completion of camera auto focus."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "AutoFocusMoveCallback",
+      "desc": "Callback interface used to notify on auto focus start and stop."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "CameraInfo",
+      "desc": "Information about a camera"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ErrorCallback",
+      "desc": "Callback interface for camera error notification."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Face",
+      "desc": "Information about a face identified through camera face detection."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "FaceDetectionListener",
+      "desc": "Callback interface for face detected in the preview frame."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnZoomChangeListener",
+      "desc": "Callback interface for zoom changes during a smooth zoom operation."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Parameters",
+      "desc": "Camera service settings."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "PictureCallback",
+      "desc": "Callback interface used to supply image data from a photo capture."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "PreviewCallback",
+      "desc": "Callback interface used to deliver copies of preview frames as they are displayed."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ShutterCallback",
+      "desc": "Callback interface used to signal the moment of actual image capture."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Size",
+      "desc": "Image size (width and height dimensions)."
+    }
+  ]
+}

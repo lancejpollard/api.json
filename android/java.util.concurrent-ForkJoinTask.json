@@ -1,0 +1,316 @@
+{
+  "path": "java.util.concurrent",
+  "name": "ForkJoinTask",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "adapt(runnable: Runnable!)",
+      "desc": "Returns a new ForkJoinTask that performs the run method of the given Runnable as its action, and returns a null result upon join.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "adapt(runnable: Runnable!, result: T)",
+      "desc": "Returns a new ForkJoinTask that performs the run method of the given Runnable as its action, and returns the given result upon join.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "adapt(callable: Callable<out T>!)",
+      "desc": "Returns a new ForkJoinTask that performs the call method of the given Callable as its action, and returns its result upon join, translating any checked exceptions encountered into RuntimeException.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "cancel(mayInterruptIfRunning: Boolean)",
+      "desc": "Attempts to cancel execution of this task."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "compareAndSetForkJoinTaskTag(expect: Short, update: Short)",
+      "desc": "Atomically conditionally sets the tag value for this task."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "complete(value: V)",
+      "desc": "Completes this task, and if not already aborted or cancelled, returning the given value as the result of subsequent invocations of join and related operations."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "completeExceptionally(ex: Throwable!)",
+      "desc": "Completes this task abnormally, and if not already aborted or cancelled, causes it to throw the given exception upon join and related operations."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ForkJoinTask",
+      "code": "fork()",
+      "desc": "Arranges to asynchronously execute this task in the pool the current task is running in, if applicable, or using the ForkJoinPool#commonPool() if not inForkJoinPool.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "V",
+      "code": "get()",
+      "desc": "Waits if necessary for the computation to complete, and then retrieves its result."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "V",
+      "code": "get(timeout: Long, unit: TimeUnit!)",
+      "desc": "Waits if necessary for at most the given time for the computation to complete, and then retrieves its result, if available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Throwable",
+      "code": "getException()",
+      "desc": "Returns the exception thrown by the base computation, or a CancellationException if cancelled, or null if none or if the method has not yet completed.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Short",
+      "code": "getForkJoinTaskTag()",
+      "desc": "Returns the tag for this task."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ForkJoinPool",
+      "code": "getPool()",
+      "desc": "Returns the pool hosting the current thread, or null if the current thread is executing outside of any ForkJoinPool.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getQueuedTaskCount()",
+      "desc": "Returns an estimate of the number of tasks that have been forked by the current worker thread but not yet executed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "V",
+      "code": "getRawResult()",
+      "desc": "Returns the result that would be returned by join, even if this task completed abnormally, or null if this task is not known to have been completed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSurplusQueuedTaskCount()",
+      "desc": "Returns an estimate of how many more locally queued tasks are held by the current worker thread than there are other worker threads that might steal them, or zero if this thread is not operating in a ForkJoinPool."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "helpQuiesce()",
+      "desc": "Possibly executes tasks until the pool hosting the current task ForkJoinPool#isQuiescent."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "inForkJoinPool()",
+      "desc": "Returns true if the current thread is a ForkJoinWorkerThread executing as a ForkJoinPool computation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "V",
+      "code": "invoke()",
+      "desc": "Commences performing this task, awaits its completion if necessary, and returns its result, or throws an (unchecked) RuntimeException or Error if the underlying computation did so."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "invokeAll(t1: ForkJoinTask<*>!, t2: ForkJoinTask<*>!)",
+      "desc": "Forks the given tasks, returning when isDone holds for each task or an (unchecked) exception is encountered, in which case the exception is rethrown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "invokeAll(vararg tasks: ForkJoinTask<*>!)",
+      "desc": "Forks the given tasks, returning when isDone holds for each task or an (unchecked) exception is encountered, in which case the exception is rethrown."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableCollection",
+      "code": "invokeAll(tasks: MutableCollection<T>!)",
+      "desc": "Forks all tasks in the specified collection, returning when isDone holds for each task or an (unchecked) exception is encountered, in which case the exception is rethrown.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isCancelled()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isCompletedAbnormally()",
+      "desc": "Returns true if this task threw an exception or was cancelled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isCompletedNormally()",
+      "desc": "Returns true if this task completed without throwing an exception and was not cancelled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDone()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "V",
+      "code": "join()",
+      "desc": "Returns the result of the computation when it is."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "quietlyComplete()",
+      "desc": "Completes this task normally without setting a value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "quietlyInvoke()",
+      "desc": "Commences performing this task and awaits its completion if necessary, without returning its result or throwing its exception."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "quietlyJoin()",
+      "desc": "Joins this task, without returning its result or throwing its exception."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reinitialize()",
+      "desc": "Resets the internal bookkeeping state of this task, allowing a subsequent fork."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Short",
+      "code": "setForkJoinTaskTag(newValue: Short)",
+      "desc": "Atomically sets the tag value for this task and returns the old value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "tryUnfork()",
+      "desc": "Tries to unschedule this task for execution."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "exec()",
+      "desc": "Immediately performs the base action of this task and returns true if, upon return from this method, this task is guaranteed to have completed normally."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "peekNextLocalTask()",
+      "desc": "Returns, but does not unschedule or execute, a task queued by the current thread but not yet executed, if one is immediately available.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "pollNextLocalTask()",
+      "desc": "Unschedules and returns, without executing, the next task queued by the current thread but not yet executed, if the current thread is operating in a ForkJoinPool.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "ForkJoinTask",
+      "code": "pollTask()",
+      "desc": "If the current thread is operating in a ForkJoinPool, unschedules and returns, without executing, the next task queued by the current thread but not yet executed, if one is available, or if not available, a task that was forked by some other thread, if available.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "setRawResult(value: V)",
+      "desc": "Forces the given value to be returned as a result."
+    }
+  ]
+}

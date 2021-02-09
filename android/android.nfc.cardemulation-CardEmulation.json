@@ -1,0 +1,187 @@
+{
+  "path": "android.nfc.cardemulation",
+  "name": "CardEmulation",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CHANGE_DEFAULT",
+      "desc": "Activity action: ask the user to change the default card emulation service for a certain category."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_OTHER",
+      "desc": "Category that can be used for all other card emulation services."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "CATEGORY_PAYMENT",
+      "desc": "Category used for NFC payment services."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_CATEGORY",
+      "desc": "The category extra for ACTION_CHANGE_DEFAULT."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SERVICE_COMPONENT",
+      "desc": "The service ComponentName object passed in as an extra for ACTION_CHANGE_DEFAULT."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SELECTION_MODE_ALWAYS_ASK",
+      "desc": "Return value for getSelectionModeForCategory(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SELECTION_MODE_ASK_IF_CONFLICT",
+      "desc": "Return value for getSelectionModeForCategory(java.lang.String)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SELECTION_MODE_PREFER_DEFAULT",
+      "desc": "Return value for getSelectionModeForCategory(java.lang.String)."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "categoryAllowsForegroundPreference(category: String!)",
+      "desc": "Returns whether the user has allowed AIDs registered in the specified category to be handled by a service that is preferred by the foreground application, instead of by a pre-configured default."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getAidsForPreferredPaymentService()",
+      "desc": "Retrieves the registered AIDs for the preferred payment service.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MutableList",
+      "code": "getAidsForService(service: ComponentName!, category: String!)",
+      "desc": "Retrieves the currently registered AIDs for the specified category for a service.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CharSequence",
+      "code": "getDescriptionForPreferredPaymentService()",
+      "desc": "Returns a user-visible description of the preferred payment service.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "CardEmulation",
+      "code": "getInstance(adapter: NfcAdapter!)",
+      "desc": "Helper to get an instance of this class.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getRouteDestinationForPreferredPaymentService()",
+      "desc": "Retrieves the route destination for the preferred payment service.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getSelectionModeForCategory(category: String!)",
+      "desc": "Returns the service selection mode for the passed in category."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDefaultServiceForAid(service: ComponentName!, aid: String!)",
+      "desc": "Allows an application to query whether a service is currently the default handler for a specified ISO7816-4 Application ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "isDefaultServiceForCategory(service: ComponentName!, category: String!)",
+      "desc": "Allows an application to query whether a service is currently the default service to handle a card emulation category."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "registerAidsForService(service: ComponentName!, category: String!, aids: MutableList<String!>!)",
+      "desc": "Registers a list of AIDs for a specific category for the specified service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "removeAidsForService(service: ComponentName!, category: String!)",
+      "desc": "Removes a previously registered list of AIDs for the specified category for the service provided."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "setOffHostForService(service: ComponentName, offHostSecureElement: String)",
+      "desc": "Sets the off-host Secure Element for the given service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "setPreferredService(activity: Activity!, service: ComponentName!)",
+      "desc": "Allows a foreground application to specify which card emulation service should be preferred while a specific Activity is in the foreground."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "supportsAidPrefixRegistration()",
+      "desc": "Some devices may allow an application to register all AIDs that starts with a certain prefix, e."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "unsetOffHostForService(service: ComponentName)",
+      "desc": "Unsets the off-host Secure Element for the given service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "unsetPreferredService(activity: Activity!)",
+      "desc": "Unsets the preferred service for the specified Activity."
+    }
+  ]
+}

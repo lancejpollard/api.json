@@ -1,0 +1,60 @@
+{
+  "path": "android.media.midi",
+  "name": "MidiManager",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getDevices()",
+      "desc": "Gets the list of all connected MIDI devices.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "openBluetoothDevice(bluetoothDevice: BluetoothDevice!, listener: MidiManager.OnDeviceOpenedListener!, handler: Handler!)",
+      "desc": "Opens a Bluetooth MIDI device for reading and writing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "openDevice(deviceInfo: MidiDeviceInfo!, listener: MidiManager.OnDeviceOpenedListener!, handler: Handler!)",
+      "desc": "Opens a MIDI device for reading and writing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerDeviceCallback(callback: MidiManager.DeviceCallback!, handler: Handler!)",
+      "desc": "Registers a callback to receive notifications when MIDI devices are added and removed."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregisterDeviceCallback(callback: MidiManager.DeviceCallback!)",
+      "desc": "Unregisters a DeviceCallback."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "DeviceCallback",
+      "desc": "Callback class used for clients to receive MIDI device added and removed notifications"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnDeviceOpenedListener",
+      "desc": "Listener class used for receiving the results of openDevice and openBluetoothDevice"
+    }
+  ]
+}

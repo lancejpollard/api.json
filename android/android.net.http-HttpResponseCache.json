@@ -1,0 +1,120 @@
+{
+  "path": "android.net.http",
+  "name": "HttpResponseCache",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Uninstalls the cache and releases any active resources."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "delete()",
+      "desc": "Uninstalls the cache and deletes all of its stored contents."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "flush()",
+      "desc": "Force buffered operations to the filesystem."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CacheResponse",
+      "code": "get(uri: URI!, requestMethod: String!, requestHeaders: MutableMap<String!, MutableList<String!>!>!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getHitCount()",
+      "desc": "Returns the number of HTTP requests whose response was provided by the cache."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "HttpResponseCache",
+      "code": "getInstalled()",
+      "desc": "Returns the currently-installed HttpResponseCache, or null if there is no cache installed or it is not a HttpResponseCache.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getNetworkCount()",
+      "desc": "Returns the number of HTTP requests that required the network to either supply a response or validate a locally cached response."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getRequestCount()",
+      "desc": "Returns the total number of HTTP requests that were made."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "HttpResponseCache",
+      "code": "install(directory: File!, maxSize: Long)",
+      "desc": "Creates a new HTTP response cache and sets it as the system default cache.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "maxSize()",
+      "desc": "Returns the maximum number of bytes that this cache should use to store its data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "CacheRequest",
+      "code": "put(uri: URI!, urlConnection: URLConnection!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "size()",
+      "desc": "Returns the number of bytes currently being used to store the values in this cache."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ResponseCache"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ResponseCache!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDefault()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setDefault(responseCache: ResponseCache!)"
+    }
+  ]
+}

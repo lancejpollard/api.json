@@ -1,0 +1,272 @@
+{
+  "path": "android.animation",
+  "name": "LayoutTransition",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "APPEARING",
+      "desc": "A flag indicating the animation that runs on those items that are appearing in the container."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CHANGE_APPEARING",
+      "desc": "A flag indicating the animation that runs on those items that are changing due to a new item appearing in the container."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CHANGE_DISAPPEARING",
+      "desc": "A flag indicating the animation that runs on those items that are changing due to an item disappearing from the container."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CHANGING",
+      "desc": "A flag indicating the animation that runs on those items that are changing due to a layout change not caused by items being added to or removed from the container."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DISAPPEARING",
+      "desc": "A flag indicating the animation that runs on those items that are disappearing from the container."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Constructs a LayoutTransition object."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addChild(parent: ViewGroup!, child: View!)",
+      "desc": "This method is called by ViewGroup when a child view is about to be added to the container."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addTransitionListener(listener: LayoutTransition.TransitionListener!)",
+      "desc": "Add a listener that will be called when the bounds of the view change due to layout processing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "disableTransitionType(transitionType: Int)",
+      "desc": "Disables the specified transitionType for this LayoutTransition object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "enableTransitionType(transitionType: Int)",
+      "desc": "Enables the specified transitionType for this LayoutTransition object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Animator",
+      "code": "getAnimator(transitionType: Int)",
+      "desc": "Gets the animation used during one of the transition types that may run.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getDuration(transitionType: Int)",
+      "desc": "Gets the duration on one of the animation objects used by this transition."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "TimeInterpolator",
+      "code": "getInterpolator(transitionType: Int)",
+      "desc": "Gets the interpolator on one of the animation objects used by this transition.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getStagger(transitionType: Int)",
+      "desc": "Gets the length of time to delay between starting each animation during one of the change animations."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getStartDelay(transitionType: Int)",
+      "desc": "Gets the start delay on one of the animation objects used by this transition."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getTransitionListeners()",
+      "desc": "Gets the current list of listeners for layout changes.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "hideChild(parent: ViewGroup!, child: View!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "hideChild(parent: ViewGroup!, child: View!, newVisibility: Int)",
+      "desc": "This method is called by ViewGroup when a child view is about to be hidden in container."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isChangingLayout()",
+      "desc": "Returns true if animations are running which animate layout-related properties."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRunning()",
+      "desc": "Returns true if any of the animations in this transition are currently running."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isTransitionTypeEnabled(transitionType: Int)",
+      "desc": "Returns whether the specified transitionType is enabled for this LayoutTransition object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeChild(parent: ViewGroup!, child: View!)",
+      "desc": "This method is called by ViewGroup when a child view is about to be removed from the container."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeTransitionListener(listener: LayoutTransition.TransitionListener!)",
+      "desc": "Remove a listener for layout changes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAnimateParentHierarchy(animateParentHierarchy: Boolean)",
+      "desc": "This flag controls whether CHANGE_APPEARING or CHANGE_DISAPPEARING animations will cause the default changing animation to be run on the parent hierarchy as well."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAnimator(transitionType: Int, animator: Animator!)",
+      "desc": "Sets the animation used during one of the transition types that may run."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDuration(duration: Long)",
+      "desc": "Sets the duration to be used by all animations of this transition object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDuration(transitionType: Int, duration: Long)",
+      "desc": "Sets the duration on one of the animation objects used by this transition."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setInterpolator(transitionType: Int, interpolator: TimeInterpolator!)",
+      "desc": "Sets the interpolator on one of the animation objects used by this transition."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStagger(transitionType: Int, duration: Long)",
+      "desc": "Sets the length of time to delay between starting each animation during one of the change animations."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStartDelay(transitionType: Int, delay: Long)",
+      "desc": "Sets the start delay on one of the animation objects used by this transition."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "showChild(parent: ViewGroup!, child: View!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "showChild(parent: ViewGroup!, child: View!, oldVisibility: Int)",
+      "desc": "This method is called by ViewGroup when a child view is about to be made visible in the container."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "TransitionListener",
+      "desc": "This interface is used for listening to starting and ending events for transitions."
+    }
+  ]
+}

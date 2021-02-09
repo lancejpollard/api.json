@@ -1,0 +1,120 @@
+{
+  "path": "android.net",
+  "name": "IpSecManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_IN",
+      "desc": "Used when applying a transform to direct traffic through an IpSecTransform towards the host."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_OUT",
+      "desc": "Used when applying a transform to direct traffic through an IpSecTransform away from the host."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IpSecManager.SecurityParameterIndex",
+      "code": "allocateSecurityParameterIndex(destinationAddress: InetAddress)",
+      "desc": "Reserve a random SPI for traffic bound to or from the specified destination address."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IpSecManager.SecurityParameterIndex",
+      "code": "allocateSecurityParameterIndex(destinationAddress: InetAddress, requestedSpi: Int)",
+      "desc": "Reserve the requested SPI for traffic bound to or from the specified destination address."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "applyTransportModeTransform(socket: Socket, direction: Int, transform: IpSecTransform)",
+      "desc": "Apply an IPsec transform to a stream socket."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "applyTransportModeTransform(socket: DatagramSocket, direction: Int, transform: IpSecTransform)",
+      "desc": "Apply an IPsec transform to a datagram socket."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "applyTransportModeTransform(socket: FileDescriptor, direction: Int, transform: IpSecTransform)",
+      "desc": "Apply an IPsec transform to a socket."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IpSecManager.UdpEncapsulationSocket",
+      "code": "openUdpEncapsulationSocket(port: Int)",
+      "desc": "Open a socket for UDP encapsulation and bind to the given port."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IpSecManager.UdpEncapsulationSocket",
+      "code": "openUdpEncapsulationSocket()",
+      "desc": "Open a socket for UDP encapsulation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeTransportModeTransforms(socket: Socket)",
+      "desc": "Remove an IPsec transform from a stream socket."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeTransportModeTransforms(socket: DatagramSocket)",
+      "desc": "Remove an IPsec transform from a datagram socket."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeTransportModeTransforms(socket: FileDescriptor)",
+      "desc": "Remove an IPsec transform from a socket."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "ResourceUnavailableException",
+      "desc": "Thrown to indicate that an IPsec resource is unavailable."
+    },
+    {
+      "type": "nested-classes",
+      "code": "SecurityParameterIndex",
+      "desc": "This class represents a reserved SPI."
+    },
+    {
+      "type": "nested-classes",
+      "code": "SpiUnavailableException",
+      "desc": "Thrown to indicate that a requested SPI is in use."
+    },
+    {
+      "type": "nested-classes",
+      "code": "UdpEncapsulationSocket",
+      "desc": "This class provides access to a UDP encapsulation Socket."
+    }
+  ]
+}

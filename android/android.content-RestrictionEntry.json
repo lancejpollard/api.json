@@ -1,0 +1,383 @@
+{
+  "path": "android.content",
+  "name": "RestrictionEntry",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_BOOLEAN",
+      "desc": "Restriction of type \"bool\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_BUNDLE",
+      "desc": "Restriction of type \"bundle\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_BUNDLE_ARRAY",
+      "desc": "Restriction of type \"bundle_array\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_CHOICE",
+      "desc": "Restriction of type \"choice\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_INTEGER",
+      "desc": "Restriction of type \"integer\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_MULTI_SELECT",
+      "desc": "Restriction of type \"multi-select\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_NULL",
+      "desc": "Hidden restriction type."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TYPE_STRING",
+      "desc": "Restriction of type \"string\"."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(type: Int, key: String!)\n            Constructor for specifying the type and key, with no initial value;"
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(key: String!, selectedString: String!)\n            Constructor for TYPE_CHOICE type."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(key: String!, selectedState: Boolean)\n            Constructor for TYPE_BOOLEAN type."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(key: String!, selectedStrings: Array<String!>!)\n            Constructor for TYPE_MULTI_SELECT type."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(key: String!, selectedInt: Int)\n            Constructor for TYPE_INTEGER type."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(in: Parcel!)"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "RestrictionEntry",
+      "code": "createBundleArrayEntry(key: String!, restrictionEntries: Array<RestrictionEntry!>!)",
+      "desc": "Creates an entry of type TYPE_BUNDLE_ARRAY.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "RestrictionEntry",
+      "code": "createBundleEntry(key: String!, restrictionEntries: Array<RestrictionEntry!>!)",
+      "desc": "Creates an entry of type TYPE_BUNDLE.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getAllSelectedStrings()",
+      "desc": "Returns the list of currently selected values.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getChoiceEntries()",
+      "desc": "Returns the list of strings, set earlier, that will be presented as choices to the user.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getChoiceValues()",
+      "desc": "Returns the list of possible string values set earlier.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getDescription()",
+      "desc": "Returns the provided user-visible description of the entry, if any.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getIntValue()",
+      "desc": "Returns the value of the entry as an integer when the type is TYPE_INTEGER."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getKey()",
+      "desc": "This is the unique key for the restriction entry.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getRestrictions()",
+      "desc": "Returns array of possible restriction entries that this entry may contain.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getSelectedState()",
+      "desc": "Returns the current selected state for an entry of type TYPE_BOOLEAN."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getSelectedString()",
+      "desc": "Returns the currently selected string value.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getTitle()",
+      "desc": "Returns the user-visible title for the entry, if any.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getType()",
+      "desc": "Returns the type for this restriction."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAllSelectedStrings(allSelectedStrings: Array<String!>!)",
+      "desc": "Sets the current list of selected values for an entry of type TYPE_MULTI_SELECT."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setChoiceEntries(choiceEntries: Array<String!>!)",
+      "desc": "Sets a list of strings that will be presented as choices to the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setChoiceEntries(context: Context!, stringArrayResId: Int)",
+      "desc": "Sets a list of strings that will be presented as choices to the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setChoiceValues(choiceValues: Array<String!>!)",
+      "desc": "Sets a list of string values that can be selected by the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setChoiceValues(context: Context!, stringArrayResId: Int)",
+      "desc": "Sets a list of string values that can be selected by the user, similar to setChoiceValues(java.lang.String[])."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDescription(description: String!)",
+      "desc": "Sets the user-visible description of the entry, as a possible sub-text for the title."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setIntValue(value: Int)",
+      "desc": "Sets the integer value of the entry when the type is TYPE_INTEGER."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRestrictions(restrictions: Array<RestrictionEntry!>!)",
+      "desc": "Sets an array of possible restriction entries, that this entry may contain."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSelectedState(state: Boolean)",
+      "desc": "Sets the current selected state for an entry of type TYPE_BOOLEAN."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSelectedString(selectedString: String!)",
+      "desc": "Sets the string value to use as the selected value for this restriction."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTitle(title: String!)",
+      "desc": "Sets the user-visible title for the entry."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setType(type: Int)",
+      "desc": "Sets the type for this restriction."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "writeToParcel(dest: Parcel!, flags: Int)",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    }
+  ]
+}

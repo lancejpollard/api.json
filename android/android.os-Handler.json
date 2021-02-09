@@ -1,0 +1,280 @@
+{
+  "path": "android.os",
+  "name": "Handler",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()\n            Default constructor associates this handler with the Looper for the current thread."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(callback: Handler.Callback?)\n            Constructor associates this handler with the Looper for the current thread and takes a callback interface in which you can handle messages."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(looper: Looper)\n            Use the provided Looper instead of the default one."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(looper: Looper, callback: Handler.Callback?)\n            Use the provided Looper instead of the default one and take a callback interface in which to handle messages."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Handler",
+      "code": "createAsync(looper: Looper)",
+      "desc": "Create a new Handler whose posted messages and runnables are not subject to synchronization barriers such as display vsync."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Handler",
+      "code": "createAsync(looper: Looper, callback: Handler.Callback)",
+      "desc": "Create a new Handler whose posted messages and runnables are not subject to synchronization barriers such as display vsync."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dispatchMessage(msg: Message)",
+      "desc": "Handle system messages here."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "dump(pw: Printer, prefix: String)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Looper",
+      "code": "getLooper()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getMessageName(message: Message)",
+      "desc": "Returns a string representing the name of the specified message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "handleMessage(msg: Message)",
+      "desc": "Subclasses must implement this to receive messages."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasCallbacks(r: Runnable)",
+      "desc": "Check if there are any pending posts of messages with callback r in the message queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasMessages(what: Int)",
+      "desc": "Check if there are any pending posts of messages with code 'what' in the message queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "hasMessages(what: Int, object: Any?)",
+      "desc": "Check if there are any pending posts of messages with code 'what' and whose obj is 'object' in the message queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Message",
+      "code": "obtainMessage()",
+      "desc": "Returns a new Message from the global message pool."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Message",
+      "code": "obtainMessage(what: Int)",
+      "desc": "Same as obtainMessage(), except that it also sets the what member of the returned Message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Message",
+      "code": "obtainMessage(what: Int, obj: Any?)",
+      "desc": "Same as obtainMessage(), except that it also sets the what and obj members of the returned Message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Message",
+      "code": "obtainMessage(what: Int, arg1: Int, arg2: Int)",
+      "desc": "Same as obtainMessage(), except that it also sets the what, arg1 and arg2 members of the returned Message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Message",
+      "code": "obtainMessage(what: Int, arg1: Int, arg2: Int, obj: Any?)",
+      "desc": "Same as obtainMessage(), except that it also sets the what, obj, arg1,and arg2 values on the returned Message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "post(r: Runnable)",
+      "desc": "Causes the Runnable r to be added to the message queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "postAtFrontOfQueue(r: Runnable)",
+      "desc": "Posts a message to an object that implements Runnable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "postAtTime(r: Runnable, uptimeMillis: Long)",
+      "desc": "Causes the Runnable r to be added to the message queue, to be run at a specific time given by uptimeMillis."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "postAtTime(r: Runnable, token: Any?, uptimeMillis: Long)",
+      "desc": "Causes the Runnable r to be added to the message queue, to be run at a specific time given by uptimeMillis."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "postDelayed(r: Runnable, delayMillis: Long)",
+      "desc": "Causes the Runnable r to be added to the message queue, to be run after the specified amount of time elapses."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "postDelayed(r: Runnable, token: Any?, delayMillis: Long)",
+      "desc": "Causes the Runnable r to be added to the message queue, to be run after the specified amount of time elapses."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeCallbacks(r: Runnable)",
+      "desc": "Remove any pending posts of Runnable r that are in the message queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeCallbacks(r: Runnable, token: Any?)",
+      "desc": "Remove any pending posts of Runnable r with Object token that are in the message queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeCallbacksAndMessages(token: Any?)",
+      "desc": "Remove any pending posts of callbacks and sent messages whose obj is token."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeMessages(what: Int)",
+      "desc": "Remove any pending posts of messages with code 'what' that are in the message queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "removeMessages(what: Int, object: Any?)",
+      "desc": "Remove any pending posts of messages with code 'what' and whose obj is 'object' that are in the message queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendEmptyMessage(what: Int)",
+      "desc": "Sends a Message containing only the what value."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendEmptyMessageAtTime(what: Int, uptimeMillis: Long)",
+      "desc": "Sends a Message containing only the what value, to be delivered at a specific time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendEmptyMessageDelayed(what: Int, delayMillis: Long)",
+      "desc": "Sends a Message containing only the what value, to be delivered after the specified amount of time elapses."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendMessage(msg: Message)",
+      "desc": "Pushes a message onto the end of the message queue after all pending messages before the current time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendMessageAtFrontOfQueue(msg: Message)",
+      "desc": "Enqueue a message at the front of the message queue, to be processed on the next iteration of the message loop."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "sendMessageAtTime(msg: Message, uptimeMillis: Long)",
+      "desc": "Enqueue a message into the message queue after all pending messages before the absolute time (in milliseconds) uptimeMillis."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "sendMessageDelayed(msg: Message, delayMillis: Long)",
+      "desc": "Enqueue a message into the message queue after all pending messages before (current time + delayMillis)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "Callback interface you can use when instantiating a Handler to avoid having to implement your own subclass of Handler."
+    }
+  ]
+}

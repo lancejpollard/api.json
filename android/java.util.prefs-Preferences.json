@@ -1,0 +1,358 @@
+{
+  "path": "java.util.prefs",
+  "name": "Preferences",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MAX_KEY_LENGTH",
+      "desc": "Maximum length of string allowed as a key (80 characters)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MAX_NAME_LENGTH",
+      "desc": "Maximum length of a node name (80 characters)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MAX_VALUE_LENGTH",
+      "desc": "Maximum length of string allowed as a value (8192 characters)."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "absolutePath()",
+      "desc": "Returns this preference node's absolute path name.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "addNodeChangeListener(ncl: NodeChangeListener!)",
+      "desc": "Registers the specified listener to receive node change events for this node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "addPreferenceChangeListener(pcl: PreferenceChangeListener!)",
+      "desc": "Registers the specified listener to receive preference change events for this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Array",
+      "code": "childrenNames()",
+      "desc": "Returns the names of the children of this preference node, relative to this node.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "clear()",
+      "desc": "Removes all of the preferences (key-value associations) in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "exportNode(os: OutputStream!)",
+      "desc": "Emits on the specified output stream an XML document representing all of the preferences contained in this node (but not its descendants)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "exportSubtree(os: OutputStream!)",
+      "desc": "Emits an XML document representing all of the preferences contained in this node and all of its descendants."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "flush()",
+      "desc": "Forces any changes in the contents of this preference node and its descendants to the persistent store."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "get(key: String!, def: String!)",
+      "desc": "Returns the value associated with the specified key in this preference node.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "getBoolean(key: String!, def: Boolean)",
+      "desc": "Returns the boolean value represented by the string associated with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "ByteArray",
+      "code": "getByteArray(key: String!, def: ByteArray!)",
+      "desc": "Returns the byte array value represented by the string associated with the specified key in this preference node.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Double",
+      "code": "getDouble(key: String!, def: Double)",
+      "desc": "Returns the double value represented by the string associated with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Float",
+      "code": "getFloat(key: String!, def: Float)",
+      "desc": "Returns the float value represented by the string associated with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Int",
+      "code": "getInt(key: String!, def: Int)",
+      "desc": "Returns the int value represented by the string associated with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Long",
+      "code": "getLong(key: String!, def: Long)",
+      "desc": "Returns the long value represented by the string associated with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "importPreferences(is: InputStream!)",
+      "desc": "Imports all of the preferences represented by the XML document on the specified input stream."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "isUserNode()",
+      "desc": "Returns true if this preference node is in the user preference tree, false if it's in the system preference tree."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Array",
+      "code": "keys()",
+      "desc": "Returns all of the keys that have an associated value in this preference node.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "name()",
+      "desc": "Returns this preference node's name, relative to its parent.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Preferences",
+      "code": "node(pathName: String!)",
+      "desc": "Returns the named preference node in the same tree as this node, creating it and any of its ancestors if they do not already exist.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Boolean",
+      "code": "nodeExists(pathName: String!)",
+      "desc": "Returns true if the named preference node exists in the same tree as this node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Preferences",
+      "code": "parent()",
+      "desc": "Returns the parent of this preference node, or null if this is the root.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "put(key: String!, value: String!)",
+      "desc": "Associates the specified value with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "putBoolean(key: String!, value: Boolean)",
+      "desc": "Associates a string representing the specified boolean value with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "putByteArray(key: String!, value: ByteArray!)",
+      "desc": "Associates a string representing the specified byte array with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "putDouble(key: String!, value: Double)",
+      "desc": "Associates a string representing the specified double value with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "putFloat(key: String!, value: Float)",
+      "desc": "Associates a string representing the specified float value with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "putInt(key: String!, value: Int)",
+      "desc": "Associates a string representing the specified int value with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "putLong(key: String!, value: Long)",
+      "desc": "Associates a string representing the specified long value with the specified key in this preference node."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "remove(key: String!)",
+      "desc": "Removes the value associated with the specified key in this preference node, if any."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "removeNode()",
+      "desc": "Removes this preference node and all of its descendants, invalidating any preferences contained in the removed nodes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "removeNodeChangeListener(ncl: NodeChangeListener!)",
+      "desc": "Removes the specified NodeChangeListener, so it no longer receives change events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "removePreferenceChangeListener(pcl: PreferenceChangeListener!)",
+      "desc": "Removes the specified preference change listener, so it no longer receives preference change events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "sync()",
+      "desc": "Ensures that future reads from this preference node and its descendants reflect any changes that were committed to the persistent store (from any VM) prior to the sync invocation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Preferences",
+      "code": "systemNodeForPackage(c: Class<*>!)",
+      "desc": "WARNING: On Android, the Preference nodes corresponding to the \"system\" and \"user\" preferences are stored in sections of the file system that are inaccessible to apps.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Preferences",
+      "code": "systemRoot()",
+      "desc": "WARNING: On Android, the Preference nodes corresponding to the \"system\" and \"user\" preferences are stored in sections of the file system that are inaccessible to apps.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": "Returns a string representation of this preferences node, as if computed by the expression:(this.isUserNode() ? \"User\" : \"System\") + \" Preference Node: \" + this.absolutePath()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Preferences",
+      "code": "userNodeForPackage(c: Class<*>!)",
+      "desc": "WARNING: On Android, the Preference nodes corresponding to the \"system\" and \"user\" preferences are stored in sections of the file system that are inaccessible to apps.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Preferences",
+      "code": "userRoot()",
+      "desc": "WARNING: On Android, the Preference nodes corresponding to the \"system\" and \"user\" preferences are stored in sections of the file system that are inaccessible to apps.",
+      "symbol": "!"
+    }
+  ]
+}

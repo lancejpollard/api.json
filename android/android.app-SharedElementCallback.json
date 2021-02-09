@@ -1,0 +1,81 @@
+{
+  "path": "android.app",
+  "name": "SharedElementCallback",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Parcelable",
+      "code": "onCaptureSharedElementSnapshot(sharedElement: View!, viewToGlobalMatrix: Matrix!, screenBounds: RectF!)",
+      "desc": "Creates a snapshot of a shared element to be used by the remote Activity and reconstituted with onCreateSnapshotView(android.content.Context,android.os.Parcelable).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "View",
+      "code": "onCreateSnapshotView(context: Context!, snapshot: Parcelable!)",
+      "desc": "Reconstitutes a snapshot View from a Parcelable returned in onCaptureSharedElementSnapshot(android.view.View,android.graphics.Matrix,android.graphics.RectF) to be used in onSharedElementStart(java.util.List,java.util.List,java.util.List) and onSharedElementEnd(java.util.List,java.util.List,java.util.List).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onMapSharedElements(names: MutableList<String!>!, sharedElements: MutableMap<String!, View!>!)",
+      "desc": "Lets the SharedElementCallback adjust the mapping of shared element names to Views."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onRejectSharedElements(rejectedSharedElements: MutableList<View!>!)",
+      "desc": "Called after onMapSharedElements(java.util.List,java.util.Map) when transferring shared elements in."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSharedElementEnd(sharedElementNames: MutableList<String!>!, sharedElements: MutableList<View!>!, sharedElementSnapshots: MutableList<View!>!)",
+      "desc": "In Activity Transitions, onSharedElementEnd is called immediately before capturing the end of the shared element state on enter and reenter transitions and immediately before capturing the start of the shared element state for exit and return transitions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSharedElementStart(sharedElementNames: MutableList<String!>!, sharedElements: MutableList<View!>!, sharedElementSnapshots: MutableList<View!>!)",
+      "desc": "In Activity Transitions, onSharedElementStart is called immediately before capturing the start of the shared element state on enter and reenter transitions and immediately before capturing the end of the shared element state for exit and return transitions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSharedElementsArrived(sharedElementNames: MutableList<String!>!, sharedElements: MutableList<View!>!, listener: SharedElementCallback.OnSharedElementsReadyListener!)",
+      "desc": "Called during an Activity Transition when the shared elements have arrived at the final location and are ready to be transferred."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnSharedElementsReadyListener",
+      "desc": "Listener to be called after SharedElementCallback#onSharedElementsArrived(List, List, OnSharedElementsReadyListener) when the shared elements are ready to be hidden in the source Activity and shown in the destination Activity."
+    }
+  ]
+}

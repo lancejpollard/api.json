@@ -1,0 +1,552 @@
+{
+  "path": "android.media",
+  "name": "MediaCodec",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BUFFER_FLAG_CODEC_CONFIG",
+      "desc": "This indicated that the buffer marked as such contains codec initialization / codec specific data instead of media data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BUFFER_FLAG_END_OF_STREAM",
+      "desc": "This signals the end of stream, i."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BUFFER_FLAG_KEY_FRAME",
+      "desc": "This indicates that the (encoded) buffer marked as such contains the data for a key frame."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BUFFER_FLAG_PARTIAL_FRAME",
+      "desc": "This indicates that the buffer only contains part of a frame, and the decoder should batch the data until a buffer without this flag appears before decoding the frame."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BUFFER_FLAG_SYNC_FRAME",
+      "desc": "This indicates that the (encoded) buffer marked as such contains the data for a key frame."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFIGURE_FLAG_ENCODE",
+      "desc": "If this codec is to be used as an encoder, pass this flag."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CONFIGURE_FLAG_USE_BLOCK_MODEL",
+      "desc": "If this codec is to be used with LinearBlock and/or HardwareBuffer, pass this flag."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CRYPTO_MODE_AES_CBC",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CRYPTO_MODE_AES_CTR",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "CRYPTO_MODE_UNENCRYPTED",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INFO_OUTPUT_BUFFERS_CHANGED",
+      "desc": "The output buffers have changed, the client must refer to the new set of output buffers returned by getOutputBuffers from this point on."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INFO_OUTPUT_FORMAT_CHANGED",
+      "desc": "The output format has changed, subsequent data will follow the new format."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INFO_TRY_AGAIN_LATER",
+      "desc": "If a non-negative timeout had been specified in the call to dequeueOutputBuffer, indicates that the call timed out."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PARAMETER_KEY_HDR10_PLUS_INFO",
+      "desc": "Set the HDR10+ metadata on the next queued input frame."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PARAMETER_KEY_LOW_LATENCY",
+      "desc": "Enable/disable low latency decoding mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PARAMETER_KEY_OFFSET_TIME",
+      "desc": "Specify an offset (in micro-second) to be added on top of the timestamps onward."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PARAMETER_KEY_REQUEST_SYNC_FRAME",
+      "desc": "Request that the encoder produce a sync frame \"soon\"."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PARAMETER_KEY_SUSPEND",
+      "desc": "Temporarily suspend/resume encoding of input data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PARAMETER_KEY_SUSPEND_TIME",
+      "desc": "When PARAMETER_KEY_SUSPEND is present, the client can also optionally use this key to specify the timestamp (in micro-second) at which the suspend/resume operation takes effect."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "PARAMETER_KEY_VIDEO_BITRATE",
+      "desc": "Change a video encoder's target bitrate on the fly."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_SCALING_MODE_SCALE_TO_FIT",
+      "desc": "The content is scaled to the surface dimensions"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING",
+      "desc": "The content is scaled, maintaining its aspect ratio, the whole surface area is used, content may be cropped."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "configure(format: MediaFormat?, surface: Surface?, crypto: MediaCrypto?, flags: Int)",
+      "desc": "Configures a component."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "configure(format: MediaFormat?, surface: Surface?, flags: Int, descrambler: MediaDescrambler?)",
+      "desc": "Configure a component to be used with a descrambler."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MediaCodec",
+      "code": "createByCodecName(name: String)",
+      "desc": "If you know the exact name of the component you want to instantiate use this method to instantiate it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MediaCodec",
+      "code": "createDecoderByType(type: String)",
+      "desc": "Instantiate the preferred decoder supporting input data of the given mime type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "MediaCodec",
+      "code": "createEncoderByType(type: String)",
+      "desc": "Instantiate the preferred encoder supporting output data of the given mime type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Surface",
+      "code": "createInputSurface()",
+      "desc": "Requests a Surface to use as the input to an encoder, in place of input buffers."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Surface",
+      "code": "createPersistentInputSurface()",
+      "desc": "Create a persistent input surface that can be used with codecs that normally have an input surface, such as video encoders."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "dequeueInputBuffer(timeoutUs: Long)",
+      "desc": "Returns the index of an input buffer to be filled with valid data or -1 if no such buffer is currently available."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "dequeueOutputBuffer(info: MediaCodec.BufferInfo, timeoutUs: Long)",
+      "desc": "Dequeue an output buffer, block at most \"timeoutUs\" microseconds."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "flush()",
+      "desc": "Flush both input and output ports of the component."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getCanonicalName()",
+      "desc": "Retrieve the underlying codec name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaCodecInfo",
+      "code": "getCodecInfo()",
+      "desc": "Get the codec info."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteBuffer",
+      "code": "getInputBuffer(index: Int)",
+      "desc": "Returns a cleared, writable ByteBuffer object for a dequeued input buffer index to contain the input data.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getInputBuffers()",
+      "desc": "Retrieve the set of input buffers.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaFormat",
+      "code": "getInputFormat()",
+      "desc": "Call this after configure returns successfully to get the input format accepted by the codec."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Image",
+      "code": "getInputImage(index: Int)",
+      "desc": "Returns a writable Image object for a dequeued input buffer index to contain the raw input video frame.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "PersistableBundle",
+      "code": "getMetrics()",
+      "desc": "Return Metrics data about the current codec instance.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getName()",
+      "desc": "Retrieve the codec name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteBuffer",
+      "code": "getOutputBuffer(index: Int)",
+      "desc": "Returns a read-only ByteBuffer for a dequeued output buffer index.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Array",
+      "code": "getOutputBuffers()",
+      "desc": "Retrieve the set of output buffers.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaFormat",
+      "code": "getOutputFormat()",
+      "desc": "Call this after dequeueOutputBuffer signals a format change by returning INFO_OUTPUT_FORMAT_CHANGED."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaFormat",
+      "code": "getOutputFormat(index: Int)",
+      "desc": "Returns the output format for a specific output buffer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaCodec.OutputFrame",
+      "code": "getOutputFrame(index: Int)",
+      "desc": "Returns an OutputFrame object."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Image",
+      "code": "getOutputImage(index: Int)",
+      "desc": "Returns a read-only Image object for a dequeued output buffer index that contains the raw video frame.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaCodec.QueueRequest",
+      "code": "getQueueRequest(index: Int)",
+      "desc": "Return a QueueRequest object for an input slot index."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Image",
+      "code": "mapHardwareBuffer(hardwareBuffer: HardwareBuffer)",
+      "desc": "Map a HardwareBuffer object into Image, so that the content of the buffer is accessible.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "queueInputBuffer(index: Int, offset: Int, size: Int, presentationTimeUs: Long, flags: Int)",
+      "desc": "After filling a range of the input buffer at the specified index submit it to the component."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "queueSecureInputBuffer(index: Int, offset: Int, info: MediaCodec.CryptoInfo, presentationTimeUs: Long, flags: Int)",
+      "desc": "Similar to queueInputBuffer but submits a buffer that is potentially encrypted."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": "Free up resources used by the codec instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "releaseOutputBuffer(index: Int, render: Boolean)",
+      "desc": "If you are done with a buffer, use this call to return the buffer to the codec or to render it on the output surface."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "releaseOutputBuffer(index: Int, renderTimestampNs: Long)",
+      "desc": "If you are done with a buffer, use this call to update its surface timestamp and return it to the codec to render it on the output surface."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "reset()",
+      "desc": "Returns the codec to its initial (Uninitialized) state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setAudioPresentation(presentation: AudioPresentation)",
+      "desc": "Sets the audio presentation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCallback(cb: MediaCodec.Callback?, handler: Handler?)",
+      "desc": "Sets an asynchronous callback for actionable MediaCodec events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setCallback(cb: MediaCodec.Callback?)",
+      "desc": "Sets an asynchronous callback for actionable MediaCodec events on the default looper."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setInputSurface(surface: Surface)",
+      "desc": "Configures the codec (e.g. encoder) to use a persistent input surface in place of input buffers."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOnFrameRenderedListener(listener: MediaCodec.OnFrameRenderedListener?, handler: Handler?)",
+      "desc": "Registers a callback to be invoked when an output frame is rendered on the output surface."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setOutputSurface(surface: Surface)",
+      "desc": "Dynamically sets the output surface of a codec."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setParameters(params: Bundle?)",
+      "desc": "Communicate additional parameter changes to the component instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setVideoScalingMode(mode: Int)",
+      "desc": "If a surface has been specified in a previous call to configure specifies the scaling mode to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "signalEndOfInputStream()",
+      "desc": "Signals end-of-stream on input."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "start()",
+      "desc": "After successfully configuring the component, call start."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stop()",
+      "desc": "Finish the decode/encode session, note that the codec instance remains active and ready to be started again."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "code": "BufferInfo",
+      "desc": "Per buffer metadata includes an offset and size specifying the range of valid data in the associated codec (output) buffer."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "Callback",
+      "desc": "MediaCodec callback interface."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CodecException",
+      "desc": "Thrown when an internal codec error occurs."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CryptoException",
+      "desc": "Thrown when a crypto error occurs while queueing a secure input buffer."
+    },
+    {
+      "type": "nested-classes",
+      "code": "CryptoInfo",
+      "desc": "Metadata describing the structure of an encrypted input sample."
+    },
+    {
+      "type": "nested-classes",
+      "code": "IncompatibleWithBlockModelException",
+      "desc": "Thrown when the codec is configured for block model and an incompatible API is called."
+    },
+    {
+      "type": "nested-classes",
+      "code": "LinearBlock",
+      "desc": "Section of memory that represents a linear block."
+    },
+    {
+      "type": "nested-classes",
+      "code": "MetricsConstants",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnFrameRenderedListener",
+      "desc": "Listener to be called when an output frame has rendered on the output surface"
+    },
+    {
+      "type": "nested-classes",
+      "code": "OutputFrame",
+      "desc": "A single output frame and its associated metadata."
+    },
+    {
+      "type": "nested-classes",
+      "code": "QueueRequest",
+      "desc": "Builder-like class for queue requests."
+    }
+  ]
+}

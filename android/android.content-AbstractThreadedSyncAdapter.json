@@ -1,0 +1,85 @@
+{
+  "path": "android.content",
+  "name": "AbstractThreadedSyncAdapter",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOG_SYNC_DETAILS",
+      "desc": "Kernel event log tag."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, autoInitialize: Boolean)\n            Creates an AbstractThreadedSyncAdapter."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, autoInitialize: Boolean, allowParallelSyncs: Boolean)\n            Creates an AbstractThreadedSyncAdapter."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Context",
+      "code": "getContext()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "IBinder",
+      "code": "getSyncAdapterBinder()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "abstract",
+      "identifier": "Unit",
+      "code": "onPerformSync(account: Account!, extras: Bundle!, authority: String!, provider: ContentProviderClient!, syncResult: SyncResult!)",
+      "desc": "Perform a sync for this account."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSecurityException(account: Account!, extras: Bundle!, authority: String!, syncResult: SyncResult!)",
+      "desc": "Report that there was a security exception when opening the content provider prior to calling onPerformSync."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSyncCanceled()",
+      "desc": "Indicates that a sync operation has been canceled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "onSyncCanceled(thread: Thread!)",
+      "desc": "Indicates that a sync operation has been canceled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onUnsyncableAccount()",
+      "desc": "Allows to defer syncing until all accounts are properly set up."
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "path": "android.nfc",
+  "name": "NdefRecord",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "TNF_ABSOLUTE_URI",
+      "desc": "Indicates the type field contains an absolute-URI BNF construct defined by RFC 3986."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "TNF_EMPTY",
+      "desc": "Indicates the record is empty."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "TNF_EXTERNAL_TYPE",
+      "desc": "Indicates the type field contains an external type name."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "TNF_MIME_MEDIA",
+      "desc": "Indicates the type field contains a media-type BNF construct, defined by RFC 2046."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "TNF_UNCHANGED",
+      "desc": "Indicates the payload is an intermediate or final chunk of a chunked NDEF Record."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "TNF_UNKNOWN",
+      "desc": "Indicates the payload type is unknown."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Short",
+      "code": "TNF_WELL_KNOWN",
+      "desc": "Indicates the type field contains a well-known RTD type name."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(tnf: Short, type: ByteArray!, id: ByteArray!, payload: ByteArray!)\n            Construct an NDEF Record from its component fields."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(data: ByteArray!)\n            Construct an NDEF Record from raw bytes."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "NdefRecord",
+      "code": "createApplicationRecord(packageName: String!)",
+      "desc": "Create a new Android Application Record (AAR).",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "NdefRecord",
+      "code": "createExternal(domain: String!, type: String!, data: ByteArray!)",
+      "desc": "Create a new NDEF Record containing external (application-specific) data.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "NdefRecord",
+      "code": "createMime(mimeType: String!, mimeData: ByteArray!)",
+      "desc": "Create a new NDEF Record containing MIME data.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "NdefRecord",
+      "code": "createTextRecord(languageCode: String!, text: String!)",
+      "desc": "Create a new NDEF record containing UTF-8 text data.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "NdefRecord",
+      "code": "createUri(uri: Uri!)",
+      "desc": "Create a new NDEF Record containing a URI.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "NdefRecord",
+      "code": "createUri(uriString: String!)",
+      "desc": "Create a new NDEF Record containing a URI.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": "Returns true if the specified NDEF Record contains identical tnf, type, id and payload fields."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "getId()",
+      "desc": "Returns the variable length ID.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "getPayload()",
+      "desc": "Returns the variable length payload.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Short",
+      "code": "getTnf()",
+      "desc": "Returns the 3-bit TNF."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "getType()",
+      "desc": "Returns the variable length Type field.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "toByteArray()",
+      "desc": "Return this NDEF Record as a byte array.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toMimeType()",
+      "desc": "Map this record to a MIME type, or return null if it cannot be mapped.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Uri",
+      "code": "toUri()",
+      "desc": "Map this record to a URI, or return null if it cannot be mapped.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "writeToParcel(dest: Parcel!, flags: Int)",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    }
+  ]
+}

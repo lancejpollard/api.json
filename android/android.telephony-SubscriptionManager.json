@@ -1,0 +1,417 @@
+{
+  "path": "android.telephony",
+  "name": "SubscriptionManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEFAULT_SMS_SUBSCRIPTION_CHANGED",
+      "desc": "Broadcast Action: The default sms subscription has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEFAULT_SUBSCRIPTION_CHANGED",
+      "desc": "Broadcast Action: The default subscription has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_MANAGE_SUBSCRIPTION_PLANS",
+      "desc": "Activity Action: Display UI for managing the billing relationship plans between a carrier and a specific subscriber."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_REFRESH_SUBSCRIPTION_PLANS",
+      "desc": "Broadcast Action: Request a refresh of the billing relationship plans between a carrier and a specific subscriber."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DATA_ROAMING_DISABLE",
+      "desc": "Indicates that data roaming is disabled for a subscription"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DATA_ROAMING_ENABLE",
+      "desc": "Indicates that data roaming is enabled for a subscription"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DEFAULT_SUBSCRIPTION_ID",
+      "desc": "Indicates the default subscription ID in Telephony."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SLOT_INDEX",
+      "desc": "Integer extra to specify SIM slot index."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_SUBSCRIPTION_INDEX",
+      "desc": "Integer extra used with ACTION_DEFAULT_SUBSCRIPTION_CHANGED and ACTION_DEFAULT_SMS_SUBSCRIPTION_CHANGED to indicate the subscription which has changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INVALID_SIM_SLOT_INDEX",
+      "desc": "Indicates invalid sim slot."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INVALID_SUBSCRIPTION_ID",
+      "desc": "An invalid subscription identifier"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SUBSCRIPTION_TYPE_LOCAL_SIM",
+      "desc": "This constant is to designate a subscription as a Local-SIM Subscription."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SUBSCRIPTION_TYPE_REMOTE_SIM",
+      "desc": "This constant is to designate a subscription as a Remote-SIM Subscription."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnOpportunisticSubscriptionsChangedListener(executor: Executor, listener: SubscriptionManager.OnOpportunisticSubscriptionsChangedListener)",
+      "desc": "Register for changes to the list of opportunistic subscription records or to the individual records themselves."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnSubscriptionsChangedListener(listener: SubscriptionManager.OnSubscriptionsChangedListener!)",
+      "desc": "Register for changes to the list of active SubscriptionInfo records or to the individual records themselves."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnSubscriptionsChangedListener(executor: Executor, listener: SubscriptionManager.OnSubscriptionsChangedListener)",
+      "desc": "Register for changes to the list of active SubscriptionInfo records or to the individual records themselves."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addSubscriptionsIntoGroup(subIdList: MutableList<Int!>, groupUuid: ParcelUuid)",
+      "desc": "Add a list of subscriptions into a group."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "canManageSubscription(info: SubscriptionInfo!)",
+      "desc": "Checks whether the app with the given context is authorized to manage the given subscription according to its metadata."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ParcelUuid",
+      "code": "createSubscriptionGroup(subIdList: MutableList<Int!>)",
+      "desc": "Inform SubscriptionManager that subscriptions in the list are bundled as a group."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SubscriptionManager",
+      "code": "from(context: Context!)",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getAccessibleSubscriptionInfoList()",
+      "desc": "Gets the SubscriptionInfo(s) of all embedded subscriptions accessible to the calling app, if any.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getActiveDataSubscriptionId()",
+      "desc": "Get active data subscription id."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SubscriptionInfo",
+      "code": "getActiveSubscriptionInfo(subId: Int)",
+      "desc": "Get the active SubscriptionInfo with the input subId.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getActiveSubscriptionInfoCount()",
+      "desc": "Requires Permission: READ_PHONE_STATE or that the calling app has carrier privileges (see TelephonyManager#hasCarrierPrivileges)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getActiveSubscriptionInfoCountMax()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SubscriptionInfo",
+      "code": "getActiveSubscriptionInfoForSimSlotIndex(slotIndex: Int)",
+      "desc": "Get the active SubscriptionInfo associated with the slotIndex",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getActiveSubscriptionInfoList()",
+      "desc": "Get the SubscriptionInfo(s) of the currently active SIM(s).",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getCompleteActiveSubscriptionInfoList()",
+      "desc": "Get both hidden and visible SubscriptionInfo(s) of the currently active SIM(s).",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDefaultDataSubscriptionId()",
+      "desc": "Returns the system's default data subscription id."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDefaultSmsSubscriptionId()",
+      "desc": "Returns the system's default SMS subscription id."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDefaultSubscriptionId()",
+      "desc": "Returns the system's default subscription id."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDefaultVoiceSubscriptionId()",
+      "desc": "Returns the system's default voice subscription id."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getOpportunisticSubscriptions()",
+      "desc": "Return opportunistic subscriptions that can be visible to the caller.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSlotIndex(subscriptionId: Int)",
+      "desc": "Get slotIndex associated with the subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "IntArray",
+      "code": "getSubscriptionIds(slotIndex: Int)",
+      "desc": "Get an array of Subscription Ids for specified slot Index.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getSubscriptionPlans(subId: Int)",
+      "desc": "Get the description of the billing relationship plan between a carrier and a specific subscriber.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getSubscriptionsInGroup(groupUuid: ParcelUuid)",
+      "desc": "Get subscriptionInfo list of subscriptions that are in the same group of given subId.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isActiveSubscriptionId(subscriptionId: Int)",
+      "desc": "Checks if the supplied subscription ID corresponds to a subscription which is actively in use on the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isNetworkRoaming(subId: Int)",
+      "desc": "Returns true if the device is considered roaming on the current network for a subscription."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isUsableSubscriptionId(subscriptionId: Int)",
+      "desc": "Check if the supplied subscription ID is usable."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isValidSubscriptionId(subscriptionId: Int)",
+      "desc": "Check if the supplied subscription ID is valid."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnOpportunisticSubscriptionsChangedListener(listener: SubscriptionManager.OnOpportunisticSubscriptionsChangedListener)",
+      "desc": "Unregister the OnOpportunisticSubscriptionsChangedListener that is currently listening opportunistic subscriptions change."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnSubscriptionsChangedListener(listener: SubscriptionManager.OnSubscriptionsChangedListener!)",
+      "desc": "Unregister the OnSubscriptionsChangedListener."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeSubscriptionsFromGroup(subIdList: MutableList<Int!>, groupUuid: ParcelUuid)",
+      "desc": "Remove a list of subscriptions from their subscription group."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setOpportunistic(opportunistic: Boolean, subId: Int)",
+      "desc": "Set whether a subscription is opportunistic, that is, whether the network it connects to has limited coverage."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSubscriptionOverrideCongested(subId: Int, overrideCongested: Boolean, timeoutMillis: Long)",
+      "desc": "Temporarily override the billing relationship plan between a carrier and a specific subscriber to be considered congested."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSubscriptionOverrideUnmetered(subId: Int, overrideUnmetered: Boolean, timeoutMillis: Long)",
+      "desc": "Temporarily override the billing relationship plan between a carrier and a specific subscriber to be considered unmetered."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSubscriptionPlans(subId: Int, plans: MutableList<SubscriptionPlan!>)",
+      "desc": "Set the description of the billing relationship plan between a carrier and a specific subscriber."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "switchToSubscription(subId: Int, callbackIntent: PendingIntent)",
+      "desc": "Switch to a certain subscription  Requires android."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "OnOpportunisticSubscriptionsChangedListener",
+      "desc": "A listener class for monitoring changes to SubscriptionInfo records of opportunistic subscriptions."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "OnSubscriptionsChangedListener",
+      "desc": "A listener class for monitoring changes to SubscriptionInfo records."
+    }
+  ]
+}

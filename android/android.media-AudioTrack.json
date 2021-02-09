@@ -1,0 +1,868 @@
+{
+  "path": "android.media",
+  "name": "AudioTrack",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DUAL_MONO_MODE_LL",
+      "desc": "This mode indicates that a stereo stream should be presented with the left audio channel replicated into the right audio channel."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DUAL_MONO_MODE_LR",
+      "desc": "This mode indicates that a stereo stream should be presented with the left and right audio channels blended together and delivered to both channels."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DUAL_MONO_MODE_OFF",
+      "desc": "This mode disables any Dual Mono presentation effect."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DUAL_MONO_MODE_RR",
+      "desc": "This mode indicates that a stereo stream should be presented with the right audio channel replicated into the left audio channel."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCAPSULATION_METADATA_TYPE_DVB_AD_DESCRIPTOR",
+      "desc": "Encapsulation metadata type for DVB AD descriptor."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCAPSULATION_METADATA_TYPE_FRAMEWORK_TUNER",
+      "desc": "Encapsulation metadata type for framework tuner information."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCAPSULATION_MODE_ELEMENTARY_STREAM",
+      "desc": "This mode indicates metadata encapsulation with an elementary stream payload."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCAPSULATION_MODE_NONE",
+      "desc": "This mode indicates no metadata encapsulation, which is the default mode for sending audio data through AudioTrack."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR",
+      "desc": "Denotes a generic operation failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_BAD_VALUE",
+      "desc": "Denotes a failure due to the use of an invalid value."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_DEAD_OBJECT",
+      "desc": "An error code indicating that the object reporting it is no longer valid and needs to be recreated."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_INVALID_OPERATION",
+      "desc": "Denotes a failure due to the improper use of a method."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_STATIC",
+      "desc": "Creation mode where audio data is transferred from Java to the native layer only once before the audio starts playing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MODE_STREAM",
+      "desc": "Creation mode where audio data is streamed from Java to the native layer as the audio is playing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERFORMANCE_MODE_LOW_LATENCY",
+      "desc": "Low latency performance mode for an AudioTrack."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERFORMANCE_MODE_NONE",
+      "desc": "Default performance mode for an AudioTrack."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERFORMANCE_MODE_POWER_SAVING",
+      "desc": "Power saving performance mode for an AudioTrack."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PLAYSTATE_PAUSED",
+      "desc": "indicates AudioTrack state is paused"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PLAYSTATE_PLAYING",
+      "desc": "indicates AudioTrack state is playing"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PLAYSTATE_STOPPED",
+      "desc": "indicates AudioTrack state is stopped"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_INITIALIZED",
+      "desc": "State of an AudioTrack that is ready to be used."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_NO_STATIC_DATA",
+      "desc": "State of a successfully initialized AudioTrack that uses static data, but that hasn't received that data yet."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STATE_UNINITIALIZED",
+      "desc": "State of an AudioTrack that was not successfully initialized upon creation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SUCCESS",
+      "desc": "Denotes a successful operation."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WRITE_BLOCKING",
+      "desc": "The write mode indicating the write operation will block until all data has been written, to be used as the actual value of the writeMode parameter in write(byte[],int,int,int), write(short[],int,int,int), write(float[],int,int,int), write(java.nio.ByteBuffer,int,int), and write(java.nio.ByteBuffer,int,int,long)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WRITE_NON_BLOCKING",
+      "desc": "The write mode indicating the write operation will return immediately after queuing as much audio data for playback as possible without blocking, to be used as the actual value of the writeMode parameter in write(java.nio.ByteBuffer,int,int), write(short[],int,int,int), write(float[],int,int,int), write(java.nio.ByteBuffer,int,int), and write(java.nio.ByteBuffer,int,int,long)."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(streamType: Int, sampleRateInHz: Int, channelConfig: Int, audioFormat: Int, bufferSizeInBytes: Int, mode: Int)\n            Class constructor."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(streamType: Int, sampleRateInHz: Int, channelConfig: Int, audioFormat: Int, bufferSizeInBytes: Int, mode: Int, sessionId: Int)\n            Class constructor with audio session."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(attributes: AudioAttributes!, format: AudioFormat!, bufferSizeInBytes: Int, mode: Int, sessionId: Int)\n            Class constructor with AudioAttributes and AudioFormat."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnCodecFormatChangedListener(executor: Executor, listener: AudioTrack.OnCodecFormatChangedListener)",
+      "desc": "Adds an OnCodecFormatChangedListener to receive notifications of codec format change events on this AudioTrack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnRoutingChangedListener(listener: AudioRouting.OnRoutingChangedListener!, handler: Handler!)",
+      "desc": "Adds an AudioRouting.OnRoutingChangedListener to receive notifications of routing changes on this AudioTrack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addOnRoutingChangedListener(listener: AudioTrack.OnRoutingChangedListener!, handler: Handler!)",
+      "desc": "Adds an OnRoutingChangedListener to receive notifications of routing changes on this AudioTrack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "attachAuxEffect(effectId: Int)",
+      "desc": "Attaches an auxiliary effect to the audio track."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "VolumeShaper",
+      "code": "createVolumeShaper(configuration: VolumeShaper.Configuration)",
+      "desc": "Returns a VolumeShaper object that can be used modify the volume envelope of the player or track."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "flush()",
+      "desc": "Flushes the audio data currently queued for playback."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AudioAttributes",
+      "code": "getAudioAttributes()",
+      "desc": "Returns the AudioAttributes used in configuration."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getAudioDescriptionMixLeveldB()",
+      "desc": "Returns the Audio Description mix level in dB."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getAudioFormat()",
+      "desc": "Returns the configured audio data encoding."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getAudioSessionId()",
+      "desc": "Returns the audio session ID."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getBufferCapacityInFrames()",
+      "desc": "Returns the maximum size of the AudioTrack buffer in frames."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getBufferSizeInFrames()",
+      "desc": "Returns the effective size of the AudioTrack buffer that the application writes to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getChannelConfiguration()",
+      "desc": "Returns the configured channel position mask."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getChannelCount()",
+      "desc": "Returns the configured number of channels."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDualMonoMode()",
+      "desc": "Returns the Dual Mono mode presentation setting."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AudioFormat",
+      "code": "getFormat()",
+      "desc": "Returns the configured AudioTrack format."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getMaxVolume()",
+      "desc": "Returns the maximum gain value, which is greater than or equal to 1."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PersistableBundle",
+      "code": "getMetrics()",
+      "desc": "Return Metrics data about the current AudioTrack instance.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMinBufferSize(sampleRateInHz: Int, channelConfig: Int, audioFormat: Int)",
+      "desc": "Returns the estimated minimum buffer size required for an AudioTrack object to be created in the MODE_STREAM mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getMinVolume()",
+      "desc": "Returns the minimum gain value, which is the constant 0."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getNativeOutputSampleRate(streamType: Int)",
+      "desc": "Returns the output sample rate in Hz for the specified stream type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getNotificationMarkerPosition()",
+      "desc": "Returns marker position expressed in frames."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getOffloadDelay()",
+      "desc": "Return the decoder delay of an offloaded track, expressed in frames, previously set with setOffloadDelayPadding(int,int), or 0 if it was never modified."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getOffloadPadding()",
+      "desc": "Return the decoder padding of an offloaded track, expressed in frames, previously set with setOffloadDelayPadding(int,int), or 0 if it was never modified."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPerformanceMode()",
+      "desc": "Returns the current performance mode of the AudioTrack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPlayState()",
+      "desc": "Returns the playback state of the AudioTrack instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPlaybackHeadPosition()",
+      "desc": "Returns the playback head position expressed in frames."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PlaybackParams",
+      "code": "getPlaybackParams()",
+      "desc": "Returns the current playback parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPlaybackRate()",
+      "desc": "Returns the current playback sample rate rate in Hz."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPositionNotificationPeriod()",
+      "desc": "Returns the notification update period expressed in frames."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AudioDeviceInfo",
+      "code": "getPreferredDevice()",
+      "desc": "Returns the selected output specified by setPreferredDevice.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AudioDeviceInfo",
+      "code": "getRoutedDevice()",
+      "desc": "Returns an AudioDeviceInfo identifying the current routing of this AudioTrack.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getSampleRate()",
+      "desc": "Returns the configured audio source sample rate in Hz."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getState()",
+      "desc": "Returns the state of the AudioTrack instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getStreamType()",
+      "desc": "Returns the volume stream type of this AudioTrack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getTimestamp(timestamp: AudioTimestamp!)",
+      "desc": "Poll for a timestamp on demand."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getUnderrunCount()",
+      "desc": "Returns the number of underrun occurrences in the application-level write buffer since the AudioTrack was created."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDirectPlaybackSupported(format: AudioFormat, attributes: AudioAttributes)",
+      "desc": "Returns whether direct playback of an audio format with the provided attributes is currently supported on the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOffloadedPlayback()",
+      "desc": "Returns whether the track was built with Builder#setOffloadedPlayback(boolean) set to true."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "pause()",
+      "desc": "Pauses the playback of the audio data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "play()",
+      "desc": "Starts playing an AudioTrack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "registerStreamEventCallback(executor: Executor, eventCallback: AudioTrack.StreamEventCallback)",
+      "desc": "Registers a callback for the notification of stream events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "release()",
+      "desc": "Releases the native AudioTrack resources."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "reloadStaticData()",
+      "desc": "Sets the playback head position within the static buffer to zero, that is it rewinds to start of static buffer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnCodecFormatChangedListener(listener: AudioTrack.OnCodecFormatChangedListener)",
+      "desc": "Removes an OnCodecFormatChangedListener which has been previously added to receive codec format change events."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnRoutingChangedListener(listener: AudioRouting.OnRoutingChangedListener!)",
+      "desc": "Removes an AudioRouting.OnRoutingChangedListener which has been previously added to receive rerouting notifications."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeOnRoutingChangedListener(listener: AudioTrack.OnRoutingChangedListener!)",
+      "desc": "Removes an OnRoutingChangedListener which has been previously added to receive rerouting notifications."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setAudioDescriptionMixLeveldB(level: Float)",
+      "desc": "Sets the Audio Description mix level in dB."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setAuxEffectSendLevel(level: Float)",
+      "desc": "Sets the send level of the audio track to the attached auxiliary effect attachAuxEffect(int)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setBufferSizeInFrames(bufferSizeInFrames: Int)",
+      "desc": "Limits the effective size of the AudioTrack buffer that the application writes to."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setDualMonoMode(dualMonoMode: Int)",
+      "desc": "Sets the Dual Mono mode presentation on the output device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setLoopPoints(startInFrames: Int, endInFrames: Int, loopCount: Int)",
+      "desc": "Sets the loop points and the loop count."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setNotificationMarkerPosition(markerInFrames: Int)",
+      "desc": "Sets the position of the notification marker."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOffloadDelayPadding(delayInFrames: Int, paddingInFrames: Int)",
+      "desc": "Configures the delay and padding values for the current compressed stream playing in offload mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOffloadEndOfStream()",
+      "desc": "Declares that the last write() operation on this track provided the last buffer of this stream."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setPlaybackHeadPosition(positionInFrames: Int)",
+      "desc": "Sets the playback head position within the static buffer."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPlaybackParams(params: PlaybackParams)",
+      "desc": "Sets the playback parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPlaybackPositionUpdateListener(listener: AudioTrack.OnPlaybackPositionUpdateListener!)",
+      "desc": "Sets the listener the AudioTrack notifies when a previously set marker is reached or for each periodic playback head position update."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPlaybackPositionUpdateListener(listener: AudioTrack.OnPlaybackPositionUpdateListener!, handler: Handler!)",
+      "desc": "Sets the listener the AudioTrack notifies when a previously set marker is reached or for each periodic playback head position update."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setPlaybackRate(sampleRateInHz: Int)",
+      "desc": "Sets the playback sample rate for this track."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setPositionNotificationPeriod(periodInFrames: Int)",
+      "desc": "Sets the period for the periodic notification event."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPreferredDevice(deviceInfo: AudioDeviceInfo!)",
+      "desc": "Specifies an audio device (via an AudioDeviceInfo object) to route the output from this AudioTrack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setPresentation(presentation: AudioPresentation)",
+      "desc": "Sets the audio presentation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setStereoVolume(leftGain: Float, rightGain: Float)",
+      "desc": "Sets the specified left and right output gain values on the AudioTrack."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setVolume(gain: Float)",
+      "desc": "Sets the specified output gain value on all channels of this track."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "stop()",
+      "desc": "Stops playing the audio data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "unregisterStreamEventCallback(eventCallback: AudioTrack.StreamEventCallback)",
+      "desc": "Unregisters the callback for notification of stream events, previously registered with registerStreamEventCallback(java.util.concurrent.Executor,android.media.AudioTrack.StreamEventCallback)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "write(audioData: ByteArray, offsetInBytes: Int, sizeInBytes: Int)",
+      "desc": "Writes the audio data to the audio sink for playback (streaming mode), or copies audio data for later playback (static buffer mode)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "write(audioData: ByteArray, offsetInBytes: Int, sizeInBytes: Int, writeMode: Int)",
+      "desc": "Writes the audio data to the audio sink for playback (streaming mode), or copies audio data for later playback (static buffer mode)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "write(audioData: ShortArray, offsetInShorts: Int, sizeInShorts: Int)",
+      "desc": "Writes the audio data to the audio sink for playback (streaming mode), or copies audio data for later playback (static buffer mode)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "write(audioData: ShortArray, offsetInShorts: Int, sizeInShorts: Int, writeMode: Int)",
+      "desc": "Writes the audio data to the audio sink for playback (streaming mode), or copies audio data for later playback (static buffer mode)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "write(audioData: FloatArray, offsetInFloats: Int, sizeInFloats: Int, writeMode: Int)",
+      "desc": "Writes the audio data to the audio sink for playback (streaming mode), or copies audio data for later playback (static buffer mode)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "write(audioData: ByteBuffer, sizeInBytes: Int, writeMode: Int)",
+      "desc": "Writes the audio data to the audio sink for playback (streaming mode), or copies audio data for later playback (static buffer mode)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "write(audioData: ByteBuffer, sizeInBytes: Int, writeMode: Int, timestamp: Long)",
+      "desc": "Writes the audio data to the audio sink for playback in streaming mode on a HW_AV_SYNC track."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getNativeFrameCount()",
+      "desc": "Returns the frame count of the native AudioTrack buffer."
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setState(state: Int)",
+      "desc": "Sets the initialization state of the instance."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Builder",
+      "desc": "Builder class for AudioTrack objects."
+    },
+    {
+      "type": "nested-classes",
+      "code": "MetricsConstants",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnCodecFormatChangedListener",
+      "desc": "Interface definition for a listener for codec format changes."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnPlaybackPositionUpdateListener",
+      "desc": "Interface definition for a callback to be invoked when the playback head position of an AudioTrack has reached a notification marker or has increased by a certain period."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnRoutingChangedListener",
+      "desc": "Defines the interface by which applications can receive notifications of routing changes for the associated AudioTrack."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "StreamEventCallback",
+      "desc": "Abstract class to receive event notifications about the stream playback in offloaded mode."
+    }
+  ]
+}

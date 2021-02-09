@@ -1,0 +1,3011 @@
+{
+  "path": "android.app.admin",
+  "name": "DevicePolicyManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_ADD_DEVICE_ADMIN",
+      "desc": "Activity action: ask the user to add a new device administrator to the system."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_ADMIN_POLICY_COMPLIANCE",
+      "desc": "Activity action: Starts the administrator to show policy compliance for the provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_APPLICATION_DELEGATION_SCOPES_CHANGED",
+      "desc": "Broadcast Action: Sent after application delegation scopes are changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_CHECK_POLICY_COMPLIANCE",
+      "desc": "Activity action: launch the DPC to check policy compliance."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEVICE_ADMIN_SERVICE",
+      "desc": "Service action: Action for a service that device owner and profile owner can optionally own."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_DEVICE_OWNER_CHANGED",
+      "desc": "Broadcast action: sent when the device owner is set, changed or cleared."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_GET_PROVISIONING_MODE",
+      "desc": "Activity action: Starts the administrator to get the mode for the provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_MANAGED_PROFILE_PROVISIONED",
+      "desc": "Broadcast Action: This broadcast is sent to indicate that provisioning of a managed profile has completed successfully."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PROFILE_OWNER_CHANGED",
+      "desc": "Broadcast action: sent when the profile owner is set, changed or cleared."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PROVISIONING_SUCCESSFUL",
+      "desc": "Activity action: This activity action is sent to indicate that provisioning of a managed profile or managed device has completed successfully."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PROVISION_MANAGED_DEVICE",
+      "desc": "Activity action: Starts the provisioning flow which sets up a managed device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_PROVISION_MANAGED_PROFILE",
+      "desc": "Activity action: Starts the provisioning flow which sets up a managed profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SET_NEW_PARENT_PROFILE_PASSWORD",
+      "desc": "Activity action: have the user enter a new password for the parent profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SET_NEW_PASSWORD",
+      "desc": "Activity action: have the user enter a new password."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_START_ENCRYPTION",
+      "desc": "Activity action: begin the process of encrypting data on the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_SYSTEM_UPDATE_POLICY_CHANGED",
+      "desc": "Broadcast action: notify that a new local system update policy has been set by the device owner."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_APP_RESTRICTIONS",
+      "desc": "Delegation of application restrictions management."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_BLOCK_UNINSTALL",
+      "desc": "Delegation of application uninstall block."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_CERT_INSTALL",
+      "desc": "Delegation of certificate installation and management."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_CERT_SELECTION",
+      "desc": "Grants access to selection of KeyChain certificates on behalf of requesting apps."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_ENABLE_SYSTEM_APP",
+      "desc": "Delegation for enabling system apps."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_INSTALL_EXISTING_PACKAGE",
+      "desc": "Delegation for installing existing packages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_KEEP_UNINSTALLED_PACKAGES",
+      "desc": "Delegation of management of uninstalled packages."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_NETWORK_LOGGING",
+      "desc": "Grants access to setNetworkLoggingEnabled, isNetworkLoggingEnabled and retrieveNetworkLogs."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_PACKAGE_ACCESS",
+      "desc": "Delegation of package access state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "DELEGATION_PERMISSION_GRANT",
+      "desc": "Delegation of permission policy and permission grant state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCRYPTION_STATUS_ACTIVATING",
+      "desc": "Result code for getStorageEncryptionStatus: indicating that encryption is not currently active, but is currently being activated."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCRYPTION_STATUS_ACTIVE",
+      "desc": "Result code for setStorageEncryption and getStorageEncryptionStatus: indicating that encryption is active."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCRYPTION_STATUS_ACTIVE_DEFAULT_KEY",
+      "desc": "Result code for getStorageEncryptionStatus: indicating that encryption is active, but an encryption key has not been set by the user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCRYPTION_STATUS_ACTIVE_PER_USER",
+      "desc": "Result code for getStorageEncryptionStatus: indicating that encryption is active and the encryption key is tied to the user or profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCRYPTION_STATUS_INACTIVE",
+      "desc": "Result code for setStorageEncryption and getStorageEncryptionStatus: indicating that encryption is supported, but is not currently active."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ENCRYPTION_STATUS_UNSUPPORTED",
+      "desc": "Result code for setStorageEncryption and getStorageEncryptionStatus: indicating that encryption is not supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_ADD_EXPLANATION",
+      "desc": "An optional CharSequence providing additional explanation for why the admin is being added."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DELEGATION_SCOPES",
+      "desc": "An ArrayList<String> corresponding to the delegation scopes given to an app in the ACTION_APPLICATION_DELEGATION_SCOPES_CHANGED broadcast."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_DEVICE_ADMIN",
+      "desc": "The ComponentName of the administrator component."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PASSWORD_COMPLEXITY",
+      "desc": "An integer indicating the complexity level of the new password an app would like the user to set when launching the action ACTION_SET_NEW_PASSWORD."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE",
+      "desc": "An android.accounts.Account extra holding the account to migrate during managed profile provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE",
+      "desc": "A android.os.Parcelable extra of type android.os.PersistableBundle that allows a mobile device management application or NFC programmer application which starts managed provisioning to pass data to the management application instance after provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME",
+      "desc": "A ComponentName extra indicating the device admin receiver of the mobile device management application that will be set as the profile owner or device owner and active admin."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE",
+      "desc": "An int extra holding a minimum required version code for the device admin package."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM",
+      "desc": "A String extra holding the URL-safe base64 encoded SHA-256 hash of the file at download location specified in EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER",
+      "desc": "A String extra holding a http cookie header which should be used in the http request to the url specified in EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION",
+      "desc": "A String extra holding a url that specifies the download location of the device admin package."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_NAME",
+      "desc": "A String extra holding the package name of the mobile device management application that will be set as the profile owner or device owner."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM",
+      "desc": "A String extra holding the URL-safe base64 encoded SHA-256 checksum of any signature of the android package archive at the download location specified in  ."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DISCLAIMERS",
+      "desc": "A Bundle[] extra consisting of list of disclaimer headers and disclaimer contents."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DISCLAIMER_CONTENT",
+      "desc": "A Uri extra pointing to disclaimer content."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_DISCLAIMER_HEADER",
+      "desc": "A String extra of localized disclaimer header."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_EMAIL_ADDRESS",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_IMEI",
+      "desc": "A string extra holding the IMEI (International Mobile Equipment Identity) of the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION",
+      "desc": "Boolean extra to indicate that the migrated account should be kept."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED",
+      "desc": "A Boolean extra that can be used by the mobile device management application to skip the disabling of system apps during provisioning when set to true."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_LOCALE",
+      "desc": "A String extra holding the java.util.Locale that the device will be set to."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_LOCAL_TIME",
+      "desc": "A Long extra holding the wall clock time (in milliseconds) to be set on the device's android.app.AlarmManager."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_LOGO_URI",
+      "desc": "A Uri extra pointing to a logo image."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_MAIN_COLOR",
+      "desc": "A integer extra indicating the predominant color to show during the provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_MODE",
+      "desc": "An intent extra holding the provisioning mode returned by the administrator."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_SERIAL_NUMBER",
+      "desc": "A string extra holding the serial number of the device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS",
+      "desc": "A boolean extra indicating if the education screens from the provisioning flow should be skipped."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_SKIP_ENCRYPTION",
+      "desc": "A boolean extra indicating whether device encryption can be skipped as part of device owner or managed profile provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_SKIP_USER_CONSENT",
+      "desc": "A boolean extra indicating if the user consent steps from the provisioning flow should be skipped."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_TIME_ZONE",
+      "desc": "A String extra holding the time zone android.app.AlarmManager that the device will be set to."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_ANONYMOUS_IDENTITY",
+      "desc": "The anonymous identity of the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_CA_CERTIFICATE",
+      "desc": "The CA certificate of the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_DOMAIN",
+      "desc": "The domain of the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_EAP_METHOD",
+      "desc": "The EAP method of the wifi network in EXTRA_PROVISIONING_WIFI_SSID and could be one of PEAP, TLS, TTLS, PWD, SIM, AKA or AKA_PRIME."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_HIDDEN",
+      "desc": "A boolean extra indicating whether the wifi network in EXTRA_PROVISIONING_WIFI_SSID is hidden or not."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_IDENTITY",
+      "desc": "The identity of the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_PAC_URL",
+      "desc": "A String extra holding the proxy auto-config (PAC) URL for the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_PASSWORD",
+      "desc": "A String extra holding the password of the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_PHASE2_AUTH",
+      "desc": "The phase 2 authentication of the wifi network in EXTRA_PROVISIONING_WIFI_SSID and could be one of NONE, PAP, MSCHAP, MSCHAPV2, GTC, SIM, AKA or AKA_PRIME."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_PROXY_BYPASS",
+      "desc": "A String extra holding the proxy bypass for the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_PROXY_HOST",
+      "desc": "A String extra holding the proxy host for the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_PROXY_PORT",
+      "desc": "An int extra holding the proxy port for the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_SECURITY_TYPE",
+      "desc": "A String extra indicating the security type of the wifi network in EXTRA_PROVISIONING_WIFI_SSID and could be one of NONE, WPA, WEP or EAP."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_SSID",
+      "desc": "A String extra holding the ssid of the wifi network that should be used during nfc device owner provisioning for downloading the mobile device management application."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_PROVISIONING_WIFI_USER_CERTIFICATE",
+      "desc": "The user certificate of the wifi network in EXTRA_PROVISIONING_WIFI_SSID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_EVICT_CREDENTIAL_ENCRYPTION_KEY",
+      "desc": "Flag for lockNow(int): also evict the user's credential encryption key from the keyring."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_MANAGED_CAN_ACCESS_PARENT",
+      "desc": "Flag used by addCrossProfileIntentFilter to allow activities in the managed profile to access intents sent from the parent profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FLAG_PARENT_CAN_ACCESS_MANAGED",
+      "desc": "Flag used by addCrossProfileIntentFilter to allow activities in the parent profile to access intents sent from the managed profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ID_TYPE_BASE_INFO",
+      "desc": "Specifies that the device should attest its manufacturer details."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ID_TYPE_IMEI",
+      "desc": "Specifies that the device should attest its IMEI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ID_TYPE_INDIVIDUAL_ATTESTATION",
+      "desc": "Specifies that the device should attest using an individual attestation certificate."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ID_TYPE_MEID",
+      "desc": "Specifies that the device should attest its MEID."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ID_TYPE_SERIAL",
+      "desc": "Specifies that the device should attest its serial number."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INSTALLKEY_REQUEST_CREDENTIALS_ACCESS",
+      "desc": "Specifies that the calling app should be granted access to the installed credentials immediately."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "INSTALLKEY_SET_USER_SELECTABLE",
+      "desc": "Specifies that a user can select the key via the Certificate Selection prompt."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_BIOMETRICS",
+      "desc": "Disable all biometric authentication on keyguard secure screens (e.g. PIN/Pattern/Password)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_FACE",
+      "desc": "Disable face authentication on keyguard secure screens (e.g. PIN/Pattern/Password)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_FEATURES_ALL",
+      "desc": "Disable all current and future keyguard customizations."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_FEATURES_NONE",
+      "desc": "Widgets are enabled in keyguard"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_FINGERPRINT",
+      "desc": "Disable fingerprint authentication on keyguard secure screens (e.g. PIN/Pattern/Password)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_IRIS",
+      "desc": "Disable iris authentication on keyguard secure screens (e.g. PIN/Pattern/Password)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_REMOTE_INPUT",
+      "desc": "Disable text entry into notifications on secure keyguard screens (e.g. PIN/Pattern/Password)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_SECURE_CAMERA",
+      "desc": "Disable the camera on secure keyguard screens (e.g. PIN/Pattern/Password)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_SECURE_NOTIFICATIONS",
+      "desc": "Disable showing all notifications on secure keyguard screens (e.g. PIN/Pattern/Password)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_TRUST_AGENTS",
+      "desc": "Disable trust agents on secure keyguard screens (e.g. PIN/Pattern/Password)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_UNREDACTED_NOTIFICATIONS",
+      "desc": "Only allow redacted notifications on secure keyguard screens (e.g. PIN/Pattern/Password)"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "KEYGUARD_DISABLE_WIDGETS_ALL",
+      "desc": "Disable all keyguard widgets."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LEAVE_ALL_SYSTEM_APPS_ENABLED",
+      "desc": "Flag used by createAndManageUser to specify that the newly created user should skip the disabling of system apps during provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_FEATURE_BLOCK_ACTIVITY_START_IN_TASK",
+      "desc": "Enable blocking of non-whitelisted activities from being started into a locked task."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_FEATURE_GLOBAL_ACTIONS",
+      "desc": "Enable the global actions dialog during LockTask mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_FEATURE_HOME",
+      "desc": "Enable the Home button during LockTask mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_FEATURE_KEYGUARD",
+      "desc": "Enable the keyguard during LockTask mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_FEATURE_NONE",
+      "desc": "Disable all configurable SystemUI features during LockTask mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_FEATURE_NOTIFICATIONS",
+      "desc": "Enable notifications during LockTask mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_FEATURE_OVERVIEW",
+      "desc": "Enable the Overview button and the Overview screen during LockTask mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_FEATURE_SYSTEM_INFO",
+      "desc": "Enable the system info area in the status bar during LockTask mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MAKE_USER_EPHEMERAL",
+      "desc": "Flag used by createAndManageUser to specify that the user should be created ephemeral."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "MIME_TYPE_PROVISIONING_NFC",
+      "desc": "This MIME type is used for starting the device owner provisioning."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_COMPLEXITY_HIGH",
+      "desc": "Constant for getPasswordComplexity(): password satisfies one of the following:"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_COMPLEXITY_LOW",
+      "desc": "Constant for getPasswordComplexity(): password satisfies one of the following:"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_COMPLEXITY_MEDIUM",
+      "desc": "Constant for getPasswordComplexity(): password satisfies one of the following:"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_COMPLEXITY_NONE",
+      "desc": "Constant for getPasswordComplexity(): no password."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_QUALITY_ALPHABETIC",
+      "desc": "Constant for setPasswordQuality: the user must have entered a password containing at least alphabetic (or other symbol) characters."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_QUALITY_ALPHANUMERIC",
+      "desc": "Constant for setPasswordQuality: the user must have entered a password containing at least both> numeric and alphabetic (or other symbol) characters."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_QUALITY_BIOMETRIC_WEAK",
+      "desc": "Constant for setPasswordQuality: the policy allows for low-security biometric recognition technology."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_QUALITY_COMPLEX",
+      "desc": "Constant for setPasswordQuality: allows the admin to set precisely how many characters of various types the password should contain to satisfy the policy."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_QUALITY_NUMERIC",
+      "desc": "Constant for setPasswordQuality: the user must have entered a password containing at least numeric characters."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_QUALITY_NUMERIC_COMPLEX",
+      "desc": "Constant for setPasswordQuality: the user must have entered a password containing at least numeric characters with no repeating (4444) or ordered (1234, 4321, 2468) sequences."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_QUALITY_SOMETHING",
+      "desc": "Constant for setPasswordQuality: the policy requires some kind of password or pattern, but doesn't care what it is."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PASSWORD_QUALITY_UNSPECIFIED",
+      "desc": "Constant for setPasswordQuality: the policy has no requirements for the password."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERMISSION_GRANT_STATE_DEFAULT",
+      "desc": "Runtime permission state: The user can manage the permission through the UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERMISSION_GRANT_STATE_DENIED",
+      "desc": "Runtime permission state: The permission is denied to the app and the user cannot manage the permission through the UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERMISSION_GRANT_STATE_GRANTED",
+      "desc": "Runtime permission state: The permission is granted to the app and the user cannot manage the permission through the UI."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERMISSION_POLICY_AUTO_DENY",
+      "desc": "Permission policy to always deny new permission requests for runtime permissions."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERMISSION_POLICY_AUTO_GRANT",
+      "desc": "Permission policy to always grant new permission requests for runtime permissions."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERMISSION_POLICY_PROMPT",
+      "desc": "Permission policy to prompt user for new permission requests for runtime permissions."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERSONAL_APPS_NOT_SUSPENDED",
+      "desc": "Return value for getPersonalAppsSuspendedReasons when personal apps are not suspended."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERSONAL_APPS_SUSPENDED_EXPLICITLY",
+      "desc": "Flag for getPersonalAppsSuspendedReasons return value."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PERSONAL_APPS_SUSPENDED_PROFILE_TIMEOUT",
+      "desc": "Flag for getPersonalAppsSuspendedReasons return value."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "POLICY_DISABLE_CAMERA",
+      "desc": "Constant to indicate the feature of disabling the camera."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "POLICY_DISABLE_SCREEN_CAPTURE",
+      "desc": "Constant to indicate the feature of disabling screen captures."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIVATE_DNS_MODE_OFF",
+      "desc": "Specifies that Private DNS was turned off completely."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIVATE_DNS_MODE_OPPORTUNISTIC",
+      "desc": "Specifies that the device owner requested opportunistic DNS over TLS"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIVATE_DNS_MODE_PROVIDER_HOSTNAME",
+      "desc": "Specifies that the device owner configured a specific host to use for Private DNS."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIVATE_DNS_MODE_UNKNOWN",
+      "desc": "Specifies that the Private DNS setting is in an unknown state."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIVATE_DNS_SET_ERROR_FAILURE_SETTING",
+      "desc": "General failure to set the Private DNS mode, not due to one of the reasons listed above."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIVATE_DNS_SET_ERROR_HOST_NOT_SERVING",
+      "desc": "If the privateDnsHost provided was of a valid hostname but that host was found to not support DNS-over-TLS."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIVATE_DNS_SET_NO_ERROR",
+      "desc": "The selected mode has been set successfully."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PROVISIONING_MODE_FULLY_MANAGED_DEVICE",
+      "desc": "The provisioning mode for fully managed device."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PROVISIONING_MODE_MANAGED_PROFILE",
+      "desc": "The provisioning mode for managed profile."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESET_PASSWORD_DO_NOT_ASK_CREDENTIALS_ON_BOOT",
+      "desc": "Flag for resetPasswordWithToken and resetPassword: don't ask for user credentials on device boot."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RESET_PASSWORD_REQUIRE_ENTRY",
+      "desc": "Flag for resetPasswordWithToken and resetPassword: don't allow other admins to change the password again until the user has entered it."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SKIP_SETUP_WIZARD",
+      "desc": "Flag used by createAndManageUser to skip setup wizard after creating a new user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIPE_EUICC",
+      "desc": "Flag for wipeData(int): also erase the device's eUICC data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIPE_EXTERNAL_STORAGE",
+      "desc": "Flag for wipeData(int): also erase the device's external storage (such as SD cards)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIPE_RESET_PROTECTION_DATA",
+      "desc": "Flag for wipeData(int): also erase the factory reset protection data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "WIPE_SILENTLY",
+      "desc": "Flag for wipeData(int): won't show reason for wiping to the user."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addCrossProfileIntentFilter(admin: ComponentName, filter: IntentFilter!, flags: Int)",
+      "desc": "Called by the profile owner of a managed profile so that some intents sent in the managed profile can also be resolved in the parent, or vice versa."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "addCrossProfileWidgetProvider(admin: ComponentName, packageName: String!)",
+      "desc": "Called by the profile owner of a managed profile to enable widget providers from a given package to be available in the parent profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addOverrideApn(admin: ComponentName, apnSetting: ApnSetting)",
+      "desc": "Called by device owner to add an override APN."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addPersistentPreferredActivity(admin: ComponentName, filter: IntentFilter!, activity: ComponentName)",
+      "desc": "Called by a profile owner or device owner to set a default activity that the system selects to handle intents that match the given IntentFilter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addUserRestriction(admin: ComponentName, key: String!)",
+      "desc": "Called by a profile or device owner to set a user restriction specified by the key."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "bindDeviceAdminServiceAsUser(admin: ComponentName, serviceIntent: Intent!, conn: ServiceConnection, flags: Int, targetUser: UserHandle)",
+      "desc": "Called by a device owner to bind to a service from a secondary managed user or vice versa."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearApplicationUserData(admin: ComponentName, packageName: String, executor: Executor, listener: DevicePolicyManager.OnClearApplicationUserDataListener)",
+      "desc": "Called by the device owner or profile owner to clear application user data of a given package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearCrossProfileIntentFilters(admin: ComponentName)",
+      "desc": "Called by a profile owner of a managed profile to remove the cross-profile intent filters that go from the managed profile to the parent, or from the parent to the managed profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearDeviceOwnerApp(packageName: String!)",
+      "desc": "Clears the current device owner."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearPackagePersistentPreferredActivities(admin: ComponentName, packageName: String!)",
+      "desc": "Called by a profile owner or device owner to remove all persistent intent handler preferences associated with the given package that were set by addPersistentPreferredActivity."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearProfileOwner(admin: ComponentName)",
+      "desc": "Clears the active profile owner."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clearResetPasswordToken(admin: ComponentName!)",
+      "desc": "Called by a profile or device owner to revoke the current password reset token."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearUserRestriction(admin: ComponentName, key: String!)",
+      "desc": "Called by a profile or device owner to clear a user restriction specified by the key."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Intent",
+      "code": "createAdminSupportIntent(restriction: String)",
+      "desc": "Called by any app to display a support dialog when a feature was disabled by an admin.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "UserHandle",
+      "code": "createAndManageUser(admin: ComponentName, name: String, profileOwner: ComponentName, adminExtras: PersistableBundle?, flags: Int)",
+      "desc": "Called by a device owner to create a user with the specified name and a given component of the calling package as profile owner.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "enableSystemApp(admin: ComponentName, packageName: String!)",
+      "desc": "Re-enable a system app that was disabled by default when the user was initialized."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "enableSystemApp(admin: ComponentName, intent: Intent!)",
+      "desc": "Re-enable system apps by intent that were disabled by default when the user was initialized."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AttestedKeyPair",
+      "code": "generateKeyPair(admin: ComponentName?, algorithm: String, keySpec: KeyGenParameterSpec, idAttestationFlags: Int)",
+      "desc": "Called by a device or profile owner, or delegated certificate installer, to generate a new private/public key pair.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getAccountTypesWithManagementDisabled()",
+      "desc": "Gets the array of accounts for which account management is disabled by the profile owner or device owner.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getActiveAdmins()",
+      "desc": "Return a list of all currently active device administrators' component names.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getAffiliationIds(admin: ComponentName)",
+      "desc": "Returns the set of affiliation ids previously set via setAffiliationIds, or an empty set if none have been set.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getAlwaysOnVpnLockdownWhitelist(admin: ComponentName)",
+      "desc": "Called by device or profile owner to query the set of packages that are allowed to access the network directly when always-on VPN is in lockdown mode but not connected.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getAlwaysOnVpnPackage(admin: ComponentName)",
+      "desc": "Called by a device or profile owner to read the name of the package administering an always-on VPN connection for the current user.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getApplicationRestrictions(admin: ComponentName?, packageName: String!)",
+      "desc": "Retrieves the application restrictions for a given target application running in the calling user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getApplicationRestrictionsManagingPackage(admin: ComponentName)",
+      "desc": "Called by a profile owner or device owner to retrieve the application restrictions managing package for the current user, or null if none is set.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getAutoTimeEnabled(admin: ComponentName)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getAutoTimeRequired()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getAutoTimeZoneEnabled(admin: ComponentName)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getBindDeviceAdminTargetUsers(admin: ComponentName)",
+      "desc": "Returns the list of target users that the calling device owner or owner of secondary user can use when calling bindDeviceAdminServiceAsUser.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getBluetoothContactSharingDisabled(admin: ComponentName)",
+      "desc": "Called by a profile owner of a managed profile to determine whether or not Bluetooth devices cannot access enterprise contacts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getCameraDisabled(admin: ComponentName?)",
+      "desc": "Determine whether or not the device's cameras have been disabled for this user, either by the calling admin, if specified, or all admins."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getCertInstallerPackage(admin: ComponentName)",
+      "desc": "Called by a profile owner or device owner to retrieve the certificate installer for the user, or null if none is set.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getCrossProfileCalendarPackages(admin: ComponentName)",
+      "desc": "Gets a set of package names that are allowed to access cross-profile calendar APIs.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getCrossProfileCallerIdDisabled(admin: ComponentName)",
+      "desc": "Called by a profile owner of a managed profile to determine whether or not caller-Id information has been disabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getCrossProfileContactsSearchDisabled(admin: ComponentName)",
+      "desc": "Called by a profile owner of a managed profile to determine whether or not contacts search has been disabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getCrossProfilePackages(admin: ComponentName)",
+      "desc": "Returns the set of package names that the admin has previously set as allowed to request user consent for cross-profile communication, via setCrossProfilePackages(android.content.ComponentName,java.util.Set).",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getCrossProfileWidgetProviders(admin: ComponentName)",
+      "desc": "Called by the profile owner of a managed profile to query providers from which packages are available in the parent profile.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getCurrentFailedPasswordAttempts()",
+      "desc": "Retrieve the number of times the user has failed at entering a password since that last successful password entry."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getDelegatePackages(admin: ComponentName, delegationScope: String)",
+      "desc": "Called by a profile owner or device owner to retrieve a list of delegate packages that were granted a delegation scope.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getDelegatedScopes(admin: ComponentName?, delegatedPackage: String)",
+      "desc": "Called by a profile owner or device owner to retrieve a list of the scopes given to a delegate package.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getDeviceOwnerLockScreenInfo()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getEndUserSessionMessage(admin: ComponentName)",
+      "desc": "Returns the user session end message.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "FactoryResetProtectionPolicy",
+      "code": "getFactoryResetProtectionPolicy(admin: ComponentName?)",
+      "desc": "Callable by device owner or profile owner of an organization-owned device, to retrieve the current factory reset protection (FRP) policy set previously by setFactoryResetProtectionPolicy.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getGlobalPrivateDnsHost(admin: ComponentName)",
+      "desc": "Returns the system-wide Private DNS host.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getGlobalPrivateDnsMode(admin: ComponentName)",
+      "desc": "Returns the system-wide Private DNS mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getInstalledCaCerts(admin: ComponentName?)",
+      "desc": "Returns all CA certificates that are currently trusted, excluding system CA certificates.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getKeepUninstalledPackages(admin: ComponentName?)",
+      "desc": "Get the list of apps to keep around as APKs even if no user has currently installed it.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getKeyguardDisabledFeatures(admin: ComponentName?)",
+      "desc": "Determine whether or not features have been disabled in keyguard either by the calling admin, if specified, or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getLockTaskFeatures(admin: ComponentName)",
+      "desc": "Gets which system features are enabled for LockTask mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getLockTaskPackages(admin: ComponentName)",
+      "desc": "Returns the list of packages allowed to start the lock task mode.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getLongSupportMessage(admin: ComponentName)",
+      "desc": "Called by a device admin to get the long support message.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getManagedProfileMaximumTimeOff(admin: ComponentName)",
+      "desc": "Called by a profile owner of an organization-owned managed profile to get maximum time the profile is allowed to be turned off."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMaximumFailedPasswordsForWipe(admin: ComponentName?)",
+      "desc": "Retrieve the current maximum number of login attempts that are allowed before the device or profile is wiped, for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getMaximumTimeToLock(admin: ComponentName?)",
+      "desc": "Retrieve the current maximum time to unlock for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getMeteredDataDisabledPackages(admin: ComponentName)",
+      "desc": "Called by a device or profile owner to retrieve the list of packages which are restricted by the admin from using metered data.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getOrganizationColor(admin: ComponentName)",
+      "desc": "Called by a profile owner of a managed profile to retrieve the color used for customization."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getOrganizationName(admin: ComponentName)",
+      "desc": "Called by a profile owner of a managed profile to retrieve the name of the organization under management.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getOverrideApns(admin: ComponentName)",
+      "desc": "Called by device owner to get all override APNs inserted by device owner.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "DevicePolicyManager",
+      "code": "getParentProfileInstance(admin: ComponentName)",
+      "desc": "Called by the profile owner of a managed profile to obtain a DevicePolicyManager whose calls act on the parent profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordComplexity()",
+      "desc": "Returns how complex the current user's screen lock is."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getPasswordExpiration(admin: ComponentName?)",
+      "desc": "Get the current password expiration time for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getPasswordExpirationTimeout(admin: ComponentName?)",
+      "desc": "Get the password expiration timeout for the given admin."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordHistoryLength(admin: ComponentName?)",
+      "desc": "Retrieve the current password history length for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordMaximumLength(quality: Int)",
+      "desc": "Return the maximum password length that the device supports for a particular password quality."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordMinimumLength(admin: ComponentName?)",
+      "desc": "Retrieve the current minimum password length for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordMinimumLetters(admin: ComponentName?)",
+      "desc": "Retrieve the current number of letters required in the password for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordMinimumLowerCase(admin: ComponentName?)",
+      "desc": "Retrieve the current number of lower case letters required in the password for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordMinimumNonLetter(admin: ComponentName?)",
+      "desc": "Retrieve the current number of non-letter characters required in the password for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordMinimumNumeric(admin: ComponentName?)",
+      "desc": "Retrieve the current number of numerical digits required in the password for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordMinimumSymbols(admin: ComponentName?)",
+      "desc": "Retrieve the current number of symbols required in the password for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordMinimumUpperCase(admin: ComponentName?)",
+      "desc": "Retrieve the current number of upper case letters required in the password for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPasswordQuality(admin: ComponentName?)",
+      "desc": "Retrieve the current minimum password quality for a particular admin or all admins that set restrictions on this user and its participating profiles."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SystemUpdateInfo",
+      "code": "getPendingSystemUpdate(admin: ComponentName)",
+      "desc": "Called by device or profile owners to get information about a pending system update.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPermissionGrantState(admin: ComponentName?, packageName: String, permission: String)",
+      "desc": "Returns the current grant state of a runtime permission for a specific application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPermissionPolicy(admin: ComponentName!)",
+      "desc": "Returns the current runtime permission policy set by the device or profile owner."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getPermittedAccessibilityServices(admin: ComponentName)",
+      "desc": "Returns the list of permitted accessibility services set by this device or profile owner.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getPermittedCrossProfileNotificationListeners(admin: ComponentName)",
+      "desc": "Returns the list of packages installed on the primary user that allowed to use a android.service.notification.NotificationListenerService to receive notifications from this managed profile, as set by the profile owner.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getPermittedInputMethods(admin: ComponentName)",
+      "desc": "Returns the list of permitted input methods set by this device or profile owner.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getPersonalAppsSuspendedReasons(admin: ComponentName)",
+      "desc": "Called by profile owner of an organization-owned managed profile to check whether personal apps are suspended."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getRequiredStrongAuthTimeout(admin: ComponentName?)",
+      "desc": "Determine for how long the user will be able to use secondary, non strong auth for authentication, since last strong method authentication (password, pin or pattern) was used."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getScreenCaptureDisabled(admin: ComponentName?)",
+      "desc": "Determine whether or not screen capture has been disabled by the calling admin, if specified, or all admins."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getSecondaryUsers(admin: ComponentName)",
+      "desc": "Called by a device owner to list all secondary users on the device.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getShortSupportMessage(admin: ComponentName)",
+      "desc": "Called by a device admin to get the short support message.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getStartUserSessionMessage(admin: ComponentName)",
+      "desc": "Returns the user session start message.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "getStorageEncryption(admin: ComponentName?)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getStorageEncryptionStatus()",
+      "desc": "Called by an application that is administering the device to determine the current encryption status of the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "SystemUpdatePolicy",
+      "code": "getSystemUpdatePolicy()",
+      "desc": "Retrieve a local system update policy set previously by setSystemUpdatePolicy.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PersistableBundle",
+      "code": "getTransferOwnershipBundle()",
+      "desc": "Returns the data passed from the current administrator to the new administrator during an ownership transfer.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getTrustAgentConfiguration(admin: ComponentName?, agent: ComponentName)",
+      "desc": "Gets configuration for the given trust agent based on aggregating all calls to setTrustAgentConfiguration(android.content.ComponentName,android.content.ComponentName,android.os.PersistableBundle) for all device admins.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getUserControlDisabledPackages(admin: ComponentName)",
+      "desc": "Returns the list of packages over which user control is disabled by the device owner.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Bundle",
+      "code": "getUserRestrictions(admin: ComponentName)",
+      "desc": "Called by a profile or device owner to get user restrictions set with addUserRestriction(android.content.ComponentName,java.lang.String)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getWifiMacAddress(admin: ComponentName)",
+      "desc": "Called by device owner, or profile owner on organization-owned device, to get the MAC address of the Wi-Fi device.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "grantKeyPairToApp(admin: ComponentName?, alias: String, packageName: String)",
+      "desc": "Called by a device or profile owner, or delegated certificate chooser (an app that has been delegated the DELEGATION_CERT_SELECTION privilege), to grant an application access to an already-installed (or generated) KeyChain key."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasCaCertInstalled(admin: ComponentName?, certBuffer: ByteArray!)",
+      "desc": "Returns whether this certificate is installed as a trusted CA."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasGrantedPolicy(admin: ComponentName, usesPolicy: Int)",
+      "desc": "Returns true if an administrator has been granted a particular device policy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "hasLockdownAdminConfiguredNetworks(admin: ComponentName)",
+      "desc": "Called by a device owner or a profile owner of an organization-owned managed profile to determine whether the user is prevented from modifying networks configured by the admin."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "installCaCert(admin: ComponentName?, certBuffer: ByteArray!)",
+      "desc": "Installs the given certificate as a user CA."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "installExistingPackage(admin: ComponentName, packageName: String!)",
+      "desc": "Install an existing package that has been installed in another user, or has been kept after removal via setKeepUninstalledPackages."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "installKeyPair(admin: ComponentName?, privKey: PrivateKey, cert: Certificate, alias: String)",
+      "desc": "Called by a device or profile owner, or delegated certificate installer, to install a certificate and corresponding private key."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "installKeyPair(admin: ComponentName?, privKey: PrivateKey, certs: Array<Certificate!>, alias: String, requestAccess: Boolean)",
+      "desc": "Called by a device or profile owner, or delegated certificate installer, to install a certificate chain and corresponding private key for the leaf certificate."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "installKeyPair(admin: ComponentName?, privKey: PrivateKey, certs: Array<Certificate!>, alias: String, flags: Int)",
+      "desc": "Called by a device or profile owner, or delegated certificate installer, to install a certificate chain and corresponding private key for the leaf certificate."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "installSystemUpdate(admin: ComponentName, updateFilePath: Uri, executor: Executor, callback: DevicePolicyManager.InstallSystemUpdateCallback)",
+      "desc": "Called by device owner or profile owner of an organization-owned managed profile to install a system update from the given file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isActivePasswordSufficient()",
+      "desc": "Determines whether the calling user's current password meets policy requirements (e.g. quality, minimum length)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAdminActive(admin: ComponentName)",
+      "desc": "Return true if the given administrator component is currently active (enabled) in the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAffiliatedUser()",
+      "desc": "Returns whether this user is affiliated with the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isAlwaysOnVpnLockdownEnabled(admin: ComponentName)",
+      "desc": "Called by device or profile owner to query whether current always-on VPN is configured in lockdown mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isApplicationHidden(admin: ComponentName, packageName: String!)",
+      "desc": "Determine if a package is hidden."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isBackupServiceEnabled(admin: ComponentName)",
+      "desc": "Return whether the backup service is enabled by the device owner or profile owner for the current user, as previously set by setBackupServiceEnabled(android.content.ComponentName,boolean)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isCallerApplicationRestrictionsManagingPackage()",
+      "desc": "Called by any application to find out whether it has been granted permission via setApplicationRestrictionsManagingPackage to manage application restrictions for the calling user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isCommonCriteriaModeEnabled(admin: ComponentName?)",
+      "desc": "Returns whether Common Criteria mode is currently enabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDeviceIdAttestationSupported()",
+      "desc": "Returns true if the device supports attestation of device identifiers in addition to key attestation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isDeviceOwnerApp(packageName: String!)",
+      "desc": "Used to determine if a particular package has been registered as a Device Owner app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isEphemeralUser(admin: ComponentName)",
+      "desc": "Checks if the profile owner is running in an ephemeral user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isLockTaskPermitted(pkg: String!)",
+      "desc": "This function lets the caller know whether the given component is allowed to start the lock task mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isLogoutEnabled()",
+      "desc": "Returns whether logout is enabled by a device owner."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isManagedProfile(admin: ComponentName)",
+      "desc": "Return if this user is a managed profile of another user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isMasterVolumeMuted(admin: ComponentName)",
+      "desc": "Called by profile or device owners to check whether the master volume mute is on or off."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isNetworkLoggingEnabled(admin: ComponentName?)",
+      "desc": "Return whether network logging is enabled by a device owner."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOrganizationOwnedDeviceWithManagedProfile()",
+      "desc": "Apps can use this method to find out if the device was provisioned as organization-owend device with a managed profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isOverrideApnEnabled(admin: ComponentName)",
+      "desc": "Called by device owner to check if override APNs are currently enabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isPackageSuspended(admin: ComponentName, packageName: String!)",
+      "desc": "Determine if a package is suspended."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isProfileOwnerApp(packageName: String!)",
+      "desc": "Used to determine if a particular package is registered as the profile owner for the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isProvisioningAllowed(action: String)",
+      "desc": "Returns whether it is possible for the caller to initiate provisioning of a managed profile or device, setting itself as the device or profile owner."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isResetPasswordTokenActive(admin: ComponentName!)",
+      "desc": "Called by a profile or device owner to check if the current reset password token is active."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isSecurityLoggingEnabled(admin: ComponentName?)",
+      "desc": "Return whether security logging is enabled or not by the admin."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isUninstallBlocked(admin: ComponentName?, packageName: String!)",
+      "desc": "Check whether the user has been blocked by device policy from uninstalling a package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isUniqueDeviceAttestationSupported()",
+      "desc": "Returns true if the StrongBox Keymaster implementation on the device was provisioned with an individual attestation certificate and can sign attestation records using it (as attestation using an individual attestation certificate is a feature only Keymaster implementations with StrongBox security level can implement)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isUsingUnifiedPassword(admin: ComponentName)",
+      "desc": "When called by a profile owner of a managed profile returns true if the profile uses unified challenge with its parent user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "lockNow()",
+      "desc": "Make the device lock immediately, as if the lock screen timeout has expired at the point of this call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "lockNow(flags: Int)",
+      "desc": "Make the device lock immediately, as if the lock screen timeout has expired at the point of this call."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "logoutUser(admin: ComponentName)",
+      "desc": "Called by a profile owner of secondary user that is affiliated with the device to stop the calling user and switch back to primary."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "reboot(admin: ComponentName)",
+      "desc": "Called by device owner to reboot the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "removeActiveAdmin(admin: ComponentName)",
+      "desc": "Remove a current administration component."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "removeCrossProfileWidgetProvider(admin: ComponentName, packageName: String!)",
+      "desc": "Called by the profile owner of a managed profile to disable widget providers from a given package to be available in the parent profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "removeKeyPair(admin: ComponentName?, alias: String)",
+      "desc": "Called by a device or profile owner, or delegated certificate installer, to remove a certificate and private key pair installed under a given alias."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "removeOverrideApn(admin: ComponentName, apnId: Int)",
+      "desc": "Called by device owner to remove an override APN."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "removeUser(admin: ComponentName, userHandle: UserHandle)",
+      "desc": "Called by a device owner to remove a user/profile and all associated data."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "requestBugreport(admin: ComponentName)",
+      "desc": "Called by a device owner to request a bugreport."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "resetPassword(password: String!, flags: Int)",
+      "desc": "Force a new password for device unlock (the password needed to access the entire device) or the work profile challenge on the current user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "resetPasswordWithToken(admin: ComponentName, password: String!, token: ByteArray!, flags: Int)",
+      "desc": "Called by device or profile owner to force set a new device unlock password or a managed profile challenge on current user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "retrieveNetworkLogs(admin: ComponentName?, batchToken: Long)",
+      "desc": "Called by device owner or delegated app with DELEGATION_NETWORK_LOGGING to retrieve the most recent batch of network logging events.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "retrievePreRebootSecurityLogs(admin: ComponentName)",
+      "desc": "Called by device owner or profile owner of an organization-owned managed profile to retrieve device logs from before the device's last reboot.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "retrieveSecurityLogs(admin: ComponentName)",
+      "desc": "Called by device owner or profile owner of an organization-owned managed profile to retrieve all new security logging entries since the last call to this API after device boots.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "revokeKeyPairFromApp(admin: ComponentName?, alias: String, packageName: String)",
+      "desc": "Called by a device or profile owner, or delegated certificate chooser (an app that has been delegated the DELEGATION_CERT_SELECTION privilege), to revoke an application's grant to a KeyChain key pair."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAccountManagementDisabled(admin: ComponentName, accountType: String!, disabled: Boolean)",
+      "desc": "Called by a device owner or profile owner to disable account management for a specific type of account."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAffiliationIds(admin: ComponentName, ids: MutableSet<String!>)",
+      "desc": "Indicates the entity that controls the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAlwaysOnVpnPackage(admin: ComponentName, vpnPackage: String?, lockdownEnabled: Boolean)",
+      "desc": "Called by a device or profile owner to configure an always-on VPN connection through a specific application for the current user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAlwaysOnVpnPackage(admin: ComponentName, vpnPackage: String?, lockdownEnabled: Boolean, lockdownWhitelist: MutableSet<String!>?)",
+      "desc": "A version of setAlwaysOnVpnPackage(android.content.ComponentName,java.lang.String,boolean) that allows the admin to specify a set of apps that should be able to access the network directly when VPN is not connected."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setApplicationHidden(admin: ComponentName, packageName: String!, hidden: Boolean)",
+      "desc": "Hide or unhide packages."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setApplicationRestrictions(admin: ComponentName?, packageName: String!, settings: Bundle!)",
+      "desc": "Sets the application restrictions for a given target application running in the calling user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setApplicationRestrictionsManagingPackage(admin: ComponentName, packageName: String?)",
+      "desc": "Called by a profile owner or device owner to grant permission to a package to manage application restrictions for the calling user via setApplicationRestrictions and getApplicationRestrictions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAutoTimeEnabled(admin: ComponentName, enabled: Boolean)",
+      "desc": "Called by a device owner, a profile owner for the primary user or a profile owner of an organization-owned managed profile to turn auto time on and off."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAutoTimeRequired(admin: ComponentName, required: Boolean)",
+      "desc": "Called by a device owner, or alternatively a profile owner from Android 8."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setAutoTimeZoneEnabled(admin: ComponentName, enabled: Boolean)",
+      "desc": "Called by a device owner, a profile owner for the primary user or a profile owner of an organization-owned managed profile to turn auto time zone on and off."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setBackupServiceEnabled(admin: ComponentName, enabled: Boolean)",
+      "desc": "Allows the device owner or profile owner to enable or disable the backup service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setBluetoothContactSharingDisabled(admin: ComponentName, disabled: Boolean)",
+      "desc": "Called by a profile owner of a managed profile to set whether bluetooth devices can access enterprise contacts."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCameraDisabled(admin: ComponentName, disabled: Boolean)",
+      "desc": "Called by an application that is administering the device to disable all cameras on the device, for this user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCertInstallerPackage(admin: ComponentName, installerPackage: String?)",
+      "desc": "Called by a profile owner or device owner to grant access to privileged certificate manipulation APIs to a third-party certificate installer app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCommonCriteriaModeEnabled(admin: ComponentName, enabled: Boolean)",
+      "desc": "Called by device owner or profile owner of an organization-owned managed profile to toggle Common Criteria mode for the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setConfiguredNetworksLockdownState(admin: ComponentName, lockdown: Boolean)",
+      "desc": "Called by a device owner or a profile owner of an organization-owned managed profile to control whether the user can change networks configured by the admin."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCrossProfileCalendarPackages(admin: ComponentName, packageNames: MutableSet<String!>?)",
+      "desc": "Allows a set of packages to access cross-profile calendar APIs."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCrossProfileCallerIdDisabled(admin: ComponentName, disabled: Boolean)",
+      "desc": "Called by a profile owner of a managed profile to set whether caller-Id information from the managed profile will be shown in the parent profile, for incoming calls."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCrossProfileContactsSearchDisabled(admin: ComponentName, disabled: Boolean)",
+      "desc": "Called by a profile owner of a managed profile to set whether contacts search from the managed profile will be shown in the parent profile, for incoming calls."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setCrossProfilePackages(admin: ComponentName, packageNames: MutableSet<String!>)",
+      "desc": "Sets the set of admin-whitelisted package names that are allowed to request user consent for cross-profile communication."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDefaultSmsApplication(admin: ComponentName, packageName: String)",
+      "desc": "Must be called by a device owner or a profile owner of an organization-owned managed profile to set the default SMS application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDelegatedScopes(admin: ComponentName, delegatePackage: String, scopes: MutableList<String!>)",
+      "desc": "Called by a profile owner or device owner to grant access to privileged APIs to another app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDeviceOwnerLockScreenInfo(admin: ComponentName, info: CharSequence!)",
+      "desc": "Sets the device owner information to be shown on the lock screen."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setEndUserSessionMessage(admin: ComponentName, endUserSessionMessage: CharSequence?)",
+      "desc": "Called by a device owner to specify the user session end message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setFactoryResetProtectionPolicy(admin: ComponentName, policy: FactoryResetProtectionPolicy?)",
+      "desc": "Callable by device owner or profile owner of an organization-owned device, to set a factory reset protection (FRP) policy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setGlobalPrivateDnsModeOpportunistic(admin: ComponentName)",
+      "desc": "Sets the global Private DNS mode to opportunistic."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setGlobalPrivateDnsModeSpecifiedHost(admin: ComponentName, privateDnsHost: String)",
+      "desc": "Sets the global Private DNS host to be used."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setGlobalSetting(admin: ComponentName, setting: String!, value: String!)",
+      "desc": "This method is mostly deprecated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setKeepUninstalledPackages(admin: ComponentName?, packageNames: MutableList<String!>)",
+      "desc": "Set a list of apps to keep around as APKs even if no user has currently installed it."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setKeyPairCertificate(admin: ComponentName?, alias: String, certs: MutableList<Certificate!>, isUserSelectable: Boolean)",
+      "desc": "Called by a device or profile owner, or delegated certificate installer, to associate certificates with a key pair that was generated using generateKeyPair, and set whether the key is available for the user to choose in the certificate selection prompt."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setKeyguardDisabled(admin: ComponentName, disabled: Boolean)",
+      "desc": "Called by a device owner or profile owner of secondary users that is affiliated with the device to disable the keyguard altogether."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setKeyguardDisabledFeatures(admin: ComponentName, which: Int)",
+      "desc": "Called by an application that is administering the device to disable keyguard customizations, such as widgets."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setLocationEnabled(admin: ComponentName, locationEnabled: Boolean)",
+      "desc": "Called by device owners to set the user's master location setting."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setLockTaskFeatures(admin: ComponentName, flags: Int)",
+      "desc": "Sets which system features are enabled when the device runs in lock task mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setLockTaskPackages(admin: ComponentName, packages: Array<String!>)",
+      "desc": "Sets which packages may enter lock task mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setLogoutEnabled(admin: ComponentName, enabled: Boolean)",
+      "desc": "Called by a device owner to specify whether logout is enabled for all secondary users."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setLongSupportMessage(admin: ComponentName, message: CharSequence?)",
+      "desc": "Called by a device admin to set the long support message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setManagedProfileMaximumTimeOff(admin: ComponentName, timeoutMillis: Long)",
+      "desc": "Called by a profile owner of an organization-owned managed profile to set maximum time the profile is allowed to be turned off."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setMasterVolumeMuted(admin: ComponentName, on: Boolean)",
+      "desc": "Called by profile or device owners to set the master volume mute on or off."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setMaximumFailedPasswordsForWipe(admin: ComponentName, num: Int)",
+      "desc": "Setting this to a value greater than zero enables a built-in policy that will perform a device or profile wipe after too many incorrect device-unlock passwords have been entered."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setMaximumTimeToLock(admin: ComponentName, timeMs: Long)",
+      "desc": "Called by an application that is administering the device to set the maximum time for user activity until the device will lock."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "setMeteredDataDisabledPackages(admin: ComponentName, packageNames: MutableList<String!>)",
+      "desc": "Called by a device or profile owner to restrict packages from using metered data.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setNetworkLoggingEnabled(admin: ComponentName?, enabled: Boolean)",
+      "desc": "Called by a device owner or delegated app with DELEGATION_NETWORK_LOGGING to control the network logging feature."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOrganizationColor(admin: ComponentName, color: Int)",
+      "desc": "Called by a profile owner of a managed profile to set the color used for customization."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOrganizationName(admin: ComponentName, title: CharSequence?)",
+      "desc": "Called by the device owner (since API 26) or profile owner (since API 24) to set the name of the organization under management."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOverrideApnsEnabled(admin: ComponentName, enabled: Boolean)",
+      "desc": "Called by device owner to set if override APNs should be enabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "setPackagesSuspended(admin: ComponentName, packageNames: Array<String!>, suspended: Boolean)",
+      "desc": "Called by device or profile owners to suspend packages for this user.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordExpirationTimeout(admin: ComponentName, timeout: Long)",
+      "desc": "Called by a device admin to set the password expiration timeout."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordHistoryLength(admin: ComponentName, length: Int)",
+      "desc": "Called by an application that is administering the device to set the length of the password history."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordMinimumLength(admin: ComponentName, length: Int)",
+      "desc": "Called by an application that is administering the device to set the minimum allowed password length."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordMinimumLetters(admin: ComponentName, length: Int)",
+      "desc": "Called by an application that is administering the device to set the minimum number of letters required in the password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordMinimumLowerCase(admin: ComponentName, length: Int)",
+      "desc": "Called by an application that is administering the device to set the minimum number of lower case letters required in the password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordMinimumNonLetter(admin: ComponentName, length: Int)",
+      "desc": "Called by an application that is administering the device to set the minimum number of non-letter characters (numerical digits or symbols) required in the password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordMinimumNumeric(admin: ComponentName, length: Int)",
+      "desc": "Called by an application that is administering the device to set the minimum number of numerical digits required in the password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordMinimumSymbols(admin: ComponentName, length: Int)",
+      "desc": "Called by an application that is administering the device to set the minimum number of symbols required in the password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordMinimumUpperCase(admin: ComponentName, length: Int)",
+      "desc": "Called by an application that is administering the device to set the minimum number of upper case letters required in the password."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPasswordQuality(admin: ComponentName, quality: Int)",
+      "desc": "Called by an application that is administering the device to set the password restrictions it is imposing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPermissionGrantState(admin: ComponentName, packageName: String, permission: String, grantState: Int)",
+      "desc": "Sets the grant state of a runtime permission for a specific application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPermissionPolicy(admin: ComponentName, policy: Int)",
+      "desc": "Set the default response for future runtime permission requests by applications."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPermittedAccessibilityServices(admin: ComponentName, packageNames: MutableList<String!>!)",
+      "desc": "Called by a profile or device owner to set the permitted android.accessibilityservice.AccessibilityService."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPermittedCrossProfileNotificationListeners(admin: ComponentName, packageList: MutableList<String!>?)",
+      "desc": "Called by a profile owner of a managed profile to set the packages that are allowed to use a android.service.notification.NotificationListenerService in the primary user to see notifications from the managed profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setPermittedInputMethods(admin: ComponentName, packageNames: MutableList<String!>!)",
+      "desc": "Called by a profile or device owner to set the permitted input methods services for this user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setPersonalAppsSuspended(admin: ComponentName, suspended: Boolean)",
+      "desc": "Called by a profile owner of an organization-owned managed profile to suspend personal apps on the device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setProfileEnabled(admin: ComponentName)",
+      "desc": "Sets the enabled state of the profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setProfileName(admin: ComponentName, profileName: String!)",
+      "desc": "Sets the name of the profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRecommendedGlobalProxy(admin: ComponentName, proxyInfo: ProxyInfo?)",
+      "desc": "Set a network-independent global HTTP proxy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRequiredStrongAuthTimeout(admin: ComponentName, timeoutMs: Long)",
+      "desc": "Called by a device/profile owner to set the timeout after which unlocking with secondary, non strong auth (e.g. fingerprint, face, trust agents) times out, i."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setResetPasswordToken(admin: ComponentName!, token: ByteArray!)",
+      "desc": "Called by a profile or device owner to provision a token which can later be used to reset the device lockscreen password (if called by device owner), or managed profile challenge (if called by profile owner), via resetPasswordWithToken."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRestrictionsProvider(admin: ComponentName, provider: ComponentName?)",
+      "desc": "Designates a specific service component as the provider for making permission requests of a local or remote administrator of the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setScreenCaptureDisabled(admin: ComponentName, disabled: Boolean)",
+      "desc": "Called by a device/profile owner to set whether the screen capture is disabled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSecureSetting(admin: ComponentName, setting: String!, value: String!)",
+      "desc": "This method is mostly deprecated."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSecurityLoggingEnabled(admin: ComponentName, enabled: Boolean)",
+      "desc": "Called by device owner or a profile owner of an organization-owned managed profile to control the security logging feature."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setShortSupportMessage(admin: ComponentName, message: CharSequence?)",
+      "desc": "Called by a device admin to set the short support message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setStartUserSessionMessage(admin: ComponentName, startUserSessionMessage: CharSequence?)",
+      "desc": "Called by a device owner to specify the user session start message."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setStatusBarDisabled(admin: ComponentName, disabled: Boolean)",
+      "desc": "Called by device owner or profile owner of secondary users that is affiliated with the device to disable the status bar."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setStorageEncryption(admin: ComponentName, encrypt: Boolean)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSystemSetting(admin: ComponentName, setting: String, value: String!)",
+      "desc": "Called by a device or profile owner to update android.provider.Settings.System settings."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setSystemUpdatePolicy(admin: ComponentName, policy: SystemUpdatePolicy!)",
+      "desc": "Called by device owners or profile owners of an organization-owned managed profile to to set a local system update policy."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setTime(admin: ComponentName, millis: Long)",
+      "desc": "Called by a device owner or a profile owner of an organization-owned managed profile to set the system wall clock time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setTimeZone(admin: ComponentName, timeZone: String!)",
+      "desc": "Called by a device owner or a profile owner of an organization-owned managed profile to set the system's persistent default time zone."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setTrustAgentConfiguration(admin: ComponentName, target: ComponentName, configuration: PersistableBundle!)",
+      "desc": "Sets a list of configuration features to enable for a trust agent component."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setUninstallBlocked(admin: ComponentName?, packageName: String!, uninstallBlocked: Boolean)",
+      "desc": "Change whether a user can uninstall a package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setUserControlDisabledPackages(admin: ComponentName, packages: MutableList<String!>)",
+      "desc": "Called by Device owner to disable user control over apps."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setUserIcon(admin: ComponentName, icon: Bitmap!)",
+      "desc": "Called by profile or device owners to set the user's photo."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "startUserInBackground(admin: ComponentName, userHandle: UserHandle)",
+      "desc": "Called by a device owner to start the specified secondary user in background."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "stopUser(admin: ComponentName, userHandle: UserHandle)",
+      "desc": "Called by a device owner to stop the specified secondary user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "switchUser(admin: ComponentName, userHandle: UserHandle?)",
+      "desc": "Called by a device owner to switch the specified secondary user to the foreground."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "transferOwnership(admin: ComponentName, target: ComponentName, bundle: PersistableBundle?)",
+      "desc": "Changes the current administrator to another one."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "uninstallAllUserCaCerts(admin: ComponentName?)",
+      "desc": "Uninstalls all custom trusted CA certificates from the profile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "uninstallCaCert(admin: ComponentName?, certBuffer: ByteArray!)",
+      "desc": "Uninstalls the given certificate from trusted user CAs, if present."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "updateOverrideApn(admin: ComponentName, apnId: Int, apnSetting: ApnSetting)",
+      "desc": "Called by device owner to update an override APN."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "wipeData(flags: Int)",
+      "desc": "Ask that all user data be wiped."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "wipeData(flags: Int, reason: CharSequence)",
+      "desc": "Ask that all user data be wiped."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "InstallSystemUpdateCallback",
+      "desc": "Callback used in installSystemUpdate to indicate that there was an error while trying to install an update."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnClearApplicationUserDataListener",
+      "desc": "Callback used in clearApplicationUserData to indicate that the clearing of an application's user data is done."
+    }
+  ]
+}

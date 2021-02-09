@@ -1,0 +1,341 @@
+{
+  "path": "android.view.animation",
+  "name": "GridLayoutAnimationController",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_BOTTOM_TO_TOP",
+      "desc": "Animates the children starting from the bottom of the grid to the top."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_HORIZONTAL_MASK",
+      "desc": "Bitmask used to retrieve the horizontal component of the direction."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_LEFT_TO_RIGHT",
+      "desc": "Animates the children starting from the left of the grid to the right."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_RIGHT_TO_LEFT",
+      "desc": "Animates the children starting from the right of the grid to the left."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_TOP_TO_BOTTOM",
+      "desc": "Animates the children starting from the top of the grid to the bottom."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "DIRECTION_VERTICAL_MASK",
+      "desc": "Bitmask used to retrieve the vertical component of the direction."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIORITY_COLUMN",
+      "desc": "Columns are animated first."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIORITY_NONE",
+      "desc": "Rows and columns are animated at the same time."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PRIORITY_ROW",
+      "desc": "Rows are animated first."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, attrs: AttributeSet!)\n            Creates a new grid layout animation controller from external resources."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(animation: Animation!)\n            Creates a new layout animation controller with a delay of 50% for both rows and columns and the specified animation."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(animation: Animation!, columnDelay: Float, rowDelay: Float)\n            Creates a new layout animation controller with the specified delays and the specified animation."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getColumnDelay()",
+      "desc": "Returns the delay by which the children's animation are offset from one column to the other."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDirection()",
+      "desc": "Returns the direction of the animation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getDirectionPriority()",
+      "desc": "Returns the direction priority for the animation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Float",
+      "code": "getRowDelay()",
+      "desc": "Returns the delay by which the children's animation are offset from one row to the other."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setColumnDelay(columnDelay: Float)",
+      "desc": "Sets the delay, as a fraction of the animation duration, by which the children's animations are offset from one column to the other."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDirection(direction: Int)",
+      "desc": "Sets the direction of the animation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setDirectionPriority(directionPriority: Int)",
+      "desc": "Specifies the direction priority of the animation."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setRowDelay(rowDelay: Float)",
+      "desc": "Sets the delay, as a fraction of the animation duration, by which the children's animations are offset from one row to the other."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "willOverlap()",
+      "desc": "Indicates whether two children's animations will overlap."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Long",
+      "code": "getDelayForView(view: View!)",
+      "desc": "Returns the amount of milliseconds by which the specified view's animation must be delayed or offset."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "LayoutAnimationController"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ORDER_NORMAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ORDER_RANDOM"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ORDER_REVERSE"
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "AnimationParameters",
+      "desc": "The set of parameters that has to be attached to each view contained in the view group animated by the grid layout animation controller."
+    },
+    {
+      "type": "inherited-methods",
+      "from": "LayoutAnimationController"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Animation!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getAnimation()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Animation!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getAnimationForView(view: View!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.view.animation.LayoutAnimationController.AnimationParameters"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Float"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDelay()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Interpolator!"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getInterpolator()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getOrder()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getTransformedIndex(params: LayoutAnimationController.AnimationParameters!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.view.animation.LayoutAnimationController.AnimationParameters"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getOrder()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getDelayForView(android.view.View)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isDone()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setAnimation(context: Context!, resourceID: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setAnimation(animation: Animation!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setDelay(delay: Float)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setInterpolator(context: Context!, resourceID: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setInterpolator(interpolator: Interpolator!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setOrder(order: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "start()"
+    }
+  ]
+}

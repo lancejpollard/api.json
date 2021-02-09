@@ -1,0 +1,125 @@
+{
+  "path": "android.net.nsd",
+  "name": "NsdManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_NSD_STATE_CHANGED",
+      "desc": "Broadcast intent action to indicate whether network service discovery is enabled or disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "EXTRA_NSD_STATE",
+      "desc": "The lookup key for an int that indicates whether network service discovery is enabled or disabled."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FAILURE_ALREADY_ACTIVE",
+      "desc": "Indicates that the operation failed because it is already active."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FAILURE_INTERNAL_ERROR",
+      "desc": "Failures are passed with RegistrationListener#onRegistrationFailed, RegistrationListener#onUnregistrationFailed, DiscoveryListener#onStartDiscoveryFailed, DiscoveryListener#onStopDiscoveryFailed or ResolveListener#onResolveFailed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FAILURE_MAX_LIMIT",
+      "desc": "Indicates that the operation failed because the maximum outstanding requests from the applications have reached."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NSD_STATE_DISABLED",
+      "desc": "Network service discovery is disabled"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "NSD_STATE_ENABLED",
+      "desc": "Network service discovery is enabled"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PROTOCOL_DNS_SD",
+      "desc": "Dns based service discovery protocol"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "discoverServices(serviceType: String!, protocolType: Int, listener: NsdManager.DiscoveryListener!)",
+      "desc": "Initiate service discovery to browse for instances of a service type."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "registerService(serviceInfo: NsdServiceInfo!, protocolType: Int, listener: NsdManager.RegistrationListener!)",
+      "desc": "Register a service to be discovered by other services."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "resolveService(serviceInfo: NsdServiceInfo!, listener: NsdManager.ResolveListener!)",
+      "desc": "Resolve a discovered service."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "stopServiceDiscovery(listener: NsdManager.DiscoveryListener!)",
+      "desc": "Stop service discovery initiated with discoverServices."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "unregisterService(listener: NsdManager.RegistrationListener!)",
+      "desc": "Unregister a service registered through registerService."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "DiscoveryListener",
+      "desc": "Interface for callback invocation for service discovery"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "RegistrationListener",
+      "desc": "Interface for callback invocation for service registration"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ResolveListener",
+      "desc": "Interface for callback invocation for service resolution"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "path": "android.media",
+  "name": "ImageWriter",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": "Free up all the resources associated with this ImageWriter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Image",
+      "code": "dequeueInputImage()",
+      "desc": "Dequeue the next available input Image for the application to produce data into.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getFormat()",
+      "desc": "Get the ImageWriter format."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMaxImages()",
+      "desc": "Maximum number of Images that can be dequeued from the ImageWriter simultaneously (for example, with dequeueInputImage())."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ImageWriter",
+      "code": "newInstance(surface: Surface, maxImages: Int)",
+      "desc": "Create a new ImageWriter."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ImageWriter",
+      "code": "newInstance(surface: Surface, maxImages: Int, format: Int)",
+      "desc": "Create a new ImageWriter with given number of max Images and format."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "queueInputImage(image: Image!)",
+      "desc": "Queue an input Image back to ImageWriter for the downstream consumer to access."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setOnImageReleasedListener(listener: ImageWriter.OnImageReleasedListener!, handler: Handler!)",
+      "desc": "Register a listener to be invoked when an input Image is returned to the ImageWriter."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnImageReleasedListener",
+      "desc": "ImageWriter callback interface, used to to asynchronously notify the application of various ImageWriter events."
+    }
+  ]
+}

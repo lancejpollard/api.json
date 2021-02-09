@@ -1,0 +1,368 @@
+{
+  "path": "android.view.inputmethod",
+  "name": "BaseInputConnection",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(targetView: View!, fullEditor: Boolean)"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "beginBatchEdit()",
+      "desc": "Default implementation does nothing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clearMetaKeyStates(states: Int)",
+      "desc": "Default implementation uses MetaKeyKeyListener#clearMetaKeyState(long, int) to clear the state."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "closeConnection()",
+      "desc": "Default implementation calls finishComposingText()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "commitCompletion(text: CompletionInfo!)",
+      "desc": "Default implementation does nothing and returns false."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "commitContent(inputContentInfo: InputContentInfo, flags: Int, opts: Bundle?)",
+      "desc": "The default implementation does nothing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "commitCorrection(correctionInfo: CorrectionInfo!)",
+      "desc": "Default implementation does nothing and returns false."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "commitText(text: CharSequence!, newCursorPosition: Int)",
+      "desc": "Default implementation replaces any existing composing text with the given text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "deleteSurroundingText(beforeLength: Int, afterLength: Int)",
+      "desc": "The default implementation performs the deletion around the current selection position of the editable text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "deleteSurroundingTextInCodePoints(beforeLength: Int, afterLength: Int)",
+      "desc": "The default implementation performs the deletion around the current selection position of the editable text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "endBatchEdit()",
+      "desc": "Default implementation does nothing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "finishComposingText()",
+      "desc": "The default implementation removes the composing state from the current editable text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getComposingSpanEnd(text: Spannable!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getComposingSpanStart(text: Spannable!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getCursorCapsMode(reqModes: Int)",
+      "desc": "The default implementation uses TextUtils."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Editable",
+      "code": "getEditable()",
+      "desc": "Return the target of edit operations.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ExtractedText",
+      "code": "getExtractedText(request: ExtractedTextRequest!, flags: Int)",
+      "desc": "The default implementation always returns null.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Handler",
+      "code": "getHandler()",
+      "desc": "",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getSelectedText(flags: Int)",
+      "desc": "The default implementation returns the text currently selected, or null if none is selected.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getTextAfterCursor(length: Int, flags: Int)",
+      "desc": "The default implementation returns the given amount of text from the current cursor position in the buffer.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "getTextBeforeCursor(length: Int, flags: Int)",
+      "desc": "The default implementation returns the given amount of text from the current cursor position in the buffer.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "performContextMenuAction(id: Int)",
+      "desc": "The default implementation does nothing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "performEditorAction(actionCode: Int)",
+      "desc": "The default implementation turns this into the enter key."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "performPrivateCommand(action: String!, data: Bundle!)",
+      "desc": "The default implementation does nothing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Unit",
+      "code": "removeComposingSpans(text: Spannable!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "reportFullscreenMode(enabled: Boolean)",
+      "desc": "Updates InputMethodManager with the current fullscreen mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "requestCursorUpdates(cursorUpdateMode: Int)",
+      "desc": "The default implementation does nothing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "sendKeyEvent(event: KeyEvent!)",
+      "desc": "Provides standard implementation for sending a key event to the window attached to the input connection's view."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setComposingRegion(start: Int, end: Int)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setComposingSpans(text: Spannable!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setComposingText(text: CharSequence!, newCursorPosition: Int)",
+      "desc": "The default implementation places the given text into the editable, replacing any existing composing text."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "setSelection(start: Int, end: Int)",
+      "desc": "The default implementation changes the selection position in the current editable text."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputConnection"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CURSOR_UPDATE_IMMEDIATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputMethodManager#updateCursorAnchorInfo(android.view.View, CursorAnchorInfo)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CURSOR_UPDATE_MONITOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CURSOR_UPDATE_MONITOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputMethodManager#updateCursorAnchorInfo(android.view.View, CursorAnchorInfo)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputConnection#requestCursorUpdates(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CURSOR_UPDATE_IMMEDIATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "GET_EXTRACTED_TEXT_MONITOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "getExtractedText"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "GET_TEXT_WITH_STYLES"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "getTextAfterCursor"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "getTextBeforeCursor"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "getTextAfterCursor"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "INPUT_CONTENT_GRANT_READ_URI_PERMISSION"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputContentInfo"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "grantUriPermissions"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "<grant-uri-permissions>"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputContentInfo#requestPermission()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "InputContentInfo"
+    }
+  ]
+}

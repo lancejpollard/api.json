@@ -1,0 +1,908 @@
+{
+  "path": "android.test.mock",
+  "name": "MockContentProvider",
+  "values": [
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!)\n            A constructor accepting a Context instance, which is supposed to be the subclasss of MockContext."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, readPermission: String!, writePermission: String!, pathPermissions: Array<PathPermission!>!)\n            A constructor which initialize four member variables which android.content.ContentProvider have internally."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "applyBatch(operations: ArrayList<ContentProviderOperation!>)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "attachInfo(context: Context!, info: ProviderInfo!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "attachInfoForTesting(provider: ContentProvider!, context: Context!, providerInfo: ProviderInfo!)",
+      "desc": "Like attachInfo(android.content.Context,android.content.pm.ProviderInfo), but for use when directly instantiating the provider for testing."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "bulkInsert(uri: Uri, values: Array<ContentValues!>)",
+      "desc": "If you're reluctant to implement this manually, please just call super."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "delete(uri: Uri, selection: String?, selectionArgs: Array<String!>?)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getStreamTypes(url: Uri, mimeTypeFilter: String)",
+      "desc": "",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getType(uri: Uri)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Uri",
+      "code": "insert(uri: Uri, values: ContentValues?)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "onCreate()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "AssetFileDescriptor",
+      "code": "openTypedAssetFile(url: Uri, mimeType: String, opts: Bundle?)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Cursor",
+      "code": "query(uri: Uri, projection: Array<String!>?, selection: String?, selectionArgs: Array<String!>?, sortOrder: String?)",
+      "desc": "",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<String!>?)",
+      "desc": ""
+    },
+    {
+      "type": "inherited-constants",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_BACKGROUND"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_COMPLETE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_MODERATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_CRITICAL"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_LOW"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_RUNNING_MODERATE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "TRIM_MEMORY_UI_HIDDEN"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "onTrimMemory(int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentProvider"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Array<ContentProviderResult!>"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "applyBatch(authority: String, operations: ArrayList<ContentProviderOperation!>)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentProviderOperation#apply"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentProviderOperation#apply"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentProviderResult"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Bundle?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "call(authority: String, method: String, arg: String?, extras: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Uri?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "canonicalize(url: Uri)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "uncanonicalize"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentProvider.CallingIdentity"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "clearCallingIdentity()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Binder#clearCallingIdentity()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCallingPackage()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "delete(uri: Uri, extras: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#notifyChange(android.net.Uri ,android.database.ContentObserver)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "content://contacts/people/22"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "dump(fd: FileDescriptor!, writer: PrintWriter!, args: Array<String!>!)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCallingAttributionTag()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType(android.net.Uri)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getStreamTypes(android.net.Uri,java.lang.String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCallingPackage()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType(android.net.Uri)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getStreamTypes(android.net.Uri,java.lang.String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCallingPackageUnchecked()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType(android.net.Uri)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getStreamTypes(android.net.Uri,java.lang.String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getContext()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "null"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Array<PathPermission!>?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getPathPermissions()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getReadPermission()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "String?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getWritePermission()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Uri?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "insert(uri: Uri, values: ContentValues?, extras: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#notifyChange(android.net.Uri ,android.database.ContentObserver)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "isTemporary()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCallingPackageChanged()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCallingPackage()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentProvider"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onConfigurationChanged(newConfig: Configuration)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#TRIM_MEMORY_COMPLETE"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onTrimMemory(level: Int)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AssetFileDescriptor?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openAssetFile(uri: Uri, mode: String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openFile"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#openAssetFileDescriptor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#openInputStream"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#openOutputStream"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AssetFileDescriptor#UNKNOWN_LENGTH"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.OpenableColumns"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AssetFileDescriptor?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openAssetFile(uri: Uri, mode: String, signal: CancellationSignal?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openFile"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#openAssetFileDescriptor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#openInputStream"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#openOutputStream"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AssetFileDescriptor#UNKNOWN_LENGTH"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.OpenableColumns"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openFile(uri: Uri, mode: String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FileNotFoundException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor#open(File, int,"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor#createReliablePipe()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor#createReliableSocketPair()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "StorageManager#openProxyFileDescriptor(int, android.os.ProxyFileDescriptorCallback, android.os.Handler)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.OpenableColumns"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.MediaStore.MediaColumns#DATE_ADDED"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.MediaStore.MediaColumns"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openFile(uri: Uri, mode: String, signal: CancellationSignal?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "FileNotFoundException"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor#open(File, int,"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor#createReliablePipe()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor#createReliableSocketPair()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.OpenableColumns"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.MediaStore.MediaColumns#DATE_ADDED"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.MediaStore.MediaColumns"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openFileHelper(uri: Uri, mode: String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openFile"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ParcelFileDescriptor"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openPipeHelper(uri: Uri, mimeType: String, opts: Bundle?, args: T?, func: ContentProvider.PipeDataWriter<T>)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openTypedAssetFile"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "AssetFileDescriptor?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openTypedAssetFile(uri: Uri, mimeTypeFilter: String, opts: Bundle?, signal: CancellationSignal?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openAssetFile(android.net.Uri,java.lang.String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getType(android.net.Uri)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "openAssetFile(android.net.Uri,java.lang.String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ClipData"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.OpenableColumns"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.MediaStore.MediaColumns#DATE_ADDED"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.provider.MediaStore.MediaColumns"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Cursor?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "query(uri: Uri, projection: Array<String!>?, selection: String?, selectionArgs: Array<String!>?, sortOrder: String?, cancellationSignal: CancellationSignal?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.os.Build.VERSION_CODES#O"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "query(android.net.Uri,java.lang.String[],android.os.Bundle,android.os.CancellationSignal)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Cursor?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "query(uri: Uri, projection: Array<String!>?, queryArgs: Bundle?, cancellationSignal: CancellationSignal?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Bundle"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.content.ContentResolver#QUERY_ARG_SQL_SELECTION"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.content.ContentResolver#QUERY_ARG_SQL_SELECTION_ARGS"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "android.content.ContentResolver#QUERY_ARG_SQL_SORT_ORDER"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "query(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,android.os.CancellationSignal)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Boolean"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "refresh(uri: Uri!, extras: Bundle?, cancellationSignal: CancellationSignal?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "uri"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "uri"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#notifyChange(Uri, android.database.ContentObserver)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Context"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "requireContext()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onCreate"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "restoreCallingIdentity(identity: ContentProvider.CallingIdentity)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "clearCallingIdentity"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Binder#restoreCallingIdentity(long)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "getCallingPackage()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setPathPermissions(permissions: Array<PathPermission!>?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setReadPermission(permission: String?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "setWritePermission(permission: String?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "shutdown()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Uri?"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "uncanonicalize(url: Uri)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "canonicalize"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "update(uri: Uri, values: ContentValues?, extras: Bundle?)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ContentResolver#notifyChange(android.net.Uri ,android.database.ContentObserver)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onConfigurationChanged(newConfig: Configuration)"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "Unit"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory()"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "onLowMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#onTrimMemory"
+    },
+    {
+      "type": "inherited-methods",
+      "from": "ComponentCallbacks2#TRIM_MEMORY_COMPLETE"
+    }
+  ]
+}

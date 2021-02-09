@@ -1,0 +1,441 @@
+{
+  "path": "android.app",
+  "name": "ActivityManager",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_REPORT_HEAP_LIMIT",
+      "desc": "Action an app can implement to handle reports from setWatchHeapLimit(long)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_MODE_LOCKED",
+      "desc": "Full lock task mode is active."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_MODE_NONE",
+      "desc": "Lock task mode is not active."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LOCK_TASK_MODE_PINNED",
+      "desc": "App pinning mode is active."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "META_HOME_ALTERNATE",
+      "desc": "<meta-data> name for a 'home' Activity that declares a package that is to be uninstalled in lieu of the declaring one."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MOVE_TASK_NO_USER_ACTION",
+      "desc": "Flag for moveTaskToFront(int,int): don't count this as a user-instigated action, so the current activity will not receive a hint that the user is leaving."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "MOVE_TASK_WITH_HOME",
+      "desc": "Flag for moveTaskToFront(int,int): also move the \"home\" activity along with the task, so it is positioned immediately behind the task."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECENT_IGNORE_UNAVAILABLE",
+      "desc": "Provides a list that does not contain any recent tasks that currently are not available to the user."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "RECENT_WITH_EXCLUDED",
+      "desc": "Flag for use with getRecentTasks: return all tasks, even those that have set their android.content.Intent#FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS flag."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addAppTask(activity: Activity, intent: Intent, description: ActivityManager.TaskDescription?, thumbnail: Bitmap)",
+      "desc": "Add a new AppTask for the calling application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "appNotResponding(reason: String)",
+      "desc": "Method for the app to tell system that it's wedged and would like to trigger an ANR."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "clearApplicationUserData()",
+      "desc": "Permits an application to erase its own data from disk."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "clearWatchHeapLimit()",
+      "desc": "Clear a heap watch limit previously set by setWatchHeapLimit(long)."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "dumpPackageState(fd: FileDescriptor!, packageName: String!)",
+      "desc": "Perform a system dump of various state associated with the given application package name."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Size",
+      "code": "getAppTaskThumbnailSize()",
+      "desc": "Return the current design dimensions for AppTask thumbnails, for use with addAppTask.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getAppTasks()",
+      "desc": "Get the list of tasks associated with the calling application.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ConfigurationInfo",
+      "code": "getDeviceConfigurationInfo()",
+      "desc": "Get the device configuration attributes.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getHistoricalProcessExitReasons(packageName: String?, pid: Int, maxNum: Int)",
+      "desc": "Return a list of ApplicationExitInfo records containing the reasons for the most recent app deaths.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getLargeMemoryClass()",
+      "desc": "Return the approximate per-application memory class of the current device when an application is running with a large heap."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getLauncherLargeIconDensity()",
+      "desc": "Get the preferred density of icons for the launcher."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getLauncherLargeIconSize()",
+      "desc": "Get the preferred launcher icon size."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getLockTaskModeState()",
+      "desc": "Return the current state of task locking."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMemoryClass()",
+      "desc": "Return the approximate per-application memory class of the current device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "getMemoryInfo(outInfo: ActivityManager.MemoryInfo!)",
+      "desc": "Return general information about the memory state of the system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "getMyMemoryState(outState: ActivityManager.RunningAppProcessInfo!)",
+      "desc": "Return global memory state information for the calling process."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Array",
+      "code": "getProcessMemoryInfo(pids: IntArray!)",
+      "desc": "Return information about the memory usage of one or more processes.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getProcessesInErrorState()",
+      "desc": "Returns a list of any processes that are currently in an error condition.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getRecentTasks(maxNum: Int, flags: Int)",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getRunningAppProcesses()",
+      "desc": "Returns a list of application processes that are running on the device.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "PendingIntent",
+      "code": "getRunningServiceControlPanel(service: ComponentName!)",
+      "desc": "Returns a PendingIntent you can start to show a control panel for the given running service.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getRunningServices(maxNum: Int)",
+      "desc": "Return a list of the services that are currently running.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getRunningTasks(maxNum: Int)",
+      "desc": "Return a list of the tasks that are currently running, with the most recent being first and older ones after in order.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isActivityStartAllowedOnDisplay(context: Context, displayId: Int, intent: Intent)",
+      "desc": "Check if the context is allowed to start an activity on specified display."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isBackgroundRestricted()",
+      "desc": "Query whether the user has enabled background restrictions for this app."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isInLockTaskMode()",
+      "desc": "Return whether currently in lock task mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isLowMemoryKillReportSupported()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isLowRamDevice()",
+      "desc": "Returns true if this is a low-RAM device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRunningInTestHarness()",
+      "desc": "Returns \"true\" if device is running in a test harness."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isRunningInUserTestHarness()",
+      "desc": "Returns \"true\" if the device is running in Test Harness Mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isUserAMonkey()",
+      "desc": "Returns \"true\" if the user interface is currently being messed with by a monkey."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "killBackgroundProcesses(packageName: String!)",
+      "desc": "Have the system immediately kill all background processes associated with the given package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "moveTaskToFront(taskId: Int, flags: Int)",
+      "desc": "Equivalent to calling moveTaskToFront(int,int,android.os.Bundle) with a null options argument."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "moveTaskToFront(taskId: Int, flags: Int, options: Bundle!)",
+      "desc": "Ask that the task associated with a given task ID be moved to the front of the stack, so it is now visible to the user."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "restartPackage(packageName: String!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setProcessStateSummary(state: ByteArray?)",
+      "desc": "Set custom state data for this process."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setVrThread(tid: Int)",
+      "desc": "Enable more aggressive scheduling for latency-sensitive low-runtime VR threads."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "setWatchHeapLimit(pssSize: Long)",
+      "desc": "Request that the system start watching for the calling process to exceed a pss size as given here."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "AppTask",
+      "desc": "The AppTask allows you to manage your own application's tasks."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "MemoryInfo",
+      "desc": "Information you can retrieve about the available memory through ActivityManager#getMemoryInfo."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "ProcessErrorStateInfo",
+      "desc": "Information you can retrieve about any processes that are in an error condition."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RecentTaskInfo",
+      "desc": "Information you can retrieve about tasks that the user has most recently started or visited."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RunningAppProcessInfo",
+      "desc": "Information you can retrieve about a running process."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RunningServiceInfo",
+      "desc": "Information you can retrieve about a particular Service that is currently running in the system."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "RunningTaskInfo",
+      "desc": "Information you can retrieve about a particular task that is currently \"running\" in the system."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "TaskDescription",
+      "desc": "Information you can set and retrieve about the current activity within the recent task list."
+    }
+  ]
+}

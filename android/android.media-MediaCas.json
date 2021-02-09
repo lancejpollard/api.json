@@ -1,0 +1,280 @@
+{
+  "path": "android.media",
+  "name": "MediaCas",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PLUGIN_STATUS_PHYSICAL_MODULE_CHANGED",
+      "desc": "The event to indicate that the status of CAS system is changed by the removal or insertion of physical CAS modules."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "PLUGIN_STATUS_SESSION_NUMBER_CHANGED",
+      "desc": "The event to indicate that the number of CAS system's session is changed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_AES128",
+      "desc": "Advanced Encryption System (AES) 128-bit Encryption mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_AES_ECB",
+      "desc": "Advanced Encryption System (AES) Electronic Code Book (ECB) mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_AES_SCTE52",
+      "desc": "Advanced Encryption System (AES) Society of Cable Telecommunications Engineers (SCTE) 52 mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_DVB_CISSA_V1",
+      "desc": "DVB Common IPTV Software-oriented Scrambling Algorithm (CISSA) Version 1."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_DVB_CSA1",
+      "desc": "DVB (Digital Video Broadcasting) Common Scrambling Algorithm (CSA) 1."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_DVB_CSA2",
+      "desc": "DVB CSA 2."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_DVB_CSA3_ENHANCE",
+      "desc": "DVB CSA 3 in fully enhanced mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_DVB_CSA3_MINIMAL",
+      "desc": "DVB CSA 3 in minimally enhanced mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_DVB_CSA3_STANDARD",
+      "desc": "DVB CSA 3 in standard mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_DVB_IDSA",
+      "desc": "ATIS-0800006 IIF Default Scrambling Algorithm (IDSA)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_MULTI2",
+      "desc": "A symmetric key algorithm."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_RESERVED",
+      "desc": "DVB (Digital Video Broadcasting) reserved mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_TDES_ECB",
+      "desc": "Triple Data Encryption Algorithm (TDES) Electronic Code Book (ECB) mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SCRAMBLING_MODE_TDES_SCTE52",
+      "desc": "Triple Data Encryption Algorithm (TDES) Society of Cable Telecommunications Engineers (SCTE) 52 mode."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SESSION_USAGE_LIVE",
+      "desc": "Cas session is used to descramble live streams."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SESSION_USAGE_PLAYBACK",
+      "desc": "Cas session is used to descramble recoreded streams."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SESSION_USAGE_RECORD",
+      "desc": "Cas session is used to descramble live streams and encrypt local recorded content"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SESSION_USAGE_TIMESHIFT",
+      "desc": "Cas session is used to descramble live streams , encrypt local recorded content and playback local encrypted content."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(CA_system_id: Int)\n            Instantiate a CA system of the specified system id."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context, casSystemId: Int, tvInputServiceSessionId: String?, priorityHint: Int)\n            Instantiate a CA system of the specified system id."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "close()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Array",
+      "code": "enumeratePlugins()",
+      "desc": "List all available CA plugins on the device.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isSystemIdSupported(CA_system_id: Int)",
+      "desc": "Query if a certain CA system is supported on this device."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaCas.Session",
+      "code": "openSession()",
+      "desc": "Open a session to descramble one or more streams scrambled by the conditional access system.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "MediaCas.Session",
+      "code": "openSession(sessionUsage: Int, scramblingMode: Int)",
+      "desc": "Open a session with usage and scrambling information, so that descrambler can be configured to descramble one or more streams scrambled by the conditional access system.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "processEmm(data: ByteArray, offset: Int, length: Int)",
+      "desc": "Send a received EMM packet to the CA system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "processEmm(data: ByteArray)",
+      "desc": "Send a received EMM packet to the CA system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "provision(provisionString: String)",
+      "desc": "Initiate a provisioning operation for a CA system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "refreshEntitlements(refreshType: Int, refreshData: ByteArray?)",
+      "desc": "Notify the CA system to refresh entitlement keys."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "sendEvent(event: Int, arg: Int, data: ByteArray?)",
+      "desc": "Send an event to a CA system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setEventListener(listener: MediaCas.EventListener?, handler: Handler?)",
+      "desc": "Set an event listener to receive notifications from the MediaCas instance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "setPrivateData(data: ByteArray)",
+      "desc": "Send the private data for the CA system."
+    },
+    {
+      "type": "method",
+      "status": "protected"
+    },
+    {
+      "type": "method",
+      "status": "protected",
+      "identifier": "Unit",
+      "code": "finalize()",
+      "desc": ""
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "EventListener",
+      "desc": "An interface registered by the caller to setEventListener to receives scheme-specific notifications from a MediaCas instance."
+    },
+    {
+      "type": "nested-classes",
+      "code": "PluginDescriptor",
+      "desc": "Describe a CAS plugin with its CA_system_ID and string name."
+    },
+    {
+      "type": "nested-classes",
+      "code": "Session",
+      "desc": "Class for an open session with the CA system."
+    }
+  ]
+}

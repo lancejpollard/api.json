@@ -1,0 +1,464 @@
+{
+  "path": "android.telephony",
+  "name": "PhoneNumberUtils",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BCD_EXTENDED_TYPE_CALLED_PARTY",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "BCD_EXTENDED_TYPE_EF_ADN",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FORMAT_JAPAN",
+      "desc": "Japanese formatting"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FORMAT_NANP",
+      "desc": "NANP formatting"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "FORMAT_UNKNOWN",
+      "desc": "The current locale is unknown, look for a country code or don't format"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Char",
+      "code": "PAUSE",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TOA_International",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "TOA_Unknown",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Char",
+      "code": "WAIT",
+      "desc": ""
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Char",
+      "code": "WILD",
+      "desc": ""
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>()"
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "addTtsSpan(s: Spannable!, start: Int, endExclusive: Int)",
+      "desc": "Attach a TtsSpan to the supplied Spannable at the indicated location, annotating that location as containing a phone number."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "calledPartyBCDFragmentToString(bytes: ByteArray!, offset: Int, length: Int)",
+      "desc": "Like calledPartyBCDToString, but field does not start with a TOA byte.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "calledPartyBCDFragmentToString(bytes: ByteArray!, offset: Int, length: Int, bcdExtType: Int)",
+      "desc": "Like calledPartyBCDToString, but field does not start with a TOA byte.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "calledPartyBCDToString(bytes: ByteArray!, offset: Int, length: Int)",
+      "desc": "3GPP TS 24.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "calledPartyBCDToString(bytes: ByteArray!, offset: Int, length: Int, bcdExtType: Int)",
+      "desc": "3GPP TS 24.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "compare(a: String!, b: String!)",
+      "desc": "Compare phone numbers a and b, return true if they're identical enough for caller ID purposes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "compare(context: Context!, a: String!, b: String!)",
+      "desc": "Compare phone numbers a and b, and return true if they're identical enough for caller ID purposes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "convertKeypadLettersToDigits(input: String!)",
+      "desc": "Translates any alphabetic letters (i.e. [A-Za-z]) in the specified phone number into the equivalent numeric digits, according to the phone keypad letter mapping described in ITU E.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "TtsSpan",
+      "code": "createTtsSpan(phoneNumberString: String!)",
+      "desc": "Create a TtsSpan for the supplied String.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "CharSequence",
+      "code": "createTtsSpannable(phoneNumber: CharSequence!)",
+      "desc": "Wrap the supplied CharSequence with a TtsSpan, annotating it as containing a phone number in its entirety.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "extractNetworkPortion(phoneNumber: String!)",
+      "desc": "Extracts the network address portion and canonicalizes (filters out separators.) Network address portion is everything up to DTMF control digit separators (pause or wait), but without non-dialable characters.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "extractPostDialPortion(phoneNumber: String!)",
+      "desc": "Extracts the post-dial sequence of DTMF control digits, pauses, and waits.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "formatJapaneseNumber(text: Editable!)",
+      "desc": "Formats a phone number in-place using the Japanese formatting rules."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "formatNanpNumber(text: Editable!)",
+      "desc": "Formats a phone number in-place using the NANP formatting rules."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "formatNumber(source: String!)",
+      "desc": "Breaks the given number down and formats it according to the rules for the country the number is from.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "formatNumber(text: Editable!, defaultFormattingType: Int)",
+      "desc": "Formats a phone number in-place."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "formatNumber(phoneNumber: String!, defaultCountryIso: String!)",
+      "desc": "Format a phone number.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "formatNumber(phoneNumber: String!, phoneNumberE164: String!, defaultCountryIso: String!)",
+      "desc": "Format the phone number only if the given number hasn't been formatted.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "formatNumberToE164(phoneNumber: String!, defaultCountryIso: String!)",
+      "desc": "Formats the specified phoneNumber to the E.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "formatNumberToRFC3966(phoneNumber: String!, defaultCountryIso: String!)",
+      "desc": "Formats the specified phoneNumber to the RFC3966 representation.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getFormatTypeForLocale(locale: Locale!)",
+      "desc": "Returns the phone number formatting type for the given locale."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getNumberFromIntent(intent: Intent!, context: Context!)",
+      "desc": "Extracts the phone number from an Intent.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getStrippedReversed(phoneNumber: String!)",
+      "desc": "Returns the network portion reversed.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "is12Key(c: Char)",
+      "desc": "True if c is ISO-LATIN characters 0-9, *, #"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isDialable(c: Char)",
+      "desc": "True if c is ISO-LATIN characters 0-9, *, # , +, WILD"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isEmergencyNumber(number: String!)",
+      "desc": "Checks a given number against the list of emergency numbers provided by the RIL and SIM card."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isGlobalPhoneNumber(phoneNumber: String!)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isISODigit(c: Char)",
+      "desc": "True if c is ISO-LATIN characters 0-9"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isLocalEmergencyNumber(context: Context!, number: String!)",
+      "desc": "Checks if a given number is an emergency number for the country that the user is in."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isNonSeparator(c: Char)",
+      "desc": "True if c is ISO-LATIN characters 0-9, *, # , +, WILD, WAIT, PAUSE"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isReallyDialable(c: Char)",
+      "desc": "True if c is ISO-LATIN characters 0-9, *, # , + (no WILD)"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "static",
+      "identifier": "Boolean",
+      "code": "isStartsPostDial(c: Char)",
+      "desc": "This any anything to the right of this char is part of the post-dial string (eg this is PAUSE or WAIT)"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isVoiceMailNumber(number: String!)",
+      "desc": "isVoiceMailNumber: checks a given number against the voicemail number provided by the RIL and SIM card."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isWellFormedSmsAddress(address: String!)",
+      "desc": "Return true iff the network portion of address is, as far as we can tell on the device, suitable for use as an SMS destination address."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ByteArray",
+      "code": "networkPortionToCalledPartyBCD(s: String!)",
+      "desc": "Note: calls extractNetworkPortion(), so do not use for SIM EF[ADN] style records Returns null if network portion is empty.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ByteArray",
+      "code": "networkPortionToCalledPartyBCDWithLength(s: String!)",
+      "desc": "Same as networkPortionToCalledPartyBCD, but includes a one-byte length prefix.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "normalizeNumber(phoneNumber: String!)",
+      "desc": "Normalize a phone number by removing the characters other than digits.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ByteArray",
+      "code": "numberToCalledPartyBCD(number: String!)",
+      "desc": "Convert a dialing number to BCD byte array",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "ByteArray",
+      "code": "numberToCalledPartyBCD(number: String!, bcdExtType: Int)",
+      "desc": "Convert a dialing number to BCD byte array",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "replaceUnicodeDigits(number: String!)",
+      "desc": "Replaces all unicode(e.g. Arabic, Persian) digits with their decimal digit equivalents.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "stringFromStringAndTOA(s: String!, TOA: Int)",
+      "desc": "Basically: makes sure there's a + in front of a TOA_International number Returns null if s == null",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "stripSeparators(phoneNumber: String!)",
+      "desc": "Strips separators from a phone number string.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "toCallerIDMinMatch(phoneNumber: String!)",
+      "desc": "Returns the rightmost minimum matched characters in the network portion in *reversed* order This can be used to do a database lookup against the column that stores getStrippedReversed() Returns null if phoneNumber == null",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "toaFromString(s: String!)",
+      "desc": "Returns the TOA for the given dial string Basically, returns TOA_International if there's a + prefix"
+    }
+  ]
+}

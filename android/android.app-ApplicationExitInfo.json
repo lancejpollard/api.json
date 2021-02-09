@@ -1,0 +1,294 @@
+{
+  "path": "android.app",
+  "name": "ApplicationExitInfo",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_ANR",
+      "desc": "Application process was killed due to being unresponsive (ANR)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_CRASH",
+      "desc": "Application process died because of an unhandled exception in Java code."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_CRASH_NATIVE",
+      "desc": "Application process died because of a native code crash."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_DEPENDENCY_DIED",
+      "desc": "Application process was killed because its dependency was going away, for example, a stable content provider connection's client will be killed if the provider is killed."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_EXCESSIVE_RESOURCE_USAGE",
+      "desc": "Application process was killed by the system due to excessive resource usage."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_EXIT_SELF",
+      "desc": "Application process exit normally by itself, for example, via java.lang.System#exit; getStatus will specify the exit code."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_INITIALIZATION_FAILURE",
+      "desc": "Application process was killed because of initialization failure, for example, it took too long to attach to the system during the start, or there was an error during initialization."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_LOW_MEMORY",
+      "desc": "Application process was killed by the system low memory killer, meaning the system was under memory pressure at the time of kill."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_OTHER",
+      "desc": "Application process was killed by the system for various other reasons which are not by problems in apps and not actionable by apps, for example, the system just finished updates; getDescription will specify the cause given by the system."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_PERMISSION_CHANGE",
+      "desc": "Application process was killed due to a runtime permission change."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_SIGNALED",
+      "desc": "Application process died due to the result of an OS signal; for example, android.system.OsConstants#SIGKILL; getStatus will specify the signal number."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_UNKNOWN",
+      "desc": "Application process died due to unknown reason."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_USER_REQUESTED",
+      "desc": "Application process was killed because of the user request, for example, user clicked the \"Force stop\" button of the application in the Settings, or removed the application away from Recents."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "REASON_USER_STOPPED",
+      "desc": "Application process was killed, because the user it is running as on devices with mutlple users, was stopped."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "describeContents()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Boolean",
+      "code": "equals(other: Any?)",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getDefiningUid()",
+      "desc": "Return the defining kernel user identifier, maybe different from getRealUid and getPackageUid, if an external service has the android:useAppZygote set to true and was bound with the flag android.content.Context#BIND_EXTERNAL_SERVICE - in this case, this field here will be the kernel user identifier of the external service provider."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getDescription()",
+      "desc": "The human readable description of the process's death, given by the system; could be null.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getImportance()",
+      "desc": "The importance of the process that it used to have before the death."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getPackageUid()",
+      "desc": "Similar to getRealUid, it's the kernel user identifier that is assigned at the package installation time."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getPid()",
+      "desc": "The process id of the process that died."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "getProcessName()",
+      "desc": "The actual process name it was running with."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "ByteArray",
+      "code": "getProcessStateSummary()",
+      "desc": "Return the state data set by calling  ActivityManager.setProcessStateSummary(byte[]) from the process before its death.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getPss()",
+      "desc": "Last proportional set size of the memory that the process had used in kB."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getRealUid()",
+      "desc": "The kernel user identifier of the process, most of the time the system uses this to do access control checks."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getReason()",
+      "desc": "The reason code of the process's death."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getRss()",
+      "desc": "Last resident set size of the memory that the process had used in kB."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "getStatus()",
+      "desc": "The exit status argument of exit() if the application calls it, or the signal number if the application is signaled."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Long",
+      "code": "getTimestamp()",
+      "desc": "The timestamp of the process's death, in milliseconds since the epoch, as returned by System.currentTimeMillis()."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "InputStream",
+      "code": "getTraceInputStream()",
+      "desc": "Return the InputStream to the traces that was taken by the system prior to the death of the process; typically it'll be available when the reason is REASON_ANR, though if the process gets an ANR but recovers, and dies for another reason later, this trace will be included in the record of ApplicationExitInfo still.",
+      "symbol": "?"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "UserHandle",
+      "code": "getUserHandle()",
+      "desc": "Return the user id of the record on a multi-user system."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Int",
+      "code": "hashCode()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "String",
+      "code": "toString()",
+      "desc": ""
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "identifier": "Unit",
+      "code": "writeToParcel(dest: Parcel, flags: Int)",
+      "desc": "Flatten this object in to a Parcel."
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "CONTENTS_FILE_DESCRIPTOR"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "describeContents()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Int"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "PARCELABLE_WRITE_RETURN_VALUE"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "writeToParcel"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "Parcelable someFunction()"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(out Parcelable)"
+    },
+    {
+      "type": "inherited-constants",
+      "from": "void someFunction(inout Parcelable)"
+    }
+  ]
+}

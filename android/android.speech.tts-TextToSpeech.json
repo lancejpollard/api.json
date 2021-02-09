@@ -1,0 +1,495 @@
+{
+  "path": "android.speech.tts",
+  "name": "TextToSpeech",
+  "values": [
+    {
+      "type": "constant"
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "String",
+      "code": "ACTION_TTS_QUEUE_PROCESSING_COMPLETED",
+      "desc": "Broadcast Action: The TextToSpeech synthesizer has completed processing of all the text in the speech queue."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR",
+      "desc": "Denotes a generic operation failure."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_INVALID_REQUEST",
+      "desc": "Denotes a failure caused by an invalid request."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_NETWORK",
+      "desc": "Denotes a failure caused by a network connectivity problems."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_NETWORK_TIMEOUT",
+      "desc": "Denotes a failure caused by network timeout."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_NOT_INSTALLED_YET",
+      "desc": "Denotes a failure caused by an unfinished download of the voice data."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_OUTPUT",
+      "desc": "Denotes a failure related to the output (audio device or a file)."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_SERVICE",
+      "desc": "Denotes a failure of a TTS service."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "ERROR_SYNTHESIS",
+      "desc": "Denotes a failure of a TTS engine to synthesize the given input."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LANG_AVAILABLE",
+      "desc": "Denotes the language is available for the language by the locale, but not the country and variant."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LANG_COUNTRY_AVAILABLE",
+      "desc": "Denotes the language is available for the language and country specified by the locale, but not the variant."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LANG_COUNTRY_VAR_AVAILABLE",
+      "desc": "Denotes the language is available exactly as specified by the locale."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LANG_MISSING_DATA",
+      "desc": "Denotes the language data is missing."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "LANG_NOT_SUPPORTED",
+      "desc": "Denotes the language is not supported."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "QUEUE_ADD",
+      "desc": "Queue mode where the new entry is added at the end of the playback queue."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "QUEUE_FLUSH",
+      "desc": "Queue mode where all entries in the playback queue (media to be played and text to be synthesized) are dropped and replaced by the new entry."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "STOPPED",
+      "desc": "Denotes a stop requested by a client."
+    },
+    {
+      "type": "constant",
+      "keyword": "static",
+      "identifier": "Int",
+      "code": "SUCCESS",
+      "desc": "Denotes a successful operation."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, listener: TextToSpeech.OnInitListener!)\n            The constructor for the TextToSpeech class, using the default TTS engine."
+    },
+    {
+      "type": "ctor",
+      "ctor": "<init>(context: Context!, listener: TextToSpeech.OnInitListener!, engine: String!)\n            The constructor for the TextToSpeech class, using the given TTS engine."
+    },
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addEarcon(earcon: String!, packagename: String!, resourceId: Int)",
+      "desc": "Adds a mapping between a string of text and a sound resource in a package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addEarcon(earcon: String!, filename: String!)",
+      "desc": "Adds a mapping between a string of text and a sound file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addEarcon(earcon: String!, file: File!)",
+      "desc": "Adds a mapping between a string of text and a sound file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addSpeech(text: String!, packagename: String!, resourceId: Int)",
+      "desc": "Adds a mapping between a string of text and a sound resource in a package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addSpeech(text: CharSequence!, packagename: String!, resourceId: Int)",
+      "desc": "Adds a mapping between a CharSequence (may be spanned with TtsSpans) of text and a sound resource in a package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addSpeech(text: String!, filename: String!)",
+      "desc": "Adds a mapping between a string of text and a sound file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "addSpeech(text: CharSequence!, file: File!)",
+      "desc": "Adds a mapping between a CharSequence (may be spanned with TtsSpans and a sound file. Using this, it is possible to add custom pronounciations for a string of text. After a call to this method, subsequent calls to"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "areDefaultsEnforced()",
+      "desc": "Checks whether the user's settings should override settings requested by the calling application."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getAvailableLanguages()",
+      "desc": "Query the engine about the set of available languages.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "String",
+      "code": "getDefaultEngine()",
+      "desc": "Gets the package name of the default speech synthesis engine.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Locale",
+      "code": "getDefaultLanguage()",
+      "desc": "Returns a Locale instance describing the language currently being used as the default Text-to-speech language.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Voice",
+      "code": "getDefaultVoice()",
+      "desc": "Returns a Voice instance that's the default voice for the default Text-to-speech language.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableList",
+      "code": "getEngines()",
+      "desc": "Gets a list of all installed TTS engines.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getFeatures(locale: Locale!)",
+      "desc": "Queries the engine for the set of features it supports for a given locale.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Locale",
+      "code": "getLanguage()",
+      "desc": "Returns a Locale instance describing the language currently being used for synthesis requests sent to the TextToSpeech engine.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "getMaxSpeechInputLength()",
+      "desc": "Limit of length of input string passed to speak and synthesizeToFile."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Voice",
+      "code": "getVoice()",
+      "desc": "Returns a Voice instance describing the voice currently being used for synthesis requests sent to the TextToSpeech engine.",
+      "symbol": "!"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "MutableSet",
+      "code": "getVoices()",
+      "desc": "Query the engine about the set of available voices.",
+      "symbol": "<"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "isLanguageAvailable(loc: Locale!)",
+      "desc": "Checks if the specified language as represented by the Locale is available and supported."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Boolean",
+      "code": "isSpeaking()",
+      "desc": "Checks whether the TTS engine is busy speaking."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "playEarcon(earcon: String!, queueMode: Int, params: Bundle!, utteranceId: String!)",
+      "desc": "Plays the earcon using the specified queueing mode and parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "playEarcon(earcon: String!, queueMode: Int, params: HashMap<String!, String!>!)",
+      "desc": "Plays the earcon using the specified queueing mode and parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "playSilence(durationInMs: Long, queueMode: Int, params: HashMap<String!, String!>!)",
+      "desc": "Plays silence for the specified amount of time using the specified queue mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "playSilentUtterance(durationInMs: Long, queueMode: Int, utteranceId: String!)",
+      "desc": "Plays silence for the specified amount of time using the specified queue mode."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setAudioAttributes(audioAttributes: AudioAttributes!)",
+      "desc": "Sets the audio attributes to be used when speaking text or playing back a file."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setEngineByPackageName(enginePackageName: String!)",
+      "desc": "Sets the TTS engine to use."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setLanguage(loc: Locale!)",
+      "desc": "Sets the text-to-speech language."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setOnUtteranceCompletedListener(listener: TextToSpeech.OnUtteranceCompletedListener!)",
+      "desc": "Sets the listener that will be notified when synthesis of an utterance completes."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setOnUtteranceProgressListener(listener: UtteranceProgressListener!)",
+      "desc": "Sets the listener that will be notified of various events related to the synthesis of a given utterance."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setPitch(pitch: Float)",
+      "desc": "Sets the speech pitch for the TextToSpeech engine."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setSpeechRate(speechRate: Float)",
+      "desc": "Sets the speech rate."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "setVoice(voice: Voice!)",
+      "desc": "Sets the text-to-speech voice."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "shutdown()",
+      "desc": "Releases the resources used by the TextToSpeech engine."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "speak(text: CharSequence!, queueMode: Int, params: Bundle!, utteranceId: String!)",
+      "desc": "Speaks the text using the specified queuing strategy and speech parameters, the text may be spanned with TtsSpans."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "speak(text: String!, queueMode: Int, params: HashMap<String!, String!>!)",
+      "desc": "Speaks the string using the specified queuing strategy and speech parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "stop()",
+      "desc": "Interrupts the current utterance (whether played or rendered to file) and discards other utterances in the queue."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "synthesizeToFile(text: CharSequence, params: Bundle, fileDescriptor: ParcelFileDescriptor, utteranceId: String)",
+      "desc": "Synthesizes the given text to a ParcelFileDescriptor using the specified parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "synthesizeToFile(text: CharSequence!, params: Bundle!, file: File!, utteranceId: String!)",
+      "desc": "Synthesizes the given text to a file using the specified parameters."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Int",
+      "code": "synthesizeToFile(text: String!, params: HashMap<String!, String!>!, filename: String!)",
+      "desc": "Synthesizes the given text to a file using the specified parameters."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "Engine",
+      "desc": "Constants and parameter names for controlling text-to-speech."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "open",
+      "code": "EngineInfo",
+      "desc": "Information about an installed text-to-speech engine."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnInitListener",
+      "desc": "Interface definition of a callback to be invoked indicating the completion of the TextToSpeech engine initialization."
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "OnUtteranceCompletedListener",
+      "desc": "Listener that will be called when the TTS service has completed synthesizing an utterance."
+    }
+  ]
+}

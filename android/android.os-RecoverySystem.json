@@ -1,0 +1,51 @@
+{
+  "path": "android.os",
+  "name": "RecoverySystem",
+  "values": [
+    {
+      "type": "method",
+      "status": "public"
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "installPackage(context: Context!, packageFile: File!)",
+      "desc": "Reboots the device in order to install the given update package."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "rebootWipeCache(context: Context!)",
+      "desc": "Reboot into the recovery system to wipe the /cache partition."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "rebootWipeUserData(context: Context!)",
+      "desc": "Reboots the device and wipes the user data and cache partitions."
+    },
+    {
+      "type": "method",
+      "status": "public",
+      "keyword": "open",
+      "identifier": "Unit",
+      "code": "verifyPackage(packageFile: File!, listener: RecoverySystem.ProgressListener!, deviceCertsZipFile: File!)",
+      "desc": "Verify the cryptographic signature of a system update package before installing it."
+    },
+    {
+      "type": "nested-classes"
+    },
+    {
+      "type": "nested-classes",
+      "keyword": "abstract",
+      "code": "ProgressListener",
+      "desc": "Interface definition for a callback to be invoked regularly as verification proceeds."
+    }
+  ]
+}
