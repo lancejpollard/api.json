@@ -1,0 +1,1057 @@
+[
+  {
+    "title": "OAuth2 (Coinbase Connect)"
+  },
+  {
+    "title": "API Key"
+  },
+  {
+    "title": "Status codes"
+  },
+  {
+    "title": "Making requests"
+  },
+  {
+    "title": "CORS"
+  },
+  {
+    "title": "Localization"
+  },
+  {
+    "title": "Fields",
+    "arguments": [
+      {
+        "Parameter": "limit optional",
+        "Description": "Number of results per call. Accepted values: 0 - 100. Default 25"
+      },
+      {
+        "Parameter": "order optional",
+        "Description": "Result order. Accepted values: desc (default), asc"
+      },
+      {
+        "Parameter": "starting_after optional",
+        "Description": "A cursor for use in pagination. starting_after is an resource ID that defines your place in the list."
+      },
+      {
+        "Parameter": "ending_before optional",
+        "Description": "A cursor for use in pagination. ending_before is an resource ID that defines your place in the list."
+      }
+    ]
+  },
+  {
+    "title": "Error response"
+  },
+  {
+    "title": "Warnings"
+  },
+  {
+    "title": "2019-11-15"
+  },
+  {
+    "title": "2017-08-07"
+  },
+  {
+    "title": "2017-05-19"
+  },
+  {
+    "title": "2016-08-10"
+  },
+  {
+    "title": "2016-05-16"
+  },
+  {
+    "title": "2016-02-02"
+  },
+  {
+    "title": "2015-11-17"
+  },
+  {
+    "title": "2015-09-11"
+  },
+  {
+    "title": "2015-08-31"
+  },
+  {
+    "title": "2015-08-04"
+  },
+  {
+    "title": "2015-08-03"
+  },
+  {
+    "title": "2015-07-07"
+  },
+  {
+    "title": "2015-07-01"
+  },
+  {
+    "title": "Official Client Libraries"
+  },
+  {
+    "title": "Unofficial Libraries"
+  },
+  {
+    "title": "OAuth2 frameworks/plugins"
+  },
+  {
+    "title": "Notification resource"
+  },
+  {
+    "title": "List notifications",
+    "request": "GET https://api.coinbase.com/v2/notifications",
+    "scopes": [
+      "wallet:notifications:read"
+    ]
+  },
+  {
+    "title": "Show a notification",
+    "request": "GET https://api.coinbase.com/v2/notifications/:notifications_id",
+    "scopes": [
+      "wallet:notifications:read"
+    ]
+  },
+  {
+    "title": "User resource"
+  },
+  {
+    "title": "Show a user",
+    "request": "GET https://api.coinbase.com/v2/users/:user_id",
+    "scopes": [
+      "No permission required"
+    ]
+  },
+  {
+    "title": "Show current user",
+    "request": "GET https://api.coinbase.com/v2/user",
+    "scopes": [
+      "No scope required for public data",
+      "wallet:user:read",
+      "wallet:user:email"
+    ]
+  },
+  {
+    "title": "Show authorization information",
+    "request": "GET https://api.coinbase.com/v2/user/auth",
+    "scopes": [
+      "No permission required"
+    ]
+  },
+  {
+    "title": "Update current user",
+    "request": "PUT https://api.coinbase.com/v2/user",
+    "scopes": [
+      "wallet:user:update"
+    ],
+    "arguments": [
+      {
+        "Parameter": "name",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "User’s public name"
+      },
+      {
+        "Parameter": "time_zone",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Time zone"
+      },
+      {
+        "Parameter": "native_currency",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Local currency used to display amounts converted from BTC"
+      }
+    ]
+  },
+  {
+    "title": "Account resource"
+  },
+  {
+    "title": "List accounts",
+    "request": "GET https://api.coinbase.com/v2/accounts",
+    "scopes": [
+      "wallet:accounts:read"
+    ]
+  },
+  {
+    "title": "Show an account",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id",
+    "scopes": [
+      "wallet:accounts:read"
+    ]
+  },
+  {
+    "title": "Update account",
+    "request": "PUT https://api.coinbase.com/v2/accounts/:account_id",
+    "scopes": [
+      "wallet:accounts:update"
+    ],
+    "arguments": [
+      {
+        "Parameter": "name",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Account name"
+      }
+    ]
+  },
+  {
+    "title": "Delete account",
+    "request": "DELETE https://api.coinbase.com/v2/accounts/:account_id",
+    "scopes": [
+      "wallet:accounts:delete"
+    ]
+  },
+  {
+    "title": "Address resource"
+  },
+  {
+    "title": "List addresses",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/addresses",
+    "scopes": [
+      "wallet:addresses:read"
+    ]
+  },
+  {
+    "title": "Show addresss",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/addresses/:address_id",
+    "scopes": [
+      "wallet:addresses:read"
+    ]
+  },
+  {
+    "title": "List address’s transactions",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/addresses/:address_id/transactions",
+    "scopes": [
+      "wallet:transactions:read"
+    ]
+  },
+  {
+    "title": "Create address",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/addresses",
+    "scopes": [
+      "wallet:addresses:create"
+    ],
+    "arguments": [
+      {
+        "Parameter": "name",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Address label"
+      }
+    ]
+  },
+  {
+    "title": "Transaction resource"
+  },
+  {
+    "title": "List transactions",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/transactions",
+    "scopes": [
+      "wallet:transactions:read"
+    ]
+  },
+  {
+    "title": "Show a transaction",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/transactions/:transaction_id",
+    "scopes": [
+      "wallet:transactions:read"
+    ]
+  },
+  {
+    "title": "Send money",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/transactions",
+    "scopes": [
+      "wallet:transactions:send"
+    ],
+    "arguments": [
+      {
+        "Parameter": "type constant send",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Type send is required when sending money"
+      },
+      {
+        "Parameter": "to",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "A bitcoin address, bitcoin cash address, litecoin address, ethereum address, or an email of the recipient"
+      },
+      {
+        "Parameter": "amount",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Amount to be sent"
+      },
+      {
+        "Parameter": "currency",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Currency for the amount"
+      },
+      {
+        "Parameter": "description",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Notes to be included in the email that the recipient receives"
+      },
+      {
+        "Parameter": "skip_notifications",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "Don’t send notification emails for small amounts (e.g. tips)"
+      },
+      {
+        "Parameter": "fee",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Transaction fee in BTC/ETH/LTC if you would like to pay it. Fees can be added as a string, such as 0.0005"
+      },
+      {
+        "Parameter": "idem",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "[Recommended] A token to ensure idempotence. If a previous transaction with the same idem parameter already exists for this sender, that previous transaction will be returned and a new one will not be created. Max length 100 characters"
+      },
+      {
+        "Parameter": "to_financial_institution",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "Whether this send is to another financial institution or exchange. Required if this send is to an address and is valued at over USD$3000."
+      },
+      {
+        "Parameter": "financial_institution_website",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "The website of the financial institution or exchange. Required if to_financial_institution is true."
+      }
+    ]
+  },
+  {
+    "title": "Transfer money between accounts",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/transactions",
+    "scopes": [
+      "wallet:transactions:transfer"
+    ],
+    "arguments": [
+      {
+        "Parameter": "type constant transfer",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Type transfer is required when transferring bitcoin or ethereum between accounts"
+      },
+      {
+        "Parameter": "to",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "ID of the receiving account"
+      },
+      {
+        "Parameter": "amount",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Amount to be transferred"
+      },
+      {
+        "Parameter": "currency",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Currency for the amount"
+      },
+      {
+        "Parameter": "description",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Notes to be included in the transfer"
+      }
+    ]
+  },
+  {
+    "title": "Request money",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/transactions",
+    "scopes": [
+      "wallet:transactions:request"
+    ],
+    "arguments": [
+      {
+        "Parameter": "type constant request",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Type request is required when sending money"
+      },
+      {
+        "Parameter": "to",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "An email of the recipient"
+      },
+      {
+        "Parameter": "amount",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Amount to be requested"
+      },
+      {
+        "Parameter": "currency",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Currency for the amount"
+      },
+      {
+        "Parameter": "description",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Notes to be included in the email that the recipient receives"
+      }
+    ]
+  },
+  {
+    "title": "Complete request money",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/transactions/:transaction_id/complete",
+    "scopes": [
+      "wallet:transactions:request"
+    ]
+  },
+  {
+    "title": "Re-send request money",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/transactions/:transaction_id/resend",
+    "scopes": [
+      "wallet:transactions:request"
+    ]
+  },
+  {
+    "title": "Cancel request money",
+    "request": "DELETE https://api.coinbase.com/v2/accounts/:account_id/transactions/:transaction_id",
+    "scopes": [
+      "wallet:transactions:request"
+    ]
+  },
+  {
+    "title": "Buy resource",
+    "arguments": [
+      {
+        "Fields": "id string",
+        "Description": "Resource ID"
+      },
+      {
+        "Fields": "status string, enumerable",
+        "Description": "Status of the buy. Currently available values: created, completed, canceled"
+      },
+      {
+        "Fields": "payment_method hash",
+        "Description": "Associated payment method (e.g. a bank, fiat account)"
+      },
+      {
+        "Fields": "transaction hash",
+        "Description": "Associated transaction (e.g. a bank, fiat account)"
+      },
+      {
+        "Fields": "amount money hash",
+        "Description": "Amount in bitcoin, bitcoin cash, litecoin or ethereum"
+      },
+      {
+        "Fields": "total money hash",
+        "Description": "Fiat amount with fees"
+      },
+      {
+        "Fields": "subtotal money hash",
+        "Description": "Fiat amount without fees"
+      },
+      {
+        "Fields": "fee money hash",
+        "Description": "Fee associated to this buy"
+      },
+      {
+        "Fields": "created_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "updated_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "resource string, constant buy",
+        "Description": ""
+      },
+      {
+        "Fields": "resource_path string",
+        "Description": ""
+      },
+      {
+        "Fields": "committed boolean",
+        "Description": "Has this buy been committed?"
+      },
+      {
+        "Fields": "instant boolean",
+        "Description": "Was this buy executed instantly?"
+      },
+      {
+        "Fields": "payout_at timestamp, optional",
+        "Description": "When a buy isn’t executed instantly, it will receive a payout date for the time it will be executed"
+      }
+    ]
+  },
+  {
+    "title": "List buys",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/buys",
+    "scopes": [
+      "wallet:buys:read"
+    ]
+  },
+  {
+    "title": "Show a buy",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/buys/:buy_id",
+    "scopes": [
+      "wallet:buys:read"
+    ]
+  },
+  {
+    "title": "Place buy order",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/buys",
+    "scopes": [
+      "wallet:buys:create"
+    ],
+    "arguments": [
+      {
+        "Parameter": "amount",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Buy amount without fees"
+      },
+      {
+        "Parameter": "total",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Buy amount with fees (alternative to amount)"
+      },
+      {
+        "Parameter": "currency",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Currency for the amount"
+      },
+      {
+        "Parameter": "payment_method",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "The ID of the payment method that should be used for the buy. Payment methods can be listed using the GET /payment-methods API call"
+      },
+      {
+        "Parameter": "agree_btc_amount_varies",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "Whether or not you would still like to buy if you have to wait for your money to arrive to lock in a price"
+      },
+      {
+        "Parameter": "commit",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "If set to false, this buy will not be immediately completed. Use the commit call to complete it. Default value: true"
+      },
+      {
+        "Parameter": "quote",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "If set to true, response will return an unsave buy for detailed price quote. Default value: false"
+      }
+    ]
+  },
+  {
+    "title": "Commit a buy",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/buys/:buy_id/commit",
+    "scopes": [
+      "wallet:buys:create"
+    ]
+  },
+  {
+    "title": "Sell resource",
+    "arguments": [
+      {
+        "Fields": "id string",
+        "Description": "Resource ID"
+      },
+      {
+        "Fields": "status string, enumerable",
+        "Description": "Status of the sell. Currently available values: created, completed, canceled"
+      },
+      {
+        "Fields": "payment_method hash",
+        "Description": "Associated payment method (e.g. a bank, fiat account)"
+      },
+      {
+        "Fields": "transaction hash",
+        "Description": "Associated transaction (e.g. a bank, fiat account)"
+      },
+      {
+        "Fields": "amount money hash",
+        "Description": "Amount in bitcoin, bitcoin cash, litecoin or ethereum"
+      },
+      {
+        "Fields": "total money hash",
+        "Description": "Fiat amount with fees"
+      },
+      {
+        "Fields": "subtotal money hash",
+        "Description": "Fiat amount without fees"
+      },
+      {
+        "Fields": "fee money hash",
+        "Description": "Fees associated to this sell"
+      },
+      {
+        "Fields": "created_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "updated_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "resource string, constant sell",
+        "Description": ""
+      },
+      {
+        "Fields": "resource_path string",
+        "Description": ""
+      },
+      {
+        "Fields": "committed boolean",
+        "Description": "Has this sell been committed?"
+      },
+      {
+        "Fields": "instant boolean",
+        "Description": "Was this sell executed instantly?"
+      },
+      {
+        "Fields": "payout_at timestamp, optional",
+        "Description": "When a sell isn’t executed instantly, it will receive a payout date for the time it will be executed"
+      }
+    ]
+  },
+  {
+    "title": "List sells",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/sells",
+    "scopes": [
+      "wallet:sells:read"
+    ]
+  },
+  {
+    "title": "Show a sell",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/sells/:sell_id",
+    "scopes": [
+      "wallet:sells:read"
+    ]
+  },
+  {
+    "title": "Place sell order",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/sells",
+    "scopes": [
+      "wallet:sells:create"
+    ],
+    "arguments": [
+      {
+        "Parameter": "amount",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Sell amount"
+      },
+      {
+        "Parameter": "total",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Sell amount with fees (alternative to amount)"
+      },
+      {
+        "Parameter": "currency",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Currency for the amount"
+      },
+      {
+        "Parameter": "payment_method",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "The ID of the payment method that should be used for the sell. Payment methods can be listed using the GET /payment-methods API call"
+      },
+      {
+        "Parameter": "agree_btc_amount_varies",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "Whether or not you would still like to sell if you have to wait for your money to arrive to lock in a price"
+      },
+      {
+        "Parameter": "commit",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "If set to false, this sell will not be immediately completed. Use the commit call to complete it. Default value: true"
+      },
+      {
+        "Parameter": "quote",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "If set to true, response will return an unsave sell for detailed price quote. Default value: false"
+      }
+    ]
+  },
+  {
+    "title": "Commit a sell",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/sells/:sell_id/commit",
+    "scopes": [
+      "wallet:sells:create"
+    ]
+  },
+  {
+    "title": "Deposit resource",
+    "arguments": [
+      {
+        "Fields": "id string",
+        "Description": "Resource ID"
+      },
+      {
+        "Fields": "status string, enumerable",
+        "Description": "Status of the deposit. Currently available values: created, completed, canceled"
+      },
+      {
+        "Fields": "payment_method hash",
+        "Description": "Associated payment method (e.g. a bank)"
+      },
+      {
+        "Fields": "transaction hash",
+        "Description": "Associated transaction (e.g. a bank, fiat account)"
+      },
+      {
+        "Fields": "amount money hash",
+        "Description": "Amount"
+      },
+      {
+        "Fields": "subtotal money hash",
+        "Description": "Amount without fees"
+      },
+      {
+        "Fields": "fee money hash",
+        "Description": "Fees associated to this deposit"
+      },
+      {
+        "Fields": "created_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "updated_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "resource string, constant deposit",
+        "Description": ""
+      },
+      {
+        "Fields": "resource_path string",
+        "Description": ""
+      },
+      {
+        "Fields": "committed boolean",
+        "Description": "Has this deposit been committed?"
+      },
+      {
+        "Fields": "payout_at timestamp, optional",
+        "Description": "When a deposit isn’t executed instantly, it will receive a payout date for the time it will be executed"
+      }
+    ]
+  },
+  {
+    "title": "List deposits",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/deposits",
+    "scopes": [
+      "wallet:deposits:read"
+    ]
+  },
+  {
+    "title": "Show a deposit",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/deposits/:deposit_id",
+    "scopes": [
+      "wallet:deposits:read"
+    ]
+  },
+  {
+    "title": "Deposit funds",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/deposits",
+    "scopes": [
+      "wallet:deposits:create"
+    ],
+    "arguments": [
+      {
+        "Parameter": "amount",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Deposit amount"
+      },
+      {
+        "Parameter": "currency",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Currency for the amount"
+      },
+      {
+        "Parameter": "payment_method",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "The ID of the payment method that should be used for the deposit. Payment methods can be listed using the GET /payment-methods API call"
+      },
+      {
+        "Parameter": "commit",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "If set to false, this deposit will not be immediately completed. Use the commit call to complete it. Default value: true"
+      }
+    ]
+  },
+  {
+    "title": "Commit a deposit",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/deposits/:deposit_id/commit",
+    "scopes": [
+      "wallet:deposits:create"
+    ]
+  },
+  {
+    "title": "Withdrawal resource",
+    "arguments": [
+      {
+        "Fields": "id string",
+        "Description": "Resource ID"
+      },
+      {
+        "Fields": "status string, enumerable",
+        "Description": "Status of the withdrawal. Currently available values: created, completed, canceled"
+      },
+      {
+        "Fields": "payment_method hash",
+        "Description": "Associated payment method (e.g. a bank)"
+      },
+      {
+        "Fields": "transaction hash",
+        "Description": "Associated transaction (e.g. a bank, fiat account)"
+      },
+      {
+        "Fields": "amount money hash",
+        "Description": "Amount"
+      },
+      {
+        "Fields": "subtotal money hash",
+        "Description": "Amount without fees"
+      },
+      {
+        "Fields": "fee money hash",
+        "Description": "Fee associated to this withdrawal"
+      },
+      {
+        "Fields": "created_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "updated_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "resource string, constant withdrawal",
+        "Description": ""
+      },
+      {
+        "Fields": "resource_path string",
+        "Description": ""
+      },
+      {
+        "Fields": "committed boolean",
+        "Description": "Has this withdrawal been committed?"
+      },
+      {
+        "Fields": "payout_at timestamp, optional",
+        "Description": "When a withdrawal isn’t executed instantly, it will receive a payout date for the time it will be executed"
+      }
+    ]
+  },
+  {
+    "title": "List withdrawals",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/withdrawals",
+    "scopes": [
+      "wallet:withdrawals:read"
+    ]
+  },
+  {
+    "title": "Show a withdrawal",
+    "request": "GET https://api.coinbase.com/v2/accounts/:account_id/withdrawals/:withdrawal_id",
+    "scopes": [
+      "wallet:withdrawals:read"
+    ]
+  },
+  {
+    "title": "Withdraw funds",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/withdrawals",
+    "scopes": [
+      "wallet:withdrawals:create"
+    ],
+    "arguments": [
+      {
+        "Parameter": "amount",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Withdrawal amount"
+      },
+      {
+        "Parameter": "currency",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "Currency for the amount"
+      },
+      {
+        "Parameter": "payment_method",
+        "Type": "string",
+        "Required": "Required",
+        "Description": "The ID of the payment method that should be used for the withdrawal. Payment methods can be listed using the GET /payment-methods API call"
+      },
+      {
+        "Parameter": "commit",
+        "Type": "boolean",
+        "Required": "Optional",
+        "Description": "If set to false, this withdrawal will not be immediately completed. Use the commit call to complete it. Default value: true"
+      }
+    ]
+  },
+  {
+    "title": "Commit a withdrawal",
+    "request": "POST https://api.coinbase.com/v2/accounts/:account_id/withdrawals/:withdrawal_id/commit",
+    "scopes": [
+      "wallet:withdrawals:create"
+    ]
+  },
+  {
+    "title": "Payment method resource",
+    "arguments": [
+      {
+        "Fields": "id string",
+        "Description": "Resource ID"
+      },
+      {
+        "Fields": "type string, enumerable",
+        "Description": "Payment method type"
+      },
+      {
+        "Fields": "Name string",
+        "Description": "Payment method type"
+      },
+      {
+        "Fields": "currency string",
+        "Description": "Payment method’s native currency"
+      },
+      {
+        "Fields": "primary_buy boolean",
+        "Description": "Is primary buying method?"
+      },
+      {
+        "Fields": "primary_sell boolean",
+        "Description": "Is primary selling method?"
+      },
+      {
+        "Fields": "allow_buy boolean",
+        "Description": "Is buying allowed with this method?"
+      },
+      {
+        "Fields": "allow_sell boolean",
+        "Description": "Is selling allowed with this method?"
+      },
+      {
+        "Fields": "instant_buy boolean",
+        "Description": "Does this method allow for instant buys?"
+      },
+      {
+        "Fields": "instant_sell boolean",
+        "Description": "Does this method allow for instant sells?"
+      },
+      {
+        "Fields": "created_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "updated_at timestamp",
+        "Description": ""
+      },
+      {
+        "Fields": "resource string, constant payment_method",
+        "Description": ""
+      },
+      {
+        "Fields": "resource_path string",
+        "Description": ""
+      }
+    ]
+  },
+  {
+    "title": "List payment methods",
+    "request": "GET https://api.coinbase.com/v2/payment-methods",
+    "scopes": [
+      "wallet:payment-methods:read"
+    ]
+  },
+  {
+    "title": "Show a payment method",
+    "request": "GET https://api.coinbase.com/v2/payment-methods/:payment_method_id/",
+    "scopes": [
+      "wallet:payment-methods:read"
+    ]
+  },
+  {
+    "title": "Get currencies",
+    "request": "GET https://api.coinbase.com/v2/currencies",
+    "scopes": [
+      "No permission required"
+    ]
+  },
+  {
+    "title": "Get exchange rates",
+    "request": "GET https://api.coinbase.com/v2/exchange-rates",
+    "scopes": [
+      "No permission required"
+    ],
+    "arguments": [
+      {
+        "Parameter": "currency",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Base currency (default: USD)"
+      }
+    ]
+  },
+  {
+    "title": "Get buy price",
+    "request": "GET https://api.coinbase.com/v2/prices/:currency_pair/buy",
+    "scopes": [
+      "No permission required"
+    ]
+  },
+  {
+    "title": "Get sell price",
+    "request": "GET https://api.coinbase.com/v2/prices/:currency_pair/sell",
+    "scopes": [
+      "No permission required"
+    ]
+  },
+  {
+    "title": "Get spot price",
+    "request": "GET https://api.coinbase.com/v2/prices/:currency_pair/spot",
+    "scopes": [
+      "No permission required"
+    ],
+    "arguments": [
+      {
+        "Parameter": "date",
+        "Type": "string",
+        "Required": "Optional",
+        "Description": "Specify date for historic spot price in format YYYY-MM-DD (UTC)"
+      }
+    ]
+  },
+  {
+    "title": "Get current time",
+    "request": "GET https://api.coinbase.com/v2/time",
+    "scopes": [
+      "No permission required"
+    ]
+  }
+]
